@@ -1,0 +1,190 @@
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccu6n0Uj.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"app_freertos.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.configureTimerForRunTimeStats,"ax",%progbits
+  18              		.align	1
+  19              		.weak	configureTimerForRunTimeStats
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	configureTimerForRunTimeStats:
+  26              	.LFB334:
+  27              		.file 1 "Src/app_freertos.c"
+   1:Src/app_freertos.c **** /* USER CODE BEGIN Header */
+   2:Src/app_freertos.c **** /**
+   3:Src/app_freertos.c ****   ******************************************************************************
+   4:Src/app_freertos.c ****   * File Name          : app_freertos.c
+   5:Src/app_freertos.c ****   * Description        : Code for freertos applications
+   6:Src/app_freertos.c ****   ******************************************************************************
+   7:Src/app_freertos.c ****   * @attention
+   8:Src/app_freertos.c ****   *
+   9:Src/app_freertos.c ****   * Copyright (c) 2024 STMicroelectronics.
+  10:Src/app_freertos.c ****   * All rights reserved.
+  11:Src/app_freertos.c ****   *
+  12:Src/app_freertos.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  13:Src/app_freertos.c ****   * in the root directory of this software component.
+  14:Src/app_freertos.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:Src/app_freertos.c ****   *
+  16:Src/app_freertos.c ****   ******************************************************************************
+  17:Src/app_freertos.c ****   */
+  18:Src/app_freertos.c **** /* USER CODE END Header */
+  19:Src/app_freertos.c **** 
+  20:Src/app_freertos.c **** /* Includes ------------------------------------------------------------------*/
+  21:Src/app_freertos.c **** #include "FreeRTOS.h"
+  22:Src/app_freertos.c **** #include "task.h"
+  23:Src/app_freertos.c **** #include "main.h"
+  24:Src/app_freertos.c **** 
+  25:Src/app_freertos.c **** /* Private includes ----------------------------------------------------------*/
+  26:Src/app_freertos.c **** /* USER CODE BEGIN Includes */
+  27:Src/app_freertos.c **** 
+  28:Src/app_freertos.c **** /* USER CODE END Includes */
+  29:Src/app_freertos.c **** 
+  30:Src/app_freertos.c **** /* Private typedef -----------------------------------------------------------*/
+  31:Src/app_freertos.c **** /* USER CODE BEGIN PTD */
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccu6n0Uj.s 			page 2
+
+
+  32:Src/app_freertos.c **** 
+  33:Src/app_freertos.c **** /* USER CODE END PTD */
+  34:Src/app_freertos.c **** 
+  35:Src/app_freertos.c **** /* Private define ------------------------------------------------------------*/
+  36:Src/app_freertos.c **** /* USER CODE BEGIN PD */
+  37:Src/app_freertos.c **** 
+  38:Src/app_freertos.c **** /* USER CODE END PD */
+  39:Src/app_freertos.c **** 
+  40:Src/app_freertos.c **** /* Private macro -------------------------------------------------------------*/
+  41:Src/app_freertos.c **** /* USER CODE BEGIN PM */
+  42:Src/app_freertos.c **** 
+  43:Src/app_freertos.c **** /* USER CODE END PM */
+  44:Src/app_freertos.c **** 
+  45:Src/app_freertos.c **** /* Private variables ---------------------------------------------------------*/
+  46:Src/app_freertos.c **** /* USER CODE BEGIN Variables */
+  47:Src/app_freertos.c **** 
+  48:Src/app_freertos.c **** /* USER CODE END Variables */
+  49:Src/app_freertos.c **** 
+  50:Src/app_freertos.c **** /* Private function prototypes -----------------------------------------------*/
+  51:Src/app_freertos.c **** /* USER CODE BEGIN FunctionPrototypes */
+  52:Src/app_freertos.c **** 
+  53:Src/app_freertos.c **** /* USER CODE END FunctionPrototypes */
+  54:Src/app_freertos.c **** 
+  55:Src/app_freertos.c **** /* Hook prototypes */
+  56:Src/app_freertos.c **** void configureTimerForRunTimeStats(void);
+  57:Src/app_freertos.c **** unsigned long getRunTimeCounterValue(void);
+  58:Src/app_freertos.c **** void vApplicationIdleHook(void);
+  59:Src/app_freertos.c **** 
+  60:Src/app_freertos.c **** /* USER CODE BEGIN 1 */
+  61:Src/app_freertos.c **** /* Functions needed when configGENERATE_RUN_TIME_STATS is on */
+  62:Src/app_freertos.c **** __weak void configureTimerForRunTimeStats(void)
+  63:Src/app_freertos.c **** {
+  28              		.loc 1 63 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  64:Src/app_freertos.c **** 
+  65:Src/app_freertos.c **** }
+  33              		.loc 1 65 0
+  34 0000 7047     		bx	lr
+  35              		.cfi_endproc
+  36              	.LFE334:
+  38              		.section	.text.getRunTimeCounterValue,"ax",%progbits
+  39              		.align	1
+  40              		.weak	getRunTimeCounterValue
+  41              		.syntax unified
+  42              		.thumb
+  43              		.thumb_func
+  44              		.fpu fpv4-sp-d16
+  46              	getRunTimeCounterValue:
+  47              	.LFB335:
+  66:Src/app_freertos.c **** 
+  67:Src/app_freertos.c **** __weak unsigned long getRunTimeCounterValue(void)
+  68:Src/app_freertos.c **** {
+  48              		.loc 1 68 0
+  49              		.cfi_startproc
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccu6n0Uj.s 			page 3
+
+
+  50              		@ args = 0, pretend = 0, frame = 0
+  51              		@ frame_needed = 0, uses_anonymous_args = 0
+  52              		@ link register save eliminated.
+  69:Src/app_freertos.c **** return 0;
+  70:Src/app_freertos.c **** }
+  53              		.loc 1 70 0
+  54 0000 0020     		movs	r0, #0
+  55 0002 7047     		bx	lr
+  56              		.cfi_endproc
+  57              	.LFE335:
+  59              		.section	.text.vApplicationIdleHook,"ax",%progbits
+  60              		.align	1
+  61              		.weak	vApplicationIdleHook
+  62              		.syntax unified
+  63              		.thumb
+  64              		.thumb_func
+  65              		.fpu fpv4-sp-d16
+  67              	vApplicationIdleHook:
+  68              	.LFB336:
+  71:Src/app_freertos.c **** /* USER CODE END 1 */
+  72:Src/app_freertos.c **** 
+  73:Src/app_freertos.c **** /* USER CODE BEGIN 2 */
+  74:Src/app_freertos.c **** __weak void vApplicationIdleHook( void )
+  75:Src/app_freertos.c **** {
+  69              		.loc 1 75 0
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73              		@ link register save eliminated.
+  76:Src/app_freertos.c ****    /* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
+  77:Src/app_freertos.c ****    to 1 in FreeRTOSConfig.h. It will be called on each iteration of the idle
+  78:Src/app_freertos.c ****    task. It is essential that code added to this hook function never attempts
+  79:Src/app_freertos.c ****    to block in any way (for example, call xQueueReceive() with a block time
+  80:Src/app_freertos.c ****    specified, or call vTaskDelay()). If the application makes use of the
+  81:Src/app_freertos.c ****    vTaskDelete() API function (as this demo application does) then it is also
+  82:Src/app_freertos.c ****    important that vApplicationIdleHook() is permitted to return to its calling
+  83:Src/app_freertos.c ****    function, because it is the responsibility of the idle task to clean up
+  84:Src/app_freertos.c ****    memory allocated by the kernel to any task that has since been deleted. */
+  85:Src/app_freertos.c **** }
+  74              		.loc 1 85 0
+  75 0000 7047     		bx	lr
+  76              		.cfi_endproc
+  77              	.LFE336:
+  79              		.text
+  80              	.Letext0:
+  81              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+  82              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+  83              		.file 4 "Inc/FreeRTOSConfig.h"
+  84              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+  85              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+  86              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+  87              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+  88              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+  89              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccu6n0Uj.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 app_freertos.c
+C:\Users\82057\AppData\Local\Temp\ccu6n0Uj.s:18     .text.configureTimerForRunTimeStats:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccu6n0Uj.s:25     .text.configureTimerForRunTimeStats:00000000 configureTimerForRunTimeStats
+C:\Users\82057\AppData\Local\Temp\ccu6n0Uj.s:39     .text.getRunTimeCounterValue:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccu6n0Uj.s:46     .text.getRunTimeCounterValue:00000000 getRunTimeCounterValue
+C:\Users\82057\AppData\Local\Temp\ccu6n0Uj.s:60     .text.vApplicationIdleHook:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccu6n0Uj.s:67     .text.vApplicationIdleHook:00000000 vApplicationIdleHook
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,240 @@
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"parameter_identification.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.set_vq,"ax",%progbits
+  18              		.align	1
+  19              		.global	set_vq
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	set_vq:
+  26              	.LFB333:
+  27              		.file 1 "Src/parameter_identification.c"
+   1:Src/parameter_identification.c **** #include "parameter_identification.h"
+   2:Src/parameter_identification.c **** #include "global.h"
+   3:Src/parameter_identification.c **** 
+   4:Src/parameter_identification.c **** // 识别出来的 电阻值 4.5Ω ，电感值 80uH。以这个值，去做模型控制   
+   5:Src/parameter_identification.c **** 
+   6:Src/parameter_identification.c **** 
+   7:Src/parameter_identification.c **** static int step =0;
+   8:Src/parameter_identification.c **** static int  cnt; 
+   9:Src/parameter_identification.c **** static float R;
+  10:Src/parameter_identification.c **** static	float _iq;
+  11:Src/parameter_identification.c **** static	float _v;
+  12:Src/parameter_identification.c **** 	
+  13:Src/parameter_identification.c **** static int 	curr_index = 0;
+  14:Src/parameter_identification.c **** static int curr_[1024];
+  15:Src/parameter_identification.c **** 
+  16:Src/parameter_identification.c **** static  enum
+  17:Src/parameter_identification.c **** {
+  18:Src/parameter_identification.c **** 	IDLE = 0,
+  19:Src/parameter_identification.c **** 	INITIAL,
+  20:Src/parameter_identification.c **** 	WAITTING,
+  21:Src/parameter_identification.c **** 	MEASURE,
+  22:Src/parameter_identification.c **** 	
+  23:Src/parameter_identification.c **** } measure_curr_step_enum ;
+  24:Src/parameter_identification.c **** 
+  25:Src/parameter_identification.c **** void set_vq(int percent)
+  26:Src/parameter_identification.c **** {
+  28              		.loc 1 26 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s 			page 2
+
+
+  33              	.LVL0:
+  27:Src/parameter_identification.c **** 	g_CmdMap[TAG_OPEN_PWM] = percent;//
+  34              		.loc 1 27 0
+  35 0000 00B2     		sxth	r0, r0
+  36              	.LVL1:
+  37 0002 024B     		ldr	r3, .L2
+  38 0004 A3F86002 		strh	r0, [r3, #608]	@ movhi
+  28:Src/parameter_identification.c **** }
+  39              		.loc 1 28 0
+  40 0008 7047     		bx	lr
+  41              	.L3:
+  42 000a 00BF     		.align	2
+  43              	.L2:
+  44 000c 00000000 		.word	g_CmdMap
+  45              		.cfi_endproc
+  46              	.LFE333:
+  48              		.section	.text.get_iq,"ax",%progbits
+  49              		.align	1
+  50              		.global	get_iq
+  51              		.syntax unified
+  52              		.thumb
+  53              		.thumb_func
+  54              		.fpu fpv4-sp-d16
+  56              	get_iq:
+  57              	.LFB334:
+  29:Src/parameter_identification.c **** 
+  30:Src/parameter_identification.c **** int get_iq(void)
+  31:Src/parameter_identification.c **** {
+  58              		.loc 1 31 0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              		@ link register save eliminated.
+  32:Src/parameter_identification.c **** 	return g_Iq;
+  63              		.loc 1 32 0
+  64 0000 014B     		ldr	r3, .L5
+  65 0002 1868     		ldr	r0, [r3]
+  33:Src/parameter_identification.c **** }
+  66              		.loc 1 33 0
+  67 0004 7047     		bx	lr
+  68              	.L6:
+  69 0006 00BF     		.align	2
+  70              	.L5:
+  71 0008 00000000 		.word	g_Iq
+  72              		.cfi_endproc
+  73              	.LFE334:
+  75              		.section	.text.measure_R,"ax",%progbits
+  76              		.align	1
+  77              		.global	measure_R
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  81              		.fpu fpv4-sp-d16
+  83              	measure_R:
+  84              	.LFB335:
+  34:Src/parameter_identification.c **** static s16 ElectricAngle = 0;
+  35:Src/parameter_identification.c **** void measure_R(void)
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s 			page 3
+
+
+  36:Src/parameter_identification.c **** {
+  85              		.loc 1 36 0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              		@ link register save eliminated.
+  37:Src/parameter_identification.c **** 	#if 0
+  38:Src/parameter_identification.c **** 	g_ElectricAngle = ElectricAngle;
+  39:Src/parameter_identification.c **** 	
+  40:Src/parameter_identification.c **** 	switch(step)
+  41:Src/parameter_identification.c **** 	{
+  42:Src/parameter_identification.c **** 		case INITIAL:
+  43:Src/parameter_identification.c **** 			ElectricAngle += 1000;
+  44:Src/parameter_identification.c **** 			curr_index = 0;
+  45:Src/parameter_identification.c **** 			cnt = 100000;
+  46:Src/parameter_identification.c **** 			set_vq(30);
+  47:Src/parameter_identification.c **** 			step = WAITTING;
+  48:Src/parameter_identification.c **** 		break;
+  49:Src/parameter_identification.c **** 
+  50:Src/parameter_identification.c **** 		case WAITTING:
+  51:Src/parameter_identification.c **** 			
+  52:Src/parameter_identification.c **** 			if( curr_index < 1023)
+  53:Src/parameter_identification.c **** 			{
+  54:Src/parameter_identification.c **** 				curr_[curr_index++] = get_iq();
+  55:Src/parameter_identification.c **** 			}
+  56:Src/parameter_identification.c **** 			
+  57:Src/parameter_identification.c **** 			if(cnt > 0)
+  58:Src/parameter_identification.c **** 				cnt--;
+  59:Src/parameter_identification.c **** 			else
+  60:Src/parameter_identification.c **** 				step = MEASURE;
+  61:Src/parameter_identification.c **** 		break;		
+  62:Src/parameter_identification.c **** 	
+  63:Src/parameter_identification.c **** 		case MEASURE:
+  64:Src/parameter_identification.c **** 			
+  65:Src/parameter_identification.c **** 
+  66:Src/parameter_identification.c **** 			
+  67:Src/parameter_identification.c **** 			_iq =get_iq()/1000.0;
+  68:Src/parameter_identification.c **** 			_v = 12*1.732*0.3/3;
+  69:Src/parameter_identification.c **** 			R = _v/_iq;
+  70:Src/parameter_identification.c **** 		
+  71:Src/parameter_identification.c **** 			set_vq(0);
+  72:Src/parameter_identification.c **** 			cnt = 100000;
+  73:Src/parameter_identification.c **** 			step = IDLE;
+  74:Src/parameter_identification.c **** 		
+  75:Src/parameter_identification.c **** 		break;
+  76:Src/parameter_identification.c **** 		
+  77:Src/parameter_identification.c **** 		case IDLE:
+  78:Src/parameter_identification.c **** 			if(cnt > 0)
+  79:Src/parameter_identification.c **** 				cnt--;
+  80:Src/parameter_identification.c **** 			else
+  81:Src/parameter_identification.c **** 				step = INITIAL;
+  82:Src/parameter_identification.c **** 
+  83:Src/parameter_identification.c **** 		break;
+  84:Src/parameter_identification.c **** 		
+  85:Src/parameter_identification.c **** 		default:
+  86:Src/parameter_identification.c **** 			
+  87:Src/parameter_identification.c **** 		break;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s 			page 4
+
+
+  88:Src/parameter_identification.c **** 	}
+  89:Src/parameter_identification.c **** 	
+  90:Src/parameter_identification.c **** 	#endif
+  91:Src/parameter_identification.c **** 	
+  92:Src/parameter_identification.c **** }...
+  90              		.loc 1 92 0
+  91 0000 7047     		bx	lr
+  92              		.cfi_endproc
+  93              	.LFE335:
+  95              		.text
+  96              	.Letext0:
+  97              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+  98              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+  99              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 100              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 101              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 102              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 103              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 104              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 105              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 106              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 107              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 108              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 109              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 110              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 111              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 112              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 113              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ 114              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 115              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 116              		.file 21 "Inc/uart.h"
+ 117              		.file 22 "Inc/pwm.h"
+ 118              		.file 23 "Inc/spi_MEncoder.h"
+ 119              		.file 24 "Inc/adc.h"
+ 120              		.file 25 "Inc/stm32_math_sin.h"
+ 121              		.file 26 "Inc/pid.h"
+ 122              		.file 27 "Inc/profile_joint.h"
+ 123              		.file 28 "Inc/icmu.h"
+ 124              		.file 29 "Inc/performance_test.h"
+ 125              		.file 30 "Inc/global.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 parameter_identification.c
+C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s:18     .text.set_vq:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s:25     .text.set_vq:00000000 set_vq
+C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s:44     .text.set_vq:0000000c $d
+C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s:49     .text.get_iq:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s:56     .text.get_iq:00000000 get_iq
+C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s:71     .text.get_iq:00000008 $d
+C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s:76     .text.measure_R:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccx9Jiez.s:83     .text.measure_R:00000000 measure_R
+
+UNDEFINED SYMBOLS
+g_CmdMap
+g_Iq

@@ -1,0 +1,4194 @@
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"profile_joint.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.Profile_ParaSet,"ax",%progbits
+  18              		.align	1
+  19              		.global	Profile_ParaSet
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	Profile_ParaSet:
+  26              	.LFB333:
+  27              		.file 1 "Src/profile_joint.c"
+   1:Src/profile_joint.c **** 
+   2:Src/profile_joint.c **** #include "profile_joint.h"
+   3:Src/profile_joint.c **** #include "limit_pos_detection.h"
+   4:Src/profile_joint.c **** 
+   5:Src/profile_joint.c **** volatile s32 g_pos_tag = 0;
+   6:Src/profile_joint.c **** volatile s32 g_pos_ini = 0;
+   7:Src/profile_joint.c **** volatile s32 g_pos_tag_old = 0;
+   8:Src/profile_joint.c **** volatile float g_pos_tag_dlt_f = 0.0f;
+   9:Src/profile_joint.c **** volatile float g_pos_tag_dlt_abs_f = 0.0f;
+  10:Src/profile_joint.c **** volatile float dir_f = 0.0f;
+  11:Src/profile_joint.c **** volatile s32 pos_ref_um = 0;
+  12:Src/profile_joint.c **** volatile s32 pos_act_um = 0;
+  13:Src/profile_joint.c **** volatile s32 pos_interpolation_A_um = 0;
+  14:Src/profile_joint.c **** volatile s32 pos_interpolation_B_um = 0;
+  15:Src/profile_joint.c **** volatile float time_interpolation_s = 0.0;
+  16:Src/profile_joint.c **** volatile s32 vel_ref_umPs = 0;
+  17:Src/profile_joint.c **** volatile s32 vel_interpolation_umPs = 0;
+  18:Src/profile_joint.c **** volatile s32 acc_ref_umPs2 = 0;
+  19:Src/profile_joint.c **** volatile s32 V_ref = 0;
+  20:Src/profile_joint.c **** volatile s32 V_Mot_ref_RPM = 0;
+  21:Src/profile_joint.c **** volatile s32 V_Mot_AddReg_RPM = 0;
+  22:Src/profile_joint.c **** volatile s32 V_Mot_ref = 0;
+  23:Src/profile_joint.c **** volatile s32 A_ref = 0;
+  24:Src/profile_joint.c **** volatile float vel_max_f_umPs = 0.0f;
+  25:Src/profile_joint.c **** volatile float acc_set_f_umPs2 = 0.0f;
+  26:Src/profile_joint.c **** volatile float vel_tmp_f = 0.0f;
+  27:Src/profile_joint.c **** volatile float t1_tmp_f = 0.0f;
+  28:Src/profile_joint.c **** volatile float t1_f = 0.0f;
+  29:Src/profile_joint.c **** volatile float t2_f = 0.0f;
+  30:Src/profile_joint.c **** volatile float t3_f = 0.0f;
+  31:Src/profile_joint.c **** volatile float p1_f = 0.0f;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 2
+
+
+  32:Src/profile_joint.c **** volatile float p2_f = 0.0f;
+  33:Src/profile_joint.c **** volatile float p3_f = 0.0f;
+  34:Src/profile_joint.c **** volatile float S1_f = 0.0f;
+  35:Src/profile_joint.c **** volatile float t_at_P_Dec_f = 0.0f; //µ½¼õËÙÎ»ÖÃÊ±µÄÊ±¼ä£¬Ö»ÓÐÔÚºê¶¨ÒåPLAN_TYPE_SET=PLAN_DYNAMICÊ±Ê
+  36:Src/profile_joint.c **** volatile float acc_1_sections = 0.0f;
+  37:Src/profile_joint.c **** volatile float vp_abs = 0.0f;      //Á½¶ÎÔË¶¯Ê±×î¸ßËÙ¶È¾ø¶ÔÖµ
+  38:Src/profile_joint.c **** volatile float v0 = 0.0f;          //¹æ»®¿ªÊ¼Ê±µÄ¹æ»®ËÙ¶È
+  39:Src/profile_joint.c **** volatile float v0_abs = 0.0f;      //¹æ»®¿ªÊ¼Ê±µÄ¹æ»®ËÙ¶È ¾ø¶ÔÖµ
+  40:Src/profile_joint.c **** volatile float S_max_2_stop = 0.0f;//vmax¼õËÙµ½0µÄ¾àÀëÖµ
+  41:Src/profile_joint.c **** volatile float S_v0_2_max =   0.0f;//´Óv0¼ÓËÙµ½vmaxµÄ¾àÀëÖµ
+  42:Src/profile_joint.c **** volatile float S_th1 = 0.0f;       //ÅÐ¶ÏãÐÖµ1,v0¼õËÙµ½0µÄ¾àÀë
+  43:Src/profile_joint.c **** volatile float S_th2 = 0.0f;       //ÅÐ¶ÏãÐÖµ2,vo¼ÓËÙµ½vmaxºóÁ¢¼´¼õËÙµ½0µÄ¾àÀë
+  44:Src/profile_joint.c **** volatile float S_samll_stroke = 0.0f; //Ð¡ÐÐ³Ì£¬Ò»¸ö¿ØÖÆÖÜÆÚÄÚÔÈËÙÔËÐÐµÄ¾àÀë
+  45:Src/profile_joint.c **** volatile float S1and3_f = 0.0f;
+  46:Src/profile_joint.c **** volatile float S2_f = 0.0f;
+  47:Src/profile_joint.c **** volatile float tCnt_f = 0.0f;
+  48:Src/profile_joint.c **** volatile s32 Flag_Profile_Enable = 0;
+  49:Src/profile_joint.c **** volatile s32 Flag_Profile_Enable_last = 0;
+  50:Src/profile_joint.c **** volatile s32 Profile_mode_last= CMD_USEER_MODE_0_POSITION;
+  51:Src/profile_joint.c **** volatile s32 Profile_v_set= 0;
+  52:Src/profile_joint.c **** volatile s32 Profile_frozen_tar_pos= 0;
+  53:Src/profile_joint.c **** volatile s32 Profile_moving = 0;
+  54:Src/profile_joint.c **** volatile s16 Kaphla_Bit8_Index = 0;
+  55:Src/profile_joint.c **** volatile s16 Count_test = 0;
+  56:Src/profile_joint.c **** volatile s16 Count_test01 = 0;
+  57:Src/profile_joint.c **** volatile u8 flag_profile_start_reverse = 0;
+  58:Src/profile_joint.c **** volatile u8 flag_profile_3_sections = 0;
+  59:Src/profile_joint.c **** volatile float dis_DaHua = 0.0f;
+  60:Src/profile_joint.c **** volatile u8 flag_posReg_strengthen = 1;
+  61:Src/profile_joint.c **** 
+  62:Src/profile_joint.c ****  int g_flag_1= 0;
+  63:Src/profile_joint.c **** 
+  64:Src/profile_joint.c **** void Profile_ParaSet(void)        //²ÎÊýÉèÖÃ_Profile²»¼ÆËãµÄÊ±ºò²Å¿ÉÒÔÉèÖÃ²ÎÊý
+  65:Src/profile_joint.c **** {
+  28              		.loc 1 65 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  66:Src/profile_joint.c **** 	if(g_CmdMap[TAG_WORK_MODE] == MODE_POSITION)
+  33              		.loc 1 66 0
+  34 0000 254B     		ldr	r3, .L6
+  35 0002 B3F80432 		ldrh	r3, [r3, #516]
+  36 0006 1BB2     		sxth	r3, r3
+  37 0008 032B     		cmp	r3, #3
+  38 000a 2FD0     		beq	.L4
+  39              	.L2:
+  67:Src/profile_joint.c **** 	{
+  68:Src/profile_joint.c **** 		if(g_CmdMap[CMD_SPD_SET_PU]<2)
+  69:Src/profile_joint.c **** 		{
+  70:Src/profile_joint.c **** 			g_CmdMap[CMD_SPD_SET_PU] = 2;
+  71:Src/profile_joint.c **** 		}
+  72:Src/profile_joint.c **** 		if(g_CmdMap[CMD_ACC_SET_PU]<2048)
+  73:Src/profile_joint.c **** 		{
+  74:Src/profile_joint.c **** 			g_CmdMap[CMD_ACC_SET_PU] = 2048;
+  75:Src/profile_joint.c **** 		}
+  76:Src/profile_joint.c **** 	}
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 3
+
+
+  77:Src/profile_joint.c **** 	if(Profile_moving == 1)//²ÎÊýÉèÖÃ_Profile²»¼ÆËãµÄÊ±ºò²Å¿ÉÒÔÉèÖÃ²ÎÊý
+  40              		.loc 1 77 0
+  41 000c 234B     		ldr	r3, .L6+4
+  42 000e 1B68     		ldr	r3, [r3]
+  78:Src/profile_joint.c **** 	{
+  79:Src/profile_joint.c **** 	//	return;
+  80:Src/profile_joint.c **** 	}
+  81:Src/profile_joint.c **** 	vel_max_f_umPs = 	(float)g_CmdMap[CMD_SPD_SET_PU]/(float)pos_p_vel_float;  //u/s
+  43              		.loc 1 81 0
+  44 0010 214A     		ldr	r2, .L6
+  45 0012 B2F84630 		ldrh	r3, [r2, #70]
+  46 0016 1BB2     		sxth	r3, r3
+  47 0018 07EE903A 		vmov	s15, r3	@ int
+  48 001c F8EEE77A 		vcvt.f32.s32	s15, s15
+  49 0020 1F4B     		ldr	r3, .L6+8
+  50 0022 D3ED006A 		vldr.32	s13, [r3]
+  51 0026 87EEA67A 		vdiv.f32	s14, s15, s13
+  52 002a 1E4B     		ldr	r3, .L6+12
+  53 002c 83ED007A 		vstr.32	s14, [r3]
+  82:Src/profile_joint.c **** 	acc_set_f_umPs2 =  1000.0f*(float)g_CmdMap[CMD_ACC_SET_PU]*((float)*g_pAcc_ref_base_mmPS2)/16384.0
+  54              		.loc 1 82 0
+  55 0030 938E     		ldrh	r3, [r2, #52]
+  56 0032 1BB2     		sxth	r3, r3
+  57 0034 07EE903A 		vmov	s15, r3	@ int
+  58 0038 F8EEE77A 		vcvt.f32.s32	s15, s15
+  59 003c 9FED1A7A 		vldr.32	s14, .L6+16
+  60 0040 27EE877A 		vmul.f32	s14, s15, s14
+  61 0044 194B     		ldr	r3, .L6+20
+  62 0046 1B68     		ldr	r3, [r3]
+  63 0048 D3ED007A 		vldr.32	s15, [r3]	@ int
+  64 004c F8EEE77A 		vcvt.f32.s32	s15, s15
+  65 0050 67EE277A 		vmul.f32	s15, s14, s15
+  66 0054 9FED167A 		vldr.32	s14, .L6+24
+  67 0058 67EE877A 		vmul.f32	s15, s15, s14
+  68 005c 154B     		ldr	r3, .L6+28
+  69 005e C3ED007A 		vstr.32	s15, [r3]
+  83:Src/profile_joint.c **** 	g_pos_tag_old = -100;
+  70              		.loc 1 83 0
+  71 0062 154B     		ldr	r3, .L6+32
+  72 0064 6FF06302 		mvn	r2, #99
+  73 0068 1A60     		str	r2, [r3]
+  84:Src/profile_joint.c **** }
+  74              		.loc 1 84 0
+  75 006a 7047     		bx	lr
+  76              	.L4:
+  68:Src/profile_joint.c **** 		{
+  77              		.loc 1 68 0
+  78 006c 0A4B     		ldr	r3, .L6
+  79 006e B3F84630 		ldrh	r3, [r3, #70]
+  80 0072 1BB2     		sxth	r3, r3
+  81 0074 012B     		cmp	r3, #1
+  82 0076 0ADD     		ble	.L5
+  83              	.L3:
+  72:Src/profile_joint.c **** 		{
+  84              		.loc 1 72 0
+  85 0078 074B     		ldr	r3, .L6
+  86 007a 9B8E     		ldrh	r3, [r3, #52]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 4
+
+
+  87 007c 1BB2     		sxth	r3, r3
+  88 007e B3F5006F 		cmp	r3, #2048
+  89 0082 C3DA     		bge	.L2
+  74:Src/profile_joint.c **** 		}
+  90              		.loc 1 74 0
+  91 0084 044B     		ldr	r3, .L6
+  92 0086 4FF40062 		mov	r2, #2048
+  93 008a 9A86     		strh	r2, [r3, #52]	@ movhi
+  94 008c BEE7     		b	.L2
+  95              	.L5:
+  70:Src/profile_joint.c **** 		}
+  96              		.loc 1 70 0
+  97 008e 024B     		ldr	r3, .L6
+  98 0090 0222     		movs	r2, #2
+  99 0092 A3F84620 		strh	r2, [r3, #70]	@ movhi
+ 100 0096 EFE7     		b	.L3
+ 101              	.L7:
+ 102              		.align	2
+ 103              	.L6:
+ 104 0098 00000000 		.word	g_CmdMap
+ 105 009c 00000000 		.word	.LANCHOR0
+ 106 00a0 00000000 		.word	pos_p_vel_float
+ 107 00a4 00000000 		.word	.LANCHOR1
+ 108 00a8 00007A44 		.word	1148846080
+ 109 00ac 00000000 		.word	g_pAcc_ref_base_mmPS2
+ 110 00b0 00008038 		.word	947912704
+ 111 00b4 00000000 		.word	.LANCHOR2
+ 112 00b8 00000000 		.word	.LANCHOR3
+ 113              		.cfi_endproc
+ 114              	.LFE333:
+ 116              		.global	__aeabi_f2d
+ 117              		.global	__aeabi_d2f
+ 118              		.section	.text.Profile,"ax",%progbits
+ 119              		.align	1
+ 120              		.global	Profile
+ 121              		.syntax unified
+ 122              		.thumb
+ 123              		.thumb_func
+ 124              		.fpu fpv4-sp-d16
+ 126              	Profile:
+ 127              	.LFB334:
+  85:Src/profile_joint.c **** 
+  86:Src/profile_joint.c **** volatile s32 profile_flag =0;
+  87:Src/profile_joint.c **** void Profile(void)
+  88:Src/profile_joint.c **** {		
+ 128              		.loc 1 88 0
+ 129              		.cfi_startproc
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132 0000 38B5     		push	{r3, r4, r5, lr}
+ 133              	.LCFI0:
+ 134              		.cfi_def_cfa_offset 16
+ 135              		.cfi_offset 3, -16
+ 136              		.cfi_offset 4, -12
+ 137              		.cfi_offset 5, -8
+ 138              		.cfi_offset 14, -4
+  89:Src/profile_joint.c **** 	static s16 ini_count = 0;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 5
+
+
+  90:Src/profile_joint.c **** 	dis_DaHua = 10; //Ô¤Áô±£Ö¤²»³¬µ÷µÄÔ£Á¿
+ 139              		.loc 1 90 0
+ 140 0002 9D4B     		ldr	r3, .L160
+ 141 0004 9D4A     		ldr	r2, .L160+4
+ 142 0006 1A60     		str	r2, [r3]	@ float
+  91:Src/profile_joint.c **** 	if(ini_count<2)
+ 143              		.loc 1 91 0
+ 144 0008 9D4B     		ldr	r3, .L160+8
+ 145 000a B3F90030 		ldrsh	r3, [r3]
+ 146 000e 012B     		cmp	r3, #1
+ 147 0010 71DD     		ble	.L140
+  92:Src/profile_joint.c **** 	{
+  93:Src/profile_joint.c **** 		ini_count++;
+  94:Src/profile_joint.c **** 		g_pos_tag_old = g_pos_tag = g_CmdMap[CMD_POS_ACT_PU];//Ä¿±êÖµµÈÓÚÊµ¼ÊÖµ
+  95:Src/profile_joint.c **** 		pos_ref_um = g_pos_ini = g_pos_tag;
+  96:Src/profile_joint.c **** 		vel_ref_umPs = 0;
+  97:Src/profile_joint.c **** 		acc_ref_umPs2 = 0;
+  98:Src/profile_joint.c **** 		tCnt_f = 0.0f;
+  99:Src/profile_joint.c **** 		Profile_moving = 0;
+ 100:Src/profile_joint.c **** 		return;
+ 101:Src/profile_joint.c **** 	}
+ 102:Src/profile_joint.c **** //	if(Motor_forbidden == 1)//Èç¹û´æÔÚÏµÍ³¹ÊÕÏ£¬Ö±½ÓÖÐ¶ÏProfile¹¦ÄÜ£¬²¢³õÊ¼»¯±äÁ¿
+ 103:Src/profile_joint.c **** //	{	
+ 104:Src/profile_joint.c **** //		g_pos_tag_old = g_pos_tag = (int64_t)g_CmdMap[CMD_POS_ACT_PU]*(*g_pPos_ref_base_um)/16384;//Ä¿±
+ 105:Src/profile_joint.c **** //		pos_ref_um = g_pos_ini = g_pos_tag;
+ 106:Src/profile_joint.c **** //		vel_ref_umPs = 0;
+ 107:Src/profile_joint.c **** //		acc_ref_umPs2 = 0;
+ 108:Src/profile_joint.c **** //		V_ref = 0;
+ 109:Src/profile_joint.c **** //		A_ref = 0;
+ 110:Src/profile_joint.c **** //		tCnt_f = 0.0f;
+ 111:Src/profile_joint.c **** //		Profile_moving = 0;
+ 112:Src/profile_joint.c **** //		return;
+ 113:Src/profile_joint.c **** //	}
+ 114:Src/profile_joint.c **** 	if(Flag_Profile_Enable == 0 && Motor_forbidden == 0)
+ 148              		.loc 1 114 0
+ 149 0012 9C4B     		ldr	r3, .L160+12
+ 150 0014 1B68     		ldr	r3, [r3]
+ 151 0016 EBB9     		cbnz	r3, .L11
+ 152              		.loc 1 114 0 is_stmt 0 discriminator 1
+ 153 0018 9B4B     		ldr	r3, .L160+16
+ 154 001a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 155 001c D3B9     		cbnz	r3, .L11
+ 115:Src/profile_joint.c **** 	{
+ 116:Src/profile_joint.c **** //		pos_ref_um = Profile_frozen_tar_pos;
+ 117:Src/profile_joint.c **** //		vel_ref_umPs = 0;
+ 118:Src/profile_joint.c **** //		acc_ref_umPs2 = 0;
+ 119:Src/profile_joint.c **** //		tCnt_f = 0.0f;
+ 120:Src/profile_joint.c **** //		vel_tmp_f = 0.0f;
+ 121:Src/profile_joint.c **** //		t1_tmp_f = 0.0f;
+ 122:Src/profile_joint.c **** 		g_pos_tag_old = g_pos_tag = g_CmdMap[CMD_POS_ACT_PU];//Ä¿±êÖµµÈÓÚÊµ¼ÊÖµ
+ 156              		.loc 1 122 0 is_stmt 1
+ 157 001e 9B4B     		ldr	r3, .L160+20
+ 158 0020 B3F84C30 		ldrh	r3, [r3, #76]
+ 159 0024 1BB2     		sxth	r3, r3
+ 160 0026 9A4A     		ldr	r2, .L160+24
+ 161 0028 1360     		str	r3, [r2]
+ 162 002a 9A49     		ldr	r1, .L160+28
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 6
+
+
+ 163 002c 0B60     		str	r3, [r1]
+ 123:Src/profile_joint.c **** 		pos_ref_um = g_pos_ini = g_pos_tag;
+ 164              		.loc 1 123 0
+ 165 002e 1368     		ldr	r3, [r2]
+ 166 0030 994A     		ldr	r2, .L160+32
+ 167 0032 1360     		str	r3, [r2]
+ 168 0034 994A     		ldr	r2, .L160+36
+ 169 0036 1360     		str	r3, [r2]
+ 124:Src/profile_joint.c **** 		vel_ref_umPs = 0;
+ 170              		.loc 1 124 0
+ 171 0038 0023     		movs	r3, #0
+ 172 003a 994A     		ldr	r2, .L160+40
+ 173 003c 1360     		str	r3, [r2]
+ 125:Src/profile_joint.c **** 		acc_ref_umPs2 = 0;
+ 174              		.loc 1 125 0
+ 175 003e 994A     		ldr	r2, .L160+44
+ 176 0040 1360     		str	r3, [r2]
+ 126:Src/profile_joint.c **** 		V_ref = 0;
+ 177              		.loc 1 126 0
+ 178 0042 994A     		ldr	r2, .L160+48
+ 179 0044 1360     		str	r3, [r2]
+ 127:Src/profile_joint.c **** 		A_ref = 0;
+ 180              		.loc 1 127 0
+ 181 0046 994A     		ldr	r2, .L160+52
+ 182 0048 1360     		str	r3, [r2]
+ 128:Src/profile_joint.c **** 		tCnt_f = 0.0f;
+ 183              		.loc 1 128 0
+ 184 004a 994A     		ldr	r2, .L160+56
+ 185 004c 0021     		movs	r1, #0
+ 186 004e 1160     		str	r1, [r2]	@ float
+ 129:Src/profile_joint.c **** 		Profile_moving = 0;
+ 187              		.loc 1 129 0
+ 188 0050 984A     		ldr	r2, .L160+60
+ 189 0052 1360     		str	r3, [r2]
+ 190              	.L11:
+ 130:Src/profile_joint.c **** 	}
+ 131:Src/profile_joint.c **** 	//¶³½áÃüÁîµÄÉÏÉýÑØ ½«µ±Ç°Êµ¼ÊÎ»ÖÃ×÷ÎªÄ¿±êÎ»ÖÃ
+ 132:Src/profile_joint.c **** 	if(Flag_Profile_Enable_last == 1 && Flag_Profile_Enable == 0)
+ 191              		.loc 1 132 0
+ 192 0054 984B     		ldr	r3, .L160+64
+ 193 0056 1B68     		ldr	r3, [r3]
+ 194 0058 012B     		cmp	r3, #1
+ 195 005a 67D0     		beq	.L141
+ 196              	.L12:
+ 133:Src/profile_joint.c **** 	{
+ 134:Src/profile_joint.c **** 		Profile_frozen_tar_pos = 	g_CmdMap[CMD_POS_ACT_PU];	
+ 135:Src/profile_joint.c **** 	}	
+ 136:Src/profile_joint.c **** 	if(g_CmdMap[CMD_USEER_MODE] == CMD_USEER_MODE_2_SPEED && Profile_mode_last != CMD_USEER_MODE_2_SPE
+ 197              		.loc 1 136 0
+ 198 005c 8B4B     		ldr	r3, .L160+20
+ 199 005e B3F84030 		ldrh	r3, [r3, #64]
+ 200 0062 1BB2     		sxth	r3, r3
+ 201 0064 022B     		cmp	r3, #2
+ 202 0066 6CD0     		beq	.L142
+ 203              	.L13:
+ 137:Src/profile_joint.c **** 	{
+ 138:Src/profile_joint.c **** 		tCnt_f = 0.0f;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 7
+
+
+ 139:Src/profile_joint.c **** 		g_pos_ini = pos_ref_um;
+ 140:Src/profile_joint.c **** 	}	
+ 141:Src/profile_joint.c **** 	Profile_mode_last = g_CmdMap[CMD_USEER_MODE];
+ 204              		.loc 1 141 0
+ 205 0068 884B     		ldr	r3, .L160+20
+ 206 006a B3F84030 		ldrh	r3, [r3, #64]
+ 207 006e 1BB2     		sxth	r3, r3
+ 208 0070 924A     		ldr	r2, .L160+68
+ 209 0072 1360     		str	r3, [r2]
+ 142:Src/profile_joint.c **** 	//Èç¹ûÃ»ÓÐ¹ÊÕÏ¼ÌÐøÏòÏÂÖ´ÐÐ
+ 143:Src/profile_joint.c **** 	//Ê¹ÄÜ Î»ÖÃÄ£Ê½ÏÂ Ä¿±êÎ»ÖÃ·¢Éú¸Ä±ä´¥·¢
+ 144:Src/profile_joint.c **** 	if(Flag_Profile_Enable ==1)
+ 210              		.loc 1 144 0
+ 211 0074 834B     		ldr	r3, .L160+12
+ 212 0076 1B68     		ldr	r3, [r3]
+ 213 0078 012B     		cmp	r3, #1
+ 214 007a 6ED0     		beq	.L143
+ 145:Src/profile_joint.c **** 	{
+ 146:Src/profile_joint.c **** 		pos_act_um =  g_CmdMap[CMD_POS_ACT_PU];
+ 147:Src/profile_joint.c **** 		if(g_CmdMap[CMD_USEER_MODE] == CMD_USEER_MODE_0_POSITION || g_CmdMap[CMD_USEER_MODE] == CMD_USEER
+ 148:Src/profile_joint.c **** 		{
+ 149:Src/profile_joint.c **** 							g_CmdMap[SYS_SPD_ADD_LIMIT_PU] = 3276;			
+ 150:Src/profile_joint.c **** 							if(g_pos_tag_old != g_pos_tag)
+ 151:Src/profile_joint.c **** 							{					
+ 152:Src/profile_joint.c **** 												profile_flag++;
+ 153:Src/profile_joint.c **** 												Profile_moving = 1;
+ 154:Src/profile_joint.c **** 												tCnt_f = 0.0f;
+ 155:Src/profile_joint.c **** 												v0 = vel_ref_umPs;          //¹æ»®¿ªÊ¼Ê±µÄ¹æ»®ËÙ¶È								
+ 156:Src/profile_joint.c **** 												g_pos_ini = pos_act_um;
+ 157:Src/profile_joint.c **** 												pos_ref_um = g_pos_ini;
+ 158:Src/profile_joint.c **** 												g_pos_tag_dlt_f = (float)(g_pos_tag - g_pos_ini);
+ 159:Src/profile_joint.c **** 												g_pos_tag_dlt_abs_f = (float)ABS(g_pos_tag - g_pos_ini);	
+ 160:Src/profile_joint.c **** 												if(g_pos_tag_dlt_f>0.0f)
+ 161:Src/profile_joint.c **** 												{
+ 162:Src/profile_joint.c **** 													dir_f = 1.0f;
+ 163:Src/profile_joint.c **** 												}
+ 164:Src/profile_joint.c **** 												else
+ 165:Src/profile_joint.c **** 												{
+ 166:Src/profile_joint.c **** 													dir_f = -1.0f;
+ 167:Src/profile_joint.c **** 												}		
+ 168:Src/profile_joint.c **** 												if((v0>-0.2f && g_pos_tag_dlt_f>0.0f)||(v0<0.2f && g_pos_tag_dlt_f<0.0f))//µ±Ç°ËÙ¶ÈÓëÄ¿
+ 169:Src/profile_joint.c **** 												{
+ 170:Src/profile_joint.c **** 													flag_profile_start_reverse = 0;
+ 171:Src/profile_joint.c **** 													v0_abs = fabsl(v0);
+ 172:Src/profile_joint.c **** 												}													
+ 173:Src/profile_joint.c **** 												else    //µ±Ç°ËÙ¶ÈÓëÄ¿±ê·½Ïò²»Ò»ÖÂ
+ 174:Src/profile_joint.c **** 												{
+ 175:Src/profile_joint.c **** 													flag_profile_start_reverse = 1;
+ 176:Src/profile_joint.c **** 													v0 = 0.0f;
+ 177:Src/profile_joint.c **** 													v0_abs = 0.0f;
+ 178:Src/profile_joint.c **** 												}
+ 179:Src/profile_joint.c **** 												S_max_2_stop = 0.5f*vel_max_f_umPs*vel_max_f_umPs/acc_set_f_umPs2;//vmax¼õËÙµ½0µÄ¾àÀëÖµ
+ 180:Src/profile_joint.c **** 												S_v0_2_max = 0.5f*(vel_max_f_umPs*vel_max_f_umPs-v0*v0)/acc_set_f_umPs2;
+ 181:Src/profile_joint.c **** 												S_th1 = 0.5f*v0*v0/acc_set_f_umPs2;
+ 182:Src/profile_joint.c **** 												S_th2 = S_max_2_stop+S_v0_2_max;
+ 183:Src/profile_joint.c **** 												S_samll_stroke = 0.001f*(float)P_POS_REGULATOR_MS*vel_max_f_umPs;
+ 184:Src/profile_joint.c **** 												if(g_pos_tag_dlt_abs_f>S_th2)//Èý¶Î
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 8
+
+
+ 185:Src/profile_joint.c **** 												{
+ 186:Src/profile_joint.c **** 													flag_profile_3_sections = 3;
+ 187:Src/profile_joint.c **** 													p1_f = dir_f*S_v0_2_max + g_pos_ini;
+ 188:Src/profile_joint.c **** 													#if (PLAN_TYPE_SET==PLAN_STATIC)//
+ 189:Src/profile_joint.c **** 													p2_f = dir_f*(g_pos_tag_dlt_abs_f-S_max_2_stop) + g_pos_ini;
+ 190:Src/profile_joint.c **** 													#endif
+ 191:Src/profile_joint.c **** 													#if (PLAN_TYPE_SET==PLAN_DYNAMIC)													
+ 192:Src/profile_joint.c **** 													p2_f = dir_f*(g_pos_tag_dlt_abs_f-S_max_2_stop) + g_pos_ini-dir_f*dis_DaHua;
+ 193:Src/profile_joint.c **** 													#endif
+ 194:Src/profile_joint.c **** 													p3_f = g_pos_tag;
+ 195:Src/profile_joint.c **** 													t1_f = (vel_max_f_umPs-v0_abs)/acc_set_f_umPs2;
+ 196:Src/profile_joint.c **** 													t2_f = (g_pos_tag_dlt_abs_f-S_th2)/vel_max_f_umPs + t1_f;
+ 197:Src/profile_joint.c **** 													t3_f = vel_max_f_umPs/acc_set_f_umPs2+t2_f;
+ 198:Src/profile_joint.c **** 												}
+ 199:Src/profile_joint.c **** 												else if(g_pos_tag_dlt_abs_f>S_th1)//Á½¶Î
+ 200:Src/profile_joint.c **** 												{
+ 201:Src/profile_joint.c **** 													flag_profile_3_sections = 2;
+ 202:Src/profile_joint.c **** 													vp_abs = sqrtl(g_pos_tag_dlt_abs_f*acc_set_f_umPs2+0.5f*v0_abs*v0_abs);
+ 203:Src/profile_joint.c **** 													t1_f = (vp_abs-v0_abs)/acc_set_f_umPs2;
+ 204:Src/profile_joint.c **** 													t2_f = vp_abs/acc_set_f_umPs2+t1_f;
+ 205:Src/profile_joint.c **** 													#if (PLAN_TYPE_SET==PLAN_STATIC)//
+ 206:Src/profile_joint.c **** 													p1_f = dir_f*(vp_abs*vp_abs - v0_abs*v0_abs)/(2.0f*acc_set_f_umPs2)+ (float)g_pos_ini;
+ 207:Src/profile_joint.c **** 													#endif
+ 208:Src/profile_joint.c **** 													#if (PLAN_TYPE_SET==PLAN_DYNAMIC)		
+ 209:Src/profile_joint.c **** 													p1_f = dir_f*(vp_abs*vp_abs - v0_abs*v0_abs)/(2.0f*acc_set_f_umPs2)+ (float)g_pos_ini-
+ 210:Src/profile_joint.c **** 													#endif													
+ 211:Src/profile_joint.c **** 													p2_f = (float)g_pos_tag;
+ 212:Src/profile_joint.c **** 												}
+ 213:Src/profile_joint.c **** 												else
+ 214:Src/profile_joint.c **** 												{
+ 215:Src/profile_joint.c **** 													flag_profile_3_sections = 1;														
+ 216:Src/profile_joint.c **** 													t1_f = 2.0f*g_pos_tag_dlt_abs_f/v0_abs;
+ 217:Src/profile_joint.c **** 													acc_1_sections = 	v0_abs/t1_f;
+ 218:Src/profile_joint.c **** 													p1_f = (float)g_pos_tag;
+ 219:Src/profile_joint.c **** 												}
+ 220:Src/profile_joint.c **** 												//return;//2022-3-31 test
+ 221:Src/profile_joint.c **** 							}							
+ 222:Src/profile_joint.c **** 							if(Profile_moving == 1)
+ 223:Src/profile_joint.c **** 							{				
+ 224:Src/profile_joint.c **** 											tCnt_f = tCnt_f + 0.001f*(float)P_POS_REGULATOR_MS;
+ 225:Src/profile_joint.c **** 											if(flag_profile_3_sections == 3)//Èý¶Î
+ 226:Src/profile_joint.c **** 											{
+ 227:Src/profile_joint.c **** 												#if (PLAN_TYPE_SET==PLAN_STATIC)//
+ 228:Src/profile_joint.c **** 												if(tCnt_f<t1_f)
+ 229:Src/profile_joint.c **** 												{
+ 230:Src/profile_joint.c **** 													pos_ref_um = (float)g_pos_ini + dir_f*(v0_abs*tCnt_f+acc_set_f_umPs2*tCnt_f*tCnt_f*0.5
+ 231:Src/profile_joint.c **** 													vel_ref_umPs = (s32)(dir_f*(acc_set_f_umPs2*tCnt_f+v0_abs));
+ 232:Src/profile_joint.c **** 													acc_ref_umPs2 = dir_f*acc_set_f_umPs2;
+ 233:Src/profile_joint.c **** 													flag_posReg_strengthen = 0;
+ 234:Src/profile_joint.c **** 												}
+ 235:Src/profile_joint.c **** 												else if(tCnt_f<t2_f)
+ 236:Src/profile_joint.c **** 												{
+ 237:Src/profile_joint.c **** 													pos_ref_um = p1_f + dir_f*vel_max_f_umPs*(tCnt_f-t1_f);
+ 238:Src/profile_joint.c **** 													vel_ref_umPs = dir_f*vel_max_f_umPs;
+ 239:Src/profile_joint.c **** 													acc_ref_umPs2 = 0;
+ 240:Src/profile_joint.c **** 													flag_posReg_strengthen = 0;
+ 241:Src/profile_joint.c **** 												}
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 9
+
+
+ 242:Src/profile_joint.c **** 												else if(tCnt_f<t3_f)
+ 243:Src/profile_joint.c **** 												{
+ 244:Src/profile_joint.c **** 													pos_ref_um = p2_f + dir_f*vel_max_f_umPs*(tCnt_f-t2_f)-dir_f*acc_set_f_umPs2*(tCnt_f-t
+ 245:Src/profile_joint.c **** 													vel_ref_umPs = dir_f*vel_max_f_umPs-dir_f*acc_set_f_umPs2*(tCnt_f-t2_f);
+ 246:Src/profile_joint.c **** 													acc_ref_umPs2 = -1*dir_f*acc_set_f_umPs2;
+ 247:Src/profile_joint.c **** 													flag_posReg_strengthen = 1;
+ 248:Src/profile_joint.c **** 												}
+ 249:Src/profile_joint.c **** 												else
+ 250:Src/profile_joint.c **** 												{
+ 251:Src/profile_joint.c **** 													pos_ref_um = p3_f;
+ 252:Src/profile_joint.c **** 													vel_ref_umPs = 0;
+ 253:Src/profile_joint.c **** 													acc_ref_umPs2 = 0;
+ 254:Src/profile_joint.c **** 													Profile_moving = 0;
+ 255:Src/profile_joint.c **** 													tCnt_f = 0;
+ 256:Src/profile_joint.c **** 													flag_posReg_strengthen = 1;
+ 257:Src/profile_joint.c **** 													if(status_Mode_POSITION_FORCE == 1) //Î»ÖÃ+Á¦¿ØÄ£Ê½ÏÂµÄ×´Ì¬»ú 0 Idle 1 Profile 2 Force
+ 258:Src/profile_joint.c **** 													{
+ 259:Src/profile_joint.c **** 														status_Mode_POSITION_FORCE = 2;
+ 260:Src/profile_joint.c **** 														g_CmdMap[TAG_WORK_MODE] = MODE_SPEED;
+ 261:Src/profile_joint.c **** 													}
+ 262:Src/profile_joint.c **** 												}
+ 263:Src/profile_joint.c **** 												#endif
+ 264:Src/profile_joint.c **** 												#if (PLAN_TYPE_SET==PLAN_DYNAMIC)
+ 265:Src/profile_joint.c **** 													if((dir_f>0.0f && pos_act_um<(s32)p2_f) ||  (dir_f<0.0f && pos_act_um>(s32)p2_f))
+ 266:Src/profile_joint.c **** 													{
+ 267:Src/profile_joint.c **** 														if(tCnt_f<t1_f)
+ 268:Src/profile_joint.c **** 														{
+ 269:Src/profile_joint.c **** 															pos_ref_um = (float)g_pos_ini + dir_f*(v0_abs*tCnt_f+acc_set_f_umPs2*tCnt_f*tCnt_f*0
+ 270:Src/profile_joint.c **** 															vel_ref_umPs = (s32)(dir_f*(acc_set_f_umPs2*tCnt_f+v0_abs));
+ 271:Src/profile_joint.c **** 															acc_ref_umPs2 = dir_f*acc_set_f_umPs2/8000;
+ 272:Src/profile_joint.c **** 															flag_posReg_strengthen = 0;
+ 273:Src/profile_joint.c **** 														}
+ 274:Src/profile_joint.c **** 														else								
+ 275:Src/profile_joint.c **** 														{
+ 276:Src/profile_joint.c **** 															pos_ref_um = p1_f + dir_f*vel_max_f_umPs*(tCnt_f-t1_f);
+ 277:Src/profile_joint.c **** 															if(dir_f>0.0f && pos_act_um>(s32)p2_f)
+ 278:Src/profile_joint.c **** 															{
+ 279:Src/profile_joint.c **** 																pos_ref_um = p2_f;
+ 280:Src/profile_joint.c **** 															}
+ 281:Src/profile_joint.c **** 															if(dir_f<0.0f && pos_act_um<(s32)p2_f)
+ 282:Src/profile_joint.c **** 															{
+ 283:Src/profile_joint.c **** 																pos_ref_um = p2_f;
+ 284:Src/profile_joint.c **** 															}
+ 285:Src/profile_joint.c **** 															vel_ref_umPs = dir_f*vel_max_f_umPs;
+ 286:Src/profile_joint.c **** 															acc_ref_umPs2 = 0;
+ 287:Src/profile_joint.c **** 															flag_posReg_strengthen = 0;
+ 288:Src/profile_joint.c **** 														}
+ 289:Src/profile_joint.c **** 														t_at_P_Dec_f = tCnt_f;														
+ 290:Src/profile_joint.c **** 														t3_f = vel_max_f_umPs/acc_set_f_umPs2+t_at_P_Dec_f;
+ 291:Src/profile_joint.c **** 													}
+ 292:Src/profile_joint.c **** 													else if(tCnt_f<t3_f)
+ 293:Src/profile_joint.c **** 													{
+ 294:Src/profile_joint.c **** 														if((dir_f>0.0f && pos_act_um<((s32)p3_f -100)) ||  (dir_f<0.0f && pos_act_um>((s32)p3
+ 295:Src/profile_joint.c **** 														{
+ 296:Src/profile_joint.c **** 															pos_ref_um = p2_f + dir_f*vel_max_f_umPs*(tCnt_f-t_at_P_Dec_f)-dir_f*acc_set_f_umPs2
+ 297:Src/profile_joint.c **** 															vel_ref_umPs = dir_f*vel_max_f_umPs-dir_f*acc_set_f_umPs2*(tCnt_f-t_at_P_Dec_f);
+ 298:Src/profile_joint.c **** 															acc_ref_umPs2 = -1*dir_f*acc_set_f_umPs2/8000;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 10
+
+
+ 299:Src/profile_joint.c **** 															flag_posReg_strengthen = 0;
+ 300:Src/profile_joint.c **** 															
+ 301:Src/profile_joint.c **** 															if(dir_f>0)
+ 302:Src/profile_joint.c **** 															{
+ 303:Src/profile_joint.c **** 																if(vel_ref_umPs < 0)
+ 304:Src/profile_joint.c **** 																{
+ 305:Src/profile_joint.c **** 																	vel_ref_umPs =0;
+ 306:Src/profile_joint.c **** 																	acc_ref_umPs2 = 0;
+ 307:Src/profile_joint.c **** 																	tCnt_f = t3_f;
+ 308:Src/profile_joint.c **** 																	pid_spd.integral = 0;
+ 309:Src/profile_joint.c **** 																	flag_posReg_strengthen = 1;
+ 310:Src/profile_joint.c **** 																}
+ 311:Src/profile_joint.c **** 															}
+ 312:Src/profile_joint.c **** 															else 
+ 313:Src/profile_joint.c **** 															{
+ 314:Src/profile_joint.c **** 																if(vel_ref_umPs > 0)
+ 315:Src/profile_joint.c **** 																{
+ 316:Src/profile_joint.c **** 																	vel_ref_umPs =0;
+ 317:Src/profile_joint.c **** 																	acc_ref_umPs2 = 0;
+ 318:Src/profile_joint.c **** 																	tCnt_f = t3_f;
+ 319:Src/profile_joint.c **** 																	pid_spd.integral = 0;
+ 320:Src/profile_joint.c **** 																	flag_posReg_strengthen = 1;
+ 321:Src/profile_joint.c **** 																}
+ 322:Src/profile_joint.c **** 															}
+ 323:Src/profile_joint.c **** 														}
+ 324:Src/profile_joint.c **** 														else
+ 325:Src/profile_joint.c **** 														{
+ 326:Src/profile_joint.c **** 															pid_spd.integral = 0;
+ 327:Src/profile_joint.c **** 															pos_ref_um = p3_f;
+ 328:Src/profile_joint.c **** 															vel_ref_umPs = 0;
+ 329:Src/profile_joint.c **** 															acc_ref_umPs2 = 0;
+ 330:Src/profile_joint.c **** 														//	Profile_moving = 0;
+ 331:Src/profile_joint.c **** 															tCnt_f = t3_f;
+ 332:Src/profile_joint.c **** 															flag_posReg_strengthen = 1;
+ 333:Src/profile_joint.c **** 														}
+ 334:Src/profile_joint.c **** 
+ 335:Src/profile_joint.c **** 													}
+ 336:Src/profile_joint.c **** 													else
+ 337:Src/profile_joint.c **** 													{
+ 338:Src/profile_joint.c **** 														g_flag_1= 1;
+ 339:Src/profile_joint.c **** 														pid_spd.integral = 0;
+ 340:Src/profile_joint.c **** 														pos_ref_um = p3_f;
+ 341:Src/profile_joint.c **** 														vel_ref_umPs = 0;
+ 342:Src/profile_joint.c **** 														acc_ref_umPs2 = 0;
+ 343:Src/profile_joint.c **** 														Profile_moving = 0;
+ 344:Src/profile_joint.c **** 														tCnt_f = 0;
+ 345:Src/profile_joint.c **** 														flag_posReg_strengthen = 1;
+ 346:Src/profile_joint.c **** 														if(status_Mode_POSITION_FORCE == 1) //Î»ÖÃ+Á¦¿ØÄ£Ê½ÏÂµÄ×´Ì¬»ú 0 Idle 1 Profile 2 Forc
+ 347:Src/profile_joint.c **** 														{
+ 348:Src/profile_joint.c **** 															status_Mode_POSITION_FORCE = 2;
+ 349:Src/profile_joint.c **** 															g_CmdMap[TAG_WORK_MODE] = MODE_SPEED;
+ 350:Src/profile_joint.c **** 
+ 351:Src/profile_joint.c **** 														}
+ 352:Src/profile_joint.c **** 													}												
+ 353:Src/profile_joint.c **** 												#endif
+ 354:Src/profile_joint.c **** 											}
+ 355:Src/profile_joint.c **** 											else if(flag_profile_3_sections == 2)//Á½¶ÎÊ½
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 11
+
+
+ 356:Src/profile_joint.c **** 											{	
+ 357:Src/profile_joint.c **** 												#if (PLAN_TYPE_SET==PLAN_STATIC)
+ 358:Src/profile_joint.c **** 													if(tCnt_f<t1_f)
+ 359:Src/profile_joint.c **** 													{
+ 360:Src/profile_joint.c **** 														pos_ref_um = (float)g_pos_ini + dir_f*(v0_abs*tCnt_f+acc_set_f_umPs2*tCnt_f*tCnt_f*0.
+ 361:Src/profile_joint.c **** 														vel_ref_umPs = (s32)(dir_f*(acc_set_f_umPs2*tCnt_f+v0_abs));
+ 362:Src/profile_joint.c **** 														acc_ref_umPs2 = dir_f*acc_set_f_umPs2;
+ 363:Src/profile_joint.c **** 														flag_posReg_strengthen = 0;
+ 364:Src/profile_joint.c **** 													}
+ 365:Src/profile_joint.c **** 													else if(tCnt_f<t2_f)																						
+ 366:Src/profile_joint.c **** 													{
+ 367:Src/profile_joint.c **** 														pos_ref_um = p1_f + dir_f*vp_abs*(tCnt_f-t1_f)-dir_f*acc_set_f_umPs2*(tCnt_f-t1_f)*(t
+ 368:Src/profile_joint.c **** 														vel_ref_umPs = dir_f*vp_abs-dir_f*acc_set_f_umPs2*(tCnt_f-t1_f);
+ 369:Src/profile_joint.c **** 														acc_ref_umPs2 = -1*dir_f*acc_set_f_umPs2;
+ 370:Src/profile_joint.c **** 														flag_posReg_strengthen = 1;
+ 371:Src/profile_joint.c **** 													}
+ 372:Src/profile_joint.c **** 													else
+ 373:Src/profile_joint.c **** 													{
+ 374:Src/profile_joint.c **** 														pos_ref_um = p2_f;
+ 375:Src/profile_joint.c **** 														vel_ref_umPs = 0;
+ 376:Src/profile_joint.c **** 														acc_ref_umPs2 = 0;
+ 377:Src/profile_joint.c **** 														Profile_moving = 0;
+ 378:Src/profile_joint.c **** 														tCnt_f = 0;
+ 379:Src/profile_joint.c **** 														flag_posReg_strengthen = 1;
+ 380:Src/profile_joint.c **** 														if(status_Mode_POSITION_FORCE == 1) //Î»ÖÃ+Á¦¿ØÄ£Ê½ÏÂµÄ×´Ì¬»ú 0 Idle 1 Profile 2 Forc
+ 381:Src/profile_joint.c **** 														{
+ 382:Src/profile_joint.c **** 															status_Mode_POSITION_FORCE = 2;
+ 383:Src/profile_joint.c **** 															g_CmdMap[TAG_WORK_MODE] = MODE_SPEED;
+ 384:Src/profile_joint.c ****  
+ 385:Src/profile_joint.c **** 														}
+ 386:Src/profile_joint.c **** 													}
+ 387:Src/profile_joint.c **** 												#endif
+ 388:Src/profile_joint.c **** 												#if (PLAN_TYPE_SET==PLAN_DYNAMIC)
+ 389:Src/profile_joint.c **** 													if((dir_f>0.0f && pos_act_um<(s32)p1_f) ||  (dir_f<0.0f && pos_act_um>(s32)p1_f))
+ 390:Src/profile_joint.c **** 													{
+ 391:Src/profile_joint.c **** 														if(tCnt_f<t1_f)
+ 392:Src/profile_joint.c **** 														{
+ 393:Src/profile_joint.c **** 															pos_ref_um = (float)g_pos_ini + dir_f*(v0_abs*tCnt_f+acc_set_f_umPs2*tCnt_f*tCnt_f*0
+ 394:Src/profile_joint.c **** 															vel_ref_umPs = (s32)(dir_f*(acc_set_f_umPs2*tCnt_f+v0_abs));
+ 395:Src/profile_joint.c **** 															acc_ref_umPs2 = dir_f*acc_set_f_umPs2/8000;
+ 396:Src/profile_joint.c **** 														}
+ 397:Src/profile_joint.c **** 														else								
+ 398:Src/profile_joint.c **** 														{
+ 399:Src/profile_joint.c **** 															pos_ref_um = p1_f;
+ 400:Src/profile_joint.c **** 															vel_ref_umPs = dir_f*vp_abs;
+ 401:Src/profile_joint.c **** 															acc_ref_umPs2 = 0;
+ 402:Src/profile_joint.c **** 														}
+ 403:Src/profile_joint.c **** 														t_at_P_Dec_f = tCnt_f;
+ 404:Src/profile_joint.c **** 														
+ 405:Src/profile_joint.c **** 														vp_abs= vel_ref_umPs;		
+ 406:Src/profile_joint.c **** 														if(vp_abs <0)
+ 407:Src/profile_joint.c **** 															vp_abs = 0 -vp_abs;
+ 408:Src/profile_joint.c **** 														
+ 409:Src/profile_joint.c **** 														t2_f = vp_abs/acc_set_f_umPs2+t_at_P_Dec_f;
+ 410:Src/profile_joint.c **** 														
+ 411:Src/profile_joint.c **** 														vp_abs= vel_ref_umPs;		
+ 412:Src/profile_joint.c **** 														if(vp_abs <0)
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 12
+
+
+ 413:Src/profile_joint.c **** 															vp_abs = 0 -vp_abs;
+ 414:Src/profile_joint.c **** 														
+ 415:Src/profile_joint.c **** 														flag_posReg_strengthen = 0;
+ 416:Src/profile_joint.c **** 													}
+ 417:Src/profile_joint.c **** 													else if(tCnt_f<t2_f)
+ 418:Src/profile_joint.c **** 													{
+ 419:Src/profile_joint.c **** 														if((dir_f>0.0f && pos_act_um<((s32)p2_f -100)) ||  (dir_f<0.0f && pos_act_um>((s32)p2
+ 420:Src/profile_joint.c **** 														{
+ 421:Src/profile_joint.c **** 																pos_ref_um = p1_f + dir_f*vp_abs*(tCnt_f-t_at_P_Dec_f)-dir_f*acc_set_f_umPs2*(tCnt_
+ 422:Src/profile_joint.c **** 																vel_ref_umPs = dir_f*vp_abs-dir_f*acc_set_f_umPs2*(tCnt_f-t_at_P_Dec_f);
+ 423:Src/profile_joint.c **** 																acc_ref_umPs2 = -1*dir_f*acc_set_f_umPs2/8000;
+ 424:Src/profile_joint.c **** 																flag_posReg_strengthen = 0;
+ 425:Src/profile_joint.c **** 																if(dir_f>0)
+ 426:Src/profile_joint.c **** 																{
+ 427:Src/profile_joint.c **** 																	if(vel_ref_umPs < 0)
+ 428:Src/profile_joint.c **** 																	{
+ 429:Src/profile_joint.c **** 																		vel_ref_umPs =0;
+ 430:Src/profile_joint.c **** 																	 acc_ref_umPs2 = 0;
+ 431:Src/profile_joint.c **** 																	 tCnt_f = t2_f;
+ 432:Src/profile_joint.c **** 																	 pid_spd.integral = 0;
+ 433:Src/profile_joint.c **** 																		flag_posReg_strengthen = 1;
+ 434:Src/profile_joint.c **** 																	}
+ 435:Src/profile_joint.c **** 																}
+ 436:Src/profile_joint.c **** 																else 
+ 437:Src/profile_joint.c **** 																{
+ 438:Src/profile_joint.c **** 																	if(vel_ref_umPs > 0)
+ 439:Src/profile_joint.c **** 																	{
+ 440:Src/profile_joint.c **** 																		vel_ref_umPs =0;
+ 441:Src/profile_joint.c **** 																		acc_ref_umPs2 = 0;
+ 442:Src/profile_joint.c **** 																		tCnt_f = t2_f;
+ 443:Src/profile_joint.c **** 																	  pid_spd.integral = 0;
+ 444:Src/profile_joint.c **** 																		flag_posReg_strengthen = 1;
+ 445:Src/profile_joint.c **** 																	}
+ 446:Src/profile_joint.c **** 																}
+ 447:Src/profile_joint.c **** 														}
+ 448:Src/profile_joint.c **** 														else
+ 449:Src/profile_joint.c **** 														{
+ 450:Src/profile_joint.c **** 															pid_spd.integral = 0;
+ 451:Src/profile_joint.c **** 															pos_ref_um = p2_f;
+ 452:Src/profile_joint.c **** 															vel_ref_umPs = 0;
+ 453:Src/profile_joint.c **** 															acc_ref_umPs2 = 0;
+ 454:Src/profile_joint.c **** 													//		Profile_moving = 0;
+ 455:Src/profile_joint.c **** 															tCnt_f = t2_f;
+ 456:Src/profile_joint.c **** 															flag_posReg_strengthen = 1;
+ 457:Src/profile_joint.c **** 														}
+ 458:Src/profile_joint.c **** 
+ 459:Src/profile_joint.c **** 													}
+ 460:Src/profile_joint.c **** 													else
+ 461:Src/profile_joint.c **** 													{
+ 462:Src/profile_joint.c **** 														pid_spd.integral = 0;
+ 463:Src/profile_joint.c **** 														pos_ref_um = p2_f;
+ 464:Src/profile_joint.c **** 														vel_ref_umPs = 0;
+ 465:Src/profile_joint.c **** 														acc_ref_umPs2 = 0;
+ 466:Src/profile_joint.c **** 														Profile_moving = 0;
+ 467:Src/profile_joint.c **** 														tCnt_f = 0;
+ 468:Src/profile_joint.c **** 														flag_posReg_strengthen = 1;
+ 469:Src/profile_joint.c **** 														if(status_Mode_POSITION_FORCE == 1) //Î»ÖÃ+Á¦¿ØÄ£Ê½ÏÂµÄ×´Ì¬»ú 0 Idle 1 Profile 2 Forc
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 13
+
+
+ 470:Src/profile_joint.c **** 														{
+ 471:Src/profile_joint.c **** 															status_Mode_POSITION_FORCE = 2;
+ 472:Src/profile_joint.c **** 															g_CmdMap[TAG_WORK_MODE] = MODE_SPEED;
+ 473:Src/profile_joint.c ****  
+ 474:Src/profile_joint.c **** 														}
+ 475:Src/profile_joint.c **** 													}												
+ 476:Src/profile_joint.c **** 												#endif
+ 477:Src/profile_joint.c **** 											}
+ 478:Src/profile_joint.c **** 											else if(flag_profile_3_sections == 1)//Ò»¶ÎÊ½
+ 479:Src/profile_joint.c **** 											{
+ 480:Src/profile_joint.c **** 												#if (PLAN_TYPE_SET==PLAN_STATIC)
+ 481:Src/profile_joint.c **** 													if(tCnt_f<t1_f)
+ 482:Src/profile_joint.c **** 												#endif
+ 483:Src/profile_joint.c **** 												#if (PLAN_TYPE_SET==PLAN_DYNAMIC)
+ 484:Src/profile_joint.c **** 													if( (dir_f>0.0f && pos_act_um<(s32)p1_f) ||  (dir_f<0.0f && pos_act_um>(s32)p1_f))
+ 485:Src/profile_joint.c **** 												#endif
+ 486:Src/profile_joint.c **** 												{
+ 487:Src/profile_joint.c **** 													pos_ref_um = (float)g_pos_ini + dir_f*v0_abs*tCnt_f-dir_f*acc_1_sections*tCnt_f*tCnt_f
+ 488:Src/profile_joint.c **** 													vel_ref_umPs = dir_f*v0_abs-dir_f*acc_1_sections*tCnt_f;
+ 489:Src/profile_joint.c **** 													acc_ref_umPs2 = -1*dir_f*acc_1_sections;
+ 490:Src/profile_joint.c **** 													flag_posReg_strengthen = 1;
+ 491:Src/profile_joint.c **** 												}
+ 492:Src/profile_joint.c **** 												else
+ 493:Src/profile_joint.c **** 												{
+ 494:Src/profile_joint.c **** 													pos_ref_um = p1_f;
+ 495:Src/profile_joint.c **** 													vel_ref_umPs = 0;
+ 496:Src/profile_joint.c **** 													acc_ref_umPs2 = 0;
+ 497:Src/profile_joint.c **** 													Profile_moving = 0;
+ 498:Src/profile_joint.c **** 													tCnt_f = 0;
+ 499:Src/profile_joint.c **** 													flag_posReg_strengthen = 1;
+ 500:Src/profile_joint.c **** 													if(status_Mode_POSITION_FORCE == 1) //Î»ÖÃ+Á¦¿ØÄ£Ê½ÏÂµÄ×´Ì¬»ú 0 Idle 1 Profile 2 Force
+ 501:Src/profile_joint.c **** 													{
+ 502:Src/profile_joint.c **** 														status_Mode_POSITION_FORCE = 2;
+ 503:Src/profile_joint.c **** 														g_CmdMap[TAG_WORK_MODE] = MODE_SPEED;
+ 504:Src/profile_joint.c ****  
+ 505:Src/profile_joint.c **** 													}
+ 506:Src/profile_joint.c **** 												}	
+ 507:Src/profile_joint.c **** 											}
+ 508:Src/profile_joint.c **** 											else if(flag_profile_3_sections == 0)//
+ 509:Src/profile_joint.c **** 											{
+ 510:Src/profile_joint.c **** 												if(tCnt_f<0.0005f*(float)P_POS_REGULATOR_MS)
+ 511:Src/profile_joint.c **** 												{
+ 512:Src/profile_joint.c **** 													pos_ref_um = (float)g_pos_ini;
+ 513:Src/profile_joint.c **** 													vel_ref_umPs =  0;// 1000.0f*g_pos_tag_dlt_f/(float)P_POS_REGULATOR_MS;
+ 514:Src/profile_joint.c **** 													acc_ref_umPs2 = 0;
+ 515:Src/profile_joint.c **** 													flag_posReg_strengthen = 1;
+ 516:Src/profile_joint.c **** 												}
+ 517:Src/profile_joint.c **** 												else
+ 518:Src/profile_joint.c **** 												{
+ 519:Src/profile_joint.c **** 													pos_ref_um = g_pos_tag;
+ 520:Src/profile_joint.c **** 													vel_ref_umPs = 0;
+ 521:Src/profile_joint.c **** 													acc_ref_umPs2 = 0;
+ 522:Src/profile_joint.c **** 													Profile_moving = 0;
+ 523:Src/profile_joint.c **** 													tCnt_f = 0;
+ 524:Src/profile_joint.c **** 													flag_posReg_strengthen = 1;
+ 525:Src/profile_joint.c **** 													if(status_Mode_POSITION_FORCE == 1) //Î»ÖÃ+Á¦¿ØÄ£Ê½ÏÂµÄ×´Ì¬»ú 0 Idle 1 Profile 2 Force
+ 526:Src/profile_joint.c **** 													{
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 14
+
+
+ 527:Src/profile_joint.c **** 														status_Mode_POSITION_FORCE = 2;
+ 528:Src/profile_joint.c **** 														g_CmdMap[TAG_WORK_MODE] = MODE_SPEED;
+ 529:Src/profile_joint.c ****  
+ 530:Src/profile_joint.c **** 													}
+ 531:Src/profile_joint.c **** 												}
+ 532:Src/profile_joint.c **** 											}
+ 533:Src/profile_joint.c **** 							}
+ 534:Src/profile_joint.c **** 							else
+ 535:Src/profile_joint.c **** 							{
+ 536:Src/profile_joint.c **** 											vel_ref_umPs = 0;
+ 537:Src/profile_joint.c **** 											acc_ref_umPs2 = 0;
+ 538:Src/profile_joint.c **** 											tCnt_f = 0.0f;
+ 539:Src/profile_joint.c **** 											vel_tmp_f = 0.0f;
+ 540:Src/profile_joint.c **** 											t1_tmp_f = 0.0f;
+ 541:Src/profile_joint.c **** 											flag_posReg_strengthen = 1;
+ 542:Src/profile_joint.c **** 							}
+ 543:Src/profile_joint.c **** 		}
+ 544:Src/profile_joint.c **** 		else if(g_CmdMap[CMD_USEER_MODE] == CMD_USEER_MODE_2_SPEED)
+ 545:Src/profile_joint.c **** 		{
+ 546:Src/profile_joint.c **** 						g_CmdMap[SYS_SPD_ADD_LIMIT_PU] = 3276;	
+ 547:Src/profile_joint.c **** 						if((Profile_v_set > 0 && pos_ref_um >g_pos_tag)||(Profile_v_set < 0 && pos_ref_um <g_pos_tag)
+ 548:Src/profile_joint.c **** 						{
+ 549:Src/profile_joint.c **** 							g_CmdMap[CMD_USEER_MODE] = CMD_USEER_MODE_0_POSITION;
+ 550:Src/profile_joint.c **** 							tCnt_f = 0.0f;
+ 551:Src/profile_joint.c **** 							vel_tmp_f = 0.0f;
+ 552:Src/profile_joint.c **** 							t1_tmp_f = 0.0f;
+ 553:Src/profile_joint.c **** 						}
+ 554:Src/profile_joint.c **** 						else
+ 555:Src/profile_joint.c **** 						{
+ 556:Src/profile_joint.c **** 							Profile_moving = 1;
+ 557:Src/profile_joint.c **** 							tCnt_f = tCnt_f + 0.001f*(float)P_POS_REGULATOR_MS;//P_POS_REGULATOR_MS;
+ 558:Src/profile_joint.c **** 							pos_ref_um = ((float)g_pos_ini+tCnt_f*(float)Profile_v_set);
+ 559:Src/profile_joint.c **** 							vel_ref_umPs = Profile_v_set;
+ 560:Src/profile_joint.c **** 						}
+ 561:Src/profile_joint.c **** 						flag_posReg_strengthen = 1;
+ 562:Src/profile_joint.c **** 		}
+ 563:Src/profile_joint.c **** 		else if(g_CmdMap[CMD_USEER_MODE] == CMD_USEER_MODE_1_SERVO)
+ 564:Src/profile_joint.c **** 		{
+ 565:Src/profile_joint.c **** 							if(g_servo_cmd_period_cnt<1000)
+ 566:Src/profile_joint.c **** 							{
+ 567:Src/profile_joint.c **** 								Profile_moving = 1;
+ 568:Src/profile_joint.c **** 							}
+ 569:Src/profile_joint.c **** 							else
+ 570:Src/profile_joint.c **** 							{
+ 571:Src/profile_joint.c **** 								Profile_moving = 0;
+ 572:Src/profile_joint.c **** 								vel_interpolation_umPs = 0;
+ 573:Src/profile_joint.c **** 							}
+ 574:Src/profile_joint.c **** 							{	
+ 575:Src/profile_joint.c **** 								g_CmdMap[SYS_SPD_ADD_LIMIT_PU] = 16384;	 //debug		
+ 576:Src/profile_joint.c **** 								if(tCnt_f<time_interpolation_s)
+ 577:Src/profile_joint.c **** 								{
+ 578:Src/profile_joint.c **** 									tCnt_f = tCnt_f + 0.001f*(float)P_POS_REGULATOR_MS;
+ 579:Src/profile_joint.c **** 									pos_ref_um = (s32)((tCnt_f/time_interpolation_s)*(float)(pos_interpolation_A_um-pos_interp
+ 580:Src/profile_joint.c **** 									
+ 581:Src/profile_joint.c **** 									vel_ref_umPs = 9*vel_interpolation_umPs/10;
+ 582:Src/profile_joint.c **** 									
+ 583:Src/profile_joint.c **** 	
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 15
+
+
+ 584:Src/profile_joint.c **** 									
+ 585:Src/profile_joint.c **** //									if(pos_error_to_target< 4096)
+ 586:Src/profile_joint.c **** //									{
+ 587:Src/profile_joint.c **** //										vel_ref_umPs = 0;//9*vel_interpolation_umPs/10;
+ 588:Src/profile_joint.c **** //									}
+ 589:Src/profile_joint.c **** //									else
+ 590:Src/profile_joint.c **** //									{
+ 591:Src/profile_joint.c **** //										vel_ref_umPs = 0;//9*vel_interpolation_umPs/10;
+ 592:Src/profile_joint.c **** //									}			
+ 593:Src/profile_joint.c **** 									
+ 594:Src/profile_joint.c **** 								}
+ 595:Src/profile_joint.c **** 								else
+ 596:Src/profile_joint.c **** 								{
+ 597:Src/profile_joint.c **** 									vel_ref_umPs = 3*vel_interpolation_umPs/10;
+ 598:Src/profile_joint.c **** 									pos_ref_um = pos_interpolation_A_um;
+ 599:Src/profile_joint.c **** 								}
+ 600:Src/profile_joint.c **** 								
+ 601:Src/profile_joint.c **** 								if(pos_interpolation_A_um > pos_interpolation_B_um)
+ 602:Src/profile_joint.c **** 								{
+ 603:Src/profile_joint.c **** 									if(pos_act_um > pos_ref_um-10)
+ 604:Src/profile_joint.c **** 									{
+ 605:Src/profile_joint.c **** 										vel_ref_umPs =0;
+ 606:Src/profile_joint.c **** 										Profile_moving =0;
+ 607:Src/profile_joint.c **** 									}
+ 608:Src/profile_joint.c **** 								}
+ 609:Src/profile_joint.c **** 								else
+ 610:Src/profile_joint.c **** 								{
+ 611:Src/profile_joint.c **** 									if(pos_act_um < pos_ref_um+10)
+ 612:Src/profile_joint.c **** 									{
+ 613:Src/profile_joint.c **** 										vel_ref_umPs =0;
+ 614:Src/profile_joint.c **** 										Profile_moving =0;
+ 615:Src/profile_joint.c **** 									}
+ 616:Src/profile_joint.c **** 								}
+ 617:Src/profile_joint.c **** 							}
+ 618:Src/profile_joint.c **** 							flag_posReg_strengthen = 1;
+ 619:Src/profile_joint.c **** 							p3_f = pos_interpolation_A_um;
+ 620:Src/profile_joint.c **** 							p2_f = pos_interpolation_A_um;
+ 621:Src/profile_joint.c **** 		}			
+ 622:Src/profile_joint.c **** 		g_pos_tag_old = g_pos_tag;
+ 623:Src/profile_joint.c **** 	}
+ 624:Src/profile_joint.c **** 	else
+ 625:Src/profile_joint.c **** 	{			
+ 626:Src/profile_joint.c **** 				pos_ref_um = g_CmdMap[CMD_POS_ACT_PU];
+ 215              		.loc 1 626 0
+ 216 007c 834B     		ldr	r3, .L160+20
+ 217 007e B3F84C30 		ldrh	r3, [r3, #76]
+ 218 0082 1BB2     		sxth	r3, r3
+ 219 0084 854A     		ldr	r2, .L160+36
+ 220 0086 1360     		str	r3, [r2]
+ 627:Src/profile_joint.c **** 				vel_ref_umPs = 0;
+ 221              		.loc 1 627 0
+ 222 0088 0023     		movs	r3, #0
+ 223 008a 854A     		ldr	r2, .L160+40
+ 224 008c 1360     		str	r3, [r2]
+ 628:Src/profile_joint.c **** 				acc_ref_umPs2 = 0;
+ 225              		.loc 1 628 0
+ 226 008e 854A     		ldr	r2, .L160+44
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 16
+
+
+ 227 0090 1360     		str	r3, [r2]
+ 629:Src/profile_joint.c **** 				tCnt_f = 0.0f;
+ 228              		.loc 1 629 0
+ 229 0092 0023     		movs	r3, #0
+ 230 0094 864A     		ldr	r2, .L160+56
+ 231 0096 1360     		str	r3, [r2]	@ float
+ 630:Src/profile_joint.c **** 				vel_tmp_f = 0.0f;
+ 232              		.loc 1 630 0
+ 233 0098 894A     		ldr	r2, .L160+72
+ 234 009a 1360     		str	r3, [r2]	@ float
+ 631:Src/profile_joint.c **** 				t1_tmp_f = 0.0f;
+ 235              		.loc 1 631 0
+ 236 009c 894A     		ldr	r2, .L160+76
+ 237 009e 1360     		str	r3, [r2]	@ float
+ 632:Src/profile_joint.c **** 				flag_posReg_strengthen = 1;
+ 238              		.loc 1 632 0
+ 239 00a0 894B     		ldr	r3, .L160+80
+ 240 00a2 0122     		movs	r2, #1
+ 241 00a4 1A70     		strb	r2, [r3]
+ 242              	.L100:
+ 633:Src/profile_joint.c **** 	}
+ 634:Src/profile_joint.c **** 	Flag_Profile_Enable_last = Flag_Profile_Enable;
+ 243              		.loc 1 634 0
+ 244 00a6 774B     		ldr	r3, .L160+12
+ 245 00a8 1A68     		ldr	r2, [r3]
+ 246 00aa 834B     		ldr	r3, .L160+64
+ 247 00ac 1A60     		str	r2, [r3]
+ 635:Src/profile_joint.c **** 	g_CmdMap[CMD_PROFILE_POS_PU] = pos_ref_um;
+ 248              		.loc 1 635 0
+ 249 00ae 7B4B     		ldr	r3, .L160+36
+ 250 00b0 1B68     		ldr	r3, [r3]
+ 251 00b2 1BB2     		sxth	r3, r3
+ 252 00b4 754A     		ldr	r2, .L160+20
+ 253 00b6 A2F86030 		strh	r3, [r2, #96]	@ movhi
+ 636:Src/profile_joint.c **** 	g_CmdMap[CMD_PROFILE_SPD_PU] = (s16)((float)vel_ref_umPs*pos_p_vel_float);  
+ 254              		.loc 1 636 0
+ 255 00ba 794B     		ldr	r3, .L160+40
+ 256 00bc D3ED007A 		vldr.32	s15, [r3]	@ int
+ 257 00c0 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 258 00c4 814B     		ldr	r3, .L160+84
+ 259 00c6 93ED007A 		vldr.32	s14, [r3]
+ 260 00ca 67EE877A 		vmul.f32	s15, s15, s14
+ 261 00ce FDEEE77A 		vcvt.s32.f32	s15, s15
+ 262 00d2 17EE903A 		vmov	r3, s15	@ int
+ 263 00d6 1BB2     		sxth	r3, r3
+ 264 00d8 A2F86230 		strh	r3, [r2, #98]	@ movhi
+ 637:Src/profile_joint.c **** 	g_CmdMap[CMD_ACC_PRE_PU] = (s16)(acc_ref_umPs2*(s32)16384/500);
+ 265              		.loc 1 637 0
+ 266 00dc 714B     		ldr	r3, .L160+44
+ 267 00de 1B68     		ldr	r3, [r3]
+ 268 00e0 9B03     		lsls	r3, r3, #14
+ 269 00e2 7B49     		ldr	r1, .L160+88
+ 270 00e4 81FB0301 		smull	r0, r1, r1, r3
+ 271 00e8 DB17     		asrs	r3, r3, #31
+ 272 00ea C3EB6113 		rsb	r3, r3, r1, asr #5
+ 273 00ee 1BB2     		sxth	r3, r3
+ 274 00f0 A2F87032 		strh	r3, [r2, #624]	@ movhi
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 17
+
+
+ 275              	.L8:
+ 638:Src/profile_joint.c **** }
+ 276              		.loc 1 638 0
+ 277 00f4 38BD     		pop	{r3, r4, r5, pc}
+ 278              	.L140:
+  93:Src/profile_joint.c **** 		g_pos_tag_old = g_pos_tag = g_CmdMap[CMD_POS_ACT_PU];//Ä¿±êÖµµÈÓÚÊµ¼ÊÖµ
+ 279              		.loc 1 93 0
+ 280 00f6 0133     		adds	r3, r3, #1
+ 281 00f8 614A     		ldr	r2, .L160+8
+ 282 00fa 1380     		strh	r3, [r2]	@ movhi
+  94:Src/profile_joint.c **** 		pos_ref_um = g_pos_ini = g_pos_tag;
+ 283              		.loc 1 94 0
+ 284 00fc 634B     		ldr	r3, .L160+20
+ 285 00fe B3F84C30 		ldrh	r3, [r3, #76]
+ 286 0102 1BB2     		sxth	r3, r3
+ 287 0104 624A     		ldr	r2, .L160+24
+ 288 0106 1360     		str	r3, [r2]
+ 289 0108 6249     		ldr	r1, .L160+28
+ 290 010a 0B60     		str	r3, [r1]
+  95:Src/profile_joint.c **** 		vel_ref_umPs = 0;
+ 291              		.loc 1 95 0
+ 292 010c 1368     		ldr	r3, [r2]
+ 293 010e 624A     		ldr	r2, .L160+32
+ 294 0110 1360     		str	r3, [r2]
+ 295 0112 624A     		ldr	r2, .L160+36
+ 296 0114 1360     		str	r3, [r2]
+  96:Src/profile_joint.c **** 		acc_ref_umPs2 = 0;
+ 297              		.loc 1 96 0
+ 298 0116 0023     		movs	r3, #0
+ 299 0118 614A     		ldr	r2, .L160+40
+ 300 011a 1360     		str	r3, [r2]
+  97:Src/profile_joint.c **** 		tCnt_f = 0.0f;
+ 301              		.loc 1 97 0
+ 302 011c 614A     		ldr	r2, .L160+44
+ 303 011e 1360     		str	r3, [r2]
+  98:Src/profile_joint.c **** 		Profile_moving = 0;
+ 304              		.loc 1 98 0
+ 305 0120 634A     		ldr	r2, .L160+56
+ 306 0122 0021     		movs	r1, #0
+ 307 0124 1160     		str	r1, [r2]	@ float
+  99:Src/profile_joint.c **** 		return;
+ 308              		.loc 1 99 0
+ 309 0126 634A     		ldr	r2, .L160+60
+ 310 0128 1360     		str	r3, [r2]
+ 100:Src/profile_joint.c **** 	}
+ 311              		.loc 1 100 0
+ 312 012a E3E7     		b	.L8
+ 313              	.L141:
+ 132:Src/profile_joint.c **** 	{
+ 314              		.loc 1 132 0 discriminator 1
+ 315 012c 554B     		ldr	r3, .L160+12
+ 316 012e 1B68     		ldr	r3, [r3]
+ 317 0130 002B     		cmp	r3, #0
+ 318 0132 93D1     		bne	.L12
+ 134:Src/profile_joint.c **** 	}	
+ 319              		.loc 1 134 0
+ 320 0134 554B     		ldr	r3, .L160+20
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 18
+
+
+ 321 0136 B3F84C30 		ldrh	r3, [r3, #76]
+ 322 013a 1BB2     		sxth	r3, r3
+ 323 013c 654A     		ldr	r2, .L160+92
+ 324 013e 1360     		str	r3, [r2]
+ 325 0140 8CE7     		b	.L12
+ 326              	.L142:
+ 136:Src/profile_joint.c **** 	{
+ 327              		.loc 1 136 0 discriminator 1
+ 328 0142 5E4B     		ldr	r3, .L160+68
+ 329 0144 1B68     		ldr	r3, [r3]
+ 330 0146 022B     		cmp	r3, #2
+ 331 0148 8ED0     		beq	.L13
+ 138:Src/profile_joint.c **** 		g_pos_ini = pos_ref_um;
+ 332              		.loc 1 138 0
+ 333 014a 594B     		ldr	r3, .L160+56
+ 334 014c 0022     		movs	r2, #0
+ 335 014e 1A60     		str	r2, [r3]	@ float
+ 139:Src/profile_joint.c **** 	}	
+ 336              		.loc 1 139 0
+ 337 0150 524B     		ldr	r3, .L160+36
+ 338 0152 1A68     		ldr	r2, [r3]
+ 339 0154 504B     		ldr	r3, .L160+32
+ 340 0156 1A60     		str	r2, [r3]
+ 341 0158 86E7     		b	.L13
+ 342              	.L143:
+ 146:Src/profile_joint.c **** 		if(g_CmdMap[CMD_USEER_MODE] == CMD_USEER_MODE_0_POSITION || g_CmdMap[CMD_USEER_MODE] == CMD_USEER
+ 343              		.loc 1 146 0
+ 344 015a 4C4A     		ldr	r2, .L160+20
+ 345 015c B2F84C30 		ldrh	r3, [r2, #76]
+ 346 0160 1BB2     		sxth	r3, r3
+ 347 0162 5D49     		ldr	r1, .L160+96
+ 348 0164 0B60     		str	r3, [r1]
+ 147:Src/profile_joint.c **** 		{
+ 349              		.loc 1 147 0
+ 350 0166 B2F84030 		ldrh	r3, [r2, #64]
+ 351 016a 1BB2     		sxth	r3, r3
+ 352 016c 002B     		cmp	r3, #0
+ 353 016e 00F0C780 		beq	.L15
+ 147:Src/profile_joint.c **** 		{
+ 354              		.loc 1 147 0 is_stmt 0 discriminator 1
+ 355 0172 B2F84030 		ldrh	r3, [r2, #64]
+ 356 0176 1BB2     		sxth	r3, r3
+ 357 0178 052B     		cmp	r3, #5
+ 358 017a 00F0C180 		beq	.L15
+ 544:Src/profile_joint.c **** 		{
+ 359              		.loc 1 544 0 is_stmt 1
+ 360 017e 434B     		ldr	r3, .L160+20
+ 361 0180 B3F84030 		ldrh	r3, [r3, #64]
+ 362 0184 1BB2     		sxth	r3, r3
+ 363 0186 022B     		cmp	r3, #2
+ 364 0188 01F0B080 		beq	.L144
+ 563:Src/profile_joint.c **** 		{
+ 365              		.loc 1 563 0
+ 366 018c 3F4B     		ldr	r3, .L160+20
+ 367 018e B3F84030 		ldrh	r3, [r3, #64]
+ 368 0192 1BB2     		sxth	r3, r3
+ 369 0194 012B     		cmp	r3, #1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 19
+
+
+ 370 0196 40F01882 		bne	.L48
+ 565:Src/profile_joint.c **** 							{
+ 371              		.loc 1 565 0
+ 372 019a 504B     		ldr	r3, .L160+100
+ 373 019c 1B68     		ldr	r3, [r3]
+ 374 019e B3F57A7F 		cmp	r3, #1000
+ 375 01a2 81F2F180 		bge	.L93
+ 567:Src/profile_joint.c **** 							}
+ 376              		.loc 1 567 0
+ 377 01a6 434B     		ldr	r3, .L160+60
+ 378 01a8 0122     		movs	r2, #1
+ 379 01aa 1A60     		str	r2, [r3]
+ 380              	.L94:
+ 575:Src/profile_joint.c **** 								if(tCnt_f<time_interpolation_s)
+ 381              		.loc 1 575 0
+ 382 01ac 374B     		ldr	r3, .L160+20
+ 383 01ae 4FF48042 		mov	r2, #16384
+ 384 01b2 A3F89222 		strh	r2, [r3, #658]	@ movhi
+ 576:Src/profile_joint.c **** 								{
+ 385              		.loc 1 576 0
+ 386 01b6 3E4B     		ldr	r3, .L160+56
+ 387 01b8 93ED007A 		vldr.32	s14, [r3]
+ 388 01bc 484B     		ldr	r3, .L160+104
+ 389 01be D3ED007A 		vldr.32	s15, [r3]
+ 390 01c2 B4EEE77A 		vcmpe.f32	s14, s15
+ 391 01c6 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 392 01ca 41F1E480 		bpl	.L138
+ 578:Src/profile_joint.c **** 									pos_ref_um = (s32)((tCnt_f/time_interpolation_s)*(float)(pos_interpolation_A_um-pos_interp
+ 393              		.loc 1 578 0
+ 394 01ce 384B     		ldr	r3, .L160+56
+ 395 01d0 D3ED007A 		vldr.32	s15, [r3]
+ 396 01d4 9FED437A 		vldr.32	s14, .L160+108
+ 397 01d8 77EE877A 		vadd.f32	s15, s15, s14
+ 398 01dc C3ED007A 		vstr.32	s15, [r3]
+ 579:Src/profile_joint.c **** 									
+ 399              		.loc 1 579 0
+ 400 01e0 D3ED006A 		vldr.32	s13, [r3]
+ 401 01e4 3E4B     		ldr	r3, .L160+104
+ 402 01e6 D3ED007A 		vldr.32	s15, [r3]
+ 403 01ea 86EEA77A 		vdiv.f32	s14, s13, s15
+ 404 01ee 3E4B     		ldr	r3, .L160+112
+ 405 01f0 1B68     		ldr	r3, [r3]
+ 406 01f2 3E4A     		ldr	r2, .L160+116
+ 407 01f4 1168     		ldr	r1, [r2]
+ 408 01f6 5B1A     		subs	r3, r3, r1
+ 409 01f8 07EE903A 		vmov	s15, r3	@ int
+ 410 01fc F8EEE77A 		vcvt.f32.s32	s15, s15
+ 411 0200 67EE277A 		vmul.f32	s15, s14, s15
+ 412 0204 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 413 0208 17EE903A 		vmov	r3, s15	@ int
+ 414 020c 1268     		ldr	r2, [r2]
+ 415 020e 1344     		add	r3, r3, r2
+ 416 0210 224A     		ldr	r2, .L160+36
+ 417 0212 1360     		str	r3, [r2]
+ 581:Src/profile_joint.c **** 									
+ 418              		.loc 1 581 0
+ 419 0214 364B     		ldr	r3, .L160+120
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 20
+
+
+ 420 0216 1B68     		ldr	r3, [r3]
+ 421 0218 03EBC303 		add	r3, r3, r3, lsl #3
+ 422 021c 354A     		ldr	r2, .L160+124
+ 423 021e 82FB0312 		smull	r1, r2, r2, r3
+ 424 0222 DB17     		asrs	r3, r3, #31
+ 425 0224 C3EBA203 		rsb	r3, r3, r2, asr #2
+ 426 0228 1D4A     		ldr	r2, .L160+40
+ 427 022a 1360     		str	r3, [r2]
+ 428              	.L97:
+ 601:Src/profile_joint.c **** 								{
+ 429              		.loc 1 601 0
+ 430 022c 2E4B     		ldr	r3, .L160+112
+ 431 022e 1A68     		ldr	r2, [r3]
+ 432 0230 2E4B     		ldr	r3, .L160+116
+ 433 0232 1B68     		ldr	r3, [r3]
+ 434 0234 9A42     		cmp	r2, r3
+ 435 0236 41F3C080 		ble	.L98
+ 603:Src/profile_joint.c **** 									{
+ 436              		.loc 1 603 0
+ 437 023a 184B     		ldr	r3, .L160+36
+ 438 023c 1B68     		ldr	r3, [r3]
+ 439 023e 0A3B     		subs	r3, r3, #10
+ 440 0240 254A     		ldr	r2, .L160+96
+ 441 0242 1268     		ldr	r2, [r2]
+ 442 0244 9342     		cmp	r3, r2
+ 443 0246 04DA     		bge	.L99
+ 605:Src/profile_joint.c **** 										Profile_moving =0;
+ 444              		.loc 1 605 0
+ 445 0248 0023     		movs	r3, #0
+ 446 024a 154A     		ldr	r2, .L160+40
+ 447 024c 1360     		str	r3, [r2]
+ 606:Src/profile_joint.c **** 									}
+ 448              		.loc 1 606 0
+ 449 024e 194A     		ldr	r2, .L160+60
+ 450 0250 1360     		str	r3, [r2]
+ 451              	.L99:
+ 618:Src/profile_joint.c **** 							p3_f = pos_interpolation_A_um;
+ 452              		.loc 1 618 0
+ 453 0252 1D4B     		ldr	r3, .L160+80
+ 454 0254 0122     		movs	r2, #1
+ 455 0256 1A70     		strb	r2, [r3]
+ 619:Src/profile_joint.c **** 							p2_f = pos_interpolation_A_um;
+ 456              		.loc 1 619 0
+ 457 0258 234B     		ldr	r3, .L160+112
+ 458 025a D3ED007A 		vldr.32	s15, [r3]	@ int
+ 459 025e F8EEE77A 		vcvt.f32.s32	s15, s15
+ 460 0262 254A     		ldr	r2, .L160+128
+ 461 0264 C2ED007A 		vstr.32	s15, [r2]
+ 620:Src/profile_joint.c **** 		}			
+ 462              		.loc 1 620 0
+ 463 0268 D3ED007A 		vldr.32	s15, [r3]	@ int
+ 464 026c F8EEE77A 		vcvt.f32.s32	s15, s15
+ 465 0270 224B     		ldr	r3, .L160+132
+ 466 0272 C3ED007A 		vstr.32	s15, [r3]
+ 467 0276 A8E1     		b	.L48
+ 468              	.L161:
+ 469              		.align	2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 21
+
+
+ 470              	.L160:
+ 471 0278 00000000 		.word	.LANCHOR4
+ 472 027c 00002041 		.word	1092616192
+ 473 0280 00000000 		.word	.LANCHOR5
+ 474 0284 00000000 		.word	.LANCHOR12
+ 475 0288 00000000 		.word	Motor_forbidden
+ 476 028c 00000000 		.word	g_CmdMap
+ 477 0290 00000000 		.word	.LANCHOR6
+ 478 0294 00000000 		.word	.LANCHOR3
+ 479 0298 00000000 		.word	.LANCHOR7
+ 480 029c 00000000 		.word	.LANCHOR8
+ 481 02a0 00000000 		.word	.LANCHOR9
+ 482 02a4 00000000 		.word	.LANCHOR10
+ 483 02a8 00000000 		.word	.LANCHOR13
+ 484 02ac 00000000 		.word	.LANCHOR14
+ 485 02b0 00000000 		.word	.LANCHOR11
+ 486 02b4 00000000 		.word	.LANCHOR0
+ 487 02b8 00000000 		.word	.LANCHOR15
+ 488 02bc 00000000 		.word	.LANCHOR17
+ 489 02c0 00000000 		.word	.LANCHOR43
+ 490 02c4 00000000 		.word	.LANCHOR44
+ 491 02c8 00000000 		.word	.LANCHOR40
+ 492 02cc 00000000 		.word	pos_p_vel_float
+ 493 02d0 D34D6210 		.word	274877907
+ 494 02d4 00000000 		.word	.LANCHOR16
+ 495 02d8 00000000 		.word	.LANCHOR18
+ 496 02dc 00000000 		.word	g_servo_cmd_period_cnt
+ 497 02e0 00000000 		.word	.LANCHOR47
+ 498 02e4 6F128339 		.word	964891247
+ 499 02e8 00000000 		.word	.LANCHOR48
+ 500 02ec 00000000 		.word	.LANCHOR49
+ 501 02f0 00000000 		.word	.LANCHOR46
+ 502 02f4 67666666 		.word	1717986919
+ 503 02f8 00000000 		.word	.LANCHOR34
+ 504 02fc 00000000 		.word	.LANCHOR33
+ 505              	.L15:
+ 149:Src/profile_joint.c **** 							if(g_pos_tag_old != g_pos_tag)
+ 506              		.loc 1 149 0
+ 507 0300 B44B     		ldr	r3, .L162
+ 508 0302 40F6CC42 		movw	r2, #3276
+ 509 0306 A3F89222 		strh	r2, [r3, #658]	@ movhi
+ 150:Src/profile_joint.c **** 							{					
+ 510              		.loc 1 150 0
+ 511 030a B34B     		ldr	r3, .L162+4
+ 512 030c 1A68     		ldr	r2, [r3]
+ 513 030e B34B     		ldr	r3, .L162+8
+ 514 0310 1B68     		ldr	r3, [r3]
+ 515 0312 9A42     		cmp	r2, r3
+ 516 0314 00F04581 		beq	.L17
+ 152:Src/profile_joint.c **** 												Profile_moving = 1;
+ 517              		.loc 1 152 0
+ 518 0318 B14A     		ldr	r2, .L162+12
+ 519 031a 1368     		ldr	r3, [r2]
+ 520 031c 0133     		adds	r3, r3, #1
+ 521 031e 1360     		str	r3, [r2]
+ 153:Src/profile_joint.c **** 												tCnt_f = 0.0f;
+ 522              		.loc 1 153 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 22
+
+
+ 523 0320 B04B     		ldr	r3, .L162+16
+ 524 0322 0122     		movs	r2, #1
+ 525 0324 1A60     		str	r2, [r3]
+ 154:Src/profile_joint.c **** 												v0 = vel_ref_umPs;          //¹æ»®¿ªÊ¼Ê±µÄ¹æ»®ËÙ¶È								
+ 526              		.loc 1 154 0
+ 527 0326 B04B     		ldr	r3, .L162+20
+ 528 0328 0022     		movs	r2, #0
+ 529 032a 1A60     		str	r2, [r3]	@ float
+ 155:Src/profile_joint.c **** 												g_pos_ini = pos_act_um;
+ 530              		.loc 1 155 0
+ 531 032c AF4B     		ldr	r3, .L162+24
+ 532 032e D3ED007A 		vldr.32	s15, [r3]	@ int
+ 533 0332 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 534 0336 AE4B     		ldr	r3, .L162+28
+ 535 0338 C3ED007A 		vstr.32	s15, [r3]
+ 156:Src/profile_joint.c **** 												pos_ref_um = g_pos_ini;
+ 536              		.loc 1 156 0
+ 537 033c AD4B     		ldr	r3, .L162+32
+ 538 033e 1B68     		ldr	r3, [r3]
+ 539 0340 AD4A     		ldr	r2, .L162+36
+ 540 0342 1360     		str	r3, [r2]
+ 157:Src/profile_joint.c **** 												g_pos_tag_dlt_f = (float)(g_pos_tag - g_pos_ini);
+ 541              		.loc 1 157 0
+ 542 0344 1168     		ldr	r1, [r2]
+ 543 0346 AD4B     		ldr	r3, .L162+40
+ 544 0348 1960     		str	r1, [r3]
+ 158:Src/profile_joint.c **** 												g_pos_tag_dlt_abs_f = (float)ABS(g_pos_tag - g_pos_ini);	
+ 545              		.loc 1 158 0
+ 546 034a A449     		ldr	r1, .L162+8
+ 547 034c 0B68     		ldr	r3, [r1]
+ 548 034e 1068     		ldr	r0, [r2]
+ 549 0350 1B1A     		subs	r3, r3, r0
+ 550 0352 07EE903A 		vmov	s15, r3	@ int
+ 551 0356 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 552 035a A94B     		ldr	r3, .L162+44
+ 553 035c C3ED007A 		vstr.32	s15, [r3]
+ 159:Src/profile_joint.c **** 												if(g_pos_tag_dlt_f>0.0f)
+ 554              		.loc 1 159 0
+ 555 0360 0B68     		ldr	r3, [r1]
+ 556 0362 1268     		ldr	r2, [r2]
+ 557 0364 9B1A     		subs	r3, r3, r2
+ 558 0366 002B     		cmp	r3, #0
+ 559 0368 35DB     		blt	.L145
+ 159:Src/profile_joint.c **** 												if(g_pos_tag_dlt_f>0.0f)
+ 560              		.loc 1 159 0 is_stmt 0 discriminator 2
+ 561 036a 9C4B     		ldr	r3, .L162+8
+ 562 036c 1B68     		ldr	r3, [r3]
+ 563 036e A24A     		ldr	r2, .L162+36
+ 564 0370 1268     		ldr	r2, [r2]
+ 565 0372 9B1A     		subs	r3, r3, r2
+ 566 0374 07EE903A 		vmov	s15, r3	@ int
+ 567 0378 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 568              	.L19:
+ 159:Src/profile_joint.c **** 												if(g_pos_tag_dlt_f>0.0f)
+ 569              		.loc 1 159 0 discriminator 4
+ 570 037c A14B     		ldr	r3, .L162+48
+ 571 037e C3ED007A 		vstr.32	s15, [r3]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 23
+
+
+ 160:Src/profile_joint.c **** 												{
+ 572              		.loc 1 160 0 is_stmt 1 discriminator 4
+ 573 0382 9F4B     		ldr	r3, .L162+44
+ 574 0384 D3ED007A 		vldr.32	s15, [r3]
+ 575 0388 F5EEC07A 		vcmpe.f32	s15, #0
+ 576 038c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 577 0390 2ADD     		ble	.L128
+ 162:Src/profile_joint.c **** 												}
+ 578              		.loc 1 162 0
+ 579 0392 9D4B     		ldr	r3, .L162+52
+ 580 0394 4FF07E52 		mov	r2, #1065353216
+ 581 0398 1A60     		str	r2, [r3]	@ float
+ 582              	.L22:
+ 168:Src/profile_joint.c **** 												{
+ 583              		.loc 1 168 0
+ 584 039a 954B     		ldr	r3, .L162+28
+ 585 039c 93ED007A 		vldr.32	s14, [r3]
+ 586 03a0 DFED9A7A 		vldr.32	s15, .L162+56
+ 587 03a4 B4EEE77A 		vcmpe.f32	s14, s15
+ 588 03a8 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 589 03ac 20DD     		ble	.L23
+ 168:Src/profile_joint.c **** 												{
+ 590              		.loc 1 168 0 is_stmt 0 discriminator 1
+ 591 03ae 944B     		ldr	r3, .L162+44
+ 592 03b0 D3ED007A 		vldr.32	s15, [r3]
+ 593 03b4 F5EEC07A 		vcmpe.f32	s15, #0
+ 594 03b8 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 595 03bc 18DD     		ble	.L23
+ 596              	.L25:
+ 170:Src/profile_joint.c **** 													v0_abs = fabsl(v0);
+ 597              		.loc 1 170 0 is_stmt 1
+ 598 03be 944B     		ldr	r3, .L162+60
+ 599 03c0 0022     		movs	r2, #0
+ 600 03c2 1A70     		strb	r2, [r3]
+ 171:Src/profile_joint.c **** 												}													
+ 601              		.loc 1 171 0
+ 602 03c4 8A4B     		ldr	r3, .L162+28
+ 603 03c6 D3ED007A 		vldr.32	s15, [r3]
+ 604 03ca F0EEE77A 		vabs.f32	s15, s15
+ 605 03ce 914B     		ldr	r3, .L162+64
+ 606 03d0 C3ED007A 		vstr.32	s15, [r3]
+ 607 03d4 26E0     		b	.L29
+ 608              	.L145:
+ 159:Src/profile_joint.c **** 												if(g_pos_tag_dlt_f>0.0f)
+ 609              		.loc 1 159 0 discriminator 1
+ 610 03d6 884B     		ldr	r3, .L162+36
+ 611 03d8 1B68     		ldr	r3, [r3]
+ 612 03da 0A68     		ldr	r2, [r1]
+ 613 03dc 9B1A     		subs	r3, r3, r2
+ 614 03de 07EE903A 		vmov	s15, r3	@ int
+ 615 03e2 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 616 03e6 C9E7     		b	.L19
+ 617              	.L128:
+ 166:Src/profile_joint.c **** 												}		
+ 618              		.loc 1 166 0
+ 619 03e8 874B     		ldr	r3, .L162+52
+ 620 03ea 8B4A     		ldr	r2, .L162+68
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 24
+
+
+ 621 03ec 1A60     		str	r2, [r3]	@ float
+ 622 03ee D4E7     		b	.L22
+ 623              	.L23:
+ 168:Src/profile_joint.c **** 												{
+ 624              		.loc 1 168 0 discriminator 3
+ 625 03f0 7F4B     		ldr	r3, .L162+28
+ 626 03f2 93ED007A 		vldr.32	s14, [r3]
+ 627 03f6 DFED897A 		vldr.32	s15, .L162+72
+ 628 03fa B4EEE77A 		vcmpe.f32	s14, s15
+ 629 03fe F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 630 0402 07D5     		bpl	.L26
+ 168:Src/profile_joint.c **** 												{
+ 631              		.loc 1 168 0 is_stmt 0 discriminator 4
+ 632 0404 7E4B     		ldr	r3, .L162+44
+ 633 0406 D3ED007A 		vldr.32	s15, [r3]
+ 634 040a F5EEC07A 		vcmpe.f32	s15, #0
+ 635 040e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 636 0412 D4D4     		bmi	.L25
+ 637              	.L26:
+ 175:Src/profile_joint.c **** 													v0 = 0.0f;
+ 638              		.loc 1 175 0 is_stmt 1
+ 639 0414 7E4B     		ldr	r3, .L162+60
+ 640 0416 0122     		movs	r2, #1
+ 641 0418 1A70     		strb	r2, [r3]
+ 176:Src/profile_joint.c **** 													v0_abs = 0.0f;
+ 642              		.loc 1 176 0
+ 643 041a 0023     		movs	r3, #0
+ 644 041c 744A     		ldr	r2, .L162+28
+ 645 041e 1360     		str	r3, [r2]	@ float
+ 177:Src/profile_joint.c **** 												}
+ 646              		.loc 1 177 0
+ 647 0420 7C4A     		ldr	r2, .L162+64
+ 648 0422 1360     		str	r3, [r2]	@ float
+ 649              	.L29:
+ 179:Src/profile_joint.c **** 												S_v0_2_max = 0.5f*(vel_max_f_umPs*vel_max_f_umPs-v0*v0)/acc_set_f_umPs2;
+ 650              		.loc 1 179 0
+ 651 0424 7E4B     		ldr	r3, .L162+76
+ 652 0426 93ED007A 		vldr.32	s14, [r3]
+ 653 042a F6EE006A 		vmov.f32	s13, #5.0e-1
+ 654 042e 27EE267A 		vmul.f32	s14, s14, s13
+ 655 0432 D3ED007A 		vldr.32	s15, [r3]
+ 656 0436 27EE277A 		vmul.f32	s14, s14, s15
+ 657 043a 7A49     		ldr	r1, .L162+80
+ 658 043c 91ED006A 		vldr.32	s12, [r1]
+ 659 0440 C7EE067A 		vdiv.f32	s15, s14, s12
+ 660 0444 784C     		ldr	r4, .L162+84
+ 661 0446 C4ED007A 		vstr.32	s15, [r4]
+ 180:Src/profile_joint.c **** 												S_th1 = 0.5f*v0*v0/acc_set_f_umPs2;
+ 662              		.loc 1 180 0
+ 663 044a D3ED007A 		vldr.32	s15, [r3]
+ 664 044e 93ED007A 		vldr.32	s14, [r3]
+ 665 0452 67EE877A 		vmul.f32	s15, s15, s14
+ 666 0456 664A     		ldr	r2, .L162+28
+ 667 0458 92ED007A 		vldr.32	s14, [r2]
+ 668 045c 92ED006A 		vldr.32	s12, [r2]
+ 669 0460 27EE067A 		vmul.f32	s14, s14, s12
+ 670 0464 77EEC77A 		vsub.f32	s15, s15, s14
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 25
+
+
+ 671 0468 67EEA67A 		vmul.f32	s15, s15, s13
+ 672 046c 91ED006A 		vldr.32	s12, [r1]
+ 673 0470 87EE867A 		vdiv.f32	s14, s15, s12
+ 674 0474 6D48     		ldr	r0, .L162+88
+ 675 0476 80ED007A 		vstr.32	s14, [r0]
+ 181:Src/profile_joint.c **** 												S_th2 = S_max_2_stop+S_v0_2_max;
+ 676              		.loc 1 181 0
+ 677 047a D2ED007A 		vldr.32	s15, [r2]
+ 678 047e 67EEA67A 		vmul.f32	s15, s15, s13
+ 679 0482 92ED007A 		vldr.32	s14, [r2]
+ 680 0486 67EE877A 		vmul.f32	s15, s15, s14
+ 681 048a D1ED006A 		vldr.32	s13, [r1]
+ 682 048e 87EEA67A 		vdiv.f32	s14, s15, s13
+ 683 0492 674A     		ldr	r2, .L162+92
+ 684 0494 82ED007A 		vstr.32	s14, [r2]
+ 182:Src/profile_joint.c **** 												S_samll_stroke = 0.001f*(float)P_POS_REGULATOR_MS*vel_max_f_umPs;
+ 685              		.loc 1 182 0
+ 686 0498 D4ED007A 		vldr.32	s15, [r4]
+ 687 049c 90ED007A 		vldr.32	s14, [r0]
+ 688 04a0 77EE877A 		vadd.f32	s15, s15, s14
+ 689 04a4 634A     		ldr	r2, .L162+96
+ 690 04a6 C2ED007A 		vstr.32	s15, [r2]
+ 183:Src/profile_joint.c **** 												if(g_pos_tag_dlt_abs_f>S_th2)//Èý¶Î
+ 691              		.loc 1 183 0
+ 692 04aa D3ED007A 		vldr.32	s15, [r3]
+ 693 04ae 9FED627A 		vldr.32	s14, .L162+100
+ 694 04b2 67EE877A 		vmul.f32	s15, s15, s14
+ 695 04b6 614B     		ldr	r3, .L162+104
+ 696 04b8 C3ED007A 		vstr.32	s15, [r3]
+ 184:Src/profile_joint.c **** 												{
+ 697              		.loc 1 184 0
+ 698 04bc 514B     		ldr	r3, .L162+48
+ 699 04be 93ED007A 		vldr.32	s14, [r3]
+ 700 04c2 D2ED007A 		vldr.32	s15, [r2]
+ 701 04c6 B4EEE77A 		vcmpe.f32	s14, s15
+ 702 04ca F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 703 04ce 40F3CF80 		ble	.L129
+ 186:Src/profile_joint.c **** 													p1_f = dir_f*S_v0_2_max + g_pos_ini;
+ 704              		.loc 1 186 0
+ 705 04d2 5B4B     		ldr	r3, .L162+108
+ 706 04d4 0322     		movs	r2, #3
+ 707 04d6 1A70     		strb	r2, [r3]
+ 187:Src/profile_joint.c **** 													#if (PLAN_TYPE_SET==PLAN_STATIC)//
+ 708              		.loc 1 187 0
+ 709 04d8 4B4B     		ldr	r3, .L162+52
+ 710 04da D3ED007A 		vldr.32	s15, [r3]
+ 711 04de 90ED007A 		vldr.32	s14, [r0]
+ 712 04e2 27EE877A 		vmul.f32	s14, s15, s14
+ 713 04e6 444A     		ldr	r2, .L162+36
+ 714 04e8 D2ED007A 		vldr.32	s15, [r2]	@ int
+ 715 04ec F8EEE77A 		vcvt.f32.s32	s15, s15
+ 716 04f0 77EE877A 		vadd.f32	s15, s15, s14
+ 717 04f4 5349     		ldr	r1, .L162+112
+ 718 04f6 C1ED007A 		vstr.32	s15, [r1]
+ 192:Src/profile_joint.c **** 													#endif
+ 719              		.loc 1 192 0
+ 720 04fa 4248     		ldr	r0, .L162+48
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 26
+
+
+ 721 04fc D0ED007A 		vldr.32	s15, [r0]
+ 722 0500 94ED007A 		vldr.32	s14, [r4]
+ 723 0504 77EEC77A 		vsub.f32	s15, s15, s14
+ 724 0508 93ED007A 		vldr.32	s14, [r3]
+ 725 050c 27EE877A 		vmul.f32	s14, s15, s14
+ 726 0510 D2ED007A 		vldr.32	s15, [r2]	@ int
+ 727 0514 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 728 0518 77EE877A 		vadd.f32	s15, s15, s14
+ 729 051c 93ED007A 		vldr.32	s14, [r3]
+ 730 0520 494B     		ldr	r3, .L162+116
+ 731 0522 D3ED006A 		vldr.32	s13, [r3]
+ 732 0526 27EE267A 		vmul.f32	s14, s14, s13
+ 733 052a 77EEC77A 		vsub.f32	s15, s15, s14
+ 734 052e 474B     		ldr	r3, .L162+120
+ 735 0530 C3ED007A 		vstr.32	s15, [r3]
+ 194:Src/profile_joint.c **** 													t1_f = (vel_max_f_umPs-v0_abs)/acc_set_f_umPs2;
+ 736              		.loc 1 194 0
+ 737 0534 294B     		ldr	r3, .L162+8
+ 738 0536 D3ED007A 		vldr.32	s15, [r3]	@ int
+ 739 053a F8EEE77A 		vcvt.f32.s32	s15, s15
+ 740 053e 444B     		ldr	r3, .L162+124
+ 741 0540 C3ED007A 		vstr.32	s15, [r3]
+ 195:Src/profile_joint.c **** 													t2_f = (g_pos_tag_dlt_abs_f-S_th2)/vel_max_f_umPs + t1_f;
+ 742              		.loc 1 195 0
+ 743 0544 364B     		ldr	r3, .L162+76
+ 744 0546 D3ED007A 		vldr.32	s15, [r3]
+ 745 054a 324A     		ldr	r2, .L162+64
+ 746 054c 92ED007A 		vldr.32	s14, [r2]
+ 747 0550 77EEC77A 		vsub.f32	s15, s15, s14
+ 748 0554 3349     		ldr	r1, .L162+80
+ 749 0556 D1ED006A 		vldr.32	s13, [r1]
+ 750 055a 87EEA67A 		vdiv.f32	s14, s15, s13
+ 751 055e 3D4A     		ldr	r2, .L162+128
+ 752 0560 82ED007A 		vstr.32	s14, [r2]
+ 196:Src/profile_joint.c **** 													t3_f = vel_max_f_umPs/acc_set_f_umPs2+t2_f;
+ 753              		.loc 1 196 0
+ 754 0564 90ED007A 		vldr.32	s14, [r0]
+ 755 0568 3248     		ldr	r0, .L162+96
+ 756 056a D0ED007A 		vldr.32	s15, [r0]
+ 757 056e 37EE677A 		vsub.f32	s14, s14, s15
+ 758 0572 D3ED006A 		vldr.32	s13, [r3]
+ 759 0576 C7EE267A 		vdiv.f32	s15, s14, s13
+ 760 057a 92ED007A 		vldr.32	s14, [r2]
+ 761 057e 77EE877A 		vadd.f32	s15, s15, s14
+ 762 0582 354A     		ldr	r2, .L162+132
+ 763 0584 C2ED007A 		vstr.32	s15, [r2]
+ 197:Src/profile_joint.c **** 												}
+ 764              		.loc 1 197 0
+ 765 0588 D3ED006A 		vldr.32	s13, [r3]
+ 766 058c 91ED007A 		vldr.32	s14, [r1]
+ 767 0590 C6EE877A 		vdiv.f32	s15, s13, s14
+ 768 0594 92ED007A 		vldr.32	s14, [r2]
+ 769 0598 77EE877A 		vadd.f32	s15, s15, s14
+ 770 059c 2F4B     		ldr	r3, .L162+136
+ 771 059e C3ED007A 		vstr.32	s15, [r3]
+ 772              	.L17:
+ 222:Src/profile_joint.c **** 							{				
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 27
+
+
+ 773              		.loc 1 222 0
+ 774 05a2 104B     		ldr	r3, .L162+16
+ 775 05a4 1B68     		ldr	r3, [r3]
+ 776 05a6 012B     		cmp	r3, #1
+ 777 05a8 00F00481 		beq	.L146
+ 536:Src/profile_joint.c **** 											acc_ref_umPs2 = 0;
+ 778              		.loc 1 536 0
+ 779 05ac 0023     		movs	r3, #0
+ 780 05ae 0F4A     		ldr	r2, .L162+24
+ 781 05b0 1360     		str	r3, [r2]
+ 537:Src/profile_joint.c **** 											tCnt_f = 0.0f;
+ 782              		.loc 1 537 0
+ 783 05b2 2B4A     		ldr	r2, .L162+140
+ 784 05b4 1360     		str	r3, [r2]
+ 538:Src/profile_joint.c **** 											vel_tmp_f = 0.0f;
+ 785              		.loc 1 538 0
+ 786 05b6 0023     		movs	r3, #0
+ 787 05b8 0B4A     		ldr	r2, .L162+20
+ 788 05ba 1360     		str	r3, [r2]	@ float
+ 539:Src/profile_joint.c **** 											t1_tmp_f = 0.0f;
+ 789              		.loc 1 539 0
+ 790 05bc 294A     		ldr	r2, .L162+144
+ 791 05be 1360     		str	r3, [r2]	@ float
+ 540:Src/profile_joint.c **** 											flag_posReg_strengthen = 1;
+ 792              		.loc 1 540 0
+ 793 05c0 294A     		ldr	r2, .L162+148
+ 794 05c2 1360     		str	r3, [r2]	@ float
+ 541:Src/profile_joint.c **** 							}
+ 795              		.loc 1 541 0
+ 796 05c4 294B     		ldr	r3, .L162+152
+ 797 05c6 0122     		movs	r2, #1
+ 798 05c8 1A70     		strb	r2, [r3]
+ 799              	.L48:
+ 622:Src/profile_joint.c **** 	}
+ 800              		.loc 1 622 0
+ 801 05ca 044B     		ldr	r3, .L162+8
+ 802 05cc 1A68     		ldr	r2, [r3]
+ 803 05ce 024B     		ldr	r3, .L162+4
+ 804 05d0 1A60     		str	r2, [r3]
+ 805 05d2 68E5     		b	.L100
+ 806              	.L163:
+ 807              		.align	2
+ 808              	.L162:
+ 809 05d4 00000000 		.word	g_CmdMap
+ 810 05d8 00000000 		.word	.LANCHOR3
+ 811 05dc 00000000 		.word	.LANCHOR6
+ 812 05e0 00000000 		.word	.LANCHOR19
+ 813 05e4 00000000 		.word	.LANCHOR0
+ 814 05e8 00000000 		.word	.LANCHOR11
+ 815 05ec 00000000 		.word	.LANCHOR9
+ 816 05f0 00000000 		.word	.LANCHOR20
+ 817 05f4 00000000 		.word	.LANCHOR18
+ 818 05f8 00000000 		.word	.LANCHOR7
+ 819 05fc 00000000 		.word	.LANCHOR8
+ 820 0600 00000000 		.word	.LANCHOR21
+ 821 0604 00000000 		.word	.LANCHOR22
+ 822 0608 00000000 		.word	.LANCHOR23
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 28
+
+
+ 823 060c CDCC4CBE 		.word	-1102263091
+ 824 0610 00000000 		.word	.LANCHOR24
+ 825 0614 00000000 		.word	.LANCHOR25
+ 826 0618 000080BF 		.word	-1082130432
+ 827 061c CDCC4C3E 		.word	1045220557
+ 828 0620 00000000 		.word	.LANCHOR1
+ 829 0624 00000000 		.word	.LANCHOR2
+ 830 0628 00000000 		.word	.LANCHOR26
+ 831 062c 00000000 		.word	.LANCHOR27
+ 832 0630 00000000 		.word	.LANCHOR28
+ 833 0634 00000000 		.word	.LANCHOR29
+ 834 0638 6F128339 		.word	964891247
+ 835 063c 00000000 		.word	.LANCHOR30
+ 836 0640 00000000 		.word	.LANCHOR31
+ 837 0644 00000000 		.word	.LANCHOR32
+ 838 0648 00000000 		.word	.LANCHOR4
+ 839 064c 00000000 		.word	.LANCHOR33
+ 840 0650 00000000 		.word	.LANCHOR34
+ 841 0654 00000000 		.word	.LANCHOR35
+ 842 0658 00000000 		.word	.LANCHOR36
+ 843 065c 00000000 		.word	.LANCHOR37
+ 844 0660 00000000 		.word	.LANCHOR10
+ 845 0664 00000000 		.word	.LANCHOR43
+ 846 0668 00000000 		.word	.LANCHOR44
+ 847 066c 00000000 		.word	.LANCHOR40
+ 848              	.L129:
+ 199:Src/profile_joint.c **** 												{
+ 849              		.loc 1 199 0
+ 850 0670 9D4B     		ldr	r3, .L164
+ 851 0672 93ED007A 		vldr.32	s14, [r3]
+ 852 0676 9D4B     		ldr	r3, .L164+4
+ 853 0678 D3ED007A 		vldr.32	s15, [r3]
+ 854 067c B4EEE77A 		vcmpe.f32	s14, s15
+ 855 0680 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 856 0684 21DC     		bgt	.L147
+ 215:Src/profile_joint.c **** 													t1_f = 2.0f*g_pos_tag_dlt_abs_f/v0_abs;
+ 857              		.loc 1 215 0
+ 858 0686 9A4B     		ldr	r3, .L164+8
+ 859 0688 0122     		movs	r2, #1
+ 860 068a 1A70     		strb	r2, [r3]
+ 216:Src/profile_joint.c **** 													acc_1_sections = 	v0_abs/t1_f;
+ 861              		.loc 1 216 0
+ 862 068c 964B     		ldr	r3, .L164
+ 863 068e D3ED007A 		vldr.32	s15, [r3]
+ 864 0692 77EEA77A 		vadd.f32	s15, s15, s15
+ 865 0696 974A     		ldr	r2, .L164+12
+ 866 0698 D2ED006A 		vldr.32	s13, [r2]
+ 867 069c 87EEA67A 		vdiv.f32	s14, s15, s13
+ 868 06a0 954B     		ldr	r3, .L164+16
+ 869 06a2 83ED007A 		vstr.32	s14, [r3]
+ 217:Src/profile_joint.c **** 													p1_f = (float)g_pos_tag;
+ 870              		.loc 1 217 0
+ 871 06a6 D2ED006A 		vldr.32	s13, [r2]
+ 872 06aa 93ED007A 		vldr.32	s14, [r3]
+ 873 06ae C6EE877A 		vdiv.f32	s15, s13, s14
+ 874 06b2 924B     		ldr	r3, .L164+20
+ 875 06b4 C3ED007A 		vstr.32	s15, [r3]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 29
+
+
+ 218:Src/profile_joint.c **** 												}
+ 876              		.loc 1 218 0
+ 877 06b8 914B     		ldr	r3, .L164+24
+ 878 06ba D3ED007A 		vldr.32	s15, [r3]	@ int
+ 879 06be F8EEE77A 		vcvt.f32.s32	s15, s15
+ 880 06c2 904B     		ldr	r3, .L164+28
+ 881 06c4 C3ED007A 		vstr.32	s15, [r3]
+ 882 06c8 6BE7     		b	.L17
+ 883              	.L147:
+ 201:Src/profile_joint.c **** 													vp_abs = sqrtl(g_pos_tag_dlt_abs_f*acc_set_f_umPs2+0.5f*v0_abs*v0_abs);
+ 884              		.loc 1 201 0
+ 885 06ca 894B     		ldr	r3, .L164+8
+ 886 06cc 0222     		movs	r2, #2
+ 887 06ce 1A70     		strb	r2, [r3]
+ 202:Src/profile_joint.c **** 													t1_f = (vp_abs-v0_abs)/acc_set_f_umPs2;
+ 888              		.loc 1 202 0
+ 889 06d0 854B     		ldr	r3, .L164
+ 890 06d2 93ED007A 		vldr.32	s14, [r3]
+ 891 06d6 8C4D     		ldr	r5, .L164+32
+ 892 06d8 D5ED007A 		vldr.32	s15, [r5]
+ 893 06dc 27EE277A 		vmul.f32	s14, s14, s15
+ 894 06e0 844C     		ldr	r4, .L164+12
+ 895 06e2 D4ED007A 		vldr.32	s15, [r4]
+ 896 06e6 F6EE006A 		vmov.f32	s13, #5.0e-1
+ 897 06ea 67EEA67A 		vmul.f32	s15, s15, s13
+ 898 06ee D4ED006A 		vldr.32	s13, [r4]
+ 899 06f2 67EEA67A 		vmul.f32	s15, s15, s13
+ 900 06f6 77EE277A 		vadd.f32	s15, s14, s15
+ 901 06fa 17EE900A 		vmov	r0, s15
+ 902 06fe FFF7FEFF 		bl	__aeabi_f2d
+ 903              	.LVL0:
+ 904 0702 41EC100B 		vmov	d0, r0, r1
+ 905 0706 FFF7FEFF 		bl	sqrtl
+ 906              	.LVL1:
+ 907 070a 51EC100B 		vmov	r0, r1, d0
+ 908 070e FFF7FEFF 		bl	__aeabi_d2f
+ 909              	.LVL2:
+ 910 0712 7E4B     		ldr	r3, .L164+36
+ 911 0714 1860     		str	r0, [r3]	@ float
+ 203:Src/profile_joint.c **** 													t2_f = vp_abs/acc_set_f_umPs2+t1_f;
+ 912              		.loc 1 203 0
+ 913 0716 D3ED007A 		vldr.32	s15, [r3]
+ 914 071a 94ED007A 		vldr.32	s14, [r4]
+ 915 071e 77EEC77A 		vsub.f32	s15, s15, s14
+ 916 0722 D5ED006A 		vldr.32	s13, [r5]
+ 917 0726 87EEA67A 		vdiv.f32	s14, s15, s13
+ 918 072a 734A     		ldr	r2, .L164+16
+ 919 072c 82ED007A 		vstr.32	s14, [r2]
+ 204:Src/profile_joint.c **** 													#if (PLAN_TYPE_SET==PLAN_STATIC)//
+ 920              		.loc 1 204 0
+ 921 0730 D3ED006A 		vldr.32	s13, [r3]
+ 922 0734 95ED007A 		vldr.32	s14, [r5]
+ 923 0738 C6EE877A 		vdiv.f32	s15, s13, s14
+ 924 073c 92ED007A 		vldr.32	s14, [r2]
+ 925 0740 77EE877A 		vadd.f32	s15, s15, s14
+ 926 0744 724A     		ldr	r2, .L164+40
+ 927 0746 C2ED007A 		vstr.32	s15, [r2]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 30
+
+
+ 209:Src/profile_joint.c **** 													#endif													
+ 928              		.loc 1 209 0
+ 929 074a D3ED007A 		vldr.32	s15, [r3]
+ 930 074e 93ED007A 		vldr.32	s14, [r3]
+ 931 0752 67EE877A 		vmul.f32	s15, s15, s14
+ 932 0756 94ED007A 		vldr.32	s14, [r4]
+ 933 075a D4ED006A 		vldr.32	s13, [r4]
+ 934 075e 27EE267A 		vmul.f32	s14, s14, s13
+ 935 0762 77EEC77A 		vsub.f32	s15, s15, s14
+ 936 0766 6B4B     		ldr	r3, .L164+44
+ 937 0768 93ED007A 		vldr.32	s14, [r3]
+ 938 076c 67EE877A 		vmul.f32	s15, s15, s14
+ 939 0770 95ED007A 		vldr.32	s14, [r5]
+ 940 0774 77EE076A 		vadd.f32	s13, s14, s14
+ 941 0778 87EEA67A 		vdiv.f32	s14, s15, s13
+ 942 077c 664A     		ldr	r2, .L164+48
+ 943 077e D2ED007A 		vldr.32	s15, [r2]	@ int
+ 944 0782 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 945 0786 77EE277A 		vadd.f32	s15, s14, s15
+ 946 078a 93ED007A 		vldr.32	s14, [r3]
+ 947 078e 634B     		ldr	r3, .L164+52
+ 948 0790 D3ED006A 		vldr.32	s13, [r3]
+ 949 0794 27EE267A 		vmul.f32	s14, s14, s13
+ 950 0798 77EEC77A 		vsub.f32	s15, s15, s14
+ 951 079c 594B     		ldr	r3, .L164+28
+ 952 079e C3ED007A 		vstr.32	s15, [r3]
+ 211:Src/profile_joint.c **** 												}
+ 953              		.loc 1 211 0
+ 954 07a2 574B     		ldr	r3, .L164+24
+ 955 07a4 D3ED007A 		vldr.32	s15, [r3]	@ int
+ 956 07a8 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 957 07ac 5C4B     		ldr	r3, .L164+56
+ 958 07ae C3ED007A 		vstr.32	s15, [r3]
+ 959 07b2 F6E6     		b	.L17
+ 960              	.L146:
+ 224:Src/profile_joint.c **** 											if(flag_profile_3_sections == 3)//Èý¶Î
+ 961              		.loc 1 224 0
+ 962 07b4 5B4B     		ldr	r3, .L164+60
+ 963 07b6 D3ED007A 		vldr.32	s15, [r3]
+ 964 07ba 9FED5B7A 		vldr.32	s14, .L164+64
+ 965 07be 77EE877A 		vadd.f32	s15, s15, s14
+ 966 07c2 C3ED007A 		vstr.32	s15, [r3]
+ 225:Src/profile_joint.c **** 											{
+ 967              		.loc 1 225 0
+ 968 07c6 4A4B     		ldr	r3, .L164+8
+ 969 07c8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 970 07ca DBB2     		uxtb	r3, r3
+ 971 07cc 032B     		cmp	r3, #3
+ 972 07ce 2ED0     		beq	.L148
+ 355:Src/profile_joint.c **** 											{	
+ 973              		.loc 1 355 0
+ 974 07d0 474B     		ldr	r3, .L164+8
+ 975 07d2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 976 07d4 DBB2     		uxtb	r3, r3
+ 977 07d6 022B     		cmp	r3, #2
+ 978 07d8 00F08782 		beq	.L149
+ 478:Src/profile_joint.c **** 											{
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 31
+
+
+ 979              		.loc 1 478 0
+ 980 07dc 444B     		ldr	r3, .L164+8
+ 981 07de 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 982 07e0 DBB2     		uxtb	r3, r3
+ 983 07e2 012B     		cmp	r3, #1
+ 984 07e4 00F09A84 		beq	.L150
+ 508:Src/profile_joint.c **** 											{
+ 985              		.loc 1 508 0
+ 986 07e8 414B     		ldr	r3, .L164+8
+ 987 07ea 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 988 07ec 002B     		cmp	r3, #0
+ 989 07ee 7FF4ECAE 		bne	.L48
+ 510:Src/profile_joint.c **** 												{
+ 990              		.loc 1 510 0
+ 991 07f2 4C4B     		ldr	r3, .L164+60
+ 992 07f4 93ED007A 		vldr.32	s14, [r3]
+ 993 07f8 DFED4C7A 		vldr.32	s15, .L164+68
+ 994 07fc B4EEE77A 		vcmpe.f32	s14, s15
+ 995 0800 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 996 0804 40F12785 		bpl	.L137
+ 512:Src/profile_joint.c **** 													vel_ref_umPs =  0;// 1000.0f*g_pos_tag_dlt_f/(float)P_POS_REGULATOR_MS;
+ 997              		.loc 1 512 0
+ 998 0808 434B     		ldr	r3, .L164+48
+ 999 080a D3ED007A 		vldr.32	s15, [r3]	@ int
+ 1000 080e F8EEE77A 		vcvt.f32.s32	s15, s15
+ 1001 0812 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1002 0816 464B     		ldr	r3, .L164+72
+ 1003 0818 C3ED007A 		vstr.32	s15, [r3]	@ int
+ 513:Src/profile_joint.c **** 													acc_ref_umPs2 = 0;
+ 1004              		.loc 1 513 0
+ 1005 081c 0023     		movs	r3, #0
+ 1006 081e 454A     		ldr	r2, .L164+76
+ 1007 0820 1360     		str	r3, [r2]
+ 514:Src/profile_joint.c **** 													flag_posReg_strengthen = 1;
+ 1008              		.loc 1 514 0
+ 1009 0822 454A     		ldr	r2, .L164+80
+ 1010 0824 1360     		str	r3, [r2]
+ 515:Src/profile_joint.c **** 												}
+ 1011              		.loc 1 515 0
+ 1012 0826 454B     		ldr	r3, .L164+84
+ 1013 0828 0122     		movs	r2, #1
+ 1014 082a 1A70     		strb	r2, [r3]
+ 1015 082c CDE6     		b	.L48
+ 1016              	.L148:
+ 265:Src/profile_joint.c **** 													{
+ 1017              		.loc 1 265 0
+ 1018 082e 394B     		ldr	r3, .L164+44
+ 1019 0830 D3ED007A 		vldr.32	s15, [r3]
+ 1020 0834 F5EEC07A 		vcmpe.f32	s15, #0
+ 1021 0838 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1022 083c 0BDD     		ble	.L36
+ 265:Src/profile_joint.c **** 													{
+ 1023              		.loc 1 265 0 is_stmt 0 discriminator 1
+ 1024 083e 384B     		ldr	r3, .L164+56
+ 1025 0840 D3ED007A 		vldr.32	s15, [r3]
+ 1026 0844 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1027 0848 3D4B     		ldr	r3, .L164+88
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 32
+
+
+ 1028 084a 1B68     		ldr	r3, [r3]
+ 1029 084c 17EE902A 		vmov	r2, s15	@ int
+ 1030 0850 9A42     		cmp	r2, r3
+ 1031 0852 00F38980 		bgt	.L38
+ 1032              	.L36:
+ 265:Src/profile_joint.c **** 													{
+ 1033              		.loc 1 265 0 discriminator 3
+ 1034 0856 2F4B     		ldr	r3, .L164+44
+ 1035 0858 D3ED007A 		vldr.32	s15, [r3]
+ 1036 085c F5EEC07A 		vcmpe.f32	s15, #0
+ 1037 0860 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1038 0864 74D4     		bmi	.L151
+ 1039              	.L39:
+ 292:Src/profile_joint.c **** 													{
+ 1040              		.loc 1 292 0 is_stmt 1
+ 1041 0866 2F4B     		ldr	r3, .L164+60
+ 1042 0868 93ED007A 		vldr.32	s14, [r3]
+ 1043 086c 354B     		ldr	r3, .L164+92
+ 1044 086e D3ED007A 		vldr.32	s15, [r3]
+ 1045 0872 B4EEE77A 		vcmpe.f32	s14, s15
+ 1046 0876 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1047 087a 40F11182 		bpl	.L132
+ 294:Src/profile_joint.c **** 														{
+ 1048              		.loc 1 294 0
+ 1049 087e 254B     		ldr	r3, .L164+44
+ 1050 0880 D3ED007A 		vldr.32	s15, [r3]
+ 1051 0884 F5EEC07A 		vcmpe.f32	s15, #0
+ 1052 0888 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1053 088c 0CDD     		ble	.L51
+ 294:Src/profile_joint.c **** 														{
+ 1054              		.loc 1 294 0 is_stmt 0 discriminator 1
+ 1055 088e 2E4B     		ldr	r3, .L164+96
+ 1056 0890 D3ED007A 		vldr.32	s15, [r3]
+ 1057 0894 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1058 0898 17EE903A 		vmov	r3, s15	@ int
+ 1059 089c 643B     		subs	r3, r3, #100
+ 1060 089e 284A     		ldr	r2, .L164+88
+ 1061 08a0 1268     		ldr	r2, [r2]
+ 1062 08a2 9342     		cmp	r3, r2
+ 1063 08a4 00F34081 		bgt	.L53
+ 1064              	.L51:
+ 294:Src/profile_joint.c **** 														{
+ 1065              		.loc 1 294 0 discriminator 3
+ 1066 08a8 1A4B     		ldr	r3, .L164+44
+ 1067 08aa D3ED007A 		vldr.32	s15, [r3]
+ 1068 08ae F5EEC07A 		vcmpe.f32	s15, #0
+ 1069 08b2 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1070 08b6 00F12A81 		bmi	.L152
+ 1071              	.L54:
+ 326:Src/profile_joint.c **** 															pos_ref_um = p3_f;
+ 1072              		.loc 1 326 0 is_stmt 1
+ 1073 08ba 0023     		movs	r3, #0
+ 1074 08bc 234A     		ldr	r2, .L164+100
+ 1075 08be 5364     		str	r3, [r2, #68]
+ 327:Src/profile_joint.c **** 															vel_ref_umPs = 0;
+ 1076              		.loc 1 327 0
+ 1077 08c0 214A     		ldr	r2, .L164+96
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 33
+
+
+ 1078 08c2 D2ED007A 		vldr.32	s15, [r2]
+ 1079 08c6 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1080 08ca 194A     		ldr	r2, .L164+72
+ 1081 08cc C2ED007A 		vstr.32	s15, [r2]	@ int
+ 328:Src/profile_joint.c **** 															acc_ref_umPs2 = 0;
+ 1082              		.loc 1 328 0
+ 1083 08d0 184A     		ldr	r2, .L164+76
+ 1084 08d2 1360     		str	r3, [r2]
+ 329:Src/profile_joint.c **** 														//	Profile_moving = 0;
+ 1085              		.loc 1 329 0
+ 1086 08d4 184A     		ldr	r2, .L164+80
+ 1087 08d6 1360     		str	r3, [r2]
+ 331:Src/profile_joint.c **** 															flag_posReg_strengthen = 1;
+ 1088              		.loc 1 331 0
+ 1089 08d8 1A4B     		ldr	r3, .L164+92
+ 1090 08da 1A68     		ldr	r2, [r3]	@ float
+ 1091 08dc 114B     		ldr	r3, .L164+60
+ 1092 08de 1A60     		str	r2, [r3]	@ float
+ 332:Src/profile_joint.c **** 														}
+ 1093              		.loc 1 332 0
+ 1094 08e0 164B     		ldr	r3, .L164+84
+ 1095 08e2 0122     		movs	r2, #1
+ 1096 08e4 1A70     		strb	r2, [r3]
+ 1097 08e6 70E6     		b	.L48
+ 1098              	.L165:
+ 1099              		.align	2
+ 1100              	.L164:
+ 1101 08e8 00000000 		.word	.LANCHOR22
+ 1102 08ec 00000000 		.word	.LANCHOR28
+ 1103 08f0 00000000 		.word	.LANCHOR31
+ 1104 08f4 00000000 		.word	.LANCHOR25
+ 1105 08f8 00000000 		.word	.LANCHOR35
+ 1106 08fc 00000000 		.word	.LANCHOR39
+ 1107 0900 00000000 		.word	.LANCHOR6
+ 1108 0904 00000000 		.word	.LANCHOR32
+ 1109 0908 00000000 		.word	.LANCHOR2
+ 1110 090c 00000000 		.word	.LANCHOR38
+ 1111 0910 00000000 		.word	.LANCHOR36
+ 1112 0914 00000000 		.word	.LANCHOR23
+ 1113 0918 00000000 		.word	.LANCHOR7
+ 1114 091c 00000000 		.word	.LANCHOR4
+ 1115 0920 00000000 		.word	.LANCHOR33
+ 1116 0924 00000000 		.word	.LANCHOR11
+ 1117 0928 6F128339 		.word	964891247
+ 1118 092c 6F120339 		.word	956502639
+ 1119 0930 00000000 		.word	.LANCHOR8
+ 1120 0934 00000000 		.word	.LANCHOR9
+ 1121 0938 00000000 		.word	.LANCHOR10
+ 1122 093c 00000000 		.word	.LANCHOR40
+ 1123 0940 00000000 		.word	.LANCHOR18
+ 1124 0944 00000000 		.word	.LANCHOR37
+ 1125 0948 00000000 		.word	.LANCHOR34
+ 1126 094c 00000000 		.word	pid_spd
+ 1127              	.L151:
+ 265:Src/profile_joint.c **** 													{
+ 1128              		.loc 1 265 0 discriminator 4
+ 1129 0950 C04B     		ldr	r3, .L166
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 34
+
+
+ 1130 0952 D3ED007A 		vldr.32	s15, [r3]
+ 1131 0956 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1132 095a BF4B     		ldr	r3, .L166+4
+ 1133 095c 1B68     		ldr	r3, [r3]
+ 1134 095e 17EE902A 		vmov	r2, s15	@ int
+ 1135 0962 9A42     		cmp	r2, r3
+ 1136 0964 BFF67FAF 		bge	.L39
+ 1137              	.L38:
+ 267:Src/profile_joint.c **** 														{
+ 1138              		.loc 1 267 0
+ 1139 0968 BC4B     		ldr	r3, .L166+8
+ 1140 096a 93ED007A 		vldr.32	s14, [r3]
+ 1141 096e BC4B     		ldr	r3, .L166+12
+ 1142 0970 D3ED007A 		vldr.32	s15, [r3]
+ 1143 0974 B4EEE77A 		vcmpe.f32	s14, s15
+ 1144 0978 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1145 097c 62D5     		bpl	.L131
+ 269:Src/profile_joint.c **** 															vel_ref_umPs = (s32)(dir_f*(acc_set_f_umPs2*tCnt_f+v0_abs));
+ 1146              		.loc 1 269 0
+ 1147 097e B94B     		ldr	r3, .L166+16
+ 1148 0980 D3ED007A 		vldr.32	s15, [r3]	@ int
+ 1149 0984 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 1150 0988 B748     		ldr	r0, .L166+20
+ 1151 098a 90ED007A 		vldr.32	s14, [r0]
+ 1152 098e B34B     		ldr	r3, .L166+8
+ 1153 0990 D3ED006A 		vldr.32	s13, [r3]
+ 1154 0994 27EE267A 		vmul.f32	s14, s14, s13
+ 1155 0998 B44A     		ldr	r2, .L166+24
+ 1156 099a D2ED006A 		vldr.32	s13, [r2]
+ 1157 099e 93ED006A 		vldr.32	s12, [r3]
+ 1158 09a2 66EE866A 		vmul.f32	s13, s13, s12
+ 1159 09a6 93ED006A 		vldr.32	s12, [r3]
+ 1160 09aa 66EE866A 		vmul.f32	s13, s13, s12
+ 1161 09ae B6EE006A 		vmov.f32	s12, #5.0e-1
+ 1162 09b2 66EE866A 		vmul.f32	s13, s13, s12
+ 1163 09b6 37EE267A 		vadd.f32	s14, s14, s13
+ 1164 09ba AD49     		ldr	r1, .L166+28
+ 1165 09bc D1ED006A 		vldr.32	s13, [r1]
+ 1166 09c0 27EE267A 		vmul.f32	s14, s14, s13
+ 1167 09c4 77EE877A 		vadd.f32	s15, s15, s14
+ 1168 09c8 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1169 09cc A94C     		ldr	r4, .L166+32
+ 1170 09ce C4ED007A 		vstr.32	s15, [r4]	@ int
+ 270:Src/profile_joint.c **** 															acc_ref_umPs2 = dir_f*acc_set_f_umPs2/8000;
+ 1171              		.loc 1 270 0
+ 1172 09d2 D2ED007A 		vldr.32	s15, [r2]
+ 1173 09d6 93ED007A 		vldr.32	s14, [r3]
+ 1174 09da 67EE877A 		vmul.f32	s15, s15, s14
+ 1175 09de 90ED007A 		vldr.32	s14, [r0]
+ 1176 09e2 77EE877A 		vadd.f32	s15, s15, s14
+ 1177 09e6 91ED007A 		vldr.32	s14, [r1]
+ 1178 09ea 67EE877A 		vmul.f32	s15, s15, s14
+ 1179 09ee FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1180 09f2 A14B     		ldr	r3, .L166+36
+ 1181 09f4 C3ED007A 		vstr.32	s15, [r3]	@ int
+ 271:Src/profile_joint.c **** 															flag_posReg_strengthen = 0;
+ 1182              		.loc 1 271 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 35
+
+
+ 1183 09f8 91ED007A 		vldr.32	s14, [r1]
+ 1184 09fc D2ED007A 		vldr.32	s15, [r2]
+ 1185 0a00 27EE277A 		vmul.f32	s14, s14, s15
+ 1186 0a04 DFED9D6A 		vldr.32	s13, .L166+40
+ 1187 0a08 C7EE267A 		vdiv.f32	s15, s14, s13
+ 1188 0a0c FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1189 0a10 9B4B     		ldr	r3, .L166+44
+ 1190 0a12 C3ED007A 		vstr.32	s15, [r3]	@ int
+ 272:Src/profile_joint.c **** 														}
+ 1191              		.loc 1 272 0
+ 1192 0a16 9B4B     		ldr	r3, .L166+48
+ 1193 0a18 0022     		movs	r2, #0
+ 1194 0a1a 1A70     		strb	r2, [r3]
+ 1195              	.L43:
+ 289:Src/profile_joint.c **** 														t3_f = vel_max_f_umPs/acc_set_f_umPs2+t_at_P_Dec_f;
+ 1196              		.loc 1 289 0
+ 1197 0a1c 8F4B     		ldr	r3, .L166+8
+ 1198 0a1e 1A68     		ldr	r2, [r3]	@ float
+ 1199 0a20 994B     		ldr	r3, .L166+52
+ 1200 0a22 1A60     		str	r2, [r3]	@ float
+ 290:Src/profile_joint.c **** 													}
+ 1201              		.loc 1 290 0
+ 1202 0a24 994A     		ldr	r2, .L166+56
+ 1203 0a26 D2ED006A 		vldr.32	s13, [r2]
+ 1204 0a2a 904A     		ldr	r2, .L166+24
+ 1205 0a2c 92ED007A 		vldr.32	s14, [r2]
+ 1206 0a30 C6EE877A 		vdiv.f32	s15, s13, s14
+ 1207 0a34 93ED007A 		vldr.32	s14, [r3]
+ 1208 0a38 77EE877A 		vadd.f32	s15, s15, s14
+ 1209 0a3c 944B     		ldr	r3, .L166+60
+ 1210 0a3e C3ED007A 		vstr.32	s15, [r3]
+ 1211 0a42 C2E5     		b	.L48
+ 1212              	.L131:
+ 276:Src/profile_joint.c **** 															if(dir_f>0.0f && pos_act_um>(s32)p2_f)
+ 1213              		.loc 1 276 0
+ 1214 0a44 8A4B     		ldr	r3, .L166+28
+ 1215 0a46 D3ED007A 		vldr.32	s15, [r3]
+ 1216 0a4a 904A     		ldr	r2, .L166+56
+ 1217 0a4c 92ED007A 		vldr.32	s14, [r2]
+ 1218 0a50 67EE877A 		vmul.f32	s15, s15, s14
+ 1219 0a54 814A     		ldr	r2, .L166+8
+ 1220 0a56 92ED007A 		vldr.32	s14, [r2]
+ 1221 0a5a 814A     		ldr	r2, .L166+12
+ 1222 0a5c D2ED006A 		vldr.32	s13, [r2]
+ 1223 0a60 37EE667A 		vsub.f32	s14, s14, s13
+ 1224 0a64 67EE877A 		vmul.f32	s15, s15, s14
+ 1225 0a68 8A4A     		ldr	r2, .L166+64
+ 1226 0a6a 92ED007A 		vldr.32	s14, [r2]
+ 1227 0a6e 77EE877A 		vadd.f32	s15, s15, s14
+ 1228 0a72 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1229 0a76 7F4A     		ldr	r2, .L166+32
+ 1230 0a78 C2ED007A 		vstr.32	s15, [r2]	@ int
+ 277:Src/profile_joint.c **** 															{
+ 1231              		.loc 1 277 0
+ 1232 0a7c D3ED007A 		vldr.32	s15, [r3]
+ 1233 0a80 F5EEC07A 		vcmpe.f32	s15, #0
+ 1234 0a84 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 36
+
+
+ 1235 0a88 12DD     		ble	.L44
+ 277:Src/profile_joint.c **** 															{
+ 1236              		.loc 1 277 0 is_stmt 0 discriminator 1
+ 1237 0a8a 724B     		ldr	r3, .L166
+ 1238 0a8c D3ED007A 		vldr.32	s15, [r3]
+ 1239 0a90 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1240 0a94 704B     		ldr	r3, .L166+4
+ 1241 0a96 1B68     		ldr	r3, [r3]
+ 1242 0a98 17EE902A 		vmov	r2, s15	@ int
+ 1243 0a9c 9A42     		cmp	r2, r3
+ 1244 0a9e 07DA     		bge	.L44
+ 279:Src/profile_joint.c **** 															}
+ 1245              		.loc 1 279 0 is_stmt 1
+ 1246 0aa0 6C4B     		ldr	r3, .L166
+ 1247 0aa2 D3ED007A 		vldr.32	s15, [r3]
+ 1248 0aa6 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1249 0aaa 724B     		ldr	r3, .L166+32
+ 1250 0aac C3ED007A 		vstr.32	s15, [r3]	@ int
+ 1251              	.L44:
+ 281:Src/profile_joint.c **** 															{
+ 1252              		.loc 1 281 0
+ 1253 0ab0 6F4B     		ldr	r3, .L166+28
+ 1254 0ab2 D3ED007A 		vldr.32	s15, [r3]
+ 1255 0ab6 F5EEC07A 		vcmpe.f32	s15, #0
+ 1256 0aba F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1257 0abe 12D4     		bmi	.L153
+ 1258              	.L46:
+ 285:Src/profile_joint.c **** 															acc_ref_umPs2 = 0;
+ 1259              		.loc 1 285 0
+ 1260 0ac0 6B4B     		ldr	r3, .L166+28
+ 1261 0ac2 D3ED007A 		vldr.32	s15, [r3]
+ 1262 0ac6 714B     		ldr	r3, .L166+56
+ 1263 0ac8 93ED007A 		vldr.32	s14, [r3]
+ 1264 0acc 67EE877A 		vmul.f32	s15, s15, s14
+ 1265 0ad0 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1266 0ad4 684B     		ldr	r3, .L166+36
+ 1267 0ad6 C3ED007A 		vstr.32	s15, [r3]	@ int
+ 286:Src/profile_joint.c **** 															flag_posReg_strengthen = 0;
+ 1268              		.loc 1 286 0
+ 1269 0ada 0023     		movs	r3, #0
+ 1270 0adc 684A     		ldr	r2, .L166+44
+ 1271 0ade 1360     		str	r3, [r2]
+ 287:Src/profile_joint.c **** 														}
+ 1272              		.loc 1 287 0
+ 1273 0ae0 684A     		ldr	r2, .L166+48
+ 1274 0ae2 1370     		strb	r3, [r2]
+ 1275 0ae4 9AE7     		b	.L43
+ 1276              	.L153:
+ 281:Src/profile_joint.c **** 															{
+ 1277              		.loc 1 281 0 discriminator 1
+ 1278 0ae6 5B4B     		ldr	r3, .L166
+ 1279 0ae8 D3ED007A 		vldr.32	s15, [r3]
+ 1280 0aec FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1281 0af0 594B     		ldr	r3, .L166+4
+ 1282 0af2 1B68     		ldr	r3, [r3]
+ 1283 0af4 17EE902A 		vmov	r2, s15	@ int
+ 1284 0af8 9A42     		cmp	r2, r3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 37
+
+
+ 1285 0afa E1DD     		ble	.L46
+ 283:Src/profile_joint.c **** 															}
+ 1286              		.loc 1 283 0
+ 1287 0afc 554B     		ldr	r3, .L166
+ 1288 0afe D3ED007A 		vldr.32	s15, [r3]
+ 1289 0b02 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1290 0b06 5B4B     		ldr	r3, .L166+32
+ 1291 0b08 C3ED007A 		vstr.32	s15, [r3]	@ int
+ 1292 0b0c D8E7     		b	.L46
+ 1293              	.L152:
+ 294:Src/profile_joint.c **** 														{
+ 1294              		.loc 1 294 0 discriminator 4
+ 1295 0b0e 624B     		ldr	r3, .L166+68
+ 1296 0b10 D3ED007A 		vldr.32	s15, [r3]
+ 1297 0b14 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1298 0b18 17EE903A 		vmov	r3, s15	@ int
+ 1299 0b1c 6433     		adds	r3, r3, #100
+ 1300 0b1e 4E4A     		ldr	r2, .L166+4
+ 1301 0b20 1268     		ldr	r2, [r2]
+ 1302 0b22 9342     		cmp	r3, r2
+ 1303 0b24 BFF6C9AE 		bge	.L54
+ 1304              	.L53:
+ 296:Src/profile_joint.c **** 															vel_ref_umPs = dir_f*vel_max_f_umPs-dir_f*acc_set_f_umPs2*(tCnt_f-t_at_P_Dec_f);
+ 1305              		.loc 1 296 0
+ 1306 0b28 514B     		ldr	r3, .L166+28
+ 1307 0b2a D3ED007A 		vldr.32	s15, [r3]
+ 1308 0b2e 574C     		ldr	r4, .L166+56
+ 1309 0b30 94ED007A 		vldr.32	s14, [r4]
+ 1310 0b34 67EE877A 		vmul.f32	s15, s15, s14
+ 1311 0b38 4849     		ldr	r1, .L166+8
+ 1312 0b3a 91ED007A 		vldr.32	s14, [r1]
+ 1313 0b3e 524A     		ldr	r2, .L166+52
+ 1314 0b40 D2ED006A 		vldr.32	s13, [r2]
+ 1315 0b44 37EE667A 		vsub.f32	s14, s14, s13
+ 1316 0b48 67EE877A 		vmul.f32	s15, s15, s14
+ 1317 0b4c 4148     		ldr	r0, .L166
+ 1318 0b4e 90ED007A 		vldr.32	s14, [r0]
+ 1319 0b52 77EE877A 		vadd.f32	s15, s15, s14
+ 1320 0b56 93ED007A 		vldr.32	s14, [r3]
+ 1321 0b5a 4448     		ldr	r0, .L166+24
+ 1322 0b5c D0ED006A 		vldr.32	s13, [r0]
+ 1323 0b60 27EE267A 		vmul.f32	s14, s14, s13
+ 1324 0b64 D1ED006A 		vldr.32	s13, [r1]
+ 1325 0b68 92ED006A 		vldr.32	s12, [r2]
+ 1326 0b6c 76EEC66A 		vsub.f32	s13, s13, s12
+ 1327 0b70 27EE267A 		vmul.f32	s14, s14, s13
+ 1328 0b74 D1ED006A 		vldr.32	s13, [r1]
+ 1329 0b78 92ED006A 		vldr.32	s12, [r2]
+ 1330 0b7c 76EEC66A 		vsub.f32	s13, s13, s12
+ 1331 0b80 27EE267A 		vmul.f32	s14, s14, s13
+ 1332 0b84 F6EE006A 		vmov.f32	s13, #5.0e-1
+ 1333 0b88 27EE267A 		vmul.f32	s14, s14, s13
+ 1334 0b8c 77EEC77A 		vsub.f32	s15, s15, s14
+ 1335 0b90 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1336 0b94 374D     		ldr	r5, .L166+32
+ 1337 0b96 C5ED007A 		vstr.32	s15, [r5]	@ int
+ 297:Src/profile_joint.c **** 															acc_ref_umPs2 = -1*dir_f*acc_set_f_umPs2/8000;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 38
+
+
+ 1338              		.loc 1 297 0
+ 1339 0b9a D3ED007A 		vldr.32	s15, [r3]
+ 1340 0b9e 94ED007A 		vldr.32	s14, [r4]
+ 1341 0ba2 67EE877A 		vmul.f32	s15, s15, s14
+ 1342 0ba6 93ED007A 		vldr.32	s14, [r3]
+ 1343 0baa D0ED006A 		vldr.32	s13, [r0]
+ 1344 0bae 27EE267A 		vmul.f32	s14, s14, s13
+ 1345 0bb2 D1ED006A 		vldr.32	s13, [r1]
+ 1346 0bb6 92ED006A 		vldr.32	s12, [r2]
+ 1347 0bba 76EEC66A 		vsub.f32	s13, s13, s12
+ 1348 0bbe 27EE267A 		vmul.f32	s14, s14, s13
+ 1349 0bc2 77EEC77A 		vsub.f32	s15, s15, s14
+ 1350 0bc6 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1351 0bca 2B4A     		ldr	r2, .L166+36
+ 1352 0bcc C2ED007A 		vstr.32	s15, [r2]	@ int
+ 298:Src/profile_joint.c **** 															flag_posReg_strengthen = 0;
+ 1353              		.loc 1 298 0
+ 1354 0bd0 93ED007A 		vldr.32	s14, [r3]
+ 1355 0bd4 D0ED007A 		vldr.32	s15, [r0]
+ 1356 0bd8 27EE677A 		vnmul.f32	s14, s14, s15
+ 1357 0bdc DFED276A 		vldr.32	s13, .L166+40
+ 1358 0be0 C7EE267A 		vdiv.f32	s15, s14, s13
+ 1359 0be4 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1360 0be8 254A     		ldr	r2, .L166+44
+ 1361 0bea C2ED007A 		vstr.32	s15, [r2]	@ int
+ 299:Src/profile_joint.c **** 															
+ 1362              		.loc 1 299 0
+ 1363 0bee 254A     		ldr	r2, .L166+48
+ 1364 0bf0 0021     		movs	r1, #0
+ 1365 0bf2 1170     		strb	r1, [r2]
+ 301:Src/profile_joint.c **** 															{
+ 1366              		.loc 1 301 0
+ 1367 0bf4 D3ED007A 		vldr.32	s15, [r3]
+ 1368 0bf8 F5EEC07A 		vcmpe.f32	s15, #0
+ 1369 0bfc F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1370 0c00 13DD     		ble	.L133
+ 303:Src/profile_joint.c **** 																{
+ 1371              		.loc 1 303 0
+ 1372 0c02 1D4B     		ldr	r3, .L166+36
+ 1373 0c04 1B68     		ldr	r3, [r3]
+ 1374 0c06 8B42     		cmp	r3, r1
+ 1375 0c08 BFF6DFAC 		bge	.L48
+ 305:Src/profile_joint.c **** 																	acc_ref_umPs2 = 0;
+ 1376              		.loc 1 305 0
+ 1377 0c0c 0B46     		mov	r3, r1
+ 1378 0c0e 1A4A     		ldr	r2, .L166+36
+ 1379 0c10 1160     		str	r1, [r2]
+ 306:Src/profile_joint.c **** 																	tCnt_f = t3_f;
+ 1380              		.loc 1 306 0
+ 1381 0c12 1B4A     		ldr	r2, .L166+44
+ 1382 0c14 1160     		str	r1, [r2]
+ 307:Src/profile_joint.c **** 																	pid_spd.integral = 0;
+ 1383              		.loc 1 307 0
+ 1384 0c16 1E4A     		ldr	r2, .L166+60
+ 1385 0c18 1168     		ldr	r1, [r2]	@ float
+ 1386 0c1a 104A     		ldr	r2, .L166+8
+ 1387 0c1c 1160     		str	r1, [r2]	@ float
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 39
+
+
+ 308:Src/profile_joint.c **** 																	flag_posReg_strengthen = 1;
+ 1388              		.loc 1 308 0
+ 1389 0c1e 1F4A     		ldr	r2, .L166+72
+ 1390 0c20 5364     		str	r3, [r2, #68]
+ 309:Src/profile_joint.c **** 																}
+ 1391              		.loc 1 309 0
+ 1392 0c22 184B     		ldr	r3, .L166+48
+ 1393 0c24 0122     		movs	r2, #1
+ 1394 0c26 1A70     		strb	r2, [r3]
+ 1395 0c28 CFE4     		b	.L48
+ 1396              	.L133:
+ 314:Src/profile_joint.c **** 																{
+ 1397              		.loc 1 314 0
+ 1398 0c2a 134B     		ldr	r3, .L166+36
+ 1399 0c2c 1B68     		ldr	r3, [r3]
+ 1400 0c2e 002B     		cmp	r3, #0
+ 1401 0c30 7FF7CBAC 		ble	.L48
+ 316:Src/profile_joint.c **** 																	acc_ref_umPs2 = 0;
+ 1402              		.loc 1 316 0
+ 1403 0c34 0023     		movs	r3, #0
+ 1404 0c36 104A     		ldr	r2, .L166+36
+ 1405 0c38 1360     		str	r3, [r2]
+ 317:Src/profile_joint.c **** 																	tCnt_f = t3_f;
+ 1406              		.loc 1 317 0
+ 1407 0c3a 114A     		ldr	r2, .L166+44
+ 1408 0c3c 1360     		str	r3, [r2]
+ 318:Src/profile_joint.c **** 																	pid_spd.integral = 0;
+ 1409              		.loc 1 318 0
+ 1410 0c3e 144A     		ldr	r2, .L166+60
+ 1411 0c40 1168     		ldr	r1, [r2]	@ float
+ 1412 0c42 064A     		ldr	r2, .L166+8
+ 1413 0c44 1160     		str	r1, [r2]	@ float
+ 319:Src/profile_joint.c **** 																	flag_posReg_strengthen = 1;
+ 1414              		.loc 1 319 0
+ 1415 0c46 154A     		ldr	r2, .L166+72
+ 1416 0c48 5364     		str	r3, [r2, #68]
+ 320:Src/profile_joint.c **** 																}
+ 1417              		.loc 1 320 0
+ 1418 0c4a 0E4B     		ldr	r3, .L166+48
+ 1419 0c4c 0122     		movs	r2, #1
+ 1420 0c4e 1A70     		strb	r2, [r3]
+ 1421 0c50 BBE4     		b	.L48
+ 1422              	.L167:
+ 1423 0c52 00BF     		.align	2
+ 1424              	.L166:
+ 1425 0c54 00000000 		.word	.LANCHOR33
+ 1426 0c58 00000000 		.word	.LANCHOR18
+ 1427 0c5c 00000000 		.word	.LANCHOR11
+ 1428 0c60 00000000 		.word	.LANCHOR35
+ 1429 0c64 00000000 		.word	.LANCHOR7
+ 1430 0c68 00000000 		.word	.LANCHOR25
+ 1431 0c6c 00000000 		.word	.LANCHOR2
+ 1432 0c70 00000000 		.word	.LANCHOR23
+ 1433 0c74 00000000 		.word	.LANCHOR8
+ 1434 0c78 00000000 		.word	.LANCHOR9
+ 1435 0c7c 0000FA45 		.word	1174011904
+ 1436 0c80 00000000 		.word	.LANCHOR10
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 40
+
+
+ 1437 0c84 00000000 		.word	.LANCHOR40
+ 1438 0c88 00000000 		.word	.LANCHOR41
+ 1439 0c8c 00000000 		.word	.LANCHOR1
+ 1440 0c90 00000000 		.word	.LANCHOR37
+ 1441 0c94 00000000 		.word	.LANCHOR32
+ 1442 0c98 00000000 		.word	.LANCHOR34
+ 1443 0c9c 00000000 		.word	pid_spd
+ 1444              	.L132:
+ 338:Src/profile_joint.c **** 														pid_spd.integral = 0;
+ 1445              		.loc 1 338 0
+ 1446 0ca0 0122     		movs	r2, #1
+ 1447 0ca2 A24B     		ldr	r3, .L168
+ 1448 0ca4 1A60     		str	r2, [r3]
+ 339:Src/profile_joint.c **** 														pos_ref_um = p3_f;
+ 1449              		.loc 1 339 0
+ 1450 0ca6 0023     		movs	r3, #0
+ 1451 0ca8 A149     		ldr	r1, .L168+4
+ 1452 0caa 4B64     		str	r3, [r1, #68]
+ 340:Src/profile_joint.c **** 														vel_ref_umPs = 0;
+ 1453              		.loc 1 340 0
+ 1454 0cac A149     		ldr	r1, .L168+8
+ 1455 0cae D1ED007A 		vldr.32	s15, [r1]
+ 1456 0cb2 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1457 0cb6 A049     		ldr	r1, .L168+12
+ 1458 0cb8 C1ED007A 		vstr.32	s15, [r1]	@ int
+ 341:Src/profile_joint.c **** 														acc_ref_umPs2 = 0;
+ 1459              		.loc 1 341 0
+ 1460 0cbc 9F49     		ldr	r1, .L168+16
+ 1461 0cbe 0B60     		str	r3, [r1]
+ 342:Src/profile_joint.c **** 														Profile_moving = 0;
+ 1462              		.loc 1 342 0
+ 1463 0cc0 9F49     		ldr	r1, .L168+20
+ 1464 0cc2 0B60     		str	r3, [r1]
+ 343:Src/profile_joint.c **** 														tCnt_f = 0;
+ 1465              		.loc 1 343 0
+ 1466 0cc4 9F49     		ldr	r1, .L168+24
+ 1467 0cc6 0B60     		str	r3, [r1]
+ 344:Src/profile_joint.c **** 														flag_posReg_strengthen = 1;
+ 1468              		.loc 1 344 0
+ 1469 0cc8 9F4B     		ldr	r3, .L168+28
+ 1470 0cca 0021     		movs	r1, #0
+ 1471 0ccc 1960     		str	r1, [r3]	@ float
+ 345:Src/profile_joint.c **** 														if(status_Mode_POSITION_FORCE == 1) //Î»ÖÃ+Á¦¿ØÄ£Ê½ÏÂµÄ×´Ì¬»ú 0 Idle 1 Profile 2 Forc
+ 1472              		.loc 1 345 0
+ 1473 0cce 9F4B     		ldr	r3, .L168+32
+ 1474 0cd0 1A70     		strb	r2, [r3]
+ 346:Src/profile_joint.c **** 														{
+ 1475              		.loc 1 346 0
+ 1476 0cd2 9F4B     		ldr	r3, .L168+36
+ 1477 0cd4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1478 0cd6 9342     		cmp	r3, r2
+ 1479 0cd8 7FF477AC 		bne	.L48
+ 348:Src/profile_joint.c **** 															g_CmdMap[TAG_WORK_MODE] = MODE_SPEED;
+ 1480              		.loc 1 348 0
+ 1481 0cdc 0223     		movs	r3, #2
+ 1482 0cde 9C4A     		ldr	r2, .L168+36
+ 1483 0ce0 1370     		strb	r3, [r2]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 41
+
+
+ 349:Src/profile_joint.c **** 
+ 1484              		.loc 1 349 0
+ 1485 0ce2 9C4A     		ldr	r2, .L168+40
+ 1486 0ce4 A2F80432 		strh	r3, [r2, #516]	@ movhi
+ 1487 0ce8 6FE4     		b	.L48
+ 1488              	.L149:
+ 389:Src/profile_joint.c **** 													{
+ 1489              		.loc 1 389 0
+ 1490 0cea 9B4B     		ldr	r3, .L168+44
+ 1491 0cec D3ED007A 		vldr.32	s15, [r3]
+ 1492 0cf0 F5EEC07A 		vcmpe.f32	s15, #0
+ 1493 0cf4 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1494 0cf8 0ADD     		ble	.L59
+ 389:Src/profile_joint.c **** 													{
+ 1495              		.loc 1 389 0 is_stmt 0 discriminator 1
+ 1496 0cfa 984B     		ldr	r3, .L168+48
+ 1497 0cfc D3ED007A 		vldr.32	s15, [r3]
+ 1498 0d00 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1499 0d04 964B     		ldr	r3, .L168+52
+ 1500 0d06 1B68     		ldr	r3, [r3]
+ 1501 0d08 17EE902A 		vmov	r2, s15	@ int
+ 1502 0d0c 9A42     		cmp	r2, r3
+ 1503 0d0e 53DC     		bgt	.L61
+ 1504              	.L59:
+ 389:Src/profile_joint.c **** 													{
+ 1505              		.loc 1 389 0 discriminator 3
+ 1506 0d10 914B     		ldr	r3, .L168+44
+ 1507 0d12 D3ED007A 		vldr.32	s15, [r3]
+ 1508 0d16 F5EEC07A 		vcmpe.f32	s15, #0
+ 1509 0d1a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1510 0d1e 40D4     		bmi	.L154
+ 1511              	.L62:
+ 417:Src/profile_joint.c **** 													{
+ 1512              		.loc 1 417 0 is_stmt 1
+ 1513 0d20 894B     		ldr	r3, .L168+28
+ 1514 0d22 93ED007A 		vldr.32	s14, [r3]
+ 1515 0d26 8F4B     		ldr	r3, .L168+56
+ 1516 0d28 D3ED007A 		vldr.32	s15, [r3]
+ 1517 0d2c B4EEE77A 		vcmpe.f32	s14, s15
+ 1518 0d30 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1519 0d34 40F1CE81 		bpl	.L135
+ 419:Src/profile_joint.c **** 														{
+ 1520              		.loc 1 419 0
+ 1521 0d38 874B     		ldr	r3, .L168+44
+ 1522 0d3a D3ED007A 		vldr.32	s15, [r3]
+ 1523 0d3e F5EEC07A 		vcmpe.f32	s15, #0
+ 1524 0d42 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1525 0d46 0CDD     		ble	.L73
+ 419:Src/profile_joint.c **** 														{
+ 1526              		.loc 1 419 0 is_stmt 0 discriminator 1
+ 1527 0d48 874B     		ldr	r3, .L168+60
+ 1528 0d4a D3ED007A 		vldr.32	s15, [r3]
+ 1529 0d4e FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1530 0d52 17EE903A 		vmov	r3, s15	@ int
+ 1531 0d56 643B     		subs	r3, r3, #100
+ 1532 0d58 814A     		ldr	r2, .L168+52
+ 1533 0d5a 1268     		ldr	r2, [r2]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 42
+
+
+ 1534 0d5c 9342     		cmp	r3, r2
+ 1535 0d5e 00F32281 		bgt	.L75
+ 1536              	.L73:
+ 419:Src/profile_joint.c **** 														{
+ 1537              		.loc 1 419 0 discriminator 3
+ 1538 0d62 7D4B     		ldr	r3, .L168+44
+ 1539 0d64 D3ED007A 		vldr.32	s15, [r3]
+ 1540 0d68 F5EEC07A 		vcmpe.f32	s15, #0
+ 1541 0d6c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1542 0d70 00F10C81 		bmi	.L155
+ 1543              	.L76:
+ 450:Src/profile_joint.c **** 															pos_ref_um = p2_f;
+ 1544              		.loc 1 450 0 is_stmt 1
+ 1545 0d74 0023     		movs	r3, #0
+ 1546 0d76 6E4A     		ldr	r2, .L168+4
+ 1547 0d78 5364     		str	r3, [r2, #68]
+ 451:Src/profile_joint.c **** 															vel_ref_umPs = 0;
+ 1548              		.loc 1 451 0
+ 1549 0d7a 7B4A     		ldr	r2, .L168+60
+ 1550 0d7c D2ED007A 		vldr.32	s15, [r2]
+ 1551 0d80 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1552 0d84 6C4A     		ldr	r2, .L168+12
+ 1553 0d86 C2ED007A 		vstr.32	s15, [r2]	@ int
+ 452:Src/profile_joint.c **** 															acc_ref_umPs2 = 0;
+ 1554              		.loc 1 452 0
+ 1555 0d8a 6C4A     		ldr	r2, .L168+16
+ 1556 0d8c 1360     		str	r3, [r2]
+ 453:Src/profile_joint.c **** 													//		Profile_moving = 0;
+ 1557              		.loc 1 453 0
+ 1558 0d8e 6C4A     		ldr	r2, .L168+20
+ 1559 0d90 1360     		str	r3, [r2]
+ 455:Src/profile_joint.c **** 															flag_posReg_strengthen = 1;
+ 1560              		.loc 1 455 0
+ 1561 0d92 744B     		ldr	r3, .L168+56
+ 1562 0d94 1A68     		ldr	r2, [r3]	@ float
+ 1563 0d96 6C4B     		ldr	r3, .L168+28
+ 1564 0d98 1A60     		str	r2, [r3]	@ float
+ 456:Src/profile_joint.c **** 														}
+ 1565              		.loc 1 456 0
+ 1566 0d9a 6C4B     		ldr	r3, .L168+32
+ 1567 0d9c 0122     		movs	r2, #1
+ 1568 0d9e 1A70     		strb	r2, [r3]
+ 1569 0da0 13E4     		b	.L48
+ 1570              	.L154:
+ 389:Src/profile_joint.c **** 													{
+ 1571              		.loc 1 389 0 discriminator 4
+ 1572 0da2 6E4B     		ldr	r3, .L168+48
+ 1573 0da4 D3ED007A 		vldr.32	s15, [r3]
+ 1574 0da8 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1575 0dac 6C4B     		ldr	r3, .L168+52
+ 1576 0dae 1B68     		ldr	r3, [r3]
+ 1577 0db0 17EE902A 		vmov	r2, s15	@ int
+ 1578 0db4 9A42     		cmp	r2, r3
+ 1579 0db6 B3DA     		bge	.L62
+ 1580              	.L61:
+ 391:Src/profile_joint.c **** 														{
+ 1581              		.loc 1 391 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 43
+
+
+ 1582 0db8 634B     		ldr	r3, .L168+28
+ 1583 0dba 93ED007A 		vldr.32	s14, [r3]
+ 1584 0dbe 6B4B     		ldr	r3, .L168+64
+ 1585 0dc0 D3ED007A 		vldr.32	s15, [r3]
+ 1586 0dc4 B4EEE77A 		vcmpe.f32	s14, s15
+ 1587 0dc8 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1588 0dcc 40F18280 		bpl	.L134
+ 393:Src/profile_joint.c **** 															vel_ref_umPs = (s32)(dir_f*(acc_set_f_umPs2*tCnt_f+v0_abs));
+ 1589              		.loc 1 393 0
+ 1590 0dd0 674B     		ldr	r3, .L168+68
+ 1591 0dd2 D3ED007A 		vldr.32	s15, [r3]	@ int
+ 1592 0dd6 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 1593 0dda 6648     		ldr	r0, .L168+72
+ 1594 0ddc 90ED007A 		vldr.32	s14, [r0]
+ 1595 0de0 594B     		ldr	r3, .L168+28
+ 1596 0de2 D3ED006A 		vldr.32	s13, [r3]
+ 1597 0de6 27EE267A 		vmul.f32	s14, s14, s13
+ 1598 0dea 634A     		ldr	r2, .L168+76
+ 1599 0dec D2ED006A 		vldr.32	s13, [r2]
+ 1600 0df0 93ED006A 		vldr.32	s12, [r3]
+ 1601 0df4 66EE866A 		vmul.f32	s13, s13, s12
+ 1602 0df8 93ED006A 		vldr.32	s12, [r3]
+ 1603 0dfc 66EE866A 		vmul.f32	s13, s13, s12
+ 1604 0e00 B6EE006A 		vmov.f32	s12, #5.0e-1
+ 1605 0e04 66EE866A 		vmul.f32	s13, s13, s12
+ 1606 0e08 37EE267A 		vadd.f32	s14, s14, s13
+ 1607 0e0c 5249     		ldr	r1, .L168+44
+ 1608 0e0e D1ED006A 		vldr.32	s13, [r1]
+ 1609 0e12 27EE267A 		vmul.f32	s14, s14, s13
+ 1610 0e16 77EE877A 		vadd.f32	s15, s15, s14
+ 1611 0e1a FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1612 0e1e 464C     		ldr	r4, .L168+12
+ 1613 0e20 C4ED007A 		vstr.32	s15, [r4]	@ int
+ 394:Src/profile_joint.c **** 															acc_ref_umPs2 = dir_f*acc_set_f_umPs2/8000;
+ 1614              		.loc 1 394 0
+ 1615 0e24 D2ED007A 		vldr.32	s15, [r2]
+ 1616 0e28 93ED007A 		vldr.32	s14, [r3]
+ 1617 0e2c 67EE877A 		vmul.f32	s15, s15, s14
+ 1618 0e30 90ED007A 		vldr.32	s14, [r0]
+ 1619 0e34 77EE877A 		vadd.f32	s15, s15, s14
+ 1620 0e38 91ED007A 		vldr.32	s14, [r1]
+ 1621 0e3c 67EE877A 		vmul.f32	s15, s15, s14
+ 1622 0e40 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1623 0e44 3D4B     		ldr	r3, .L168+16
+ 1624 0e46 C3ED007A 		vstr.32	s15, [r3]	@ int
+ 395:Src/profile_joint.c **** 														}
+ 1625              		.loc 1 395 0
+ 1626 0e4a 91ED007A 		vldr.32	s14, [r1]
+ 1627 0e4e D2ED007A 		vldr.32	s15, [r2]
+ 1628 0e52 27EE277A 		vmul.f32	s14, s14, s15
+ 1629 0e56 DFED496A 		vldr.32	s13, .L168+80
+ 1630 0e5a C7EE267A 		vdiv.f32	s15, s14, s13
+ 1631 0e5e FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1632 0e62 374B     		ldr	r3, .L168+20
+ 1633 0e64 C3ED007A 		vstr.32	s15, [r3]	@ int
+ 1634              	.L66:
+ 403:Src/profile_joint.c **** 														
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 44
+
+
+ 1635              		.loc 1 403 0
+ 1636 0e68 374B     		ldr	r3, .L168+28
+ 1637 0e6a 1A68     		ldr	r2, [r3]	@ float
+ 1638 0e6c 444B     		ldr	r3, .L168+84
+ 1639 0e6e 1A60     		str	r2, [r3]	@ float
+ 405:Src/profile_joint.c **** 														if(vp_abs <0)
+ 1640              		.loc 1 405 0
+ 1641 0e70 324B     		ldr	r3, .L168+16
+ 1642 0e72 D3ED007A 		vldr.32	s15, [r3]	@ int
+ 1643 0e76 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 1644 0e7a 424B     		ldr	r3, .L168+88
+ 1645 0e7c C3ED007A 		vstr.32	s15, [r3]
+ 406:Src/profile_joint.c **** 															vp_abs = 0 -vp_abs;
+ 1646              		.loc 1 406 0
+ 1647 0e80 D3ED007A 		vldr.32	s15, [r3]
+ 1648 0e84 F5EEC07A 		vcmpe.f32	s15, #0
+ 1649 0e88 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1650 0e8c 3BD4     		bmi	.L156
+ 1651              	.L67:
+ 409:Src/profile_joint.c **** 														
+ 1652              		.loc 1 409 0
+ 1653 0e8e 3D4B     		ldr	r3, .L168+88
+ 1654 0e90 D3ED006A 		vldr.32	s13, [r3]
+ 1655 0e94 384A     		ldr	r2, .L168+76
+ 1656 0e96 92ED007A 		vldr.32	s14, [r2]
+ 1657 0e9a C6EE877A 		vdiv.f32	s15, s13, s14
+ 1658 0e9e 384A     		ldr	r2, .L168+84
+ 1659 0ea0 92ED007A 		vldr.32	s14, [r2]
+ 1660 0ea4 77EE877A 		vadd.f32	s15, s15, s14
+ 1661 0ea8 2E4A     		ldr	r2, .L168+56
+ 1662 0eaa C2ED007A 		vstr.32	s15, [r2]
+ 411:Src/profile_joint.c **** 														if(vp_abs <0)
+ 1663              		.loc 1 411 0
+ 1664 0eae 234A     		ldr	r2, .L168+16
+ 1665 0eb0 D2ED007A 		vldr.32	s15, [r2]	@ int
+ 1666 0eb4 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 1667 0eb8 C3ED007A 		vstr.32	s15, [r3]
+ 412:Src/profile_joint.c **** 															vp_abs = 0 -vp_abs;
+ 1668              		.loc 1 412 0
+ 1669 0ebc D3ED007A 		vldr.32	s15, [r3]
+ 1670 0ec0 F5EEC07A 		vcmpe.f32	s15, #0
+ 1671 0ec4 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1672 0ec8 26D4     		bmi	.L157
+ 1673              	.L69:
+ 415:Src/profile_joint.c **** 													}
+ 1674              		.loc 1 415 0
+ 1675 0eca 204B     		ldr	r3, .L168+32
+ 1676 0ecc 0022     		movs	r2, #0
+ 1677 0ece 1A70     		strb	r2, [r3]
+ 1678 0ed0 FFF77BBB 		b	.L48
+ 1679              	.L134:
+ 399:Src/profile_joint.c **** 															vel_ref_umPs = dir_f*vp_abs;
+ 1680              		.loc 1 399 0
+ 1681 0ed4 214B     		ldr	r3, .L168+48
+ 1682 0ed6 D3ED007A 		vldr.32	s15, [r3]
+ 1683 0eda FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1684 0ede 164B     		ldr	r3, .L168+12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 45
+
+
+ 1685 0ee0 C3ED007A 		vstr.32	s15, [r3]	@ int
+ 400:Src/profile_joint.c **** 															acc_ref_umPs2 = 0;
+ 1686              		.loc 1 400 0
+ 1687 0ee4 1C4B     		ldr	r3, .L168+44
+ 1688 0ee6 D3ED007A 		vldr.32	s15, [r3]
+ 1689 0eea 264B     		ldr	r3, .L168+88
+ 1690 0eec 93ED007A 		vldr.32	s14, [r3]
+ 1691 0ef0 67EE877A 		vmul.f32	s15, s15, s14
+ 1692 0ef4 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1693 0ef8 104B     		ldr	r3, .L168+16
+ 1694 0efa C3ED007A 		vstr.32	s15, [r3]	@ int
+ 401:Src/profile_joint.c **** 														}
+ 1695              		.loc 1 401 0
+ 1696 0efe 104B     		ldr	r3, .L168+20
+ 1697 0f00 0022     		movs	r2, #0
+ 1698 0f02 1A60     		str	r2, [r3]
+ 1699 0f04 B0E7     		b	.L66
+ 1700              	.L156:
+ 407:Src/profile_joint.c **** 														
+ 1701              		.loc 1 407 0
+ 1702 0f06 93ED007A 		vldr.32	s14, [r3]
+ 1703 0f0a DFED1F7A 		vldr.32	s15, .L168+92
+ 1704 0f0e 77EEC77A 		vsub.f32	s15, s15, s14
+ 1705 0f12 C3ED007A 		vstr.32	s15, [r3]
+ 1706 0f16 BAE7     		b	.L67
+ 1707              	.L157:
+ 413:Src/profile_joint.c **** 														
+ 1708              		.loc 1 413 0
+ 1709 0f18 93ED007A 		vldr.32	s14, [r3]
+ 1710 0f1c DFED1A7A 		vldr.32	s15, .L168+92
+ 1711 0f20 77EEC77A 		vsub.f32	s15, s15, s14
+ 1712 0f24 C3ED007A 		vstr.32	s15, [r3]
+ 1713 0f28 CFE7     		b	.L69
+ 1714              	.L169:
+ 1715 0f2a 00BF     		.align	2
+ 1716              	.L168:
+ 1717 0f2c 00000000 		.word	.LANCHOR42
+ 1718 0f30 00000000 		.word	pid_spd
+ 1719 0f34 00000000 		.word	.LANCHOR34
+ 1720 0f38 00000000 		.word	.LANCHOR8
+ 1721 0f3c 00000000 		.word	.LANCHOR9
+ 1722 0f40 00000000 		.word	.LANCHOR10
+ 1723 0f44 00000000 		.word	.LANCHOR0
+ 1724 0f48 00000000 		.word	.LANCHOR11
+ 1725 0f4c 00000000 		.word	.LANCHOR40
+ 1726 0f50 00000000 		.word	status_Mode_POSITION_FORCE
+ 1727 0f54 00000000 		.word	g_CmdMap
+ 1728 0f58 00000000 		.word	.LANCHOR23
+ 1729 0f5c 00000000 		.word	.LANCHOR32
+ 1730 0f60 00000000 		.word	.LANCHOR18
+ 1731 0f64 00000000 		.word	.LANCHOR36
+ 1732 0f68 00000000 		.word	.LANCHOR33
+ 1733 0f6c 00000000 		.word	.LANCHOR35
+ 1734 0f70 00000000 		.word	.LANCHOR7
+ 1735 0f74 00000000 		.word	.LANCHOR25
+ 1736 0f78 00000000 		.word	.LANCHOR2
+ 1737 0f7c 0000FA45 		.word	1174011904
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 46
+
+
+ 1738 0f80 00000000 		.word	.LANCHOR41
+ 1739 0f84 00000000 		.word	.LANCHOR38
+ 1740 0f88 00000000 		.word	0
+ 1741              	.L155:
+ 419:Src/profile_joint.c **** 														{
+ 1742              		.loc 1 419 0 discriminator 4
+ 1743 0f8c C14B     		ldr	r3, .L170
+ 1744 0f8e D3ED007A 		vldr.32	s15, [r3]
+ 1745 0f92 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1746 0f96 17EE903A 		vmov	r3, s15	@ int
+ 1747 0f9a 6433     		adds	r3, r3, #100
+ 1748 0f9c BE4A     		ldr	r2, .L170+4
+ 1749 0f9e 1268     		ldr	r2, [r2]
+ 1750 0fa0 9342     		cmp	r3, r2
+ 1751 0fa2 BFF6E7AE 		bge	.L76
+ 1752              	.L75:
+ 421:Src/profile_joint.c **** 																vel_ref_umPs = dir_f*vp_abs-dir_f*acc_set_f_umPs2*(tCnt_f-t_at_P_Dec_f);
+ 1753              		.loc 1 421 0
+ 1754 0fa6 BD4B     		ldr	r3, .L170+8
+ 1755 0fa8 D3ED007A 		vldr.32	s15, [r3]
+ 1756 0fac BC4C     		ldr	r4, .L170+12
+ 1757 0fae 94ED007A 		vldr.32	s14, [r4]
+ 1758 0fb2 67EE877A 		vmul.f32	s15, s15, s14
+ 1759 0fb6 BB49     		ldr	r1, .L170+16
+ 1760 0fb8 91ED007A 		vldr.32	s14, [r1]
+ 1761 0fbc BA4A     		ldr	r2, .L170+20
+ 1762 0fbe D2ED006A 		vldr.32	s13, [r2]
+ 1763 0fc2 37EE667A 		vsub.f32	s14, s14, s13
+ 1764 0fc6 67EE877A 		vmul.f32	s15, s15, s14
+ 1765 0fca B848     		ldr	r0, .L170+24
+ 1766 0fcc 90ED007A 		vldr.32	s14, [r0]
+ 1767 0fd0 77EE877A 		vadd.f32	s15, s15, s14
+ 1768 0fd4 93ED007A 		vldr.32	s14, [r3]
+ 1769 0fd8 B548     		ldr	r0, .L170+28
+ 1770 0fda D0ED006A 		vldr.32	s13, [r0]
+ 1771 0fde 27EE267A 		vmul.f32	s14, s14, s13
+ 1772 0fe2 D1ED006A 		vldr.32	s13, [r1]
+ 1773 0fe6 92ED006A 		vldr.32	s12, [r2]
+ 1774 0fea 76EEC66A 		vsub.f32	s13, s13, s12
+ 1775 0fee 27EE267A 		vmul.f32	s14, s14, s13
+ 1776 0ff2 D1ED006A 		vldr.32	s13, [r1]
+ 1777 0ff6 92ED006A 		vldr.32	s12, [r2]
+ 1778 0ffa 76EEC66A 		vsub.f32	s13, s13, s12
+ 1779 0ffe 27EE267A 		vmul.f32	s14, s14, s13
+ 1780 1002 F6EE006A 		vmov.f32	s13, #5.0e-1
+ 1781 1006 27EE267A 		vmul.f32	s14, s14, s13
+ 1782 100a 77EEC77A 		vsub.f32	s15, s15, s14
+ 1783 100e FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1784 1012 A84D     		ldr	r5, .L170+32
+ 1785 1014 C5ED007A 		vstr.32	s15, [r5]	@ int
+ 422:Src/profile_joint.c **** 																acc_ref_umPs2 = -1*dir_f*acc_set_f_umPs2/8000;
+ 1786              		.loc 1 422 0
+ 1787 1018 D3ED007A 		vldr.32	s15, [r3]
+ 1788 101c 94ED007A 		vldr.32	s14, [r4]
+ 1789 1020 67EE877A 		vmul.f32	s15, s15, s14
+ 1790 1024 93ED007A 		vldr.32	s14, [r3]
+ 1791 1028 D0ED006A 		vldr.32	s13, [r0]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 47
+
+
+ 1792 102c 27EE267A 		vmul.f32	s14, s14, s13
+ 1793 1030 D1ED006A 		vldr.32	s13, [r1]
+ 1794 1034 92ED006A 		vldr.32	s12, [r2]
+ 1795 1038 76EEC66A 		vsub.f32	s13, s13, s12
+ 1796 103c 27EE267A 		vmul.f32	s14, s14, s13
+ 1797 1040 77EEC77A 		vsub.f32	s15, s15, s14
+ 1798 1044 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1799 1048 9B4A     		ldr	r2, .L170+36
+ 1800 104a C2ED007A 		vstr.32	s15, [r2]	@ int
+ 423:Src/profile_joint.c **** 																flag_posReg_strengthen = 0;
+ 1801              		.loc 1 423 0
+ 1802 104e 93ED007A 		vldr.32	s14, [r3]
+ 1803 1052 D0ED007A 		vldr.32	s15, [r0]
+ 1804 1056 27EE677A 		vnmul.f32	s14, s14, s15
+ 1805 105a DFED986A 		vldr.32	s13, .L170+40
+ 1806 105e C7EE267A 		vdiv.f32	s15, s14, s13
+ 1807 1062 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1808 1066 964A     		ldr	r2, .L170+44
+ 1809 1068 C2ED007A 		vstr.32	s15, [r2]	@ int
+ 424:Src/profile_joint.c **** 																if(dir_f>0)
+ 1810              		.loc 1 424 0
+ 1811 106c 954A     		ldr	r2, .L170+48
+ 1812 106e 0021     		movs	r1, #0
+ 1813 1070 1170     		strb	r1, [r2]
+ 425:Src/profile_joint.c **** 																{
+ 1814              		.loc 1 425 0
+ 1815 1072 D3ED007A 		vldr.32	s15, [r3]
+ 1816 1076 F5EEC07A 		vcmpe.f32	s15, #0
+ 1817 107a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1818 107e 14DD     		ble	.L136
+ 427:Src/profile_joint.c **** 																	{
+ 1819              		.loc 1 427 0
+ 1820 1080 8D4B     		ldr	r3, .L170+36
+ 1821 1082 1B68     		ldr	r3, [r3]
+ 1822 1084 8B42     		cmp	r3, r1
+ 1823 1086 BFF6A0AA 		bge	.L48
+ 429:Src/profile_joint.c **** 																	 acc_ref_umPs2 = 0;
+ 1824              		.loc 1 429 0
+ 1825 108a 0B46     		mov	r3, r1
+ 1826 108c 8A4A     		ldr	r2, .L170+36
+ 1827 108e 1160     		str	r1, [r2]
+ 430:Src/profile_joint.c **** 																	 tCnt_f = t2_f;
+ 1828              		.loc 1 430 0
+ 1829 1090 8B4A     		ldr	r2, .L170+44
+ 1830 1092 1160     		str	r1, [r2]
+ 431:Src/profile_joint.c **** 																	 pid_spd.integral = 0;
+ 1831              		.loc 1 431 0
+ 1832 1094 8C4A     		ldr	r2, .L170+52
+ 1833 1096 1168     		ldr	r1, [r2]	@ float
+ 1834 1098 824A     		ldr	r2, .L170+16
+ 1835 109a 1160     		str	r1, [r2]	@ float
+ 432:Src/profile_joint.c **** 																		flag_posReg_strengthen = 1;
+ 1836              		.loc 1 432 0
+ 1837 109c 8B4A     		ldr	r2, .L170+56
+ 1838 109e 5364     		str	r3, [r2, #68]
+ 433:Src/profile_joint.c **** 																	}
+ 1839              		.loc 1 433 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 48
+
+
+ 1840 10a0 884B     		ldr	r3, .L170+48
+ 1841 10a2 0122     		movs	r2, #1
+ 1842 10a4 1A70     		strb	r2, [r3]
+ 1843 10a6 FFF790BA 		b	.L48
+ 1844              	.L136:
+ 438:Src/profile_joint.c **** 																	{
+ 1845              		.loc 1 438 0
+ 1846 10aa 834B     		ldr	r3, .L170+36
+ 1847 10ac 1B68     		ldr	r3, [r3]
+ 1848 10ae 002B     		cmp	r3, #0
+ 1849 10b0 7FF78BAA 		ble	.L48
+ 440:Src/profile_joint.c **** 																		acc_ref_umPs2 = 0;
+ 1850              		.loc 1 440 0
+ 1851 10b4 0023     		movs	r3, #0
+ 1852 10b6 804A     		ldr	r2, .L170+36
+ 1853 10b8 1360     		str	r3, [r2]
+ 441:Src/profile_joint.c **** 																		tCnt_f = t2_f;
+ 1854              		.loc 1 441 0
+ 1855 10ba 814A     		ldr	r2, .L170+44
+ 1856 10bc 1360     		str	r3, [r2]
+ 442:Src/profile_joint.c **** 																	  pid_spd.integral = 0;
+ 1857              		.loc 1 442 0
+ 1858 10be 824A     		ldr	r2, .L170+52
+ 1859 10c0 1168     		ldr	r1, [r2]	@ float
+ 1860 10c2 784A     		ldr	r2, .L170+16
+ 1861 10c4 1160     		str	r1, [r2]	@ float
+ 443:Src/profile_joint.c **** 																		flag_posReg_strengthen = 1;
+ 1862              		.loc 1 443 0
+ 1863 10c6 814A     		ldr	r2, .L170+56
+ 1864 10c8 5364     		str	r3, [r2, #68]
+ 444:Src/profile_joint.c **** 																	}
+ 1865              		.loc 1 444 0
+ 1866 10ca 7E4B     		ldr	r3, .L170+48
+ 1867 10cc 0122     		movs	r2, #1
+ 1868 10ce 1A70     		strb	r2, [r3]
+ 1869 10d0 FFF77BBA 		b	.L48
+ 1870              	.L135:
+ 462:Src/profile_joint.c **** 														pos_ref_um = p2_f;
+ 1871              		.loc 1 462 0
+ 1872 10d4 0023     		movs	r3, #0
+ 1873 10d6 7D4A     		ldr	r2, .L170+56
+ 1874 10d8 5364     		str	r3, [r2, #68]
+ 463:Src/profile_joint.c **** 														vel_ref_umPs = 0;
+ 1875              		.loc 1 463 0
+ 1876 10da 6E4A     		ldr	r2, .L170
+ 1877 10dc D2ED007A 		vldr.32	s15, [r2]
+ 1878 10e0 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1879 10e4 734A     		ldr	r2, .L170+32
+ 1880 10e6 C2ED007A 		vstr.32	s15, [r2]	@ int
+ 464:Src/profile_joint.c **** 														acc_ref_umPs2 = 0;
+ 1881              		.loc 1 464 0
+ 1882 10ea 734A     		ldr	r2, .L170+36
+ 1883 10ec 1360     		str	r3, [r2]
+ 465:Src/profile_joint.c **** 														Profile_moving = 0;
+ 1884              		.loc 1 465 0
+ 1885 10ee 744A     		ldr	r2, .L170+44
+ 1886 10f0 1360     		str	r3, [r2]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 49
+
+
+ 466:Src/profile_joint.c **** 														tCnt_f = 0;
+ 1887              		.loc 1 466 0
+ 1888 10f2 774A     		ldr	r2, .L170+60
+ 1889 10f4 1360     		str	r3, [r2]
+ 467:Src/profile_joint.c **** 														flag_posReg_strengthen = 1;
+ 1890              		.loc 1 467 0
+ 1891 10f6 6B4B     		ldr	r3, .L170+16
+ 1892 10f8 0022     		movs	r2, #0
+ 1893 10fa 1A60     		str	r2, [r3]	@ float
+ 468:Src/profile_joint.c **** 														if(status_Mode_POSITION_FORCE == 1) //Î»ÖÃ+Á¦¿ØÄ£Ê½ÏÂµÄ×´Ì¬»ú 0 Idle 1 Profile 2 Forc
+ 1894              		.loc 1 468 0
+ 1895 10fc 714B     		ldr	r3, .L170+48
+ 1896 10fe 0122     		movs	r2, #1
+ 1897 1100 1A70     		strb	r2, [r3]
+ 469:Src/profile_joint.c **** 														{
+ 1898              		.loc 1 469 0
+ 1899 1102 744B     		ldr	r3, .L170+64
+ 1900 1104 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1901 1106 9342     		cmp	r3, r2
+ 1902 1108 7FF45FAA 		bne	.L48
+ 471:Src/profile_joint.c **** 															g_CmdMap[TAG_WORK_MODE] = MODE_SPEED;
+ 1903              		.loc 1 471 0
+ 1904 110c 0223     		movs	r3, #2
+ 1905 110e 714A     		ldr	r2, .L170+64
+ 1906 1110 1370     		strb	r3, [r2]
+ 472:Src/profile_joint.c ****  
+ 1907              		.loc 1 472 0
+ 1908 1112 714A     		ldr	r2, .L170+68
+ 1909 1114 A2F80432 		strh	r3, [r2, #516]	@ movhi
+ 1910 1118 FFF757BA 		b	.L48
+ 1911              	.L150:
+ 484:Src/profile_joint.c **** 												#endif
+ 1912              		.loc 1 484 0
+ 1913 111c 5F4B     		ldr	r3, .L170+8
+ 1914 111e D3ED007A 		vldr.32	s15, [r3]
+ 1915 1122 F5EEC07A 		vcmpe.f32	s15, #0
+ 1916 1126 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1917 112a 0ADD     		ble	.L81
+ 484:Src/profile_joint.c **** 												#endif
+ 1918              		.loc 1 484 0 is_stmt 0 discriminator 1
+ 1919 112c 5F4B     		ldr	r3, .L170+24
+ 1920 112e D3ED007A 		vldr.32	s15, [r3]
+ 1921 1132 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1922 1136 584B     		ldr	r3, .L170+4
+ 1923 1138 1B68     		ldr	r3, [r3]
+ 1924 113a 17EE902A 		vmov	r2, s15	@ int
+ 1925 113e 9A42     		cmp	r2, r3
+ 1926 1140 34DC     		bgt	.L83
+ 1927              	.L81:
+ 484:Src/profile_joint.c **** 												#endif
+ 1928              		.loc 1 484 0 discriminator 3
+ 1929 1142 564B     		ldr	r3, .L170+8
+ 1930 1144 D3ED007A 		vldr.32	s15, [r3]
+ 1931 1148 F5EEC07A 		vcmpe.f32	s15, #0
+ 1932 114c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 1933 1150 21D4     		bmi	.L158
+ 1934              	.L84:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 50
+
+
+ 494:Src/profile_joint.c **** 													vel_ref_umPs = 0;
+ 1935              		.loc 1 494 0 is_stmt 1
+ 1936 1152 564B     		ldr	r3, .L170+24
+ 1937 1154 D3ED007A 		vldr.32	s15, [r3]
+ 1938 1158 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1939 115c 554B     		ldr	r3, .L170+32
+ 1940 115e C3ED007A 		vstr.32	s15, [r3]	@ int
+ 495:Src/profile_joint.c **** 													acc_ref_umPs2 = 0;
+ 1941              		.loc 1 495 0
+ 1942 1162 0023     		movs	r3, #0
+ 1943 1164 544A     		ldr	r2, .L170+36
+ 1944 1166 1360     		str	r3, [r2]
+ 496:Src/profile_joint.c **** 													Profile_moving = 0;
+ 1945              		.loc 1 496 0
+ 1946 1168 554A     		ldr	r2, .L170+44
+ 1947 116a 1360     		str	r3, [r2]
+ 497:Src/profile_joint.c **** 													tCnt_f = 0;
+ 1948              		.loc 1 497 0
+ 1949 116c 584A     		ldr	r2, .L170+60
+ 1950 116e 1360     		str	r3, [r2]
+ 498:Src/profile_joint.c **** 													flag_posReg_strengthen = 1;
+ 1951              		.loc 1 498 0
+ 1952 1170 4C4B     		ldr	r3, .L170+16
+ 1953 1172 0022     		movs	r2, #0
+ 1954 1174 1A60     		str	r2, [r3]	@ float
+ 499:Src/profile_joint.c **** 													if(status_Mode_POSITION_FORCE == 1) //Î»ÖÃ+Á¦¿ØÄ£Ê½ÏÂµÄ×´Ì¬»ú 0 Idle 1 Profile 2 Force
+ 1955              		.loc 1 499 0
+ 1956 1176 534B     		ldr	r3, .L170+48
+ 1957 1178 0122     		movs	r2, #1
+ 1958 117a 1A70     		strb	r2, [r3]
+ 500:Src/profile_joint.c **** 													{
+ 1959              		.loc 1 500 0
+ 1960 117c 554B     		ldr	r3, .L170+64
+ 1961 117e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1962 1180 9342     		cmp	r3, r2
+ 1963 1182 7FF422AA 		bne	.L48
+ 502:Src/profile_joint.c **** 														g_CmdMap[TAG_WORK_MODE] = MODE_SPEED;
+ 1964              		.loc 1 502 0
+ 1965 1186 0223     		movs	r3, #2
+ 1966 1188 524A     		ldr	r2, .L170+64
+ 1967 118a 1370     		strb	r3, [r2]
+ 503:Src/profile_joint.c ****  
+ 1968              		.loc 1 503 0
+ 1969 118c 524A     		ldr	r2, .L170+68
+ 1970 118e A2F80432 		strh	r3, [r2, #516]	@ movhi
+ 1971 1192 FFF71ABA 		b	.L48
+ 1972              	.L158:
+ 484:Src/profile_joint.c **** 												#endif
+ 1973              		.loc 1 484 0 discriminator 4
+ 1974 1196 454B     		ldr	r3, .L170+24
+ 1975 1198 D3ED007A 		vldr.32	s15, [r3]
+ 1976 119c FDEEE77A 		vcvt.s32.f32	s15, s15
+ 1977 11a0 3D4B     		ldr	r3, .L170+4
+ 1978 11a2 1B68     		ldr	r3, [r3]
+ 1979 11a4 17EE902A 		vmov	r2, s15	@ int
+ 1980 11a8 9A42     		cmp	r2, r3
+ 1981 11aa D2DA     		bge	.L84
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 51
+
+
+ 1982              	.L83:
+ 487:Src/profile_joint.c **** 													vel_ref_umPs = dir_f*v0_abs-dir_f*acc_1_sections*tCnt_f;
+ 1983              		.loc 1 487 0
+ 1984 11ac 4B4B     		ldr	r3, .L170+72
+ 1985 11ae D3ED007A 		vldr.32	s15, [r3]	@ int
+ 1986 11b2 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 1987 11b6 394B     		ldr	r3, .L170+8
+ 1988 11b8 93ED007A 		vldr.32	s14, [r3]
+ 1989 11bc 4848     		ldr	r0, .L170+76
+ 1990 11be D0ED006A 		vldr.32	s13, [r0]
+ 1991 11c2 27EE267A 		vmul.f32	s14, s14, s13
+ 1992 11c6 374A     		ldr	r2, .L170+16
+ 1993 11c8 D2ED006A 		vldr.32	s13, [r2]
+ 1994 11cc 27EE267A 		vmul.f32	s14, s14, s13
+ 1995 11d0 77EE877A 		vadd.f32	s15, s15, s14
+ 1996 11d4 93ED007A 		vldr.32	s14, [r3]
+ 1997 11d8 4249     		ldr	r1, .L170+80
+ 1998 11da D1ED006A 		vldr.32	s13, [r1]
+ 1999 11de 27EE267A 		vmul.f32	s14, s14, s13
+ 2000 11e2 D2ED006A 		vldr.32	s13, [r2]
+ 2001 11e6 27EE267A 		vmul.f32	s14, s14, s13
+ 2002 11ea D2ED006A 		vldr.32	s13, [r2]
+ 2003 11ee 27EE267A 		vmul.f32	s14, s14, s13
+ 2004 11f2 F6EE006A 		vmov.f32	s13, #5.0e-1
+ 2005 11f6 27EE267A 		vmul.f32	s14, s14, s13
+ 2006 11fa 77EEC77A 		vsub.f32	s15, s15, s14
+ 2007 11fe FDEEE77A 		vcvt.s32.f32	s15, s15
+ 2008 1202 2C4C     		ldr	r4, .L170+32
+ 2009 1204 C4ED007A 		vstr.32	s15, [r4]	@ int
+ 488:Src/profile_joint.c **** 													acc_ref_umPs2 = -1*dir_f*acc_1_sections;
+ 2010              		.loc 1 488 0
+ 2011 1208 D3ED007A 		vldr.32	s15, [r3]
+ 2012 120c 90ED007A 		vldr.32	s14, [r0]
+ 2013 1210 67EE877A 		vmul.f32	s15, s15, s14
+ 2014 1214 93ED007A 		vldr.32	s14, [r3]
+ 2015 1218 D1ED006A 		vldr.32	s13, [r1]
+ 2016 121c 27EE267A 		vmul.f32	s14, s14, s13
+ 2017 1220 D2ED006A 		vldr.32	s13, [r2]
+ 2018 1224 27EE267A 		vmul.f32	s14, s14, s13
+ 2019 1228 77EEC77A 		vsub.f32	s15, s15, s14
+ 2020 122c FDEEE77A 		vcvt.s32.f32	s15, s15
+ 2021 1230 214A     		ldr	r2, .L170+36
+ 2022 1232 C2ED007A 		vstr.32	s15, [r2]	@ int
+ 489:Src/profile_joint.c **** 													flag_posReg_strengthen = 1;
+ 2023              		.loc 1 489 0
+ 2024 1236 D3ED007A 		vldr.32	s15, [r3]
+ 2025 123a 91ED007A 		vldr.32	s14, [r1]
+ 2026 123e 67EEC77A 		vnmul.f32	s15, s15, s14
+ 2027 1242 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 2028 1246 1E4B     		ldr	r3, .L170+44
+ 2029 1248 C3ED007A 		vstr.32	s15, [r3]	@ int
+ 490:Src/profile_joint.c **** 												}
+ 2030              		.loc 1 490 0
+ 2031 124c 1D4B     		ldr	r3, .L170+48
+ 2032 124e 0122     		movs	r2, #1
+ 2033 1250 1A70     		strb	r2, [r3]
+ 2034 1252 FFF7BAB9 		b	.L48
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 52
+
+
+ 2035              	.L137:
+ 519:Src/profile_joint.c **** 													vel_ref_umPs = 0;
+ 2036              		.loc 1 519 0
+ 2037 1256 244B     		ldr	r3, .L170+84
+ 2038 1258 1A68     		ldr	r2, [r3]
+ 2039 125a 164B     		ldr	r3, .L170+32
+ 2040 125c 1A60     		str	r2, [r3]
+ 520:Src/profile_joint.c **** 													acc_ref_umPs2 = 0;
+ 2041              		.loc 1 520 0
+ 2042 125e 0023     		movs	r3, #0
+ 2043 1260 154A     		ldr	r2, .L170+36
+ 2044 1262 1360     		str	r3, [r2]
+ 521:Src/profile_joint.c **** 													Profile_moving = 0;
+ 2045              		.loc 1 521 0
+ 2046 1264 164A     		ldr	r2, .L170+44
+ 2047 1266 1360     		str	r3, [r2]
+ 522:Src/profile_joint.c **** 													tCnt_f = 0;
+ 2048              		.loc 1 522 0
+ 2049 1268 194A     		ldr	r2, .L170+60
+ 2050 126a 1360     		str	r3, [r2]
+ 523:Src/profile_joint.c **** 													flag_posReg_strengthen = 1;
+ 2051              		.loc 1 523 0
+ 2052 126c 0D4B     		ldr	r3, .L170+16
+ 2053 126e 0022     		movs	r2, #0
+ 2054 1270 1A60     		str	r2, [r3]	@ float
+ 524:Src/profile_joint.c **** 													if(status_Mode_POSITION_FORCE == 1) //Î»ÖÃ+Á¦¿ØÄ£Ê½ÏÂµÄ×´Ì¬»ú 0 Idle 1 Profile 2 Force
+ 2055              		.loc 1 524 0
+ 2056 1272 144B     		ldr	r3, .L170+48
+ 2057 1274 0122     		movs	r2, #1
+ 2058 1276 1A70     		strb	r2, [r3]
+ 525:Src/profile_joint.c **** 													{
+ 2059              		.loc 1 525 0
+ 2060 1278 164B     		ldr	r3, .L170+64
+ 2061 127a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 2062 127c 9342     		cmp	r3, r2
+ 2063 127e 7FF4A4A9 		bne	.L48
+ 527:Src/profile_joint.c **** 														g_CmdMap[TAG_WORK_MODE] = MODE_SPEED;
+ 2064              		.loc 1 527 0
+ 2065 1282 0223     		movs	r3, #2
+ 2066 1284 134A     		ldr	r2, .L170+64
+ 2067 1286 1370     		strb	r3, [r2]
+ 528:Src/profile_joint.c ****  
+ 2068              		.loc 1 528 0
+ 2069 1288 134A     		ldr	r2, .L170+68
+ 2070 128a A2F80432 		strh	r3, [r2, #516]	@ movhi
+ 2071 128e FFF79CB9 		b	.L48
+ 2072              	.L171:
+ 2073 1292 00BF     		.align	2
+ 2074              	.L170:
+ 2075 1294 00000000 		.word	.LANCHOR33
+ 2076 1298 00000000 		.word	.LANCHOR18
+ 2077 129c 00000000 		.word	.LANCHOR23
+ 2078 12a0 00000000 		.word	.LANCHOR38
+ 2079 12a4 00000000 		.word	.LANCHOR11
+ 2080 12a8 00000000 		.word	.LANCHOR41
+ 2081 12ac 00000000 		.word	.LANCHOR32
+ 2082 12b0 00000000 		.word	.LANCHOR2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 53
+
+
+ 2083 12b4 00000000 		.word	.LANCHOR8
+ 2084 12b8 00000000 		.word	.LANCHOR9
+ 2085 12bc 0000FA45 		.word	1174011904
+ 2086 12c0 00000000 		.word	.LANCHOR10
+ 2087 12c4 00000000 		.word	.LANCHOR40
+ 2088 12c8 00000000 		.word	.LANCHOR36
+ 2089 12cc 00000000 		.word	pid_spd
+ 2090 12d0 00000000 		.word	.LANCHOR0
+ 2091 12d4 00000000 		.word	status_Mode_POSITION_FORCE
+ 2092 12d8 00000000 		.word	g_CmdMap
+ 2093 12dc 00000000 		.word	.LANCHOR7
+ 2094 12e0 00000000 		.word	.LANCHOR25
+ 2095 12e4 00000000 		.word	.LANCHOR39
+ 2096 12e8 00000000 		.word	.LANCHOR6
+ 2097              	.L144:
+ 546:Src/profile_joint.c **** 						if((Profile_v_set > 0 && pos_ref_um >g_pos_tag)||(Profile_v_set < 0 && pos_ref_um <g_pos_tag)
+ 2098              		.loc 1 546 0
+ 2099 12ec 3A4B     		ldr	r3, .L172
+ 2100 12ee 40F6CC42 		movw	r2, #3276
+ 2101 12f2 A3F89222 		strh	r2, [r3, #658]	@ movhi
+ 547:Src/profile_joint.c **** 						{
+ 2102              		.loc 1 547 0
+ 2103 12f6 394B     		ldr	r3, .L172+4
+ 2104 12f8 1B68     		ldr	r3, [r3]
+ 2105 12fa 002B     		cmp	r3, #0
+ 2106 12fc 05DD     		ble	.L89
+ 547:Src/profile_joint.c **** 						{
+ 2107              		.loc 1 547 0 is_stmt 0 discriminator 1
+ 2108 12fe 384B     		ldr	r3, .L172+8
+ 2109 1300 1A68     		ldr	r2, [r3]
+ 2110 1302 384B     		ldr	r3, .L172+12
+ 2111 1304 1B68     		ldr	r3, [r3]
+ 2112 1306 9A42     		cmp	r2, r3
+ 2113 1308 32DC     		bgt	.L90
+ 2114              	.L89:
+ 547:Src/profile_joint.c **** 						{
+ 2115              		.loc 1 547 0 discriminator 3
+ 2116 130a 344B     		ldr	r3, .L172+4
+ 2117 130c 1B68     		ldr	r3, [r3]
+ 2118 130e 002B     		cmp	r3, #0
+ 2119 1310 28DB     		blt	.L159
+ 2120              	.L91:
+ 556:Src/profile_joint.c **** 							tCnt_f = tCnt_f + 0.001f*(float)P_POS_REGULATOR_MS;//P_POS_REGULATOR_MS;
+ 2121              		.loc 1 556 0 is_stmt 1
+ 2122 1312 354B     		ldr	r3, .L172+16
+ 2123 1314 0122     		movs	r2, #1
+ 2124 1316 1A60     		str	r2, [r3]
+ 557:Src/profile_joint.c **** 							pos_ref_um = ((float)g_pos_ini+tCnt_f*(float)Profile_v_set);
+ 2125              		.loc 1 557 0
+ 2126 1318 344B     		ldr	r3, .L172+20
+ 2127 131a D3ED007A 		vldr.32	s15, [r3]
+ 2128 131e 9FED347A 		vldr.32	s14, .L172+24
+ 2129 1322 77EE877A 		vadd.f32	s15, s15, s14
+ 2130 1326 C3ED007A 		vstr.32	s15, [r3]
+ 558:Src/profile_joint.c **** 							vel_ref_umPs = Profile_v_set;
+ 2131              		.loc 1 558 0
+ 2132 132a 324A     		ldr	r2, .L172+28
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 54
+
+
+ 2133 132c D2ED007A 		vldr.32	s15, [r2]	@ int
+ 2134 1330 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 2135 1334 294A     		ldr	r2, .L172+4
+ 2136 1336 92ED007A 		vldr.32	s14, [r2]	@ int
+ 2137 133a B8EEC77A 		vcvt.f32.s32	s14, s14
+ 2138 133e D3ED006A 		vldr.32	s13, [r3]
+ 2139 1342 27EE267A 		vmul.f32	s14, s14, s13
+ 2140 1346 77EE877A 		vadd.f32	s15, s15, s14
+ 2141 134a FDEEE77A 		vcvt.s32.f32	s15, s15
+ 2142 134e 244B     		ldr	r3, .L172+8
+ 2143 1350 C3ED007A 		vstr.32	s15, [r3]	@ int
+ 559:Src/profile_joint.c **** 						}
+ 2144              		.loc 1 559 0
+ 2145 1354 1268     		ldr	r2, [r2]
+ 2146 1356 284B     		ldr	r3, .L172+32
+ 2147 1358 1A60     		str	r2, [r3]
+ 2148              	.L92:
+ 561:Src/profile_joint.c **** 		}
+ 2149              		.loc 1 561 0
+ 2150 135a 284B     		ldr	r3, .L172+36
+ 2151 135c 0122     		movs	r2, #1
+ 2152 135e 1A70     		strb	r2, [r3]
+ 2153 1360 FFF733B9 		b	.L48
+ 2154              	.L159:
+ 547:Src/profile_joint.c **** 						{
+ 2155              		.loc 1 547 0 discriminator 4
+ 2156 1364 1E4B     		ldr	r3, .L172+8
+ 2157 1366 1A68     		ldr	r2, [r3]
+ 2158 1368 1E4B     		ldr	r3, .L172+12
+ 2159 136a 1B68     		ldr	r3, [r3]
+ 2160 136c 9A42     		cmp	r2, r3
+ 2161 136e D0DA     		bge	.L91
+ 2162              	.L90:
+ 549:Src/profile_joint.c **** 							tCnt_f = 0.0f;
+ 2163              		.loc 1 549 0
+ 2164 1370 194B     		ldr	r3, .L172
+ 2165 1372 0022     		movs	r2, #0
+ 2166 1374 A3F84020 		strh	r2, [r3, #64]	@ movhi
+ 550:Src/profile_joint.c **** 							vel_tmp_f = 0.0f;
+ 2167              		.loc 1 550 0
+ 2168 1378 0023     		movs	r3, #0
+ 2169 137a 1C4A     		ldr	r2, .L172+20
+ 2170 137c 1360     		str	r3, [r2]	@ float
+ 551:Src/profile_joint.c **** 							t1_tmp_f = 0.0f;
+ 2171              		.loc 1 551 0
+ 2172 137e 204A     		ldr	r2, .L172+40
+ 2173 1380 1360     		str	r3, [r2]	@ float
+ 552:Src/profile_joint.c **** 						}
+ 2174              		.loc 1 552 0
+ 2175 1382 204A     		ldr	r2, .L172+44
+ 2176 1384 1360     		str	r3, [r2]	@ float
+ 2177 1386 E8E7     		b	.L92
+ 2178              	.L93:
+ 571:Src/profile_joint.c **** 								vel_interpolation_umPs = 0;
+ 2179              		.loc 1 571 0
+ 2180 1388 0023     		movs	r3, #0
+ 2181 138a 174A     		ldr	r2, .L172+16
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 55
+
+
+ 2182 138c 1360     		str	r3, [r2]
+ 572:Src/profile_joint.c **** 							}
+ 2183              		.loc 1 572 0
+ 2184 138e 1E4A     		ldr	r2, .L172+48
+ 2185 1390 1360     		str	r3, [r2]
+ 2186 1392 FEF70BBF 		b	.L94
+ 2187              	.L138:
+ 597:Src/profile_joint.c **** 									pos_ref_um = pos_interpolation_A_um;
+ 2188              		.loc 1 597 0
+ 2189 1396 1C4B     		ldr	r3, .L172+48
+ 2190 1398 1B68     		ldr	r3, [r3]
+ 2191 139a 03EB4303 		add	r3, r3, r3, lsl #1
+ 2192 139e 1B4A     		ldr	r2, .L172+52
+ 2193 13a0 82FB0312 		smull	r1, r2, r2, r3
+ 2194 13a4 DB17     		asrs	r3, r3, #31
+ 2195 13a6 C3EBA203 		rsb	r3, r3, r2, asr #2
+ 2196 13aa 134A     		ldr	r2, .L172+32
+ 2197 13ac 1360     		str	r3, [r2]
+ 598:Src/profile_joint.c **** 								}
+ 2198              		.loc 1 598 0
+ 2199 13ae 184B     		ldr	r3, .L172+56
+ 2200 13b0 1A68     		ldr	r2, [r3]
+ 2201 13b2 0B4B     		ldr	r3, .L172+8
+ 2202 13b4 1A60     		str	r2, [r3]
+ 2203 13b6 FEF739BF 		b	.L97
+ 2204              	.L98:
+ 611:Src/profile_joint.c **** 									{
+ 2205              		.loc 1 611 0
+ 2206 13ba 094B     		ldr	r3, .L172+8
+ 2207 13bc 1B68     		ldr	r3, [r3]
+ 2208 13be 0A33     		adds	r3, r3, #10
+ 2209 13c0 144A     		ldr	r2, .L172+60
+ 2210 13c2 1268     		ldr	r2, [r2]
+ 2211 13c4 9342     		cmp	r3, r2
+ 2212 13c6 7EF744AF 		ble	.L99
+ 613:Src/profile_joint.c **** 										Profile_moving =0;
+ 2213              		.loc 1 613 0
+ 2214 13ca 0023     		movs	r3, #0
+ 2215 13cc 0A4A     		ldr	r2, .L172+32
+ 2216 13ce 1360     		str	r3, [r2]
+ 614:Src/profile_joint.c **** 									}
+ 2217              		.loc 1 614 0
+ 2218 13d0 054A     		ldr	r2, .L172+16
+ 2219 13d2 1360     		str	r3, [r2]
+ 2220 13d4 FEF73DBF 		b	.L99
+ 2221              	.L173:
+ 2222              		.align	2
+ 2223              	.L172:
+ 2224 13d8 00000000 		.word	g_CmdMap
+ 2225 13dc 00000000 		.word	.LANCHOR45
+ 2226 13e0 00000000 		.word	.LANCHOR8
+ 2227 13e4 00000000 		.word	.LANCHOR6
+ 2228 13e8 00000000 		.word	.LANCHOR0
+ 2229 13ec 00000000 		.word	.LANCHOR11
+ 2230 13f0 6F128339 		.word	964891247
+ 2231 13f4 00000000 		.word	.LANCHOR7
+ 2232 13f8 00000000 		.word	.LANCHOR9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 56
+
+
+ 2233 13fc 00000000 		.word	.LANCHOR40
+ 2234 1400 00000000 		.word	.LANCHOR43
+ 2235 1404 00000000 		.word	.LANCHOR44
+ 2236 1408 00000000 		.word	.LANCHOR46
+ 2237 140c 67666666 		.word	1717986919
+ 2238 1410 00000000 		.word	.LANCHOR48
+ 2239 1414 00000000 		.word	.LANCHOR18
+ 2240              		.cfi_endproc
+ 2241              	.LFE334:
+ 2243              		.global	__aeabi_i2d
+ 2244              		.global	__aeabi_ddiv
+ 2245              		.global	__aeabi_d2iz
+ 2246              		.section	.text.recPosCmd,"ax",%progbits
+ 2247              		.align	1
+ 2248              		.global	recPosCmd
+ 2249              		.syntax unified
+ 2250              		.thumb
+ 2251              		.thumb_func
+ 2252              		.fpu fpv4-sp-d16
+ 2254              	recPosCmd:
+ 2255              	.LFB335:
+ 639:Src/profile_joint.c **** /**
+ 640:Src/profile_joint.c ****   * @brief  ½ÓÊÜµ½Î»ÖÃÊý¾Ýºó£¬¼ÆËãÃüÁî¼ä¸ô£¬ÒÔ¼°Ç°À¡ËÙ¶ÈÖµ
+ 641:Src/profile_joint.c ****   * @param  ptr_sinWave: 
+ 642:Src/profile_joint.c ****   * @param  para_frea_exc:    
+ 643:Src/profile_joint.c ****   * @retval None
+ 644:Src/profile_joint.c ****   */
+ 645:Src/profile_joint.c **** void recPosCmd(void)
+ 646:Src/profile_joint.c **** {
+ 2256              		.loc 1 646 0
+ 2257              		.cfi_startproc
+ 2258              		@ args = 0, pretend = 0, frame = 0
+ 2259              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2260 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 2261              	.LCFI1:
+ 2262              		.cfi_def_cfa_offset 32
+ 2263              		.cfi_offset 3, -32
+ 2264              		.cfi_offset 4, -28
+ 2265              		.cfi_offset 5, -24
+ 2266              		.cfi_offset 6, -20
+ 2267              		.cfi_offset 7, -16
+ 2268              		.cfi_offset 8, -12
+ 2269              		.cfi_offset 9, -8
+ 2270              		.cfi_offset 14, -4
+ 647:Src/profile_joint.c **** 	if(g_CmdMap[CMD_E_STOP] == 1)
+ 2271              		.loc 1 647 0
+ 2272 0004 3D4B     		ldr	r3, .L183
+ 2273 0006 5B8A     		ldrh	r3, [r3, #18]
+ 2274 0008 1BB2     		sxth	r3, r3
+ 2275 000a 012B     		cmp	r3, #1
+ 2276 000c 6ED0     		beq	.L174
+ 648:Src/profile_joint.c **** 	{
+ 649:Src/profile_joint.c **** 		return;
+ 650:Src/profile_joint.c **** 	}
+ 651:Src/profile_joint.c **** 	
+ 652:Src/profile_joint.c **** 	if(g_CmdMap[CMD_POS_SET_PU]>g_CmdMap[CMD_POS_UPPER_LIMIT_PU])
+ 2277              		.loc 1 652 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 57
+
+
+ 2278 000e 3B4B     		ldr	r3, .L183
+ 2279 0010 B3F84820 		ldrh	r2, [r3, #72]
+ 2280 0014 12B2     		sxth	r2, r2
+ 2281 0016 DB8C     		ldrh	r3, [r3, #38]
+ 2282 0018 1BB2     		sxth	r3, r3
+ 2283 001a 9A42     		cmp	r2, r3
+ 2284 001c 0EDD     		ble	.L176
+ 653:Src/profile_joint.c **** 	{
+ 654:Src/profile_joint.c **** 		g_CmdMap[CMD_POS_SET_PU] =g_CmdMap[CMD_POS_UPPER_LIMIT_PU];		
+ 2285              		.loc 1 654 0
+ 2286 001e 374B     		ldr	r3, .L183
+ 2287 0020 DA8C     		ldrh	r2, [r3, #38]
+ 2288 0022 A3F84820 		strh	r2, [r3, #72]	@ movhi
+ 655:Src/profile_joint.c **** 		if(g_CmdMap[CMD_POS_SET_PU] > 16384)
+ 2289              		.loc 1 655 0
+ 2290 0026 B3F84830 		ldrh	r3, [r3, #72]
+ 2291 002a 1BB2     		sxth	r3, r3
+ 2292 002c B3F5804F 		cmp	r3, #16384
+ 2293 0030 04DD     		ble	.L176
+ 656:Src/profile_joint.c **** 		{
+ 657:Src/profile_joint.c **** 			g_CmdMap[CMD_POS_SET_PU] = 16384;
+ 2294              		.loc 1 657 0
+ 2295 0032 324B     		ldr	r3, .L183
+ 2296 0034 4FF48042 		mov	r2, #16384
+ 2297 0038 A3F84820 		strh	r2, [r3, #72]	@ movhi
+ 2298              	.L176:
+ 658:Src/profile_joint.c **** 		}
+ 659:Src/profile_joint.c **** 	}
+ 660:Src/profile_joint.c **** 	if(g_CmdMap[CMD_POS_SET_PU]<g_CmdMap[CMD_POS_LOWER_LIMIT_PU])
+ 2299              		.loc 1 660 0
+ 2300 003c 2F4B     		ldr	r3, .L183
+ 2301 003e B3F84820 		ldrh	r2, [r3, #72]
+ 2302 0042 12B2     		sxth	r2, r2
+ 2303 0044 1B8D     		ldrh	r3, [r3, #40]
+ 2304 0046 1BB2     		sxth	r3, r3
+ 2305 0048 9A42     		cmp	r2, r3
+ 2306 004a 08DA     		bge	.L177
+ 661:Src/profile_joint.c **** 	{
+ 662:Src/profile_joint.c **** 		g_CmdMap[CMD_POS_SET_PU] = g_CmdMap[CMD_POS_LOWER_LIMIT_PU];
+ 2307              		.loc 1 662 0
+ 2308 004c 2B4B     		ldr	r3, .L183
+ 2309 004e 1A8D     		ldrh	r2, [r3, #40]
+ 2310 0050 A3F84820 		strh	r2, [r3, #72]	@ movhi
+ 663:Src/profile_joint.c **** 		if(g_CmdMap[CMD_POS_SET_PU] < 0)
+ 2311              		.loc 1 663 0
+ 2312 0054 B3F84830 		ldrh	r3, [r3, #72]
+ 2313 0058 13F4004F 		tst	r3, #32768
+ 2314 005c 48D1     		bne	.L182
+ 2315              	.L177:
+ 664:Src/profile_joint.c **** 		{
+ 665:Src/profile_joint.c **** 			g_CmdMap[CMD_POS_SET_PU] = 0;
+ 666:Src/profile_joint.c **** 		}
+ 667:Src/profile_joint.c **** 	}
+ 668:Src/profile_joint.c **** 	
+ 669:Src/profile_joint.c **** 	Flag_Set_OpenLen = 1;
+ 2316              		.loc 1 669 0
+ 2317 005e 284B     		ldr	r3, .L183+4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 58
+
+
+ 2318 0060 0122     		movs	r2, #1
+ 2319 0062 1A70     		strb	r2, [r3]
+ 670:Src/profile_joint.c **** 	g_servo_cmd_period = g_servo_cmd_period_cnt;//¸ßÆµÎ»ÖÃËÅ·þÏÂ£¬ÃüÁîÖÜÆÚ ms
+ 2320              		.loc 1 670 0
+ 2321 0064 274B     		ldr	r3, .L183+8
+ 2322 0066 1C68     		ldr	r4, [r3]
+ 2323 0068 274A     		ldr	r2, .L183+12
+ 2324 006a 1460     		str	r4, [r2]
+ 671:Src/profile_joint.c **** 	g_servo_cmd_period_cnt = 0; 								//¸ßÆµÎ»ÖÃËÅ·þÏÂ£¬ÃüÁîÖÜÆÚ¼ÆÊ±
+ 2325              		.loc 1 671 0
+ 2326 006c 0022     		movs	r2, #0
+ 2327 006e 1A60     		str	r2, [r3]
+ 672:Src/profile_joint.c **** 	pos_interpolation_B_um = pos_interpolation_A_um;
+ 2328              		.loc 1 672 0
+ 2329 0070 264D     		ldr	r5, .L183+16
+ 2330 0072 2B68     		ldr	r3, [r5]
+ 2331 0074 264F     		ldr	r7, .L183+20
+ 2332 0076 3B60     		str	r3, [r7]
+ 673:Src/profile_joint.c **** 	pos_interpolation_A_um = g_CmdMap[CMD_POS_SET_PU];
+ 2333              		.loc 1 673 0
+ 2334 0078 204B     		ldr	r3, .L183
+ 2335 007a B3F84830 		ldrh	r3, [r3, #72]
+ 2336 007e 1BB2     		sxth	r3, r3
+ 2337 0080 2B60     		str	r3, [r5]
+ 674:Src/profile_joint.c **** 	time_interpolation_s = (double)g_servo_cmd_period/(double)(F_SPD_REGULATOR_HZ);					
+ 2338              		.loc 1 674 0
+ 2339 0082 2046     		mov	r0, r4
+ 2340 0084 FFF7FEFF 		bl	__aeabi_i2d
+ 2341              	.LVL3:
+ 2342 0088 0022     		movs	r2, #0
+ 2343 008a 224B     		ldr	r3, .L183+24
+ 2344 008c FFF7FEFF 		bl	__aeabi_ddiv
+ 2345              	.LVL4:
+ 2346 0090 FFF7FEFF 		bl	__aeabi_d2f
+ 2347              	.LVL5:
+ 2348 0094 204E     		ldr	r6, .L183+28
+ 2349 0096 3060     		str	r0, [r6]	@ float
+ 675:Src/profile_joint.c **** 	vel_interpolation_umPs = (s32)((double)(pos_interpolation_A_um-pos_interpolation_B_um)/time_interp
+ 2350              		.loc 1 675 0
+ 2351 0098 2868     		ldr	r0, [r5]
+ 2352 009a 3B68     		ldr	r3, [r7]
+ 2353 009c C01A     		subs	r0, r0, r3
+ 2354 009e FFF7FEFF 		bl	__aeabi_i2d
+ 2355              	.LVL6:
+ 2356 00a2 8046     		mov	r8, r0
+ 2357 00a4 8946     		mov	r9, r1
+ 2358 00a6 3068     		ldr	r0, [r6]	@ float
+ 2359 00a8 FFF7FEFF 		bl	__aeabi_f2d
+ 2360              	.LVL7:
+ 2361 00ac 0246     		mov	r2, r0
+ 2362 00ae 0B46     		mov	r3, r1
+ 2363 00b0 4046     		mov	r0, r8
+ 2364 00b2 4946     		mov	r1, r9
+ 2365 00b4 FFF7FEFF 		bl	__aeabi_ddiv
+ 2366              	.LVL8:
+ 2367 00b8 FFF7FEFF 		bl	__aeabi_d2iz
+ 2368              	.LVL9:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 59
+
+
+ 2369 00bc 174B     		ldr	r3, .L183+32
+ 2370 00be 1860     		str	r0, [r3]
+ 676:Src/profile_joint.c **** 	if(vel_interpolation_umPs>g_Vel_Max_PosPU_pSec)
+ 2371              		.loc 1 676 0
+ 2372 00c0 1A68     		ldr	r2, [r3]
+ 2373 00c2 174B     		ldr	r3, .L183+36
+ 2374 00c4 1B68     		ldr	r3, [r3]
+ 2375 00c6 9A42     		cmp	r2, r3
+ 2376 00c8 01DD     		ble	.L178
+ 677:Src/profile_joint.c **** 	{
+ 678:Src/profile_joint.c **** 		vel_interpolation_umPs = g_Vel_Max_PosPU_pSec;
+ 2377              		.loc 1 678 0
+ 2378 00ca 144A     		ldr	r2, .L183+32
+ 2379 00cc 1360     		str	r3, [r2]
+ 2380              	.L178:
+ 679:Src/profile_joint.c **** 	}
+ 680:Src/profile_joint.c **** 	if(vel_interpolation_umPs<-g_Vel_Max_PosPU_pSec)
+ 2381              		.loc 1 680 0
+ 2382 00ce 5B42     		negs	r3, r3
+ 2383 00d0 124A     		ldr	r2, .L183+32
+ 2384 00d2 1268     		ldr	r2, [r2]
+ 2385 00d4 9342     		cmp	r3, r2
+ 2386 00d6 01DD     		ble	.L179
+ 681:Src/profile_joint.c **** 	{
+ 682:Src/profile_joint.c **** 		vel_interpolation_umPs = -g_Vel_Max_PosPU_pSec;
+ 2387              		.loc 1 682 0
+ 2388 00d8 104A     		ldr	r2, .L183+32
+ 2389 00da 1360     		str	r3, [r2]
+ 2390              	.L179:
+ 683:Src/profile_joint.c **** 	}				
+ 684:Src/profile_joint.c **** 	if(g_servo_cmd_period < 500)
+ 2391              		.loc 1 684 0
+ 2392 00dc B4F5FA7F 		cmp	r4, #500
+ 2393 00e0 02DB     		blt	.L180
+ 685:Src/profile_joint.c **** 	{
+ 686:Src/profile_joint.c **** 	//	g_CmdMap[CMD_USEER_MODE] = CMD_USEER_MODE_1_SERVO;
+ 687:Src/profile_joint.c **** 	}
+ 688:Src/profile_joint.c **** 	else
+ 689:Src/profile_joint.c **** 	{
+ 690:Src/profile_joint.c **** 		if(g_CmdMap[CMD_USEER_MODE] == CMD_USEER_MODE_5_POSITION_FORCE)
+ 2394              		.loc 1 690 0
+ 2395 00e2 064B     		ldr	r3, .L183
+ 2396 00e4 B3F84030 		ldrh	r3, [r3, #64]
+ 2397              	.L180:
+ 691:Src/profile_joint.c **** 		{
+ 692:Src/profile_joint.c **** 		
+ 693:Src/profile_joint.c **** 		}
+ 694:Src/profile_joint.c **** 		else
+ 695:Src/profile_joint.c **** 		{
+ 696:Src/profile_joint.c **** 			//g_CmdMap[CMD_USEER_MODE] = CMD_USEER_MODE_0_POSITION;
+ 697:Src/profile_joint.c **** 		}
+ 698:Src/profile_joint.c **** 	}
+ 699:Src/profile_joint.c **** 	
+ 700:Src/profile_joint.c **** 	
+ 701:Src/profile_joint.c **** 	clear_limit_event();
+ 2398              		.loc 1 701 0
+ 2399 00e8 FFF7FEFF 		bl	clear_limit_event
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 60
+
+
+ 2400              	.LVL10:
+ 2401              	.L174:
+ 702:Src/profile_joint.c **** }
+ 2402              		.loc 1 702 0
+ 2403 00ec BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 2404              	.L182:
+ 665:Src/profile_joint.c **** 		}
+ 2405              		.loc 1 665 0
+ 2406 00f0 024B     		ldr	r3, .L183
+ 2407 00f2 0022     		movs	r2, #0
+ 2408 00f4 A3F84820 		strh	r2, [r3, #72]	@ movhi
+ 2409 00f8 B1E7     		b	.L177
+ 2410              	.L184:
+ 2411 00fa 00BF     		.align	2
+ 2412              	.L183:
+ 2413 00fc 00000000 		.word	g_CmdMap
+ 2414 0100 00000000 		.word	Flag_Set_OpenLen
+ 2415 0104 00000000 		.word	g_servo_cmd_period_cnt
+ 2416 0108 00000000 		.word	g_servo_cmd_period
+ 2417 010c 00000000 		.word	.LANCHOR48
+ 2418 0110 00000000 		.word	.LANCHOR49
+ 2419 0114 0040AF40 		.word	1085227008
+ 2420 0118 00000000 		.word	.LANCHOR47
+ 2421 011c 00000000 		.word	.LANCHOR46
+ 2422 0120 00000000 		.word	g_Vel_Max_PosPU_pSec
+ 2423              		.cfi_endproc
+ 2424              	.LFE335:
+ 2426              		.section	.text.target_position_arrived,"ax",%progbits
+ 2427              		.align	1
+ 2428              		.global	target_position_arrived
+ 2429              		.syntax unified
+ 2430              		.thumb
+ 2431              		.thumb_func
+ 2432              		.fpu fpv4-sp-d16
+ 2434              	target_position_arrived:
+ 2435              	.LFB336:
+ 703:Src/profile_joint.c **** 
+ 704:Src/profile_joint.c **** #define POS_ERRO_TOL ( 16384 /500)
+ 705:Src/profile_joint.c **** 
+ 706:Src/profile_joint.c **** int target_position_arrived(int target, int act)
+ 707:Src/profile_joint.c **** {
+ 2436              		.loc 1 707 0
+ 2437              		.cfi_startproc
+ 2438              		@ args = 0, pretend = 0, frame = 0
+ 2439              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2440              		@ link register save eliminated.
+ 2441              	.LVL11:
+ 708:Src/profile_joint.c **** 	u32 pos_erro = 0;
+ 709:Src/profile_joint.c **** 	
+ 710:Src/profile_joint.c **** //	pos_erro = ABS(   g_CmdMap[CMD_POS_SET_PU]  -  g_CmdMap[CMD_POS_ACT_PU] );
+ 711:Src/profile_joint.c **** 	pos_erro = ABS(   target  -  act );
+ 2442              		.loc 1 711 0
+ 2443 0000 411A     		subs	r1, r0, r1
+ 2444              	.LVL12:
+ 2445 0002 0029     		cmp	r1, #0
+ 2446 0004 B8BF     		it	lt
+ 2447 0006 4942     		rsblt	r1, r1, #0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 61
+
+
+ 2448              	.LVL13:
+ 712:Src/profile_joint.c **** 	if( pos_erro > POS_ERRO_TOL )
+ 2449              		.loc 1 712 0
+ 2450 0008 2029     		cmp	r1, #32
+ 2451 000a 01D8     		bhi	.L188
+ 713:Src/profile_joint.c **** 	{
+ 714:Src/profile_joint.c **** 		return 1;
+ 715:Src/profile_joint.c **** 	}
+ 716:Src/profile_joint.c **** 	else
+ 717:Src/profile_joint.c **** 	{
+ 718:Src/profile_joint.c **** 		return 0;
+ 2452              		.loc 1 718 0
+ 2453 000c 0020     		movs	r0, #0
+ 2454              	.LVL14:
+ 719:Src/profile_joint.c **** 	}
+ 720:Src/profile_joint.c **** }
+ 2455              		.loc 1 720 0
+ 2456 000e 7047     		bx	lr
+ 2457              	.LVL15:
+ 2458              	.L188:
+ 714:Src/profile_joint.c **** 	}
+ 2459              		.loc 1 714 0
+ 2460 0010 0120     		movs	r0, #1
+ 2461              	.LVL16:
+ 2462 0012 7047     		bx	lr
+ 2463              		.cfi_endproc
+ 2464              	.LFE336:
+ 2466              		.global	profile_flag
+ 2467              		.global	g_flag_1
+ 2468              		.global	flag_posReg_strengthen
+ 2469              		.global	dis_DaHua
+ 2470              		.global	flag_profile_3_sections
+ 2471              		.global	flag_profile_start_reverse
+ 2472              		.global	Count_test01
+ 2473              		.global	Count_test
+ 2474              		.global	Kaphla_Bit8_Index
+ 2475              		.global	Profile_moving
+ 2476              		.global	Profile_frozen_tar_pos
+ 2477              		.global	Profile_v_set
+ 2478              		.global	Profile_mode_last
+ 2479              		.global	Flag_Profile_Enable_last
+ 2480              		.global	Flag_Profile_Enable
+ 2481              		.global	tCnt_f
+ 2482              		.global	S2_f
+ 2483              		.global	S1and3_f
+ 2484              		.global	S_samll_stroke
+ 2485              		.global	S_th2
+ 2486              		.global	S_th1
+ 2487              		.global	S_v0_2_max
+ 2488              		.global	S_max_2_stop
+ 2489              		.global	v0_abs
+ 2490              		.global	v0
+ 2491              		.global	vp_abs
+ 2492              		.global	acc_1_sections
+ 2493              		.global	t_at_P_Dec_f
+ 2494              		.global	S1_f
+ 2495              		.global	p3_f
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 62
+
+
+ 2496              		.global	p2_f
+ 2497              		.global	p1_f
+ 2498              		.global	t3_f
+ 2499              		.global	t2_f
+ 2500              		.global	t1_f
+ 2501              		.global	t1_tmp_f
+ 2502              		.global	vel_tmp_f
+ 2503              		.global	acc_set_f_umPs2
+ 2504              		.global	vel_max_f_umPs
+ 2505              		.global	A_ref
+ 2506              		.global	V_Mot_ref
+ 2507              		.global	V_Mot_AddReg_RPM
+ 2508              		.global	V_Mot_ref_RPM
+ 2509              		.global	V_ref
+ 2510              		.global	acc_ref_umPs2
+ 2511              		.global	vel_interpolation_umPs
+ 2512              		.global	vel_ref_umPs
+ 2513              		.global	time_interpolation_s
+ 2514              		.global	pos_interpolation_B_um
+ 2515              		.global	pos_interpolation_A_um
+ 2516              		.global	pos_act_um
+ 2517              		.global	pos_ref_um
+ 2518              		.global	dir_f
+ 2519              		.global	g_pos_tag_dlt_abs_f
+ 2520              		.global	g_pos_tag_dlt_f
+ 2521              		.global	g_pos_tag_old
+ 2522              		.global	g_pos_ini
+ 2523              		.global	g_pos_tag
+ 2524              		.section	.bss.A_ref,"aw",%nobits
+ 2525              		.align	2
+ 2526              		.set	.LANCHOR14,. + 0
+ 2529              	A_ref:
+ 2530 0000 00000000 		.space	4
+ 2531              		.section	.bss.Count_test,"aw",%nobits
+ 2532              		.align	1
+ 2535              	Count_test:
+ 2536 0000 0000     		.space	2
+ 2537              		.section	.bss.Count_test01,"aw",%nobits
+ 2538              		.align	1
+ 2541              	Count_test01:
+ 2542 0000 0000     		.space	2
+ 2543              		.section	.bss.Flag_Profile_Enable,"aw",%nobits
+ 2544              		.align	2
+ 2545              		.set	.LANCHOR12,. + 0
+ 2548              	Flag_Profile_Enable:
+ 2549 0000 00000000 		.space	4
+ 2550              		.section	.bss.Flag_Profile_Enable_last,"aw",%nobits
+ 2551              		.align	2
+ 2552              		.set	.LANCHOR15,. + 0
+ 2555              	Flag_Profile_Enable_last:
+ 2556 0000 00000000 		.space	4
+ 2557              		.section	.bss.Kaphla_Bit8_Index,"aw",%nobits
+ 2558              		.align	1
+ 2561              	Kaphla_Bit8_Index:
+ 2562 0000 0000     		.space	2
+ 2563              		.section	.bss.Profile_frozen_tar_pos,"aw",%nobits
+ 2564              		.align	2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 63
+
+
+ 2565              		.set	.LANCHOR16,. + 0
+ 2568              	Profile_frozen_tar_pos:
+ 2569 0000 00000000 		.space	4
+ 2570              		.section	.bss.Profile_mode_last,"aw",%nobits
+ 2571              		.align	2
+ 2572              		.set	.LANCHOR17,. + 0
+ 2575              	Profile_mode_last:
+ 2576 0000 00000000 		.space	4
+ 2577              		.section	.bss.Profile_moving,"aw",%nobits
+ 2578              		.align	2
+ 2579              		.set	.LANCHOR0,. + 0
+ 2582              	Profile_moving:
+ 2583 0000 00000000 		.space	4
+ 2584              		.section	.bss.Profile_v_set,"aw",%nobits
+ 2585              		.align	2
+ 2586              		.set	.LANCHOR45,. + 0
+ 2589              	Profile_v_set:
+ 2590 0000 00000000 		.space	4
+ 2591              		.section	.bss.S1_f,"aw",%nobits
+ 2592              		.align	2
+ 2595              	S1_f:
+ 2596 0000 00000000 		.space	4
+ 2597              		.section	.bss.S1and3_f,"aw",%nobits
+ 2598              		.align	2
+ 2601              	S1and3_f:
+ 2602 0000 00000000 		.space	4
+ 2603              		.section	.bss.S2_f,"aw",%nobits
+ 2604              		.align	2
+ 2607              	S2_f:
+ 2608 0000 00000000 		.space	4
+ 2609              		.section	.bss.S_max_2_stop,"aw",%nobits
+ 2610              		.align	2
+ 2611              		.set	.LANCHOR26,. + 0
+ 2614              	S_max_2_stop:
+ 2615 0000 00000000 		.space	4
+ 2616              		.section	.bss.S_samll_stroke,"aw",%nobits
+ 2617              		.align	2
+ 2618              		.set	.LANCHOR30,. + 0
+ 2621              	S_samll_stroke:
+ 2622 0000 00000000 		.space	4
+ 2623              		.section	.bss.S_th1,"aw",%nobits
+ 2624              		.align	2
+ 2625              		.set	.LANCHOR28,. + 0
+ 2628              	S_th1:
+ 2629 0000 00000000 		.space	4
+ 2630              		.section	.bss.S_th2,"aw",%nobits
+ 2631              		.align	2
+ 2632              		.set	.LANCHOR29,. + 0
+ 2635              	S_th2:
+ 2636 0000 00000000 		.space	4
+ 2637              		.section	.bss.S_v0_2_max,"aw",%nobits
+ 2638              		.align	2
+ 2639              		.set	.LANCHOR27,. + 0
+ 2642              	S_v0_2_max:
+ 2643 0000 00000000 		.space	4
+ 2644              		.section	.bss.V_Mot_AddReg_RPM,"aw",%nobits
+ 2645              		.align	2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 64
+
+
+ 2648              	V_Mot_AddReg_RPM:
+ 2649 0000 00000000 		.space	4
+ 2650              		.section	.bss.V_Mot_ref,"aw",%nobits
+ 2651              		.align	2
+ 2654              	V_Mot_ref:
+ 2655 0000 00000000 		.space	4
+ 2656              		.section	.bss.V_Mot_ref_RPM,"aw",%nobits
+ 2657              		.align	2
+ 2660              	V_Mot_ref_RPM:
+ 2661 0000 00000000 		.space	4
+ 2662              		.section	.bss.V_ref,"aw",%nobits
+ 2663              		.align	2
+ 2664              		.set	.LANCHOR13,. + 0
+ 2667              	V_ref:
+ 2668 0000 00000000 		.space	4
+ 2669              		.section	.bss.acc_1_sections,"aw",%nobits
+ 2670              		.align	2
+ 2671              		.set	.LANCHOR39,. + 0
+ 2674              	acc_1_sections:
+ 2675 0000 00000000 		.space	4
+ 2676              		.section	.bss.acc_ref_umPs2,"aw",%nobits
+ 2677              		.align	2
+ 2678              		.set	.LANCHOR10,. + 0
+ 2681              	acc_ref_umPs2:
+ 2682 0000 00000000 		.space	4
+ 2683              		.section	.bss.acc_set_f_umPs2,"aw",%nobits
+ 2684              		.align	2
+ 2685              		.set	.LANCHOR2,. + 0
+ 2688              	acc_set_f_umPs2:
+ 2689 0000 00000000 		.space	4
+ 2690              		.section	.bss.dir_f,"aw",%nobits
+ 2691              		.align	2
+ 2692              		.set	.LANCHOR23,. + 0
+ 2695              	dir_f:
+ 2696 0000 00000000 		.space	4
+ 2697              		.section	.bss.dis_DaHua,"aw",%nobits
+ 2698              		.align	2
+ 2699              		.set	.LANCHOR4,. + 0
+ 2702              	dis_DaHua:
+ 2703 0000 00000000 		.space	4
+ 2704              		.section	.bss.flag_profile_3_sections,"aw",%nobits
+ 2705              		.set	.LANCHOR31,. + 0
+ 2708              	flag_profile_3_sections:
+ 2709 0000 00       		.space	1
+ 2710              		.section	.bss.flag_profile_start_reverse,"aw",%nobits
+ 2711              		.set	.LANCHOR24,. + 0
+ 2714              	flag_profile_start_reverse:
+ 2715 0000 00       		.space	1
+ 2716              		.section	.bss.g_flag_1,"aw",%nobits
+ 2717              		.align	2
+ 2718              		.set	.LANCHOR42,. + 0
+ 2721              	g_flag_1:
+ 2722 0000 00000000 		.space	4
+ 2723              		.section	.bss.g_pos_ini,"aw",%nobits
+ 2724              		.align	2
+ 2725              		.set	.LANCHOR7,. + 0
+ 2728              	g_pos_ini:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 65
+
+
+ 2729 0000 00000000 		.space	4
+ 2730              		.section	.bss.g_pos_tag,"aw",%nobits
+ 2731              		.align	2
+ 2732              		.set	.LANCHOR6,. + 0
+ 2735              	g_pos_tag:
+ 2736 0000 00000000 		.space	4
+ 2737              		.section	.bss.g_pos_tag_dlt_abs_f,"aw",%nobits
+ 2738              		.align	2
+ 2739              		.set	.LANCHOR22,. + 0
+ 2742              	g_pos_tag_dlt_abs_f:
+ 2743 0000 00000000 		.space	4
+ 2744              		.section	.bss.g_pos_tag_dlt_f,"aw",%nobits
+ 2745              		.align	2
+ 2746              		.set	.LANCHOR21,. + 0
+ 2749              	g_pos_tag_dlt_f:
+ 2750 0000 00000000 		.space	4
+ 2751              		.section	.bss.g_pos_tag_old,"aw",%nobits
+ 2752              		.align	2
+ 2753              		.set	.LANCHOR3,. + 0
+ 2756              	g_pos_tag_old:
+ 2757 0000 00000000 		.space	4
+ 2758              		.section	.bss.ini_count.11947,"aw",%nobits
+ 2759              		.align	1
+ 2760              		.set	.LANCHOR5,. + 0
+ 2763              	ini_count.11947:
+ 2764 0000 0000     		.space	2
+ 2765              		.section	.bss.p1_f,"aw",%nobits
+ 2766              		.align	2
+ 2767              		.set	.LANCHOR32,. + 0
+ 2770              	p1_f:
+ 2771 0000 00000000 		.space	4
+ 2772              		.section	.bss.p2_f,"aw",%nobits
+ 2773              		.align	2
+ 2774              		.set	.LANCHOR33,. + 0
+ 2777              	p2_f:
+ 2778 0000 00000000 		.space	4
+ 2779              		.section	.bss.p3_f,"aw",%nobits
+ 2780              		.align	2
+ 2781              		.set	.LANCHOR34,. + 0
+ 2784              	p3_f:
+ 2785 0000 00000000 		.space	4
+ 2786              		.section	.bss.pos_act_um,"aw",%nobits
+ 2787              		.align	2
+ 2788              		.set	.LANCHOR18,. + 0
+ 2791              	pos_act_um:
+ 2792 0000 00000000 		.space	4
+ 2793              		.section	.bss.pos_interpolation_A_um,"aw",%nobits
+ 2794              		.align	2
+ 2795              		.set	.LANCHOR48,. + 0
+ 2798              	pos_interpolation_A_um:
+ 2799 0000 00000000 		.space	4
+ 2800              		.section	.bss.pos_interpolation_B_um,"aw",%nobits
+ 2801              		.align	2
+ 2802              		.set	.LANCHOR49,. + 0
+ 2805              	pos_interpolation_B_um:
+ 2806 0000 00000000 		.space	4
+ 2807              		.section	.bss.pos_ref_um,"aw",%nobits
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 66
+
+
+ 2808              		.align	2
+ 2809              		.set	.LANCHOR8,. + 0
+ 2812              	pos_ref_um:
+ 2813 0000 00000000 		.space	4
+ 2814              		.section	.bss.profile_flag,"aw",%nobits
+ 2815              		.align	2
+ 2816              		.set	.LANCHOR19,. + 0
+ 2819              	profile_flag:
+ 2820 0000 00000000 		.space	4
+ 2821              		.section	.bss.t1_f,"aw",%nobits
+ 2822              		.align	2
+ 2823              		.set	.LANCHOR35,. + 0
+ 2826              	t1_f:
+ 2827 0000 00000000 		.space	4
+ 2828              		.section	.bss.t1_tmp_f,"aw",%nobits
+ 2829              		.align	2
+ 2830              		.set	.LANCHOR44,. + 0
+ 2833              	t1_tmp_f:
+ 2834 0000 00000000 		.space	4
+ 2835              		.section	.bss.t2_f,"aw",%nobits
+ 2836              		.align	2
+ 2837              		.set	.LANCHOR36,. + 0
+ 2840              	t2_f:
+ 2841 0000 00000000 		.space	4
+ 2842              		.section	.bss.t3_f,"aw",%nobits
+ 2843              		.align	2
+ 2844              		.set	.LANCHOR37,. + 0
+ 2847              	t3_f:
+ 2848 0000 00000000 		.space	4
+ 2849              		.section	.bss.tCnt_f,"aw",%nobits
+ 2850              		.align	2
+ 2851              		.set	.LANCHOR11,. + 0
+ 2854              	tCnt_f:
+ 2855 0000 00000000 		.space	4
+ 2856              		.section	.bss.t_at_P_Dec_f,"aw",%nobits
+ 2857              		.align	2
+ 2858              		.set	.LANCHOR41,. + 0
+ 2861              	t_at_P_Dec_f:
+ 2862 0000 00000000 		.space	4
+ 2863              		.section	.bss.time_interpolation_s,"aw",%nobits
+ 2864              		.align	2
+ 2865              		.set	.LANCHOR47,. + 0
+ 2868              	time_interpolation_s:
+ 2869 0000 00000000 		.space	4
+ 2870              		.section	.bss.v0,"aw",%nobits
+ 2871              		.align	2
+ 2872              		.set	.LANCHOR20,. + 0
+ 2875              	v0:
+ 2876 0000 00000000 		.space	4
+ 2877              		.section	.bss.v0_abs,"aw",%nobits
+ 2878              		.align	2
+ 2879              		.set	.LANCHOR25,. + 0
+ 2882              	v0_abs:
+ 2883 0000 00000000 		.space	4
+ 2884              		.section	.bss.vel_interpolation_umPs,"aw",%nobits
+ 2885              		.align	2
+ 2886              		.set	.LANCHOR46,. + 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 67
+
+
+ 2889              	vel_interpolation_umPs:
+ 2890 0000 00000000 		.space	4
+ 2891              		.section	.bss.vel_max_f_umPs,"aw",%nobits
+ 2892              		.align	2
+ 2893              		.set	.LANCHOR1,. + 0
+ 2896              	vel_max_f_umPs:
+ 2897 0000 00000000 		.space	4
+ 2898              		.section	.bss.vel_ref_umPs,"aw",%nobits
+ 2899              		.align	2
+ 2900              		.set	.LANCHOR9,. + 0
+ 2903              	vel_ref_umPs:
+ 2904 0000 00000000 		.space	4
+ 2905              		.section	.bss.vel_tmp_f,"aw",%nobits
+ 2906              		.align	2
+ 2907              		.set	.LANCHOR43,. + 0
+ 2910              	vel_tmp_f:
+ 2911 0000 00000000 		.space	4
+ 2912              		.section	.bss.vp_abs,"aw",%nobits
+ 2913              		.align	2
+ 2914              		.set	.LANCHOR38,. + 0
+ 2917              	vp_abs:
+ 2918 0000 00000000 		.space	4
+ 2919              		.section	.data.flag_posReg_strengthen,"aw",%progbits
+ 2920              		.set	.LANCHOR40,. + 0
+ 2923              	flag_posReg_strengthen:
+ 2924 0000 01       		.byte	1
+ 2925              		.text
+ 2926              	.Letext0:
+ 2927              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 2928              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 2929              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 2930              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 2931              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 2932              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 2933              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 2934              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 2935              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 2936              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 2937              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 2938              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 2939              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 2940              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 2941              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 2942              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 2943              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ 2944              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 2945              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 2946              		.file 21 "Inc/uart.h"
+ 2947              		.file 22 "Inc/pwm.h"
+ 2948              		.file 23 "Inc/spi_MEncoder.h"
+ 2949              		.file 24 "Inc/adc.h"
+ 2950              		.file 25 "Inc/stm32_math_sin.h"
+ 2951              		.file 26 "Inc/pid.h"
+ 2952              		.file 27 "Inc/profile_joint.h"
+ 2953              		.file 28 "Inc/icmu.h"
+ 2954              		.file 29 "Inc/performance_test.h"
+ 2955              		.file 30 "Inc/global.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 68
+
+
+ 2956              		.file 31 "Inc/limit_pos_detection.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 69
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 profile_joint.c
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:18     .text.Profile_ParaSet:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:25     .text.Profile_ParaSet:00000000 Profile_ParaSet
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:104    .text.Profile_ParaSet:00000098 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:119    .text.Profile:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:126    .text.Profile:00000000 Profile
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:471    .text.Profile:00000278 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:507    .text.Profile:00000300 $t
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:809    .text.Profile:000005d4 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:850    .text.Profile:00000670 $t
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:1101   .text.Profile:000008e8 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:1129   .text.Profile:00000950 $t
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:1425   .text.Profile:00000c54 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:1446   .text.Profile:00000ca0 $t
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:1717   .text.Profile:00000f2c $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:1743   .text.Profile:00000f8c $t
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2075   .text.Profile:00001294 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2099   .text.Profile:000012ec $t
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2224   .text.Profile:000013d8 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2247   .text.recPosCmd:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2254   .text.recPosCmd:00000000 recPosCmd
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2413   .text.recPosCmd:000000fc $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2427   .text.target_position_arrived:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2434   .text.target_position_arrived:00000000 target_position_arrived
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2819   .bss.profile_flag:00000000 profile_flag
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2721   .bss.g_flag_1:00000000 g_flag_1
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2923   .data.flag_posReg_strengthen:00000000 flag_posReg_strengthen
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2702   .bss.dis_DaHua:00000000 dis_DaHua
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2708   .bss.flag_profile_3_sections:00000000 flag_profile_3_sections
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2714   .bss.flag_profile_start_reverse:00000000 flag_profile_start_reverse
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2541   .bss.Count_test01:00000000 Count_test01
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2535   .bss.Count_test:00000000 Count_test
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2561   .bss.Kaphla_Bit8_Index:00000000 Kaphla_Bit8_Index
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2582   .bss.Profile_moving:00000000 Profile_moving
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2568   .bss.Profile_frozen_tar_pos:00000000 Profile_frozen_tar_pos
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2589   .bss.Profile_v_set:00000000 Profile_v_set
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2575   .bss.Profile_mode_last:00000000 Profile_mode_last
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2555   .bss.Flag_Profile_Enable_last:00000000 Flag_Profile_Enable_last
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2548   .bss.Flag_Profile_Enable:00000000 Flag_Profile_Enable
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2854   .bss.tCnt_f:00000000 tCnt_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2607   .bss.S2_f:00000000 S2_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2601   .bss.S1and3_f:00000000 S1and3_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2621   .bss.S_samll_stroke:00000000 S_samll_stroke
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2635   .bss.S_th2:00000000 S_th2
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2628   .bss.S_th1:00000000 S_th1
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2642   .bss.S_v0_2_max:00000000 S_v0_2_max
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2614   .bss.S_max_2_stop:00000000 S_max_2_stop
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2882   .bss.v0_abs:00000000 v0_abs
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2875   .bss.v0:00000000 v0
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2917   .bss.vp_abs:00000000 vp_abs
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2674   .bss.acc_1_sections:00000000 acc_1_sections
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2861   .bss.t_at_P_Dec_f:00000000 t_at_P_Dec_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2595   .bss.S1_f:00000000 S1_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2784   .bss.p3_f:00000000 p3_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2777   .bss.p2_f:00000000 p2_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2770   .bss.p1_f:00000000 p1_f
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 70
+
+
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2847   .bss.t3_f:00000000 t3_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2840   .bss.t2_f:00000000 t2_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2826   .bss.t1_f:00000000 t1_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2833   .bss.t1_tmp_f:00000000 t1_tmp_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2910   .bss.vel_tmp_f:00000000 vel_tmp_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2688   .bss.acc_set_f_umPs2:00000000 acc_set_f_umPs2
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2896   .bss.vel_max_f_umPs:00000000 vel_max_f_umPs
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2529   .bss.A_ref:00000000 A_ref
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2654   .bss.V_Mot_ref:00000000 V_Mot_ref
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2648   .bss.V_Mot_AddReg_RPM:00000000 V_Mot_AddReg_RPM
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2660   .bss.V_Mot_ref_RPM:00000000 V_Mot_ref_RPM
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2667   .bss.V_ref:00000000 V_ref
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2681   .bss.acc_ref_umPs2:00000000 acc_ref_umPs2
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2889   .bss.vel_interpolation_umPs:00000000 vel_interpolation_umPs
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2903   .bss.vel_ref_umPs:00000000 vel_ref_umPs
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2868   .bss.time_interpolation_s:00000000 time_interpolation_s
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2805   .bss.pos_interpolation_B_um:00000000 pos_interpolation_B_um
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2798   .bss.pos_interpolation_A_um:00000000 pos_interpolation_A_um
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2791   .bss.pos_act_um:00000000 pos_act_um
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2812   .bss.pos_ref_um:00000000 pos_ref_um
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2695   .bss.dir_f:00000000 dir_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2742   .bss.g_pos_tag_dlt_abs_f:00000000 g_pos_tag_dlt_abs_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2749   .bss.g_pos_tag_dlt_f:00000000 g_pos_tag_dlt_f
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2756   .bss.g_pos_tag_old:00000000 g_pos_tag_old
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2728   .bss.g_pos_ini:00000000 g_pos_ini
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2735   .bss.g_pos_tag:00000000 g_pos_tag
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2525   .bss.A_ref:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2532   .bss.Count_test:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2538   .bss.Count_test01:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2544   .bss.Flag_Profile_Enable:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2551   .bss.Flag_Profile_Enable_last:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2558   .bss.Kaphla_Bit8_Index:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2564   .bss.Profile_frozen_tar_pos:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2571   .bss.Profile_mode_last:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2578   .bss.Profile_moving:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2585   .bss.Profile_v_set:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2592   .bss.S1_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2598   .bss.S1and3_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2604   .bss.S2_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2610   .bss.S_max_2_stop:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2617   .bss.S_samll_stroke:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2624   .bss.S_th1:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2631   .bss.S_th2:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2638   .bss.S_v0_2_max:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2645   .bss.V_Mot_AddReg_RPM:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2651   .bss.V_Mot_ref:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2657   .bss.V_Mot_ref_RPM:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2663   .bss.V_ref:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2670   .bss.acc_1_sections:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2677   .bss.acc_ref_umPs2:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2684   .bss.acc_set_f_umPs2:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2691   .bss.dir_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2698   .bss.dis_DaHua:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2709   .bss.flag_profile_3_sections:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2715   .bss.flag_profile_start_reverse:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2717   .bss.g_flag_1:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2724   .bss.g_pos_ini:00000000 $d
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s 			page 71
+
+
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2731   .bss.g_pos_tag:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2738   .bss.g_pos_tag_dlt_abs_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2745   .bss.g_pos_tag_dlt_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2752   .bss.g_pos_tag_old:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2759   .bss.ini_count.11947:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2763   .bss.ini_count.11947:00000000 ini_count.11947
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2766   .bss.p1_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2773   .bss.p2_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2780   .bss.p3_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2787   .bss.pos_act_um:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2794   .bss.pos_interpolation_A_um:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2801   .bss.pos_interpolation_B_um:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2808   .bss.pos_ref_um:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2815   .bss.profile_flag:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2822   .bss.t1_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2829   .bss.t1_tmp_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2836   .bss.t2_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2843   .bss.t3_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2850   .bss.tCnt_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2857   .bss.t_at_P_Dec_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2864   .bss.time_interpolation_s:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2871   .bss.v0:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2878   .bss.v0_abs:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2885   .bss.vel_interpolation_umPs:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2892   .bss.vel_max_f_umPs:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2899   .bss.vel_ref_umPs:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2906   .bss.vel_tmp_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cccfHQ2O.s:2913   .bss.vp_abs:00000000 $d
+
+UNDEFINED SYMBOLS
+g_CmdMap
+pos_p_vel_float
+g_pAcc_ref_base_mmPS2
+__aeabi_f2d
+__aeabi_d2f
+Motor_forbidden
+g_servo_cmd_period_cnt
+sqrtl
+pid_spd
+status_Mode_POSITION_FORCE
+__aeabi_i2d
+__aeabi_ddiv
+__aeabi_d2iz
+clear_limit_event
+Flag_Set_OpenLen
+g_servo_cmd_period
+g_Vel_Max_PosPU_pSec

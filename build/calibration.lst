@@ -1,0 +1,367 @@
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"calibration.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.delay_ms,"ax",%progbits
+  18              		.align	1
+  19              		.global	delay_ms
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	delay_ms:
+  26              	.LFB333:
+  27              		.file 1 "Src/calibration.c"
+   1:Src/calibration.c **** #include "calibration.h"
+   2:Src/calibration.c **** #include "global.h"
+   3:Src/calibration.c **** 
+   4:Src/calibration.c **** //�������У��������������ƫ�������ڼ���
+   5:Src/calibration.c **** //ȫ�ֱ���g_ZeroCur_Motor1B,g_ZeroCur_Motor1C
+   6:Src/calibration.c **** 
+   7:Src/calibration.c **** void delay_ms( int cnt)
+   8:Src/calibration.c **** {
+  28              		.loc 1 8 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  34 0000 82B0     		sub	sp, sp, #8
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 8
+   9:Src/calibration.c **** 	volatile int i = 0 , j=0;
+  37              		.loc 1 9 0
+  38 0002 0023     		movs	r3, #0
+  39 0004 0193     		str	r3, [sp, #4]
+  40 0006 0093     		str	r3, [sp]
+  10:Src/calibration.c **** 	
+  11:Src/calibration.c **** 	for(j=0;j<cnt;j++)
+  41              		.loc 1 11 0
+  42 0008 0093     		str	r3, [sp]
+  43 000a 0AE0     		b	.L2
+  44              	.L4:
+  12:Src/calibration.c **** 		for(i =0; i< 10000;i++);
+  45              		.loc 1 12 0 discriminator 3
+  46 000c 019B     		ldr	r3, [sp, #4]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s 			page 2
+
+
+  47 000e 0133     		adds	r3, r3, #1
+  48 0010 0193     		str	r3, [sp, #4]
+  49              	.L3:
+  50              		.loc 1 12 0 is_stmt 0 discriminator 1
+  51 0012 019A     		ldr	r2, [sp, #4]
+  52 0014 42F20F73 		movw	r3, #9999
+  53 0018 9A42     		cmp	r2, r3
+  54 001a F7DD     		ble	.L4
+  11:Src/calibration.c **** 		for(i =0; i< 10000;i++);
+  55              		.loc 1 11 0 is_stmt 1 discriminator 2
+  56 001c 009B     		ldr	r3, [sp]
+  57 001e 0133     		adds	r3, r3, #1
+  58 0020 0093     		str	r3, [sp]
+  59              	.L2:
+  11:Src/calibration.c **** 		for(i =0; i< 10000;i++);
+  60              		.loc 1 11 0 is_stmt 0 discriminator 1
+  61 0022 009B     		ldr	r3, [sp]
+  62 0024 8342     		cmp	r3, r0
+  63 0026 02DA     		bge	.L7
+  64              		.loc 1 12 0 is_stmt 1
+  65 0028 0023     		movs	r3, #0
+  66 002a 0193     		str	r3, [sp, #4]
+  67 002c F1E7     		b	.L3
+  68              	.L7:
+  13:Src/calibration.c **** 	
+  14:Src/calibration.c **** 	
+  15:Src/calibration.c **** }
+  69              		.loc 1 15 0
+  70 002e 02B0     		add	sp, sp, #8
+  71              	.LCFI1:
+  72              		.cfi_def_cfa_offset 0
+  73              		@ sp needed
+  74 0030 7047     		bx	lr
+  75              		.cfi_endproc
+  76              	.LFE333:
+  78              		.section	.text.CurrentDemarcate,"ax",%progbits
+  79              		.align	1
+  80              		.global	CurrentDemarcate
+  81              		.syntax unified
+  82              		.thumb
+  83              		.thumb_func
+  84              		.fpu fpv4-sp-d16
+  86              	CurrentDemarcate:
+  87              	.LFB334:
+  16:Src/calibration.c **** 
+  17:Src/calibration.c **** s32 CurrentDemarcate(void)
+  18:Src/calibration.c **** {
+  88              		.loc 1 18 0
+  89              		.cfi_startproc
+  90              		@ args = 0, pretend = 0, frame = 0
+  91              		@ frame_needed = 0, uses_anonymous_args = 0
+  92 0000 38B5     		push	{r3, r4, r5, lr}
+  93              	.LCFI2:
+  94              		.cfi_def_cfa_offset 16
+  95              		.cfi_offset 3, -16
+  96              		.cfi_offset 4, -12
+  97              		.cfi_offset 5, -8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s 			page 3
+
+
+  98              		.cfi_offset 14, -4
+  99              	.LVL1:
+  19:Src/calibration.c ****   u16 j;
+  20:Src/calibration.c ****   u16 temp1;
+  21:Src/calibration.c ****   u32 Cur1_B = 0;
+  22:Src/calibration.c ****   u32 Cur1_C = 0;
+  23:Src/calibration.c **** 	u32 Cur1_A = 0;
+  24:Src/calibration.c ****   s32 result = 1;
+  25:Src/calibration.c ****   temp1 = TIM1->CCER;
+ 100              		.loc 1 25 0
+ 101 0002 2D4B     		ldr	r3, .L16
+ 102 0004 1A6A     		ldr	r2, [r3, #32]
+  26:Src/calibration.c **** 	//bsp_DelayMS(100);
+  27:Src/calibration.c ****   TIM1->CCR1 = 0;
+ 103              		.loc 1 27 0
+ 104 0006 0024     		movs	r4, #0
+ 105 0008 5C63     		str	r4, [r3, #52]
+  28:Src/calibration.c ****   TIM1->CCR2 = 0;
+ 106              		.loc 1 28 0
+ 107 000a 9C63     		str	r4, [r3, #56]
+  29:Src/calibration.c ****   TIM1->CCR3 = 0;
+ 108              		.loc 1 29 0
+ 109 000c DC63     		str	r4, [r3, #60]
+  30:Src/calibration.c ****   TIM1->CCER = (u16)0x0000;   //1100,CC1E=0��ֹ,CC1P=0�ߵ�ƽ��Ч,CC1NE=1ʹ��,CC1NP=
+ 110              		.loc 1 30 0
+ 111 000e 1C62     		str	r4, [r3, #32]
+  31:Src/calibration.c **** 	__HAL_ADC_DISABLE_IT(&hadc1,ADC_FLAG_JEOS);
+ 112              		.loc 1 31 0
+ 113 0010 2A4A     		ldr	r2, .L16+4
+ 114 0012 1168     		ldr	r1, [r2]
+ 115 0014 4A68     		ldr	r2, [r1, #4]
+ 116 0016 22F04002 		bic	r2, r2, #64
+ 117 001a 4A60     		str	r2, [r1, #4]
+  32:Src/calibration.c **** 	MP6540_ON();
+ 118              		.loc 1 32 0
+ 119 001c 2849     		ldr	r1, .L16+8
+ 120 001e 4A69     		ldr	r2, [r1, #20]
+ 121 0020 42F48052 		orr	r2, r2, #4096
+ 122 0024 4A61     		str	r2, [r1, #20]
+  33:Src/calibration.c **** 	TIM1->CCR3 = 0;
+ 123              		.loc 1 33 0
+ 124 0026 DC63     		str	r4, [r3, #60]
+  34:Src/calibration.c ****   TIM1->CCR2 = 0;
+ 125              		.loc 1 34 0
+ 126 0028 9C63     		str	r4, [r3, #56]
+  35:Src/calibration.c ****   TIM1->CCR1 = 0;
+ 127              		.loc 1 35 0
+ 128 002a 5C63     		str	r4, [r3, #52]
+  36:Src/calibration.c **** 	//TIMx->CCER = (u16)0x5FFF;
+  37:Src/calibration.c **** 	TIM1->CCER = (u16)PWM_OUTPUT_REG;
+ 129              		.loc 1 37 0
+ 130 002c 45F25552 		movw	r2, #21845
+ 131 0030 1A62     		str	r2, [r3, #32]
+  38:Src/calibration.c **** 	delay_ms(10000);
+ 132              		.loc 1 38 0
+ 133 0032 42F21070 		movw	r0, #10000
+ 134 0036 FFF7FEFF 		bl	delay_ms
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s 			page 4
+
+
+ 135              	.LVL2:
+  23:Src/calibration.c ****   s32 result = 1;
+ 136              		.loc 1 23 0
+ 137 003a 2046     		mov	r0, r4
+  21:Src/calibration.c ****   u32 Cur1_C = 0;
+ 138              		.loc 1 21 0
+ 139 003c 2546     		mov	r5, r4
+  39:Src/calibration.c **** 	for (j=0; j<32; j++)
+ 140              		.loc 1 39 0
+ 141 003e 2146     		mov	r1, r4
+ 142 0040 13E0     		b	.L9
+ 143              	.LVL3:
+ 144              	.L10:
+  40:Src/calibration.c **** 	{
+  41:Src/calibration.c **** //		FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG);
+  42:Src/calibration.c **** 		while(__HAL_ADC_GET_FLAG(&hadc1,ADC_FLAG_JEOS)==RESET)
+ 145              		.loc 1 42 0 discriminator 1
+ 146 0042 1E4B     		ldr	r3, .L16+4
+ 147 0044 1B68     		ldr	r3, [r3]
+ 148 0046 1A68     		ldr	r2, [r3]
+ 149 0048 12F0400F 		tst	r2, #64
+ 150 004c F9D0     		beq	.L10
+  43:Src/calibration.c **** 		{}
+  44:Src/calibration.c **** 		__HAL_ADC_CLEAR_FLAG(&hadc1,ADC_FLAG_JEOS);
+ 151              		.loc 1 44 0 discriminator 2
+ 152 004e 4022     		movs	r2, #64
+ 153 0050 1A60     		str	r2, [r3]
+  45:Src/calibration.c **** 		//bsp_DelayMS(10);
+  46:Src/calibration.c **** 		Cur1_A += hadc1.Instance->JDR1;
+ 154              		.loc 1 46 0 discriminator 2
+ 155 0052 1A4B     		ldr	r3, .L16+4
+ 156 0054 1B68     		ldr	r3, [r3]
+ 157 0056 D3F88030 		ldr	r3, [r3, #128]
+ 158 005a 1844     		add	r0, r0, r3
+ 159              	.LVL4:
+  47:Src/calibration.c ****     Cur1_B += hadc2.Instance->JDR1;	
+ 160              		.loc 1 47 0 discriminator 2
+ 161 005c 194B     		ldr	r3, .L16+12
+ 162 005e 1B68     		ldr	r3, [r3]
+ 163 0060 D3F88030 		ldr	r3, [r3, #128]
+ 164 0064 1D44     		add	r5, r5, r3
+ 165              	.LVL5:
+  39:Src/calibration.c **** 	{
+ 166              		.loc 1 39 0 discriminator 2
+ 167 0066 0131     		adds	r1, r1, #1
+ 168              	.LVL6:
+ 169 0068 89B2     		uxth	r1, r1
+ 170              	.LVL7:
+ 171              	.L9:
+  39:Src/calibration.c **** 	{
+ 172              		.loc 1 39 0 is_stmt 0 discriminator 1
+ 173 006a 1F29     		cmp	r1, #31
+ 174 006c E9D9     		bls	.L10
+  48:Src/calibration.c **** 	}
+  49:Src/calibration.c **** 	
+  50:Src/calibration.c **** 	g_ZeroCur_MotorA = (Cur1_A)>>5;
+ 175              		.loc 1 50 0 is_stmt 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s 			page 5
+
+
+ 176 006e 4009     		lsrs	r0, r0, #5
+ 177              	.LVL8:
+ 178 0070 154B     		ldr	r3, .L16+16
+ 179 0072 1860     		str	r0, [r3]
+  51:Src/calibration.c ****   g_ZeroCur_MotorB = (Cur1_B)>>5;
+ 180              		.loc 1 51 0
+ 181 0074 6D09     		lsrs	r5, r5, #5
+ 182              	.LVL9:
+ 183 0076 154B     		ldr	r3, .L16+20
+ 184 0078 1D60     		str	r5, [r3]
+  52:Src/calibration.c **** 
+  53:Src/calibration.c ****   if (		g_ZeroCur_MotorA < (1848) || g_ZeroCur_MotorA > (2248) ||
+ 185              		.loc 1 53 0
+ 186 007a A0F5E760 		sub	r0, r0, #1848
+ 187 007e B0F5C87F 		cmp	r0, #400
+ 188 0082 08D8     		bhi	.L12
+ 189              		.loc 1 53 0 is_stmt 0 discriminator 1
+ 190 0084 B5F5E76F 		cmp	r5, #1848
+ 191 0088 12DB     		blt	.L13
+  54:Src/calibration.c **** 					g_ZeroCur_MotorB < (1848) || g_ZeroCur_MotorB > (2248)  	)
+ 192              		.loc 1 54 0 is_stmt 1
+ 193 008a 40F6C803 		movw	r3, #2248
+ 194 008e 9D42     		cmp	r5, r3
+ 195 0090 10DC     		bgt	.L14
+  24:Src/calibration.c ****   temp1 = TIM1->CCER;
+ 196              		.loc 1 24 0
+ 197 0092 0120     		movs	r0, #1
+ 198 0094 00E0     		b	.L11
+ 199              	.L12:
+  55:Src/calibration.c **** 	{
+  56:Src/calibration.c ****     result = 0;
+ 200              		.loc 1 56 0
+ 201 0096 0020     		movs	r0, #0
+ 202              	.L11:
+ 203              	.LVL10:
+  57:Src/calibration.c ****   }	
+  58:Src/calibration.c **** 	MP6540_OFF();
+ 204              		.loc 1 58 0
+ 205 0098 094A     		ldr	r2, .L16+8
+ 206 009a 5369     		ldr	r3, [r2, #20]
+ 207 009c 23F48053 		bic	r3, r3, #4096
+ 208 00a0 5361     		str	r3, [r2, #20]
+  59:Src/calibration.c **** 	__HAL_ADC_ENABLE_IT(&hadc1,ADC_FLAG_JEOS);
+ 209              		.loc 1 59 0
+ 210 00a2 064B     		ldr	r3, .L16+4
+ 211 00a4 1A68     		ldr	r2, [r3]
+ 212 00a6 5368     		ldr	r3, [r2, #4]
+ 213 00a8 43F04003 		orr	r3, r3, #64
+ 214 00ac 5360     		str	r3, [r2, #4]
+  60:Src/calibration.c **** //  TIM1->CCER = temp1;
+  61:Src/calibration.c ****   return result;
+  62:Src/calibration.c **** }
+ 215              		.loc 1 62 0
+ 216 00ae 38BD     		pop	{r3, r4, r5, pc}
+ 217              	.LVL11:
+ 218              	.L13:
+  56:Src/calibration.c ****   }	
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s 			page 6
+
+
+ 219              		.loc 1 56 0
+ 220 00b0 0020     		movs	r0, #0
+ 221 00b2 F1E7     		b	.L11
+ 222              	.L14:
+ 223 00b4 0020     		movs	r0, #0
+ 224 00b6 EFE7     		b	.L11
+ 225              	.L17:
+ 226              		.align	2
+ 227              	.L16:
+ 228 00b8 002C0140 		.word	1073818624
+ 229 00bc 00000000 		.word	hadc1
+ 230 00c0 00040048 		.word	1207960576
+ 231 00c4 00000000 		.word	hadc2
+ 232 00c8 00000000 		.word	g_ZeroCur_MotorA
+ 233 00cc 00000000 		.word	g_ZeroCur_MotorB
+ 234              		.cfi_endproc
+ 235              	.LFE334:
+ 237              		.text
+ 238              	.Letext0:
+ 239              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 240              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 241              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 242              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 243              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 244              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 245              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 246              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 247              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 248              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 249              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 250              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 251              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 252              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 253              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 254              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 255              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ 256              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 257              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 258              		.file 21 "Inc/uart.h"
+ 259              		.file 22 "Inc/pwm.h"
+ 260              		.file 23 "Inc/spi_MEncoder.h"
+ 261              		.file 24 "Inc/adc.h"
+ 262              		.file 25 "Inc/stm32_math_sin.h"
+ 263              		.file 26 "Inc/pid.h"
+ 264              		.file 27 "Inc/profile_joint.h"
+ 265              		.file 28 "Inc/icmu.h"
+ 266              		.file 29 "Inc/performance_test.h"
+ 267              		.file 30 "Inc/global.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 calibration.c
+C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s:18     .text.delay_ms:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s:25     .text.delay_ms:00000000 delay_ms
+C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s:79     .text.CurrentDemarcate:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s:86     .text.CurrentDemarcate:00000000 CurrentDemarcate
+C:\Users\82057\AppData\Local\Temp\cc6Ink2U.s:228    .text.CurrentDemarcate:000000b8 $d
+
+UNDEFINED SYMBOLS
+hadc1
+hadc2
+g_ZeroCur_MotorA
+g_ZeroCur_MotorB

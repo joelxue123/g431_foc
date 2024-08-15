@@ -1,0 +1,232 @@
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIoQQoi.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32g4xx_hal_flash_ramfunc.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.RamFunc,"ax",%progbits
+  18              		.align	1
+  19              		.global	HAL_FLASHEx_EnableRunPowerDown
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	HAL_FLASHEx_EnableRunPowerDown:
+  26              	.LFB329:
+  27              		.file 1 "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c"
+   1:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /**
+   2:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   ******************************************************************************
+   3:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @file    stm32g4xx_hal_flash_ramfunc.c
+   4:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @author  MCD Application Team
+   5:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @brief   FLASH RAMFUNC driver.
+   6:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   *          This file provides a Flash firmware functions which should be
+   7:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   *          executed from internal SRAM
+   8:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   *            + FLASH Power Down in Run mode
+   9:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   *            + FLASH DBANK User Option Byte
+  10:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   *
+  11:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   *
+  12:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   @verbatim
+  13:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   ==============================================================================
+  14:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****                    ##### Flash RAM functions #####
+  15:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   ==============================================================================
+  16:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  17:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****     *** ARM Compiler ***
+  18:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****     --------------------
+  19:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****     [..] RAM functions are defined using the toolchain options.
+  20:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****          Functions that are executed in RAM should reside in a separate
+  21:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****          source module. Using the 'Options for File' dialog you can simply change
+  22:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****          the 'Code / Const' area of a module to a memory space in physical RAM.
+  23:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****          Available memory areas are declared in the 'Target' tab of the
+  24:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****          Options for Target' dialog.
+  25:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  26:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****     *** ICCARM Compiler ***
+  27:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****     -----------------------
+  28:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****     [..] RAM functions are defined using a specific toolchain keyword "__ramfunc".
+  29:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  30:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****     *** GNU Compiler ***
+  31:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****     --------------------
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIoQQoi.s 			page 2
+
+
+  32:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****     [..] RAM functions are defined using a specific toolchain attribute
+  33:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****          "__attribute__((section(".RamFunc")))".
+  34:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  35:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   @endverbatim
+  36:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   ******************************************************************************
+  37:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @attention
+  38:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   *
+  39:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * Copyright (c) 2019 STMicroelectronics.
+  40:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * All rights reserved.
+  41:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   *
+  42:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * This software is licensed under terms that can be found in the LICENSE file in
+  43:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * the root directory of this software component.
+  44:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  45:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   ******************************************************************************
+  46:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   */
+  47:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  48:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /* Includes ------------------------------------------------------------------*/
+  49:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** #include "stm32g4xx_hal.h"
+  50:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  51:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /** @addtogroup STM32G4xx_HAL_Driver
+  52:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @{
+  53:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   */
+  54:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  55:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /** @defgroup FLASH_RAMFUNC FLASH_RAMFUNC
+  56:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @brief FLASH functions executed from RAM
+  57:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @{
+  58:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   */
+  59:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  60:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** #ifdef HAL_FLASH_MODULE_ENABLED
+  61:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  62:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /* Private typedef -----------------------------------------------------------*/
+  63:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /* Private define ------------------------------------------------------------*/
+  64:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /* Private macro -------------------------------------------------------------*/
+  65:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /* Private variables ---------------------------------------------------------*/
+  66:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /* Private function prototypes -----------------------------------------------*/
+  67:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /* Exported functions -------------------------------------------------------*/
+  68:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  69:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /** @defgroup FLASH_RAMFUNC_Exported_Functions FLASH_RAMFUNC Exported Functions
+  70:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @{
+  71:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   */
+  72:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  73:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /** @defgroup FLASH_RAMFUNC_Exported_Functions_Group1 Peripheral features functions
+  74:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****  *  @brief   Data transfers functions
+  75:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****  *
+  76:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** @verbatim
+  77:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****  ===============================================================================
+  78:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****                       ##### ramfunc functions #####
+  79:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****  ===============================================================================
+  80:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****     [..]
+  81:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****     This subsection provides a set of functions that should be executed from RAM.
+  82:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  83:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** @endverbatim
+  84:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @{
+  85:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   */
+  86:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  87:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /**
+  88:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @brief  Enable the Power down in Run Mode
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIoQQoi.s 			page 3
+
+
+  89:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @note   This function should be called and executed from SRAM memory.
+  90:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @retval None
+  91:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   */
+  92:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** __RAM_FUNC HAL_StatusTypeDef HAL_FLASHEx_EnableRunPowerDown(void)
+  93:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** {
+  28              		.loc 1 93 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  94:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   /* Enable the Power Down in Run mode*/
+  95:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   __HAL_FLASH_POWER_DOWN_ENABLE();
+  33              		.loc 1 95 0
+  34 0000 054B     		ldr	r3, .L2
+  35 0002 064A     		ldr	r2, .L2+4
+  36 0004 5A60     		str	r2, [r3, #4]
+  37 0006 064A     		ldr	r2, .L2+8
+  38 0008 5A60     		str	r2, [r3, #4]
+  39 000a 1A68     		ldr	r2, [r3]
+  40 000c 42F40052 		orr	r2, r2, #8192
+  41 0010 1A60     		str	r2, [r3]
+  96:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  97:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   return HAL_OK;
+  98:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+  99:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** }
+  42              		.loc 1 99 0
+  43 0012 0020     		movs	r0, #0
+  44 0014 7047     		bx	lr
+  45              	.L3:
+  46 0016 00BF     		.align	2
+  47              	.L2:
+  48 0018 00200240 		.word	1073881088
+  49 001c 37261504 		.word	68494903
+  50 0020 FDFCFBFA 		.word	-84148995
+  51              		.cfi_endproc
+  52              	.LFE329:
+  54              		.align	1
+  55              		.global	HAL_FLASHEx_DisableRunPowerDown
+  56              		.syntax unified
+  57              		.thumb
+  58              		.thumb_func
+  59              		.fpu fpv4-sp-d16
+  61              	HAL_FLASHEx_DisableRunPowerDown:
+  62              	.LFB330:
+ 100:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+ 101:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** /**
+ 102:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @brief  Disable the Power down in Run Mode
+ 103:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @note   This function should be called and executed from SRAM memory.
+ 104:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   * @retval None
+ 105:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   */
+ 106:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** __RAM_FUNC HAL_StatusTypeDef HAL_FLASHEx_DisableRunPowerDown(void)
+ 107:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** {
+  63              		.loc 1 107 0
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67              		@ link register save eliminated.
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIoQQoi.s 			page 4
+
+
+ 108:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   /* Disable the Power Down in Run mode*/
+ 109:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   __HAL_FLASH_POWER_DOWN_DISABLE();
+  68              		.loc 1 109 0
+  69 0024 054B     		ldr	r3, .L5
+  70 0026 064A     		ldr	r2, .L5+4
+  71 0028 5A60     		str	r2, [r3, #4]
+  72 002a 064A     		ldr	r2, .L5+8
+  73 002c 5A60     		str	r2, [r3, #4]
+  74 002e 1A68     		ldr	r2, [r3]
+  75 0030 22F40052 		bic	r2, r2, #8192
+  76 0034 1A60     		str	r2, [r3]
+ 110:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** 
+ 111:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c ****   return HAL_OK;
+ 112:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_flash_ramfunc.c **** }
+  77              		.loc 1 112 0
+  78 0036 0020     		movs	r0, #0
+  79 0038 7047     		bx	lr
+  80              	.L6:
+  81 003a 00BF     		.align	2
+  82              	.L5:
+  83 003c 00200240 		.word	1073881088
+  84 0040 37261504 		.word	68494903
+  85 0044 FDFCFBFA 		.word	-84148995
+  86              		.cfi_endproc
+  87              	.LFE330:
+  89              		.text
+  90              	.Letext0:
+  91              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+  92              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+  93              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+  94              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+  95              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+  96              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+  97              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+  98              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+  99              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIoQQoi.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32g4xx_hal_flash_ramfunc.c
+C:\Users\82057\AppData\Local\Temp\ccIoQQoi.s:18     .RamFunc:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccIoQQoi.s:25     .RamFunc:00000000 HAL_FLASHEx_EnableRunPowerDown
+C:\Users\82057\AppData\Local\Temp\ccIoQQoi.s:48     .RamFunc:00000018 $d
+C:\Users\82057\AppData\Local\Temp\ccIoQQoi.s:54     .RamFunc:00000024 $t
+C:\Users\82057\AppData\Local\Temp\ccIoQQoi.s:61     .RamFunc:00000024 HAL_FLASHEx_DisableRunPowerDown
+C:\Users\82057\AppData\Local\Temp\ccIoQQoi.s:83     .RamFunc:0000003c $d
+
+NO UNDEFINED SYMBOLS

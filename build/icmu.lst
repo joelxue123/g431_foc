@@ -1,0 +1,2198 @@
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"icmu.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.delay__ms,"ax",%progbits
+  18              		.align	1
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv4-sp-d16
+  24              	delay__ms:
+  25              	.LFB344:
+  26              		.file 1 "Src/icmu.c"
+   1:Src/icmu.c    **** #include "icmu.h"
+   2:Src/icmu.c    **** 
+   3:Src/icmu.c    **** s32 MUValue = 0;
+   4:Src/icmu.c    **** s32 test_cnt = 0;
+   5:Src/icmu.c    **** uint8_t buf[9] = {0, 0, 0};
+   6:Src/icmu.c    **** u8 spi1_send[4] = {0xA6,0x00,0x00,0x00};
+   7:Src/icmu.c    **** s16 Ang_reg[1024] = {0};
+   8:Src/icmu.c    **** s16 Ang_reg_Index = 0;
+   9:Src/icmu.c    **** s16 Ang_reg_Index_Last = 0;
+  10:Src/icmu.c    **** s16 Ang_reg_Sum = 0;
+  11:Src/icmu.c    **** s16 Ang_reg_Count = 0;
+  12:Src/icmu.c    **** s16 MECode_offset_ICHaus = 0;
+  13:Src/icmu.c    **** uint8_t spi1_reg_buf[4] = {0};
+  14:Src/icmu.c    **** volatile uint8_t spi1_reg[4] = {0};
+  15:Src/icmu.c    **** volatile s32 *p_MU_Value = (s32*)(&spi1_reg[0]);
+  16:Src/icmu.c    **** volatile s32 MU_Value = 0,MU_Value_last = 0;
+  17:Src/icmu.c    **** volatile s32 Speed_T = 0;
+  18:Src/icmu.c    **** volatile s32 Speed_DltAng_pls = 0;
+  19:Src/icmu.c    **** volatile s32 MU_Vlaue_last = 0;
+  20:Src/icmu.c    **** volatile u8 Flag_MU_read = 0;
+  21:Src/icmu.c    **** 
+  22:Src/icmu.c    **** SPI_HandleTypeDef hspi1;
+  23:Src/icmu.c    **** DMA_HandleTypeDef hdma_spi1_rx;
+  24:Src/icmu.c    **** DMA_HandleTypeDef hdma_spi1_tx;
+  25:Src/icmu.c    **** 
+  26:Src/icmu.c    **** 
+  27:Src/icmu.c    **** static int Flag_error_read_eeprom = 0;
+  28:Src/icmu.c    **** 
+  29:Src/icmu.c    **** 
+  30:Src/icmu.c    **** 
+  31:Src/icmu.c    **** static void delay_clk(void)
+  32:Src/icmu.c    **** {
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 2
+
+
+  33:Src/icmu.c    ****   uint16_t i = 1000;
+  34:Src/icmu.c    ****   while(i--)
+  35:Src/icmu.c    ****     __nop();
+  36:Src/icmu.c    **** }
+  37:Src/icmu.c    **** 
+  38:Src/icmu.c    **** 
+  39:Src/icmu.c    **** 
+  40:Src/icmu.c    **** 
+  41:Src/icmu.c    **** 
+  42:Src/icmu.c    ****  void MX_SPI1_Init(void)
+  43:Src/icmu.c    **** {
+  44:Src/icmu.c    **** 
+  45:Src/icmu.c    ****   /* USER CODE BEGIN SPI1_Init 0 */
+  46:Src/icmu.c    **** 
+  47:Src/icmu.c    ****   /* USER CODE END SPI1_Init 0 */
+  48:Src/icmu.c    **** 
+  49:Src/icmu.c    ****   /* USER CODE BEGIN SPI1_Init 1 */
+  50:Src/icmu.c    **** 
+  51:Src/icmu.c    ****   /* USER CODE END SPI1_Init 1 */
+  52:Src/icmu.c    ****   /* SPI1 parameter configuration*/
+  53:Src/icmu.c    ****   hspi1.Instance = SPI1;
+  54:Src/icmu.c    ****   hspi1.Init.Mode = SPI_MODE_MASTER;
+  55:Src/icmu.c    ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+  56:Src/icmu.c    ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  57:Src/icmu.c    ****   hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
+  58:Src/icmu.c    ****   hspi1.Init.CLKPhase = SPI_PHASE_2EDGE;
+  59:Src/icmu.c    ****   hspi1.Init.NSS = SPI_NSS_SOFT;
+  60:Src/icmu.c    ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+  61:Src/icmu.c    ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  62:Src/icmu.c    ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+  63:Src/icmu.c    ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  64:Src/icmu.c    ****   hspi1.Init.CRCPolynomial = 7;
+  65:Src/icmu.c    ****   hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  66:Src/icmu.c    ****   hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+  67:Src/icmu.c    ****   if (HAL_SPI_Init(&hspi1) != HAL_OK)
+  68:Src/icmu.c    ****   {
+  69:Src/icmu.c    ****     Error_Handler();
+  70:Src/icmu.c    ****   }
+  71:Src/icmu.c    ****   /* USER CODE BEGIN SPI1_Init 2 */
+  72:Src/icmu.c    **** 
+  73:Src/icmu.c    ****   /* USER CODE END SPI1_Init 2 */
+  74:Src/icmu.c    **** 
+  75:Src/icmu.c    **** 	HAL_SPI_TransmitReceive_DMA(&hspi1, &spi1_send[0], &spi1_reg_buf[0], 4);
+  76:Src/icmu.c    **** }
+  77:Src/icmu.c    **** 
+  78:Src/icmu.c    **** 
+  79:Src/icmu.c    **** 
+  80:Src/icmu.c    **** 
+  81:Src/icmu.c    **** #if 1
+  82:Src/icmu.c    **** void SPI1_Init(void)
+  83:Src/icmu.c    **** {
+  84:Src/icmu.c    ****    /* USER CODE BEGIN SPI1_Init 0 */
+  85:Src/icmu.c    **** 
+  86:Src/icmu.c    ****   /* USER CODE END SPI1_Init 0 */
+  87:Src/icmu.c    **** 
+  88:Src/icmu.c    ****   /* USER CODE BEGIN SPI1_Init 1 */
+  89:Src/icmu.c    **** 
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 3
+
+
+  90:Src/icmu.c    ****   /* USER CODE END SPI1_Init 1 */
+  91:Src/icmu.c    ****   /* SPI1 parameter configuration*/
+  92:Src/icmu.c    ****   hspi1.Instance = SPI1;
+  93:Src/icmu.c    ****   hspi1.Init.Mode = SPI_MODE_MASTER;
+  94:Src/icmu.c    ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+  95:Src/icmu.c    ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  96:Src/icmu.c    ****   hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
+  97:Src/icmu.c    ****   hspi1.Init.CLKPhase = SPI_PHASE_2EDGE;
+  98:Src/icmu.c    ****   hspi1.Init.NSS = SPI_NSS_SOFT;
+  99:Src/icmu.c    ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+ 100:Src/icmu.c    ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 101:Src/icmu.c    ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+ 102:Src/icmu.c    ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 103:Src/icmu.c    ****   hspi1.Init.CRCPolynomial = 7;
+ 104:Src/icmu.c    ****   hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+ 105:Src/icmu.c    ****   hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+ 106:Src/icmu.c    ****   if (HAL_SPI_Init(&hspi1) != HAL_OK)
+ 107:Src/icmu.c    ****   {
+ 108:Src/icmu.c    ****     Error_Handler();
+ 109:Src/icmu.c    ****   }
+ 110:Src/icmu.c    **** 	SPI1->DR;
+ 111:Src/icmu.c    ****   SET_BIT(SPI1->CR2, SPI_RXFIFO_THRESHOLD);
+ 112:Src/icmu.c    ****   __HAL_SPI_ENABLE(&hspi1);
+ 113:Src/icmu.c    **** }
+ 114:Src/icmu.c    **** 
+ 115:Src/icmu.c    **** 
+ 116:Src/icmu.c    **** 
+ 117:Src/icmu.c    **** 
+ 118:Src/icmu.c    **** 
+ 119:Src/icmu.c    **** 
+ 120:Src/icmu.c    **** void SPI_I2S_SendData8(SPI_TypeDef* SPIx, uint8_t Data)
+ 121:Src/icmu.c    **** {
+ 122:Src/icmu.c    ****   uint32_t spixbase = 0x00;
+ 123:Src/icmu.c    **** 
+ 124:Src/icmu.c    ****   /* Check the parameters */
+ 125:Src/icmu.c    ****   assert_param(IS_SPI_ALL_PERIPH(SPIx));
+ 126:Src/icmu.c    **** 
+ 127:Src/icmu.c    ****   spixbase = (uint32_t)SPIx; 
+ 128:Src/icmu.c    ****   spixbase += 0x0C;
+ 129:Src/icmu.c    ****   
+ 130:Src/icmu.c    ****   *(__IO uint8_t *) spixbase = Data;
+ 131:Src/icmu.c    **** }
+ 132:Src/icmu.c    **** 
+ 133:Src/icmu.c    **** 
+ 134:Src/icmu.c    **** uint8_t SPI_I2S_ReceiveData8(SPI_TypeDef* SPIx)
+ 135:Src/icmu.c    **** {
+ 136:Src/icmu.c    ****   uint32_t spixbase = 0x00;
+ 137:Src/icmu.c    ****   
+ 138:Src/icmu.c    ****   /* Check the parameters */
+ 139:Src/icmu.c    ****   assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+ 140:Src/icmu.c    ****   
+ 141:Src/icmu.c    ****   spixbase = (uint32_t)SPIx; 
+ 142:Src/icmu.c    ****   spixbase += 0x0C;
+ 143:Src/icmu.c    ****   
+ 144:Src/icmu.c    ****   return *(__IO uint8_t *) spixbase;
+ 145:Src/icmu.c    **** }
+ 146:Src/icmu.c    **** 
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 4
+
+
+ 147:Src/icmu.c    **** 
+ 148:Src/icmu.c    **** uint8_t icmu_spi_init(void)
+ 149:Src/icmu.c    **** {
+ 150:Src/icmu.c    ****   uint8_t icmu_reg = 0;  
+ 151:Src/icmu.c    ****   SPI1_Init();
+ 152:Src/icmu.c    **** 
+ 153:Src/icmu.c    **** 
+ 154:Src/icmu.c    ****   icmu_reg = icmu_read_reg(0x77);
+ 155:Src/icmu.c    **** 	
+ 156:Src/icmu.c    **** 	return (1); 
+ 157:Src/icmu.c    **** }
+ 158:Src/icmu.c    **** static uint16_t SPI_RW(uint16_t data)
+ 159:Src/icmu.c    **** {
+ 160:Src/icmu.c    ****   /* Loop while DR register in not emplty */
+ 161:Src/icmu.c    ****   while(__HAL_SPI_GET_FLAG(&hspi1, SPI_FLAG_TXE) == RESET);
+ 162:Src/icmu.c    ****   /* Send byte through the SPI1 peripheral */
+ 163:Src/icmu.c    ****   SPI_I2S_SendData8(SPI1, data);
+ 164:Src/icmu.c    ****   /* Wait to receive a byte */
+ 165:Src/icmu.c    ****   while((__HAL_SPI_GET_FLAG(&hspi1, SPI_FLAG_RXNE) == RESET));
+ 166:Src/icmu.c    ****   /* Return the byte read from the SPI bus */
+ 167:Src/icmu.c    ****   return SPI_I2S_ReceiveData8(SPI1);  
+ 168:Src/icmu.c    **** }
+ 169:Src/icmu.c    **** uint8_t icmu_activiate(uint8_t pactive, uint8_t ractive)
+ 170:Src/icmu.c    **** {
+ 171:Src/icmu.c    ****   SPI1_CS_EN;
+ 172:Src/icmu.c    ****   if (CMD_ACTIVATE == SPI_RW(CMD_ACTIVATE))
+ 173:Src/icmu.c    ****   {
+ 174:Src/icmu.c    ****     if (0x20 == SPI_RW(0x80+ pactive + (ractive<<1)))
+ 175:Src/icmu.c    ****     {
+ 176:Src/icmu.c    ****       SPI1_CS_DIS;
+ 177:Src/icmu.c    ****       return 1;
+ 178:Src/icmu.c    ****     }
+ 179:Src/icmu.c    ****   }
+ 180:Src/icmu.c    ****   SPI1_CS_DIS;
+ 181:Src/icmu.c    ****   return 0;
+ 182:Src/icmu.c    **** }
+ 183:Src/icmu.c    **** uint32_t icmu_sdtransmission(void)
+ 184:Src/icmu.c    **** {
+ 185:Src/icmu.c    ****   uint32_t temp = 0;			
+ 186:Src/icmu.c    ****   SPI1_CS_EN;
+ 187:Src/icmu.c    ****   if (CMD_SD_TRANS == SPI_RW(CMD_SD_TRANS))
+ 188:Src/icmu.c    ****   {
+ 189:Src/icmu.c    ****     buf[0] = SPI_RW(0);
+ 190:Src/icmu.c    ****     buf[1] = SPI_RW(0);
+ 191:Src/icmu.c    ****     buf[2] = SPI_RW(0);
+ 192:Src/icmu.c    ****   }
+ 193:Src/icmu.c    ****   temp = buf[0];
+ 194:Src/icmu.c    ****   temp = (temp<<8) | buf[1];
+ 195:Src/icmu.c    ****   temp = (temp<<8) | buf[2];
+ 196:Src/icmu.c    ****   temp = temp>>5;
+ 197:Src/icmu.c    ****   SPI1_CS_DIS;
+ 198:Src/icmu.c    ****   return  temp;
+ 199:Src/icmu.c    **** }
+ 200:Src/icmu.c    **** 
+ 201:Src/icmu.c    **** //����ģʽ��ȡ MU��ֵ
+ 202:Src/icmu.c    **** int8_t get_MU_Value_block(void)
+ 203:Src/icmu.c    **** {
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 5
+
+
+ 204:Src/icmu.c    **** 		static s32 count_wait = 0;
+ 205:Src/icmu.c    **** 		Flag_MU_read = 0;	
+ 206:Src/icmu.c    **** 		icmu_sdtransmission_test();		
+ 207:Src/icmu.c    **** 		while(Flag_MU_read == 0)
+ 208:Src/icmu.c    **** 		{
+ 209:Src/icmu.c    **** 			if(count_wait>300)//�������ٺ��룬˵��MU��SPIͨѶʧ��
+ 210:Src/icmu.c    **** 			{
+ 211:Src/icmu.c    **** 				Flag_error_MU_SPI = 1;
+ 212:Src/icmu.c    **** 				return 0;
+ 213:Src/icmu.c    **** 			}
+ 214:Src/icmu.c    **** 			count_wait++;
+ 215:Src/icmu.c    **** 			delay_ms(1);			
+ 216:Src/icmu.c    **** 		}
+ 217:Src/icmu.c    **** 		return 1;
+ 218:Src/icmu.c    **** }
+ 219:Src/icmu.c    **** uint8_t icmu_sdstatus(void)
+ 220:Src/icmu.c    **** {
+ 221:Src/icmu.c    ****   SPI1_CS_EN;
+ 222:Src/icmu.c    ****   if (CMD_SD_STATUS == SPI_RW(CMD_SD_STATUS))
+ 223:Src/icmu.c    ****   {
+ 224:Src/icmu.c    ****     if (SPI_RW(0) == 0x80)
+ 225:Src/icmu.c    ****     {
+ 226:Src/icmu.c    ****       SPI1_CS_DIS;
+ 227:Src/icmu.c    ****       return 1;
+ 228:Src/icmu.c    ****     }
+ 229:Src/icmu.c    ****     else
+ 230:Src/icmu.c    ****     {
+ 231:Src/icmu.c    ****       SPI1_CS_DIS;
+ 232:Src/icmu.c    ****       return 0;
+ 233:Src/icmu.c    ****     }
+ 234:Src/icmu.c    ****   }
+ 235:Src/icmu.c    ****   return 0;
+ 236:Src/icmu.c    **** }
+ 237:Src/icmu.c    **** 
+ 238:Src/icmu.c    **** static void delay__ms(int cnt)
+ 239:Src/icmu.c    **** {
+  27              		.loc 1 239 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 8
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32              	.LVL0:
+  33 0000 82B0     		sub	sp, sp, #8
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+ 240:Src/icmu.c    **** 	volatile int i=0,j=0;
+  36              		.loc 1 240 0
+  37 0002 0023     		movs	r3, #0
+  38 0004 0193     		str	r3, [sp, #4]
+  39 0006 0093     		str	r3, [sp]
+ 241:Src/icmu.c    **** 	
+ 242:Src/icmu.c    **** 	for(i =0 ;i<1000;i++)
+  40              		.loc 1 242 0
+  41 0008 0193     		str	r3, [sp, #4]
+  42 000a 08E0     		b	.L2
+  43              	.L4:
+ 243:Src/icmu.c    **** 		for(j=0;j<cnt;j++);
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 6
+
+
+  44              		.loc 1 243 0 discriminator 3
+  45 000c 009B     		ldr	r3, [sp]
+  46 000e 0133     		adds	r3, r3, #1
+  47 0010 0093     		str	r3, [sp]
+  48              	.L3:
+  49              		.loc 1 243 0 is_stmt 0 discriminator 1
+  50 0012 009B     		ldr	r3, [sp]
+  51 0014 8342     		cmp	r3, r0
+  52 0016 F9DB     		blt	.L4
+ 242:Src/icmu.c    **** 		for(j=0;j<cnt;j++);
+  53              		.loc 1 242 0 is_stmt 1 discriminator 2
+  54 0018 019B     		ldr	r3, [sp, #4]
+  55 001a 0133     		adds	r3, r3, #1
+  56 001c 0193     		str	r3, [sp, #4]
+  57              	.L2:
+ 242:Src/icmu.c    **** 		for(j=0;j<cnt;j++);
+  58              		.loc 1 242 0 is_stmt 0 discriminator 1
+  59 001e 019B     		ldr	r3, [sp, #4]
+  60 0020 B3F57A7F 		cmp	r3, #1000
+  61 0024 02DA     		bge	.L7
+  62              		.loc 1 243 0 is_stmt 1
+  63 0026 0023     		movs	r3, #0
+  64 0028 0093     		str	r3, [sp]
+  65 002a F2E7     		b	.L3
+  66              	.L7:
+ 244:Src/icmu.c    **** }
+  67              		.loc 1 244 0
+  68 002c 02B0     		add	sp, sp, #8
+  69              	.LCFI1:
+  70              		.cfi_def_cfa_offset 0
+  71              		@ sp needed
+  72 002e 7047     		bx	lr
+  73              		.cfi_endproc
+  74              	.LFE344:
+  76              		.section	.text.delay_clk,"ax",%progbits
+  77              		.align	1
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  81              		.fpu fpv4-sp-d16
+  83              	delay_clk:
+  84              	.LFB333:
+  32:Src/icmu.c    ****   uint16_t i = 1000;
+  85              		.loc 1 32 0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89 0000 10B5     		push	{r4, lr}
+  90              	.LCFI2:
+  91              		.cfi_def_cfa_offset 8
+  92              		.cfi_offset 4, -8
+  93              		.cfi_offset 14, -4
+  94              	.LVL1:
+  33:Src/icmu.c    ****   while(i--)
+  95              		.loc 1 33 0
+  96 0002 4FF47A72 		mov	r2, #1000
+  34:Src/icmu.c    ****     __nop();
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 7
+
+
+  97              		.loc 1 34 0
+  98 0006 02E0     		b	.L9
+  99              	.LVL2:
+ 100              	.L10:
+ 101              	.LBB2:
+  35:Src/icmu.c    **** }
+ 102              		.loc 1 35 0
+ 103 0008 FFF7FEFF 		bl	__nop
+ 104              	.LVL3:
+ 105              	.LBE2:
+  34:Src/icmu.c    ****     __nop();
+ 106              		.loc 1 34 0
+ 107 000c 2246     		mov	r2, r4
+ 108              	.LVL4:
+ 109              	.L9:
+ 110 000e 531E     		subs	r3, r2, #1
+ 111 0010 9CB2     		uxth	r4, r3
+ 112              	.LVL5:
+ 113 0012 002A     		cmp	r2, #0
+ 114 0014 F8D1     		bne	.L10
+  36:Src/icmu.c    **** 
+ 115              		.loc 1 36 0
+ 116 0016 10BD     		pop	{r4, pc}
+ 117              		.cfi_endproc
+ 118              	.LFE333:
+ 120              		.section	.text.MX_SPI1_Init,"ax",%progbits
+ 121              		.align	1
+ 122              		.global	MX_SPI1_Init
+ 123              		.syntax unified
+ 124              		.thumb
+ 125              		.thumb_func
+ 126              		.fpu fpv4-sp-d16
+ 128              	MX_SPI1_Init:
+ 129              	.LFB334:
+  43:Src/icmu.c    **** 
+ 130              		.loc 1 43 0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134 0000 08B5     		push	{r3, lr}
+ 135              	.LCFI3:
+ 136              		.cfi_def_cfa_offset 8
+ 137              		.cfi_offset 3, -8
+ 138              		.cfi_offset 14, -4
+  53:Src/icmu.c    ****   hspi1.Init.Mode = SPI_MODE_MASTER;
+ 139              		.loc 1 53 0
+ 140 0002 1448     		ldr	r0, .L16
+ 141 0004 144B     		ldr	r3, .L16+4
+ 142 0006 0360     		str	r3, [r0]
+  54:Src/icmu.c    ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+ 143              		.loc 1 54 0
+ 144 0008 4FF48273 		mov	r3, #260
+ 145 000c 4360     		str	r3, [r0, #4]
+  55:Src/icmu.c    ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+ 146              		.loc 1 55 0
+ 147 000e 0023     		movs	r3, #0
+ 148 0010 8360     		str	r3, [r0, #8]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 8
+
+
+  56:Src/icmu.c    ****   hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
+ 149              		.loc 1 56 0
+ 150 0012 4FF4E062 		mov	r2, #1792
+ 151 0016 C260     		str	r2, [r0, #12]
+  57:Src/icmu.c    ****   hspi1.Init.CLKPhase = SPI_PHASE_2EDGE;
+ 152              		.loc 1 57 0
+ 153 0018 0222     		movs	r2, #2
+ 154 001a 0261     		str	r2, [r0, #16]
+  58:Src/icmu.c    ****   hspi1.Init.NSS = SPI_NSS_SOFT;
+ 155              		.loc 1 58 0
+ 156 001c 0122     		movs	r2, #1
+ 157 001e 4261     		str	r2, [r0, #20]
+  59:Src/icmu.c    ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+ 158              		.loc 1 59 0
+ 159 0020 4FF40072 		mov	r2, #512
+ 160 0024 8261     		str	r2, [r0, #24]
+  60:Src/icmu.c    ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 161              		.loc 1 60 0
+ 162 0026 3022     		movs	r2, #48
+ 163 0028 C261     		str	r2, [r0, #28]
+  61:Src/icmu.c    ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+ 164              		.loc 1 61 0
+ 165 002a 0362     		str	r3, [r0, #32]
+  62:Src/icmu.c    ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 166              		.loc 1 62 0
+ 167 002c 4362     		str	r3, [r0, #36]
+  63:Src/icmu.c    ****   hspi1.Init.CRCPolynomial = 7;
+ 168              		.loc 1 63 0
+ 169 002e 8362     		str	r3, [r0, #40]
+  64:Src/icmu.c    ****   hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+ 170              		.loc 1 64 0
+ 171 0030 0722     		movs	r2, #7
+ 172 0032 C262     		str	r2, [r0, #44]
+  65:Src/icmu.c    ****   hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+ 173              		.loc 1 65 0
+ 174 0034 0363     		str	r3, [r0, #48]
+  66:Src/icmu.c    ****   if (HAL_SPI_Init(&hspi1) != HAL_OK)
+ 175              		.loc 1 66 0
+ 176 0036 4363     		str	r3, [r0, #52]
+  67:Src/icmu.c    ****   {
+ 177              		.loc 1 67 0
+ 178 0038 FFF7FEFF 		bl	HAL_SPI_Init
+ 179              	.LVL6:
+ 180 003c 30B9     		cbnz	r0, .L15
+ 181              	.L13:
+  75:Src/icmu.c    **** }
+ 182              		.loc 1 75 0
+ 183 003e 0423     		movs	r3, #4
+ 184 0040 064A     		ldr	r2, .L16+8
+ 185 0042 0749     		ldr	r1, .L16+12
+ 186 0044 0348     		ldr	r0, .L16
+ 187 0046 FFF7FEFF 		bl	HAL_SPI_TransmitReceive_DMA
+ 188              	.LVL7:
+  76:Src/icmu.c    **** 
+ 189              		.loc 1 76 0
+ 190 004a 08BD     		pop	{r3, pc}
+ 191              	.L15:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 9
+
+
+ 192              	.LBB3:
+  69:Src/icmu.c    ****   }
+ 193              		.loc 1 69 0
+ 194 004c FFF7FEFF 		bl	Error_Handler
+ 195              	.LVL8:
+ 196 0050 F5E7     		b	.L13
+ 197              	.L17:
+ 198 0052 00BF     		.align	2
+ 199              	.L16:
+ 200 0054 00000000 		.word	hspi1
+ 201 0058 00300140 		.word	1073819648
+ 202 005c 00000000 		.word	.LANCHOR0
+ 203 0060 00000000 		.word	.LANCHOR1
+ 204              	.LBE3:
+ 205              		.cfi_endproc
+ 206              	.LFE334:
+ 208              		.section	.text.SPI1_Init,"ax",%progbits
+ 209              		.align	1
+ 210              		.global	SPI1_Init
+ 211              		.syntax unified
+ 212              		.thumb
+ 213              		.thumb_func
+ 214              		.fpu fpv4-sp-d16
+ 216              	SPI1_Init:
+ 217              	.LFB335:
+  83:Src/icmu.c    ****    /* USER CODE BEGIN SPI1_Init 0 */
+ 218              		.loc 1 83 0
+ 219              		.cfi_startproc
+ 220              		@ args = 0, pretend = 0, frame = 0
+ 221              		@ frame_needed = 0, uses_anonymous_args = 0
+ 222 0000 08B5     		push	{r3, lr}
+ 223              	.LCFI4:
+ 224              		.cfi_def_cfa_offset 8
+ 225              		.cfi_offset 3, -8
+ 226              		.cfi_offset 14, -4
+  92:Src/icmu.c    ****   hspi1.Init.Mode = SPI_MODE_MASTER;
+ 227              		.loc 1 92 0
+ 228 0002 1748     		ldr	r0, .L22
+ 229 0004 174B     		ldr	r3, .L22+4
+ 230 0006 0360     		str	r3, [r0]
+  93:Src/icmu.c    ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+ 231              		.loc 1 93 0
+ 232 0008 4FF48273 		mov	r3, #260
+ 233 000c 4360     		str	r3, [r0, #4]
+  94:Src/icmu.c    ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+ 234              		.loc 1 94 0
+ 235 000e 0023     		movs	r3, #0
+ 236 0010 8360     		str	r3, [r0, #8]
+  95:Src/icmu.c    ****   hspi1.Init.CLKPolarity = SPI_POLARITY_HIGH;
+ 237              		.loc 1 95 0
+ 238 0012 4FF4E062 		mov	r2, #1792
+ 239 0016 C260     		str	r2, [r0, #12]
+  96:Src/icmu.c    ****   hspi1.Init.CLKPhase = SPI_PHASE_2EDGE;
+ 240              		.loc 1 96 0
+ 241 0018 0222     		movs	r2, #2
+ 242 001a 0261     		str	r2, [r0, #16]
+  97:Src/icmu.c    ****   hspi1.Init.NSS = SPI_NSS_SOFT;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 10
+
+
+ 243              		.loc 1 97 0
+ 244 001c 0122     		movs	r2, #1
+ 245 001e 4261     		str	r2, [r0, #20]
+  98:Src/icmu.c    ****   hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+ 246              		.loc 1 98 0
+ 247 0020 4FF40072 		mov	r2, #512
+ 248 0024 8261     		str	r2, [r0, #24]
+  99:Src/icmu.c    ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+ 249              		.loc 1 99 0
+ 250 0026 3022     		movs	r2, #48
+ 251 0028 C261     		str	r2, [r0, #28]
+ 100:Src/icmu.c    ****   hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+ 252              		.loc 1 100 0
+ 253 002a 0362     		str	r3, [r0, #32]
+ 101:Src/icmu.c    ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+ 254              		.loc 1 101 0
+ 255 002c 4362     		str	r3, [r0, #36]
+ 102:Src/icmu.c    ****   hspi1.Init.CRCPolynomial = 7;
+ 256              		.loc 1 102 0
+ 257 002e 8362     		str	r3, [r0, #40]
+ 103:Src/icmu.c    ****   hspi1.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+ 258              		.loc 1 103 0
+ 259 0030 0722     		movs	r2, #7
+ 260 0032 C262     		str	r2, [r0, #44]
+ 104:Src/icmu.c    ****   hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+ 261              		.loc 1 104 0
+ 262 0034 0363     		str	r3, [r0, #48]
+ 105:Src/icmu.c    ****   if (HAL_SPI_Init(&hspi1) != HAL_OK)
+ 263              		.loc 1 105 0
+ 264 0036 4363     		str	r3, [r0, #52]
+ 106:Src/icmu.c    ****   {
+ 265              		.loc 1 106 0
+ 266 0038 FFF7FEFF 		bl	HAL_SPI_Init
+ 267              	.LVL9:
+ 268 003c 60B9     		cbnz	r0, .L21
+ 269              	.L19:
+ 110:Src/icmu.c    ****   SET_BIT(SPI1->CR2, SPI_RXFIFO_THRESHOLD);
+ 270              		.loc 1 110 0
+ 271 003e 094B     		ldr	r3, .L22+4
+ 272 0040 DA68     		ldr	r2, [r3, #12]
+ 111:Src/icmu.c    ****   __HAL_SPI_ENABLE(&hspi1);
+ 273              		.loc 1 111 0
+ 274 0042 5A68     		ldr	r2, [r3, #4]
+ 275 0044 42F48052 		orr	r2, r2, #4096
+ 276 0048 5A60     		str	r2, [r3, #4]
+ 112:Src/icmu.c    **** }
+ 277              		.loc 1 112 0
+ 278 004a 054B     		ldr	r3, .L22
+ 279 004c 1A68     		ldr	r2, [r3]
+ 280 004e 1368     		ldr	r3, [r2]
+ 281 0050 43F04003 		orr	r3, r3, #64
+ 282 0054 1360     		str	r3, [r2]
+ 113:Src/icmu.c    **** 
+ 283              		.loc 1 113 0
+ 284 0056 08BD     		pop	{r3, pc}
+ 285              	.L21:
+ 286              	.LBB4:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 11
+
+
+ 108:Src/icmu.c    ****   }
+ 287              		.loc 1 108 0
+ 288 0058 FFF7FEFF 		bl	Error_Handler
+ 289              	.LVL10:
+ 290 005c EFE7     		b	.L19
+ 291              	.L23:
+ 292 005e 00BF     		.align	2
+ 293              	.L22:
+ 294 0060 00000000 		.word	hspi1
+ 295 0064 00300140 		.word	1073819648
+ 296              	.LBE4:
+ 297              		.cfi_endproc
+ 298              	.LFE335:
+ 300              		.section	.text.SPI_I2S_SendData8,"ax",%progbits
+ 301              		.align	1
+ 302              		.global	SPI_I2S_SendData8
+ 303              		.syntax unified
+ 304              		.thumb
+ 305              		.thumb_func
+ 306              		.fpu fpv4-sp-d16
+ 308              	SPI_I2S_SendData8:
+ 309              	.LFB336:
+ 121:Src/icmu.c    ****   uint32_t spixbase = 0x00;
+ 310              		.loc 1 121 0
+ 311              		.cfi_startproc
+ 312              		@ args = 0, pretend = 0, frame = 0
+ 313              		@ frame_needed = 0, uses_anonymous_args = 0
+ 314              		@ link register save eliminated.
+ 315              	.LVL11:
+ 130:Src/icmu.c    **** }
+ 316              		.loc 1 130 0
+ 317 0000 0173     		strb	r1, [r0, #12]
+ 131:Src/icmu.c    **** 
+ 318              		.loc 1 131 0
+ 319 0002 7047     		bx	lr
+ 320              		.cfi_endproc
+ 321              	.LFE336:
+ 323              		.section	.text.SPI_I2S_ReceiveData8,"ax",%progbits
+ 324              		.align	1
+ 325              		.global	SPI_I2S_ReceiveData8
+ 326              		.syntax unified
+ 327              		.thumb
+ 328              		.thumb_func
+ 329              		.fpu fpv4-sp-d16
+ 331              	SPI_I2S_ReceiveData8:
+ 332              	.LFB337:
+ 135:Src/icmu.c    ****   uint32_t spixbase = 0x00;
+ 333              		.loc 1 135 0
+ 334              		.cfi_startproc
+ 335              		@ args = 0, pretend = 0, frame = 0
+ 336              		@ frame_needed = 0, uses_anonymous_args = 0
+ 337              		@ link register save eliminated.
+ 338              	.LVL12:
+ 144:Src/icmu.c    **** }
+ 339              		.loc 1 144 0
+ 340 0000 007B     		ldrb	r0, [r0, #12]	@ zero_extendqisi2
+ 341              	.LVL13:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 12
+
+
+ 145:Src/icmu.c    **** 
+ 342              		.loc 1 145 0
+ 343 0002 7047     		bx	lr
+ 344              		.cfi_endproc
+ 345              	.LFE337:
+ 347              		.section	.text.SPI_RW,"ax",%progbits
+ 348              		.align	1
+ 349              		.syntax unified
+ 350              		.thumb
+ 351              		.thumb_func
+ 352              		.fpu fpv4-sp-d16
+ 354              	SPI_RW:
+ 355              	.LFB339:
+ 159:Src/icmu.c    ****   /* Loop while DR register in not emplty */
+ 356              		.loc 1 159 0
+ 357              		.cfi_startproc
+ 358              		@ args = 0, pretend = 0, frame = 0
+ 359              		@ frame_needed = 0, uses_anonymous_args = 0
+ 360              	.LVL14:
+ 361 0000 08B5     		push	{r3, lr}
+ 362              	.LCFI5:
+ 363              		.cfi_def_cfa_offset 8
+ 364              		.cfi_offset 3, -8
+ 365              		.cfi_offset 14, -4
+ 366              	.L27:
+ 161:Src/icmu.c    ****   /* Send byte through the SPI1 peripheral */
+ 367              		.loc 1 161 0 discriminator 1
+ 368 0002 0A4B     		ldr	r3, .L30
+ 369 0004 1B68     		ldr	r3, [r3]
+ 370 0006 9B68     		ldr	r3, [r3, #8]
+ 371 0008 13F0020F 		tst	r3, #2
+ 372 000c F9D0     		beq	.L27
+ 163:Src/icmu.c    ****   /* Wait to receive a byte */
+ 373              		.loc 1 163 0
+ 374 000e C1B2     		uxtb	r1, r0
+ 375 0010 0748     		ldr	r0, .L30+4
+ 376              	.LVL15:
+ 377 0012 FFF7FEFF 		bl	SPI_I2S_SendData8
+ 378              	.LVL16:
+ 379              	.L28:
+ 165:Src/icmu.c    ****   /* Return the byte read from the SPI bus */
+ 380              		.loc 1 165 0 discriminator 1
+ 381 0016 054B     		ldr	r3, .L30
+ 382 0018 1B68     		ldr	r3, [r3]
+ 383 001a 9B68     		ldr	r3, [r3, #8]
+ 384 001c 13F0010F 		tst	r3, #1
+ 385 0020 F9D0     		beq	.L28
+ 167:Src/icmu.c    **** }
+ 386              		.loc 1 167 0
+ 387 0022 0348     		ldr	r0, .L30+4
+ 388 0024 FFF7FEFF 		bl	SPI_I2S_ReceiveData8
+ 389              	.LVL17:
+ 168:Src/icmu.c    **** uint8_t icmu_activiate(uint8_t pactive, uint8_t ractive)
+ 390              		.loc 1 168 0
+ 391 0028 08BD     		pop	{r3, pc}
+ 392              	.L31:
+ 393 002a 00BF     		.align	2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 13
+
+
+ 394              	.L30:
+ 395 002c 00000000 		.word	hspi1
+ 396 0030 00300140 		.word	1073819648
+ 397              		.cfi_endproc
+ 398              	.LFE339:
+ 400              		.section	.text.icmu_activiate,"ax",%progbits
+ 401              		.align	1
+ 402              		.global	icmu_activiate
+ 403              		.syntax unified
+ 404              		.thumb
+ 405              		.thumb_func
+ 406              		.fpu fpv4-sp-d16
+ 408              	icmu_activiate:
+ 409              	.LFB340:
+ 170:Src/icmu.c    ****   SPI1_CS_EN;
+ 410              		.loc 1 170 0
+ 411              		.cfi_startproc
+ 412              		@ args = 0, pretend = 0, frame = 0
+ 413              		@ frame_needed = 0, uses_anonymous_args = 0
+ 414              	.LVL18:
+ 415 0000 38B5     		push	{r3, r4, r5, lr}
+ 416              	.LCFI6:
+ 417              		.cfi_def_cfa_offset 16
+ 418              		.cfi_offset 3, -16
+ 419              		.cfi_offset 4, -12
+ 420              		.cfi_offset 5, -8
+ 421              		.cfi_offset 14, -4
+ 422 0002 0446     		mov	r4, r0
+ 423 0004 0D46     		mov	r5, r1
+ 171:Src/icmu.c    ****   if (CMD_ACTIVATE == SPI_RW(CMD_ACTIVATE))
+ 424              		.loc 1 171 0
+ 425 0006 4FF09042 		mov	r2, #1207959552
+ 426 000a 5369     		ldr	r3, [r2, #20]
+ 427 000c 23F01003 		bic	r3, r3, #16
+ 428 0010 5361     		str	r3, [r2, #20]
+ 172:Src/icmu.c    ****   {
+ 429              		.loc 1 172 0
+ 430 0012 B020     		movs	r0, #176
+ 431              	.LVL19:
+ 432 0014 FFF7FEFF 		bl	SPI_RW
+ 433              	.LVL20:
+ 434 0018 B028     		cmp	r0, #176
+ 435 001a 07D0     		beq	.L36
+ 436              	.L33:
+ 180:Src/icmu.c    ****   return 0;
+ 437              		.loc 1 180 0
+ 438 001c 4FF09042 		mov	r2, #1207959552
+ 439 0020 5369     		ldr	r3, [r2, #20]
+ 440 0022 43F01003 		orr	r3, r3, #16
+ 441 0026 5361     		str	r3, [r2, #20]
+ 181:Src/icmu.c    **** }
+ 442              		.loc 1 181 0
+ 443 0028 0020     		movs	r0, #0
+ 444              	.L34:
+ 182:Src/icmu.c    **** uint32_t icmu_sdtransmission(void)
+ 445              		.loc 1 182 0
+ 446 002a 38BD     		pop	{r3, r4, r5, pc}
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 14
+
+
+ 447              	.L36:
+ 174:Src/icmu.c    ****     {
+ 448              		.loc 1 174 0
+ 449 002c 04EB4500 		add	r0, r4, r5, lsl #1
+ 450 0030 8030     		adds	r0, r0, #128
+ 451 0032 FFF7FEFF 		bl	SPI_RW
+ 452              	.LVL21:
+ 453 0036 2028     		cmp	r0, #32
+ 454 0038 F0D1     		bne	.L33
+ 176:Src/icmu.c    ****       return 1;
+ 455              		.loc 1 176 0
+ 456 003a 4FF09042 		mov	r2, #1207959552
+ 457 003e 5369     		ldr	r3, [r2, #20]
+ 458 0040 43F01003 		orr	r3, r3, #16
+ 459 0044 5361     		str	r3, [r2, #20]
+ 177:Src/icmu.c    ****     }
+ 460              		.loc 1 177 0
+ 461 0046 0120     		movs	r0, #1
+ 462 0048 EFE7     		b	.L34
+ 463              		.cfi_endproc
+ 464              	.LFE340:
+ 466              		.section	.text.icmu_sdtransmission,"ax",%progbits
+ 467              		.align	1
+ 468              		.global	icmu_sdtransmission
+ 469              		.syntax unified
+ 470              		.thumb
+ 471              		.thumb_func
+ 472              		.fpu fpv4-sp-d16
+ 474              	icmu_sdtransmission:
+ 475              	.LFB341:
+ 184:Src/icmu.c    ****   uint32_t temp = 0;			
+ 476              		.loc 1 184 0
+ 477              		.cfi_startproc
+ 478              		@ args = 0, pretend = 0, frame = 0
+ 479              		@ frame_needed = 0, uses_anonymous_args = 0
+ 480 0000 10B5     		push	{r4, lr}
+ 481              	.LCFI7:
+ 482              		.cfi_def_cfa_offset 8
+ 483              		.cfi_offset 4, -8
+ 484              		.cfi_offset 14, -4
+ 485              	.LVL22:
+ 186:Src/icmu.c    ****   if (CMD_SD_TRANS == SPI_RW(CMD_SD_TRANS))
+ 486              		.loc 1 186 0
+ 487 0002 4FF09042 		mov	r2, #1207959552
+ 488 0006 5369     		ldr	r3, [r2, #20]
+ 489 0008 23F01003 		bic	r3, r3, #16
+ 490 000c 5361     		str	r3, [r2, #20]
+ 187:Src/icmu.c    ****   {
+ 491              		.loc 1 187 0
+ 492 000e A620     		movs	r0, #166
+ 493 0010 FFF7FEFF 		bl	SPI_RW
+ 494              	.LVL23:
+ 495 0014 A628     		cmp	r0, #166
+ 496 0016 0FD0     		beq	.L40
+ 497              	.L38:
+ 193:Src/icmu.c    ****   temp = (temp<<8) | buf[1];
+ 498              		.loc 1 193 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 15
+
+
+ 499 0018 0E4A     		ldr	r2, .L41
+ 500 001a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 501              	.LVL24:
+ 194:Src/icmu.c    ****   temp = (temp<<8) | buf[2];
+ 502              		.loc 1 194 0
+ 503 001c 5078     		ldrb	r0, [r2, #1]	@ zero_extendqisi2
+ 504 001e 40EA0323 		orr	r3, r0, r3, lsl #8
+ 505              	.LVL25:
+ 195:Src/icmu.c    ****   temp = temp>>5;
+ 506              		.loc 1 195 0
+ 507 0022 9078     		ldrb	r0, [r2, #2]	@ zero_extendqisi2
+ 508 0024 40EA0320 		orr	r0, r0, r3, lsl #8
+ 509              	.LVL26:
+ 197:Src/icmu.c    ****   return  temp;
+ 510              		.loc 1 197 0
+ 511 0028 4FF09042 		mov	r2, #1207959552
+ 512 002c 5369     		ldr	r3, [r2, #20]
+ 513 002e 43F01003 		orr	r3, r3, #16
+ 514 0032 5361     		str	r3, [r2, #20]
+ 199:Src/icmu.c    **** 
+ 515              		.loc 1 199 0
+ 516 0034 4009     		lsrs	r0, r0, #5
+ 517              	.LVL27:
+ 518 0036 10BD     		pop	{r4, pc}
+ 519              	.LVL28:
+ 520              	.L40:
+ 189:Src/icmu.c    ****     buf[1] = SPI_RW(0);
+ 521              		.loc 1 189 0
+ 522 0038 0020     		movs	r0, #0
+ 523 003a FFF7FEFF 		bl	SPI_RW
+ 524              	.LVL29:
+ 525 003e 054C     		ldr	r4, .L41
+ 526 0040 2070     		strb	r0, [r4]
+ 190:Src/icmu.c    ****     buf[2] = SPI_RW(0);
+ 527              		.loc 1 190 0
+ 528 0042 0020     		movs	r0, #0
+ 529 0044 FFF7FEFF 		bl	SPI_RW
+ 530              	.LVL30:
+ 531 0048 6070     		strb	r0, [r4, #1]
+ 191:Src/icmu.c    ****   }
+ 532              		.loc 1 191 0
+ 533 004a 0020     		movs	r0, #0
+ 534 004c FFF7FEFF 		bl	SPI_RW
+ 535              	.LVL31:
+ 536 0050 A070     		strb	r0, [r4, #2]
+ 537 0052 E1E7     		b	.L38
+ 538              	.L42:
+ 539              		.align	2
+ 540              	.L41:
+ 541 0054 00000000 		.word	.LANCHOR2
+ 542              		.cfi_endproc
+ 543              	.LFE341:
+ 545              		.section	.text.icmu_sdstatus,"ax",%progbits
+ 546              		.align	1
+ 547              		.global	icmu_sdstatus
+ 548              		.syntax unified
+ 549              		.thumb
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 16
+
+
+ 550              		.thumb_func
+ 551              		.fpu fpv4-sp-d16
+ 553              	icmu_sdstatus:
+ 554              	.LFB343:
+ 220:Src/icmu.c    ****   SPI1_CS_EN;
+ 555              		.loc 1 220 0
+ 556              		.cfi_startproc
+ 557              		@ args = 0, pretend = 0, frame = 0
+ 558              		@ frame_needed = 0, uses_anonymous_args = 0
+ 559 0000 08B5     		push	{r3, lr}
+ 560              	.LCFI8:
+ 561              		.cfi_def_cfa_offset 8
+ 562              		.cfi_offset 3, -8
+ 563              		.cfi_offset 14, -4
+ 221:Src/icmu.c    ****   if (CMD_SD_STATUS == SPI_RW(CMD_SD_STATUS))
+ 564              		.loc 1 221 0
+ 565 0002 4FF09042 		mov	r2, #1207959552
+ 566 0006 5369     		ldr	r3, [r2, #20]
+ 567 0008 23F01003 		bic	r3, r3, #16
+ 568 000c 5361     		str	r3, [r2, #20]
+ 222:Src/icmu.c    ****   {
+ 569              		.loc 1 222 0
+ 570 000e F520     		movs	r0, #245
+ 571 0010 FFF7FEFF 		bl	SPI_RW
+ 572              	.LVL32:
+ 573 0014 F528     		cmp	r0, #245
+ 574 0016 01D0     		beq	.L48
+ 235:Src/icmu.c    **** }
+ 575              		.loc 1 235 0
+ 576 0018 0020     		movs	r0, #0
+ 577              	.L44:
+ 236:Src/icmu.c    **** 
+ 578              		.loc 1 236 0
+ 579 001a 08BD     		pop	{r3, pc}
+ 580              	.L48:
+ 224:Src/icmu.c    ****     {
+ 581              		.loc 1 224 0
+ 582 001c 0020     		movs	r0, #0
+ 583 001e FFF7FEFF 		bl	SPI_RW
+ 584              	.LVL33:
+ 585 0022 8028     		cmp	r0, #128
+ 586 0024 07D0     		beq	.L49
+ 231:Src/icmu.c    ****       return 0;
+ 587              		.loc 1 231 0
+ 588 0026 4FF09042 		mov	r2, #1207959552
+ 589 002a 5369     		ldr	r3, [r2, #20]
+ 590 002c 43F01003 		orr	r3, r3, #16
+ 591 0030 5361     		str	r3, [r2, #20]
+ 232:Src/icmu.c    ****     }
+ 592              		.loc 1 232 0
+ 593 0032 0020     		movs	r0, #0
+ 594 0034 F1E7     		b	.L44
+ 595              	.L49:
+ 226:Src/icmu.c    ****       return 1;
+ 596              		.loc 1 226 0
+ 597 0036 4FF09042 		mov	r2, #1207959552
+ 598 003a 5369     		ldr	r3, [r2, #20]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 17
+
+
+ 599 003c 43F01003 		orr	r3, r3, #16
+ 600 0040 5361     		str	r3, [r2, #20]
+ 227:Src/icmu.c    ****     }
+ 601              		.loc 1 227 0
+ 602 0042 0120     		movs	r0, #1
+ 603 0044 E9E7     		b	.L44
+ 604              		.cfi_endproc
+ 605              	.LFE343:
+ 607              		.section	.text.icmu_read_reg,"ax",%progbits
+ 608              		.align	1
+ 609              		.global	icmu_read_reg
+ 610              		.syntax unified
+ 611              		.thumb
+ 612              		.thumb_func
+ 613              		.fpu fpv4-sp-d16
+ 615              	icmu_read_reg:
+ 616              	.LFB345:
+ 245:Src/icmu.c    **** 	
+ 246:Src/icmu.c    **** 
+ 247:Src/icmu.c    **** 
+ 248:Src/icmu.c    **** uint8_t icmu_read_reg(uint8_t addr)
+ 249:Src/icmu.c    **** {
+ 617              		.loc 1 249 0
+ 618              		.cfi_startproc
+ 619              		@ args = 0, pretend = 0, frame = 0
+ 620              		@ frame_needed = 0, uses_anonymous_args = 0
+ 621              	.LVL34:
+ 622 0000 70B5     		push	{r4, r5, r6, lr}
+ 623              	.LCFI9:
+ 624              		.cfi_def_cfa_offset 16
+ 625              		.cfi_offset 4, -16
+ 626              		.cfi_offset 5, -12
+ 627              		.cfi_offset 6, -8
+ 628              		.cfi_offset 14, -4
+ 629 0002 0546     		mov	r5, r0
+ 630              	.LVL35:
+ 250:Src/icmu.c    ****   uint8_t reg = 0;
+ 251:Src/icmu.c    ****   uint8_t sta = 0;
+ 252:Src/icmu.c    **** 	uint8_t i =0;
+ 253:Src/icmu.c    **** 	
+ 254:Src/icmu.c    **** 	Flag_error_read_eeprom = 1;
+ 631              		.loc 1 254 0
+ 632 0004 2B4B     		ldr	r3, .L61
+ 633 0006 0122     		movs	r2, #1
+ 634 0008 1A60     		str	r2, [r3]
+ 255:Src/icmu.c    **** 	
+ 256:Src/icmu.c    **** 	 SPI1_CS_DIS;
+ 635              		.loc 1 256 0
+ 636 000a 4FF09044 		mov	r4, #1207959552
+ 637 000e 6369     		ldr	r3, [r4, #20]
+ 638 0010 43F01003 		orr	r3, r3, #16
+ 639 0014 6361     		str	r3, [r4, #20]
+ 257:Src/icmu.c    **** 	delay__ms(100);
+ 640              		.loc 1 257 0
+ 641 0016 6420     		movs	r0, #100
+ 642              	.LVL36:
+ 643 0018 FFF7FEFF 		bl	delay__ms
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 18
+
+
+ 644              	.LVL37:
+ 258:Src/icmu.c    ****   SPI1_CS_EN;
+ 645              		.loc 1 258 0
+ 646 001c 6369     		ldr	r3, [r4, #20]
+ 647 001e 23F01003 		bic	r3, r3, #16
+ 648 0022 6361     		str	r3, [r4, #20]
+ 259:Src/icmu.c    **** 	delay__ms(10);
+ 649              		.loc 1 259 0
+ 650 0024 0A20     		movs	r0, #10
+ 651 0026 FFF7FEFF 		bl	delay__ms
+ 652              	.LVL38:
+ 260:Src/icmu.c    **** 	
+ 261:Src/icmu.c    ****   if (CMD_REG_READ == SPI_RW(CMD_REG_READ))
+ 653              		.loc 1 261 0
+ 654 002a 9720     		movs	r0, #151
+ 655 002c FFF7FEFF 		bl	SPI_RW
+ 656              	.LVL39:
+ 657 0030 9728     		cmp	r0, #151
+ 658 0032 05D0     		beq	.L59
+ 250:Src/icmu.c    ****   uint8_t sta = 0;
+ 659              		.loc 1 250 0
+ 660 0034 0026     		movs	r6, #0
+ 661              	.LVL40:
+ 662              	.L51:
+ 262:Src/icmu.c    ****   {
+ 263:Src/icmu.c    **** 
+ 264:Src/icmu.c    ****     if (addr == SPI_RW(addr))
+ 265:Src/icmu.c    ****     {
+ 266:Src/icmu.c    **** 			do
+ 267:Src/icmu.c    **** 			{
+ 268:Src/icmu.c    **** 				SPI1_CS_DIS;
+ 269:Src/icmu.c    **** 				delay_clk();
+ 270:Src/icmu.c    **** 				SPI1_CS_EN;
+ 271:Src/icmu.c    **** 				delay_clk();
+ 272:Src/icmu.c    **** 				if (CMD_REG_STATUS == SPI_RW(CMD_REG_STATUS))  // if (CMD_REG_STATUS == SPI_RW(CMD_REG_STATUS))
+ 273:Src/icmu.c    **** 				{
+ 274:Src/icmu.c    **** 					sta = SPI_RW(0);
+ 275:Src/icmu.c    **** 					reg = SPI_RW(0);
+ 276:Src/icmu.c    **** 					if( sta & 0x01)
+ 277:Src/icmu.c    **** 					{
+ 278:Src/icmu.c    **** 						if(reg & 0x40)
+ 279:Src/icmu.c    **** 						{
+ 280:Src/icmu.c    **** 						}
+ 281:Src/icmu.c    **** 						else
+ 282:Src/icmu.c    **** 						{
+ 283:Src/icmu.c    **** 							Flag_error_read_eeprom =0;
+ 284:Src/icmu.c    **** 						}
+ 285:Src/icmu.c    **** 						g_CmdMap[0x12b] = reg;
+ 286:Src/icmu.c    **** 						break;
+ 287:Src/icmu.c    **** 					}
+ 288:Src/icmu.c    **** 				}
+ 289:Src/icmu.c    **** 				
+ 290:Src/icmu.c    **** 			}while( i++ < 10);
+ 291:Src/icmu.c    **** 			
+ 292:Src/icmu.c    ****     }
+ 293:Src/icmu.c    ****   }
+ 294:Src/icmu.c    ****   sta = sta;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 19
+
+
+ 295:Src/icmu.c    **** 	
+ 296:Src/icmu.c    **** 	delay__ms(100);
+ 663              		.loc 1 296 0
+ 664 0036 6420     		movs	r0, #100
+ 665 0038 FFF7FEFF 		bl	delay__ms
+ 666              	.LVL41:
+ 297:Src/icmu.c    ****  
+ 298:Src/icmu.c    **** 
+ 299:Src/icmu.c    **** 	
+ 300:Src/icmu.c    **** 
+ 301:Src/icmu.c    **** 
+ 302:Src/icmu.c    ****   return reg;
+ 303:Src/icmu.c    **** }
+ 667              		.loc 1 303 0
+ 668 003c 3046     		mov	r0, r6
+ 669 003e 70BD     		pop	{r4, r5, r6, pc}
+ 670              	.LVL42:
+ 671              	.L59:
+ 264:Src/icmu.c    ****     {
+ 672              		.loc 1 264 0
+ 673 0040 ADB2     		uxth	r5, r5
+ 674 0042 2846     		mov	r0, r5
+ 675 0044 FFF7FEFF 		bl	SPI_RW
+ 676              	.LVL43:
+ 677 0048 8542     		cmp	r5, r0
+ 678 004a 01D0     		beq	.L60
+ 250:Src/icmu.c    ****   uint8_t sta = 0;
+ 679              		.loc 1 250 0
+ 680 004c 0026     		movs	r6, #0
+ 681 004e F2E7     		b	.L51
+ 682              	.L60:
+ 252:Src/icmu.c    **** 	
+ 683              		.loc 1 252 0
+ 684 0050 0025     		movs	r5, #0
+ 250:Src/icmu.c    ****   uint8_t sta = 0;
+ 685              		.loc 1 250 0
+ 686 0052 2E46     		mov	r6, r5
+ 687 0054 04E0     		b	.L54
+ 688              	.LVL44:
+ 689              	.L52:
+ 290:Src/icmu.c    **** 			
+ 690              		.loc 1 290 0
+ 691 0056 6B1C     		adds	r3, r5, #1
+ 692 0058 DBB2     		uxtb	r3, r3
+ 693              	.LVL45:
+ 694 005a 092D     		cmp	r5, #9
+ 695 005c EBD8     		bhi	.L51
+ 696 005e 1D46     		mov	r5, r3
+ 697              	.LVL46:
+ 698              	.L54:
+ 268:Src/icmu.c    **** 				delay_clk();
+ 699              		.loc 1 268 0
+ 700 0060 4FF09044 		mov	r4, #1207959552
+ 701 0064 6369     		ldr	r3, [r4, #20]
+ 702 0066 43F01003 		orr	r3, r3, #16
+ 703 006a 6361     		str	r3, [r4, #20]
+ 269:Src/icmu.c    **** 				SPI1_CS_EN;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 20
+
+
+ 704              		.loc 1 269 0
+ 705 006c FFF7FEFF 		bl	delay_clk
+ 706              	.LVL47:
+ 270:Src/icmu.c    **** 				delay_clk();
+ 707              		.loc 1 270 0
+ 708 0070 6369     		ldr	r3, [r4, #20]
+ 709 0072 23F01003 		bic	r3, r3, #16
+ 710 0076 6361     		str	r3, [r4, #20]
+ 271:Src/icmu.c    **** 				if (CMD_REG_STATUS == SPI_RW(CMD_REG_STATUS))  // if (CMD_REG_STATUS == SPI_RW(CMD_REG_STATUS))
+ 711              		.loc 1 271 0
+ 712 0078 FFF7FEFF 		bl	delay_clk
+ 713              	.LVL48:
+ 272:Src/icmu.c    **** 				{
+ 714              		.loc 1 272 0
+ 715 007c AD20     		movs	r0, #173
+ 716 007e FFF7FEFF 		bl	SPI_RW
+ 717              	.LVL49:
+ 718 0082 AD28     		cmp	r0, #173
+ 719 0084 E7D1     		bne	.L52
+ 274:Src/icmu.c    **** 					reg = SPI_RW(0);
+ 720              		.loc 1 274 0
+ 721 0086 0020     		movs	r0, #0
+ 722 0088 FFF7FEFF 		bl	SPI_RW
+ 723              	.LVL50:
+ 724 008c C4B2     		uxtb	r4, r0
+ 725              	.LVL51:
+ 275:Src/icmu.c    **** 					if( sta & 0x01)
+ 726              		.loc 1 275 0
+ 727 008e 0020     		movs	r0, #0
+ 728 0090 FFF7FEFF 		bl	SPI_RW
+ 729              	.LVL52:
+ 730 0094 C6B2     		uxtb	r6, r0
+ 731              	.LVL53:
+ 276:Src/icmu.c    **** 					{
+ 732              		.loc 1 276 0
+ 733 0096 14F0010F 		tst	r4, #1
+ 734 009a DCD0     		beq	.L52
+ 278:Src/icmu.c    **** 						{
+ 735              		.loc 1 278 0
+ 736 009c 16F0400F 		tst	r6, #64
+ 737 00a0 02D1     		bne	.L53
+ 283:Src/icmu.c    **** 						}
+ 738              		.loc 1 283 0
+ 739 00a2 044B     		ldr	r3, .L61
+ 740 00a4 0022     		movs	r2, #0
+ 741 00a6 1A60     		str	r2, [r3]
+ 742              	.L53:
+ 285:Src/icmu.c    **** 						break;
+ 743              		.loc 1 285 0
+ 744 00a8 C0B2     		uxtb	r0, r0
+ 745 00aa 034B     		ldr	r3, .L61+4
+ 746 00ac A3F85602 		strh	r0, [r3, #598]	@ movhi
+ 286:Src/icmu.c    **** 					}
+ 747              		.loc 1 286 0
+ 748 00b0 C1E7     		b	.L51
+ 749              	.L62:
+ 750 00b2 00BF     		.align	2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 21
+
+
+ 751              	.L61:
+ 752 00b4 00000000 		.word	.LANCHOR3
+ 753 00b8 00000000 		.word	g_CmdMap
+ 754              		.cfi_endproc
+ 755              	.LFE345:
+ 757              		.section	.text.icmu_spi_init,"ax",%progbits
+ 758              		.align	1
+ 759              		.global	icmu_spi_init
+ 760              		.syntax unified
+ 761              		.thumb
+ 762              		.thumb_func
+ 763              		.fpu fpv4-sp-d16
+ 765              	icmu_spi_init:
+ 766              	.LFB338:
+ 149:Src/icmu.c    ****   uint8_t icmu_reg = 0;  
+ 767              		.loc 1 149 0
+ 768              		.cfi_startproc
+ 769              		@ args = 0, pretend = 0, frame = 0
+ 770              		@ frame_needed = 0, uses_anonymous_args = 0
+ 771 0000 08B5     		push	{r3, lr}
+ 772              	.LCFI10:
+ 773              		.cfi_def_cfa_offset 8
+ 774              		.cfi_offset 3, -8
+ 775              		.cfi_offset 14, -4
+ 776              	.LVL54:
+ 151:Src/icmu.c    **** 
+ 777              		.loc 1 151 0
+ 778 0002 FFF7FEFF 		bl	SPI1_Init
+ 779              	.LVL55:
+ 154:Src/icmu.c    **** 	
+ 780              		.loc 1 154 0
+ 781 0006 7720     		movs	r0, #119
+ 782 0008 FFF7FEFF 		bl	icmu_read_reg
+ 783              	.LVL56:
+ 157:Src/icmu.c    **** static uint16_t SPI_RW(uint16_t data)
+ 784              		.loc 1 157 0
+ 785 000c 0120     		movs	r0, #1
+ 786 000e 08BD     		pop	{r3, pc}
+ 787              		.cfi_endproc
+ 788              	.LFE338:
+ 790              		.section	.text.icmu_write_reg,"ax",%progbits
+ 791              		.align	1
+ 792              		.global	icmu_write_reg
+ 793              		.syntax unified
+ 794              		.thumb
+ 795              		.thumb_func
+ 796              		.fpu fpv4-sp-d16
+ 798              	icmu_write_reg:
+ 799              	.LFB346:
+ 304:Src/icmu.c    **** 
+ 305:Src/icmu.c    **** uint8_t icmu_write_reg(uint8_t addr, uint8_t data)
+ 306:Src/icmu.c    **** {
+ 800              		.loc 1 306 0
+ 801              		.cfi_startproc
+ 802              		@ args = 0, pretend = 0, frame = 0
+ 803              		@ frame_needed = 0, uses_anonymous_args = 0
+ 804              	.LVL57:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 22
+
+
+ 805 0000 38B5     		push	{r3, r4, r5, lr}
+ 806              	.LCFI11:
+ 807              		.cfi_def_cfa_offset 16
+ 808              		.cfi_offset 3, -16
+ 809              		.cfi_offset 4, -12
+ 810              		.cfi_offset 5, -8
+ 811              		.cfi_offset 14, -4
+ 812 0002 0446     		mov	r4, r0
+ 813 0004 0D46     		mov	r5, r1
+ 307:Src/icmu.c    ****   SPI1_CS_EN;
+ 814              		.loc 1 307 0
+ 815 0006 4FF09042 		mov	r2, #1207959552
+ 816 000a 5369     		ldr	r3, [r2, #20]
+ 817 000c 23F01003 		bic	r3, r3, #16
+ 818 0010 5361     		str	r3, [r2, #20]
+ 308:Src/icmu.c    ****   if (CMD_REG_WRITE == SPI_RW(CMD_REG_WRITE))
+ 819              		.loc 1 308 0
+ 820 0012 D220     		movs	r0, #210
+ 821              	.LVL58:
+ 822 0014 FFF7FEFF 		bl	SPI_RW
+ 823              	.LVL59:
+ 824 0018 D228     		cmp	r0, #210
+ 825 001a 07D0     		beq	.L69
+ 826              	.L66:
+ 309:Src/icmu.c    ****   {
+ 310:Src/icmu.c    ****     if (addr == SPI_RW(addr))
+ 311:Src/icmu.c    ****     {
+ 312:Src/icmu.c    ****       if (data == SPI_RW(data))
+ 313:Src/icmu.c    ****       {
+ 314:Src/icmu.c    ****         SPI1_CS_DIS;
+ 315:Src/icmu.c    ****         return 1;
+ 316:Src/icmu.c    ****       }
+ 317:Src/icmu.c    ****     }
+ 318:Src/icmu.c    ****   }
+ 319:Src/icmu.c    ****   SPI1_CS_DIS;
+ 827              		.loc 1 319 0
+ 828 001c 4FF09042 		mov	r2, #1207959552
+ 829 0020 5369     		ldr	r3, [r2, #20]
+ 830 0022 43F01003 		orr	r3, r3, #16
+ 831 0026 5361     		str	r3, [r2, #20]
+ 320:Src/icmu.c    ****   return 0;
+ 832              		.loc 1 320 0
+ 833 0028 0020     		movs	r0, #0
+ 834              	.L67:
+ 321:Src/icmu.c    **** }
+ 835              		.loc 1 321 0
+ 836 002a 38BD     		pop	{r3, r4, r5, pc}
+ 837              	.L69:
+ 310:Src/icmu.c    ****     {
+ 838              		.loc 1 310 0
+ 839 002c A4B2     		uxth	r4, r4
+ 840 002e 2046     		mov	r0, r4
+ 841 0030 FFF7FEFF 		bl	SPI_RW
+ 842              	.LVL60:
+ 843 0034 8442     		cmp	r4, r0
+ 844 0036 F1D1     		bne	.L66
+ 312:Src/icmu.c    ****       {
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 23
+
+
+ 845              		.loc 1 312 0
+ 846 0038 ADB2     		uxth	r5, r5
+ 847 003a 2846     		mov	r0, r5
+ 848 003c FFF7FEFF 		bl	SPI_RW
+ 849              	.LVL61:
+ 850 0040 8542     		cmp	r5, r0
+ 851 0042 EBD1     		bne	.L66
+ 314:Src/icmu.c    ****         return 1;
+ 852              		.loc 1 314 0
+ 853 0044 4FF09042 		mov	r2, #1207959552
+ 854 0048 5369     		ldr	r3, [r2, #20]
+ 855 004a 43F01003 		orr	r3, r3, #16
+ 856 004e 5361     		str	r3, [r2, #20]
+ 315:Src/icmu.c    ****       }
+ 857              		.loc 1 315 0
+ 858 0050 0120     		movs	r0, #1
+ 859 0052 EAE7     		b	.L67
+ 860              		.cfi_endproc
+ 861              	.LFE346:
+ 863              		.section	.text.icmu_reg_status,"ax",%progbits
+ 864              		.align	1
+ 865              		.global	icmu_reg_status
+ 866              		.syntax unified
+ 867              		.thumb
+ 868              		.thumb_func
+ 869              		.fpu fpv4-sp-d16
+ 871              	icmu_reg_status:
+ 872              	.LFB347:
+ 322:Src/icmu.c    **** 
+ 323:Src/icmu.c    **** uint8_t icmu_reg_status(void)
+ 324:Src/icmu.c    **** {
+ 873              		.loc 1 324 0
+ 874              		.cfi_startproc
+ 875              		@ args = 0, pretend = 0, frame = 0
+ 876              		@ frame_needed = 0, uses_anonymous_args = 0
+ 877 0000 08B5     		push	{r3, lr}
+ 878              	.LCFI12:
+ 879              		.cfi_def_cfa_offset 8
+ 880              		.cfi_offset 3, -8
+ 881              		.cfi_offset 14, -4
+ 325:Src/icmu.c    ****   SPI1_CS_EN;
+ 882              		.loc 1 325 0
+ 883 0002 4FF09042 		mov	r2, #1207959552
+ 884 0006 5369     		ldr	r3, [r2, #20]
+ 885 0008 23F01003 		bic	r3, r3, #16
+ 886 000c 5361     		str	r3, [r2, #20]
+ 326:Src/icmu.c    ****   if (CMD_SD_STATUS == SPI_RW(CMD_SD_STATUS))
+ 887              		.loc 1 326 0
+ 888 000e F520     		movs	r0, #245
+ 889 0010 FFF7FEFF 		bl	SPI_RW
+ 890              	.LVL62:
+ 891 0014 F528     		cmp	r0, #245
+ 892 0016 07D0     		beq	.L75
+ 327:Src/icmu.c    ****   {
+ 328:Src/icmu.c    ****     if (SPI_RW(0) == 0x80)
+ 329:Src/icmu.c    ****     {
+ 330:Src/icmu.c    ****       SPI1_CS_DIS;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 24
+
+
+ 331:Src/icmu.c    ****       return 1;
+ 332:Src/icmu.c    ****     }
+ 333:Src/icmu.c    ****     else
+ 334:Src/icmu.c    ****     {
+ 335:Src/icmu.c    ****       SPI1_CS_DIS;
+ 336:Src/icmu.c    ****       return 0;
+ 337:Src/icmu.c    ****     }
+ 338:Src/icmu.c    ****   }
+ 339:Src/icmu.c    ****   SPI1_CS_DIS;
+ 893              		.loc 1 339 0
+ 894 0018 4FF09042 		mov	r2, #1207959552
+ 895 001c 5369     		ldr	r3, [r2, #20]
+ 896 001e 43F01003 		orr	r3, r3, #16
+ 897 0022 5361     		str	r3, [r2, #20]
+ 340:Src/icmu.c    ****   return 0;
+ 898              		.loc 1 340 0
+ 899 0024 0020     		movs	r0, #0
+ 900              	.L73:
+ 341:Src/icmu.c    **** }
+ 901              		.loc 1 341 0
+ 902 0026 08BD     		pop	{r3, pc}
+ 903              	.L75:
+ 328:Src/icmu.c    ****     {
+ 904              		.loc 1 328 0
+ 905 0028 0020     		movs	r0, #0
+ 906 002a FFF7FEFF 		bl	SPI_RW
+ 907              	.LVL63:
+ 908 002e 8028     		cmp	r0, #128
+ 909 0030 07D0     		beq	.L76
+ 335:Src/icmu.c    ****       return 0;
+ 910              		.loc 1 335 0
+ 911 0032 4FF09042 		mov	r2, #1207959552
+ 912 0036 5369     		ldr	r3, [r2, #20]
+ 913 0038 43F01003 		orr	r3, r3, #16
+ 914 003c 5361     		str	r3, [r2, #20]
+ 336:Src/icmu.c    ****     }
+ 915              		.loc 1 336 0
+ 916 003e 0020     		movs	r0, #0
+ 917 0040 F1E7     		b	.L73
+ 918              	.L76:
+ 330:Src/icmu.c    ****       return 1;
+ 919              		.loc 1 330 0
+ 920 0042 4FF09042 		mov	r2, #1207959552
+ 921 0046 5369     		ldr	r3, [r2, #20]
+ 922 0048 43F01003 		orr	r3, r3, #16
+ 923 004c 5361     		str	r3, [r2, #20]
+ 331:Src/icmu.c    ****     }
+ 924              		.loc 1 331 0
+ 925 004e 0120     		movs	r0, #1
+ 926 0050 E9E7     		b	.L73
+ 927              		.cfi_endproc
+ 928              	.LFE347:
+ 930              		.section	.text.icmu_cmu_mu,"ax",%progbits
+ 931              		.align	1
+ 932              		.global	icmu_cmu_mu
+ 933              		.syntax unified
+ 934              		.thumb
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 25
+
+
+ 935              		.thumb_func
+ 936              		.fpu fpv4-sp-d16
+ 938              	icmu_cmu_mu:
+ 939              	.LFB348:
+ 342:Src/icmu.c    **** 
+ 343:Src/icmu.c    **** 
+ 344:Src/icmu.c    **** /*
+ 345:Src/icmu.c    **** 0x01 WRITE_ALL Write internal configuration and Offset values to EEPROM
+ 346:Src/icmu.c    **** 0x02 WRITE_OFF Write internal Offset values to EEPROM
+ 347:Src/icmu.c    **** 0x03 ABS_RESET Reset of Absolute value (including ABZ-part)
+ 348:Src/icmu.c    **** 0x04 NON_VER Verification of actual position by doing a nonius calculation
+ 349:Src/icmu.c    **** 0x05 MT_RESET New read in and synchronisation of multiturn value
+ 350:Src/icmu.c    **** 0x06 MT_VER Read in of multiturn and verification of counted multiturn value
+ 351:Src/icmu.c    **** 0x07 SOFT_RESET startup with read in of EEPROM
+ 352:Src/icmu.c    **** 0x08 SOFT_PRES Set output to preset
+ 353:Src/icmu.c    **** 0x09 SOFT_E2P_PRES Set output to preset and save offset values to EEPROM
+ 354:Src/icmu.c    **** 0x0A E2P_COM start EEPROM communication
+ 355:Src/icmu.c    **** 0x0B EVENT_COUNT increment event counter by 1
+ 356:Src/icmu.c    **** 0x0C SWITCH A variant of WRITE_ALL to write configurations of MODEA and RPL which inhibit register 
+ 357:Src/icmu.c    **** 0x0D CRC_VER Verification of CRC16 and CRC8
+ 358:Src/icmu.c    **** 0x0E CRC_CALC Recalculate internal CRC16 and CRC8 values
+ 359:Src/icmu.c    **** 0x0F SET_MTC Set MTC-Pin *)
+ 360:Src/icmu.c    **** 0x10 RES_MTC Reset MTC-Pin *)
+ 361:Src/icmu.c    **** 0xFF no function
+ 362:Src/icmu.c    **** Note: *) MODE_MT=0x00
+ 363:Src/icmu.c    **** */
+ 364:Src/icmu.c    **** void icmu_cmu_mu(uint8_t cmd)
+ 365:Src/icmu.c    **** {
+ 940              		.loc 1 365 0
+ 941              		.cfi_startproc
+ 942              		@ args = 0, pretend = 0, frame = 0
+ 943              		@ frame_needed = 0, uses_anonymous_args = 0
+ 944              	.LVL64:
+ 945 0000 08B5     		push	{r3, lr}
+ 946              	.LCFI13:
+ 947              		.cfi_def_cfa_offset 8
+ 948              		.cfi_offset 3, -8
+ 949              		.cfi_offset 14, -4
+ 366:Src/icmu.c    **** 	
+ 367:Src/icmu.c    **** 
+ 368:Src/icmu.c    ****   icmu_write_reg(0x75,cmd);
+ 950              		.loc 1 368 0
+ 951 0002 0146     		mov	r1, r0
+ 952 0004 7520     		movs	r0, #117
+ 953              	.LVL65:
+ 954 0006 FFF7FEFF 		bl	icmu_write_reg
+ 955              	.LVL66:
+ 369:Src/icmu.c    **** }
+ 956              		.loc 1 369 0
+ 957 000a 08BD     		pop	{r3, pc}
+ 958              		.cfi_endproc
+ 959              	.LFE348:
+ 961              		.section	.text.DMA1_Channel3_IRQHandler,"ax",%progbits
+ 962              		.align	1
+ 963              		.global	DMA1_Channel3_IRQHandler
+ 964              		.syntax unified
+ 965              		.thumb
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 26
+
+
+ 966              		.thumb_func
+ 967              		.fpu fpv4-sp-d16
+ 969              	DMA1_Channel3_IRQHandler:
+ 970              	.LFB349:
+ 370:Src/icmu.c    **** 
+ 371:Src/icmu.c    **** #endif
+ 372:Src/icmu.c    **** 
+ 373:Src/icmu.c    **** 
+ 374:Src/icmu.c    **** 
+ 375:Src/icmu.c    **** 
+ 376:Src/icmu.c    **** 
+ 377:Src/icmu.c    **** 
+ 378:Src/icmu.c    **** 
+ 379:Src/icmu.c    **** 
+ 380:Src/icmu.c    **** 
+ 381:Src/icmu.c    **** 
+ 382:Src/icmu.c    **** 
+ 383:Src/icmu.c    **** 
+ 384:Src/icmu.c    **** 
+ 385:Src/icmu.c    **** 
+ 386:Src/icmu.c    **** 
+ 387:Src/icmu.c    **** void DMA1_Channel3_IRQHandler(void)// ��������ж�
+ 388:Src/icmu.c    **** {
+ 971              		.loc 1 388 0
+ 972              		.cfi_startproc
+ 973              		@ args = 0, pretend = 0, frame = 0
+ 974              		@ frame_needed = 0, uses_anonymous_args = 0
+ 975              		@ link register save eliminated.
+ 389:Src/icmu.c    **** 		if( ( hdma_spi1_tx.DmaBaseAddress->ISR & DMA_FLAG_TC3 ) )
+ 976              		.loc 1 389 0
+ 977 0000 084B     		ldr	r3, .L81
+ 978 0002 1B6C     		ldr	r3, [r3, #64]
+ 979 0004 1A68     		ldr	r2, [r3]
+ 980 0006 12F4007F 		tst	r2, #512
+ 981 000a 09D0     		beq	.L79
+ 390:Src/icmu.c    **** 		{
+ 391:Src/icmu.c    **** 			hdma_spi1_tx.DmaBaseAddress->IFCR |=  DMA_FLAG_TC3;
+ 982              		.loc 1 391 0
+ 983 000c 5A68     		ldr	r2, [r3, #4]
+ 984 000e 42F40072 		orr	r2, r2, #512
+ 985 0012 5A60     		str	r2, [r3, #4]
+ 392:Src/icmu.c    **** 			__HAL_DMA_DISABLE(&hdma_spi1_tx);
+ 986              		.loc 1 392 0
+ 987 0014 034B     		ldr	r3, .L81
+ 988 0016 1A68     		ldr	r2, [r3]
+ 989 0018 1368     		ldr	r3, [r2]
+ 990 001a 23F00103 		bic	r3, r3, #1
+ 991 001e 1360     		str	r3, [r2]
+ 992              	.L79:
+ 393:Src/icmu.c    **** //			SPI1_CS_DIS;
+ 394:Src/icmu.c    **** 		}
+ 395:Src/icmu.c    **** }
+ 993              		.loc 1 395 0
+ 994 0020 7047     		bx	lr
+ 995              	.L82:
+ 996 0022 00BF     		.align	2
+ 997              	.L81:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 27
+
+
+ 998 0024 00000000 		.word	hdma_spi1_tx
+ 999              		.cfi_endproc
+ 1000              	.LFE349:
+ 1002              		.section	.text.DMA1_Channel4_IRQHandler,"ax",%progbits
+ 1003              		.align	1
+ 1004              		.global	DMA1_Channel4_IRQHandler
+ 1005              		.syntax unified
+ 1006              		.thumb
+ 1007              		.thumb_func
+ 1008              		.fpu fpv4-sp-d16
+ 1010              	DMA1_Channel4_IRQHandler:
+ 1011              	.LFB350:
+ 396:Src/icmu.c    **** s32 error_encoder = 0;
+ 397:Src/icmu.c    **** 
+ 398:Src/icmu.c    **** void DMA1_Channel4_IRQHandler(void)// �ɼ���һ�� MU��ֵ�ж�һ�Σ�����
+ 399:Src/icmu.c    **** {
+ 1012              		.loc 1 399 0
+ 1013              		.cfi_startproc
+ 1014              		@ args = 0, pretend = 0, frame = 0
+ 1015              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1016              		@ link register save eliminated.
+ 400:Src/icmu.c    ****     static int read_cnt = 0; // ÉÏµçÎª0
+ 401:Src/icmu.c    **** 		if( ( hdma_spi1_rx.DmaBaseAddress->ISR & DMA_FLAG_TC4 ))
+ 1017              		.loc 1 401 0
+ 1018 0000 1D4B     		ldr	r3, .L87
+ 1019 0002 1B6C     		ldr	r3, [r3, #64]
+ 1020 0004 1A68     		ldr	r2, [r3]
+ 1021 0006 12F4005F 		tst	r2, #8192
+ 1022 000a 2BD0     		beq	.L83
+ 402:Src/icmu.c    **** 		{
+ 403:Src/icmu.c    **** 
+ 404:Src/icmu.c    ****       read_cnt++;
+ 1023              		.loc 1 404 0
+ 1024 000c 1B49     		ldr	r1, .L87+4
+ 1025 000e 0A68     		ldr	r2, [r1]
+ 1026 0010 0132     		adds	r2, r2, #1
+ 1027 0012 0A60     		str	r2, [r1]
+ 405:Src/icmu.c    **** 			hdma_spi1_rx.DmaBaseAddress->IFCR |=  DMA_FLAG_TC4;
+ 1028              		.loc 1 405 0
+ 1029 0014 5968     		ldr	r1, [r3, #4]
+ 1030 0016 41F40051 		orr	r1, r1, #8192
+ 1031 001a 5960     		str	r1, [r3, #4]
+ 406:Src/icmu.c    **** 
+ 407:Src/icmu.c    **** 			#if defined(MU_VALUE_INCREASE_REACH)    //�Ƹ����MU��ֵ����
+ 408:Src/icmu.c    **** 				MU_Value =((((uint32_t)spi1_reg_buf[1])<<16)+(((uint32_t)spi1_reg_buf[2])<<8)+(((uint32_t)spi1_
+ 1032              		.loc 1 408 0
+ 1033 001c 1849     		ldr	r1, .L87+8
+ 1034 001e 4878     		ldrb	r0, [r1, #1]	@ zero_extendqisi2
+ 1035 0020 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 1036 0022 1B02     		lsls	r3, r3, #8
+ 1037 0024 03EB0043 		add	r3, r3, r0, lsl #16
+ 1038 0028 C978     		ldrb	r1, [r1, #3]	@ zero_extendqisi2
+ 1039 002a 0B44     		add	r3, r3, r1
+ 1040 002c 1549     		ldr	r1, .L87+12
+ 1041 002e 0B60     		str	r3, [r1]
+ 409:Src/icmu.c    **** 			#else																		//�Ƹ����MU��ֵ����
+ 410:Src/icmu.c    **** 				MU_Value =MAX_VALUE_ICMU - ((((uint32_t)spi1_reg_buf[1])<<16)+(((uint32_t)spi1_reg_buf[2])<<8)+
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 28
+
+
+ 411:Src/icmu.c    **** 			#endif
+ 412:Src/icmu.c    **** 			Flag_MU_read = 1;
+ 1042              		.loc 1 412 0
+ 1043 0030 154B     		ldr	r3, .L87+16
+ 1044 0032 0121     		movs	r1, #1
+ 1045 0034 1970     		strb	r1, [r3]
+ 413:Src/icmu.c    **** 			SPI1_CS_DIS;
+ 1046              		.loc 1 413 0
+ 1047 0036 4FF09041 		mov	r1, #1207959552
+ 1048 003a 4B69     		ldr	r3, [r1, #20]
+ 1049 003c 43F01003 		orr	r3, r3, #16
+ 1050 0040 4B61     		str	r3, [r1, #20]
+ 414:Src/icmu.c    **** 
+ 415:Src/icmu.c    **** 
+ 416:Src/icmu.c    **** 			if(read_cnt > 1000)
+ 1051              		.loc 1 416 0
+ 1052 0042 B2F57A7F 		cmp	r2, #1000
+ 1053 0046 0DDD     		ble	.L83
+ 417:Src/icmu.c    **** 			{
+ 418:Src/icmu.c    **** 				read_cnt = 1001;
+ 1054              		.loc 1 418 0
+ 1055 0048 0C4B     		ldr	r3, .L87+4
+ 1056 004a 40F2E932 		movw	r2, #1001
+ 1057 004e 1A60     		str	r2, [r3]
+ 419:Src/icmu.c    **** 				if( spi1_reg_buf[0] != 0xA6 )
+ 1058              		.loc 1 419 0
+ 1059 0050 0B4B     		ldr	r3, .L87+8
+ 1060 0052 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1061 0054 A62B     		cmp	r3, #166
+ 1062 0056 05D0     		beq	.L83
+ 420:Src/icmu.c    **** 				{
+ 421:Src/icmu.c    **** 					
+ 422:Src/icmu.c    **** 					if( g_CmdMap[TAG_WORK_MODE] == MODE_POSITION)
+ 1063              		.loc 1 422 0
+ 1064 0058 0C4B     		ldr	r3, .L87+20
+ 1065 005a B3F80432 		ldrh	r3, [r3, #516]
+ 1066 005e 1BB2     		sxth	r3, r3
+ 1067 0060 032B     		cmp	r3, #3
+ 1068 0062 00D0     		beq	.L86
+ 1069              	.L83:
+ 423:Src/icmu.c    **** 						g_CmdMap[CMD_ERROR] |= ERROR_MASK_LINEAR_MAGNETIC_SENSOR_FAULT;
+ 424:Src/icmu.c    **** 				}
+ 425:Src/icmu.c    **** 			}
+ 426:Src/icmu.c    **** 			if(  spi1_reg_buf[0] == 0xA6 )
+ 427:Src/icmu.c    **** 			{
+ 428:Src/icmu.c    **** 			//	read_cnt = 0;
+ 429:Src/icmu.c    **** 			}
+ 430:Src/icmu.c    **** 
+ 431:Src/icmu.c    **** 		}
+ 432:Src/icmu.c    **** }
+ 1070              		.loc 1 432 0
+ 1071 0064 7047     		bx	lr
+ 1072              	.L86:
+ 423:Src/icmu.c    **** 						g_CmdMap[CMD_ERROR] |= ERROR_MASK_LINEAR_MAGNETIC_SENSOR_FAULT;
+ 1073              		.loc 1 423 0
+ 1074 0066 094A     		ldr	r2, .L87+20
+ 1075 0068 B2F85430 		ldrh	r3, [r2, #84]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 29
+
+
+ 1076 006c 1BB2     		sxth	r3, r3
+ 1077 006e 43F40063 		orr	r3, r3, #2048
+ 1078 0072 A2F85430 		strh	r3, [r2, #84]	@ movhi
+ 1079              		.loc 1 432 0
+ 1080 0076 F5E7     		b	.L83
+ 1081              	.L88:
+ 1082              		.align	2
+ 1083              	.L87:
+ 1084 0078 00000000 		.word	hdma_spi1_rx
+ 1085 007c 00000000 		.word	.LANCHOR4
+ 1086 0080 00000000 		.word	.LANCHOR0
+ 1087 0084 00000000 		.word	.LANCHOR5
+ 1088 0088 00000000 		.word	.LANCHOR6
+ 1089 008c 00000000 		.word	g_CmdMap
+ 1090              		.cfi_endproc
+ 1091              	.LFE350:
+ 1093              		.section	.text.icmu_sdtransmission_test,"ax",%progbits
+ 1094              		.align	1
+ 1095              		.global	icmu_sdtransmission_test
+ 1096              		.syntax unified
+ 1097              		.thumb
+ 1098              		.thumb_func
+ 1099              		.fpu fpv4-sp-d16
+ 1101              	icmu_sdtransmission_test:
+ 1102              	.LFB351:
+ 433:Src/icmu.c    **** 
+ 434:Src/icmu.c    **** 
+ 435:Src/icmu.c    **** void icmu_sdtransmission_test(void)
+ 436:Src/icmu.c    **** {
+ 1103              		.loc 1 436 0
+ 1104              		.cfi_startproc
+ 1105              		@ args = 0, pretend = 0, frame = 0
+ 1106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1107              		@ link register save eliminated.
+ 437:Src/icmu.c    **** //	SPI1_CS_EN;
+ 438:Src/icmu.c    **** //	DMA_SetCurrDataCounter(DMA1_Channel3,4);//DMA2_Stream3->NDTR = 4;	
+ 439:Src/icmu.c    **** 	__HAL_DMA_DISABLE(&hdma_spi1_tx);
+ 1108              		.loc 1 439 0
+ 1109 0000 064A     		ldr	r2, .L90
+ 1110 0002 1168     		ldr	r1, [r2]
+ 1111 0004 0B68     		ldr	r3, [r1]
+ 1112 0006 23F00103 		bic	r3, r3, #1
+ 1113 000a 0B60     		str	r3, [r1]
+ 440:Src/icmu.c    **** 	hdma_spi1_tx.Instance->CNDTR =4;
+ 1114              		.loc 1 440 0
+ 1115 000c 1368     		ldr	r3, [r2]
+ 1116 000e 0422     		movs	r2, #4
+ 1117 0010 5A60     		str	r2, [r3, #4]
+ 441:Src/icmu.c    **** 	__HAL_DMA_ENABLE(&hdma_spi1_tx);
+ 1118              		.loc 1 441 0
+ 1119 0012 1A68     		ldr	r2, [r3]
+ 1120 0014 42F00102 		orr	r2, r2, #1
+ 1121 0018 1A60     		str	r2, [r3]
+ 442:Src/icmu.c    **** }
+ 1122              		.loc 1 442 0
+ 1123 001a 7047     		bx	lr
+ 1124              	.L91:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 30
+
+
+ 1125              		.align	2
+ 1126              	.L90:
+ 1127 001c 00000000 		.word	hdma_spi1_tx
+ 1128              		.cfi_endproc
+ 1129              	.LFE351:
+ 1131              		.section	.text.get_MU_Value_block,"ax",%progbits
+ 1132              		.align	1
+ 1133              		.global	get_MU_Value_block
+ 1134              		.syntax unified
+ 1135              		.thumb
+ 1136              		.thumb_func
+ 1137              		.fpu fpv4-sp-d16
+ 1139              	get_MU_Value_block:
+ 1140              	.LFB342:
+ 203:Src/icmu.c    **** 		static s32 count_wait = 0;
+ 1141              		.loc 1 203 0
+ 1142              		.cfi_startproc
+ 1143              		@ args = 0, pretend = 0, frame = 0
+ 1144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1145 0000 08B5     		push	{r3, lr}
+ 1146              	.LCFI14:
+ 1147              		.cfi_def_cfa_offset 8
+ 1148              		.cfi_offset 3, -8
+ 1149              		.cfi_offset 14, -4
+ 205:Src/icmu.c    **** 		icmu_sdtransmission_test();		
+ 1150              		.loc 1 205 0
+ 1151 0002 0D4B     		ldr	r3, .L100
+ 1152 0004 0022     		movs	r2, #0
+ 1153 0006 1A70     		strb	r2, [r3]
+ 206:Src/icmu.c    **** 		while(Flag_MU_read == 0)
+ 1154              		.loc 1 206 0
+ 1155 0008 FFF7FEFF 		bl	icmu_sdtransmission_test
+ 1156              	.LVL67:
+ 1157              	.L93:
+ 207:Src/icmu.c    **** 		{
+ 1158              		.loc 1 207 0
+ 1159 000c 0A4B     		ldr	r3, .L100
+ 1160 000e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1161 0010 83B9     		cbnz	r3, .L98
+ 1162              	.LBB5:
+ 209:Src/icmu.c    **** 			{
+ 1163              		.loc 1 209 0
+ 1164 0012 0A4B     		ldr	r3, .L100+4
+ 1165 0014 1B68     		ldr	r3, [r3]
+ 1166 0016 B3F5967F 		cmp	r3, #300
+ 1167 001a 06DC     		bgt	.L99
+ 214:Src/icmu.c    **** 			delay_ms(1);			
+ 1168              		.loc 1 214 0
+ 1169 001c 0133     		adds	r3, r3, #1
+ 1170 001e 074A     		ldr	r2, .L100+4
+ 1171 0020 1360     		str	r3, [r2]
+ 215:Src/icmu.c    **** 		}
+ 1172              		.loc 1 215 0
+ 1173 0022 0120     		movs	r0, #1
+ 1174 0024 FFF7FEFF 		bl	delay_ms
+ 1175              	.LVL68:
+ 1176 0028 F0E7     		b	.L93
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 31
+
+
+ 1177              	.L99:
+ 211:Src/icmu.c    **** 				return 0;
+ 1178              		.loc 1 211 0
+ 1179 002a 054B     		ldr	r3, .L100+8
+ 1180 002c 0122     		movs	r2, #1
+ 1181 002e 1A70     		strb	r2, [r3]
+ 212:Src/icmu.c    **** 			}
+ 1182              		.loc 1 212 0
+ 1183 0030 0020     		movs	r0, #0
+ 1184 0032 00E0     		b	.L95
+ 1185              	.L98:
+ 1186              	.LBE5:
+ 217:Src/icmu.c    **** }
+ 1187              		.loc 1 217 0
+ 1188 0034 0120     		movs	r0, #1
+ 1189              	.L95:
+ 218:Src/icmu.c    **** uint8_t icmu_sdstatus(void)
+ 1190              		.loc 1 218 0
+ 1191 0036 08BD     		pop	{r3, pc}
+ 1192              	.L101:
+ 1193              		.align	2
+ 1194              	.L100:
+ 1195 0038 00000000 		.word	.LANCHOR6
+ 1196 003c 00000000 		.word	.LANCHOR7
+ 1197 0040 00000000 		.word	Flag_error_MU_SPI
+ 1198              		.cfi_endproc
+ 1199              	.LFE342:
+ 1201              		.section	.text.clear_eeprom_erro,"ax",%progbits
+ 1202              		.align	1
+ 1203              		.global	clear_eeprom_erro
+ 1204              		.syntax unified
+ 1205              		.thumb
+ 1206              		.thumb_func
+ 1207              		.fpu fpv4-sp-d16
+ 1209              	clear_eeprom_erro:
+ 1210              	.LFB352:
+ 443:Src/icmu.c    **** 
+ 444:Src/icmu.c    **** void clear_eeprom_erro(void)
+ 445:Src/icmu.c    **** {
+ 1211              		.loc 1 445 0
+ 1212              		.cfi_startproc
+ 1213              		@ args = 0, pretend = 0, frame = 0
+ 1214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1215              		@ link register save eliminated.
+ 446:Src/icmu.c    ****   Flag_error_read_eeprom =0;
+ 1216              		.loc 1 446 0
+ 1217 0000 014B     		ldr	r3, .L103
+ 1218 0002 0022     		movs	r2, #0
+ 1219 0004 1A60     		str	r2, [r3]
+ 447:Src/icmu.c    **** 
+ 448:Src/icmu.c    **** }
+ 1220              		.loc 1 448 0
+ 1221 0006 7047     		bx	lr
+ 1222              	.L104:
+ 1223              		.align	2
+ 1224              	.L103:
+ 1225 0008 00000000 		.word	.LANCHOR3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 32
+
+
+ 1226              		.cfi_endproc
+ 1227              	.LFE352:
+ 1229              		.section	.text.icmu_eerpom_erro_detect,"ax",%progbits
+ 1230              		.align	1
+ 1231              		.global	icmu_eerpom_erro_detect
+ 1232              		.syntax unified
+ 1233              		.thumb
+ 1234              		.thumb_func
+ 1235              		.fpu fpv4-sp-d16
+ 1237              	icmu_eerpom_erro_detect:
+ 1238              	.LFB353:
+ 449:Src/icmu.c    **** 
+ 450:Src/icmu.c    **** 
+ 451:Src/icmu.c    **** void icmu_eerpom_erro_detect(void)
+ 452:Src/icmu.c    **** {
+ 1239              		.loc 1 452 0
+ 1240              		.cfi_startproc
+ 1241              		@ args = 0, pretend = 0, frame = 0
+ 1242              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1243              		@ link register save eliminated.
+ 453:Src/icmu.c    **** 	if(Flag_error_read_eeprom)
+ 1244              		.loc 1 453 0
+ 1245 0000 054B     		ldr	r3, .L107
+ 1246 0002 1B68     		ldr	r3, [r3]
+ 1247 0004 3BB1     		cbz	r3, .L105
+ 454:Src/icmu.c    **** 	{
+ 455:Src/icmu.c    **** 		g_CmdMap[CMD_ERROR] |= ERROR_MASK_LINEAR_MAGNETIC_SENSOR_FAULT;
+ 1248              		.loc 1 455 0
+ 1249 0006 054A     		ldr	r2, .L107+4
+ 1250 0008 B2F85430 		ldrh	r3, [r2, #84]
+ 1251 000c 1BB2     		sxth	r3, r3
+ 1252 000e 43F40063 		orr	r3, r3, #2048
+ 1253 0012 A2F85430 		strh	r3, [r2, #84]	@ movhi
+ 1254              	.L105:
+ 456:Src/icmu.c    **** 	}
+ 457:Src/icmu.c    **** }
+ 1255              		.loc 1 457 0
+ 1256 0016 7047     		bx	lr
+ 1257              	.L108:
+ 1258              		.align	2
+ 1259              	.L107:
+ 1260 0018 00000000 		.word	.LANCHOR3
+ 1261 001c 00000000 		.word	g_CmdMap
+ 1262              		.cfi_endproc
+ 1263              	.LFE353:
+ 1265              		.global	error_encoder
+ 1266              		.comm	hdma_spi1_tx,96,4
+ 1267              		.comm	hdma_spi1_rx,96,4
+ 1268              		.comm	hspi1,100,4
+ 1269              		.global	Flag_MU_read
+ 1270              		.global	MU_Vlaue_last
+ 1271              		.global	Speed_DltAng_pls
+ 1272              		.global	Speed_T
+ 1273              		.global	MU_Value_last
+ 1274              		.global	MU_Value
+ 1275              		.global	p_MU_Value
+ 1276              		.global	spi1_reg
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 33
+
+
+ 1277              		.global	spi1_reg_buf
+ 1278              		.global	MECode_offset_ICHaus
+ 1279              		.global	Ang_reg_Count
+ 1280              		.global	Ang_reg_Sum
+ 1281              		.global	Ang_reg_Index_Last
+ 1282              		.global	Ang_reg_Index
+ 1283              		.global	Ang_reg
+ 1284              		.global	spi1_send
+ 1285              		.global	buf
+ 1286              		.global	test_cnt
+ 1287              		.global	MUValue
+ 1288              		.section	.bss.Ang_reg,"aw",%nobits
+ 1289              		.align	2
+ 1292              	Ang_reg:
+ 1293 0000 00000000 		.space	2048
+ 1293      00000000 
+ 1293      00000000 
+ 1293      00000000 
+ 1293      00000000 
+ 1294              		.section	.bss.Ang_reg_Count,"aw",%nobits
+ 1295              		.align	1
+ 1298              	Ang_reg_Count:
+ 1299 0000 0000     		.space	2
+ 1300              		.section	.bss.Ang_reg_Index,"aw",%nobits
+ 1301              		.align	1
+ 1304              	Ang_reg_Index:
+ 1305 0000 0000     		.space	2
+ 1306              		.section	.bss.Ang_reg_Index_Last,"aw",%nobits
+ 1307              		.align	1
+ 1310              	Ang_reg_Index_Last:
+ 1311 0000 0000     		.space	2
+ 1312              		.section	.bss.Ang_reg_Sum,"aw",%nobits
+ 1313              		.align	1
+ 1316              	Ang_reg_Sum:
+ 1317 0000 0000     		.space	2
+ 1318              		.section	.bss.Flag_MU_read,"aw",%nobits
+ 1319              		.set	.LANCHOR6,. + 0
+ 1322              	Flag_MU_read:
+ 1323 0000 00       		.space	1
+ 1324              		.section	.bss.Flag_error_read_eeprom,"aw",%nobits
+ 1325              		.align	2
+ 1326              		.set	.LANCHOR3,. + 0
+ 1329              	Flag_error_read_eeprom:
+ 1330 0000 00000000 		.space	4
+ 1331              		.section	.bss.MECode_offset_ICHaus,"aw",%nobits
+ 1332              		.align	1
+ 1335              	MECode_offset_ICHaus:
+ 1336 0000 0000     		.space	2
+ 1337              		.section	.bss.MUValue,"aw",%nobits
+ 1338              		.align	2
+ 1341              	MUValue:
+ 1342 0000 00000000 		.space	4
+ 1343              		.section	.bss.MU_Value,"aw",%nobits
+ 1344              		.align	2
+ 1345              		.set	.LANCHOR5,. + 0
+ 1348              	MU_Value:
+ 1349 0000 00000000 		.space	4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 34
+
+
+ 1350              		.section	.bss.MU_Value_last,"aw",%nobits
+ 1351              		.align	2
+ 1354              	MU_Value_last:
+ 1355 0000 00000000 		.space	4
+ 1356              		.section	.bss.MU_Vlaue_last,"aw",%nobits
+ 1357              		.align	2
+ 1360              	MU_Vlaue_last:
+ 1361 0000 00000000 		.space	4
+ 1362              		.section	.bss.Speed_DltAng_pls,"aw",%nobits
+ 1363              		.align	2
+ 1366              	Speed_DltAng_pls:
+ 1367 0000 00000000 		.space	4
+ 1368              		.section	.bss.Speed_T,"aw",%nobits
+ 1369              		.align	2
+ 1372              	Speed_T:
+ 1373 0000 00000000 		.space	4
+ 1374              		.section	.bss.buf,"aw",%nobits
+ 1375              		.align	2
+ 1376              		.set	.LANCHOR2,. + 0
+ 1379              	buf:
+ 1380 0000 00000000 		.space	9
+ 1380      00000000 
+ 1380      00
+ 1381              		.section	.bss.count_wait.11904,"aw",%nobits
+ 1382              		.align	2
+ 1383              		.set	.LANCHOR7,. + 0
+ 1386              	count_wait.11904:
+ 1387 0000 00000000 		.space	4
+ 1388              		.section	.bss.error_encoder,"aw",%nobits
+ 1389              		.align	2
+ 1392              	error_encoder:
+ 1393 0000 00000000 		.space	4
+ 1394              		.section	.bss.read_cnt.11949,"aw",%nobits
+ 1395              		.align	2
+ 1396              		.set	.LANCHOR4,. + 0
+ 1399              	read_cnt.11949:
+ 1400 0000 00000000 		.space	4
+ 1401              		.section	.bss.spi1_reg,"aw",%nobits
+ 1402              		.align	2
+ 1405              	spi1_reg:
+ 1406 0000 00000000 		.space	4
+ 1407              		.section	.bss.spi1_reg_buf,"aw",%nobits
+ 1408              		.align	2
+ 1409              		.set	.LANCHOR0,. + 0
+ 1412              	spi1_reg_buf:
+ 1413 0000 00000000 		.space	4
+ 1414              		.section	.bss.test_cnt,"aw",%nobits
+ 1415              		.align	2
+ 1418              	test_cnt:
+ 1419 0000 00000000 		.space	4
+ 1420              		.section	.data.p_MU_Value,"aw",%progbits
+ 1421              		.align	2
+ 1424              	p_MU_Value:
+ 1425 0000 00000000 		.word	spi1_reg
+ 1426              		.section	.data.spi1_send,"aw",%progbits
+ 1427              		.align	2
+ 1428              		.set	.LANCHOR1,. + 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 35
+
+
+ 1431              	spi1_send:
+ 1432 0000 A6       		.byte	-90
+ 1433 0001 00       		.byte	0
+ 1434 0002 00       		.byte	0
+ 1435 0003 00       		.byte	0
+ 1436              		.text
+ 1437              	.Letext0:
+ 1438              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 1439              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 1440              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 1441              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 1442              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 1443              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 1444              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 1445              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 1446              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 1447              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 1448              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 1449              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 1450              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 1451              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 1452              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 1453              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 1454              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ 1455              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 1456              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 1457              		.file 21 "Inc/uart.h"
+ 1458              		.file 22 "Inc/pwm.h"
+ 1459              		.file 23 "Inc/spi_MEncoder.h"
+ 1460              		.file 24 "Inc/adc.h"
+ 1461              		.file 25 "Inc/stm32_math_sin.h"
+ 1462              		.file 26 "Inc/pid.h"
+ 1463              		.file 27 "Inc/profile_joint.h"
+ 1464              		.file 28 "Inc/performance_test.h"
+ 1465              		.file 29 "Inc/global.h"
+ 1466              		.file 30 "Inc/icmu.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 36
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 icmu.c
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:18     .text.delay__ms:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:24     .text.delay__ms:00000000 delay__ms
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:77     .text.delay_clk:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:83     .text.delay_clk:00000000 delay_clk
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:121    .text.MX_SPI1_Init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:128    .text.MX_SPI1_Init:00000000 MX_SPI1_Init
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:200    .text.MX_SPI1_Init:00000054 $d
+                            *COM*:00000064 hspi1
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:209    .text.SPI1_Init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:216    .text.SPI1_Init:00000000 SPI1_Init
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:294    .text.SPI1_Init:00000060 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:301    .text.SPI_I2S_SendData8:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:308    .text.SPI_I2S_SendData8:00000000 SPI_I2S_SendData8
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:324    .text.SPI_I2S_ReceiveData8:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:331    .text.SPI_I2S_ReceiveData8:00000000 SPI_I2S_ReceiveData8
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:348    .text.SPI_RW:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:354    .text.SPI_RW:00000000 SPI_RW
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:395    .text.SPI_RW:0000002c $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:401    .text.icmu_activiate:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:408    .text.icmu_activiate:00000000 icmu_activiate
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:467    .text.icmu_sdtransmission:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:474    .text.icmu_sdtransmission:00000000 icmu_sdtransmission
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:541    .text.icmu_sdtransmission:00000054 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:546    .text.icmu_sdstatus:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:553    .text.icmu_sdstatus:00000000 icmu_sdstatus
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:608    .text.icmu_read_reg:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:615    .text.icmu_read_reg:00000000 icmu_read_reg
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:752    .text.icmu_read_reg:000000b4 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:758    .text.icmu_spi_init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:765    .text.icmu_spi_init:00000000 icmu_spi_init
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:791    .text.icmu_write_reg:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:798    .text.icmu_write_reg:00000000 icmu_write_reg
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:864    .text.icmu_reg_status:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:871    .text.icmu_reg_status:00000000 icmu_reg_status
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:931    .text.icmu_cmu_mu:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:938    .text.icmu_cmu_mu:00000000 icmu_cmu_mu
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:962    .text.DMA1_Channel3_IRQHandler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:969    .text.DMA1_Channel3_IRQHandler:00000000 DMA1_Channel3_IRQHandler
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:998    .text.DMA1_Channel3_IRQHandler:00000024 $d
+                            *COM*:00000060 hdma_spi1_tx
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1003   .text.DMA1_Channel4_IRQHandler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1010   .text.DMA1_Channel4_IRQHandler:00000000 DMA1_Channel4_IRQHandler
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1084   .text.DMA1_Channel4_IRQHandler:00000078 $d
+                            *COM*:00000060 hdma_spi1_rx
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1094   .text.icmu_sdtransmission_test:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1101   .text.icmu_sdtransmission_test:00000000 icmu_sdtransmission_test
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1127   .text.icmu_sdtransmission_test:0000001c $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1132   .text.get_MU_Value_block:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1139   .text.get_MU_Value_block:00000000 get_MU_Value_block
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1195   .text.get_MU_Value_block:00000038 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1202   .text.clear_eeprom_erro:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1209   .text.clear_eeprom_erro:00000000 clear_eeprom_erro
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1225   .text.clear_eeprom_erro:00000008 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1230   .text.icmu_eerpom_erro_detect:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1237   .text.icmu_eerpom_erro_detect:00000000 icmu_eerpom_erro_detect
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s 			page 37
+
+
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1260   .text.icmu_eerpom_erro_detect:00000018 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1392   .bss.error_encoder:00000000 error_encoder
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1322   .bss.Flag_MU_read:00000000 Flag_MU_read
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1360   .bss.MU_Vlaue_last:00000000 MU_Vlaue_last
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1366   .bss.Speed_DltAng_pls:00000000 Speed_DltAng_pls
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1372   .bss.Speed_T:00000000 Speed_T
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1354   .bss.MU_Value_last:00000000 MU_Value_last
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1348   .bss.MU_Value:00000000 MU_Value
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1424   .data.p_MU_Value:00000000 p_MU_Value
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1405   .bss.spi1_reg:00000000 spi1_reg
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1412   .bss.spi1_reg_buf:00000000 spi1_reg_buf
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1335   .bss.MECode_offset_ICHaus:00000000 MECode_offset_ICHaus
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1298   .bss.Ang_reg_Count:00000000 Ang_reg_Count
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1316   .bss.Ang_reg_Sum:00000000 Ang_reg_Sum
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1310   .bss.Ang_reg_Index_Last:00000000 Ang_reg_Index_Last
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1304   .bss.Ang_reg_Index:00000000 Ang_reg_Index
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1292   .bss.Ang_reg:00000000 Ang_reg
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1431   .data.spi1_send:00000000 spi1_send
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1379   .bss.buf:00000000 buf
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1418   .bss.test_cnt:00000000 test_cnt
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1341   .bss.MUValue:00000000 MUValue
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1289   .bss.Ang_reg:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1295   .bss.Ang_reg_Count:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1301   .bss.Ang_reg_Index:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1307   .bss.Ang_reg_Index_Last:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1313   .bss.Ang_reg_Sum:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1323   .bss.Flag_MU_read:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1325   .bss.Flag_error_read_eeprom:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1329   .bss.Flag_error_read_eeprom:00000000 Flag_error_read_eeprom
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1332   .bss.MECode_offset_ICHaus:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1338   .bss.MUValue:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1344   .bss.MU_Value:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1351   .bss.MU_Value_last:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1357   .bss.MU_Vlaue_last:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1363   .bss.Speed_DltAng_pls:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1369   .bss.Speed_T:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1375   .bss.buf:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1382   .bss.count_wait.11904:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1386   .bss.count_wait.11904:00000000 count_wait.11904
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1389   .bss.error_encoder:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1395   .bss.read_cnt.11949:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1399   .bss.read_cnt.11949:00000000 read_cnt.11949
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1402   .bss.spi1_reg:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1408   .bss.spi1_reg_buf:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1415   .bss.test_cnt:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1421   .data.p_MU_Value:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cclVm7Uf.s:1427   .data.spi1_send:00000000 $d
+
+UNDEFINED SYMBOLS
+__nop
+HAL_SPI_Init
+HAL_SPI_TransmitReceive_DMA
+Error_Handler
+g_CmdMap
+delay_ms
+Flag_error_MU_SPI

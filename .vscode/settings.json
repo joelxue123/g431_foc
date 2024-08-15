@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "makefile": "makefile",
+        "main.h": "c",
+        "stm32g4xx_hal.h": "c",
+        "global.h": "c",
+        "string.h": "c",
+        "uart.h": "c",
+        "stm32g4xx_hal_conf.h": "c",
+        "stm32g431xx.h": "c"
+    }
+}

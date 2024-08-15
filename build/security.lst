@@ -1,0 +1,1233 @@
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"security.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.generate_errorCode,"ax",%progbits
+  18              		.align	1
+  19              		.global	generate_errorCode
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	generate_errorCode:
+  26              	.LFB333:
+  27              		.file 1 "Src/security.c"
+   1:Src/security.c **** #include "security.h"
+   2:Src/security.c **** #include "global.h"
+   3:Src/security.c **** s32 g_CurrentOverPool = 0;
+   4:Src/security.c **** s32 Over_Temp_Cun = 0;			    // ���¼����ʱ��ʱ��
+   5:Src/security.c **** s32 Low_Voltage_Cun = 0;		    // Ƿѹ�����ʱ��ʱ��
+   6:Src/security.c **** s32 Over_Voltage_Cun = 0;		  // ��ѹ�����ʱ��ʱ��
+   7:Src/security.c **** s16 Power_Avg_tab[8] = {0,0,0,0,0,0,0,0};
+   8:Src/security.c **** s32 Power_Avg_cun = 0;
+   9:Src/security.c **** 
+  10:Src/security.c **** #define	SHORT_CUR_DEF	((int)(HW_MAX_CURRENT*1.414*1.5))
+  11:Src/security.c **** 
+  12:Src/security.c **** // ������������·���, 10KHz��ʱ����
+  13:Src/security.c **** uint16_t count_over_current = 0;
+  14:Src/security.c **** uint16_t count_over_temperature = 0;
+  15:Src/security.c **** uint16_t count_Id_error = 0;
+  16:Src/security.c **** uint32_t power_on_time = 0;
+  17:Src/security.c **** float Voltag_f_filter = 0.0f;
+  18:Src/security.c **** float Voltag_f = 0.0f;
+  19:Src/security.c **** 
+  20:Src/security.c **** static int over_current_staff_event_cnt = 0;
+  21:Src/security.c **** 
+  22:Src/security.c **** void generate_errorCode(void)
+  23:Src/security.c **** {
+  28              		.loc 1 23 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 2
+
+
+  36              		.cfi_offset 14, -4
+  24:Src/security.c **** 		static s32 s_count = 0;
+  25:Src/security.c **** 	static s32 temperture_hystersis = 0;
+  26:Src/security.c **** 	static s32  count_over_AlerrTemperature = 0;
+  27:Src/security.c **** 	
+  28:Src/security.c **** 	
+  29:Src/security.c **** 	if(++s_count>250)
+  37              		.loc 1 29 0
+  38 0002 854A     		ldr	r2, .L31
+  39 0004 1368     		ldr	r3, [r2]
+  40 0006 0133     		adds	r3, r3, #1
+  41 0008 1360     		str	r3, [r2]
+  42 000a FA2B     		cmp	r3, #250
+  43 000c 1CDD     		ble	.L2
+  30:Src/security.c **** 	{
+  31:Src/security.c **** 		s_count = 0;
+  44              		.loc 1 31 0
+  45 000e 1346     		mov	r3, r2
+  46 0010 0022     		movs	r2, #0
+  47 0012 1A60     		str	r2, [r3]
+  32:Src/security.c **** 		g_CmdMap[CMD_ERROR] &= (ERROR_MASK_STALL | ERROR_MASK_OVER_CURRENT);
+  48              		.loc 1 32 0
+  49 0014 814B     		ldr	r3, .L31+4
+  50 0016 B3F85420 		ldrh	r2, [r3, #84]
+  51 001a 02F00502 		and	r2, r2, #5
+  52 001e A3F85420 		strh	r2, [r3, #84]	@ movhi
+  33:Src/security.c **** 		
+  34:Src/security.c **** 		if( g_CmdMap[CMD_ERROR]  )
+  53              		.loc 1 34 0
+  54 0022 B3F85430 		ldrh	r3, [r3, #84]
+  55 0026 1BB2     		sxth	r3, r3
+  56 0028 73B1     		cbz	r3, .L2
+  35:Src/security.c **** 		{
+  36:Src/security.c **** 			over_current_staff_event_cnt++;
+  57              		.loc 1 36 0
+  58 002a 7D4A     		ldr	r2, .L31+8
+  59 002c 1368     		ldr	r3, [r2]
+  60 002e 0133     		adds	r3, r3, #1
+  61 0030 1360     		str	r3, [r2]
+  37:Src/security.c **** 			if( over_current_staff_event_cnt < 3 )
+  62              		.loc 1 37 0
+  63 0032 022B     		cmp	r3, #2
+  64 0034 03DC     		bgt	.L3
+  38:Src/security.c **** 			{
+  39:Src/security.c **** 				g_CmdMap[CMD_ERROR] = 0;
+  65              		.loc 1 39 0
+  66 0036 794A     		ldr	r2, .L31+4
+  67 0038 0021     		movs	r1, #0
+  68 003a A2F85410 		strh	r1, [r2, #84]	@ movhi
+  69              	.L3:
+  40:Src/security.c **** 			}
+  41:Src/security.c **** 			
+  42:Src/security.c **** 			if( over_current_staff_event_cnt > 3)
+  70              		.loc 1 42 0
+  71 003e 032B     		cmp	r3, #3
+  72 0040 02DD     		ble	.L2
+  43:Src/security.c **** 			{
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 3
+
+
+  44:Src/security.c **** 				over_current_staff_event_cnt = 3;
+  73              		.loc 1 44 0
+  74 0042 774B     		ldr	r3, .L31+8
+  75 0044 0322     		movs	r2, #3
+  76 0046 1A60     		str	r2, [r3]
+  77              	.L2:
+  45:Src/security.c **** 			}
+  46:Src/security.c **** 		}
+  47:Src/security.c **** 		else
+  48:Src/security.c **** 		{
+  49:Src/security.c **** 			
+  50:Src/security.c **** 		}
+  51:Src/security.c **** 		
+  52:Src/security.c **** 		
+  53:Src/security.c **** 	}
+  54:Src/security.c **** 	if(power_on_time<50*5)
+  78              		.loc 1 54 0
+  79 0048 764B     		ldr	r3, .L31+12
+  80 004a 1B68     		ldr	r3, [r3]
+  81 004c F92B     		cmp	r3, #249
+  82 004e 02D8     		bhi	.L4
+  55:Src/security.c **** 	{power_on_time++;}
+  83              		.loc 1 55 0
+  84 0050 0133     		adds	r3, r3, #1
+  85 0052 744A     		ldr	r2, .L31+12
+  86 0054 1360     		str	r3, [r2]
+  87              	.L4:
+  56:Src/security.c **** 	
+  57:Src/security.c **** 	icmu_eerpom_erro_detect();
+  88              		.loc 1 57 0
+  89 0056 FFF7FEFF 		bl	icmu_eerpom_erro_detect
+  90              	.LVL0:
+  58:Src/security.c **** 	
+  59:Src/security.c **** 	if(Flag_error_read_flash == 1)
+  91              		.loc 1 59 0
+  92 005a 734B     		ldr	r3, .L31+16
+  93 005c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  94 005e 012B     		cmp	r3, #1
+  95 0060 24D0     		beq	.L25
+  96              	.L5:
+  60:Src/security.c **** 	{
+  61:Src/security.c **** 		g_CmdMap[CMD_ERROR] |= ERROR_MASK_READ_FLASH;
+  62:Src/security.c **** 	}
+  63:Src/security.c **** //	if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_11) == Bit_RESET)
+  64:Src/security.c **** //	{
+  65:Src/security.c **** //		g_CmdMap[CMD_ERROR] |= ERROR_MASK_PREDRIVE_FAULT;
+  66:Src/security.c **** //	}
+  67:Src/security.c **** 	if(Flag_error_current_clib == 1)
+  97              		.loc 1 67 0
+  98 0062 724B     		ldr	r3, .L31+20
+  99 0064 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 100 0066 012B     		cmp	r3, #1
+ 101 0068 29D0     		beq	.L26
+ 102              	.L6:
+  68:Src/security.c **** 	{
+  69:Src/security.c **** 		g_CmdMap[CMD_ERROR] |= ERROR_MASK_CURRENT_CLIB_FAULT;
+  70:Src/security.c **** 	}
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 4
+
+
+  71:Src/security.c **** 	//²¹³ä´úÂë
+  72:Src/security.c **** 	if(Flag_error_MU_SPI == 1)//ÐÅºÅÌø±äÒì³£ »òÕß SPIÃ»ÓÐÊÕµ½ÐÅºÅ±¨´Ë�
+ 103              		.loc 1 72 0
+ 104 006a 714B     		ldr	r3, .L31+24
+ 105 006c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 106 006e 012B     		cmp	r3, #1
+ 107 0070 2ED0     		beq	.L27
+ 108              	.L7:
+  73:Src/security.c **** 	{
+  74:Src/security.c **** 		g_CmdMap[CMD_ERROR] |= ERROR_MASK_ENCODER_FAULT;
+  75:Src/security.c **** 	}
+  76:Src/security.c **** //	if(GPIO_ReadInputDataBit(GPIOA,GPIO_Pin_12) ==  SET)
+  77:Src/security.c **** //	{	
+  78:Src/security.c **** //		g_CmdMap[CMD_ERROR] |= ERROR_MASK_PREDRIVE_FAULT;
+  79:Src/security.c **** //	}	
+  80:Src/security.c **** //	if(Flag_error_MU_value_instable == 1)
+  81:Src/security.c **** //	{
+  82:Src/security.c **** //		g_CmdMap[CMD_ERROR] |= ERROR_MASK_MU_VALUE_INSTABLE;
+  83:Src/security.c **** //	}
+  84:Src/security.c **** //	if(Flag_error_torsion_dect == 1)
+  85:Src/security.c **** //	{
+  86:Src/security.c **** //		g_CmdMap[CMD_ERROR] |= ERROR_MASK_FORCE_SENSOR_FAULT;
+  87:Src/security.c **** //	}
+  88:Src/security.c **** //	Voltag_f = (float)((int32_t)(ADC3->JDR2)*36300/4096);
+  89:Src/security.c **** //	Voltag_f_filter = 0.8f*Voltag_f_filter+0.2f*Voltag_f;	
+  90:Src/security.c **** //	g_CmdMap[CMD_VOLTAGE] = (int16_t)Voltag_f_filter;//mV	
+  91:Src/security.c **** //	if(power_on_time>(50*5-20))
+  92:Src/security.c **** //	{
+  93:Src/security.c **** //			if(g_CmdMap[CMD_VOLTAGE] > MAX_POWVOL)//¹ýÑ¹
+  94:Src/security.c **** //	{
+  95:Src/security.c **** //			g_CmdMap[CMD_ERROR] |= ERROR_MASK_OVER_VOLTAGE;
+  96:Src/security.c **** //	} 	
+  97:Src/security.c **** //		if(g_CmdMap[CMD_VOLTAGE] < MIN_POWVOL)//Ç·Ñ¹
+  98:Src/security.c **** //		{
+  99:Src/security.c **** //			g_CmdMap[CMD_ERROR] |= ERROR_MASK_UNDER_VOLTAGE;
+ 100:Src/security.c **** //		} 
+ 101:Src/security.c **** //	}
+ 102:Src/security.c **** 
+ 103:Src/security.c **** 
+ 104:Src/security.c **** 	if( g_CmdMap[CMD_RUN_LOW_TEMP] > g_CmdMap[CMD_OVER_TEMP_SET])
+ 109              		.loc 1 104 0
+ 110 0072 6A4B     		ldr	r3, .L31+4
+ 111 0074 DA8B     		ldrh	r2, [r3, #30]
+ 112 0076 12B2     		sxth	r2, r2
+ 113 0078 9B8B     		ldrh	r3, [r3, #28]
+ 114 007a 1BB2     		sxth	r3, r3
+ 115 007c 9A42     		cmp	r2, r3
+ 116 007e 02DD     		ble	.L8
+ 105:Src/security.c **** 	{
+ 106:Src/security.c **** 		g_CmdMap[CMD_RUN_LOW_TEMP] = g_CmdMap[CMD_OVER_TEMP_SET];
+ 117              		.loc 1 106 0
+ 118 0080 664B     		ldr	r3, .L31+4
+ 119 0082 9A8B     		ldrh	r2, [r3, #28]
+ 120 0084 DA83     		strh	r2, [r3, #30]	@ movhi
+ 121              	.L8:
+ 107:Src/security.c **** 	}
+ 108:Src/security.c **** 	
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 5
+
+
+ 109:Src/security.c **** 	if(g_CmdMap[CMD_TEMP] > ( g_CmdMap[CMD_OVER_TEMP_SET] + temperture_hystersis) )
+ 122              		.loc 1 109 0
+ 123 0086 654B     		ldr	r3, .L31+4
+ 124 0088 B3F85620 		ldrh	r2, [r3, #86]
+ 125 008c 12B2     		sxth	r2, r2
+ 126 008e 9B8B     		ldrh	r3, [r3, #28]
+ 127 0090 6849     		ldr	r1, .L31+28
+ 128 0092 0968     		ldr	r1, [r1]
+ 129 0094 01FA83F3 		sxtah	r3, r1, r3
+ 130 0098 9A42     		cmp	r2, r3
+ 131 009a 38DD     		ble	.L9
+ 110:Src/security.c **** 	{
+ 111:Src/security.c **** 		if(count_over_temperature<30)
+ 132              		.loc 1 111 0
+ 133 009c 664B     		ldr	r3, .L31+32
+ 134 009e 1B88     		ldrh	r3, [r3]
+ 135 00a0 1D2B     		cmp	r3, #29
+ 136 00a2 1ED8     		bhi	.L10
+ 112:Src/security.c **** 		{
+ 113:Src/security.c **** 			count_over_temperature++;
+ 137              		.loc 1 113 0
+ 138 00a4 0133     		adds	r3, r3, #1
+ 139 00a6 644A     		ldr	r2, .L31+32
+ 140 00a8 1380     		strh	r3, [r2]	@ movhi
+ 141 00aa 35E0     		b	.L11
+ 142              	.L25:
+  61:Src/security.c **** 	}
+ 143              		.loc 1 61 0
+ 144 00ac 5B4A     		ldr	r2, .L31+4
+ 145 00ae B2F85430 		ldrh	r3, [r2, #84]
+ 146 00b2 1BB2     		sxth	r3, r3
+ 147 00b4 43F01003 		orr	r3, r3, #16
+ 148 00b8 A2F85430 		strh	r3, [r2, #84]	@ movhi
+ 149 00bc D1E7     		b	.L5
+ 150              	.L26:
+  69:Src/security.c **** 	}
+ 151              		.loc 1 69 0
+ 152 00be 574A     		ldr	r2, .L31+4
+ 153 00c0 B2F85430 		ldrh	r3, [r2, #84]
+ 154 00c4 1BB2     		sxth	r3, r3
+ 155 00c6 43F08003 		orr	r3, r3, #128
+ 156 00ca A2F85430 		strh	r3, [r2, #84]	@ movhi
+ 157 00ce CCE7     		b	.L6
+ 158              	.L27:
+  74:Src/security.c **** 	}
+ 159              		.loc 1 74 0
+ 160 00d0 524A     		ldr	r2, .L31+4
+ 161 00d2 B2F85430 		ldrh	r3, [r2, #84]
+ 162 00d6 1BB2     		sxth	r3, r3
+ 163 00d8 43F04003 		orr	r3, r3, #64
+ 164 00dc A2F85430 		strh	r3, [r2, #84]	@ movhi
+ 165 00e0 C7E7     		b	.L7
+ 166              	.L10:
+ 114:Src/security.c **** 		}
+ 115:Src/security.c **** 		else
+ 116:Src/security.c **** 		{
+ 117:Src/security.c **** 			count_over_temperature = 31;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 6
+
+
+ 167              		.loc 1 117 0
+ 168 00e2 554B     		ldr	r3, .L31+32
+ 169 00e4 1F22     		movs	r2, #31
+ 170 00e6 1A80     		strh	r2, [r3]	@ movhi
+ 118:Src/security.c **** 			temperture_hystersis = g_CmdMap[CMD_RUN_LOW_TEMP] - g_CmdMap[CMD_OVER_TEMP_SET];
+ 171              		.loc 1 118 0
+ 172 00e8 4C4A     		ldr	r2, .L31+4
+ 173 00ea D38B     		ldrh	r3, [r2, #30]
+ 174 00ec 1BB2     		sxth	r3, r3
+ 175 00ee 918B     		ldrh	r1, [r2, #28]
+ 176 00f0 09B2     		sxth	r1, r1
+ 177 00f2 5B1A     		subs	r3, r3, r1
+ 178 00f4 4F49     		ldr	r1, .L31+28
+ 179 00f6 0B60     		str	r3, [r1]
+ 119:Src/security.c **** 
+ 120:Src/security.c **** 			g_CmdMap[CMD_ERROR] |= ERROR_MASK_OVER_TEMP;
+ 180              		.loc 1 120 0
+ 181 00f8 B2F85430 		ldrh	r3, [r2, #84]
+ 182 00fc 1BB2     		sxth	r3, r3
+ 183 00fe 43F00203 		orr	r3, r3, #2
+ 184 0102 A2F85430 		strh	r3, [r2, #84]	@ movhi
+ 121:Src/security.c **** 			s_count = 0;
+ 185              		.loc 1 121 0
+ 186 0106 444B     		ldr	r3, .L31
+ 187 0108 0022     		movs	r2, #0
+ 188 010a 1A60     		str	r2, [r3]
+ 189 010c 04E0     		b	.L11
+ 190              	.L9:
+ 122:Src/security.c **** 		}		
+ 123:Src/security.c **** 	}
+ 124:Src/security.c **** 	else
+ 125:Src/security.c **** 	{
+ 126:Src/security.c **** 		temperture_hystersis = 0;
+ 191              		.loc 1 126 0
+ 192 010e 0023     		movs	r3, #0
+ 193 0110 484A     		ldr	r2, .L31+28
+ 194 0112 1360     		str	r3, [r2]
+ 127:Src/security.c **** 		count_over_temperature = 0;
+ 195              		.loc 1 127 0
+ 196 0114 484A     		ldr	r2, .L31+32
+ 197 0116 1380     		strh	r3, [r2]	@ movhi
+ 198              	.L11:
+ 128:Src/security.c **** 	}
+ 129:Src/security.c **** 
+ 130:Src/security.c **** 	if( g_CmdMap[CMD_TEMP] > g_CmdMap[CMD_RUN_LOW_TEMP] )
+ 199              		.loc 1 130 0
+ 200 0118 404B     		ldr	r3, .L31+4
+ 201 011a B3F85620 		ldrh	r2, [r3, #86]
+ 202 011e 12B2     		sxth	r2, r2
+ 203 0120 DB8B     		ldrh	r3, [r3, #30]
+ 204 0122 1BB2     		sxth	r3, r3
+ 205 0124 9A42     		cmp	r2, r3
+ 206 0126 18DD     		ble	.L12
+ 131:Src/security.c **** 	{
+ 132:Src/security.c **** 		if(count_over_AlerrTemperature<30)
+ 207              		.loc 1 132 0
+ 208 0128 444B     		ldr	r3, .L31+36
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 7
+
+
+ 209 012a 1B68     		ldr	r3, [r3]
+ 210 012c 1D2B     		cmp	r3, #29
+ 211 012e 03DC     		bgt	.L13
+ 133:Src/security.c **** 		{
+ 134:Src/security.c **** 			count_over_AlerrTemperature++;
+ 212              		.loc 1 134 0
+ 213 0130 0133     		adds	r3, r3, #1
+ 214 0132 424A     		ldr	r2, .L31+36
+ 215 0134 1360     		str	r3, [r2]
+ 216 0136 13E0     		b	.L14
+ 217              	.L13:
+ 135:Src/security.c **** 		}
+ 136:Src/security.c **** 		else
+ 137:Src/security.c **** 		{
+ 138:Src/security.c **** 			count_over_AlerrTemperature = 31;
+ 218              		.loc 1 138 0
+ 219 0138 404B     		ldr	r3, .L31+36
+ 220 013a 1F22     		movs	r2, #31
+ 221 013c 1A60     		str	r2, [r3]
+ 139:Src/security.c **** 			g_CmdMap[CMD_ERROR] |= ERROR_MASK_HIGH_TEMPERATURE_ALERT; 
+ 222              		.loc 1 139 0
+ 223 013e 374A     		ldr	r2, .L31+4
+ 224 0140 B2F85430 		ldrh	r3, [r2, #84]
+ 225 0144 6FEA4343 		mvn	r3, r3, lsl #17
+ 226 0148 6FEA5343 		mvn	r3, r3, lsr #17
+ 227 014c 1BB2     		sxth	r3, r3
+ 228 014e A2F85430 		strh	r3, [r2, #84]	@ movhi
+ 140:Src/security.c **** 			s_count = 0;
+ 229              		.loc 1 140 0
+ 230 0152 314B     		ldr	r3, .L31
+ 231 0154 0022     		movs	r2, #0
+ 232 0156 1A60     		str	r2, [r3]
+ 233 0158 02E0     		b	.L14
+ 234              	.L12:
+ 141:Src/security.c **** 		}	
+ 142:Src/security.c **** 	}
+ 143:Src/security.c **** 	else
+ 144:Src/security.c **** 	{
+ 145:Src/security.c **** 		count_over_AlerrTemperature = 0;
+ 235              		.loc 1 145 0
+ 236 015a 384B     		ldr	r3, .L31+36
+ 237 015c 0022     		movs	r2, #0
+ 238 015e 1A60     		str	r2, [r3]
+ 239              	.L14:
+ 146:Src/security.c **** 	}
+ 147:Src/security.c **** 	
+ 148:Src/security.c **** 	
+ 149:Src/security.c **** 	
+ 150:Src/security.c **** 	if(g_CmdMap[CMD_OVER_CURRENT_SET]>16384)
+ 240              		.loc 1 150 0
+ 241 0160 2E4B     		ldr	r3, .L31+4
+ 242 0162 1B8C     		ldrh	r3, [r3, #32]
+ 243 0164 1BB2     		sxth	r3, r3
+ 244 0166 B3F5804F 		cmp	r3, #16384
+ 245 016a 03DD     		ble	.L15
+ 151:Src/security.c **** 	{
+ 152:Src/security.c **** 		g_CmdMap[CMD_OVER_CURRENT_SET] = 16384;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 8
+
+
+ 246              		.loc 1 152 0
+ 247 016c 2B4B     		ldr	r3, .L31+4
+ 248 016e 4FF48042 		mov	r2, #16384
+ 249 0172 1A84     		strh	r2, [r3, #32]	@ movhi
+ 250              	.L15:
+ 153:Src/security.c **** 	}
+ 154:Src/security.c **** 	
+ 155:Src/security.c **** 	if( ABS( (s16)g_CmdMap[CMD_CUR_ACT_PU]) > g_CmdMap[CMD_OVER_CURRENT_SET] )//¹ýÁ÷¹ÊÕÏ
+ 251              		.loc 1 155 0
+ 252 0174 294B     		ldr	r3, .L31+4
+ 253 0176 B3F84E30 		ldrh	r3, [r3, #78]
+ 254 017a 13F4004F 		tst	r3, #32768
+ 255 017e 32D1     		bne	.L28
+ 256              		.loc 1 155 0 is_stmt 0 discriminator 2
+ 257 0180 264B     		ldr	r3, .L31+4
+ 258 0182 B3F84E30 		ldrh	r3, [r3, #78]
+ 259 0186 1BB2     		sxth	r3, r3
+ 260              	.L17:
+ 261              		.loc 1 155 0 discriminator 4
+ 262 0188 244A     		ldr	r2, .L31+4
+ 263 018a 128C     		ldrh	r2, [r2, #32]
+ 264 018c 12B2     		sxth	r2, r2
+ 265 018e 9A42     		cmp	r2, r3
+ 266 0190 3DDA     		bge	.L18
+ 156:Src/security.c **** 	{
+ 157:Src/security.c **** 		if(count_over_current<150)
+ 267              		.loc 1 157 0 is_stmt 1
+ 268 0192 2B4B     		ldr	r3, .L31+40
+ 269 0194 1B88     		ldrh	r3, [r3]
+ 270 0196 952B     		cmp	r3, #149
+ 271 0198 2BD9     		bls	.L29
+ 158:Src/security.c **** 		{
+ 159:Src/security.c **** 			count_over_current++;		
+ 160:Src/security.c **** 		}
+ 161:Src/security.c **** 		else
+ 162:Src/security.c **** 		{
+ 163:Src/security.c **** 			count_over_current = 151;
+ 272              		.loc 1 163 0
+ 273 019a 294B     		ldr	r3, .L31+40
+ 274 019c 9722     		movs	r2, #151
+ 275 019e 1A80     		strh	r2, [r3]	@ movhi
+ 164:Src/security.c **** 			s_count = 0;
+ 276              		.loc 1 164 0
+ 277 01a0 1D4B     		ldr	r3, .L31
+ 278 01a2 0022     		movs	r2, #0
+ 279 01a4 1A60     		str	r2, [r3]
+ 165:Src/security.c **** 			if( ABS(g_CmdMap[CMD_SPD_ACT_PU]) <  200 )
+ 280              		.loc 1 165 0
+ 281 01a6 1D4B     		ldr	r3, .L31+4
+ 282 01a8 B3F85030 		ldrh	r3, [r3, #80]
+ 283 01ac 13F4004F 		tst	r3, #32768
+ 284 01b0 23D1     		bne	.L30
+ 285              		.loc 1 165 0 is_stmt 0 discriminator 2
+ 286 01b2 1A4B     		ldr	r3, .L31+4
+ 287 01b4 B3F85030 		ldrh	r3, [r3, #80]
+ 288 01b8 1BB2     		sxth	r3, r3
+ 289 01ba C72B     		cmp	r3, #199
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 9
+
+
+ 290 01bc CCBF     		ite	gt
+ 291 01be 0023     		movgt	r3, #0
+ 292 01c0 0123     		movle	r3, #1
+ 293              	.L22:
+ 294              		.loc 1 165 0 discriminator 4
+ 295 01c2 3BB1     		cbz	r3, .L23
+ 166:Src/security.c **** 			{
+ 167:Src/security.c **** 				
+ 168:Src/security.c **** 				g_CmdMap[CMD_ERROR] |= ERROR_MASK_STALL;
+ 296              		.loc 1 168 0 is_stmt 1
+ 297 01c4 154A     		ldr	r2, .L31+4
+ 298 01c6 B2F85430 		ldrh	r3, [r2, #84]
+ 299 01ca 1BB2     		sxth	r3, r3
+ 300 01cc 43F00103 		orr	r3, r3, #1
+ 301 01d0 A2F85430 		strh	r3, [r2, #84]	@ movhi
+ 302              	.L23:
+ 169:Src/security.c **** 			}
+ 170:Src/security.c **** 			g_CmdMap[CMD_ERROR] |= ERROR_MASK_OVER_CURRENT;
+ 303              		.loc 1 170 0
+ 304 01d4 114A     		ldr	r2, .L31+4
+ 305 01d6 B2F85430 		ldrh	r3, [r2, #84]
+ 306 01da 1BB2     		sxth	r3, r3
+ 307 01dc 43F00403 		orr	r3, r3, #4
+ 308 01e0 A2F85430 		strh	r3, [r2, #84]	@ movhi
+ 309 01e4 16E0     		b	.L1
+ 310              	.L28:
+ 155:Src/security.c **** 	{
+ 311              		.loc 1 155 0 discriminator 1
+ 312 01e6 0D4B     		ldr	r3, .L31+4
+ 313 01e8 B3F84E30 		ldrh	r3, [r3, #78]
+ 314 01ec 1BB2     		sxth	r3, r3
+ 315 01ee 5B42     		negs	r3, r3
+ 316 01f0 CAE7     		b	.L17
+ 317              	.L29:
+ 159:Src/security.c **** 		}
+ 318              		.loc 1 159 0
+ 319 01f2 0133     		adds	r3, r3, #1
+ 320 01f4 124A     		ldr	r2, .L31+40
+ 321 01f6 1380     		strh	r3, [r2]	@ movhi
+ 322 01f8 0CE0     		b	.L1
+ 323              	.L30:
+ 165:Src/security.c **** 			{
+ 324              		.loc 1 165 0 discriminator 1
+ 325 01fa 084B     		ldr	r3, .L31+4
+ 326 01fc B3F85030 		ldrh	r3, [r3, #80]
+ 327 0200 1BB2     		sxth	r3, r3
+ 328 0202 5B42     		negs	r3, r3
+ 329 0204 C72B     		cmp	r3, #199
+ 330 0206 CCBF     		ite	gt
+ 331 0208 0023     		movgt	r3, #0
+ 332 020a 0123     		movle	r3, #1
+ 333 020c D9E7     		b	.L22
+ 334              	.L18:
+ 171:Src/security.c **** 			
+ 172:Src/security.c **** 			
+ 173:Src/security.c **** 		}		
+ 174:Src/security.c **** 	}
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 10
+
+
+ 175:Src/security.c **** 	else
+ 176:Src/security.c **** 	{
+ 177:Src/security.c **** 		count_over_current = 0;
+ 335              		.loc 1 177 0
+ 336 020e 0C4B     		ldr	r3, .L31+40
+ 337 0210 0022     		movs	r2, #0
+ 338 0212 1A80     		strh	r2, [r3]	@ movhi
+ 339              	.L1:
+ 178:Src/security.c **** 	}	
+ 179:Src/security.c **** 	
+ 180:Src/security.c **** 	
+ 181:Src/security.c **** 	
+ 182:Src/security.c **** }
+ 340              		.loc 1 182 0
+ 341 0214 08BD     		pop	{r3, pc}
+ 342              	.L32:
+ 343 0216 00BF     		.align	2
+ 344              	.L31:
+ 345 0218 00000000 		.word	.LANCHOR0
+ 346 021c 00000000 		.word	g_CmdMap
+ 347 0220 00000000 		.word	.LANCHOR1
+ 348 0224 00000000 		.word	.LANCHOR2
+ 349 0228 00000000 		.word	Flag_error_read_flash
+ 350 022c 00000000 		.word	Flag_error_current_clib
+ 351 0230 00000000 		.word	Flag_error_MU_SPI
+ 352 0234 00000000 		.word	.LANCHOR3
+ 353 0238 00000000 		.word	.LANCHOR4
+ 354 023c 00000000 		.word	.LANCHOR5
+ 355 0240 00000000 		.word	.LANCHOR6
+ 356              		.cfi_endproc
+ 357              	.LFE333:
+ 359              		.section	.text.ClearError,"ax",%progbits
+ 360              		.align	1
+ 361              		.global	ClearError
+ 362              		.syntax unified
+ 363              		.thumb
+ 364              		.thumb_func
+ 365              		.fpu fpv4-sp-d16
+ 367              	ClearError:
+ 368              	.LFB334:
+ 183:Src/security.c **** // �������
+ 184:Src/security.c **** void ClearError(void)
+ 185:Src/security.c **** {
+ 369              		.loc 1 185 0
+ 370              		.cfi_startproc
+ 371              		@ args = 0, pretend = 0, frame = 0
+ 372              		@ frame_needed = 0, uses_anonymous_args = 0
+ 373 0000 08B5     		push	{r3, lr}
+ 374              	.LCFI1:
+ 375              		.cfi_def_cfa_offset 8
+ 376              		.cfi_offset 3, -8
+ 377              		.cfi_offset 14, -4
+ 186:Src/security.c ****   g_CmdMap[CMD_ERROR] = 0;
+ 378              		.loc 1 186 0
+ 379 0002 0023     		movs	r3, #0
+ 380 0004 034A     		ldr	r2, .L35
+ 381 0006 A2F85430 		strh	r3, [r2, #84]	@ movhi
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 11
+
+
+ 187:Src/security.c **** 	over_current_staff_event_cnt = 0;
+ 382              		.loc 1 187 0
+ 383 000a 034A     		ldr	r2, .L35+4
+ 384 000c 1360     		str	r3, [r2]
+ 188:Src/security.c **** 	clear_eeprom_erro();
+ 385              		.loc 1 188 0
+ 386 000e FFF7FEFF 		bl	clear_eeprom_erro
+ 387              	.LVL1:
+ 189:Src/security.c **** }
+ 388              		.loc 1 189 0
+ 389 0012 08BD     		pop	{r3, pc}
+ 390              	.L36:
+ 391              		.align	2
+ 392              	.L35:
+ 393 0014 00000000 		.word	g_CmdMap
+ 394 0018 00000000 		.word	.LANCHOR1
+ 395              		.cfi_endproc
+ 396              	.LFE334:
+ 398              		.section	.text.UpdateErrorStateLED,"ax",%progbits
+ 399              		.align	1
+ 400              		.global	UpdateErrorStateLED
+ 401              		.syntax unified
+ 402              		.thumb
+ 403              		.thumb_func
+ 404              		.fpu fpv4-sp-d16
+ 406              	UpdateErrorStateLED:
+ 407              	.LFB335:
+ 190:Src/security.c **** 
+ 191:Src/security.c **** 
+ 192:Src/security.c **** // ����LED����ָʾ��״̬��2KHz
+ 193:Src/security.c **** void UpdateErrorStateLED(void)
+ 194:Src/security.c **** {
+ 408              		.loc 1 194 0
+ 409              		.cfi_startproc
+ 410              		@ args = 0, pretend = 0, frame = 0
+ 411              		@ frame_needed = 0, uses_anonymous_args = 0
+ 412              		@ link register save eliminated.
+ 413              	.LVL2:
+ 195:Src/security.c ****   static s32 s_count = 0;
+ 196:Src/security.c ****   s32 i = 0;
+ 197:Src/security.c **** 
+ 198:Src/security.c ****   if (g_CmdMap[CMD_ERROR] == 0)  // �޴����˳������������
+ 414              		.loc 1 198 0
+ 415 0000 164B     		ldr	r3, .L43
+ 416 0002 B3F85430 		ldrh	r3, [r3, #84]
+ 417 0006 1BB2     		sxth	r3, r3
+ 418 0008 33B9     		cbnz	r3, .L42
+ 199:Src/security.c ****   {
+ 200:Src/security.c ****     if (s_count)
+ 419              		.loc 1 200 0
+ 420 000a 154B     		ldr	r3, .L43+4
+ 421 000c 1B68     		ldr	r3, [r3]
+ 422 000e 23B3     		cbz	r3, .L37
+ 201:Src/security.c ****     {
+ 202:Src/security.c ****       s_count = 0;
+ 423              		.loc 1 202 0
+ 424 0010 134B     		ldr	r3, .L43+4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 12
+
+
+ 425 0012 0022     		movs	r2, #0
+ 426 0014 1A60     		str	r2, [r3]
+ 427 0016 7047     		bx	lr
+ 428              	.L42:
+ 203:Src/security.c **** //      LEDRED_OFF;
+ 204:Src/security.c ****     }
+ 205:Src/security.c ****     return;
+ 206:Src/security.c ****   }
+ 207:Src/security.c ****   for (i=0; i<16; i++)  // �д��󣬼���ǵڼ������󣬲���ֵ��i��
+ 429              		.loc 1 207 0
+ 430 0018 0022     		movs	r2, #0
+ 431              	.LVL3:
+ 432              	.L38:
+ 433              		.loc 1 207 0 is_stmt 0 discriminator 1
+ 434 001a 0F2A     		cmp	r2, #15
+ 435 001c 09DC     		bgt	.L40
+ 208:Src/security.c ****   {
+ 209:Src/security.c ****     if (g_CmdMap[CMD_ERROR] & (0x0001<<i))
+ 436              		.loc 1 209 0 is_stmt 1
+ 437 001e 0F4B     		ldr	r3, .L43
+ 438 0020 B3F85430 		ldrh	r3, [r3, #84]
+ 439 0024 1BB2     		sxth	r3, r3
+ 440 0026 1341     		asrs	r3, r3, r2
+ 441 0028 13F0010F 		tst	r3, #1
+ 442 002c 01D1     		bne	.L40
+ 207:Src/security.c ****   {
+ 443              		.loc 1 207 0 discriminator 2
+ 444 002e 0132     		adds	r2, r2, #1
+ 445              	.LVL4:
+ 446 0030 F3E7     		b	.L38
+ 447              	.L40:
+ 210:Src/security.c ****       break;
+ 211:Src/security.c ****   }
+ 212:Src/security.c **** 
+ 213:Src/security.c ****   s_count++;
+ 448              		.loc 1 213 0
+ 449 0032 0B49     		ldr	r1, .L43+4
+ 450 0034 0B68     		ldr	r3, [r1]
+ 451 0036 0133     		adds	r3, r3, #1
+ 452 0038 0B60     		str	r3, [r1]
+ 214:Src/security.c ****   if (s_count >= (i+1)*1000)
+ 453              		.loc 1 214 0
+ 454 003a 4FF47A71 		mov	r1, #1000
+ 455 003e 02FB0111 		mla	r1, r2, r1, r1
+ 456 0042 8B42     		cmp	r3, r1
+ 457 0044 09DB     		blt	.L37
+ 215:Src/security.c ****   {
+ 216:Src/security.c **** //    LEDRED_OFF;
+ 217:Src/security.c ****     if (s_count >= (i+3)*1000)
+ 458              		.loc 1 217 0
+ 459 0046 0332     		adds	r2, r2, #3
+ 460              	.LVL5:
+ 461 0048 4FF47A71 		mov	r1, #1000
+ 462 004c 01FB02F2 		mul	r2, r1, r2
+ 463              	.LVL6:
+ 464 0050 9342     		cmp	r3, r2
+ 465 0052 02DB     		blt	.L37
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 13
+
+
+ 218:Src/security.c ****       s_count = 0;
+ 466              		.loc 1 218 0
+ 467 0054 024B     		ldr	r3, .L43+4
+ 468 0056 0022     		movs	r2, #0
+ 469 0058 1A60     		str	r2, [r3]
+ 470              	.L37:
+ 219:Src/security.c ****   }
+ 220:Src/security.c ****   else if (s_count%500 == 0)
+ 221:Src/security.c ****   {
+ 222:Src/security.c **** //    if (s_count%1000 == 0)
+ 223:Src/security.c **** //     LEDRED_OFF;
+ 224:Src/security.c **** //    else
+ 225:Src/security.c **** //      LEDRED_ON;
+ 226:Src/security.c ****   }
+ 227:Src/security.c **** }
+ 471              		.loc 1 227 0
+ 472 005a 7047     		bx	lr
+ 473              	.L44:
+ 474              		.align	2
+ 475              	.L43:
+ 476 005c 00000000 		.word	g_CmdMap
+ 477 0060 00000000 		.word	.LANCHOR7
+ 478              		.cfi_endproc
+ 479              	.LFE335:
+ 481              		.section	.text.Stroke_protection,"ax",%progbits
+ 482              		.align	1
+ 483              		.global	Stroke_protection
+ 484              		.syntax unified
+ 485              		.thumb
+ 486              		.thumb_func
+ 487              		.fpu fpv4-sp-d16
+ 489              	Stroke_protection:
+ 490              	.LFB336:
+ 228:Src/security.c **** 
+ 229:Src/security.c **** //�г̱���
+ 230:Src/security.c **** void Stroke_protection(void)
+ 231:Src/security.c **** {		
+ 491              		.loc 1 231 0
+ 492              		.cfi_startproc
+ 493              		@ args = 0, pretend = 0, frame = 0
+ 494              		@ frame_needed = 0, uses_anonymous_args = 0
+ 495              		@ link register save eliminated.
+ 232:Src/security.c **** 		if(g_CmdMap[TAG_WORK_MODE] == MODE_POSITION)
+ 496              		.loc 1 232 0
+ 497 0000 184B     		ldr	r3, .L49
+ 498 0002 B3F80432 		ldrh	r3, [r3, #516]
+ 499 0006 1BB2     		sxth	r3, r3
+ 500 0008 032B     		cmp	r3, #3
+ 501 000a 00D0     		beq	.L48
+ 502              	.L45:
+ 233:Src/security.c **** 		{			
+ 234:Src/security.c **** 			if(g_CmdMap[CMD_POS_ACT_PU]>(g_CmdMap[SYS_POS_UPPER_LIMIT_PU]+ 1638)&& g_CmdMap[CMD_SPDREG_REF_P
+ 235:Src/security.c **** 			{
+ 236:Src/security.c **** 				g_CmdMap[TAG_MOTOR_ENABLE] = 0; //Debug
+ 237:Src/security.c **** 			}
+ 238:Src/security.c **** 			if(g_CmdMap[CMD_POS_ACT_PU]<(g_CmdMap[SYS_POS_LOWER_LIMIT_PU]-819)  && g_CmdMap[CMD_SPDREG_REF_P
+ 239:Src/security.c **** 			{
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 14
+
+
+ 240:Src/security.c **** 				g_CmdMap[TAG_MOTOR_ENABLE] = 0; //Debug
+ 241:Src/security.c **** 			}
+ 242:Src/security.c **** 		}
+ 243:Src/security.c **** }
+ 503              		.loc 1 243 0
+ 504 000c 7047     		bx	lr
+ 505              	.L48:
+ 234:Src/security.c **** 			{
+ 506              		.loc 1 234 0
+ 507 000e 154B     		ldr	r3, .L49
+ 508 0010 B3F84C20 		ldrh	r2, [r3, #76]
+ 509 0014 12B2     		sxth	r2, r2
+ 510 0016 B3F88C32 		ldrh	r3, [r3, #652]
+ 511 001a 1BB2     		sxth	r3, r3
+ 512 001c 03F26663 		addw	r3, r3, #1638
+ 513 0020 9A42     		cmp	r2, r3
+ 514 0022 09DD     		ble	.L47
+ 234:Src/security.c **** 			{
+ 515              		.loc 1 234 0 is_stmt 0 discriminator 1
+ 516 0024 0F4B     		ldr	r3, .L49
+ 517 0026 B3F85C30 		ldrh	r3, [r3, #92]
+ 518 002a 1BB2     		sxth	r3, r3
+ 519 002c 002B     		cmp	r3, #0
+ 520 002e 03DD     		ble	.L47
+ 236:Src/security.c **** 			}
+ 521              		.loc 1 236 0 is_stmt 1
+ 522 0030 0C4B     		ldr	r3, .L49
+ 523 0032 0022     		movs	r2, #0
+ 524 0034 A3F80222 		strh	r2, [r3, #514]	@ movhi
+ 525              	.L47:
+ 238:Src/security.c **** 			{
+ 526              		.loc 1 238 0
+ 527 0038 0A4B     		ldr	r3, .L49
+ 528 003a B3F84C20 		ldrh	r2, [r3, #76]
+ 529 003e 12B2     		sxth	r2, r2
+ 530 0040 B3F88E32 		ldrh	r3, [r3, #654]
+ 531 0044 1BB2     		sxth	r3, r3
+ 532 0046 A3F23333 		subw	r3, r3, #819
+ 533 004a 9A42     		cmp	r2, r3
+ 534 004c DEDA     		bge	.L45
+ 238:Src/security.c **** 			{
+ 535              		.loc 1 238 0 is_stmt 0 discriminator 1
+ 536 004e 054B     		ldr	r3, .L49
+ 537 0050 B3F85C30 		ldrh	r3, [r3, #92]
+ 538 0054 13F4004F 		tst	r3, #32768
+ 539 0058 D8D0     		beq	.L45
+ 240:Src/security.c **** 			}
+ 540              		.loc 1 240 0 is_stmt 1
+ 541 005a 024B     		ldr	r3, .L49
+ 542 005c 0022     		movs	r2, #0
+ 543 005e A3F80222 		strh	r2, [r3, #514]	@ movhi
+ 544              		.loc 1 243 0
+ 545 0062 D3E7     		b	.L45
+ 546              	.L50:
+ 547              		.align	2
+ 548              	.L49:
+ 549 0064 00000000 		.word	g_CmdMap
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 15
+
+
+ 550              		.cfi_endproc
+ 551              	.LFE336:
+ 553              		.section	.text.motor_fault_check,"ax",%progbits
+ 554              		.align	1
+ 555              		.global	motor_fault_check
+ 556              		.syntax unified
+ 557              		.thumb
+ 558              		.thumb_func
+ 559              		.fpu fpv4-sp-d16
+ 561              	motor_fault_check:
+ 562              	.LFB337:
+ 244:Src/security.c **** 
+ 245:Src/security.c **** 
+ 246:Src/security.c **** 
+ 247:Src/security.c **** void motor_fault_check(void)
+ 248:Src/security.c **** {
+ 563              		.loc 1 248 0
+ 564              		.cfi_startproc
+ 565              		@ args = 0, pretend = 0, frame = 0
+ 566              		@ frame_needed = 0, uses_anonymous_args = 0
+ 567              		@ link register save eliminated.
+ 249:Src/security.c **** 	 static s32 s_count = 0;
+ 250:Src/security.c **** 	
+ 251:Src/security.c **** 	
+ 252:Src/security.c **** 	if(g_CmdMap[CMD_SPD_ACT_PU] <  200 &&  (g_Vq ) > 4095 )
+ 568              		.loc 1 252 0
+ 569 0000 1A4B     		ldr	r3, .L57
+ 570 0002 B3F85030 		ldrh	r3, [r3, #80]
+ 571 0006 1BB2     		sxth	r3, r3
+ 572 0008 C72B     		cmp	r3, #199
+ 573 000a 2EDC     		bgt	.L51
+ 574              		.loc 1 252 0 is_stmt 0 discriminator 1
+ 575 000c 184B     		ldr	r3, .L57+4
+ 576 000e 1B68     		ldr	r3, [r3]
+ 577 0010 B3F5805F 		cmp	r3, #4096
+ 578 0014 29DB     		blt	.L51
+ 253:Src/security.c **** 	{
+ 254:Src/security.c **** 		if( ABS(g_CmdMap[CMD_CUR_ACT_PU]) <  *g_pCur_ref_base_mA /10 )
+ 579              		.loc 1 254 0 is_stmt 1
+ 580 0016 154B     		ldr	r3, .L57
+ 581 0018 B3F84E30 		ldrh	r3, [r3, #78]
+ 582 001c 13F4004F 		tst	r3, #32768
+ 583 0020 1AD1     		bne	.L56
+ 584              		.loc 1 254 0 is_stmt 0 discriminator 2
+ 585 0022 124B     		ldr	r3, .L57
+ 586 0024 B3F84E20 		ldrh	r2, [r3, #78]
+ 587 0028 12B2     		sxth	r2, r2
+ 588              	.L54:
+ 589              		.loc 1 254 0 discriminator 4
+ 590 002a 124B     		ldr	r3, .L57+8
+ 591 002c 1B68     		ldr	r3, [r3]
+ 592 002e 1B68     		ldr	r3, [r3]
+ 593 0030 1149     		ldr	r1, .L57+12
+ 594 0032 81FB0301 		smull	r0, r1, r1, r3
+ 595 0036 DB17     		asrs	r3, r3, #31
+ 596 0038 C3EBA103 		rsb	r3, r3, r1, asr #2
+ 597 003c 9342     		cmp	r3, r2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 16
+
+
+ 598 003e 11DD     		ble	.L55
+ 255:Src/security.c **** 		{
+ 256:Src/security.c **** 			s_count++;
+ 599              		.loc 1 256 0 is_stmt 1
+ 600 0040 0E4A     		ldr	r2, .L57+16
+ 601 0042 1368     		ldr	r3, [r2]
+ 602 0044 0133     		adds	r3, r3, #1
+ 603 0046 1360     		str	r3, [r2]
+ 257:Src/security.c **** 			if( s_count > 1000 )
+ 604              		.loc 1 257 0
+ 605 0048 B3F57A7F 		cmp	r3, #1000
+ 606 004c 0DDD     		ble	.L51
+ 258:Src/security.c **** 			{
+ 259:Src/security.c **** 				s_count = 1001;
+ 607              		.loc 1 259 0
+ 608 004e 1346     		mov	r3, r2
+ 609 0050 40F2E932 		movw	r2, #1001
+ 610 0054 1A60     		str	r2, [r3]
+ 611 0056 7047     		bx	lr
+ 612              	.L56:
+ 254:Src/security.c **** 		{
+ 613              		.loc 1 254 0 discriminator 1
+ 614 0058 044B     		ldr	r3, .L57
+ 615 005a B3F84E20 		ldrh	r2, [r3, #78]
+ 616 005e 12B2     		sxth	r2, r2
+ 617 0060 5242     		negs	r2, r2
+ 618 0062 E2E7     		b	.L54
+ 619              	.L55:
+ 260:Src/security.c **** 			//	g_CmdMap[CMD_ERROR] |= ERROR_MASK_MOTOR_ERROR;
+ 261:Src/security.c **** 			}
+ 262:Src/security.c **** 		}
+ 263:Src/security.c **** 		else
+ 264:Src/security.c **** 		{
+ 265:Src/security.c **** 			s_count = 0;
+ 620              		.loc 1 265 0
+ 621 0064 054B     		ldr	r3, .L57+16
+ 622 0066 0022     		movs	r2, #0
+ 623 0068 1A60     		str	r2, [r3]
+ 624              	.L51:
+ 266:Src/security.c **** 		}
+ 267:Src/security.c **** 	}
+ 268:Src/security.c **** }
+ 625              		.loc 1 268 0
+ 626 006a 7047     		bx	lr
+ 627              	.L58:
+ 628              		.align	2
+ 629              	.L57:
+ 630 006c 00000000 		.word	g_CmdMap
+ 631 0070 00000000 		.word	g_Vq
+ 632 0074 00000000 		.word	g_pCur_ref_base_mA
+ 633 0078 67666666 		.word	1717986919
+ 634 007c 00000000 		.word	.LANCHOR8
+ 635              		.cfi_endproc
+ 636              	.LFE337:
+ 638              		.section	.text.user_param_protected,"ax",%progbits
+ 639              		.align	1
+ 640              		.global	user_param_protected
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 17
+
+
+ 641              		.syntax unified
+ 642              		.thumb
+ 643              		.thumb_func
+ 644              		.fpu fpv4-sp-d16
+ 646              	user_param_protected:
+ 647              	.LFB338:
+ 269:Src/security.c **** 
+ 270:Src/security.c **** 
+ 271:Src/security.c **** 
+ 272:Src/security.c **** void user_param_protected(void)
+ 273:Src/security.c **** {
+ 648              		.loc 1 273 0
+ 649              		.cfi_startproc
+ 650              		@ args = 0, pretend = 0, frame = 0
+ 651              		@ frame_needed = 0, uses_anonymous_args = 0
+ 652              		@ link register save eliminated.
+ 274:Src/security.c **** 	
+ 275:Src/security.c **** 		if(g_CmdMap[CMD_CUR_LOWER_LIMIT_PU] > 0 )
+ 653              		.loc 1 275 0
+ 654 0000 0B4B     		ldr	r3, .L62
+ 655 0002 9B8C     		ldrh	r3, [r3, #36]
+ 656 0004 1BB2     		sxth	r3, r3
+ 657 0006 002B     		cmp	r3, #0
+ 658 0008 04DD     		ble	.L60
+ 276:Src/security.c **** 	{
+ 277:Src/security.c **** 		g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]  = 0 - g_CmdMap[CMD_CUR_LOWER_LIMIT_PU] ;
+ 659              		.loc 1 277 0
+ 660 000a 094A     		ldr	r2, .L62
+ 661 000c 938C     		ldrh	r3, [r2, #36]
+ 662 000e 5B42     		negs	r3, r3
+ 663 0010 1BB2     		sxth	r3, r3
+ 664 0012 9384     		strh	r3, [r2, #36]	@ movhi
+ 665              	.L60:
+ 278:Src/security.c **** 	}
+ 279:Src/security.c **** 	if(g_CmdMap[SYS_CUR_LOWER_LIMIT_PU] > 0 )
+ 666              		.loc 1 279 0
+ 667 0014 064B     		ldr	r3, .L62
+ 668 0016 B3F88232 		ldrh	r3, [r3, #642]
+ 669 001a 1BB2     		sxth	r3, r3
+ 670 001c 002B     		cmp	r3, #0
+ 671 001e 06DD     		ble	.L59
+ 280:Src/security.c **** 	{
+ 281:Src/security.c **** 		g_CmdMap[SYS_CUR_LOWER_LIMIT_PU]  = 0 - g_CmdMap[SYS_CUR_LOWER_LIMIT_PU];
+ 672              		.loc 1 281 0
+ 673 0020 034A     		ldr	r2, .L62
+ 674 0022 B2F88232 		ldrh	r3, [r2, #642]
+ 675 0026 5B42     		negs	r3, r3
+ 676 0028 1BB2     		sxth	r3, r3
+ 677 002a A2F88232 		strh	r3, [r2, #642]	@ movhi
+ 678              	.L59:
+ 282:Src/security.c **** 	}
+ 283:Src/security.c **** 	
+ 284:Src/security.c **** 
+ 285:Src/security.c **** }
+ 679              		.loc 1 285 0
+ 680 002e 7047     		bx	lr
+ 681              	.L63:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 18
+
+
+ 682              		.align	2
+ 683              	.L62:
+ 684 0030 00000000 		.word	g_CmdMap
+ 685              		.cfi_endproc
+ 686              	.LFE338:
+ 688              		.global	Voltag_f
+ 689              		.global	Voltag_f_filter
+ 690              		.global	power_on_time
+ 691              		.global	count_Id_error
+ 692              		.global	count_over_temperature
+ 693              		.global	count_over_current
+ 694              		.global	Power_Avg_cun
+ 695              		.global	Power_Avg_tab
+ 696              		.global	Over_Voltage_Cun
+ 697              		.global	Low_Voltage_Cun
+ 698              		.global	Over_Temp_Cun
+ 699              		.global	g_CurrentOverPool
+ 700              		.section	.bss.Low_Voltage_Cun,"aw",%nobits
+ 701              		.align	2
+ 704              	Low_Voltage_Cun:
+ 705 0000 00000000 		.space	4
+ 706              		.section	.bss.Over_Temp_Cun,"aw",%nobits
+ 707              		.align	2
+ 710              	Over_Temp_Cun:
+ 711 0000 00000000 		.space	4
+ 712              		.section	.bss.Over_Voltage_Cun,"aw",%nobits
+ 713              		.align	2
+ 716              	Over_Voltage_Cun:
+ 717 0000 00000000 		.space	4
+ 718              		.section	.bss.Power_Avg_cun,"aw",%nobits
+ 719              		.align	2
+ 722              	Power_Avg_cun:
+ 723 0000 00000000 		.space	4
+ 724              		.section	.bss.Power_Avg_tab,"aw",%nobits
+ 725              		.align	2
+ 728              	Power_Avg_tab:
+ 729 0000 00000000 		.space	16
+ 729      00000000 
+ 729      00000000 
+ 729      00000000 
+ 730              		.section	.bss.Voltag_f,"aw",%nobits
+ 731              		.align	2
+ 734              	Voltag_f:
+ 735 0000 00000000 		.space	4
+ 736              		.section	.bss.Voltag_f_filter,"aw",%nobits
+ 737              		.align	2
+ 740              	Voltag_f_filter:
+ 741 0000 00000000 		.space	4
+ 742              		.section	.bss.count_Id_error,"aw",%nobits
+ 743              		.align	1
+ 746              	count_Id_error:
+ 747 0000 0000     		.space	2
+ 748              		.section	.bss.count_over_AlerrTemperature.11848,"aw",%nobits
+ 749              		.align	2
+ 750              		.set	.LANCHOR5,. + 0
+ 753              	count_over_AlerrTemperature.11848:
+ 754 0000 00000000 		.space	4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 19
+
+
+ 755              		.section	.bss.count_over_current,"aw",%nobits
+ 756              		.align	1
+ 757              		.set	.LANCHOR6,. + 0
+ 760              	count_over_current:
+ 761 0000 0000     		.space	2
+ 762              		.section	.bss.count_over_temperature,"aw",%nobits
+ 763              		.align	1
+ 764              		.set	.LANCHOR4,. + 0
+ 767              	count_over_temperature:
+ 768 0000 0000     		.space	2
+ 769              		.section	.bss.g_CurrentOverPool,"aw",%nobits
+ 770              		.align	2
+ 773              	g_CurrentOverPool:
+ 774 0000 00000000 		.space	4
+ 775              		.section	.bss.over_current_staff_event_cnt,"aw",%nobits
+ 776              		.align	2
+ 777              		.set	.LANCHOR1,. + 0
+ 780              	over_current_staff_event_cnt:
+ 781 0000 00000000 		.space	4
+ 782              		.section	.bss.power_on_time,"aw",%nobits
+ 783              		.align	2
+ 784              		.set	.LANCHOR2,. + 0
+ 787              	power_on_time:
+ 788 0000 00000000 		.space	4
+ 789              		.section	.bss.s_count.11846,"aw",%nobits
+ 790              		.align	2
+ 791              		.set	.LANCHOR0,. + 0
+ 794              	s_count.11846:
+ 795 0000 00000000 		.space	4
+ 796              		.section	.bss.s_count.11859,"aw",%nobits
+ 797              		.align	2
+ 798              		.set	.LANCHOR7,. + 0
+ 801              	s_count.11859:
+ 802 0000 00000000 		.space	4
+ 803              		.section	.bss.s_count.11870,"aw",%nobits
+ 804              		.align	2
+ 805              		.set	.LANCHOR8,. + 0
+ 808              	s_count.11870:
+ 809 0000 00000000 		.space	4
+ 810              		.section	.bss.temperture_hystersis.11847,"aw",%nobits
+ 811              		.align	2
+ 812              		.set	.LANCHOR3,. + 0
+ 815              	temperture_hystersis.11847:
+ 816 0000 00000000 		.space	4
+ 817              		.text
+ 818              	.Letext0:
+ 819              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 820              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 821              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 822              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 823              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 824              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 825              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 826              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 827              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 828              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 829              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 20
+
+
+ 830              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 831              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 832              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 833              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 834              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 835              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ 836              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 837              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 838              		.file 21 "Inc/uart.h"
+ 839              		.file 22 "Inc/pwm.h"
+ 840              		.file 23 "Inc/spi_MEncoder.h"
+ 841              		.file 24 "Inc/adc.h"
+ 842              		.file 25 "Inc/stm32_math_sin.h"
+ 843              		.file 26 "Inc/pid.h"
+ 844              		.file 27 "Inc/profile_joint.h"
+ 845              		.file 28 "Inc/icmu.h"
+ 846              		.file 29 "Inc/performance_test.h"
+ 847              		.file 30 "Inc/global.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 21
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 security.c
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:18     .text.generate_errorCode:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:25     .text.generate_errorCode:00000000 generate_errorCode
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:345    .text.generate_errorCode:00000218 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:360    .text.ClearError:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:367    .text.ClearError:00000000 ClearError
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:393    .text.ClearError:00000014 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:399    .text.UpdateErrorStateLED:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:406    .text.UpdateErrorStateLED:00000000 UpdateErrorStateLED
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:476    .text.UpdateErrorStateLED:0000005c $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:482    .text.Stroke_protection:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:489    .text.Stroke_protection:00000000 Stroke_protection
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:549    .text.Stroke_protection:00000064 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:554    .text.motor_fault_check:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:561    .text.motor_fault_check:00000000 motor_fault_check
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:630    .text.motor_fault_check:0000006c $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:639    .text.user_param_protected:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:646    .text.user_param_protected:00000000 user_param_protected
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:684    .text.user_param_protected:00000030 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:734    .bss.Voltag_f:00000000 Voltag_f
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:740    .bss.Voltag_f_filter:00000000 Voltag_f_filter
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:787    .bss.power_on_time:00000000 power_on_time
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:746    .bss.count_Id_error:00000000 count_Id_error
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:767    .bss.count_over_temperature:00000000 count_over_temperature
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:760    .bss.count_over_current:00000000 count_over_current
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:722    .bss.Power_Avg_cun:00000000 Power_Avg_cun
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:728    .bss.Power_Avg_tab:00000000 Power_Avg_tab
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:716    .bss.Over_Voltage_Cun:00000000 Over_Voltage_Cun
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:704    .bss.Low_Voltage_Cun:00000000 Low_Voltage_Cun
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:710    .bss.Over_Temp_Cun:00000000 Over_Temp_Cun
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:773    .bss.g_CurrentOverPool:00000000 g_CurrentOverPool
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:701    .bss.Low_Voltage_Cun:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:707    .bss.Over_Temp_Cun:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:713    .bss.Over_Voltage_Cun:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:719    .bss.Power_Avg_cun:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:725    .bss.Power_Avg_tab:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:731    .bss.Voltag_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:737    .bss.Voltag_f_filter:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:743    .bss.count_Id_error:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:749    .bss.count_over_AlerrTemperature.11848:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:753    .bss.count_over_AlerrTemperature.11848:00000000 count_over_AlerrTemperature.11848
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:756    .bss.count_over_current:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:763    .bss.count_over_temperature:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:770    .bss.g_CurrentOverPool:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:776    .bss.over_current_staff_event_cnt:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:780    .bss.over_current_staff_event_cnt:00000000 over_current_staff_event_cnt
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:783    .bss.power_on_time:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:790    .bss.s_count.11846:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:794    .bss.s_count.11846:00000000 s_count.11846
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:797    .bss.s_count.11859:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:801    .bss.s_count.11859:00000000 s_count.11859
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:804    .bss.s_count.11870:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:808    .bss.s_count.11870:00000000 s_count.11870
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:811    .bss.temperture_hystersis.11847:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:815    .bss.temperture_hystersis.11847:00000000 temperture_hystersis.11847
+
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 22
+
+
+UNDEFINED SYMBOLS
+icmu_eerpom_erro_detect
+g_CmdMap
+Flag_error_read_flash
+Flag_error_current_clib
+Flag_error_MU_SPI
+clear_eeprom_erro
+g_Vq
+g_pCur_ref_base_mA

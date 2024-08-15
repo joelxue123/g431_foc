@@ -1,0 +1,288 @@
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccmrcFo9.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"led.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.LED_Init,"ax",%progbits
+  18              		.align	1
+  19              		.global	LED_Init
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	LED_Init:
+  26              	.LFB333:
+  27              		.file 1 "Src/led.c"
+   1:Src/led.c     **** #include "led.h"
+   2:Src/led.c     **** #include "stm32g4xx_hal.h"
+   3:Src/led.c     **** 
+   4:Src/led.c     **** void LED_Init(void)
+   5:Src/led.c     **** {
+  28              		.loc 1 5 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 32
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 24
+  35              		.cfi_offset 4, -24
+  36              		.cfi_offset 5, -20
+  37              		.cfi_offset 6, -16
+  38              		.cfi_offset 7, -12
+  39              		.cfi_offset 8, -8
+  40              		.cfi_offset 14, -4
+  41 0004 88B0     		sub	sp, sp, #32
+  42              	.LCFI1:
+  43              		.cfi_def_cfa_offset 56
+  44              	.LBB2:
+   6:Src/led.c     **** 	GPIO_InitTypeDef GPIO_InitStructure;
+   7:Src/led.c     **** 
+   8:Src/led.c     **** 
+   9:Src/led.c     **** 	//使能端口时钟
+  10:Src/led.c     **** 	__HAL_RCC_GPIOA_CLK_ENABLE();
+  45              		.loc 1 10 0
+  46 0006 2E4B     		ldr	r3, .L3
+  47 0008 DA6C     		ldr	r2, [r3, #76]
+  48 000a 42F00102 		orr	r2, r2, #1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccmrcFo9.s 			page 2
+
+
+  49 000e DA64     		str	r2, [r3, #76]
+  50 0010 DA6C     		ldr	r2, [r3, #76]
+  51 0012 02F00102 		and	r2, r2, #1
+  52 0016 0092     		str	r2, [sp]
+  53 0018 009A     		ldr	r2, [sp]
+  54              	.LBE2:
+  55              	.LBB3:
+  11:Src/led.c     **** 	__HAL_RCC_GPIOB_CLK_ENABLE();
+  56              		.loc 1 11 0
+  57 001a DA6C     		ldr	r2, [r3, #76]
+  58 001c 42F00202 		orr	r2, r2, #2
+  59 0020 DA64     		str	r2, [r3, #76]
+  60 0022 DA6C     		ldr	r2, [r3, #76]
+  61 0024 02F00202 		and	r2, r2, #2
+  62 0028 0192     		str	r2, [sp, #4]
+  63 002a 019A     		ldr	r2, [sp, #4]
+  64              	.LBE3:
+  65              	.LBB4:
+  12:Src/led.c     **** 	__HAL_RCC_GPIOC_CLK_ENABLE();
+  66              		.loc 1 12 0
+  67 002c DA6C     		ldr	r2, [r3, #76]
+  68 002e 42F00402 		orr	r2, r2, #4
+  69 0032 DA64     		str	r2, [r3, #76]
+  70 0034 DB6C     		ldr	r3, [r3, #76]
+  71 0036 03F00403 		and	r3, r3, #4
+  72 003a 0293     		str	r3, [sp, #8]
+  73 003c 029B     		ldr	r3, [sp, #8]
+  74              	.LBE4:
+  13:Src/led.c     **** 
+  14:Src/led.c     **** 	//LED1_OFF();
+  15:Src/led.c     **** 	//LED2_OFF();  
+  16:Src/led.c     **** 	//GPIO设置
+  17:Src/led.c     **** 	
+  18:Src/led.c     **** //	GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_6|GPIO_Pin_7;
+  19:Src/led.c     **** //	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+  20:Src/led.c     **** //	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_Level_3;
+  21:Src/led.c     **** //	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+  22:Src/led.c     **** //	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+  23:Src/led.c     **** //  GPIO_Init(GPIOA, &GPIO_InitStructure);
+  24:Src/led.c     **** 
+  25:Src/led.c     **** 	#if 1 
+  26:Src/led.c     **** 
+  27:Src/led.c     **** 	GPIO_InitStructure.Pin  = GPIO_PIN_4;
+  75              		.loc 1 27 0
+  76 003e 1023     		movs	r3, #16
+  77 0040 0393     		str	r3, [sp, #12]
+  28:Src/led.c     **** 	GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
+  78              		.loc 1 28 0
+  79 0042 0124     		movs	r4, #1
+  80 0044 0494     		str	r4, [sp, #16]
+  29:Src/led.c     **** 	GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_MEDIUM;
+  81              		.loc 1 29 0
+  82 0046 0694     		str	r4, [sp, #24]
+  30:Src/led.c     **** 	GPIO_InitStructure.Pull = GPIO_PULLUP;
+  83              		.loc 1 30 0
+  84 0048 0594     		str	r4, [sp, #20]
+  31:Src/led.c     ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccmrcFo9.s 			page 3
+
+
+  85              		.loc 1 31 0
+  86 004a 03A9     		add	r1, sp, #12
+  87 004c 4FF09040 		mov	r0, #1207959552
+  88 0050 FFF7FEFF 		bl	HAL_GPIO_Init
+  89              	.LVL0:
+  32:Src/led.c     **** 	
+  33:Src/led.c     **** 	#endif 
+  34:Src/led.c     **** 	
+  35:Src/led.c     **** 	GPIO_InitStructure.Pin  = GPIO_PIN_12|GPIO_PIN_6;
+  90              		.loc 1 35 0
+  91 0054 4FF48253 		mov	r3, #4160
+  92 0058 0393     		str	r3, [sp, #12]
+  36:Src/led.c     **** 	GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
+  93              		.loc 1 36 0
+  94 005a 0494     		str	r4, [sp, #16]
+  37:Src/led.c     **** 	GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_HIGH;
+  95              		.loc 1 37 0
+  96 005c 0225     		movs	r5, #2
+  97 005e 0695     		str	r5, [sp, #24]
+  38:Src/led.c     **** 	GPIO_InitStructure.Pull = GPIO_PULLUP;
+  98              		.loc 1 38 0
+  99 0060 0594     		str	r4, [sp, #20]
+  39:Src/led.c     **** 	
+  40:Src/led.c     ****   HAL_GPIO_Init(GPIOA, &GPIO_InitStructure);
+ 100              		.loc 1 40 0
+ 101 0062 03A9     		add	r1, sp, #12
+ 102 0064 4FF09040 		mov	r0, #1207959552
+ 103 0068 FFF7FEFF 		bl	HAL_GPIO_Init
+ 104              	.LVL1:
+  41:Src/led.c     **** 	
+  42:Src/led.c     **** 	GPIO_InitStructure.Pin  = GPIO_PIN_11;// MP6540  BBL_nfault pin
+ 105              		.loc 1 42 0
+ 106 006c 4FF40063 		mov	r3, #2048
+ 107 0070 0393     		str	r3, [sp, #12]
+  43:Src/led.c     **** 	GPIO_InitStructure.Mode = GPIO_MODE_INPUT;
+ 108              		.loc 1 43 0
+ 109 0072 4FF00008 		mov	r8, #0
+ 110 0076 CDF81080 		str	r8, [sp, #16]
+  44:Src/led.c     **** 	GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_HIGH;
+ 111              		.loc 1 44 0
+ 112 007a 0695     		str	r5, [sp, #24]
+  45:Src/led.c     **** 	GPIO_InitStructure.Pull = GPIO_PULLUP;
+ 113              		.loc 1 45 0
+ 114 007c 0594     		str	r4, [sp, #20]
+  46:Src/led.c     ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
+ 115              		.loc 1 46 0
+ 116 007e 114E     		ldr	r6, .L3+4
+ 117 0080 03A9     		add	r1, sp, #12
+ 118 0082 3046     		mov	r0, r6
+ 119 0084 FFF7FEFF 		bl	HAL_GPIO_Init
+ 120              	.LVL2:
+  47:Src/led.c     **** 	
+  48:Src/led.c     **** 	GPIO_InitStructure.Pin  = GPIO_PIN_12;// MP6540  BBL_nfault pin
+ 121              		.loc 1 48 0
+ 122 0088 4FF48057 		mov	r7, #4096
+ 123 008c 0397     		str	r7, [sp, #12]
+  49:Src/led.c     **** 	GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccmrcFo9.s 			page 4
+
+
+ 124              		.loc 1 49 0
+ 125 008e 0494     		str	r4, [sp, #16]
+  50:Src/led.c     **** 	GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_HIGH;
+ 126              		.loc 1 50 0
+ 127 0090 0695     		str	r5, [sp, #24]
+  51:Src/led.c     **** 	GPIO_InitStructure.Pull = GPIO_PULLDOWN;
+ 128              		.loc 1 51 0
+ 129 0092 0595     		str	r5, [sp, #20]
+  52:Src/led.c     ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
+ 130              		.loc 1 52 0
+ 131 0094 03A9     		add	r1, sp, #12
+ 132 0096 3046     		mov	r0, r6
+ 133 0098 FFF7FEFF 		bl	HAL_GPIO_Init
+ 134              	.LVL3:
+  53:Src/led.c     **** 	
+  54:Src/led.c     **** 	HAL_GPIO_WritePin(GPIOB,GPIO_PIN_12,0);
+ 135              		.loc 1 54 0
+ 136 009c 4246     		mov	r2, r8
+ 137 009e 3946     		mov	r1, r7
+ 138 00a0 3046     		mov	r0, r6
+ 139 00a2 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 140              	.LVL4:
+  55:Src/led.c     **** 	
+  56:Src/led.c     **** 	
+  57:Src/led.c     **** 	GPIO_InitStructure.Pin  = GPIO_PIN_14;
+ 141              		.loc 1 57 0
+ 142 00a6 4FF48043 		mov	r3, #16384
+ 143 00aa 0393     		str	r3, [sp, #12]
+  58:Src/led.c     **** 	GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
+ 144              		.loc 1 58 0
+ 145 00ac 0494     		str	r4, [sp, #16]
+  59:Src/led.c     **** 	GPIO_InitStructure.Speed = GPIO_SPEED_FREQ_HIGH;
+ 146              		.loc 1 59 0
+ 147 00ae 0695     		str	r5, [sp, #24]
+  60:Src/led.c     **** 	GPIO_InitStructure.Pull = GPIO_PULLUP;
+ 148              		.loc 1 60 0
+ 149 00b0 0594     		str	r4, [sp, #20]
+  61:Src/led.c     ****   HAL_GPIO_Init(GPIOC, &GPIO_InitStructure);
+ 150              		.loc 1 61 0
+ 151 00b2 03A9     		add	r1, sp, #12
+ 152 00b4 0448     		ldr	r0, .L3+8
+ 153 00b6 FFF7FEFF 		bl	HAL_GPIO_Init
+ 154              	.LVL5:
+  62:Src/led.c     **** }
+ 155              		.loc 1 62 0
+ 156 00ba 08B0     		add	sp, sp, #32
+ 157              	.LCFI2:
+ 158              		.cfi_def_cfa_offset 24
+ 159              		@ sp needed
+ 160 00bc BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 161              	.L4:
+ 162              		.align	2
+ 163              	.L3:
+ 164 00c0 00100240 		.word	1073876992
+ 165 00c4 00040048 		.word	1207960576
+ 166 00c8 00080048 		.word	1207961600
+ 167              		.cfi_endproc
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccmrcFo9.s 			page 5
+
+
+ 168              	.LFE333:
+ 170              		.text
+ 171              	.Letext0:
+ 172              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 173              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 174              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 175              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 176              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 177              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 178              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 179              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 180              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_gpio.h"
+ 181              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 182              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 183              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 184              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 185              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 186              		.file 16 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 187              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 188              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 189              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ 190              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 191              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 192              		.file 22 "Inc/uart.h"
+ 193              		.file 23 "Inc/pwm.h"
+ 194              		.file 24 "Inc/spi_MEncoder.h"
+ 195              		.file 25 "Inc/adc.h"
+ 196              		.file 26 "Inc/stm32_math_sin.h"
+ 197              		.file 27 "Inc/pid.h"
+ 198              		.file 28 "Inc/profile_joint.h"
+ 199              		.file 29 "Inc/icmu.h"
+ 200              		.file 30 "Inc/performance_test.h"
+ 201              		.file 31 "Inc/global.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccmrcFo9.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 led.c
+C:\Users\82057\AppData\Local\Temp\ccmrcFo9.s:18     .text.LED_Init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccmrcFo9.s:25     .text.LED_Init:00000000 LED_Init
+C:\Users\82057\AppData\Local\Temp\ccmrcFo9.s:164    .text.LED_Init:000000c0 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_Init
+HAL_GPIO_WritePin
