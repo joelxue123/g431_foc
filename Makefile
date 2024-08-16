@@ -60,6 +60,7 @@ Src/uart.c \
 Src/app_freertos.c \
 Src/stm32g4xx_it.c \
 Src/stm32g4xx_hal_msp.c \
+Src/sensorless.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.c \
 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.c \

@@ -2,7 +2,7 @@
 #include "global.h"
 #include "icmu.h"
 #include "parameter_identification.h"
-
+#include "sensorless.h"
 //#include "ouj_cmd.h"
 //3�ջ��ŷ���ز���
 s16 g_IA = 0,g_IA_Raw = 0;			        
@@ -164,12 +164,12 @@ void PID_control(s32 set,s32 act,struct PID_TYPE * p_pid)   //PID
 	if(p_pid->out >p_pid->Up_limit)
 	{
 		p_pid->out = p_pid->Up_limit;
-		//p_pid->integral = (p_pid->out-p_pid->Part_P - p_pid->Part_D)*p_pid->frequency;
+		p_pid->integral = (p_pid->out)*p_pid->frequency;
 	}
 	if(p_pid->out <p_pid->Low_limit)
 	{
 		p_pid->out = p_pid->Low_limit;
-		//p_pid->integral = (p_pid->out-p_pid->Part_P - p_pid->Part_D)*p_pid->frequency;
+		p_pid->integral = (p_pid->out)*p_pid->frequency;
 	}	
 	return;
 }
@@ -567,24 +567,45 @@ static void CurrentPID(void)
 		}
 	}
 	
+	float Ierr_d = 0.f - (float)g_CmdMap[CMD_CUR_D_ACT_PU]/1000.0f;
+    float Ierr_q = (float)g_CmdMap[CMD_CUR_SET_PU]/1000.0f - (float)g_CmdMap[CMD_CUR_ACT_PU]/1000.f;
+	float Vd = motor_.current_control_.v_current_control_integral_d + Ierr_d * motor_.current_control_.p_gain;
+    float Vq = motor_.current_control_.v_current_control_integral_q + Ierr_q * motor_.current_control_.p_gain;
+
+    float mod_to_V = one_by_sqrt3 * bus_voltage_;
+    float V_to_mod = 1.0f / mod_to_V;
+    float mod_d = V_to_mod * Vd;
+    float mod_q = V_to_mod * Vq;
+
+	float mod_scalefactor =  0.9f / sqrtf(mod_d * mod_d + mod_q * mod_q);
+	if(mod_scalefactor < 1.0f)
+	{
+        mod_d *= mod_scalefactor;
+        mod_q *= mod_scalefactor;
+		motor_.current_control_.v_current_control_integral_d *= 0.99f;
+        motor_.current_control_.v_current_control_integral_q *= 0.99f;
+	}`
+	else
+	{
+		motor_.current_control_.v_current_control_integral_d += Ierr_d * (motor_.current_control_.i_gain * current_meas_period);
+        motor_.current_control_.v_current_control_integral_q += Ierr_q * (motor_.current_control_.i_gain * current_meas_period);
+	}
+
 	pid_IQ.Up_limit = 16384;
 	pid_IQ.Low_limit = -16384;
-	
-//		pid_IQ.Up_limit = 2000;
-//	pid_IQ.Low_limit = -2000;
-	
-	PID_control(g_CmdMap[CMD_CUR_SET_PU],g_CmdMap[CMD_CUR_ACT_PU],&pid_IQ);	
-	
-	
-	g_Vq = pid_IQ.out*N97_CCR/PU_REFERENCE;
-	
+		
 	pid_ID.Up_limit = 16384;
 	pid_ID.Low_limit = -16384;	
 	
-//	pid_ID.Up_limit = 4096;
-//	pid_ID.Low_limit = -4096;	
-	
+	PID_control(g_CmdMap[CMD_CUR_SET_PU],g_CmdMap[CMD_CUR_ACT_PU],&pid_IQ);	
 	PID_control(-0,g_CmdMap[CMD_CUR_D_ACT_PU],&pid_ID);	
+	
+
+	
+
+	
+	
+	g_Vq = pid_IQ.out*N97_CCR/PU_REFERENCE;
 	g_Vd = pid_ID.out*N97_CCR/PU_REFERENCE;	
 	
 //	g_Vq = 100;//g_high_fre_pulse * 500;
@@ -600,12 +621,14 @@ static void CurrentPID(void)
 //		g_ElectricAngle_add = (int)pll_estimated_spd /100000;
 //		g_ElectricAngle = g_ElectricAngle + g_ElectricAngle_add;// * 0.000025;
 	
-  X = Math_Sin_EN360( g_ElectricAngle  );
-  Y = Math_Cos_EN360( g_ElectricAngle );
-  g_V_Alpha = Q15_MUL(g_Vd,X) + Q15_MUL(g_Vq,Y);  // ��Ƕȶ���ΪQ����Alpha��ļн�
+	X = Math_Sin_EN360( g_ElectricAngle  );
+	Y = Math_Cos_EN360( g_ElectricAngle );
+	g_V_Alpha = Q15_MUL(g_Vd,X) + Q15_MUL(g_Vq,Y);  // ��Ƕȶ���ΪQ����Alpha��ļн�
 	g_V_Beta = Q15_MUL(-g_Vd,Y) + Q15_MUL(g_Vq,X);
-  // SVPWMռ�ձȼ������
-  X = g_V_Beta;
+
+	update_current_control(&motor_, (float)bus_voltage_*one_by_sqrt3*g_V_Alpha/REAL_CCR, (float)bus_voltage_*one_by_sqrt3*g_V_Beta/REAL_CCR);
+	// SVPWMռ�ձȼ������
+	X = g_V_Beta;
 	temp32 = Q16_MUL(g_V_Alpha,113512);
 	Y = (g_V_Beta + temp32) >> 1;
 	Z = (g_V_Beta - temp32) >> 1;  
@@ -1017,6 +1040,13 @@ static void OpenLoop(void)
 	g_Vq =  g_CmdMap[TAG_OPEN_PWM] * 16384 / 100;  
 	g_Vd = 0;
 
+	X = Math_Sin_EN360( g_ElectricAngle  );
+	Y = Math_Cos_EN360( g_ElectricAngle );
+	g_V_Alpha = Q15_MUL(g_Vd,X) + Q15_MUL(g_Vq,Y);  // ��Ƕȶ���ΪQ����Alpha��ļн�
+	g_V_Beta = Q15_MUL(-g_Vd,Y) + Q15_MUL(g_Vq,X);
+
+	update_current_control(&motor_, (float)bus_voltage_*one_by_sqrt3*g_V_Alpha/REAL_CCR, (float)bus_voltage_*one_by_sqrt3*g_V_Beta/REAL_CCR);
+
 //	g_ElectricAngle &= 0x7fff;
 //	if(observer_speed < 0)
 //	{
@@ -1162,7 +1192,7 @@ volatile  int delata_beta;
 int last_alpha = 0;
 int last_beta = 0;
 
-float phase_current_rev_gain_ = 1.0f/33.0f;
+float phase_current_rev_gain_ = 1.0f/16.5f;
 float shunt_conductance = 1.0f/0.01f;
 float phase_current_from_adcval(s32 adcval_bal)
 {
@@ -1175,44 +1205,17 @@ void GetCurrent(void)
 {
   s32 i=0, j=0,I_B1 = 0,I_C1 = 0;
 
-//	g_ZeroCur_MotorA =0x800;
-//	g_ZeroCur_MotorB =0x7e9;
-//	g_ZeroCur_MotorC =0x802;
-	
-	
-//		g_ZeroCur_MotorA =0x077d;
-//	g_ZeroCur_MotorB =0x077d;
-//	g_ZeroCur_MotorC =0x0779;
+
 	
 	g_IC_Raw = (s16)(-phase_current_from_adcval(ADC1->JDR1-g_ZeroCur_MotorC)*1000.0f); // mA	
 	g_IB_Raw = (s16)(-phase_current_from_adcval(ADC2->JDR1-g_ZeroCur_MotorB)*1000.0f); // mA
-	g_IA_Raw = (s16)(-phase_current_from_adcval(ADC1->JDR1-g_ZeroCur_MotorA)*1000.0f); // mA	;
-	
-
-	if(g_Sector_test == 2 ||g_Sector_test == 1)
-	{
-		g_IB = g_IB_Raw;		
-		g_IC = g_IC_Raw;
-		g_IA = 0 - g_IC -g_IB;
-	}
-	if(g_Sector_test == 3 ||g_Sector_test == 4)
-	{
-		g_IB = g_IB_Raw;		
-		g_IA = g_IA_Raw;
-		g_IC = 0 - g_IB -g_IA;
-	}
-	if(g_Sector_test == 5 ||g_Sector_test == 6)
-	{
-		g_IC = g_IC_Raw;		
-		g_IA = g_IA_Raw;
-		g_IB = 0 - g_IA -g_IC;	
-	}
+	g_IA_Raw = (s16)(-phase_current_from_adcval(ADC1->JDR1-g_ZeroCur_MotorA)*1000.0f); // mA
 	
 	g_IA = g_IA_Raw;
 	g_IB = g_IB_Raw;
 	g_IC = 0 - g_IA_Raw -g_IB_Raw;
 	
-	
+	update_current_meas(&motor_, g_IA/1000.0f, g_IB/1000.0f, g_IC/1000.0f);
 
 	I_Alpha = -(g_IB + g_IC);             // �ȷ�Clark:I_Alpha = (2/3)*(I_a - 0.5*I_b - 0.5*I_c)= Ia;
 	I_Beta = Q15_MUL(g_IB - g_IC,18919);  // �ȷ�Clark:I_Beta =  (2/3)*(ib-ic)*0.5*squr(3) = (ib-ic)/squr(3) = (ib-ic)*18919/32768; 
@@ -1294,9 +1297,7 @@ void ServoPro_Fast(void)
 
 	
 	int64_t speed;
-	int hall_a1=0;
-	int hall_b1=0;
-	int hall_c1=0;
+
 	
 	static u8 PlusPosition_flag = 0;
   static s32 s_count = 0;
@@ -1331,347 +1332,17 @@ GPIOA->BSRR  |= (uint32_t)GPIO_PIN_15;
 		motor_fault_check(); //¼ì²éµç»úÊÇ·ñÄÜÕý³£¹¤×÷
 	}
 	
-//	
 	GPIOA->BRR |= (uint32_t)GPIO_PIN_15;
 	Pll_phase(  ( (s16)g_ElectricAngle_15bit  ), &pll_estimated_phase,    &pll_estimated_spd  );
-	#if 0
-
-	
-	hall_a1 = (GPIOA->IDR & GPIO_PIN_5);
-	hall_b1 = (GPIOB->IDR & GPIO_PIN_3);
-	hall_c1 = (GPIOB->IDR & GPIO_PIN_10);
-
-	if(hall_a1)  hall_a1 =1;
-	if(hall_b1)  hall_b1 =1;
-	if(hall_c1)  hall_c1 =1;
 
 
-	pid_hall_ture_value1 =  hall_c1*4 + hall_b1*2 + hall_a1;	
-	
-	
-	hall_speed_sample_timeout_cnt++;
-	if(hall_speed_sample_timeout_cnt < 200)
-	{
-		time4_capture_ch1 = HAL_TIM_ReadCapturedValue(&htim2,TIM_CHANNEL_1);
-		
-		if(last_hall_sample_time != time4_capture_ch1)		
-		{
-			
-				 hall_speed_sample_timeout_cnt = 0;
-			
-				 pid_hall_sample_time_index++;
-				if(pid_hall_sample_time_index > 9)
-				{
-					pid_hall_sample_time_index =0;
-				}
-			//	TIM_ClearFlag(TIM4,TIM_FLAG_CC1);
-				
-				pid_hall_sample_time_point[pid_hall_sample_time_index] = time4_capture_ch1;
-				
-		//		s_SpeedTimeAdd11 = time4_capture_ch1  - last_hall_sample_time;
-				
-				
-				last_hall_sample_time = time4_capture_ch1;
-				if(s_SpeedTimeAdd11 < 0)
-				{
-					s_SpeedTimeAdd11 += 65535;
-				}
-				
-				hall_previous_3_time = hall_previous_2_time;
-				hall_previous_2_time = hall_previous_1_time;
-				hall_previous_1_time  = hall_now_time;
-				hall_now_time = time4_capture_ch1;
-				
-						
-				if(pid_last_hall_ture_value1 == 5)
-				{
-					if(pid_hall_ture_value1 == 1)
-					{
-						s_hal_cnt--;
-					}
-					else
-					{
-						s_hal_cnt++;
-					}
-				}
-				else if(pid_last_hall_ture_value1 == 1)
-				{
-					if(pid_hall_ture_value1 == 3)
-					{
-						s_hal_cnt--;
-					}
-					else
-					{
-						s_hal_cnt++;
-					}
-				}
-				else if(pid_last_hall_ture_value1 == 3)
-				{
-					if(pid_hall_ture_value1 == 2)
-					{
-						s_hal_cnt--;
-					}
-					else
-					{
-						s_hal_cnt++;
-					}
-				}
-				else if(pid_last_hall_ture_value1 == 2)
-				{
-					if(pid_hall_ture_value1 == 6)
-					{
-						s_hal_cnt--;
-					}
-					else
-					{
-						s_hal_cnt++;
-					}
-				}
-				else if(pid_last_hall_ture_value1 == 6)
-				{
-					if(pid_hall_ture_value1 == 4)
-					{
-						s_hal_cnt--;
-					}
-					else
-					{
-						s_hal_cnt++;
-					}
-				}
-				else if(pid_last_hall_ture_value1 == 4)
-				{
-					if(pid_hall_ture_value1 == 5)
-					{
-						s_hal_cnt--;
-					}
-					else
-					{
-						s_hal_cnt++;
-					}
-				}
-				pid_last_hall_ture_value1 = pid_hall_ture_value1;
-				
-				hall_speed_sample_cnt++;
-				if(hall_speed_sample_cnt > 1)
-				{
-					hall_cnt = s_hal_cnt;
-					s_hal_cnt = 0;
-					hall_speed_sample_cnt =0;
-					hall_speed_sample_timeout = 1;
-				}
-				
-		}
-	}
-	else
-	{
-		hall_speed_sample_timeout_cnt = 200;
-		hall_speed_sample_timeout = 1;
-		
-		hall_cnt = s_hal_cnt;
-		s_hal_cnt = 0;
-		hall_speed_sample_cnt =0;
-	}
-	
-	if(hall_speed_sample_timeout == 1)
-	{
-		
-		
-		if(ABS(hall_cnt) > 2)
-		{
-			hall_total_time  = (hall_now_time -hall_previous_3_time);
-			if( hall_total_time < 0 )
-			{
-				hall_total_time = hall_total_time + 65535;
-			}
-			hall_total_time = hall_total_time / hall_cnt;
-		}
-		else if(ABS(hall_cnt) > 1)
-		{
-			hall_total_time  = (hall_now_time -hall_previous_2_time);
-			if( hall_total_time < 0 )
-			{
-				hall_total_time = hall_total_time + 65535;
-			}
-			hall_total_time = hall_total_time / hall_cnt;
-		}
-		else if(ABS(hall_cnt) > 0)
-		{
-			hall_total_time  = (hall_now_time -hall_previous_1_time);  //10000000;
-			if( hall_total_time < 0 )
-			{
-				hall_total_time = hall_total_time + 65535;
-			}
-			if(hall_total_time<8000)
-			{
-				hall_total_time =10000;
-			}
-			hall_total_time = hall_total_time / hall_cnt;
-		}
-		else
-		{
-			hall_total_time = 10000000;
-		}
-		
-		
-		
-		if( hall_cnt == 0) 
-		{
-			Vel_PPS_raw1 = 0;
-		}
-		else 
-		{
-			Vel_PPS_raw1 =1000000/hall_total_time;
-		}
-		
-		if(Vel_PPS_raw1 > 1)
-		{
-			speed1++;
-		}
-		hall_speed_sample_timeout = 0;
-		hall_speed_sample_timeout_cnt = 0;
-		hall_cnt = 0;
-	}
-
-			#endif
-			
-	 
-	
-	
-	
-//	if(g_CmdMap[SYS_SELF_TUNING] == 1)
-//	{
-//		struct_hFrame.internal_us = 40;
-//		UART_PushFrame_HighFreqData(&struct_hFrame,g_CmdMap[CMD_CUR_SET_PU],g_CmdMap[CMD_CUR_ACT_PU]);
-//	}
-//	if(g_CmdMap[SYS_SELF_TUNING] == 3)
-//	{
-//		struct_hFrame.internal_us = 40;
-//		UART_PushFrame_HighFreqData(&struct_hFrame,g_CmdMap[CMD_CUR_ACT_PU],g_CmdMap[CMD_SPD_ACT_PU]);
-//	}
-//	if(g_CmdMap[SYS_SELF_TUNING] == 4)
-//	{
-//		struct_hFrame.internal_us = SVPWM_PERIOD_US;
-//		UART_PushFrame_HighFreqData(&struct_hFrame,g_CmdMap[CMD_SPD_SET_PU],g_CmdMap[CMD_SPD_ACT_PU]);
-//	}
-//	if(struct_hFrame.num_frame > 0)
-//	{ 	
-//		UART_SendFrame_HighFreqData(&struct_hFrame);
-//	}
-//	
-
-	
-	
-//	CurrentPID();
-	//---------------------------------���´���10KHz(100us)ִ��-----------------
 	PlusPosition_flag ^= 0x1;
-//	if((PlusPosition_flag) && (g_BeginPIDFlag)) 													// 10KHz
-//	{			   							  																				// MT������
-//		ShortCurrentCheck();																								// ��������	
-//	}  	
 
-	
-	
-	
-	/**********
-* hall_ture_value
-* hall_ture_value = 5     B 
-* hall_ture_value = 1     C 
- hall_ture_value = 3     C 
- hall_ture_value = 2     A 
- hall_ture_value = 6     A 
- hall_ture_value = 4     B 
-
-*********/
-
-//	s_SpeedTimeAdd1++;
-//	if(hall_ture_value != last_hall_ture_value)
-//	{
-//		if(start_speed_sample == 1)
-//		{
-//			start_speed_sample = 0;
-//			s_SpeedTimeAdd1 = 0;
-//		}
-//		
-//		if(last_hall_ture_value == 5)
-//		{
-//			if(hall_ture_value == 1)
-//			{
-//				Encoder_Inc++;
-//			}
-//			else
-//			{
-//				Encoder_Inc--;
-//			}
-//		}
-//		else if(last_hall_ture_value == 1)
-//		{
-//			if(hall_ture_value == 3)
-//			{
-//				Encoder_Inc++;
-//			}
-//			else
-//			{
-//				Encoder_Inc--;
-//			}
-//		}
-//		else if(last_hall_ture_value == 3)
-//		{
-//			if(hall_ture_value == 2)
-//			{
-//				Encoder_Inc++;
-//			}
-//			else
-//			{
-//				Encoder_Inc--;
-//			}
-//		}
-//		else if(last_hall_ture_value == 2)
-//		{
-//			if(hall_ture_value == 6)
-//			{
-//				Encoder_Inc++;
-//			}
-//			else
-//			{
-//				Encoder_Inc--;
-//			}
-//		}
-//		else if(last_hall_ture_value == 6)
-//		{
-//			if(hall_ture_value == 4)
-//			{
-//				Encoder_Inc++;
-//			}
-//			else
-//			{
-//				Encoder_Inc--;
-//			}
-//		}
-//		else if(last_hall_ture_value == 4)
-//		{
-//			if(hall_ture_value == 5)
-//			{
-//				Encoder_Inc++;
-//			}
-//			else
-//			{
-//				Encoder_Inc--;
-//			}
-//		}
-//		
-//		
-//		last_hall_ture_value = hall_ture_value;
-//	}
-
-		s_count ++;
-	
+	non_linear_flux_observer();
+	s_count ++;
 	if(s_count >= (F_CUR_REGULATOR_HZ/F_SPD_REGULATOR_HZ))
 	{	
-		s_count = 0;
-//		tim3_cnt = TIM3->CNT;
-//		tim4_cnt = TIM4->CNT;
-//		TIM3->CNT = 0;
-	//	EXTI_GenerateSWInterrupt(EXTI_Line3); // �����ж�EXTI3�д���λ�û����ٶȻ� (�����жϵ����ȼ����)     		
+		s_count = 0;    		
 		EXTI->SWIER1 |= 0x08;
 		EXTI_Handle.Line = 3;
 		HAL_EXTI_GenerateSWI(&EXTI_Handle);
@@ -1803,7 +1474,7 @@ void EXTI3_IRQHandler(void)
 {
  // if(EXTI_GetITStatus(EXTI_Line3) != RESET)
   {
-		//LED2_TOOGLE();
+		//LED2_TOOGLE(); fortest
 		EXTI->PR1 |= 0x0008;		// �����־
     Pos_Spd_PID();  // ����λ�û����ٶȻ�				
 		//UpdateErrorStateLED(); 		

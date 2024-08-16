@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
   29:Src/global.c  **** 
   30:Src/global.c  **** 
   31:Src/global.c  **** /*-------------------------Profile-----------------------------------*/
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 2
 
 
   32:Src/global.c  **** //标幺值
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
   86:Src/global.c  **** volatile s16 state_Jtest = 0;
   87:Src/global.c  **** 
   88:Src/global.c  **** s16	EN_0 = 0;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 3
 
 
   89:Src/global.c  **** s16	EN_30	 = 0;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  143:Src/global.c  ****       0,		  							//0x0107		//设置实际位置，调试使用，用来修改累计值
  144:Src/global.c  ****       0,		  							//0x0108		//对整个行程内的形变量进行标定
  145:Src/global.c  ****       0,			    					//0x0109		//电机参数辨识使能，1：测量电阻，2：测量电感
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 4
 
 
  146:Src/global.c  ****       80,										//0x010A		//抱闸松开延时
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  200:Src/global.c  ****       0,										//0x013A		
  201:Src/global.c  ****       0,			    					//0x013B		
  202:Src/global.c  ****       0,										//0x013C		
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 5
 
 
  203:Src/global.c  **** 			0,										//0x013D		
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  257:Src/global.c  **** 			0,										//0x01AD		状态信息帧第13位所放寄存器的地址
  258:Src/global.c  **** 			0,										//0x01AE		
  259:Src/global.c  **** 			0,										//0x01AF    
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 6
 
 
  260:Src/global.c  **** 		},
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  314:Src/global.c  **** 		},
  315:Src/global.c  **** 		{	  // 0x01A*字段 ADC标定参数
  316:Src/global.c  **** 			16384*24/70,					//0x0190    ADC24
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 7
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 7
 
 
  317:Src/global.c  **** 			16384*24/70,      		//0x0191		POS24
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  371:Src/global.c  **** 			16384*48/70,      		//0x0191		POS24
  372:Src/global.c  **** 			16384*49/70,					//0x0192		ADC25
  373:Src/global.c  **** 			16384*49/70,					//0x0193		POS25
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 8
 
 
  374:Src/global.c  **** 			16384*50/70,        	//0x0194		ADC26
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  428:Src/global.c  **** 	{// 0x000*字段
  429:Src/global.c  **** 			0xAA55,								//0x0000     
  430:Src/global.c  **** 			0,					      		//0x0001		设备类型
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 9
 
 
  431:Src/global.c  ****       VERSION_CODE,					//0x0002		固件版本
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  485:Src/global.c  ****       0,								   	//0x0032
  486:Src/global.c  ****       0,										//0x0033
  487:Src/global.c  ****       0,				          	//0x0034		
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 10
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 10
 
 
  488:Src/global.c  ****       0,										//0x0035		
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  542:Src/global.c  **** 			WRFLG_RW,										//0x011F		
  543:Src/global.c  **** 		},
  544:Src/global.c  **** 		{	  // 0x012*字段 电机相关信息
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 11
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 11
 
 
  545:Src/global.c  **** 			WRFLG_RW,										//0x0120    电机内阻
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  599:Src/global.c  **** 			WRFLG_RW,										//0x0150    三闭环参数锁定标志
  600:Src/global.c  **** 			WRFLG_RW,					      		//0x0151		电流环P参数
  601:Src/global.c  ****       WRFLG_RW,										//0x0152		电流环I参数
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 12
 
 
  602:Src/global.c  ****       WRFLG_RW,										//0x0153		电流环D参数
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  656:Src/global.c  **** 			WRFLG_RW,					//0x0183		POS17
  657:Src/global.c  **** 			WRFLG_RW,        	//0x0184		ADC18
  658:Src/global.c  **** 			WRFLG_RW,					//0x0185		POS18
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 13
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 13
 
 
  659:Src/global.c  **** 			WRFLG_RW,					//0x0186		ADC19
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  713:Src/global.c  **** 			WRFLG_RW,					//0x01A6		ADC27
  714:Src/global.c  **** 			WRFLG_RW,					//0x01A7		POS27
  715:Src/global.c  **** 			WRFLG_RW,					//0x01A8		ADC28
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 14
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 14
 
 
  716:Src/global.c  **** 			WRFLG_RW,					//0x01A9		POS28
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  770:Src/global.c  **** 			WRFLG_RW,					//0x01A9		POS28
  771:Src/global.c  **** 			WRFLG_RW,					//0x01AA		ADC29
  772:Src/global.c  **** 			WRFLG_RW,			    //0x01AB		POS29
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 15
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 15
 
 
  773:Src/global.c  **** 			WRFLG_RW,					//0x01AC		ADC30
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  827:Src/global.c  **** 		},
  828:Src/global.c  **** 		{	  // 0x028*字段 ADC标定参数
  829:Src/global.c  **** 			WRFLG_RW,WRFLG_RW,WRFLG_RW,WRFLG_RW,WRFLG_RW,WRFLG_RW,WRFLG_RW,WRFLG_RW,
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 16
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 16
 
 
  830:Src/global.c  **** 			WRFLG_RW,WRFLG_RW,WRFLG_RW,WRFLG_RW,WRFLG_RW,WRFLG_RW,WRFLG_RW,WRFLG_RW,					 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  884:Src/global.c  **** 			WRFLG_RW,					      //0x0011		正向最大输出  PU 
  885:Src/global.c  ****       WRFLG_RW,								//0x0012		反向最大输出 PU 
  886:Src/global.c  ****       WRFLG_RW,								//0x0013		行程上限值 PU 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 17
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 17
 
 
  887:Src/global.c  ****       WRFLG_RW,				          	//0x0014		行程下限值 PU 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  941:Src/global.c  ****       WRFLG_RW,				          	//0x0034		
  942:Src/global.c  ****       WRFLG_RW,										//0x0035		
  943:Src/global.c  **** 			WRFLG_RW,										//0x0036	
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 18
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 18
 
 
  944:Src/global.c  ****       WRFLG_RW,		  							//0x0037		
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
   32              		@ link register save eliminated.
  994:Src/global.c  **** 	//KeyScan();		/* 按键扫描 */
  995:Src/global.c  **** }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 19
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 19
 
 
   33              		.loc 1 995 0
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
 1019:Src/global.c  **** */
 1020:Src/global.c  **** void System_Idle(void)
 1021:Src/global.c  **** {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 20
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 20
 
 
   68              		.loc 1 1021 0
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  114              		.global	EN_180
  115              		.global	EN_150
  116              		.global	EN_120
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 21
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 21
 
 
  117              		.global	EN_90
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  171              		.comm	vlaue_icmu_offset_overturn,4,4
  172              		.comm	range_icmu_vlaue_at_stroke,4,4
  173              		.global	Flag_error_torsion_dect
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 22
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 22
 
 
  174              		.comm	Flag_error_MU_value_instable,1,1
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  246              	EN_300:
  247 0000 0000     		.space	2
  248              		.section	.bss.EN_330,"aw",%nobits
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 23
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 23
 
 
  249              		.align	1
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  335              		.section	.bss.Flag_grip_F_OK,"aw",%nobits
  338              	Flag_grip_F_OK:
  339 0000 00       		.space	1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 24
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 24
 
 
  340              		.section	.bss.Flag_grip_P_OK,"aw",%nobits
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  414              		.section	.bss.gVel_PPS,"aw",%nobits
  415              		.align	3
  418              	gVel_PPS:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 25
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 25
 
 
  419 0000 00000000 		.space	8
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  494              		.section	.bss.g_PosOffset,"aw",%nobits
  495              		.align	2
  498              	g_PosOffset:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 26
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 26
 
 
  499 0000 00000000 		.space	4
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  577 0000 00000000 		.space	4
  578              		.section	.bss.g_servo_cmd_period_cnt,"aw",%nobits
  579              		.align	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 27
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 27
 
 
  582              	g_servo_cmd_period_cnt:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  662              		.section	.bss.status_Mode_POSITION_FORCE,"aw",%nobits
  665              	status_Mode_POSITION_FORCE:
  666 0000 00       		.space	1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 28
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 28
 
 
  667              		.section	.data.g_CmdMap_Default,"aw",%progbits
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  723 0066 0000     		.short	0
  724 0068 0000     		.short	0
  725 006a 0000     		.short	0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 29
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 29
 
 
  726 006c 0000     		.short	0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  780 00d8 0000     		.short	0
  781 00da 0000     		.short	0
  782 00dc 0000     		.short	0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 30
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 30
 
 
  783 00de 0000     		.short	0
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  837 014a C517     		.short	6085
  838 014c AF18     		.short	6319
  839 014e AF18     		.short	6319
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 31
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 31
 
 
  840 0150 9919     		.short	6553
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  894 01bc 4932     		.short	12873
  895 01be 4932     		.short	12873
  896 01c0 3333     		.short	13107
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 32
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 32
 
 
  897 01c2 3333     		.short	13107
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  949 000f 02       		.byte	2
  950 0010 02       		.byte	2
  951 0011 02       		.byte	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 33
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 33
 
 
  952 0012 02       		.byte	2
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1006 0048 02       		.byte	2
  1007 0049 02       		.byte	2
  1008 004a 02       		.byte	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 34
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 34
 
 
  1009 004b 02       		.byte	2
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1061 0019 01       		.byte	1
  1062 001a 01       		.byte	1
  1063 001b 01       		.byte	1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 35
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 35
 
 
  1064 001c 01       		.byte	1
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1118 0052 02       		.byte	2
  1119 0053 02       		.byte	2
  1120 0054 02       		.byte	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 36
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 36
 
 
  1121 0055 02       		.byte	2
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1175 008b 02       		.byte	2
  1176 008c 02       		.byte	2
  1177 008d 02       		.byte	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 37
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 37
 
 
  1178 008e 02       		.byte	2
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1232 00c4 02       		.byte	2
  1233 00c5 02       		.byte	2
  1234 00c6 02       		.byte	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 38
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 38
 
 
  1235 00c7 02       		.byte	2
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1289 00fd 02       		.byte	2
  1290 00fe 02       		.byte	2
  1291 00ff 02       		.byte	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 39
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 39
 
 
  1292 0100 02       		.byte	2
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1346 0136 02       		.byte	2
  1347 0137 02       		.byte	2
  1348 0138 02       		.byte	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 40
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 40
 
 
  1349 0139 02       		.byte	2
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1403 016f 02       		.byte	2
  1404 0170 02       		.byte	2
  1405 0171 02       		.byte	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 41
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 41
 
 
  1406 0172 02       		.byte	2
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1460 01a8 02       		.byte	2
  1461 01a9 02       		.byte	2
  1462 01aa 02       		.byte	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 42
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 42
 
 
  1463 01ab 02       		.byte	2
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1517 01e1 02       		.byte	2
  1518 01e2 02       		.byte	2
  1519 01e3 02       		.byte	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 43
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 43
 
 
  1520 01e4 02       		.byte	2
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1580 001e 0000     		.short	0
  1581 0020 0040     		.short	16384
  1582 0022 0040     		.short	16384
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 44
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 44
 
 
  1583 0024 00C0     		.short	-16384
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1635 0000 34020000 		.word	g_CmdMap+564
  1636              		.section	.data.g_pCur_ref_base_mA,"aw",%progbits
  1637              		.align	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 45
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 45
 
 
  1640              	g_pCur_ref_base_mA:
@@ -2698,241 +2698,241 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 1
  1706              		.file 28 "Inc/icmu.h"
  1707              		.file 29 "Inc/performance_test.h"
  1708              		.file 30 "Inc/global.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 46
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 46
 
 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 47
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 47
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 global.c
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:18     .text.System_RunPer10ms:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:25     .text.System_RunPer10ms:00000000 System_RunPer10ms
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:39     .text.System_RunPer1ms:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:46     .text.System_RunPer1ms:00000000 System_RunPer1ms
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:59     .text.System_Idle:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:66     .text.System_Idle:00000000 System_Idle
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:18     .text.System_RunPer10ms:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:25     .text.System_RunPer10ms:00000000 System_RunPer10ms
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:39     .text.System_RunPer1ms:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:46     .text.System_RunPer1ms:00000000 System_RunPer1ms
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:59     .text.System_Idle:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:66     .text.System_Idle:00000000 System_Idle
                             *COM*:00000034 waveGen
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:600    .bss.g_t0:00000000 g_t0
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:612    .bss.g_tk_1:00000000 g_tk_1
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:606    .bss.g_tk:00000000 g_tk
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:424    .bss.g_AngleAtSector:00000000 g_AngleAtSector
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:525    .bss.g_Sector_test:00000000 g_Sector_test
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:933    .data.g_CmdMap_User_bWR:00000000 g_CmdMap_User_bWR
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1035   .data.g_CmdMap_bWR:00000000 g_CmdMap_bWR
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1564   .data.g_UserCmdMap_Default:00000000 g_UserCmdMap_Default
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:671    .data.g_CmdMap_Default:00000000 g_CmdMap_Default
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:435    .bss.g_CmdMap:00000000 g_CmdMap
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:552    .bss.g_ThreeLoopParaBefLock:00000000 g_ThreeLoopParaBefLock
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:298    .bss.Flag_50ms:00000000 Flag_50ms
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:293    .bss.Flag_1ms:00000000 Flag_1ms
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:642    .bss.s_count_1ms:00000000 s_count_1ms
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:654    .bss.s_count_5ms:00000000 s_count_5ms
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:648    .bss.s_count_50ms:00000000 s_count_50ms
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:519    .bss.g_PosSet_Calibrate:00000000 g_PosSet_Calibrate
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:498    .bss.g_PosOffset:00000000 g_PosOffset
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:348    .bss.Flag_rellease_P_OK:00000000 Flag_rellease_P_OK
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:343    .bss.Flag_grip_P_OK:00000000 Flag_grip_P_OK
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:338    .bss.Flag_grip_F_OK:00000000 Flag_grip_F_OK
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:303    .bss.Flag_contact:00000000 Flag_contact
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:354    .bss.Gripper_Move:00000000 Gripper_Move
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:600    .bss.g_t0:00000000 g_t0
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:612    .bss.g_tk_1:00000000 g_tk_1
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:606    .bss.g_tk:00000000 g_tk
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:424    .bss.g_AngleAtSector:00000000 g_AngleAtSector
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:525    .bss.g_Sector_test:00000000 g_Sector_test
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:933    .data.g_CmdMap_User_bWR:00000000 g_CmdMap_User_bWR
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1035   .data.g_CmdMap_bWR:00000000 g_CmdMap_bWR
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1564   .data.g_UserCmdMap_Default:00000000 g_UserCmdMap_Default
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:671    .data.g_CmdMap_Default:00000000 g_CmdMap_Default
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:435    .bss.g_CmdMap:00000000 g_CmdMap
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:552    .bss.g_ThreeLoopParaBefLock:00000000 g_ThreeLoopParaBefLock
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:298    .bss.Flag_50ms:00000000 Flag_50ms
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:293    .bss.Flag_1ms:00000000 Flag_1ms
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:642    .bss.s_count_1ms:00000000 s_count_1ms
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:654    .bss.s_count_5ms:00000000 s_count_5ms
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:648    .bss.s_count_50ms:00000000 s_count_50ms
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:519    .bss.g_PosSet_Calibrate:00000000 g_PosSet_Calibrate
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:498    .bss.g_PosOffset:00000000 g_PosOffset
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:348    .bss.Flag_rellease_P_OK:00000000 Flag_rellease_P_OK
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:343    .bss.Flag_grip_P_OK:00000000 Flag_grip_P_OK
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:338    .bss.Flag_grip_F_OK:00000000 Flag_grip_F_OK
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:303    .bss.Flag_contact:00000000 Flag_contact
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:354    .bss.Gripper_Move:00000000 Gripper_Move
                             *COM*:00000004 g_ZeroCur_MotorC
                             *COM*:00000004 g_ZeroCur_MotorB
                             *COM*:00000004 g_ZeroCur_MotorA
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:366    .bss.Mot_Pairs:00000000 Mot_Pairs
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:377    .bss.Screw_um:00000000 Screw_um
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:360    .bss.L_Slop_Array:00000000 L_Slop_Array
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:258    .bss.EN_360:00000000 EN_360
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:252    .bss.EN_330:00000000 EN_330
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:246    .bss.EN_300:00000000 EN_300
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:234    .bss.EN_270:00000000 EN_270
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:228    .bss.EN_240:00000000 EN_240
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:222    .bss.EN_210:00000000 EN_210
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:216    .bss.EN_180:00000000 EN_180
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:210    .bss.EN_150:00000000 EN_150
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:204    .bss.EN_120:00000000 EN_120
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:276    .bss.EN_90:00000000 EN_90
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:270    .bss.EN_60:00000000 EN_60
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:264    .bss.EN_45:00000000 EN_45
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:240    .bss.EN_30:00000000 EN_30
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:198    .bss.EN_0:00000000 EN_0
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:660    .bss.state_Jtest:00000000 state_Jtest
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:400    .bss.flag_processing_Jtest:00000000 flag_processing_Jtest
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:406    .bss.force_act:00000000 force_act
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:412    .bss.force_set:00000000 force_set
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:456    .bss.g_ElectricAngle:00000000 g_ElectricAngle
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 48
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:366    .bss.Mot_Pairs:00000000 Mot_Pairs
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:377    .bss.Screw_um:00000000 Screw_um
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:360    .bss.L_Slop_Array:00000000 L_Slop_Array
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:258    .bss.EN_360:00000000 EN_360
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:252    .bss.EN_330:00000000 EN_330
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:246    .bss.EN_300:00000000 EN_300
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:234    .bss.EN_270:00000000 EN_270
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:228    .bss.EN_240:00000000 EN_240
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:222    .bss.EN_210:00000000 EN_210
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:216    .bss.EN_180:00000000 EN_180
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:210    .bss.EN_150:00000000 EN_150
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:204    .bss.EN_120:00000000 EN_120
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:276    .bss.EN_90:00000000 EN_90
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:270    .bss.EN_60:00000000 EN_60
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:264    .bss.EN_45:00000000 EN_45
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:240    .bss.EN_30:00000000 EN_30
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:198    .bss.EN_0:00000000 EN_0
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:660    .bss.state_Jtest:00000000 state_Jtest
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:400    .bss.flag_processing_Jtest:00000000 flag_processing_Jtest
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:406    .bss.force_act:00000000 force_act
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:412    .bss.force_set:00000000 force_set
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:456    .bss.g_ElectricAngle:00000000 g_ElectricAngle
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 48
 
 
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:492    .bss.g_MechanicsAngle_15bit_last:00000000 g_MechanicsAngle_15bit_last
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:486    .bss.g_MechanicsAngle_15bit:00000000 g_MechanicsAngle_15bit
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:468    .bss.g_ElectricAngle_15bit_Raw:00000000 g_ElectricAngle_15bit_Raw
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:462    .bss.g_ElectricAngle_15bit:00000000 g_ElectricAngle_15bit
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:480    .bss.g_ElectricAngle_sim:00000000 g_ElectricAngle_sim
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:474    .bss.g_ElectricAngle_act:00000000 g_ElectricAngle_act
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:440    .bss.g_CurReg_Disabel:00000000 g_CurReg_Disabel
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:445    .bss.g_CurReg_Enbale:00000000 g_CurReg_Enbale
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:450    .bss.g_CurReg_runing:00000000 g_CurReg_runing
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:492    .bss.g_MechanicsAngle_15bit_last:00000000 g_MechanicsAngle_15bit_last
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:486    .bss.g_MechanicsAngle_15bit:00000000 g_MechanicsAngle_15bit
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:468    .bss.g_ElectricAngle_15bit_Raw:00000000 g_ElectricAngle_15bit_Raw
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:462    .bss.g_ElectricAngle_15bit:00000000 g_ElectricAngle_15bit
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:480    .bss.g_ElectricAngle_sim:00000000 g_ElectricAngle_sim
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:474    .bss.g_ElectricAngle_act:00000000 g_ElectricAngle_act
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:440    .bss.g_CurReg_Disabel:00000000 g_CurReg_Disabel
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:445    .bss.g_CurReg_Enbale:00000000 g_CurReg_Enbale
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:450    .bss.g_CurReg_runing:00000000 g_CurReg_runing
                             *COM*:00000004 gCur_Ki
                             *COM*:00000004 gCur_Kp
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:530    .bss.g_SpdReg_Disabel:00000000 g_SpdReg_Disabel
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:535    .bss.g_SpdReg_Enbale:00000000 g_SpdReg_Enbale
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:540    .bss.g_SpdReg_runing:00000000 g_SpdReg_runing
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:530    .bss.g_SpdReg_Disabel:00000000 g_SpdReg_Disabel
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:535    .bss.g_SpdReg_Enbale:00000000 g_SpdReg_Enbale
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:540    .bss.g_SpdReg_runing:00000000 g_SpdReg_runing
                             *COM*:00000004 gSpd_ds
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:389    .bss.Vel_PPS_raw:00000000 Vel_PPS_raw
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:418    .bss.gVel_PPS:00000000 gVel_PPS
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:389    .bss.Vel_PPS_raw:00000000 Vel_PPS_raw
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:418    .bss.gVel_PPS:00000000 gVel_PPS
                             *COM*:00000004 gSpd_Ki
                             *COM*:00000004 gSpd_Kp
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:503    .bss.g_PosReg_Disabel:00000000 g_PosReg_Disabel
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:508    .bss.g_PosReg_Enbale:00000000 g_PosReg_Enbale
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:513    .bss.g_PosReg_runing:00000000 g_PosReg_runing
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:503    .bss.g_PosReg_Disabel:00000000 g_PosReg_Disabel
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:508    .bss.g_PosReg_Enbale:00000000 g_PosReg_Enbale
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:513    .bss.g_PosReg_runing:00000000 g_PosReg_runing
                             *COM*:00000004 gPos_ds
                             *COM*:00000004 gPos_Ki
                             *COM*:00000004 gPos_Kp
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:636    .bss.rod_pos_Muti_Encoder:00000000 rod_pos_Muti_Encoder
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1652   .data.g_pMU_0mm_offset:00000000 g_pMU_0mm_offset
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1658   .data.g_pMU_value_offset:00000000 g_pMU_value_offset
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:665    .bss.status_Mode_POSITION_FORCE:00000000 status_Mode_POSITION_FORCE
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:630    .bss.pos_set_last_frm_CMD_PU:00000000 pos_set_last_frm_CMD_PU
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:624    .bss.pos_set_current_frm_CMD_PU:00000000 pos_set_current_frm_CMD_PU
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:594    .bss.g_servo_cmd_pos_last:00000000 g_servo_cmd_pos_last
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:588    .bss.g_servo_cmd_pos_cur:00000000 g_servo_cmd_pos_cur
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:576    .bss.g_servo_cmd_period:00000000 g_servo_cmd_period
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:582    .bss.g_servo_cmd_period_cnt:00000000 g_servo_cmd_period_cnt
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:564    .bss.g_Vel_Max_PosPU_pSec:00000000 g_Vel_Max_PosPU_pSec
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1646   .data.g_pForce_ref_base_mg:00000000 g_pForce_ref_base_mg
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1634   .data.g_pAcc_ref_base_mmPS2:00000000 g_pAcc_ref_base_mmPS2
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1640   .data.g_pCur_ref_base_mA:00000000 g_pCur_ref_base_mA
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1676   .data.g_pVel_ref_base_umPS:00000000 g_pVel_ref_base_umPS
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1670   .data.g_pVel_ref_base_PPS:00000000 g_pVel_ref_base_PPS
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1664   .data.g_pPos_ref_base_um:00000000 g_pPos_ref_base_um
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:636    .bss.rod_pos_Muti_Encoder:00000000 rod_pos_Muti_Encoder
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1652   .data.g_pMU_0mm_offset:00000000 g_pMU_0mm_offset
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1658   .data.g_pMU_value_offset:00000000 g_pMU_value_offset
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:665    .bss.status_Mode_POSITION_FORCE:00000000 status_Mode_POSITION_FORCE
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:630    .bss.pos_set_last_frm_CMD_PU:00000000 pos_set_last_frm_CMD_PU
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:624    .bss.pos_set_current_frm_CMD_PU:00000000 pos_set_current_frm_CMD_PU
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:594    .bss.g_servo_cmd_pos_last:00000000 g_servo_cmd_pos_last
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:588    .bss.g_servo_cmd_pos_cur:00000000 g_servo_cmd_pos_cur
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:576    .bss.g_servo_cmd_period:00000000 g_servo_cmd_period
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:582    .bss.g_servo_cmd_period_cnt:00000000 g_servo_cmd_period_cnt
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:564    .bss.g_Vel_Max_PosPU_pSec:00000000 g_Vel_Max_PosPU_pSec
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1646   .data.g_pForce_ref_base_mg:00000000 g_pForce_ref_base_mg
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1634   .data.g_pAcc_ref_base_mmPS2:00000000 g_pAcc_ref_base_mmPS2
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1640   .data.g_pCur_ref_base_mA:00000000 g_pCur_ref_base_mA
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1676   .data.g_pVel_ref_base_umPS:00000000 g_pVel_ref_base_umPS
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1670   .data.g_pVel_ref_base_PPS:00000000 g_pVel_ref_base_PPS
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1664   .data.g_pPos_ref_base_um:00000000 g_pPos_ref_base_um
                             *COM*:00000004 pos_p_vel_float
                             *COM*:00000004 range_icmu_vlaue_need_addMax
                             *COM*:00000004 vlaue_icmu_offset_overturn
                             *COM*:00000004 range_icmu_vlaue_at_stroke
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:333    .bss.Flag_error_torsion_dect:00000000 Flag_error_torsion_dect
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:333    .bss.Flag_error_torsion_dect:00000000 Flag_error_torsion_dect
                             *COM*:00000001 Flag_error_MU_value_instable
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:308    .bss.Flag_error_MU_SPI:00000000 Flag_error_MU_SPI
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:313    .bss.Flag_error_current_clib:00000000 Flag_error_current_clib
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:323    .bss.Flag_error_sensor_comm:00000000 Flag_error_sensor_comm
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:328    .bss.Flag_error_set_preDrive:00000000 Flag_error_set_preDrive
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:318    .bss.Flag_error_read_flash:00000000 Flag_error_read_flash
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:618    .bss.pos_nm_MU150:00000000 pos_nm_MU150
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:288    .bss.Encode_PP_Half_R:00000000 Encode_PP_Half_R
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:282    .bss.Encode_PPR:00000000 Encode_PPR
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:383    .bss.Spd_ratio:00000000 Spd_ratio
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 49
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:308    .bss.Flag_error_MU_SPI:00000000 Flag_error_MU_SPI
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:313    .bss.Flag_error_current_clib:00000000 Flag_error_current_clib
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:323    .bss.Flag_error_sensor_comm:00000000 Flag_error_sensor_comm
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:328    .bss.Flag_error_set_preDrive:00000000 Flag_error_set_preDrive
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:318    .bss.Flag_error_read_flash:00000000 Flag_error_read_flash
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:618    .bss.pos_nm_MU150:00000000 pos_nm_MU150
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:288    .bss.Encode_PP_Half_R:00000000 Encode_PP_Half_R
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:282    .bss.Encode_PPR:00000000 Encode_PPR
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:383    .bss.Spd_ratio:00000000 Spd_ratio
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 49
 
 
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1552   .data.g_PowVoltage:00000000 g_PowVoltage
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1558   .data.g_Temperature:00000000 g_Temperature
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:570    .bss.g_bEnableHB:00000000 g_bEnableHB
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:558    .bss.g_Timer1CCR:00000000 g_Timer1CCR
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:546    .bss.g_SysStatus:00000000 g_SysStatus
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:429    .bss.g_BeginPIDFlag:00000000 g_BeginPIDFlag
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:395    .bss.Zero_s16:00000000 Zero_s16
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1552   .data.g_PowVoltage:00000000 g_PowVoltage
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1558   .data.g_Temperature:00000000 g_Temperature
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:570    .bss.g_bEnableHB:00000000 g_bEnableHB
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:558    .bss.g_Timer1CCR:00000000 g_Timer1CCR
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:546    .bss.g_SysStatus:00000000 g_SysStatus
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:429    .bss.g_BeginPIDFlag:00000000 g_BeginPIDFlag
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:395    .bss.Zero_s16:00000000 Zero_s16
                             *COM*:00000001 Motor_pause_flag
                             *COM*:00000001 Motor_emergercy_stop
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:371    .bss.Motor_forbidden:00000000 Motor_forbidden
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:195    .bss.EN_0:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:201    .bss.EN_120:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:207    .bss.EN_150:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:213    .bss.EN_180:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:219    .bss.EN_210:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:225    .bss.EN_240:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:231    .bss.EN_270:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:237    .bss.EN_30:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:243    .bss.EN_300:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:249    .bss.EN_330:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:255    .bss.EN_360:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:261    .bss.EN_45:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:267    .bss.EN_60:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:273    .bss.EN_90:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:279    .bss.Encode_PPR:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:285    .bss.Encode_PP_Half_R:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:294    .bss.Flag_1ms:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:299    .bss.Flag_50ms:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:304    .bss.Flag_contact:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:309    .bss.Flag_error_MU_SPI:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:314    .bss.Flag_error_current_clib:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:319    .bss.Flag_error_read_flash:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:324    .bss.Flag_error_sensor_comm:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:329    .bss.Flag_error_set_preDrive:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:334    .bss.Flag_error_torsion_dect:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:339    .bss.Flag_grip_F_OK:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:344    .bss.Flag_grip_P_OK:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:349    .bss.Flag_rellease_P_OK:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:351    .bss.Gripper_Move:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:357    .bss.L_Slop_Array:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:363    .bss.Mot_Pairs:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:372    .bss.Motor_forbidden:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:374    .bss.Screw_um:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:380    .bss.Spd_ratio:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:386    .bss.Vel_PPS_raw:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:392    .bss.Zero_s16:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:401    .bss.flag_processing_Jtest:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:403    .bss.force_act:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:409    .bss.force_set:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:415    .bss.gVel_PPS:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:421    .bss.g_AngleAtSector:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:430    .bss.g_BeginPIDFlag:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:432    .bss.g_CmdMap:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:441    .bss.g_CurReg_Disabel:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:446    .bss.g_CurReg_Enbale:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:451    .bss.g_CurReg_runing:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:453    .bss.g_ElectricAngle:00000000 $d
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cczGchTk.s 			page 50
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:371    .bss.Motor_forbidden:00000000 Motor_forbidden
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:195    .bss.EN_0:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:201    .bss.EN_120:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:207    .bss.EN_150:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:213    .bss.EN_180:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:219    .bss.EN_210:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:225    .bss.EN_240:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:231    .bss.EN_270:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:237    .bss.EN_30:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:243    .bss.EN_300:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:249    .bss.EN_330:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:255    .bss.EN_360:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:261    .bss.EN_45:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:267    .bss.EN_60:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:273    .bss.EN_90:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:279    .bss.Encode_PPR:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:285    .bss.Encode_PP_Half_R:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:294    .bss.Flag_1ms:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:299    .bss.Flag_50ms:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:304    .bss.Flag_contact:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:309    .bss.Flag_error_MU_SPI:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:314    .bss.Flag_error_current_clib:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:319    .bss.Flag_error_read_flash:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:324    .bss.Flag_error_sensor_comm:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:329    .bss.Flag_error_set_preDrive:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:334    .bss.Flag_error_torsion_dect:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:339    .bss.Flag_grip_F_OK:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:344    .bss.Flag_grip_P_OK:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:349    .bss.Flag_rellease_P_OK:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:351    .bss.Gripper_Move:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:357    .bss.L_Slop_Array:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:363    .bss.Mot_Pairs:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:372    .bss.Motor_forbidden:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:374    .bss.Screw_um:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:380    .bss.Spd_ratio:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:386    .bss.Vel_PPS_raw:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:392    .bss.Zero_s16:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:401    .bss.flag_processing_Jtest:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:403    .bss.force_act:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:409    .bss.force_set:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:415    .bss.gVel_PPS:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:421    .bss.g_AngleAtSector:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:430    .bss.g_BeginPIDFlag:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:432    .bss.g_CmdMap:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:441    .bss.g_CurReg_Disabel:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:446    .bss.g_CurReg_Enbale:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:451    .bss.g_CurReg_runing:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:453    .bss.g_ElectricAngle:00000000 $d
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccTh7utG.s 			page 50
 
 
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:459    .bss.g_ElectricAngle_15bit:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:465    .bss.g_ElectricAngle_15bit_Raw:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:471    .bss.g_ElectricAngle_act:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:477    .bss.g_ElectricAngle_sim:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:483    .bss.g_MechanicsAngle_15bit:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:489    .bss.g_MechanicsAngle_15bit_last:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:495    .bss.g_PosOffset:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:504    .bss.g_PosReg_Disabel:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:509    .bss.g_PosReg_Enbale:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:514    .bss.g_PosReg_runing:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:516    .bss.g_PosSet_Calibrate:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:522    .bss.g_Sector_test:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:531    .bss.g_SpdReg_Disabel:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:536    .bss.g_SpdReg_Enbale:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:541    .bss.g_SpdReg_runing:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:543    .bss.g_SysStatus:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:549    .bss.g_ThreeLoopParaBefLock:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:555    .bss.g_Timer1CCR:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:561    .bss.g_Vel_Max_PosPU_pSec:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:567    .bss.g_bEnableHB:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:573    .bss.g_servo_cmd_period:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:579    .bss.g_servo_cmd_period_cnt:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:585    .bss.g_servo_cmd_pos_cur:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:591    .bss.g_servo_cmd_pos_last:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:597    .bss.g_t0:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:603    .bss.g_tk:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:609    .bss.g_tk_1:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:615    .bss.pos_nm_MU150:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:621    .bss.pos_set_current_frm_CMD_PU:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:627    .bss.pos_set_last_frm_CMD_PU:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:633    .bss.rod_pos_Muti_Encoder:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:639    .bss.s_count_1ms:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:645    .bss.s_count_50ms:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:651    .bss.s_count_5ms:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:657    .bss.state_Jtest:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:666    .bss.status_Mode_POSITION_FORCE:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:668    .data.g_CmdMap_Default:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:930    .data.g_CmdMap_User_bWR:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1032   .data.g_CmdMap_bWR:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1549   .data.g_PowVoltage:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1555   .data.g_Temperature:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1561   .data.g_UserCmdMap_Default:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1631   .data.g_pAcc_ref_base_mmPS2:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1637   .data.g_pCur_ref_base_mA:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1643   .data.g_pForce_ref_base_mg:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1649   .data.g_pMU_0mm_offset:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1655   .data.g_pMU_value_offset:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1661   .data.g_pPos_ref_base_um:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1667   .data.g_pVel_ref_base_PPS:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cczGchTk.s:1673   .data.g_pVel_ref_base_umPS:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:459    .bss.g_ElectricAngle_15bit:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:465    .bss.g_ElectricAngle_15bit_Raw:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:471    .bss.g_ElectricAngle_act:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:477    .bss.g_ElectricAngle_sim:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:483    .bss.g_MechanicsAngle_15bit:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:489    .bss.g_MechanicsAngle_15bit_last:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:495    .bss.g_PosOffset:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:504    .bss.g_PosReg_Disabel:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:509    .bss.g_PosReg_Enbale:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:514    .bss.g_PosReg_runing:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:516    .bss.g_PosSet_Calibrate:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:522    .bss.g_Sector_test:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:531    .bss.g_SpdReg_Disabel:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:536    .bss.g_SpdReg_Enbale:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:541    .bss.g_SpdReg_runing:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:543    .bss.g_SysStatus:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:549    .bss.g_ThreeLoopParaBefLock:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:555    .bss.g_Timer1CCR:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:561    .bss.g_Vel_Max_PosPU_pSec:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:567    .bss.g_bEnableHB:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:573    .bss.g_servo_cmd_period:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:579    .bss.g_servo_cmd_period_cnt:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:585    .bss.g_servo_cmd_pos_cur:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:591    .bss.g_servo_cmd_pos_last:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:597    .bss.g_t0:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:603    .bss.g_tk:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:609    .bss.g_tk_1:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:615    .bss.pos_nm_MU150:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:621    .bss.pos_set_current_frm_CMD_PU:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:627    .bss.pos_set_last_frm_CMD_PU:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:633    .bss.rod_pos_Muti_Encoder:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:639    .bss.s_count_1ms:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:645    .bss.s_count_50ms:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:651    .bss.s_count_5ms:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:657    .bss.state_Jtest:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:666    .bss.status_Mode_POSITION_FORCE:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:668    .data.g_CmdMap_Default:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:930    .data.g_CmdMap_User_bWR:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1032   .data.g_CmdMap_bWR:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1549   .data.g_PowVoltage:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1555   .data.g_Temperature:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1561   .data.g_UserCmdMap_Default:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1631   .data.g_pAcc_ref_base_mmPS2:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1637   .data.g_pCur_ref_base_mA:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1643   .data.g_pForce_ref_base_mg:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1649   .data.g_pMU_0mm_offset:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1655   .data.g_pMU_value_offset:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1661   .data.g_pPos_ref_base_um:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1667   .data.g_pVel_ref_base_PPS:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccTh7utG.s:1673   .data.g_pVel_ref_base_umPS:00000000 $d
 
 NO UNDEFINED SYMBOLS

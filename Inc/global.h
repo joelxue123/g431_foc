@@ -607,9 +607,11 @@ extern s16 g_AngleAtSector;
 extern s16  g_tk ;
 extern s16  g_tk_1;
 extern s16  g_t0 ;
-
+extern float bus_voltage_;
 extern struct WAVE_SIN_GEN_TYPE waveGen;
 
 void get_average_force_data(void);
+
+
 #endif
 

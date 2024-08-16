@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 1
   14:Src/performance_test.c **** 	ptr_sinWave->freq_sin = 0.2f;  //输出的正弦波频率
   43              		.loc 1 14 0
   44 0010 044B     		ldr	r3, .L2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 2
 
 
   45 0012 C360     		str	r3, [r0, #12]	@ float
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 1
   85              		.cfi_offset 6, -12
   86              		.cfi_offset 7, -8
   87              		.cfi_offset 14, -4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 3
 
 
   88 0002 0446     		mov	r4, r0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 1
  120              		.loc 1 51 0
  121 0028 D4ED047A 		vldr.32	s15, [r4, #16]
  122 002c 80EE277A 		vdiv.f32	s14, s0, s15
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 4
 
 
  123 0030 254B     		ldr	r3, .L8+8
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 1
  174              	.LVL12:
  175 00b8 6062     		str	r0, [r4, #36]
   55:Src/performance_test.c **** 	//ptr_sinWave->angle = ptr_sinWave->phase_ini;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 5
 
 
   56:Src/performance_test.c **** }
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 1
  217              		.cfi_offset 14, -4
   70:Src/performance_test.c **** 	{
   71:Src/performance_test.c **** 		ptr_sinWave->moving = 0;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 6
 
 
   72:Src/performance_test.c **** 		return;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 1
  260              	.LCFI2:
  261              		.cfi_def_cfa_offset 0
  262              		.cfi_restore 4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 7
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 7
 
 
  263              		.cfi_restore 14
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 1
  309              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
  310              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
  311              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 8
 
 
  312              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
@@ -442,22 +442,22 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 1
  330              		.file 28 "Inc/icmu.h"
  331              		.file 29 "Inc/global.h"
  332              		.file 30 "Inc/performance_test.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccsS89wk.s 			page 9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 performance_test.c
-C:\Users\82057\AppData\Local\Temp\ccsS89wk.s:18     .text.ini_waveSinGenrator:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccsS89wk.s:25     .text.ini_waveSinGenrator:00000000 ini_waveSinGenrator
-C:\Users\82057\AppData\Local\Temp\ccsS89wk.s:58     .text.ini_waveSinGenrator:00000024 $d
-C:\Users\82057\AppData\Local\Temp\ccsS89wk.s:67     .text.setPara_waveSinGenrator:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccsS89wk.s:74     .text.setPara_waveSinGenrator:00000000 setPara_waveSinGenrator
-C:\Users\82057\AppData\Local\Temp\ccsS89wk.s:182    .text.setPara_waveSinGenrator:000000c0 $d
-C:\Users\82057\AppData\Local\Temp\ccsS89wk.s:190    .text.generate_posWaveSin:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccsS89wk.s:197    .text.generate_posWaveSin:00000000 generate_posWaveSin
-C:\Users\82057\AppData\Local\Temp\ccsS89wk.s:274    .text.generate_posWaveSin:0000005c $d
-C:\Users\82057\AppData\Local\Temp\ccsS89wk.s:279    .text.stop_posWaveSin:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccsS89wk.s:286    .text.stop_posWaveSin:00000000 stop_posWaveSin
+C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:18     .text.ini_waveSinGenrator:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:25     .text.ini_waveSinGenrator:00000000 ini_waveSinGenrator
+C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:58     .text.ini_waveSinGenrator:00000024 $d
+C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:67     .text.setPara_waveSinGenrator:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:74     .text.setPara_waveSinGenrator:00000000 setPara_waveSinGenrator
+C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:182    .text.setPara_waveSinGenrator:000000c0 $d
+C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:190    .text.generate_posWaveSin:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:197    .text.generate_posWaveSin:00000000 generate_posWaveSin
+C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:274    .text.generate_posWaveSin:0000005c $d
+C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:279    .text.stop_posWaveSin:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:286    .text.stop_posWaveSin:00000000 stop_posWaveSin
 
 UNDEFINED SYMBOLS
 __aeabi_f2d

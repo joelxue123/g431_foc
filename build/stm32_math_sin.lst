@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
   29:Src/stm32_math_sin.c **** 0x5155, 0x51A2, 0x51F0, 0x523D, 0x528A, 0x52D7, 0x5324, 0x5370, 0x53BD, 0x5409, 0x5455, 0x54A0, 0x5
   30:Src/stm32_math_sin.c **** 0x5617, 0x5662, 0x56AC, 0x56F6, 0x5740, 0x5789, 0x57D3, 0x581C, 0x5865, 0x58AE, 0x58F6, 0x593F, 0x5
   31:Src/stm32_math_sin.c **** 0x5AA5, 0x5AEC, 0x5B33, 0x5B79, 0x5BC0, 0x5C06, 0x5C4C, 0x5C91, 0x5CD7, 0x5D1C, 0x5D61, 0x5DA6, 0x5
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 2
 
 
   32:Src/stm32_math_sin.c **** 0x5EFA, 0x5F3E, 0x5F81, 0x5FC4, 0x6006, 0x6049, 0x608B, 0x60CD, 0x610F, 0x6150, 0x6192, 0x61D3, 0x6
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
   46 0012 40D0     		beq	.L3
   47 0014 15D9     		bls	.L9
   48 0016 B3F5806F 		cmp	r3, #1024
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 3
 
 
   49 001a 24D0     		beq	.L6
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
   87              	.L6:
   70:Src/stm32_math_sin.c ****     Local_Components.hCos = hSin_Cos_Table_512[0x1FFu-(uhindex & 0x1FF)];
   88              		.loc 1 70 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 4
 
 
   89 0066 C0F30802 		ubfx	r2, r0, #0, #9
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  130 00b0 ADF80230 		strh	r3, [sp, #2]	@ movhi
   87:Src/stm32_math_sin.c ****   default:
  131              		.loc 1 87 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 5
 
 
  132 00b4 E5E7     		b	.L2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  105:Src/stm32_math_sin.c **** }
  176              		.loc 1 105 0
  177 0016 00B2     		sxth	r0, r0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 6
 
 
  178 0018 03B0     		add	sp, sp, #12
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  119:Src/stm32_math_sin.c ****   Trig_temp = Math_Trig_Functions_512(angle_temp);
  221              		.loc 1 119 0
  222 0010 00B2     		sxth	r0, r0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 7
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 7
 
 
  223              	.LVL22:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  277 003c C90B     		.short	3017
  278 003e 2D0C     		.short	3117
  279 0040 910C     		.short	3217
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 8
 
 
  280 0042 F60C     		.short	3318
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  334 00ae D221     		.short	8658
  335 00b0 3422     		.short	8756
  336 00b2 9522     		.short	8853
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 9
 
 
  337 00b4 F622     		.short	8950
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  391 0120 D336     		.short	14035
  392 0122 2E37     		.short	14126
  393 0124 8937     		.short	14217
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 10
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 10
 
 
  394 0126 E337     		.short	14307
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  448 0192 254A     		.short	18981
  449 0194 774A     		.short	19063
  450 0196 C94A     		.short	19145
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 11
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 11
 
 
  451 0198 1B4B     		.short	19227
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  505 0204 335B     		.short	23347
  506 0206 795B     		.short	23417
  507 0208 C05B     		.short	23488
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 12
 
 
  508 020a 065C     		.short	23558
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  562 0276 7569     		.short	26997
  563 0278 AE69     		.short	27054
  564 027a E769     		.short	27111
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 13
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 13
 
 
  565 027c 1F6A     		.short	27167
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  619 02e8 7D74     		.short	29821
  620 02ea A674     		.short	29862
  621 02ec D074     		.short	29904
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 14
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 14
 
 
  622 02ee F974     		.short	29945
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  676 035a F37B     		.short	31731
  677 035c 0C7C     		.short	31756
  678 035e 257C     		.short	31781
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 15
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 15
 
 
  679 0360 3D7C     		.short	31805
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  733 03cc 9E7F     		.short	32670
  734 03ce A57F     		.short	32677
  735 03d0 AD7F     		.short	32685
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 16
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 16
 
 
  736 03d2 B47F     		.short	32692
@@ -955,22 +955,22 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 1
  787              		.file 28 "Inc/icmu.h"
  788              		.file 29 "Inc/performance_test.h"
  789              		.file 30 "Inc/global.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccIONums.s 			page 17
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32_math_sin.c
-C:\Users\82057\AppData\Local\Temp\ccIONums.s:18     .text.Math_Trig_Functions_512:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccIONums.s:25     .text.Math_Trig_Functions_512:00000000 Math_Trig_Functions_512
-C:\Users\82057\AppData\Local\Temp\ccIONums.s:136    .text.Math_Trig_Functions_512:000000b8 $d
-C:\Users\82057\AppData\Local\Temp\ccIONums.s:141    .text.Math_Sin_EN360:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccIONums.s:148    .text.Math_Sin_EN360:00000000 Math_Sin_EN360
-C:\Users\82057\AppData\Local\Temp\ccIONums.s:186    .text.Math_Sin_EN360:00000020 $d
-C:\Users\82057\AppData\Local\Temp\ccIONums.s:191    .text.Math_Cos_EN360:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccIONums.s:198    .text.Math_Cos_EN360:00000000 Math_Cos_EN360
-C:\Users\82057\AppData\Local\Temp\ccIONums.s:236    .text.Math_Cos_EN360:00000020 $d
-C:\Users\82057\AppData\Local\Temp\ccIONums.s:246    .rodata.hSin_Cos_Table_512:00000000 hSin_Cos_Table_512
-C:\Users\82057\AppData\Local\Temp\ccIONums.s:242    .rodata.hSin_Cos_Table_512:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:18     .text.Math_Trig_Functions_512:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:25     .text.Math_Trig_Functions_512:00000000 Math_Trig_Functions_512
+C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:136    .text.Math_Trig_Functions_512:000000b8 $d
+C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:141    .text.Math_Sin_EN360:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:148    .text.Math_Sin_EN360:00000000 Math_Sin_EN360
+C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:186    .text.Math_Sin_EN360:00000020 $d
+C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:191    .text.Math_Cos_EN360:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:198    .text.Math_Cos_EN360:00000000 Math_Cos_EN360
+C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:236    .text.Math_Cos_EN360:00000020 $d
+C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:246    .rodata.hSin_Cos_Table_512:00000000 hSin_Cos_Table_512
+C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:242    .rodata.hSin_Cos_Table_512:00000000 $d
 
 UNDEFINED SYMBOLS
 EN_180

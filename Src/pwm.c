@@ -238,42 +238,6 @@ void Calculate_CCR(TIM_TypeDef* TIMx, s32 angle, s32 targetCCR)	  // Ŀ��CCR
   targetCCR = targetCCR>MAX_CCR?MAX_CCR:(targetCCR<0?0:targetCCR);
 	
 	
-#if 0
-
-	p_cnt++;
-	if(p_cnt == 20000)
-	{
-		p_cnt =0 ;
-		if(hall_ture_value == 5)
-		{
-			hall_ture_value = 1;
-		}
-		else if(hall_ture_value == 1)
-		{
-			hall_ture_value = 3;
-		}
-		else if(hall_ture_value == 3)
-		{
-			hall_ture_value = 2;
-		}
-		else if(hall_ture_value == 2)
-		{
-			hall_ture_value = 6;
-		}
-		else if(hall_ture_value == 6)
-		{
-			hall_ture_value = 4;
-		}
-		else if(hall_ture_value == 4)
-		{
-			hall_ture_value = 5;
-		}
-	}
-	
-#endif 
-	
-
-	
   if (angle >= 0 && angle < EN_60)
   {
 //    tk = ( Math_Sin_EN360(EN_60-angle) * targetCCR ) >> 15;
@@ -348,43 +312,6 @@ void Calculate_CCR(TIM_TypeDef* TIMx, s32 angle, s32 targetCCR)	  // Ŀ��CCR
   //TIMx->CCER = (u16)0x5555;
 	TIMx->CCER = (u16)PWM_OUTPUT_REG;
 	
-#if 0
-	if(g_Sector_test == 1) 
-	{
-
-		ADC1->JSQR &=  ~(0x1f<<9);
-		ADC1->JSQR |=  (0x03<<9);
-
-	}
-	else if(g_Sector_test == 2) 
-	{
-		ADC1->JSQR &=  ~(0x1f<<9);
-		ADC1->JSQR |=  (0x03<<9);
-		
-	}
-	else if(g_Sector_test == 3) 
-	{
-		ADC1->JSQR &=  ~(0x1f<<9);
-		ADC1->JSQR |=  (0x01<<9);
-	}
-	else if(g_Sector_test == 4) 
-	{
-		ADC1->JSQR &=  ~(0x1f<<9);
-		ADC1->JSQR |=  (0x01<<9);
-	}
-	else if(g_Sector_test == 5) 
-	{
-
-		ADC1->JSQR &=  ~(0x1f<<9);
-		ADC1->JSQR |=  (0x01<<9);
-	}
-	else if(g_Sector_test == 6) 
-	{
-		ADC1->JSQR &=  ~(0x1f<<9);
-		ADC1->JSQR |=  (0x03<<9);
-	}
-
-#endif
 	
 }
 
@@ -402,7 +329,7 @@ void PWM_OutPut_Open(TIM_TypeDef* TIMx, s32 ElectricAngle, s32 TimerCCR)
 //	g_high_fre_pulse = 0 - g_high_fre_pulse;
 	
   //TimerCCR = TimerCCR>MAX_CCR?MAX_CCR:(TimerCCR<-MAX_CCR?-MAX_CCR:TimerCCR);
-  TimerCCR = LIMIT_INT(TimerCCR, MAX_CCR,0);
+  TimerCCR = LIMIT_INT(TimerCCR, MAX_CCR,-MAX_CCR);
   if (TimerCCR >= 0)
   {
     angle = ElectricAngle;

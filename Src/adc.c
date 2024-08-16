@@ -1,6 +1,7 @@
 
 #include "adc.h"
 #include "global.h"
+float bus_voltage_ = 0;
 volatile s16 VOLT_ADC_Array[VOLT_SAMPNUM] = {0};								//��ѹģ���źŵ�ADCԭʼֵ
 volatile s16 TEMP_ADC_Array[TEMP_SAMPNUM] = {0};								//�¶�ģ���źŵ�ADCԭʼֵ
 volatile s16 VOLT_ADC_Array_Index = 0;
@@ -229,7 +230,9 @@ ADC_InjectionConfTypeDef sConfigInjected = {0};
 void start_temperature_adc(void)
 {
 	HAL_ADC_Start(&hadc1);
-	g_CmdMap[CMD_TEMP] = get_temperature_value(hadc1.Instance->DR);
+	//g_CmdMap[CMD_TEMP] = get_temperature_value(hadc1.Instance->DR);
+	bus_voltage_ = ((float)(26.833f*3.3f*(hadc1.Instance->DR)))/4096.0f;
+	g_CmdMap[CMD_TEMP] = 0;
 }
 
 

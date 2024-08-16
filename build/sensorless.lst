@@ -1,0 +1,880 @@
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"sensorless.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.wrap_pm_pi,"ax",%progbits
+  18              		.align	1
+  19              		.global	wrap_pm_pi
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	wrap_pm_pi:
+  26              	.LFB333:
+  27              		.file 1 "Src/sensorless.c"
+   1:Src/sensorless.c **** #include "sensorless.h"
+   2:Src/sensorless.c **** 
+   3:Src/sensorless.c **** 
+   4:Src/sensorless.c **** 
+   5:Src/sensorless.c **** 
+   6:Src/sensorless.c **** motor_control_reporting motor_;
+   7:Src/sensorless.c **** 
+   8:Src/sensorless.c **** float wrap_pm_pi(float angle) {
+  28              		.loc 1 8 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+   9:Src/sensorless.c ****     while (angle > M_PI) angle -= 2 * M_PI;
+  34              		.loc 1 9 0
+  35 0000 03E0     		b	.L2
+  36              	.L3:
+  37              		.loc 1 9 0 is_stmt 0 discriminator 2
+  38 0002 DFED0C7A 		vldr.32	s15, .L6
+  39 0006 30EE670A 		vsub.f32	s0, s0, s15
+  40              	.LVL1:
+  41              	.L2:
+  42              		.loc 1 9 0 discriminator 1
+  43 000a DFED0B7A 		vldr.32	s15, .L6+4
+  44 000e B4EEE70A 		vcmpe.f32	s0, s15
+  45 0012 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+  46 0016 F4DC     		bgt	.L3
+  47 0018 03E0     		b	.L4
+  48              	.L5:
+  10:Src/sensorless.c ****     while (angle < -M_PI) angle += 2 * M_PI;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 2
+
+
+  49              		.loc 1 10 0 is_stmt 1 discriminator 2
+  50 001a DFED067A 		vldr.32	s15, .L6
+  51 001e 30EE270A 		vadd.f32	s0, s0, s15
+  52              	.LVL2:
+  53              	.L4:
+  54              		.loc 1 10 0 is_stmt 0 discriminator 1
+  55 0022 DFED067A 		vldr.32	s15, .L6+8
+  56 0026 B4EEE70A 		vcmpe.f32	s0, s15
+  57 002a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+  58 002e F4D4     		bmi	.L5
+  11:Src/sensorless.c ****     return angle;
+  12:Src/sensorless.c **** }
+  59              		.loc 1 12 0 is_stmt 1
+  60 0030 7047     		bx	lr
+  61              	.L7:
+  62 0032 00BF     		.align	2
+  63              	.L6:
+  64 0034 DB0FC940 		.word	1086918619
+  65 0038 DB0F4940 		.word	1078530011
+  66 003c DB0F49C0 		.word	-1068953637
+  67              		.cfi_endproc
+  68              	.LFE333:
+  70              		.section	.text.fast_atan2,"ax",%progbits
+  71              		.align	1
+  72              		.global	fast_atan2
+  73              		.syntax unified
+  74              		.thumb
+  75              		.thumb_func
+  76              		.fpu fpv4-sp-d16
+  78              	fast_atan2:
+  79              	.LFB334:
+  13:Src/sensorless.c **** float fast_atan2(float y, float x) {
+  80              		.loc 1 13 0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  85              	.LVL3:
+  14:Src/sensorless.c ****     // a := min (|x|, |y|) / max (|x|, |y|)
+  15:Src/sensorless.c ****     float abs_y = fabsf(y);
+  86              		.loc 1 15 0
+  87 0000 F0EEC06A 		vabs.f32	s13, s0
+  88              	.LVL4:
+  16:Src/sensorless.c ****     float abs_x = fabsf(x);
+  89              		.loc 1 16 0
+  90 0004 B0EEE07A 		vabs.f32	s14, s1
+  91              	.LVL5:
+  17:Src/sensorless.c ****     // inject FLT_MIN in denominator to avoid division by zero
+  18:Src/sensorless.c ****     float a = MACRO_MIN(abs_x, abs_y) / (MACRO_MAX(abs_x, abs_y) + FLT_MIN);
+  92              		.loc 1 18 0
+  93 0008 F4EEC76A 		vcmpe.f32	s13, s14
+  94 000c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+  95 0010 38DD     		ble	.L26
+  96 0012 F0EE475A 		vmov.f32	s11, s14
+  97              	.L9:
+  98              		.loc 1 18 0 is_stmt 0 discriminator 4
+  99 0016 F4EEC76A 		vcmpe.f32	s13, s14
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 3
+
+
+ 100 001a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 101 001e 34D5     		bpl	.L27
+ 102              		.loc 1 18 0 discriminator 5
+ 103 0020 DFED207A 		vldr.32	s15, .L30
+ 104 0024 77EE277A 		vadd.f32	s15, s14, s15
+ 105              	.L13:
+ 106              		.loc 1 18 0 discriminator 8
+ 107 0028 85EEA76A 		vdiv.f32	s12, s11, s15
+ 108              	.LVL6:
+  19:Src/sensorless.c ****     // s := a * a
+  20:Src/sensorless.c ****     float s = a * a;
+ 109              		.loc 1 20 0 is_stmt 1 discriminator 8
+ 110 002c 66EE065A 		vmul.f32	s11, s12, s12
+ 111              	.LVL7:
+  21:Src/sensorless.c ****     // r := ((-0.0464964749 * s + 0.15931422) * s - 0.327622764) * s * a + a
+  22:Src/sensorless.c ****     float r = ((-0.0464964749f * s + 0.15931422f) * s - 0.327622764f) * s * a + a;
+ 112              		.loc 1 22 0 discriminator 8
+ 113 0030 DFED1D7A 		vldr.32	s15, .L30+4
+ 114 0034 65EEA77A 		vmul.f32	s15, s11, s15
+ 115 0038 9FED1C5A 		vldr.32	s10, .L30+8
+ 116 003c 77EE857A 		vadd.f32	s15, s15, s10
+ 117 0040 67EEA57A 		vmul.f32	s15, s15, s11
+ 118 0044 9FED1A5A 		vldr.32	s10, .L30+12
+ 119 0048 77EEC57A 		vsub.f32	s15, s15, s10
+ 120 004c 67EEA57A 		vmul.f32	s15, s15, s11
+ 121 0050 67EE867A 		vmul.f32	s15, s15, s12
+ 122 0054 77EE867A 		vadd.f32	s15, s15, s12
+ 123              	.LVL8:
+  23:Src/sensorless.c ****     // if |y| > |x| then r := 1.57079637 - r
+  24:Src/sensorless.c ****     if (abs_y > abs_x)
+ 124              		.loc 1 24 0 discriminator 8
+ 125 0058 F4EEC76A 		vcmpe.f32	s13, s14
+ 126 005c F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 127 0060 03DD     		ble	.L14
+  25:Src/sensorless.c ****         r = 1.57079637f - r;
+ 128              		.loc 1 25 0
+ 129 0062 9FED147A 		vldr.32	s14, .L30+16
+ 130              	.LVL9:
+ 131 0066 77EE677A 		vsub.f32	s15, s14, s15
+ 132              	.LVL10:
+ 133              	.L14:
+  26:Src/sensorless.c ****     // if x < 0 then r := 3.14159274 - r
+  27:Src/sensorless.c ****     if (x < 0.0f)
+ 134              		.loc 1 27 0
+ 135 006a F5EEC00A 		vcmpe.f32	s1, #0
+ 136 006e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 137 0072 0FD4     		bmi	.L28
+ 138              	.L16:
+  28:Src/sensorless.c ****         r = 3.14159274f - r;
+  29:Src/sensorless.c ****     // if y < 0 then r := -r
+  30:Src/sensorless.c ****     if (y < 0.0f)
+ 139              		.loc 1 30 0
+ 140 0074 B5EEC00A 		vcmpe.f32	s0, #0
+ 141 0078 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 142 007c 0FD4     		bmi	.L29
+ 143              	.L8:
+  31:Src/sensorless.c ****         r = -r;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 4
+
+
+  32:Src/sensorless.c **** 
+  33:Src/sensorless.c ****     return r;
+  34:Src/sensorless.c **** }
+ 144              		.loc 1 34 0
+ 145 007e B0EE670A 		vmov.f32	s0, s15
+ 146              	.LVL11:
+ 147 0082 7047     		bx	lr
+ 148              	.LVL12:
+ 149              	.L26:
+  18:Src/sensorless.c ****     // s := a * a
+ 150              		.loc 1 18 0
+ 151 0084 F0EE665A 		vmov.f32	s11, s13
+ 152 0088 C5E7     		b	.L9
+ 153              	.L27:
+  18:Src/sensorless.c ****     // s := a * a
+ 154              		.loc 1 18 0 is_stmt 0 discriminator 6
+ 155 008a DFED067A 		vldr.32	s15, .L30
+ 156 008e 76EEA77A 		vadd.f32	s15, s13, s15
+ 157 0092 C9E7     		b	.L13
+ 158              	.LVL13:
+ 159              	.L28:
+  28:Src/sensorless.c ****         r = 3.14159274f - r;
+ 160              		.loc 1 28 0 is_stmt 1
+ 161 0094 9FED087A 		vldr.32	s14, .L30+20
+ 162 0098 77EE677A 		vsub.f32	s15, s14, s15
+ 163              	.LVL14:
+ 164 009c EAE7     		b	.L16
+ 165              	.L29:
+  31:Src/sensorless.c ****         r = -r;
+ 166              		.loc 1 31 0
+ 167 009e F1EE677A 		vneg.f32	s15, s15
+ 168              	.LVL15:
+  33:Src/sensorless.c **** }
+ 169              		.loc 1 33 0
+ 170 00a2 ECE7     		b	.L8
+ 171              	.L31:
+ 172              		.align	2
+ 173              	.L30:
+ 174 00a4 00008000 		.word	8388608
+ 175 00a8 16733EBD 		.word	-1119980778
+ 176 00ac 4423233E 		.word	1042490180
+ 177 00b0 2CBEA73E 		.word	1051180588
+ 178 00b4 DB0FC93F 		.word	1070141403
+ 179 00b8 DB0F4940 		.word	1078530011
+ 180              		.cfi_endproc
+ 181              	.LFE334:
+ 183              		.section	.text.init_motor,"ax",%progbits
+ 184              		.align	1
+ 185              		.global	init_motor
+ 186              		.syntax unified
+ 187              		.thumb
+ 188              		.thumb_func
+ 189              		.fpu fpv4-sp-d16
+ 191              	init_motor:
+ 192              	.LFB335:
+  35:Src/sensorless.c **** 
+  36:Src/sensorless.c **** 
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 5
+
+
+  37:Src/sensorless.c **** 
+  38:Src/sensorless.c **** void init_motor(motor_control_reporting *motor) {
+ 193              		.loc 1 38 0
+ 194              		.cfi_startproc
+ 195              		@ args = 0, pretend = 0, frame = 0
+ 196              		@ frame_needed = 0, uses_anonymous_args = 0
+ 197              		@ link register save eliminated.
+ 198              	.LVL16:
+  39:Src/sensorless.c **** 
+  40:Src/sensorless.c **** 
+  41:Src/sensorless.c ****     motor->config_.direction = 1.0f;
+ 199              		.loc 1 41 0
+ 200 0000 4FF07E52 		mov	r2, #1065353216
+ 201 0004 0260     		str	r2, [r0]	@ float
+  42:Src/sensorless.c ****     motor->config_.phase_inductance = 0.001f;
+ 202              		.loc 1 42 0
+ 203 0006 0F4B     		ldr	r3, .L33
+ 204 0008 4360     		str	r3, [r0, #4]	@ float
+  43:Src/sensorless.c ****     motor->config_.phase_resistance = 2.0f;
+ 205              		.loc 1 43 0
+ 206 000a 4FF08043 		mov	r3, #1073741824
+ 207 000e 8360     		str	r3, [r0, #8]	@ float
+  44:Src/sensorless.c ****     motor->config_.pm_flux_linkage = 0.006f;
+ 208              		.loc 1 44 0
+ 209 0010 0D4B     		ldr	r3, .L33+4
+ 210 0012 C360     		str	r3, [r0, #12]	@ float
+  45:Src/sensorless.c ****     motor->config_.pole_pairs = 10.0f;
+ 211              		.loc 1 45 0
+ 212 0014 0D4B     		ldr	r3, .L33+8
+ 213 0016 0361     		str	r3, [r0, #16]	@ float
+  46:Src/sensorless.c ****     motor->config_.observer_gain = 1000.0f;
+ 214              		.loc 1 46 0
+ 215 0018 0D4B     		ldr	r3, .L33+12
+ 216 001a 4361     		str	r3, [r0, #20]	@ float
+  47:Src/sensorless.c ****     motor->config_.pll_bandwidth = 1000.0f;
+ 217              		.loc 1 47 0
+ 218 001c 8361     		str	r3, [r0, #24]	@ float
+  48:Src/sensorless.c **** 
+  49:Src/sensorless.c **** 
+  50:Src/sensorless.c ****     motor->current_meas_.phA = 0.0f;
+ 219              		.loc 1 50 0
+ 220 001e 0023     		movs	r3, #0
+ 221 0020 C361     		str	r3, [r0, #28]	@ float
+  51:Src/sensorless.c ****     motor->current_meas_.phB = 0.0f;
+ 222              		.loc 1 51 0
+ 223 0022 0362     		str	r3, [r0, #32]	@ float
+  52:Src/sensorless.c ****     motor->current_meas_.phC = 0.0f;
+ 224              		.loc 1 52 0
+ 225 0024 4362     		str	r3, [r0, #36]	@ float
+  53:Src/sensorless.c **** 
+  54:Src/sensorless.c **** 
+  55:Src/sensorless.c ****     motor->current_control_.final_v_alpha = 0.0f;
+ 226              		.loc 1 55 0
+ 227 0026 8362     		str	r3, [r0, #40]	@ float
+  56:Src/sensorless.c ****     motor->current_control_.final_v_beta = 0.0f;
+ 228              		.loc 1 56 0
+ 229 0028 C362     		str	r3, [r0, #44]	@ float
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 6
+
+
+  57:Src/sensorless.c **** 
+  58:Src/sensorless.c **** 
+  59:Src/sensorless.c ****     motor->V_alpha_beta_memory_[0] = 0.0f;
+ 230              		.loc 1 59 0
+ 231 002a 0363     		str	r3, [r0, #48]	@ float
+  60:Src/sensorless.c ****     motor->V_alpha_beta_memory_[1] = 0.0f;
+ 232              		.loc 1 60 0
+ 233 002c 4363     		str	r3, [r0, #52]	@ float
+  61:Src/sensorless.c ****     motor->flux_state_[0] = 0.0f;
+ 234              		.loc 1 61 0
+ 235 002e 8363     		str	r3, [r0, #56]	@ float
+  62:Src/sensorless.c ****     motor->flux_state_[1] = 0.0f;
+ 236              		.loc 1 62 0
+ 237 0030 C363     		str	r3, [r0, #60]	@ float
+  63:Src/sensorless.c ****     motor->flux_state_memory_[0] = 0.0f;
+ 238              		.loc 1 63 0
+ 239 0032 0364     		str	r3, [r0, #64]	@ float
+  64:Src/sensorless.c ****     motor->flux_state_memory_[1] = 0.0f;
+ 240              		.loc 1 64 0
+ 241 0034 4364     		str	r3, [r0, #68]	@ float
+  65:Src/sensorless.c ****     motor->vel_estimate_valid_ = true;
+ 242              		.loc 1 65 0
+ 243 0036 8264     		str	r2, [r0, #72]	@ float
+  66:Src/sensorless.c ****     motor->vel_estimate_ = 0.0f;
+ 244              		.loc 1 66 0
+ 245 0038 C365     		str	r3, [r0, #92]	@ float
+  67:Src/sensorless.c ****     motor->pll_pos_ = 0.0f;
+ 246              		.loc 1 67 0
+ 247 003a 0365     		str	r3, [r0, #80]	@ float
+  68:Src/sensorless.c ****     motor->vel_estimate_erad_ = 0.0f;
+ 248              		.loc 1 68 0
+ 249 003c 4365     		str	r3, [r0, #84]	@ float
+  69:Src/sensorless.c ****     motor->phase_ = 0.0f;
+ 250              		.loc 1 69 0
+ 251 003e 8365     		str	r3, [r0, #88]	@ float
+  70:Src/sensorless.c **** 
+  71:Src/sensorless.c **** 
+  72:Src/sensorless.c **** }
+ 252              		.loc 1 72 0
+ 253 0040 7047     		bx	lr
+ 254              	.L34:
+ 255 0042 00BF     		.align	2
+ 256              	.L33:
+ 257 0044 6F12833A 		.word	981668463
+ 258 0048 A69BC43B 		.word	1002740646
+ 259 004c 00002041 		.word	1092616192
+ 260 0050 00007A44 		.word	1148846080
+ 261              		.cfi_endproc
+ 262              	.LFE335:
+ 264              		.section	.text.update_current_meas,"ax",%progbits
+ 265              		.align	1
+ 266              		.global	update_current_meas
+ 267              		.syntax unified
+ 268              		.thumb
+ 269              		.thumb_func
+ 270              		.fpu fpv4-sp-d16
+ 272              	update_current_meas:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 7
+
+
+ 273              	.LFB336:
+  73:Src/sensorless.c **** 
+  74:Src/sensorless.c **** void update_current_meas(motor_control_reporting *motor, float phA, float phB, float phC)
+  75:Src/sensorless.c **** {
+ 274              		.loc 1 75 0
+ 275              		.cfi_startproc
+ 276              		@ args = 0, pretend = 0, frame = 0
+ 277              		@ frame_needed = 0, uses_anonymous_args = 0
+ 278              		@ link register save eliminated.
+ 279              	.LVL17:
+  76:Src/sensorless.c **** 	motor->current_meas_.phA = phA;
+ 280              		.loc 1 76 0
+ 281 0000 80ED070A 		vstr.32	s0, [r0, #28]
+  77:Src/sensorless.c ****     motor->current_meas_.phB = phB;
+ 282              		.loc 1 77 0
+ 283 0004 C0ED080A 		vstr.32	s1, [r0, #32]
+  78:Src/sensorless.c ****     motor->current_meas_.phC = phC;
+ 284              		.loc 1 78 0
+ 285 0008 80ED091A 		vstr.32	s2, [r0, #36]
+  79:Src/sensorless.c **** }
+ 286              		.loc 1 79 0
+ 287 000c 7047     		bx	lr
+ 288              		.cfi_endproc
+ 289              	.LFE336:
+ 291              		.section	.text.update_current_control,"ax",%progbits
+ 292              		.align	1
+ 293              		.global	update_current_control
+ 294              		.syntax unified
+ 295              		.thumb
+ 296              		.thumb_func
+ 297              		.fpu fpv4-sp-d16
+ 299              	update_current_control:
+ 300              	.LFB337:
+  80:Src/sensorless.c **** void update_current_control(motor_control_reporting *motor, float final_v_alpha, float final_v_beta
+  81:Src/sensorless.c **** {
+ 301              		.loc 1 81 0
+ 302              		.cfi_startproc
+ 303              		@ args = 0, pretend = 0, frame = 0
+ 304              		@ frame_needed = 0, uses_anonymous_args = 0
+ 305              		@ link register save eliminated.
+ 306              	.LVL18:
+  82:Src/sensorless.c **** 	motor->current_control_.final_v_alpha = final_v_alpha;
+ 307              		.loc 1 82 0
+ 308 0000 80ED0A0A 		vstr.32	s0, [r0, #40]
+  83:Src/sensorless.c ****     motor->current_control_.final_v_beta = final_v_beta;
+ 309              		.loc 1 83 0
+ 310 0004 C0ED0B0A 		vstr.32	s1, [r0, #44]
+  84:Src/sensorless.c **** }
+ 311              		.loc 1 84 0
+ 312 0008 7047     		bx	lr
+ 313              		.cfi_endproc
+ 314              	.LFE337:
+ 316              		.section	.text.non_linear_flux_observer,"ax",%progbits
+ 317              		.align	1
+ 318              		.global	non_linear_flux_observer
+ 319              		.syntax unified
+ 320              		.thumb
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 8
+
+
+ 321              		.thumb_func
+ 322              		.fpu fpv4-sp-d16
+ 324              	non_linear_flux_observer:
+ 325              	.LFB338:
+  85:Src/sensorless.c **** int non_linear_flux_observer(void) {
+ 326              		.loc 1 85 0
+ 327              		.cfi_startproc
+ 328              		@ args = 0, pretend = 0, frame = 16
+ 329              		@ frame_needed = 0, uses_anonymous_args = 0
+ 330 0000 10B5     		push	{r4, lr}
+ 331              	.LCFI0:
+ 332              		.cfi_def_cfa_offset 8
+ 333              		.cfi_offset 4, -8
+ 334              		.cfi_offset 14, -4
+ 335 0002 2DED068B 		vpush.64	{d8, d9, d10}
+ 336              	.LCFI1:
+ 337              		.cfi_def_cfa_offset 32
+ 338              		.cfi_offset 80, -32
+ 339              		.cfi_offset 81, -28
+ 340              		.cfi_offset 82, -24
+ 341              		.cfi_offset 83, -20
+ 342              		.cfi_offset 84, -16
+ 343              		.cfi_offset 85, -12
+ 344 0006 84B0     		sub	sp, sp, #16
+ 345              	.LCFI2:
+ 346              		.cfi_def_cfa_offset 48
+  86:Src/sensorless.c ****     // Algorithm based on paper: Sensorless Control of Surface-Mount Permanent-Magnet Synchronous M
+  87:Src/sensorless.c ****     // http://cas.ensmp.fr/~praly/Telechargement/Journaux/2010-IEEE_TPEL-Lee-Hong-Nam-Ortega-Praly-
+  88:Src/sensorless.c ****     // In particular, equation 8 (and by extension eqn 4 and 6).
+  89:Src/sensorless.c **** 
+  90:Src/sensorless.c ****     // The V_alpha_beta applied immedietly prior to the current measurement associated with this cy
+  91:Src/sensorless.c ****     // is the one computed two cycles ago. To get the correct measurement, it was stored twice:
+  92:Src/sensorless.c ****     // once by final_v_alpha/final_v_beta in the current control reporting, and once by V_alpha_bet
+  93:Src/sensorless.c **** 
+  94:Src/sensorless.c ****     // Clarke transform
+  95:Src/sensorless.c ****     float I_alpha_beta[2] = {
+  96:Src/sensorless.c ****         -motor_.current_meas_.phB - motor_.current_meas_.phC,
+ 347              		.loc 1 96 0
+ 348 0008 804B     		ldr	r3, .L49
+ 349 000a D3ED087A 		vldr.32	s15, [r3, #32]
+ 350 000e B1EE677A 		vneg.f32	s14, s15
+ 351 0012 D3ED096A 		vldr.32	s13, [r3, #36]
+ 352 0016 37EE667A 		vsub.f32	s14, s14, s13
+  95:Src/sensorless.c ****         -motor_.current_meas_.phB - motor_.current_meas_.phC,
+ 353              		.loc 1 95 0
+ 354 001a 8DED027A 		vstr.32	s14, [sp, #8]
+  97:Src/sensorless.c ****         one_by_sqrt3 * (motor_.current_meas_.phB - motor_.current_meas_.phC)};
+ 355              		.loc 1 97 0
+ 356 001e 77EEE67A 		vsub.f32	s15, s15, s13
+ 357 0022 9FED7B7A 		vldr.32	s14, .L49+4
+ 358 0026 67EE877A 		vmul.f32	s15, s15, s14
+  98:Src/sensorless.c **** 
+  99:Src/sensorless.c ****     // Swap sign of I_beta if motor is reversed
+ 100:Src/sensorless.c ****     I_alpha_beta[1] *= motor_.config_.direction;
+ 359              		.loc 1 100 0
+ 360 002a 93ED006A 		vldr.32	s12, [r3]
+ 361 002e 67EE867A 		vmul.f32	s15, s15, s12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 9
+
+
+ 362 0032 CDED037A 		vstr.32	s15, [sp, #12]
+ 363              	.LVL19:
+ 364              	.LBB2:
+ 101:Src/sensorless.c **** 
+ 102:Src/sensorless.c ****     // alpha-beta vector operations
+ 103:Src/sensorless.c ****     float eta[2];
+ 104:Src/sensorless.c ****     for (int i = 0; i <= 1; ++i) {
+ 365              		.loc 1 104 0
+ 366 0036 0023     		movs	r3, #0
+ 367 0038 28E0     		b	.L38
+ 368              	.LVL20:
+ 369              	.L39:
+ 370              	.LBB3:
+ 105:Src/sensorless.c ****         // y is the total flux-driving voltage (see paper eqn 4)
+ 106:Src/sensorless.c ****         float y = -motor_.config_.phase_resistance * I_alpha_beta[i] + motor_.V_alpha_beta_memory_[
+ 371              		.loc 1 106 0 discriminator 3
+ 372 003a 744A     		ldr	r2, .L49
+ 373 003c D2ED027A 		vldr.32	s15, [r2, #8]
+ 374 0040 04A9     		add	r1, sp, #16
+ 375 0042 01EB8300 		add	r0, r1, r3, lsl #2
+ 376 0046 10ED027A 		vldr.32	s14, [r0, #-8]
+ 377 004a 67EEC77A 		vnmul.f32	s15, s15, s14
+ 378 004e 03F10C01 		add	r1, r3, #12
+ 379 0052 02EB8101 		add	r1, r2, r1, lsl #2
+ 380 0056 D1ED006A 		vldr.32	s13, [r1]
+ 381 005a 77EEA67A 		vadd.f32	s15, s15, s13
+ 382              	.LVL21:
+ 107:Src/sensorless.c ****         // flux dynamics (prediction)
+ 108:Src/sensorless.c ****         float x_dot = y;
+ 109:Src/sensorless.c ****         // integrate prediction to current timestep
+ 110:Src/sensorless.c ****         motor_.flux_state_[i] += x_dot * DT;
+ 383              		.loc 1 110 0 discriminator 3
+ 384 005e DFED6D6A 		vldr.32	s13, .L49+8
+ 385 0062 67EEA67A 		vmul.f32	s15, s15, s13
+ 386              	.LVL22:
+ 387 0066 03F10E01 		add	r1, r3, #14
+ 388              	.LVL23:
+ 389 006a 02EB8101 		add	r1, r2, r1, lsl #2
+ 390 006e D1ED006A 		vldr.32	s13, [r1]
+ 391 0072 77EEA67A 		vadd.f32	s15, s15, s13
+ 392 0076 C1ED007A 		vstr.32	s15, [r1]
+ 393              	.LVL24:
+ 111:Src/sensorless.c **** 
+ 112:Src/sensorless.c ****         // eta is the estimated permanent magnet flux (see paper eqn 6)
+ 113:Src/sensorless.c ****         eta[i] = motor_.flux_state_[i] - motor_.config_.phase_inductance * I_alpha_beta[i];
+ 394              		.loc 1 113 0 discriminator 3
+ 395 007a D2ED016A 		vldr.32	s13, [r2, #4]
+ 396 007e 27EE267A 		vmul.f32	s14, s14, s13
+ 397 0082 77EEC77A 		vsub.f32	s15, s15, s14
+ 398 0086 40ED047A 		vstr.32	s15, [r0, #-16]
+ 399              	.LBE3:
+ 104:Src/sensorless.c ****         // y is the total flux-driving voltage (see paper eqn 4)
+ 400              		.loc 1 104 0 discriminator 3
+ 401 008a 0133     		adds	r3, r3, #1
+ 402              	.LVL25:
+ 403              	.L38:
+ 104:Src/sensorless.c ****         // y is the total flux-driving voltage (see paper eqn 4)
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 10
+
+
+ 404              		.loc 1 104 0 is_stmt 0 discriminator 1
+ 405 008c 012B     		cmp	r3, #1
+ 406 008e D4DD     		ble	.L39
+ 407              	.LBE2:
+ 114:Src/sensorless.c ****     }
+ 115:Src/sensorless.c **** 
+ 116:Src/sensorless.c ****     // Non-linear observer (see paper eqn 8):
+ 117:Src/sensorless.c ****     float pm_flux_sqr = motor_.config_.pm_flux_linkage * motor_.config_.pm_flux_linkage;
+ 408              		.loc 1 117 0 is_stmt 1
+ 409 0090 5E4B     		ldr	r3, .L49
+ 410              	.LVL26:
+ 411 0092 D3ED037A 		vldr.32	s15, [r3, #12]
+ 412 0096 67EEA77A 		vmul.f32	s15, s15, s15
+ 413              	.LVL27:
+ 118:Src/sensorless.c ****     float est_pm_flux_sqr = eta[0] * eta[0] + eta[1] * eta[1];
+ 414              		.loc 1 118 0
+ 415 009a 9DED007A 		vldr.32	s14, [sp]
+ 416 009e 27EE077A 		vmul.f32	s14, s14, s14
+ 417 00a2 DDED016A 		vldr.32	s13, [sp, #4]
+ 418 00a6 66EEA66A 		vmul.f32	s13, s13, s13
+ 419 00aa 77EE266A 		vadd.f32	s13, s14, s13
+ 420              	.LVL28:
+ 119:Src/sensorless.c ****     float bandwidth_factor = 1.0f / pm_flux_sqr;
+ 421              		.loc 1 119 0
+ 422 00ae B7EE007A 		vmov.f32	s14, #1.0e+0
+ 423 00b2 C7EE275A 		vdiv.f32	s11, s14, s15
+ 424              	.LVL29:
+ 120:Src/sensorless.c ****     float eta_factor = 0.5f * (motor_.config_.observer_gain * bandwidth_factor) * (pm_flux_sqr - es
+ 425              		.loc 1 120 0
+ 426 00b6 93ED057A 		vldr.32	s14, [r3, #20]
+ 427 00ba 27EE257A 		vmul.f32	s14, s14, s11
+ 428 00be F6EE005A 		vmov.f32	s11, #5.0e-1
+ 429              	.LVL30:
+ 430 00c2 27EE257A 		vmul.f32	s14, s14, s11
+ 431 00c6 77EEE67A 		vsub.f32	s15, s15, s13
+ 432              	.LVL31:
+ 433 00ca 27EE277A 		vmul.f32	s14, s14, s15
+ 434              	.LVL32:
+ 435              	.LBB4:
+ 121:Src/sensorless.c **** 
+ 122:Src/sensorless.c ****     // alpha-beta vector operations
+ 123:Src/sensorless.c ****     for (int i = 0; i <= 1; ++i) {
+ 436              		.loc 1 123 0
+ 437 00ce 0023     		movs	r3, #0
+ 438 00d0 20E0     		b	.L40
+ 439              	.LVL33:
+ 440              	.L41:
+ 441              	.LBB5:
+ 124:Src/sensorless.c ****         // add observer action to flux estimate dynamics
+ 125:Src/sensorless.c ****         float x_dot = eta_factor * eta[i];
+ 442              		.loc 1 125 0 discriminator 3
+ 443 00d2 04AA     		add	r2, sp, #16
+ 444 00d4 02EB8301 		add	r1, r2, r3, lsl #2
+ 445 00d8 51ED047A 		vldr.32	s15, [r1, #-16]
+ 446 00dc 67EE877A 		vmul.f32	s15, s15, s14
+ 447              	.LVL34:
+ 126:Src/sensorless.c ****         // convert action to discrete-time
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 11
+
+
+ 127:Src/sensorless.c ****         motor_.flux_state_[i] += x_dot * DT;
+ 448              		.loc 1 127 0 discriminator 3
+ 449 00e0 DFED4C6A 		vldr.32	s13, .L49+8
+ 450 00e4 67EEA67A 		vmul.f32	s15, s15, s13
+ 451              	.LVL35:
+ 452 00e8 4848     		ldr	r0, .L49
+ 453 00ea 03F10E02 		add	r2, r3, #14
+ 454 00ee 00EB8202 		add	r2, r0, r2, lsl #2
+ 455 00f2 D2ED006A 		vldr.32	s13, [r2]
+ 456 00f6 77EEA67A 		vadd.f32	s15, s15, s13
+ 457 00fa C2ED007A 		vstr.32	s15, [r2]
+ 128:Src/sensorless.c ****         // update new eta
+ 129:Src/sensorless.c ****         eta[i] = motor_.flux_state_[i] - motor_.config_.phase_inductance * I_alpha_beta[i];
+ 458              		.loc 1 129 0 discriminator 3
+ 459 00fe D0ED016A 		vldr.32	s13, [r0, #4]
+ 460 0102 51ED025A 		vldr.32	s11, [r1, #-8]
+ 461 0106 66EEA56A 		vmul.f32	s13, s13, s11
+ 462 010a 77EEE67A 		vsub.f32	s15, s15, s13
+ 463 010e 41ED047A 		vstr.32	s15, [r1, #-16]
+ 464              	.LVL36:
+ 465              	.LBE5:
+ 123:Src/sensorless.c ****         // add observer action to flux estimate dynamics
+ 466              		.loc 1 123 0 discriminator 3
+ 467 0112 0133     		adds	r3, r3, #1
+ 468              	.LVL37:
+ 469              	.L40:
+ 123:Src/sensorless.c ****         // add observer action to flux estimate dynamics
+ 470              		.loc 1 123 0 is_stmt 0 discriminator 1
+ 471 0114 012B     		cmp	r3, #1
+ 472 0116 DCDD     		ble	.L41
+ 473              	.LBE4:
+ 130:Src/sensorless.c ****     }
+ 131:Src/sensorless.c **** 
+ 132:Src/sensorless.c ****     // Flux state estimation done, store V_alpha_beta for next timestep
+ 133:Src/sensorless.c ****     motor_.V_alpha_beta_memory_[0] = motor_.current_control_.final_v_alpha;
+ 474              		.loc 1 133 0 is_stmt 1
+ 475 0118 3C4B     		ldr	r3, .L49
+ 476              	.LVL38:
+ 477 011a 9A6A     		ldr	r2, [r3, #40]	@ float
+ 478 011c 1A63     		str	r2, [r3, #48]	@ float
+ 134:Src/sensorless.c ****     motor_.V_alpha_beta_memory_[1] = motor_.current_control_.final_v_beta * motor_.config_.directio
+ 479              		.loc 1 134 0
+ 480 011e D3ED0B7A 		vldr.32	s15, [r3, #44]
+ 481 0122 26EE276A 		vmul.f32	s12, s12, s15
+ 482 0126 83ED0D6A 		vstr.32	s12, [r3, #52]
+ 135:Src/sensorless.c **** 
+ 136:Src/sensorless.c ****     // PLL
+ 137:Src/sensorless.c ****     // TODO: the PLL part has some code duplication with the encoder PLL
+ 138:Src/sensorless.c ****     // Pll gains as a function of bandwidth
+ 139:Src/sensorless.c ****     float pll_kp = 2.0f * motor_.config_.pll_bandwidth;
+ 483              		.loc 1 139 0
+ 484 012a 93ED060A 		vldr.32	s0, [r3, #24]
+ 485 012e 30EE000A 		vadd.f32	s0, s0, s0
+ 486              	.LVL39:
+ 140:Src/sensorless.c ****     // Critically damped
+ 141:Src/sensorless.c ****     float pll_ki = 0.25f * (pll_kp * pll_kp);
+ 487              		.loc 1 141 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 12
+
+
+ 488 0132 20EE007A 		vmul.f32	s14, s0, s0
+ 489              	.LVL40:
+ 490 0136 F5EE007A 		vmov.f32	s15, #2.5e-1
+ 491 013a 67EE278A 		vmul.f32	s17, s14, s15
+ 492              	.LVL41:
+ 142:Src/sensorless.c ****     // Check that we don't get problems with discrete time approximation
+ 143:Src/sensorless.c ****     if (!(DT * pll_kp < 1.0f)) {
+ 493              		.loc 1 143 0
+ 494 013e 9FED358A 		vldr.32	s16, .L49+8
+ 495 0142 20EE088A 		vmul.f32	s16, s0, s16
+ 496 0146 F7EE007A 		vmov.f32	s15, #1.0e+0
+ 497 014a B4EEE78A 		vcmpe.f32	s16, s15
+ 498 014e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 499 0152 06D4     		bmi	.L42
+ 144:Src/sensorless.c ****         motor_.vel_estimate_valid_ = false;
+ 500              		.loc 1 144 0
+ 501 0154 0022     		movs	r2, #0
+ 502 0156 9A64     		str	r2, [r3, #72]	@ float
+ 145:Src/sensorless.c ****         return false;
+ 503              		.loc 1 145 0
+ 504 0158 0020     		movs	r0, #0
+ 505              	.LVL42:
+ 506              	.L37:
+ 146:Src/sensorless.c ****     }
+ 147:Src/sensorless.c **** 
+ 148:Src/sensorless.c ****     // predict PLL phase with velocity
+ 149:Src/sensorless.c ****     motor_.pll_pos_ = wrap_pm_pi(motor_.pll_pos_ + DT * motor_.vel_estimate_erad_);
+ 150:Src/sensorless.c ****     // update PLL phase with observer permanent magnet phase
+ 151:Src/sensorless.c ****     motor_.phase_ = fast_atan2(eta[1], eta[0]) + M_PI/2.0f;
+ 152:Src/sensorless.c **** 	motor_.phase_ = wrap_pm_pi(motor_.phase_ )   ;
+ 153:Src/sensorless.c **** 	if(motor_.phase_ < 0) motor_.phase_ += 2.0f * M_PI;
+ 154:Src/sensorless.c ****     float delta_phase = wrap_pm_pi(motor_.phase_ - motor_.pll_pos_);
+ 155:Src/sensorless.c ****     motor_.pll_pos_ = wrap_pm_pi(motor_.pll_pos_ + DT * pll_kp * delta_phase);
+ 156:Src/sensorless.c ****     // update PLL velocity
+ 157:Src/sensorless.c ****     motor_.vel_estimate_erad_ += DT * pll_ki * delta_phase;
+ 158:Src/sensorless.c ****     // convert to mechanical turns/s for controller usage.
+ 159:Src/sensorless.c ****     motor_.vel_estimate_ = motor_.vel_estimate_erad_ / (motor_.config_.pole_pairs * 2.0f * M_PI);
+ 160:Src/sensorless.c **** 
+ 161:Src/sensorless.c ****     motor_.vel_estimate_valid_ = true;
+ 162:Src/sensorless.c ****     return true;
+ 163:Src/sensorless.c **** };
+ 507              		.loc 1 163 0
+ 508 015a 04B0     		add	sp, sp, #16
+ 509              	.LCFI3:
+ 510              		.cfi_remember_state
+ 511              		.cfi_def_cfa_offset 32
+ 512              		@ sp needed
+ 513 015c BDEC068B 		vldm	sp!, {d8-d10}
+ 514              	.LCFI4:
+ 515              		.cfi_restore 84
+ 516              		.cfi_restore 85
+ 517              		.cfi_restore 82
+ 518              		.cfi_restore 83
+ 519              		.cfi_restore 80
+ 520              		.cfi_restore 81
+ 521              		.cfi_def_cfa_offset 8
+ 522 0160 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 13
+
+
+ 523              	.LVL43:
+ 524              	.L42:
+ 525              	.LCFI5:
+ 526              		.cfi_restore_state
+ 149:Src/sensorless.c ****     // update PLL phase with observer permanent magnet phase
+ 527              		.loc 1 149 0
+ 528 0162 2A4C     		ldr	r4, .L49
+ 529 0164 94ED140A 		vldr.32	s0, [r4, #80]
+ 530              	.LVL44:
+ 531 0168 94ED159A 		vldr.32	s18, [r4, #84]
+ 532 016c DFED297A 		vldr.32	s15, .L49+8
+ 533 0170 69EE277A 		vmul.f32	s15, s18, s15
+ 534 0174 30EE270A 		vadd.f32	s0, s0, s15
+ 535 0178 FFF7FEFF 		bl	wrap_pm_pi
+ 536              	.LVL45:
+ 537 017c B0EE40AA 		vmov.f32	s20, s0
+ 151:Src/sensorless.c **** 	motor_.phase_ = wrap_pm_pi(motor_.phase_ )   ;
+ 538              		.loc 1 151 0
+ 539 0180 DDED000A 		vldr.32	s1, [sp]
+ 540 0184 9DED010A 		vldr.32	s0, [sp, #4]
+ 541 0188 FFF7FEFF 		bl	fast_atan2
+ 542              	.LVL46:
+ 152:Src/sensorless.c **** 	if(motor_.phase_ < 0) motor_.phase_ += 2.0f * M_PI;
+ 543              		.loc 1 152 0
+ 544 018c DFED227A 		vldr.32	s15, .L49+12
+ 545 0190 30EE270A 		vadd.f32	s0, s0, s15
+ 546 0194 FFF7FEFF 		bl	wrap_pm_pi
+ 547              	.LVL47:
+ 548 0198 84ED160A 		vstr.32	s0, [r4, #88]
+ 153:Src/sensorless.c ****     float delta_phase = wrap_pm_pi(motor_.phase_ - motor_.pll_pos_);
+ 549              		.loc 1 153 0
+ 550 019c B5EEC00A 		vcmpe.f32	s0, #0
+ 551 01a0 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 552 01a4 2BD4     		bmi	.L48
+ 553              	.L44:
+ 154:Src/sensorless.c ****     motor_.pll_pos_ = wrap_pm_pi(motor_.pll_pos_ + DT * pll_kp * delta_phase);
+ 554              		.loc 1 154 0
+ 555 01a6 194C     		ldr	r4, .L49
+ 556 01a8 94ED160A 		vldr.32	s0, [r4, #88]
+ 557 01ac 30EE4A0A 		vsub.f32	s0, s0, s20
+ 558 01b0 FFF7FEFF 		bl	wrap_pm_pi
+ 559              	.LVL48:
+ 560 01b4 F0EE409A 		vmov.f32	s19, s0
+ 561              	.LVL49:
+ 155:Src/sensorless.c ****     // update PLL velocity
+ 562              		.loc 1 155 0
+ 563 01b8 28EE000A 		vmul.f32	s0, s16, s0
+ 564              	.LVL50:
+ 565 01bc 3AEE000A 		vadd.f32	s0, s20, s0
+ 566 01c0 FFF7FEFF 		bl	wrap_pm_pi
+ 567              	.LVL51:
+ 568 01c4 84ED140A 		vstr.32	s0, [r4, #80]
+ 157:Src/sensorless.c ****     // convert to mechanical turns/s for controller usage.
+ 569              		.loc 1 157 0
+ 570 01c8 9FED120A 		vldr.32	s0, .L49+8
+ 571 01cc 28EE800A 		vmul.f32	s0, s17, s0
+ 572 01d0 20EE290A 		vmul.f32	s0, s0, s19
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 14
+
+
+ 573 01d4 39EE000A 		vadd.f32	s0, s18, s0
+ 574 01d8 84ED150A 		vstr.32	s0, [r4, #84]
+ 159:Src/sensorless.c **** 
+ 575              		.loc 1 159 0
+ 576 01dc D4ED047A 		vldr.32	s15, [r4, #16]
+ 577 01e0 77EEA77A 		vadd.f32	s15, s15, s15
+ 578 01e4 9FED0D7A 		vldr.32	s14, .L49+16
+ 579 01e8 67EE877A 		vmul.f32	s15, s15, s14
+ 580 01ec 80EE277A 		vdiv.f32	s14, s0, s15
+ 581 01f0 84ED177A 		vstr.32	s14, [r4, #92]
+ 161:Src/sensorless.c ****     return true;
+ 582              		.loc 1 161 0
+ 583 01f4 4FF07E53 		mov	r3, #1065353216
+ 584 01f8 A364     		str	r3, [r4, #72]	@ float
+ 162:Src/sensorless.c **** };
+ 585              		.loc 1 162 0
+ 586 01fa 0120     		movs	r0, #1
+ 587 01fc ADE7     		b	.L37
+ 588              	.LVL52:
+ 589              	.L48:
+ 153:Src/sensorless.c ****     float delta_phase = wrap_pm_pi(motor_.phase_ - motor_.pll_pos_);
+ 590              		.loc 1 153 0 discriminator 1
+ 591 01fe DFED087A 		vldr.32	s15, .L49+20
+ 592 0202 30EE270A 		vadd.f32	s0, s0, s15
+ 593 0206 84ED160A 		vstr.32	s0, [r4, #88]
+ 594 020a CCE7     		b	.L44
+ 595              	.L50:
+ 596              		.align	2
+ 597              	.L49:
+ 598 020c 00000000 		.word	motor_
+ 599 0210 3ACD133F 		.word	1058262330
+ 600 0214 ACC52738 		.word	942130604
+ 601 0218 DB0FC93F 		.word	1070141403
+ 602 021c DB0F4940 		.word	1078530011
+ 603 0220 DB0FC940 		.word	1086918619
+ 604              		.cfi_endproc
+ 605              	.LFE338:
+ 607              		.comm	motor_,96,4
+ 608              		.text
+ 609              	.Letext0:
+ 610              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 611              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 612              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 613              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 614              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 615              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 616              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 617              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 618              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 619              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 620              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 621              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 622              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 623              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 624              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 625              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 626              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 15
+
+
+ 627              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 628              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 629              		.file 21 "Inc/uart.h"
+ 630              		.file 22 "Inc/pwm.h"
+ 631              		.file 23 "Inc/spi_MEncoder.h"
+ 632              		.file 24 "Inc/adc.h"
+ 633              		.file 25 "Inc/stm32_math_sin.h"
+ 634              		.file 26 "Inc/pid.h"
+ 635              		.file 27 "Inc/profile_joint.h"
+ 636              		.file 28 "Inc/icmu.h"
+ 637              		.file 29 "Inc/performance_test.h"
+ 638              		.file 30 "Inc/global.h"
+ 639              		.file 31 "Inc/sensorless.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 sensorless.c
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:18     .text.wrap_pm_pi:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:25     .text.wrap_pm_pi:00000000 wrap_pm_pi
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:64     .text.wrap_pm_pi:00000034 $d
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:71     .text.fast_atan2:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:78     .text.fast_atan2:00000000 fast_atan2
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:174    .text.fast_atan2:000000a4 $d
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:184    .text.init_motor:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:191    .text.init_motor:00000000 init_motor
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:257    .text.init_motor:00000044 $d
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:265    .text.update_current_meas:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:272    .text.update_current_meas:00000000 update_current_meas
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:292    .text.update_current_control:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:299    .text.update_current_control:00000000 update_current_control
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:317    .text.non_linear_flux_observer:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:324    .text.non_linear_flux_observer:00000000 non_linear_flux_observer
+C:\Users\82057\AppData\Local\Temp\ccJC5hDb.s:598    .text.non_linear_flux_observer:0000020c $d
+                            *COM*:00000060 motor_
+
+NO UNDEFINED SYMBOLS

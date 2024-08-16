@@ -36,7 +36,7 @@ build/spi_MEncoder.o: Src/spi_MEncoder.c Inc/global.h \
  Inc/spi_MEncoder.h Inc/adc.h Inc/stm32_math.h Inc/stm32_math_sin.h \
  Inc/security.h Inc/calibration.h Inc/pid.h Inc/scope.h \
  Inc/profile_joint.h Inc/icmu.h Inc/performance_test.h Inc/EM_test.h \
- Inc/spi_MEncoder.h Inc/icmu.h
+ Inc/spi_MEncoder.h Inc/icmu.h Inc/sensorless.h
 
 Inc/global.h:
 
@@ -151,3 +151,5 @@ Inc/EM_test.h:
 Inc/spi_MEncoder.h:
 
 Inc/icmu.h:
+
+Inc/sensorless.h:

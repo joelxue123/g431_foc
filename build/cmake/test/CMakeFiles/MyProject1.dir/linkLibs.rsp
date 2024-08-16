@@ -1,1 +1,0 @@
- "C:/Users/82057/Downloads/googletest-main/build/lib/libgmock.a" "C:/googletest-main/build/lib/libgtest_main.a" "C:/googletest-main/build/lib/libgtest.a" -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

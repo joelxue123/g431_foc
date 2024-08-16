@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
   33              	.LCFI0:
   34              		.cfi_def_cfa_offset 8
   35              		.cfi_offset 3, -8
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 2
 
 
   36              		.cfi_offset 14, -4
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
   71 003e 032B     		cmp	r3, #3
   72 0040 02DD     		ble	.L2
   43:Src/security.c **** 			{
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 3
 
 
   44:Src/security.c **** 				over_current_staff_event_cnt = 3;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
   68:Src/security.c **** 	{
   69:Src/security.c **** 		g_CmdMap[CMD_ERROR] |= ERROR_MASK_CURRENT_CLIB_FAULT;
   70:Src/security.c **** 	}
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 4
 
 
   71:Src/security.c **** 	//²¹³ä´úÂë
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  121              	.L8:
  107:Src/security.c **** 	}
  108:Src/security.c **** 	
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 5
 
 
  109:Src/security.c **** 	if(g_CmdMap[CMD_TEMP] > ( g_CmdMap[CMD_OVER_TEMP_SET] + temperture_hystersis) )
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  115:Src/security.c **** 		else
  116:Src/security.c **** 		{
  117:Src/security.c **** 			count_over_temperature = 31;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 6
 
 
  167              		.loc 1 117 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  132:Src/security.c **** 		if(count_over_AlerrTemperature<30)
  207              		.loc 1 132 0
  208 0128 444B     		ldr	r3, .L31+36
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 7
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 7
 
 
  209 012a 1B68     		ldr	r3, [r3]
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  245 016a 03DD     		ble	.L15
  151:Src/security.c **** 	{
  152:Src/security.c **** 		g_CmdMap[CMD_OVER_CURRENT_SET] = 16384;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 8
 
 
  246              		.loc 1 152 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  287 01b4 B3F85030 		ldrh	r3, [r3, #80]
  288 01b8 1BB2     		sxth	r3, r3
  289 01ba C72B     		cmp	r3, #199
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 9
 
 
  290 01bc CCBF     		ite	gt
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  172:Src/security.c **** 			
  173:Src/security.c **** 		}		
  174:Src/security.c **** 	}
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 10
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 10
 
 
  175:Src/security.c **** 	else
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  379 0002 0023     		movs	r3, #0
  380 0004 034A     		ldr	r2, .L35
  381 0006 A2F85430 		strh	r3, [r2, #84]	@ movhi
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 11
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 11
 
 
  187:Src/security.c **** 	over_current_staff_event_cnt = 0;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  202:Src/security.c ****       s_count = 0;
  423              		.loc 1 202 0
  424 0010 134B     		ldr	r3, .L43+4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 12
 
 
  425 0012 0022     		movs	r2, #0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  463              	.LVL6:
  464 0050 9342     		cmp	r3, r2
  465 0052 02DB     		blt	.L37
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 13
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 13
 
 
  218:Src/security.c ****       s_count = 0;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  237:Src/security.c **** 			}
  238:Src/security.c **** 			if(g_CmdMap[CMD_POS_ACT_PU]<(g_CmdMap[SYS_POS_LOWER_LIMIT_PU]-819)  && g_CmdMap[CMD_SPDREG_REF_P
  239:Src/security.c **** 			{
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 14
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 14
 
 
  240:Src/security.c **** 				g_CmdMap[TAG_MOTOR_ENABLE] = 0; //Debug
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  547              		.align	2
  548              	.L49:
  549 0064 00000000 		.word	g_CmdMap
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 15
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 15
 
 
  550              		.cfi_endproc
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  595 0036 DB17     		asrs	r3, r3, #31
  596 0038 C3EBA103 		rsb	r3, r3, r1, asr #2
  597 003c 9342     		cmp	r3, r2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 16
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 16
 
 
  598 003e 11DD     		ble	.L55
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  638              		.section	.text.user_param_protected,"ax",%progbits
  639              		.align	1
  640              		.global	user_param_protected
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 17
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 17
 
 
  641              		.syntax unified
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  679              		.loc 1 285 0
  680 002e 7047     		bx	lr
  681              	.L63:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 18
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 18
 
 
  682              		.align	2
@@ -1073,12 +1073,12 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  743              		.align	1
  746              	count_Id_error:
  747 0000 0000     		.space	2
- 748              		.section	.bss.count_over_AlerrTemperature.11848,"aw",%nobits
+ 748              		.section	.bss.count_over_AlerrTemperature.11849,"aw",%nobits
  749              		.align	2
  750              		.set	.LANCHOR5,. + 0
- 753              	count_over_AlerrTemperature.11848:
+ 753              	count_over_AlerrTemperature.11849:
  754 0000 00000000 		.space	4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 19
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 19
 
 
  755              		.section	.bss.count_over_current,"aw",%nobits
@@ -1105,25 +1105,25 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  784              		.set	.LANCHOR2,. + 0
  787              	power_on_time:
  788 0000 00000000 		.space	4
- 789              		.section	.bss.s_count.11846,"aw",%nobits
+ 789              		.section	.bss.s_count.11847,"aw",%nobits
  790              		.align	2
  791              		.set	.LANCHOR0,. + 0
- 794              	s_count.11846:
+ 794              	s_count.11847:
  795 0000 00000000 		.space	4
- 796              		.section	.bss.s_count.11859,"aw",%nobits
+ 796              		.section	.bss.s_count.11860,"aw",%nobits
  797              		.align	2
  798              		.set	.LANCHOR7,. + 0
- 801              	s_count.11859:
+ 801              	s_count.11860:
  802 0000 00000000 		.space	4
- 803              		.section	.bss.s_count.11870,"aw",%nobits
+ 803              		.section	.bss.s_count.11871,"aw",%nobits
  804              		.align	2
  805              		.set	.LANCHOR8,. + 0
- 808              	s_count.11870:
+ 808              	s_count.11871:
  809 0000 00000000 		.space	4
- 810              		.section	.bss.temperture_hystersis.11847,"aw",%nobits
+ 810              		.section	.bss.temperture_hystersis.11848,"aw",%nobits
  811              		.align	2
  812              		.set	.LANCHOR3,. + 0
- 815              	temperture_hystersis.11847:
+ 815              	temperture_hystersis.11848:
  816 0000 00000000 		.space	4
  817              		.text
  818              	.Letext0:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  827              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
  828              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
  829              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 20
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 20
 
 
  830              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
@@ -1159,67 +1159,67 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 1
  845              		.file 28 "Inc/icmu.h"
  846              		.file 29 "Inc/performance_test.h"
  847              		.file 30 "Inc/global.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 21
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 security.c
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:18     .text.generate_errorCode:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:25     .text.generate_errorCode:00000000 generate_errorCode
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:345    .text.generate_errorCode:00000218 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:360    .text.ClearError:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:367    .text.ClearError:00000000 ClearError
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:393    .text.ClearError:00000014 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:399    .text.UpdateErrorStateLED:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:406    .text.UpdateErrorStateLED:00000000 UpdateErrorStateLED
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:476    .text.UpdateErrorStateLED:0000005c $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:482    .text.Stroke_protection:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:489    .text.Stroke_protection:00000000 Stroke_protection
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:549    .text.Stroke_protection:00000064 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:554    .text.motor_fault_check:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:561    .text.motor_fault_check:00000000 motor_fault_check
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:630    .text.motor_fault_check:0000006c $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:639    .text.user_param_protected:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:646    .text.user_param_protected:00000000 user_param_protected
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:684    .text.user_param_protected:00000030 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:734    .bss.Voltag_f:00000000 Voltag_f
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:740    .bss.Voltag_f_filter:00000000 Voltag_f_filter
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:787    .bss.power_on_time:00000000 power_on_time
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:746    .bss.count_Id_error:00000000 count_Id_error
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:767    .bss.count_over_temperature:00000000 count_over_temperature
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:760    .bss.count_over_current:00000000 count_over_current
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:722    .bss.Power_Avg_cun:00000000 Power_Avg_cun
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:728    .bss.Power_Avg_tab:00000000 Power_Avg_tab
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:716    .bss.Over_Voltage_Cun:00000000 Over_Voltage_Cun
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:704    .bss.Low_Voltage_Cun:00000000 Low_Voltage_Cun
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:710    .bss.Over_Temp_Cun:00000000 Over_Temp_Cun
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:773    .bss.g_CurrentOverPool:00000000 g_CurrentOverPool
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:701    .bss.Low_Voltage_Cun:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:707    .bss.Over_Temp_Cun:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:713    .bss.Over_Voltage_Cun:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:719    .bss.Power_Avg_cun:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:725    .bss.Power_Avg_tab:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:731    .bss.Voltag_f:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:737    .bss.Voltag_f_filter:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:743    .bss.count_Id_error:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:749    .bss.count_over_AlerrTemperature.11848:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:753    .bss.count_over_AlerrTemperature.11848:00000000 count_over_AlerrTemperature.11848
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:756    .bss.count_over_current:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:763    .bss.count_over_temperature:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:770    .bss.g_CurrentOverPool:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:776    .bss.over_current_staff_event_cnt:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:780    .bss.over_current_staff_event_cnt:00000000 over_current_staff_event_cnt
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:783    .bss.power_on_time:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:790    .bss.s_count.11846:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:794    .bss.s_count.11846:00000000 s_count.11846
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:797    .bss.s_count.11859:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:801    .bss.s_count.11859:00000000 s_count.11859
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:804    .bss.s_count.11870:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:808    .bss.s_count.11870:00000000 s_count.11870
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:811    .bss.temperture_hystersis.11847:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccGbiptd.s:815    .bss.temperture_hystersis.11847:00000000 temperture_hystersis.11847
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:18     .text.generate_errorCode:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:25     .text.generate_errorCode:00000000 generate_errorCode
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:345    .text.generate_errorCode:00000218 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:360    .text.ClearError:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:367    .text.ClearError:00000000 ClearError
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:393    .text.ClearError:00000014 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:399    .text.UpdateErrorStateLED:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:406    .text.UpdateErrorStateLED:00000000 UpdateErrorStateLED
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:476    .text.UpdateErrorStateLED:0000005c $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:482    .text.Stroke_protection:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:489    .text.Stroke_protection:00000000 Stroke_protection
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:549    .text.Stroke_protection:00000064 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:554    .text.motor_fault_check:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:561    .text.motor_fault_check:00000000 motor_fault_check
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:630    .text.motor_fault_check:0000006c $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:639    .text.user_param_protected:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:646    .text.user_param_protected:00000000 user_param_protected
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:684    .text.user_param_protected:00000030 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:734    .bss.Voltag_f:00000000 Voltag_f
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:740    .bss.Voltag_f_filter:00000000 Voltag_f_filter
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:787    .bss.power_on_time:00000000 power_on_time
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:746    .bss.count_Id_error:00000000 count_Id_error
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:767    .bss.count_over_temperature:00000000 count_over_temperature
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:760    .bss.count_over_current:00000000 count_over_current
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:722    .bss.Power_Avg_cun:00000000 Power_Avg_cun
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:728    .bss.Power_Avg_tab:00000000 Power_Avg_tab
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:716    .bss.Over_Voltage_Cun:00000000 Over_Voltage_Cun
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:704    .bss.Low_Voltage_Cun:00000000 Low_Voltage_Cun
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:710    .bss.Over_Temp_Cun:00000000 Over_Temp_Cun
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:773    .bss.g_CurrentOverPool:00000000 g_CurrentOverPool
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:701    .bss.Low_Voltage_Cun:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:707    .bss.Over_Temp_Cun:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:713    .bss.Over_Voltage_Cun:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:719    .bss.Power_Avg_cun:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:725    .bss.Power_Avg_tab:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:731    .bss.Voltag_f:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:737    .bss.Voltag_f_filter:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:743    .bss.count_Id_error:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:749    .bss.count_over_AlerrTemperature.11849:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:753    .bss.count_over_AlerrTemperature.11849:00000000 count_over_AlerrTemperature.11849
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:756    .bss.count_over_current:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:763    .bss.count_over_temperature:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:770    .bss.g_CurrentOverPool:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:776    .bss.over_current_staff_event_cnt:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:780    .bss.over_current_staff_event_cnt:00000000 over_current_staff_event_cnt
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:783    .bss.power_on_time:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:790    .bss.s_count.11847:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:794    .bss.s_count.11847:00000000 s_count.11847
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:797    .bss.s_count.11860:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:801    .bss.s_count.11860:00000000 s_count.11860
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:804    .bss.s_count.11871:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:808    .bss.s_count.11871:00000000 s_count.11871
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:811    .bss.temperture_hystersis.11848:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccXirqTT.s:815    .bss.temperture_hystersis.11848:00000000 temperture_hystersis.11848
 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGbiptd.s 			page 22
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXirqTT.s 			page 22
 
 
 UNDEFINED SYMBOLS

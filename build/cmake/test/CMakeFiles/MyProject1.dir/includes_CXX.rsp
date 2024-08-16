@@ -1,1 +1,0 @@
--IC:/work/g431_foc/cmake/test/googletest/include -IC:/work/g431_foc/cmake/test/googletest -IC:/work/g431_foc/cmake/test/googlemock/include -IC:/work/g431_foc/cmake/test/googlemock -isystem "C:/googletest-main/googletest/include"

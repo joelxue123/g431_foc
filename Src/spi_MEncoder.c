@@ -1,6 +1,7 @@
 #include "global.h"
 #include "spi_MEncoder.h"
 #include "icmu.h"
+#include"sensorless.h"
 
 u16 EncoderAB_PulseWidth_Array[16] = {0};//�������������
 s32 g_MEncode = 0;
@@ -552,6 +553,10 @@ void GetElectricAngle(void)//50us ִ������
 		{										
 			g_ElectricAngle = g_ElectricAngle_act;
 		}
+		else if(g_CmdMap[SYS_MOT_TEST] == 5)
+		{
+			g_ElectricAngle = (s16)(32768.f*motor_.phase_/(2*M_PI));
+		}
 		else
 		{
 			g_ElectricAngle = g_ElectricAngle_sim;
@@ -616,7 +621,7 @@ void sim_ElectricAngle(void)
 		if(g_CmdMap[SYS_MOT_TEST] == 1)//ģ�������ת��Ƕ�
 		{
 					cnt_temp = cnt_temp + 1;//1;
-					g_ElectricAngle_sim = cnt_temp*EN_360/4000;//2s һȦ����ת�ٶ�
+					g_ElectricAngle_sim = cnt_temp*EN_360/50000;//2s һȦ����ת�ٶ�
 					if(g_ElectricAngle_sim>EN_360)
 					{
 						cnt_temp = 0;

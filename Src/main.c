@@ -22,6 +22,7 @@
 #include "global.h"
 #include "limit_pos_detection.h"
 #include "cmsis_os.h"
+#include "sensorless.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -104,6 +105,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
 	LED_Init();
+  init_motor(&motor_);
   MX_ADC1_Init();
   MX_ADC2_Init();
 //	hall_Configuration();
@@ -216,9 +218,16 @@ int main(void)
 				s_count_50ms = 0;
 				Flag_50ms = 1;
 				if(g_CmdMap[SYS_MU_COMM_TO_PC] == 1)     //MU оƬ�궨ģʽ
-					MU150_SPI_BYPASS_EN();
+				{
+          MU150_SPI_BYPASS_EN();
+          g_CmdMap[SYS_MOT_TEST] = 5;
+
+        }	
 				else
-					MU150_SPI_BYPASS_DIS();	
+        {
+          MU150_SPI_BYPASS_DIS();	     
+        }
+					
 				
 			}
 			

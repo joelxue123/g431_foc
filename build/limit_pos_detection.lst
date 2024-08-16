@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
   29:Src/limit_pos_detection.c **** 	#define MIN_CUR_LOWER_LIMIT_PU  (-60*16384/100)
   30:Src/limit_pos_detection.c **** 	#define MAX_CUR_LOWER_LIMIT_PU   (-5*16384/100)
   31:Src/limit_pos_detection.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 2
 
 
   32:Src/limit_pos_detection.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
   54:Src/limit_pos_detection.c **** 	{
   55:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_STATE_WORD] = g_CmdMap[CMD_STATE_WORD]&(~(0x0001<<7));
   60              		.loc 1 55 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 3
 
 
   61 0022 6D4A     		ldr	r2, .L35+4
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
   94 0062 B3F80232 		ldrh	r3, [r3, #514]
   95 0066 1BB2     		sxth	r3, r3
   96 0068 2BBB     		cbnz	r3, .L10
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 4
 
 
   77:Src/limit_pos_detection.c **** 	{
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  119:Src/limit_pos_detection.c **** 	/*******每10ms才允许执行一次********/
  120:Src/limit_pos_detection.c **** 	if( ++repeat_cnt < 10)
  121:Src/limit_pos_detection.c **** 	{
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 5
 
 
  122:Src/limit_pos_detection.c **** 		return;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  176:Src/limit_pos_detection.c **** 		&&g_current_array[5]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
  177:Src/limit_pos_detection.c **** 		&&g_current_array[6]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
  178:Src/limit_pos_detection.c **** 		&&g_current_array[7]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 6
 
 
  179:Src/limit_pos_detection.c **** 		&&g_posNotChange == 1
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  121              		.loc 1 51 0
  122 008c 524A     		ldr	r2, .L35+4
  123 008e 938D     		ldrh	r3, [r2, #44]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 7
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 7
 
 
  124 0090 1BB2     		sxth	r3, r3
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  172 00e4 3E4A     		ldr	r2, .L35+12
  173 00e6 1368     		ldr	r3, [r2]
  174 00e8 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 8
 
 
  175 00ea 1360     		str	r3, [r2]
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  126:Src/limit_pos_detection.c **** 	{
  220              		.loc 1 126 0 is_stmt 0 discriminator 1
  221 0130 062B     		cmp	r3, #6
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 9
 
 
  222 0132 F0DD     		ble	.L15
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  268              	.LVL13:
  269              	.L33:
  138:Src/limit_pos_detection.c **** 		{
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 10
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 10
 
 
  270              		.loc 1 138 0 discriminator 1
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  319              	.L35:
  320 01d4 00000000 		.word	.LANCHOR0
  321 01d8 00000000 		.word	g_CmdMap
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 11
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 11
 
 
  322 01dc 00000000 		.word	.LANCHOR1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  369 0238 9A84     		strh	r2, [r3, #36]	@ movhi
  370              	.L25:
  164:Src/limit_pos_detection.c **** 	{
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 12
 
 
  371              		.loc 1 164 0
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  419              		.loc 1 175 0
  420 028e 4D4B     		ldr	r3, .L37+16
  421 0290 1A89     		ldrh	r2, [r3, #8]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 13
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 13
 
 
  422 0292 12B2     		sxth	r2, r2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  470 02e6 1A88     		ldrh	r2, [r3]
  471 02e8 12B2     		sxth	r2, r2
  472 02ea 334B     		ldr	r3, .L37+4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 14
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 14
 
 
  473 02ec 9B8C     		ldrh	r3, [r3, #36]
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  193:Src/limit_pos_detection.c **** 		&&g_current_array[7]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
  522              		.loc 1 193 0
  523 0350 1C4B     		ldr	r3, .L37+16
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 15
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 15
 
 
  524 0352 9A89     		ldrh	r2, [r3, #12]
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  570              		.loc 1 184 0
  571 03a8 0122     		movs	r2, #1
  572 03aa 0949     		ldr	r1, .L37+28
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 16
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 16
 
 
  573 03ac 0A70     		strb	r2, [r1]
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  619 0010 00000000 		.word	.LANCHOR0
  620              		.cfi_endproc
  621              	.LFE334:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 17
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 17
 
 
  623              		.global	g_posNotChange
@@ -1005,20 +1005,20 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  670              		.set	.LANCHOR0,. + 0
  673              	g_reachUpperLimit:
  674 0000 00       		.space	1
- 675              		.section	.bss.repeat_cnt.11855,"aw",%nobits
+ 675              		.section	.bss.repeat_cnt.11856,"aw",%nobits
  676              		.align	2
  677              		.set	.LANCHOR3,. + 0
- 680              	repeat_cnt.11855:
+ 680              	repeat_cnt.11856:
  681 0000 00000000 		.space	4
- 682              		.section	.bss.time_after_power_on.11854,"aw",%nobits
+ 682              		.section	.bss.time_after_power_on.11855,"aw",%nobits
  683              		.align	2
  684              		.set	.LANCHOR2,. + 0
- 687              	time_after_power_on.11854:
+ 687              	time_after_power_on.11855:
  688 0000 00000000 		.space	4
  689              		.text
  690              	.Letext0:
  691              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 18
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 18
 
 
  692              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
@@ -1050,37 +1050,37 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 1
  718              		.file 29 "Inc/performance_test.h"
  719              		.file 30 "Inc/global.h"
  720              		.file 31 "Inc/limit_pos_detection.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnNYheX.s 			page 19
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 limit_pos_detection.c
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:18     .text.detect_limitPos:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:25     .text.detect_limitPos:00000000 detect_limitPos
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:320    .text.detect_limitPos:000001d4 $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:331    .text.detect_limitPos:000001f8 $t
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:580    .text.detect_limitPos:000003b4 $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:592    .text.clear_limit_event:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:599    .text.clear_limit_event:00000000 clear_limit_event
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:618    .text.clear_limit_event:0000000c $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:647    .bss.g_posNotChange:00000000 g_posNotChange
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:667    .bss.g_reachLowerLimit:00000000 g_reachLowerLimit
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:673    .bss.g_reachUpperLimit:00000000 g_reachUpperLimit
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:641    .bss.g_current_average:00000000 g_current_average
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:635    .bss.g_current_array:00000000 g_current_array
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:661    .bss.g_pos_act_average:00000000 g_pos_act_average
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:654    .bss.g_pos_act_array:00000000 g_pos_act_array
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:631    .bss.g_current_array:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:638    .bss.g_current_average:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:648    .bss.g_posNotChange:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:650    .bss.g_pos_act_array:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:657    .bss.g_pos_act_average:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:668    .bss.g_reachLowerLimit:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:674    .bss.g_reachUpperLimit:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:676    .bss.repeat_cnt.11855:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:680    .bss.repeat_cnt.11855:00000000 repeat_cnt.11855
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:683    .bss.time_after_power_on.11854:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccnNYheX.s:687    .bss.time_after_power_on.11854:00000000 time_after_power_on.11854
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:18     .text.detect_limitPos:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:25     .text.detect_limitPos:00000000 detect_limitPos
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:320    .text.detect_limitPos:000001d4 $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:331    .text.detect_limitPos:000001f8 $t
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:580    .text.detect_limitPos:000003b4 $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:592    .text.clear_limit_event:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:599    .text.clear_limit_event:00000000 clear_limit_event
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:618    .text.clear_limit_event:0000000c $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:647    .bss.g_posNotChange:00000000 g_posNotChange
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:667    .bss.g_reachLowerLimit:00000000 g_reachLowerLimit
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:673    .bss.g_reachUpperLimit:00000000 g_reachUpperLimit
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:641    .bss.g_current_average:00000000 g_current_average
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:635    .bss.g_current_array:00000000 g_current_array
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:661    .bss.g_pos_act_average:00000000 g_pos_act_average
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:654    .bss.g_pos_act_array:00000000 g_pos_act_array
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:631    .bss.g_current_array:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:638    .bss.g_current_average:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:648    .bss.g_posNotChange:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:650    .bss.g_pos_act_array:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:657    .bss.g_pos_act_average:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:668    .bss.g_reachLowerLimit:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:674    .bss.g_reachUpperLimit:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:676    .bss.repeat_cnt.11856:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:680    .bss.repeat_cnt.11856:00000000 repeat_cnt.11856
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:683    .bss.time_after_power_on.11855:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:687    .bss.time_after_power_on.11855:00000000 time_after_power_on.11855
 
 UNDEFINED SYMBOLS
 target_position_arrived

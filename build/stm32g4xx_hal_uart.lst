@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
   30:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
   31:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     (#) Declare a UART_HandleTypeDef handle structure (eg. UART_HandleTypeDef huart).
   32:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     (#) Initialize the UART low level resources by implementing the HAL_UART_MspInit() API:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 2
 
 
   33:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         (++) Enable the USARTx interface clock.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
   87:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     allows the user to configure dynamically the driver callbacks.
   88:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
   89:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     [..]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 3
 
 
   90:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     Use Function HAL_UART_RegisterCallback() to register a user callback.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  144:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     Exception done MspInit/MspDeInit that can be registered/unregistered
  145:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     in HAL_UART_STATE_READY or HAL_UART_STATE_RESET state, thus registered (user)
  146:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     MspInit/DeInit callbacks can be used during the Init/DeInit.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 4
 
 
  147:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     In that case first register the MspInit/MspDeInit user callbacks
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  201:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** static void UART_EndTxTransfer(UART_HandleTypeDef *huart);
  202:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** static void UART_DMATransmitCplt(DMA_HandleTypeDef *hdma);
  203:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** static void UART_DMAReceiveCplt(DMA_HandleTypeDef *hdma);
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 5
 
 
  204:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** static void UART_DMARxHalfCplt(DMA_HandleTypeDef *hdma);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  258:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         (++) Receiver/transmitter modes
  259:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         (++) Over Sampling Method
  260:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         (++) One-Bit Sampling Method
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 6
 
 
  261:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       (+) For the asynchronous mode, the following advanced features can be configured as well:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  315:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   if (huart->Init.HwFlowCtl != UART_HWCONTROL_NONE)
  316:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
  317:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     /* Check the parameters */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 7
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 7
 
 
  318:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     assert_param(IS_UART_HWFLOW_INSTANCE(huart->Instance));
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  372:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* TEACK and/or REACK to check before moving huart->gState and huart->RxState to Ready */
  373:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   return (UART_CheckIdleState(huart));
  374:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 8
 
 
  375:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  429:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
  430:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  431:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* In half-duplex mode, the following bits must be kept cleared:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 9
 
 
  432:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   - LINEN and CLKEN bits in the USART_CR2 register,
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  486:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #if (USE_HAL_UART_REGISTER_CALLBACKS == 1)
  487:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     UART_InitCallbacksToDefault(huart);
  488:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 10
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 10
 
 
  489:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     if (huart->MspInitCallback == NULL)
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  543:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @param WakeUpMethod Specifies the UART wakeup method.
  544:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *        This parameter can be one of the following values:
  545:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *          @arg @ref UART_WAKEUPMETHOD_IDLELINE WakeUp by an idle line detection
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 11
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 11
 
 
  546:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *          @arg @ref UART_WAKEUPMETHOD_ADDRESSMARK WakeUp by an address mark
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  600:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   if (UART_SetConfig(huart) == HAL_ERROR)
  601:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
  602:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     return HAL_ERROR;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 12
 
 
  603:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  657:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   huart->MspDeInitCallback(huart);
  658:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #else
  659:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* DeInit the low level hardware */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 13
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 13
 
 
  660:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   HAL_UART_MspDeInit(huart);
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  714:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *           @arg @ref HAL_UART_TX_HALFCOMPLETE_CB_ID Tx Half Complete Callback ID
  715:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *           @arg @ref HAL_UART_TX_COMPLETE_CB_ID Tx Complete Callback ID
  716:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *           @arg @ref HAL_UART_RX_HALFCOMPLETE_CB_ID Rx Half Complete Callback ID
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 14
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 14
 
 
  717:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *           @arg @ref HAL_UART_RX_COMPLETE_CB_ID Rx Complete Callback ID
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  771:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         huart->AbortTransmitCpltCallback = pCallback;
  772:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         break;
  773:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 15
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 15
 
 
  774:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       case HAL_UART_ABORT_RECEIVE_COMPLETE_CB_ID :
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  828:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     status =  HAL_ERROR;
  829:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
  830:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 16
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 16
 
 
  831:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   return status;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  885:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  886:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       case HAL_UART_ABORT_COMPLETE_CB_ID :
  887:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         huart->AbortCpltCallback = HAL_UART_AbortCpltCallback;                 /* Legacy weak Abort
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 17
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 17
 
 
  888:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         break;
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  942:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         status =  HAL_ERROR;
  943:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         break;
  944:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 18
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 18
 
 
  945:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  999:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
 1000:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     huart->RxEventCallback = HAL_UARTEx_RxEventCallback; /* Legacy weak UART Rx Event Callback  */
 1001:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 19
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 19
 
 
 1002:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   else
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1056:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 1057:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     (#) A set of Transfer Complete Callbacks are provided in Non_Blocking mode:
 1058:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         (+) HAL_UART_TxHalfCpltCallback()
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 20
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 20
 
 
 1059:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         (+) HAL_UART_TxCpltCallback()
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1113:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @param Size    Amount of data elements (u8 or u16) to be sent.
 1114:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @param Timeout Timeout duration.
 1115:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @retval HAL status
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 21
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 21
 
 
 1116:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   */
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1170:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       }
 1171:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       huart->TxXferCount--;
 1172:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 22
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 22
 
 
 1173:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1227:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     tickstart = HAL_GetTick();
 1228:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 1229:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     huart->RxXferSize  = Size;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 23
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 23
 
 
 1230:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     huart->RxXferCount = Size;
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1284:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *         the sent data is handled as a set of u16. In this case, Size must indicate the number
 1285:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *         of u16 provided through pData.
 1286:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @param huart UART handle.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 24
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 24
 
 
 1287:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @param pData Pointer to data buffer (u8 or u16 data elements).
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1341:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     return HAL_OK;
 1342:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
 1343:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   else
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 25
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 25
 
 
 1344:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1398:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @retval HAL status
 1399:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   */
 1400:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** HAL_StatusTypeDef HAL_UART_Transmit_DMA(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t S
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 26
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 26
 
 
 1401:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** {
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1455:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
 1456:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** }
 1457:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 27
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 27
 
 
 1458:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** /**
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1512:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       (gstate == HAL_UART_STATE_BUSY_TX))
 1513:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
 1514:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     /* Disable the UART DMA Tx request */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 28
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 28
 
 
 1515:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     ATOMIC_CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAT);
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1569:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* The Lock is not implemented on this API to allow the user application
 1570:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****      to call the HAL UART API under callbacks HAL_UART_TxCpltCallback() / HAL_UART_RxCpltCallback()
 1571:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****      HAL_UART_TxHalfCpltCallback / HAL_UART_RxHalfCpltCallback:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 29
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 29
 
 
 1572:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****      indeed, when HAL_DMA_Abort() API is called, the DMA TX/RX Transfer or Half Transfer complete
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1626:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 1627:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   return HAL_OK;
 1628:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 30
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 30
 
 
 1629:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1683:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
 1684:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     /* Disable the UART DMA Rx request if enabled */
 1685:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     ATOMIC_CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAR);
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 31
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 31
 
 
 1686:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1740:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *           - Abort DMA transfer by calling HAL_DMA_Abort (in case of transfer in DMA mode)
 1741:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *           - Set handle State to READY
 1742:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @note   This procedure is executed in blocking mode : when exiting function, Abort is considere
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 32
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 32
 
 
 1743:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @retval HAL status
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1797:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *           - Disable UART Interrupts (Rx)
 1798:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *           - Disable the DMA transfer in the peripheral register (if enabled)
 1799:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *           - Abort DMA transfer by calling HAL_DMA_Abort (in case of transfer in DMA mode)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 33
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 33
 
 
 1800:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *           - Set handle State to READY
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1854:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 1855:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   return HAL_OK;
 1856:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 34
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 34
 
 
 1857:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1911:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
 1912:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     else
 1913:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 35
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 35
 
 
 1914:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       huart->hdmarx->XferAbortCallback = NULL;
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1968:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   if (abortcplt == 1U)
 1969:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
 1970:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     /* Reset Tx and Rx transfer counters */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 36
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 36
 
 
 1971:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     huart->TxXferCount = 0U;
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2025:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** HAL_StatusTypeDef HAL_UART_AbortTransmit_IT(UART_HandleTypeDef *huart)
 2026:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** {
 2027:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* Disable interrupts */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 37
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 37
 
 
 2028:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   ATOMIC_CLEAR_BIT(huart->Instance->CR1, (USART_CR1_TCIE | USART_CR1_TXEIE_TXFNFIE));
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2082:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     {
 2083:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       __HAL_UART_SEND_REQ(huart, UART_TXDATA_FLUSH_REQUEST);
 2084:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 38
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 38
 
 
 2085:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2139:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       huart->hdmarx->XferAbortCallback = UART_DMARxOnlyAbortCallback;
 2140:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 2141:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       /* Abort DMA RX */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 39
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 39
 
 
 2142:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       if (HAL_DMA_Abort_IT(huart->hdmarx) != HAL_OK)
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2196:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     /* Call legacy weak Abort Receive Complete Callback */
 2197:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     HAL_UART_AbortReceiveCpltCallback(huart);
 2198:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 40
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 40
 
 
 2199:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2253:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       huart->ErrorCode |= HAL_UART_ERROR_FE;
 2254:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
 2255:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 41
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 41
 
 
 2256:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     /* UART noise error interrupt occurred --------------------------------------*/
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2310:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         /* Abort the UART DMA Rx channel if enabled */
 2311:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         if (HAL_IS_BIT_SET(huart->Instance->CR3, USART_CR3_DMAR))
 2312:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 42
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 42
 
 
 2313:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           /* Disable the UART DMA Rx request if enabled */
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2367:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       }
 2368:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
 2369:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     return;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 43
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 43
 
 
 2370:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2424:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         /*Call legacy weak Rx Event callback*/
 2425:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         HAL_UARTEx_RxEventCallback(huart, (huart->RxXferSize - huart->RxXferCount));
 2426:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* (USE_HAL_UART_REGISTER_CALLBACKS) */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 44
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 44
 
 
 2427:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       }
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2481:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #else
 2482:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     /* Call legacy weak Wakeup Callback */
 2483:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     HAL_UARTEx_WakeupCallback(huart);
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 45
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 45
 
 
 2484:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2538:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   */
 2539:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** __weak void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 2540:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 46
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 46
 
 
 2541:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* Prevent unused argument(s) compilation warning */
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2595:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @brief  UART error callback.
 2596:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @param  huart UART handle.
 2597:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @retval None
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 47
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 47
 
 
 2598:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   */
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2652:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** }
 2653:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 2654:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** /**
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 48
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 48
 
 
 2655:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @brief  Reception Event Callback (Rx event notification called after use of advanced reception 
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2709:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** void HAL_UART_ReceiverTimeout_Config(UART_HandleTypeDef *huart, uint32_t TimeoutValue)
 2710:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** {
 2711:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   if (!(IS_LPUART_INSTANCE(huart->Instance)))
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 49
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 49
 
 
 2712:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2766:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     if (huart->gState == HAL_UART_STATE_READY)
 2767:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     {
 2768:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       /* Process Locked */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 50
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 50
 
 
 2769:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       __HAL_LOCK(huart);
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2823:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 2824:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   huart->gState = HAL_UART_STATE_BUSY;
 2825:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 51
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 51
 
 
 2826:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* Disable USART mute mode by clearing the MME bit in the CR1 register */
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2880:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 2881:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* Enable the USART's receive interface by setting the RE bit in the USART CR1 register */
 2882:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   ATOMIC_SET_BIT(huart->Instance->CR1, USART_CR1_RE);
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 52
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 52
 
 
 2883:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2937:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @brief Return the UART handle state.
 2938:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @param  huart Pointer to a UART_HandleTypeDef structure that contains
 2939:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *               the configuration information for the specified UART.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 53
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 53
 
 
 2940:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @retval HAL state
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2994:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   huart->RxEventCallback           = HAL_UARTEx_RxEventCallback;         /* Legacy weak RxEventCall
 2995:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 2996:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 54
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 54
 
 
 2997:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3051:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *   to huart->Init.HwFlowCtl value
 3052:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * - one-bit sampling method versus three samples' majority rule according
 3053:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *   to huart->Init.OneBitSampling (not applicable to LPUART) */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 55
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 55
 
 
 3054:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   tmpreg = (uint32_t)huart->Init.HwFlowCtl;
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3108:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         /* Check computed UsartDiv value is in allocated range
 3109:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****            (it is forbidden to write values lower than 0x300 in the LPUART_BRR register) */
 3110:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         usartdiv = (uint32_t)(UART_DIV_LPUART(pclk, huart->Init.BaudRate, huart->Init.ClockPrescale
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 56
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 56
 
 
 3111:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         if ((usartdiv >= LPUART_BRR_MIN) && (usartdiv <= LPUART_BRR_MAX))
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3165:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   else
 3166:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
 3167:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     switch (clocksource)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 57
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 57
 
 
 3168:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     {
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3222:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** {
 3223:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* Check whether the set of advanced features to configure is properly set */
 3224:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   assert_param(IS_UART_ADVFEATURE_INIT(huart->AdvancedInit.AdvFeatureInit));
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 58
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 58
 
 
 3225:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3279:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
 3280:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
 3281:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 59
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 59
 
 
 3282:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* if required, configure MSB first on communication line */
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3336:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       __HAL_UNLOCK(huart);
 3337:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 3338:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       /* Timeout occurred */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 60
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 60
 
 
 3339:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       return HAL_TIMEOUT;
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3393:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           /* Process Unlocked */
 3394:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           __HAL_UNLOCK(huart);
 3395:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 61
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 61
 
 
 3396:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           return HAL_ERROR;
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3450:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
 3451:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     /* Set the Rx ISR function pointer according to the data word length */
 3452:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     if ((huart->Init.WordLength == UART_WORDLENGTH_9B) && (huart->Init.Parity == UART_PARITY_NONE))
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 62
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 62
 
 
 3453:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     {
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3507:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   huart->RxXferSize = Size;
 3508:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 3509:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   huart->ErrorCode = HAL_UART_ERROR_NONE;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 63
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 63
 
 
 3510:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   huart->RxState = HAL_UART_STATE_BUSY_RX;
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 64
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 64
 
 
   31              		@ link register save eliminated.
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
   43:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __INLINE
   44:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __INLINE                               inline
   45:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 65
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 65
 
 
   46:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  100:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
  101:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  102:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 66
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 66
 
 
  103:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  157:Drivers/CMSIS/Include/cmsis_gcc.h ****   for (__zero_table_t const* pTable = &__zero_table_start__; pTable < &__zero_table_end__; ++pTable
  158:Drivers/CMSIS/Include/cmsis_gcc.h ****     for(uint32_t i=0u; i<pTable->wlen; ++i) {
  159:Drivers/CMSIS/Include/cmsis_gcc.h ****       pTable->dest[i] = 0u;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 67
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 67
 
 
  160:Drivers/CMSIS/Include/cmsis_gcc.h ****     }
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  214:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Control Register
  215:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the content of the Control Register.
  216:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Control Register value
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 68
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 68
 
 
  217:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  271:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  272:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_IPSR(void)
  273:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 69
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 69
 
 
  274:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  328:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  329:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PSP_NS(void)
  330:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 70
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 70
 
 
  331:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  385:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  386:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  387:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp_ns" : "=r" (result) );
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 71
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 71
 
 
  388:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  442:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  443:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  444:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 72
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 72
 
 
  445:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Priority Mask
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  499:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
  500:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    )
  501:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 73
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 73
 
 
  502:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable FIQ
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  556:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    basePri  Base Priority value to set
  557:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  558:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_BASEPRI(uint32_t basePri)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 74
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 74
 
 
  559:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  613:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, faultmask_ns" : "=r" (result) );
  614:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  615:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 75
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 75
 
 
  616:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  670:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  671:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  672:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 76
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 76
 
 
  673:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  727:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
  728:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure PSPLIM is RAZ/WI
  729:Drivers/CMSIS/Include/cmsis_gcc.h ****   (void)ProcStackPtrLimit;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 77
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 77
 
 
  730:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  784:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Main Stack Pointer Limit
  785:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
  786:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored in non-secure
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 78
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 78
 
 
  787:Drivers/CMSIS/Include/cmsis_gcc.h ****   mode.
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  841:Drivers/CMSIS/Include/cmsis_gcc.h ****   return __builtin_arm_get_fpscr();
  842:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
  843:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 79
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 79
 
 
  844:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  898:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  899:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  900:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   No Operation
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 80
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 80
 
 
  901:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details No Operation does nothing. This instruction can be used for code alignment purposes.
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  955:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DMB(void)
  956:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  957:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("dmb 0xF":::"memory");
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 81
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 81
 
 
  958:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1012:Drivers/CMSIS/Include/cmsis_gcc.h **** 
 1013:Drivers/CMSIS/Include/cmsis_gcc.h **** 
 1014:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 82
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 82
 
 
 1015:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Rotate Right in unsigned value (32 bit)
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1069:Drivers/CMSIS/Include/cmsis_gcc.h **** }
 1070:Drivers/CMSIS/Include/cmsis_gcc.h **** 
 1071:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 83
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 83
 
 
 1072:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
 1127:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return        value of type uint16_t at (*ptr)
 1128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 84
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 84
 
 
 1129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint16_t __LDREXH(volatile uint16_t *addr)
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1168:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STREXB(uint8_t value, volatile uint8_t *addr)
 1169:Drivers/CMSIS/Include/cmsis_gcc.h **** {
 1170:Drivers/CMSIS/Include/cmsis_gcc.h ****    uint32_t result;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 85
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 85
 
 
 1171:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
   73              		.loc 1 3565 0 discriminator 1
   74 0012 0268     		ldr	r2, [r0]
   75              	.LVL6:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 86
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 86
 
 
   76              	.LBB530:
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  127              	UART_EndRxTransfer:
  128              	.LFB379:
 3570:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 87
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 87
 
 
 3571:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  172              	.LBE534:
  173              	.LBB539:
 3581:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   ATOMIC_CLEAR_BIT(huart->Instance->CR3, (USART_CR3_EIE | USART_CR3_RXFTIE));
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 88
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 88
 
 
  174              		.loc 1 3581 0 discriminator 1
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3590:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   huart->RxState = HAL_UART_STATE_READY;
  219              		.loc 1 3590 0
  220 0034 2023     		movs	r3, #32
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 89
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 89
 
 
  221 0036 C0F88C30 		str	r3, [r0, #140]
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  266              		.cfi_endproc
  267              	.LFE379:
  269              		.section	.text.UART_TxISR_8BIT,"ax",%progbits
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 90
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 90
 
 
  270              		.align	1
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3643:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   huart->TxHalfCpltCallback(huart);
 3644:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #else
 3645:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /*Call legacy weak Tx Half complete callback*/
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 91
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 91
 
 
 3646:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   HAL_UART_TxHalfCpltCallback(huart);
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3700:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     /* In other cases : use Rx Complete callback */
 3701:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #if (USE_HAL_UART_REGISTER_CALLBACKS == 1)
 3702:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     /*Call registered Rx complete callback*/
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 92
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 92
 
 
 3703:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     huart->RxCpltCallback(huart);
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3757:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 3758:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   const HAL_UART_StateTypeDef gstate = huart->gState;
 3759:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   const HAL_UART_StateTypeDef rxstate = huart->RxState;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 93
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 93
 
 
 3760:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3814:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @param  hdma DMA handle.
 3815:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @retval None
 3816:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 94
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 94
 
 
 3817:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** static void UART_DMATxAbortCallback(DMA_HandleTypeDef *hdma)
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3871:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   */
 3872:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** static void UART_DMARxAbortCallback(DMA_HandleTypeDef *hdma)
 3873:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 95
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 95
 
 
 3874:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   UART_HandleTypeDef *huart = (UART_HandleTypeDef *)(hdma->Parent);
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3928:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   huart->TxXferCount = 0U;
 3929:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
 3930:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* Flush the whole TX FIFO (if needed) */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 96
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 96
 
 
 3931:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   if (huart->FifoMode == UART_FIFOMODE_ENABLE)
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3985:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @note   Function is called under interruption only, once
 3986:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   *         interruptions have been enabled by HAL_UART_Transmit_IT().
 3987:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @param huart UART handle.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 97
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 97
 
 
 3988:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   * @retval None
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  306 0014 52E8003F 		ldrex r3, [r2]
  307              	@ 0 "" 2
  308              	.LVL32:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 98
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 98
 
 
  309              		.thumb
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  358 002e 42E80031 		strex r1, r3, [r2]
  359              	@ 0 "" 2
  360              	.LVL39:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 99
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 99
 
 
  361              		.thumb
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  403              		@ frame_needed = 0, uses_anonymous_args = 0
  404              		@ link register save eliminated.
  405              	.LVL41:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 100
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 100
 
 
 4021:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   const uint16_t *tmp;
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4029:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  435              		.loc 1 4029 0 discriminator 1
  436 0018 23F08003 		bic	r3, r3, #128
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 101
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 101
 
 
  437              	.LVL44:
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4032:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
  487              		.loc 1 4032 0 discriminator 1
  488 0032 0029     		cmp	r1, #0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 102
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 102
 
 
  489 0034 F6D1     		bne	.L19
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  531              		@ link register save eliminated.
  532              	.LVL55:
 4053:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   uint16_t  nb_tx_data;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 103
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 103
 
 
 4054:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  555              	.LVL59:
  556              		.syntax unified
  557              	@ 1155 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 104
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 104
 
 
  558 0016 53E8003F 		ldrex r3, [r3]
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  607              	.LBB577:
  608              	.LBB578:
  609              		.loc 2 1206 0 discriminator 1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 105
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 105
 
 
  610              		.syntax unified
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  656 006a 92B2     		uxth	r2, r2
  657 006c A0F85620 		strh	r2, [r0, #86]	@ movhi
  658 0070 E4E7     		b	.L27
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 106
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 106
 
 
  659              		.cfi_endproc
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4116:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         huart->TxXferCount--;
 4117:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       }
 4118:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       else
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 107
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 107
 
 
 4119:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       {
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4104:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  726              		.loc 1 4104 0 discriminator 1
  727 0024 0029     		cmp	r1, #0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 108
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 108
 
 
  728 0026 F3D1     		bne	.L34
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  776              		.loc 1 4099 0 is_stmt 0 discriminator 1
  777 0040 002B     		cmp	r3, #0
  778 0042 E1D0     		beq	.L30
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 109
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 109
 
 
 4101:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       {
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  827              		.loc 1 687 0
  828 0000 7047     		bx	lr
  829              		.cfi_endproc
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 110
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 110
 
 
  830              	.LFE334:
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  645:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  882              		.loc 1 645 0
  883 000c 0268     		ldr	r2, [r0]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 111
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 111
 
 
  884 000e 1368     		ldr	r3, [r2]
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  925 0040 0120     		movs	r0, #1
  926              	.LVL97:
  672:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 112
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 112
 
 
  927              		.loc 1 672 0
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  972              		.loc 1 1310 0
  973 0028 436E     		ldr	r3, [r0, #100]
  974 002a B3F1005F 		cmp	r3, #536870912
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 113
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 113
 
 
  975 002e 10D0     		beq	.L60
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1022 004e 0020     		movs	r0, #0
  1023              	.LVL104:
  1024              	.LBB594:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 114
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 114
 
 
  1025 0050 7047     		bx	lr
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1323:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
  1074              		.loc 1 1323 0 discriminator 1
  1075 0072 0029     		cmp	r1, #0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 115
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 115
 
 
  1076 0074 F3D1     		bne	.L53
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1122 00a4 00000000 		.word	UART_TxISR_8BIT_FIFOEN
  1123 00a8 00000000 		.word	UART_TxISR_16BIT_FIFOEN
  1124 00ac 00000000 		.word	UART_TxISR_16BIT
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 116
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 116
 
 
  1125              		.cfi_endproc
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1172 0028 C0F88820 		str	r2, [r0, #136]
 1417:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     {
  1173              		.loc 1 1417 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 117
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 117
 
 
  1174 002c C26F     		ldr	r2, [r0, #124]
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1220              	@ 0 "" 2
  1221              	.LVL128:
  1222              		.thumb
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 118
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 118
 
 
  1223              		.syntax unified
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1269              		.loc 1 1456 0
  1270 0088 10BD     		pop	{r4, pc}
  1271              	.LVL135:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 119
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 119
 
 
  1272              	.L70:
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1322              		.loc 1 1511 0 is_stmt 0 discriminator 1
  1323 0014 212A     		cmp	r2, #33
  1324 0016 0AD0     		beq	.L78
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 120
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 120
 
 
  1325              	.LVL142:
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1373              		.loc 2 1206 0 discriminator 1
  1374 003c 0832     		adds	r2, r2, #8
  1375              	.LVL150:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 121
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 121
 
 
  1376              		.syntax unified
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1425 0058 F6D1     		bne	.L80
  1426              	.LVL157:
  1427              	.L81:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 122
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 122
 
 
  1428              	.LBE611:
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1476              		.loc 2 1155 0 discriminator 1
  1477 0074 02F10803 		add	r3, r2, #8
  1478              	.LVL166:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 123
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 123
 
 
  1479              		.syntax unified
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1531 0004 212B     		cmp	r3, #33
  1532 0006 05D0     		beq	.L86
  1533              	.L85:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 124
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 124
 
 
 1543:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1582 002a F3D1     		bne	.L86
  1583 002c ECE7     		b	.L85
  1584              	.LVL180:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 125
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 125
 
 
  1585              	.L92:
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1553:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  1633              		.loc 1 1553 0 discriminator 1
  1634 004a 0268     		ldr	r2, [r0]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 126
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 126
 
 
  1635              	.LVL186:
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1684 0068 53E8003F 		ldrex r3, [r3]
  1685              	@ 0 "" 2
  1686              	.LVL195:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 127
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 127
 
 
  1687              		.thumb
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1739              		.loc 1 1576 0
  1740 0004 D0F88820 		ldr	r2, [r0, #136]
  1741              	.LVL200:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 128
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 128
 
 
 1577:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1787 0036 23F08003 		bic	r3, r3, #128
  1788              	.LVL207:
  1789              	.LBB649:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 129
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 129
 
 
  1790              	.LBB650:
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1836              		.loc 1 1607 0 discriminator 1
  1837 006a 2268     		ldr	r2, [r4]
  1838              	.LVL214:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 130
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 130
 
 
  1839              	.LBB652:
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1886              		.loc 1 1627 0
  1887 0094 0020     		movs	r0, #0
  1888 0096 0BE0     		b	.L97
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 131
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 131
 
 
  1889              	.L104:
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1938              	.LBB658:
 1155:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
  1939              		.loc 2 1155 0 discriminator 1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 132
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 132
 
 
  1940              		.syntax unified
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  1989 0020 23F08453 		bic	r3, r3, #276824064
  1990 0024 23F00103 		bic	r3, r3, #1
  1991              	.LVL232:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 133
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 133
 
 
  1992              	.LBB664:
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2040              		.loc 1 1659 0 discriminator 1
  2041 004c 23F08003 		bic	r3, r3, #128
  2042              	.LVL239:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 134
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 134
 
 
  2043              	.LBB669:
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2090              	.LVL246:
  2091              		.syntax unified
  2092              	@ 1155 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 135
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 135
 
 
  2093 007c 53E8003F 		ldrex r3, [r3]
@@ -8098,7 +8098,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2139              		.loc 1 1712 0
  2140 00ac 2368     		ldr	r3, [r4]
  2141 00ae 0F22     		movs	r2, #15
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 136
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 136
 
 
  2142 00b0 1A62     		str	r2, [r3, #32]
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2186              	.LVL256:
  2187              	.LBB679:
  2188              	.LBB680:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 137
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 137
 
 
  2189              		.loc 2 1206 0 discriminator 1
@@ -8218,7 +8218,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2235 011a 43F01003 		orr	r3, r3, #16
  2236 011e 9361     		str	r3, [r2, #24]
  2237 0120 CBE7     		b	.L115
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 138
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 138
 
 
  2238              		.cfi_endproc
@@ -8278,7 +8278,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2290              		.thumb
  2291              		.syntax unified
  2292              	.LBE685:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 139
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 139
 
 
  2293              	.LBE684:
@@ -8338,7 +8338,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2341              	.LVL273:
  2342 0030 9B68     		ldr	r3, [r3, #8]
  2343 0032 13F0800F 		tst	r3, #128
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 140
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 140
 
 
  2344 0036 13D0     		beq	.L123
@@ -8398,7 +8398,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1764:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       {
  2392              		.loc 1 1764 0
  2393 0058 E06F     		ldr	r0, [r4, #124]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 141
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 141
 
 
  2394              	.LVL281:
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2440              		.align	1
  2441              		.global	HAL_UART_AbortReceive
  2442              		.syntax unified
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 142
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 142
 
 
  2443              		.thumb
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2493 0012 0029     		cmp	r1, #0
  2494 0014 F6D1     		bne	.L131
  2495              	.LVL290:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 143
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 143
 
 
  2496              	.L132:
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2544              		.loc 1 1817 0
  2545 0038 2368     		ldr	r3, [r4]
  2546 003a 9B68     		ldr	r3, [r3, #8]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 144
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 144
 
 
  2547 003c 13F0400F 		tst	r3, #64
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2595 0062 9A63     		str	r2, [r3, #56]
 1829:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       {
  2596              		.loc 1 1829 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 145
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 145
 
 
  2597 0064 D4F88000 		ldr	r0, [r4, #128]
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2642 0094 23F01003 		bic	r3, r3, #16
  2643              	.LVL310:
  2644              	.LBB714:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 146
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 146
 
 
  2645              	.LBB715:
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2695 0000 7047     		bx	lr
  2696              		.cfi_endproc
  2697              	.LFE352:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 147
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 147
 
 
  2699              		.section	.text.UART_DMATransmitCplt,"ax",%progbits
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2748              	.LBE717:
 3614:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  2749              		.loc 1 3614 0 discriminator 1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 148
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 148
 
 
  2750 001e 23F08003 		bic	r3, r3, #128
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2800              		.syntax unified
  2801              	.LBE725:
  2802              	.LBE724:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 149
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 149
 
 
 3617:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2844              		.loc 1 4135 0 discriminator 1
  2845 0002 0268     		ldr	r2, [r0]
  2846              	.LVL334:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 150
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 150
 
 
  2847              	.LBB727:
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2887              	.LVL339:
 4149:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
 4150:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 151
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 151
 
 
  2888              		.loc 1 4150 0
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2941              		.cfi_endproc
  2942              	.LFE381:
  2944              		.section	.text.HAL_UART_RxCpltCallback,"ax",%progbits
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 152
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 152
 
 
  2945              		.align	1
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  2999              		@ frame_needed = 0, uses_anonymous_args = 0
  3000              		@ link register save eliminated.
  3001              	.LVL347:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 153
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 153
 
 
 2607:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3050 001e 13F0400F 		tst	r3, #64
  3051 0022 01D0     		beq	.L158
 3770:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       (rxstate == HAL_UART_STATE_BUSY_RX))
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 154
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 154
 
 
  3052              		.loc 1 3770 0 is_stmt 0 discriminator 1
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3100              		@ args = 0, pretend = 0, frame = 0
  3101              		@ frame_needed = 0, uses_anonymous_args = 0
  3102              	.LVL358:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 155
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 155
 
 
  3103 0000 08B5     		push	{r3, lr}
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3154              	.LFB348:
 1873:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   uint32_t abortcplt = 1U;
  3155              		.loc 1 1873 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 156
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 156
 
 
  3156              		.cfi_startproc
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3206              	.LBE731:
  3207              	.LBB736:
 1879:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 157
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 157
 
 
  3208              		.loc 1 1879 0 discriminator 1
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3256              		.loc 1 1894 0
  3257 003c 2268     		ldr	r2, [r4]
  3258 003e 9268     		ldr	r2, [r2, #8]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 158
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 158
 
 
  3259 0040 12F0800F 		tst	r2, #128
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3305              	.LBB745:
  3306              		.loc 2 1206 0 discriminator 1
  3307 0076 0831     		adds	r1, r1, #8
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 159
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 159
 
 
  3308              	.LVL380:
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3355              	.LBE748:
  3356              	.LBE747:
 1884:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 160
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 160
 
 
  3357              		.loc 1 1884 0 discriminator 1
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1155:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
  3405              		.loc 2 1155 0 discriminator 1
  3406 00c6 02F10803 		add	r3, r2, #8
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 161
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 161
 
 
  3407              	.LVL392:
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3454              		.loc 1 1972 0
  3455 00f6 A4F85E30 		strh	r3, [r4, #94]	@ movhi
 1975:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     huart->TxISR = NULL;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 162
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 162
 
 
  3456              		.loc 1 1975 0
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3499              	.LVL402:
  3500              	.L178:
 2009:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 163
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 163
 
 
  3501              		.loc 1 2009 0
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3551 0012 03B1     		cbz	r3, .L188
  3552              	.LVL406:
  3553              	.L187:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 164
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 164
 
 
 3913:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3599              		@ args = 0, pretend = 0, frame = 0
  3600              		@ frame_needed = 0, uses_anonymous_args = 0
  3601              	.LVL409:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 165
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 165
 
 
  3602 0000 08B5     		push	{r3, lr}
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3644 003c C366     		str	r3, [r0, #108]
 3859:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
  3645              		.loc 1 3859 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 166
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 166
 
 
  3646 003e FFF7FEFF 		bl	HAL_UART_AbortCpltCallback
@@ -9958,7 +9958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3699              	.LCFI18:
  3700              		.cfi_def_cfa_offset 8
  3701              		.cfi_offset 4, -8
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 167
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 167
 
 
  3702              		.cfi_offset 14, -4
@@ -10018,7 +10018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3750              	.LVL421:
  3751              		.syntax unified
  3752              	@ 1155 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 168
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 168
 
 
  3753 001c 53E8003F 		ldrex r3, [r3]
@@ -10078,7 +10078,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3802              		.thumb
  3803              		.syntax unified
  3804              	.LBE768:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 169
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 169
 
 
  3805              	.LBE767:
@@ -10138,7 +10138,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3851              		.loc 1 2057 0
  3852 006e A367     		str	r3, [r4, #120]
 2060:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 170
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 170
 
 
  3853              		.loc 1 2060 0
@@ -10198,7 +10198,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3900              		.section	.text.UART_DMATxOnlyAbortCallback,"ax",%progbits
  3901              		.align	1
  3902              		.syntax unified
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 171
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 171
 
 
  3903              		.thumb
@@ -10258,7 +10258,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  3951              		.weak	HAL_UART_AbortReceiveCpltCallback
  3952              		.syntax unified
  3953              		.thumb
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 172
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 172
 
 
  3954              		.thumb_func
@@ -10318,7 +10318,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4006              	.LBE773:
  4007              	.LBE772:
 2119:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   ATOMIC_CLEAR_BIT(huart->Instance->CR3, (USART_CR3_EIE | USART_CR3_RXFTIE));
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 173
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 173
 
 
  4008              		.loc 1 2119 0 discriminator 1
@@ -10378,7 +10378,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4058 002a 42E80031 		strex r1, r3, [r2]
  4059              	@ 0 "" 2
  4060              	.LVL460:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 174
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 174
 
 
  4061              		.thumb
@@ -10438,7 +10438,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4109 0052 42E80031 		strex r1, r3, [r2]
  4110              	@ 0 "" 2
  4111              	.LVL467:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 175
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 175
 
 
  4112              		.thumb
@@ -10498,7 +10498,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4158              	.LBE788:
  4159              	.LBE787:
 2125:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 176
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 176
 
 
  4160              		.loc 1 2125 0 discriminator 1
@@ -10558,7 +10558,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4206 00b4 DFE7     		b	.L223
  4207              	.LVL480:
  4208              	.L220:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 177
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 177
 
 
 2179:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -10618,7 +10618,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3961:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  4257              		.loc 1 3961 0
  4258 0004 0022     		movs	r2, #0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 178
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 178
 
 
  4259 0006 A0F85E20 		strh	r2, [r0, #94]	@ movhi
@@ -10678,7 +10678,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4308              		.thumb_func
  4309              		.fpu fpv4-sp-d16
  4311              	HAL_UART_IRQHandler:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 179
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 179
 
 
  4312              	.LFB351:
@@ -10738,7 +10738,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4356 0028 0BB1     		cbz	r3, .L230
 2229:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       }
  4357              		.loc 1 2229 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 180
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 180
 
 
  4358 002a 2046     		mov	r0, r4
@@ -10798,7 +10798,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4401 006a 2168     		ldr	r1, [r4]
  4402 006c 0226     		movs	r6, #2
  4403 006e 0E62     		str	r6, [r1, #32]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 181
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 181
 
 
 2253:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
@@ -10858,7 +10858,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4446 00be 15F0806F 		tst	r5, #67108864
  4447 00c2 09D0     		beq	.L241
 2277:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 182
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 182
 
 
  4448              		.loc 1 2277 0 is_stmt 1
@@ -10918,7 +10918,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4492              	.L244:
 2308:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  4493              		.loc 1 2308 0 is_stmt 1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 183
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 183
 
 
  4494 010e 2046     		mov	r0, r4
@@ -10978,7 +10978,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4542              		.loc 1 2317 0
  4543 0136 D4F88030 		ldr	r3, [r4, #128]
  4544              	.LVL509:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 184
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 184
 
 
  4545 013a 6BB1     		cbz	r3, .L248
@@ -11038,7 +11038,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4590              		.loc 1 2471 0
  4591 017c 13F4801F 		tst	r3, #1048576
  4592 0180 03D0     		beq	.L259
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 185
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 185
 
 
 2471:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
@@ -11098,7 +11098,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4636              		.loc 1 2388 0
  4637 01c8 D4F88020 		ldr	r2, [r4, #128]
  4638 01cc 1368     		ldr	r3, [r2]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 186
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 186
 
 
  4639 01ce 5B68     		ldr	r3, [r3, #4]
@@ -11158,7 +11158,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4686              		.syntax unified
  4687              	.LBE801:
  4688              	.LBE800:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 187
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 187
 
 
 2399:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           ATOMIC_CLEAR_BIT(huart->Instance->CR3, USART_CR3_EIE);
@@ -11218,7 +11218,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4737              		.loc 1 2404 0 discriminator 1
  4738 021a 2268     		ldr	r2, [r4]
  4739              	.LVL536:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 188
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 188
 
 
  4740              	.LBB808:
@@ -11278,7 +11278,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4788              	.LBB813:
  4789              	.LBB814:
 1155:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 189
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 189
 
 
  4790              		.loc 2 1155 0 discriminator 1
@@ -11338,7 +11338,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4839              	.LBE796:
  4840              	.LBB817:
 2435:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       if ((huart->RxXferCount > 0U)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 190
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 190
 
 
  4841              		.loc 1 2435 0
@@ -11398,7 +11398,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4889 029a 0028     		cmp	r0, #0
  4890 029c F6D1     		bne	.L256
  4891              	.LVL558:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 191
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 191
 
 
  4892              	.L257:
@@ -11458,7 +11458,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4940 02c2 E366     		str	r3, [r4, #108]
 2450:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  4941              		.loc 1 2450 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 192
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 192
 
 
  4942 02c4 6367     		str	r3, [r4, #116]
@@ -11518,7 +11518,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  4990              	.LBE817:
 2473:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  4991              		.loc 1 2473 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 193
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 193
 
 
  4992 02e4 4FF48013 		mov	r3, #1048576
@@ -11578,7 +11578,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5035              	.LVL580:
  5036 0322 FFF7FEFF 		bl	UART_EndTransmit_IT
  5037              	.LVL581:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 194
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 194
 
 
 2504:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   }
@@ -11638,7 +11638,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4162:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* Check that a Rx process is ongoing */
 4163:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   if (huart->RxState == HAL_UART_STATE_BUSY_RX)
  5080              		.loc 1 4163 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 195
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 195
 
 
  5081 0006 D0F88C20 		ldr	r2, [r0, #140]
@@ -11698,7 +11698,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4215:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         huart->RxEventCallback(huart, huart->RxXferSize);
 4216:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #else
 4217:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         /*Call legacy weak Rx Event callback*/
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 196
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 196
 
 
 4218:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         HAL_UARTEx_RxEventCallback(huart, huart->RxXferSize);
@@ -11758,7 +11758,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5112 002c B0F85E30 		ldrh	r3, [r0, #94]
  5113 0030 013B     		subs	r3, r3, #1
  5114 0032 9BB2     		uxth	r3, r3
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 197
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 197
 
 
  5115 0034 A0F85E30 		strh	r3, [r0, #94]	@ movhi
@@ -11818,7 +11818,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5163              	.LVL599:
  5164              	.LBB839:
  5165              	.LBB840:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 198
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 198
 
 
 1155:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
@@ -11878,7 +11878,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4190:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         {
  5213              		.loc 1 4190 0
  5214 0080 5B68     		ldr	r3, [r3, #4]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 199
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 199
 
 
  5215 0082 13F4000F 		tst	r3, #8388608
@@ -11938,7 +11938,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5263              	.LBB848:
 4205:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  5264              		.loc 1 4205 0 discriminator 1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 200
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 200
 
 
  5265 00a4 0268     		ldr	r2, [r0]
@@ -11998,7 +11998,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5313              	.LVL617:
  5314              	.L278:
 4229:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 201
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 201
 
 
  5315              		.loc 1 4229 0
@@ -12058,7 +12058,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4259:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     *tmp = (uint16_t)(uhdata & uhMask);
 4260:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     huart->pRxBuffPtr += 2U;
 4261:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     huart->RxXferCount--;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 202
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 202
 
 
 4262:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -12118,7 +12118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4316:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         /* Standard reception API called */
 4317:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #if (USE_HAL_UART_REGISTER_CALLBACKS == 1)
 4318:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         /*Call registered Rx complete callback*/
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 203
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 203
 
 
 4319:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         huart->RxCpltCallback(huart);
@@ -12178,7 +12178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5386 003a 9BB2     		uxth	r3, r3
  5387 003c 002B     		cmp	r3, #0
  5388 003e EBD1     		bne	.L285
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 204
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 204
 
 
  5389              	.LVL627:
@@ -12238,7 +12238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5437              		.syntax unified
  5438              	@ 1155 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
  5439 0058 53E8003F 		ldrex r3, [r3]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 205
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 205
 
 
  5440              	@ 0 "" 2
@@ -12298,7 +12298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4286:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         }
  5487              		.loc 1 4286 0 discriminator 1
  5488 0086 0268     		ldr	r2, [r0]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 206
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 206
 
 
  5489              	.LVL640:
@@ -12358,7 +12358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1155:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
  5537              		.loc 2 1155 0 discriminator 1
  5538              		.syntax unified
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 207
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 207
 
 
  5539              	@ 1155 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
@@ -12418,7 +12418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5587              	.L298:
  5588 00d2 00BF     		.align	2
  5589              	.L297:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 208
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 208
 
 
  5590 00d4 00800040 		.word	1073774592
@@ -12478,7 +12478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5629              		.loc 1 4349 0
  5630 0010 D3F80880 		ldr	r8, [r3, #8]
  5631              	.LVL657:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 209
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 209
 
 
 4350:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -12538,7 +12538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4400:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           HAL_UART_ErrorCallback(huart);
 4401:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
 4402:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           huart->ErrorCode = HAL_UART_ERROR_NONE;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 210
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 210
 
 
 4403:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         }
@@ -12598,7 +12598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4457:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         }
 4458:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         else
 4459:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 211
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 211
 
 
 4460:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           /* Standard reception API called */
@@ -12658,7 +12658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5653              	.L305:
 4391:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         {
  5654              		.loc 1 4391 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 212
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 212
 
 
  5655 0030 D4F89030 		ldr	r3, [r4, #144]
@@ -12718,7 +12718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5699 007c 09D0     		beq	.L303
 4367:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         {
  5700              		.loc 1 4367 0 is_stmt 0 discriminator 1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 213
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 213
 
 
  5701 007e 19F4807F 		tst	r9, #256
@@ -12778,7 +12778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5744 00d2 FFF7FEFF 		bl	HAL_UART_ErrorCallback
  5745              	.LVL665:
 4402:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 214
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 214
 
 
  5746              		.loc 1 4402 0
@@ -12838,7 +12838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5794              		.loc 2 1155 0 discriminator 1
  5795 00f2 02F10803 		add	r3, r2, #8
  5796              	.LVL672:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 215
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 215
 
 
  5797              		.syntax unified
@@ -12898,7 +12898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5844 0122 13F4000F 		tst	r3, #8388608
  5845 0126 06D1     		bne	.L310
  5846              	.L309:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 216
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 216
 
 
 4436:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         {
@@ -12958,7 +12958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4439:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  5895              		.loc 1 4439 0
  5896 014a 0023     		movs	r3, #0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 217
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 217
 
 
  5897 014c E366     		str	r3, [r4, #108]
@@ -13018,7 +13018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5944              		.loc 1 4455 0
  5945 016e B4F85C10 		ldrh	r1, [r4, #92]
  5946 0172 2046     		mov	r0, r4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 218
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 218
 
 
  5947 0174 FFF7FEFF 		bl	HAL_UARTEx_RxEventCallback
@@ -13078,7 +13078,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  5995              		.thumb
  5996              		.syntax unified
  5997              	.LBE897:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 219
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 219
 
 
  5998              	.LBE896:
@@ -13138,7 +13138,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6046 01c0 00800040 		.word	1073774592
  6047 01c4 00000000 		.word	UART_RxISR_8BIT
  6048              	.LBE898:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 220
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 220
 
 
  6049              		.cfi_endproc
@@ -13198,7 +13198,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6087              		.loc 1 4512 0
  6088 0010 D3F80880 		ldr	r8, [r3, #8]
  6089              	.LVL707:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 221
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 221
 
 
 4513:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -13258,7 +13258,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4563:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           /*Call legacy weak error callback*/
 4564:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           HAL_UART_ErrorCallback(huart);
 4565:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 222
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 222
 
 
 4566:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           huart->ErrorCode = HAL_UART_ERROR_NONE;
@@ -13318,7 +13318,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4620:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* (USE_HAL_UART_REGISTER_CALLBACKS) */
 4621:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         }
 4622:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         else
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 223
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 223
 
 
 4623:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         {
@@ -13378,7 +13378,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6110              	.LVL711:
  6111              	.L331:
 4555:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 224
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 224
 
 
  6112              		.loc 1 4555 0
@@ -13438,7 +13438,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 4531:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         {
  6156              		.loc 1 4531 0
  6157 0076 15F0010F 		tst	r5, #1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 225
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 225
 
 
  6158 007a 09D0     		beq	.L329
@@ -13498,7 +13498,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6201              	.L347:
 4564:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* USE_HAL_UART_REGISTER_CALLBACKS */
  6202              		.loc 1 4564 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 226
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 226
 
 
  6203 00ce 2046     		mov	r0, r4
@@ -13558,7 +13558,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6251              	.LVL723:
  6252              	.LBB909:
  6253              	.LBB910:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 227
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 227
 
 
 1155:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
@@ -13618,7 +13618,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6301 011c 03D0     		beq	.L335
 4591:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           {
  6302              		.loc 1 4591 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 228
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 228
 
 
  6303 011e 5B68     		ldr	r3, [r3, #4]
@@ -13678,7 +13678,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6351 0146 EEE7     		b	.L335
  6352              	.LVL735:
  6353              	.L348:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 229
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 229
 
 
  6354              	.LBE913:
@@ -13738,7 +13738,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6401 0168 1022     		movs	r2, #16
  6402 016a 1A62     		str	r2, [r3, #32]
  6403              	.L339:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 230
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 230
 
 
 4619:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** #endif /* (USE_HAL_UART_REGISTER_CALLBACKS) */
@@ -13798,7 +13798,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6451              	@ 1206 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
  6452 019e 42E80031 		strex r1, r3, [r2]
  6453              	@ 0 "" 2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 231
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 231
 
 
  6454              	.LVL749:
@@ -13858,7 +13858,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6502 01bc 32E7     		b	.L325
  6503              	.L350:
  6504 01be 00BF     		.align	2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 232
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 232
 
 
  6505              	.L349:
@@ -13918,7 +13918,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6554 001e F8E7     		b	.L351
  6555              		.cfi_endproc
  6556              	.LFE383:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 233
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 233
 
 
  6558              		.section	.text.UART_DMAReceiveCplt,"ax",%progbits
@@ -13978,7 +13978,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6606              		.loc 1 3665 0 discriminator 1
  6607 001a 22F48072 		bic	r2, r2, #256
  6608              	.LVL765:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 234
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 234
 
 
  6609              	.LBB936:
@@ -14038,7 +14038,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6659              		.syntax unified
  6660              	.LBE942:
  6661              	.LBE941:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 235
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 235
 
 
 3666:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -14098,7 +14098,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6710 0058 C3F88C20 		str	r2, [r3, #140]
 3676:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     {
  6711              		.loc 1 3676 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 236
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 236
 
 
  6712 005c DA6E     		ldr	r2, [r3, #108]
@@ -14158,7 +14158,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6759              		.thumb
  6760              		.syntax unified
  6761              	.LBE952:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 237
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 237
 
 
  6762              	.LBE951:
@@ -14218,7 +14218,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6812 0014 00800040 		.word	1073774592
  6813              		.cfi_endproc
  6814              	.LFE361:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 238
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 238
 
 
  6816              		.section	.text.HAL_UART_EnableReceiverTimeout,"ax",%progbits
@@ -14278,7 +14278,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6861              		.loc 1 2743 0 discriminator 2
  6862 0038 1846     		mov	r0, r3
  6863              	.LVL793:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 239
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 239
 
 
  6864 003a 7047     		bx	lr
@@ -14338,7 +14338,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6913 0008 D0F88820 		ldr	r2, [r0, #136]
  6914 000c 202A     		cmp	r2, #32
  6915 000e 17D1     		bne	.L380
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 240
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 240
 
 
 2769:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -14398,7 +14398,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  6959              	.L383:
  6960              		.align	2
  6961              	.L382:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 241
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 241
 
 
  6962 0048 00800040 		.word	1073774592
@@ -14458,7 +14458,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7014 000a 80F88430 		strb	r3, [r0, #132]
 2853:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  7015              		.loc 1 2853 0 is_stmt 1 discriminator 2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 242
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 242
 
 
  7016 000e 2423     		movs	r3, #36
@@ -14518,7 +14518,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7064              	@ 1155 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
  7065 0028 52E8003F 		ldrex r3, [r2]
  7066              	@ 0 "" 2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 243
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 243
 
 
  7067              	.LVL816:
@@ -14578,7 +14578,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7115              		.syntax unified
  7116              		.thumb
  7117              		.thumb_func
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 244
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 244
 
 
  7118              		.fpu fpv4-sp-d16
@@ -14638,7 +14638,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7166              		.thumb
  7167              		.syntax unified
  7168              	.LBE967:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 245
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 245
 
 
  7169              	.LBE966:
@@ -14698,7 +14698,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7216 003e 0023     		movs	r3, #0
  7217 0040 80F88430 		strb	r3, [r0, #132]
 2888:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 246
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 246
 
 
  7218              		.loc 1 2888 0
@@ -14758,7 +14758,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 2911:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  7266              		.loc 1 2911 0 discriminator 2
  7267 0024 0023     		movs	r3, #0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 247
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 247
 
 
  7268 0026 80F88430 		strb	r3, [r0, #132]
@@ -14818,7 +14818,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7318              		.fpu fpv4-sp-d16
  7320              	HAL_UART_GetError:
  7321              	.LFB371:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 248
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 248
 
 
 2959:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   return huart->ErrorCode;
@@ -14878,7 +14878,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7372 0010 1343     		orrs	r3, r3, r2
  7373 0012 C269     		ldr	r2, [r0, #28]
  7374 0014 1343     		orrs	r3, r3, r2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 249
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 249
 
 
  7375              	.LVL849:
@@ -14938,7 +14938,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7421 005a 904A     		ldr	r2, .L488+8
  7422 005c 9342     		cmp	r3, r2
  7423 005e 23D0     		beq	.L476
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 250
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 250
 
 
 3068:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -14998,7 +14998,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7469              		.loc 1 3068 0 discriminator 1
  7470 00a8 02F55842 		add	r2, r2, #55296
  7471 00ac D2F88820 		ldr	r2, [r2, #136]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 251
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 251
 
 
  7472 00b0 02F00302 		and	r2, r2, #3
@@ -15058,7 +15058,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7521 00ee 0D       		.byte	(.L410-.L412)/2
  7522 00ef 0D       		.byte	(.L410-.L412)/2
  7523 00f0 0B       		.byte	(.L414-.L412)/2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 252
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 252
 
 
  7524 00f1 00       		.p2align 1
@@ -15118,7 +15118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3068:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  7570              		.loc 1 3068 0 discriminator 29
  7571 0126 0422     		movs	r2, #4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 253
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 253
 
 
  7572 0128 A7E7     		b	.L407
@@ -15178,7 +15178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7618 0166 B2F5806F 		cmp	r2, #1024
  7619 016a 0BD0     		beq	.L428
  7620 016c 07D9     		bls	.L485
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 254
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 254
 
 
  7621 016e B2F5006F 		cmp	r2, #2048
@@ -15238,7 +15238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7668 01a6 DFE802F0 		tbb	[pc, r2]
  7669              	.L435:
  7670 01aa 08       		.byte	(.L434-.L435)/2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 255
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 255
 
 
  7671 01ab B4       		.byte	(.L461-.L435)/2
@@ -15298,7 +15298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7717 01e0 00F29980 		bhi	.L464
 3101:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****           (lpuart_ker_ck_pres > (4096U * huart->Init.BaudRate)))
  7718              		.loc 1 3101 0 is_stmt 0 discriminator 1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 256
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 256
 
 
  7719 01e4 B3EB053F 		cmp	r3, r5, lsl #12
@@ -15358,7 +15358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7769              	.L444:
 3135:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         break;
  7770              		.loc 1 3135 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 257
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 257
 
 
  7771 023c 1B48     		ldr	r0, .L488+24
@@ -15418,7 +15418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3133:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       case UART_CLOCKSOURCE_HSI:
  7817              		.loc 1 3133 0
  7818 0284 DEE7     		b	.L447
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 258
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 258
 
 
  7819              	.LVL902:
@@ -15478,7 +15478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7865              		.loc 1 3194 0
  7866 02d8 A0F11002 		sub	r2, r0, #16
  7867 02dc 4FF6EF73 		movw	r3, #65519
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 259
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 259
 
 
  7868 02e0 9A42     		cmp	r2, r3
@@ -15538,7 +15538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7910              		.loc 1 3090 0
  7911 0312 0120     		movs	r0, #1
  7912 0314 EAE7     		b	.L433
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 260
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 260
 
 
  7913              	.LVL915:
@@ -15598,7 +15598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  7961 033c 0024F400 		.word	16000000
  7962 0340 00000000 		.word	.LANCHOR0
  7963              		.cfi_endproc
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 261
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 261
 
 
  7964              	.LFE372:
@@ -15658,7 +15658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8013 0038 23F48033 		bic	r3, r3, #65536
  8014 003c 016B     		ldr	r1, [r0, #48]
  8015 003e 0B43     		orrs	r3, r3, r1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 262
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 262
 
 
  8016 0040 5360     		str	r3, [r2, #4]
@@ -15718,7 +15718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8062 0094 416C     		ldr	r1, [r0, #68]
  8063 0096 0B43     		orrs	r3, r3, r1
  8064 0098 5360     		str	r3, [r2, #4]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 263
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 263
 
 
 3275:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     {
@@ -15778,7 +15778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8115              		.cfi_offset 5, -20
  8116              		.cfi_offset 6, -16
  8117              		.cfi_offset 7, -12
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 264
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 264
 
 
  8118              		.cfi_offset 8, -8
@@ -15838,7 +15838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8163 004e DA69     		ldr	r2, [r3, #28]
  8164 0050 12F4006F 		tst	r2, #2048
  8165 0054 DBD0     		beq	.L504
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 265
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 265
 
 
 3401:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -15898,7 +15898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8207 0090 0320     		movs	r0, #3
  8208 0092 FBE7     		b	.L505
  8209              	.L509:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 266
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 266
 
 
  8210 0094 0320     		movs	r0, #3
@@ -15958,7 +15958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8260              		.loc 1 1131 0
  8261 0020 0023     		movs	r3, #0
  8262 0022 C0F89030 		str	r3, [r0, #144]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 267
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 267
 
 
 1132:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -16018,7 +16018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1171:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
  8306              		.loc 1 1171 0
  8307 0068 B4F85630 		ldrh	r3, [r4, #86]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 268
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 268
 
 
  8308 006c 013B     		subs	r3, r3, #1
@@ -16078,7 +16078,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8355 00b0 0346     		mov	r3, r0
  8356 00b2 18B9     		cbnz	r0, .L533
 1182:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 269
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 269
 
 
  8357              		.loc 1 1182 0
@@ -16138,7 +16138,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8406              		@ frame_needed = 0, uses_anonymous_args = 0
  8407              	.LVL952:
  8408 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 270
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 270
 
 
  8409              	.LCFI35:
@@ -16198,7 +16198,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1229:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     huart->RxXferCount = Size;
  8455              		.loc 1 1229 0
  8456 0034 A4F85C80 		strh	r8, [r4, #92]	@ movhi
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 271
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 271
 
 
 1230:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -16258,7 +16258,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8499 007c B4F86080 		ldrh	r8, [r4, #96]
  8500              	.LVL959:
 1237:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 272
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 272
 
 
  8501              		.loc 1 1237 0
@@ -16318,7 +16318,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1259:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****         pdata16bits++;
  8545              		.loc 1 1259 0
  8546 00ba 2368     		ldr	r3, [r4]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 273
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 273
 
 
  8547 00bc 5B6A     		ldr	r3, [r3, #36]
@@ -16378,7 +16378,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8593              		.loc 1 1277 0
  8594 010a 0220     		movs	r0, #2
  8595              	.LVL969:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 274
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 274
 
 
  8596              	.L535:
@@ -16438,7 +16438,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8647              	.LVL974:
 3306:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
  8648              		.loc 1 3306 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 275
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 275
 
 
  8649 0012 2368     		ldr	r3, [r4]
@@ -16498,7 +16498,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8695 0052 0028     		cmp	r0, #0
  8696 0054 E2D0     		beq	.L563
  8697              	.L564:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 276
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 276
 
 
  8698              	.LBB973:
@@ -16558,7 +16558,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8744              		.loc 1 3327 0
  8745 0078 6FF07E43 		mvn	r3, #-33554432
  8746 007c 0093     		str	r3, [sp]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 277
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 277
 
 
  8747 007e 2B46     		mov	r3, r5
@@ -16618,7 +16618,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8796              	.LVL990:
  8797              	.LBB984:
  8798              	.LBB985:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 278
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 278
 
 
 1155:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
@@ -16678,7 +16678,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8848              		.syntax unified
  8849              		.thumb
  8850              		.thumb_func
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 279
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 279
 
 
  8851              		.fpu fpv4-sp-d16
@@ -16738,7 +16738,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  368:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  8897              		.loc 1 368 0
  8898 0034 2268     		ldr	r2, [r4]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 280
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 280
 
 
  8899 0036 9368     		ldr	r3, [r2, #8]
@@ -16798,7 +16798,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  8946              		.thumb
  8947              		.thumb_func
  8948              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 281
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 281
 
 
  8950              	HAL_HalfDuplex_Init:
@@ -16858,7 +16858,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  435:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  8995              		.loc 1 435 0
  8996 0036 2268     		ldr	r2, [r4]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 282
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 282
 
 
  8997 0038 9368     		ldr	r3, [r2, #8]
@@ -16918,7 +16918,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9042              		.cfi_endproc
  9043              	.LFE330:
  9045              		.section	.text.HAL_LIN_Init,"ax",%progbits
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 283
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 283
 
 
  9046              		.align	1
@@ -16978,7 +16978,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9093 002c 1360     		str	r3, [r2]
  508:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   {
  9094              		.loc 1 508 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 284
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 284
 
 
  9095 002e A36A     		ldr	r3, [r4, #40]
@@ -17038,7 +17038,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9140 007c FFF7FEFF 		bl	HAL_UART_MspInit
  9141              	.LVL1020:
  9142 0080 CDE7     		b	.L596
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 285
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 285
 
 
  9143              	.L606:
@@ -17098,7 +17098,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9193              	HAL_MultiProcessor_Init:
  9194              	.LFB332:
  557:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   /* Check the UART handle allocation */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 286
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 286
 
 
  9195              		.loc 1 557 0
@@ -17158,7 +17158,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9241 0038 5360     		str	r3, [r2, #4]
  609:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  9242              		.loc 1 609 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 287
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 287
 
 
  9243 003a 2268     		ldr	r2, [r4]
@@ -17218,7 +17218,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9288 007e 21F07F41 		bic	r1, r1, #-16777216
  9289 0082 41EA0666 		orr	r6, r1, r6, lsl #24
  9290 0086 5E60     		str	r6, [r3, #4]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 288
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 288
 
 
  9291 0088 DFE7     		b	.L611
@@ -17278,7 +17278,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9340              		.loc 1 2807 0 discriminator 1
  9341 0016 0268     		ldr	r2, [r0]
  9342              	.LVL1039:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 289
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 289
 
 
  9343              	.LBB989:
@@ -17338,7 +17338,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9390              		.cfi_endproc
  9391              	.LFE364:
  9393              		.section	.text.HAL_MultiProcessor_DisableMuteMode,"ax",%progbits
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 290
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 290
 
 
  9394              		.align	1
@@ -17398,7 +17398,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9442              	.LVL1050:
  9443              	.LBB996:
  9444              	.LBB997:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 291
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 291
 
 
  9445              		.loc 2 1206 0 discriminator 1
@@ -17458,7 +17458,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9495              	.LCFI54:
  9496              		.cfi_def_cfa_offset 4
  9497              		.cfi_offset 4, -4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 292
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 292
 
 
 3434:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****   huart->RxXferSize  = Size;
@@ -17518,7 +17518,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9539              		.loc 1 3440 0 discriminator 6
  9540 0044 B3F1805F 		cmp	r3, #268435456
  9541 0048 2ED0     		beq	.L652
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 293
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 293
 
 
 3440:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -17578,7 +17578,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9589              		.loc 1 3446 0 discriminator 1
  9590 0070 002C     		cmp	r4, #0
  9591 0072 F3D1     		bne	.L638
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 294
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 294
 
 
  9592              	.LBE998:
@@ -17638,7 +17638,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9639              	@ 0 "" 2
  9640              	.LVL1069:
  9641              		.thumb
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 295
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 295
 
 
  9642              		.syntax unified
@@ -17698,7 +17698,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9688 00cc 184B     		ldr	r3, .L656+4
  9689 00ce 4367     		str	r3, [r0, #116]
  9690              	.L641:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 296
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 296
 
 
 3462:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     {
@@ -17758,7 +17758,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 1155:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
  9739              		.loc 2 1155 0 discriminator 1
  9740 00e8 02F10803 		add	r3, r2, #8
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 297
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 297
 
 
  9741              	.LVL1081:
@@ -17818,7 +17818,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9789 0112 094B     		ldr	r3, .L656+12
  9790 0114 4367     		str	r3, [r0, #116]
  9791 0116 B7E7     		b	.L647
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 298
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 298
 
 
  9792              	.LVL1087:
@@ -17878,7 +17878,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9843              		.syntax unified
  9844              		.thumb
  9845              		.thumb_func
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 299
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 299
 
 
  9846              		.fpu fpv4-sp-d16
@@ -17938,7 +17938,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9892 0024 54E8003F 		ldrex r3, [r4]
  9893              	@ 0 "" 2
  9894              	.LVL1094:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 300
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 300
 
 
  9895              		.thumb
@@ -17998,7 +17998,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9943              	.L667:
  9944 0046 00BF     		.align	2
  9945              	.L666:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 301
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 301
 
 
  9946 0048 00800040 		.word	1073774592
@@ -18058,7 +18058,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  9993              		.loc 1 3521 0
  9994 0028 D0F88030 		ldr	r3, [r0, #128]
  9995 002c 1F49     		ldr	r1, .L677+8
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 302
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 302
 
 
  9996 002e 5963     		str	r1, [r3, #52]
@@ -18118,7 +18118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  10044              		.thumb
  10045              		.syntax unified
  10046              	.LBE1032:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 303
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 303
 
 
  10047              	.LBE1031:
@@ -18178,7 +18178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
 3550:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
  10096              		.loc 1 3550 0 discriminator 1
  10097 0078 2268     		ldr	r2, [r4]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 304
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 304
 
 
  10098              	.LVL1123:
@@ -18238,7 +18238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  10145              		.loc 1 3533 0
  10146 009a 2023     		movs	r3, #32
  10147 009c C4F88C30 		str	r3, [r4, #140]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 305
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 305
 
 
 3535:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****     }
@@ -18298,7 +18298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  10197 0018 0CD0     		beq	.L681
 1486:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c ****       {
  10198              		.loc 1 1486 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 306
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 306
 
 
  10199 001a 5B68     		ldr	r3, [r3, #4]
@@ -18358,7 +18358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  10247 003a 0220     		movs	r0, #2
  10248              	.LVL1139:
  10249              	.L680:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 307
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 307
 
 
 1499:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_uart.c **** 
@@ -18414,195 +18414,195 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 1
  10301              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
  10302              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h"
  10303              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 308
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 308
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g4xx_hal_uart.c
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:18     .text.UART_EndTxTransfer:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:24     .text.UART_EndTxTransfer:00000000 UART_EndTxTransfer
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:121    .text.UART_EndRxTransfer:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:127    .text.UART_EndRxTransfer:00000000 UART_EndRxTransfer
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:270    .text.UART_TxISR_8BIT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:276    .text.UART_TxISR_8BIT:00000000 UART_TxISR_8BIT
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:392    .text.UART_TxISR_16BIT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:398    .text.UART_TxISR_16BIT:00000000 UART_TxISR_16BIT
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:519    .text.UART_TxISR_8BIT_FIFOEN:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:525    .text.UART_TxISR_8BIT_FIFOEN:00000000 UART_TxISR_8BIT_FIFOEN
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:663    .text.UART_TxISR_16BIT_FIFOEN:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:669    .text.UART_TxISR_16BIT_FIFOEN:00000000 UART_TxISR_16BIT_FIFOEN
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:812    .text.HAL_UART_MspInit:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:819    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:833    .text.HAL_UART_MspDeInit:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:840    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:854    .text.HAL_UART_DeInit:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:861    .text.HAL_UART_DeInit:00000000 HAL_UART_DeInit
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:933    .text.HAL_UART_Transmit_IT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:940    .text.HAL_UART_Transmit_IT:00000000 HAL_UART_Transmit_IT
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1121   .text.HAL_UART_Transmit_IT:000000a0 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1129   .text.HAL_UART_Transmit_DMA:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1136   .text.HAL_UART_Transmit_DMA:00000000 HAL_UART_Transmit_DMA
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1285   .text.HAL_UART_Transmit_DMA:00000094 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2706   .text.UART_DMATransmitCplt:00000000 UART_DMATransmitCplt
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2921   .text.UART_DMATxHalfCplt:00000000 UART_DMATxHalfCplt
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3014   .text.UART_DMAError:00000000 UART_DMAError
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1292   .text.HAL_UART_DMAPause:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1299   .text.HAL_UART_DMAPause:00000000 HAL_UART_DMAPause
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1514   .text.HAL_UART_DMAResume:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1521   .text.HAL_UART_DMAResume:00000000 HAL_UART_DMAResume
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1717   .text.HAL_UART_DMAStop:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1724   .text.HAL_UART_DMAStop:00000000 HAL_UART_DMAStop
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1912   .text.HAL_UART_Abort:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:1919   .text.HAL_UART_Abort:00000000 HAL_UART_Abort
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2242   .text.HAL_UART_AbortTransmit:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2249   .text.HAL_UART_AbortTransmit:00000000 HAL_UART_AbortTransmit
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2440   .text.HAL_UART_AbortReceive:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2447   .text.HAL_UART_AbortReceive:00000000 HAL_UART_AbortReceive
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2679   .text.HAL_UART_TxCpltCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2686   .text.HAL_UART_TxCpltCallback:00000000 HAL_UART_TxCpltCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2700   .text.UART_DMATransmitCplt:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2824   .text.UART_EndTransmit_IT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2830   .text.UART_EndTransmit_IT:00000000 UART_EndTransmit_IT
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2894   .text.HAL_UART_TxHalfCpltCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2901   .text.HAL_UART_TxHalfCpltCallback:00000000 HAL_UART_TxHalfCpltCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2915   .text.UART_DMATxHalfCplt:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2945   .text.HAL_UART_RxCpltCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2952   .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2966   .text.HAL_UART_RxHalfCpltCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2973   .text.HAL_UART_RxHalfCpltCallback:00000000 HAL_UART_RxHalfCpltCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2987   .text.HAL_UART_ErrorCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:2994   .text.HAL_UART_ErrorCallback:00000000 HAL_UART_ErrorCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3008   .text.UART_DMAError:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3090   .text.UART_DMAAbortOnError:00000000 $t
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 309
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:18     .text.UART_EndTxTransfer:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:24     .text.UART_EndTxTransfer:00000000 UART_EndTxTransfer
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:121    .text.UART_EndRxTransfer:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:127    .text.UART_EndRxTransfer:00000000 UART_EndRxTransfer
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:270    .text.UART_TxISR_8BIT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:276    .text.UART_TxISR_8BIT:00000000 UART_TxISR_8BIT
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:392    .text.UART_TxISR_16BIT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:398    .text.UART_TxISR_16BIT:00000000 UART_TxISR_16BIT
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:519    .text.UART_TxISR_8BIT_FIFOEN:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:525    .text.UART_TxISR_8BIT_FIFOEN:00000000 UART_TxISR_8BIT_FIFOEN
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:663    .text.UART_TxISR_16BIT_FIFOEN:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:669    .text.UART_TxISR_16BIT_FIFOEN:00000000 UART_TxISR_16BIT_FIFOEN
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:812    .text.HAL_UART_MspInit:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:819    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:833    .text.HAL_UART_MspDeInit:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:840    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:854    .text.HAL_UART_DeInit:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:861    .text.HAL_UART_DeInit:00000000 HAL_UART_DeInit
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:933    .text.HAL_UART_Transmit_IT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:940    .text.HAL_UART_Transmit_IT:00000000 HAL_UART_Transmit_IT
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1121   .text.HAL_UART_Transmit_IT:000000a0 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1129   .text.HAL_UART_Transmit_DMA:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1136   .text.HAL_UART_Transmit_DMA:00000000 HAL_UART_Transmit_DMA
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1285   .text.HAL_UART_Transmit_DMA:00000094 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2706   .text.UART_DMATransmitCplt:00000000 UART_DMATransmitCplt
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2921   .text.UART_DMATxHalfCplt:00000000 UART_DMATxHalfCplt
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3014   .text.UART_DMAError:00000000 UART_DMAError
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1292   .text.HAL_UART_DMAPause:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1299   .text.HAL_UART_DMAPause:00000000 HAL_UART_DMAPause
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1514   .text.HAL_UART_DMAResume:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1521   .text.HAL_UART_DMAResume:00000000 HAL_UART_DMAResume
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1717   .text.HAL_UART_DMAStop:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1724   .text.HAL_UART_DMAStop:00000000 HAL_UART_DMAStop
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1912   .text.HAL_UART_Abort:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:1919   .text.HAL_UART_Abort:00000000 HAL_UART_Abort
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2242   .text.HAL_UART_AbortTransmit:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2249   .text.HAL_UART_AbortTransmit:00000000 HAL_UART_AbortTransmit
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2440   .text.HAL_UART_AbortReceive:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2447   .text.HAL_UART_AbortReceive:00000000 HAL_UART_AbortReceive
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2679   .text.HAL_UART_TxCpltCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2686   .text.HAL_UART_TxCpltCallback:00000000 HAL_UART_TxCpltCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2700   .text.UART_DMATransmitCplt:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2824   .text.UART_EndTransmit_IT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2830   .text.UART_EndTransmit_IT:00000000 UART_EndTransmit_IT
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2894   .text.HAL_UART_TxHalfCpltCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2901   .text.HAL_UART_TxHalfCpltCallback:00000000 HAL_UART_TxHalfCpltCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2915   .text.UART_DMATxHalfCplt:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2945   .text.HAL_UART_RxCpltCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2952   .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2966   .text.HAL_UART_RxHalfCpltCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2973   .text.HAL_UART_RxHalfCpltCallback:00000000 HAL_UART_RxHalfCpltCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2987   .text.HAL_UART_ErrorCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:2994   .text.HAL_UART_ErrorCallback:00000000 HAL_UART_ErrorCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3008   .text.UART_DMAError:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3090   .text.UART_DMAAbortOnError:00000000 $t
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 309
 
 
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3096   .text.UART_DMAAbortOnError:00000000 UART_DMAAbortOnError
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3125   .text.HAL_UART_AbortCpltCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3132   .text.HAL_UART_AbortCpltCallback:00000000 HAL_UART_AbortCpltCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3146   .text.HAL_UART_Abort_IT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3153   .text.HAL_UART_Abort_IT:00000000 HAL_UART_Abort_IT
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3515   .text.HAL_UART_Abort_IT:00000148 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3595   .text.UART_DMATxAbortCallback:00000000 UART_DMATxAbortCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3527   .text.UART_DMARxAbortCallback:00000000 UART_DMARxAbortCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3521   .text.UART_DMARxAbortCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3589   .text.UART_DMATxAbortCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3663   .text.HAL_UART_AbortTransmitCpltCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3670   .text.HAL_UART_AbortTransmitCpltCallback:00000000 HAL_UART_AbortTransmitCpltCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3684   .text.HAL_UART_AbortTransmit_IT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3691   .text.HAL_UART_AbortTransmit_IT:00000000 HAL_UART_AbortTransmit_IT
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3896   .text.HAL_UART_AbortTransmit_IT:000000a8 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3907   .text.UART_DMATxOnlyAbortCallback:00000000 UART_DMATxOnlyAbortCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3901   .text.UART_DMATxOnlyAbortCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3950   .text.HAL_UART_AbortReceiveCpltCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3957   .text.HAL_UART_AbortReceiveCpltCallback:00000000 HAL_UART_AbortReceiveCpltCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3971   .text.HAL_UART_AbortReceive_IT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:3978   .text.HAL_UART_AbortReceive_IT:00000000 HAL_UART_AbortReceive_IT
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:4231   .text.HAL_UART_AbortReceive_IT:000000d4 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:4242   .text.UART_DMARxOnlyAbortCallback:00000000 UART_DMARxOnlyAbortCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:4236   .text.UART_DMARxOnlyAbortCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:4283   .text.HAL_UARTEx_RxEventCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:4290   .text.HAL_UARTEx_RxEventCallback:00000000 HAL_UARTEx_RxEventCallback
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:4304   .text.HAL_UART_IRQHandler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:4311   .text.HAL_UART_IRQHandler:00000000 HAL_UART_IRQHandler
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:5052   .text.HAL_UART_IRQHandler:00000330 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:5059   .text.UART_RxISR_8BIT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:5065   .text.UART_RxISR_8BIT:00000000 UART_RxISR_8BIT
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:5322   .text.UART_RxISR_8BIT:000000d4 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:5327   .text.UART_RxISR_16BIT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:5333   .text.UART_RxISR_16BIT:00000000 UART_RxISR_16BIT
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:5590   .text.UART_RxISR_16BIT:000000d4 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:5595   .text.UART_RxISR_8BIT_FIFOEN:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:5601   .text.UART_RxISR_8BIT_FIFOEN:00000000 UART_RxISR_8BIT_FIFOEN
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6046   .text.UART_RxISR_8BIT_FIFOEN:000001c0 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6053   .text.UART_RxISR_16BIT_FIFOEN:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6059   .text.UART_RxISR_16BIT_FIFOEN:00000000 UART_RxISR_16BIT_FIFOEN
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6506   .text.UART_RxISR_16BIT_FIFOEN:000001c0 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6513   .text.UART_DMARxHalfCplt:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6519   .text.UART_DMARxHalfCplt:00000000 UART_DMARxHalfCplt
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6559   .text.UART_DMAReceiveCplt:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6565   .text.UART_DMAReceiveCplt:00000000 UART_DMAReceiveCplt
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6780   .text.HAL_UART_ReceiverTimeout_Config:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6787   .text.HAL_UART_ReceiverTimeout_Config:00000000 HAL_UART_ReceiverTimeout_Config
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6812   .text.HAL_UART_ReceiverTimeout_Config:00000014 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6817   .text.HAL_UART_EnableReceiverTimeout:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6824   .text.HAL_UART_EnableReceiverTimeout:00000000 HAL_UART_EnableReceiverTimeout
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6887   .text.HAL_UART_EnableReceiverTimeout:00000048 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6892   .text.HAL_UART_DisableReceiverTimeout:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6899   .text.HAL_UART_DisableReceiverTimeout:00000000 HAL_UART_DisableReceiverTimeout
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6962   .text.HAL_UART_DisableReceiverTimeout:00000048 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6967   .text.HAL_MultiProcessor_EnterMuteMode:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6974   .text.HAL_MultiProcessor_EnterMuteMode:00000000 HAL_MultiProcessor_EnterMuteMode
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:6993   .text.HAL_HalfDuplex_EnableTransmitter:00000000 $t
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 310
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3096   .text.UART_DMAAbortOnError:00000000 UART_DMAAbortOnError
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3125   .text.HAL_UART_AbortCpltCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3132   .text.HAL_UART_AbortCpltCallback:00000000 HAL_UART_AbortCpltCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3146   .text.HAL_UART_Abort_IT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3153   .text.HAL_UART_Abort_IT:00000000 HAL_UART_Abort_IT
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3515   .text.HAL_UART_Abort_IT:00000148 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3595   .text.UART_DMATxAbortCallback:00000000 UART_DMATxAbortCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3527   .text.UART_DMARxAbortCallback:00000000 UART_DMARxAbortCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3521   .text.UART_DMARxAbortCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3589   .text.UART_DMATxAbortCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3663   .text.HAL_UART_AbortTransmitCpltCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3670   .text.HAL_UART_AbortTransmitCpltCallback:00000000 HAL_UART_AbortTransmitCpltCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3684   .text.HAL_UART_AbortTransmit_IT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3691   .text.HAL_UART_AbortTransmit_IT:00000000 HAL_UART_AbortTransmit_IT
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3896   .text.HAL_UART_AbortTransmit_IT:000000a8 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3907   .text.UART_DMATxOnlyAbortCallback:00000000 UART_DMATxOnlyAbortCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3901   .text.UART_DMATxOnlyAbortCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3950   .text.HAL_UART_AbortReceiveCpltCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3957   .text.HAL_UART_AbortReceiveCpltCallback:00000000 HAL_UART_AbortReceiveCpltCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3971   .text.HAL_UART_AbortReceive_IT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:3978   .text.HAL_UART_AbortReceive_IT:00000000 HAL_UART_AbortReceive_IT
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:4231   .text.HAL_UART_AbortReceive_IT:000000d4 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:4242   .text.UART_DMARxOnlyAbortCallback:00000000 UART_DMARxOnlyAbortCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:4236   .text.UART_DMARxOnlyAbortCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:4283   .text.HAL_UARTEx_RxEventCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:4290   .text.HAL_UARTEx_RxEventCallback:00000000 HAL_UARTEx_RxEventCallback
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:4304   .text.HAL_UART_IRQHandler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:4311   .text.HAL_UART_IRQHandler:00000000 HAL_UART_IRQHandler
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:5052   .text.HAL_UART_IRQHandler:00000330 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:5059   .text.UART_RxISR_8BIT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:5065   .text.UART_RxISR_8BIT:00000000 UART_RxISR_8BIT
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:5322   .text.UART_RxISR_8BIT:000000d4 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:5327   .text.UART_RxISR_16BIT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:5333   .text.UART_RxISR_16BIT:00000000 UART_RxISR_16BIT
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:5590   .text.UART_RxISR_16BIT:000000d4 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:5595   .text.UART_RxISR_8BIT_FIFOEN:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:5601   .text.UART_RxISR_8BIT_FIFOEN:00000000 UART_RxISR_8BIT_FIFOEN
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6046   .text.UART_RxISR_8BIT_FIFOEN:000001c0 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6053   .text.UART_RxISR_16BIT_FIFOEN:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6059   .text.UART_RxISR_16BIT_FIFOEN:00000000 UART_RxISR_16BIT_FIFOEN
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6506   .text.UART_RxISR_16BIT_FIFOEN:000001c0 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6513   .text.UART_DMARxHalfCplt:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6519   .text.UART_DMARxHalfCplt:00000000 UART_DMARxHalfCplt
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6559   .text.UART_DMAReceiveCplt:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6565   .text.UART_DMAReceiveCplt:00000000 UART_DMAReceiveCplt
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6780   .text.HAL_UART_ReceiverTimeout_Config:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6787   .text.HAL_UART_ReceiverTimeout_Config:00000000 HAL_UART_ReceiverTimeout_Config
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6812   .text.HAL_UART_ReceiverTimeout_Config:00000014 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6817   .text.HAL_UART_EnableReceiverTimeout:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6824   .text.HAL_UART_EnableReceiverTimeout:00000000 HAL_UART_EnableReceiverTimeout
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6887   .text.HAL_UART_EnableReceiverTimeout:00000048 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6892   .text.HAL_UART_DisableReceiverTimeout:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6899   .text.HAL_UART_DisableReceiverTimeout:00000000 HAL_UART_DisableReceiverTimeout
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6962   .text.HAL_UART_DisableReceiverTimeout:00000048 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6967   .text.HAL_MultiProcessor_EnterMuteMode:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6974   .text.HAL_MultiProcessor_EnterMuteMode:00000000 HAL_MultiProcessor_EnterMuteMode
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:6993   .text.HAL_HalfDuplex_EnableTransmitter:00000000 $t
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 310
 
 
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7000   .text.HAL_HalfDuplex_EnableTransmitter:00000000 HAL_HalfDuplex_EnableTransmitter
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7113   .text.HAL_HalfDuplex_EnableReceiver:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7120   .text.HAL_HalfDuplex_EnableReceiver:00000000 HAL_HalfDuplex_EnableReceiver
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7233   .text.HAL_LIN_SendBreak:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7240   .text.HAL_LIN_SendBreak:00000000 HAL_LIN_SendBreak
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7284   .text.HAL_UART_GetState:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7291   .text.HAL_UART_GetState:00000000 HAL_UART_GetState
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7313   .text.HAL_UART_GetError:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7320   .text.HAL_UART_GetError:00000000 HAL_UART_GetError
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7338   .text.UART_SetConfig:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7345   .text.UART_SetConfig:00000000 UART_SetConfig
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7457   .text.UART_SetConfig:00000096 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7467   .text.UART_SetConfig:000000a8 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7477   .text.UART_SetConfig:000000bc $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7481   .text.UART_SetConfig:000000c0 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7511   .text.UART_SetConfig:000000e4 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7670   .text.UART_SetConfig:000001aa $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7759   .text.UART_SetConfig:00000232 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7834   .text.UART_SetConfig:00000294 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7845   .text.UART_SetConfig:000002b8 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7961   .text.UART_SetConfig:0000033c $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7967   .text.UART_AdvFeatureConfig:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7974   .text.UART_AdvFeatureConfig:00000000 UART_AdvFeatureConfig
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8097   .text.UART_WaitOnFlagUntilTimeout:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8104   .text.UART_WaitOnFlagUntilTimeout:00000000 UART_WaitOnFlagUntilTimeout
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8216   .text.HAL_UART_Transmit:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8223   .text.HAL_UART_Transmit:00000000 HAL_UART_Transmit
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8394   .text.HAL_UART_Receive:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8401   .text.HAL_UART_Receive:00000000 HAL_UART_Receive
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8616   .text.UART_CheckIdleState:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8623   .text.UART_CheckIdleState:00000000 UART_CheckIdleState
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8846   .text.HAL_UART_Init:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8853   .text.HAL_UART_Init:00000000 HAL_UART_Init
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8943   .text.HAL_HalfDuplex_Init:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:8950   .text.HAL_HalfDuplex_Init:00000000 HAL_HalfDuplex_Init
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9046   .text.HAL_LIN_Init:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9053   .text.HAL_LIN_Init:00000000 HAL_LIN_Init
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9186   .text.HAL_MultiProcessor_Init:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9193   .text.HAL_MultiProcessor_Init:00000000 HAL_MultiProcessor_Init
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9309   .text.HAL_MultiProcessor_EnableMuteMode:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9316   .text.HAL_MultiProcessor_EnableMuteMode:00000000 HAL_MultiProcessor_EnableMuteMode
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9394   .text.HAL_MultiProcessor_DisableMuteMode:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9401   .text.HAL_MultiProcessor_DisableMuteMode:00000000 HAL_MultiProcessor_DisableMuteMode
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9479   .text.UART_Start_Receive_IT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9486   .text.UART_Start_Receive_IT:00000000 UART_Start_Receive_IT
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9832   .text.UART_Start_Receive_IT:0000012c $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9841   .text.HAL_UART_Receive_IT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9848   .text.HAL_UART_Receive_IT:00000000 HAL_UART_Receive_IT
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9946   .text.HAL_UART_Receive_IT:00000048 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9951   .text.UART_Start_Receive_DMA:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:9958   .text.UART_Start_Receive_DMA:00000000 UART_Start_Receive_DMA
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:10154  .text.UART_Start_Receive_DMA:000000a4 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:10161  .text.HAL_UART_Receive_DMA:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:10168  .text.HAL_UART_Receive_DMA:00000000 HAL_UART_Receive_DMA
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:10266  .text.HAL_UART_Receive_DMA:00000048 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:10276  .rodata.UARTPrescTable:00000000 UARTPrescTable
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:10272  .rodata.UARTPrescTable:00000000 $d
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccurimeR.s 			page 311
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7000   .text.HAL_HalfDuplex_EnableTransmitter:00000000 HAL_HalfDuplex_EnableTransmitter
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7113   .text.HAL_HalfDuplex_EnableReceiver:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7120   .text.HAL_HalfDuplex_EnableReceiver:00000000 HAL_HalfDuplex_EnableReceiver
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7233   .text.HAL_LIN_SendBreak:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7240   .text.HAL_LIN_SendBreak:00000000 HAL_LIN_SendBreak
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7284   .text.HAL_UART_GetState:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7291   .text.HAL_UART_GetState:00000000 HAL_UART_GetState
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7313   .text.HAL_UART_GetError:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7320   .text.HAL_UART_GetError:00000000 HAL_UART_GetError
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7338   .text.UART_SetConfig:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7345   .text.UART_SetConfig:00000000 UART_SetConfig
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7457   .text.UART_SetConfig:00000096 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7467   .text.UART_SetConfig:000000a8 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7477   .text.UART_SetConfig:000000bc $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7481   .text.UART_SetConfig:000000c0 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7511   .text.UART_SetConfig:000000e4 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7670   .text.UART_SetConfig:000001aa $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7759   .text.UART_SetConfig:00000232 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7834   .text.UART_SetConfig:00000294 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7845   .text.UART_SetConfig:000002b8 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7961   .text.UART_SetConfig:0000033c $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7967   .text.UART_AdvFeatureConfig:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7974   .text.UART_AdvFeatureConfig:00000000 UART_AdvFeatureConfig
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8097   .text.UART_WaitOnFlagUntilTimeout:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8104   .text.UART_WaitOnFlagUntilTimeout:00000000 UART_WaitOnFlagUntilTimeout
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8216   .text.HAL_UART_Transmit:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8223   .text.HAL_UART_Transmit:00000000 HAL_UART_Transmit
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8394   .text.HAL_UART_Receive:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8401   .text.HAL_UART_Receive:00000000 HAL_UART_Receive
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8616   .text.UART_CheckIdleState:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8623   .text.UART_CheckIdleState:00000000 UART_CheckIdleState
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8846   .text.HAL_UART_Init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8853   .text.HAL_UART_Init:00000000 HAL_UART_Init
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8943   .text.HAL_HalfDuplex_Init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:8950   .text.HAL_HalfDuplex_Init:00000000 HAL_HalfDuplex_Init
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9046   .text.HAL_LIN_Init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9053   .text.HAL_LIN_Init:00000000 HAL_LIN_Init
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9186   .text.HAL_MultiProcessor_Init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9193   .text.HAL_MultiProcessor_Init:00000000 HAL_MultiProcessor_Init
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9309   .text.HAL_MultiProcessor_EnableMuteMode:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9316   .text.HAL_MultiProcessor_EnableMuteMode:00000000 HAL_MultiProcessor_EnableMuteMode
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9394   .text.HAL_MultiProcessor_DisableMuteMode:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9401   .text.HAL_MultiProcessor_DisableMuteMode:00000000 HAL_MultiProcessor_DisableMuteMode
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9479   .text.UART_Start_Receive_IT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9486   .text.UART_Start_Receive_IT:00000000 UART_Start_Receive_IT
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9832   .text.UART_Start_Receive_IT:0000012c $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9841   .text.HAL_UART_Receive_IT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9848   .text.HAL_UART_Receive_IT:00000000 HAL_UART_Receive_IT
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9946   .text.HAL_UART_Receive_IT:00000048 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9951   .text.UART_Start_Receive_DMA:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:9958   .text.UART_Start_Receive_DMA:00000000 UART_Start_Receive_DMA
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:10154  .text.UART_Start_Receive_DMA:000000a4 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:10161  .text.HAL_UART_Receive_DMA:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:10168  .text.HAL_UART_Receive_DMA:00000000 HAL_UART_Receive_DMA
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:10266  .text.HAL_UART_Receive_DMA:00000048 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:10276  .rodata.UARTPrescTable:00000000 UARTPrescTable
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:10272  .rodata.UARTPrescTable:00000000 $d
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s 			page 311
 
 
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7524   .text.UART_SetConfig:000000f1 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7524   .text.UART_SetConfig:000000f2 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7679   .text.UART_SetConfig:000001b3 $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7679   .text.UART_SetConfig:000001b4 $t
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7768   .text.UART_SetConfig:0000023b $d
-C:\Users\82057\AppData\Local\Temp\ccurimeR.s:7768   .text.UART_SetConfig:0000023c $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7524   .text.UART_SetConfig:000000f1 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7524   .text.UART_SetConfig:000000f2 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7679   .text.UART_SetConfig:000001b3 $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7679   .text.UART_SetConfig:000001b4 $t
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7768   .text.UART_SetConfig:0000023b $d
+C:\Users\82057\AppData\Local\Temp\ccv9WdG4.s:7768   .text.UART_SetConfig:0000023c $t
 
 UNDEFINED SYMBOLS
 HAL_DMA_Start_IT

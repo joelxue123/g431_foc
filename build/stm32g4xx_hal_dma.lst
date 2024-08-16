@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
   30:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****        necessary). Please refer to the Reference manual for connection between peripherals
   31:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****        and DMA requests.
   32:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 2
 
 
   33:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****    (#) For a given Channel, program the required configuration through the following parameters:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
   87:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   */
   88:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
   89:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** /* Includes ------------------------------------------------------------------*/
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 3
 
 
   90:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** #include "stm32g4xx_hal.h"
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  144:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
  145:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** /**
  146:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @brief  Initialize the DMA according to the specified
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 4
 
 
  147:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *         parameters in the DMA_InitTypeDef and initialize the associated handle.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  201:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphInc           | hdma->Init.MemInc           |
  202:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphDataAlignment | hdma->Init.MemDataAlignment |
  203:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.Mode                | hdma->Init.Priority;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 5
 
 
  204:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  258:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @brief  DeInitialize the DMA peripheral.
  259:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
  260:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *               the configuration information for the specified DMA Channel.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 6
 
 
  261:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @retval HAL status
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  315:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     DMA_CalcDMAMUXRequestGenBaseAndMask(hdma);
  316:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
  317:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     /* Reset the DMAMUX request generator register*/
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 7
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 7
 
 
  318:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DMAmuxRequestGen->RGCR = 0U;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  372:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *               the configuration information for the specified DMA Channel.
  373:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  SrcAddress The source memory Buffer address
  374:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  DstAddress The destination memory Buffer address
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 8
 
 
  375:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  DataLength The length of data to be transferred from source to destination (up to 256Kb
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  429:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   /* Process locked */
  430:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   __HAL_LOCK(hdma);
  431:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 9
 
 
  432:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   if (HAL_DMA_STATE_READY == hdma->State)
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  486:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @brief  Abort the DMA Transfer.
  487:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
  488:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *               the configuration information for the specified DMA Channel.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 10
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 10
 
 
  489:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     * @retval HAL status
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  543:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   */
  544:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** HAL_StatusTypeDef HAL_DMA_Abort_IT(DMA_HandleTypeDef *hdma)
  545:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 11
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 11
 
 
  546:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  600:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   return status;
  601:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
  602:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 12
 
 
  603:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** /**
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  657:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       /* Update error code */
  658:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       hdma->ErrorCode = HAL_DMA_ERROR_TE;
  659:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 13
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 13
 
 
  660:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       /* Change the DMA state */
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  714:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   if (HAL_DMA_FULL_TRANSFER == CompleteLevel)
  715:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
  716:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     /* Clear the transfer complete flag */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 14
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 14
 
 
  717:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DmaBaseAddress->IFCR = ((uint32_t)DMA_FLAG_TC1 << (hdma->ChannelIndex & 0x1FU));
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  771:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     if ((hdma->Instance->CCR & DMA_CCR_CIRC) == 0U)
  772:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
  773:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       /* Disable the transfer complete and error interrupt */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 15
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 15
 
 
  774:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       __HAL_DMA_DISABLE_IT(hdma, DMA_IT_TE | DMA_IT_TC);
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  828:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *                               the configuration information for the specified DMA Channel.
  829:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  CallbackID           User Callback identifier
  830:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *                               a HAL_DMA_CallbackIDTypeDef ENUM as parameter.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 16
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 16
 
 
  831:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  pCallback            pointer to private callbacsk function which has pointer to
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  885:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   */
  886:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** HAL_StatusTypeDef HAL_DMA_UnRegisterCallback(DMA_HandleTypeDef *hdma, HAL_DMA_CallbackIDTypeDef Cal
  887:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 17
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 17
 
 
  888:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  942:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** /** @defgroup DMA_Exported_Functions_Group3 Peripheral State and Errors functions
  943:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *  @brief    Peripheral State and Errors functions
  944:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 18
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 18
 
 
  945:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** @verbatim
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  999:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  DataLength The length of data to be transferred from source to destination
 1000:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @retval HAL status
 1001:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 19
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 19
 
 
 1002:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** static void DMA_SetConfig(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, uint32
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
   62 0024 8368     		ldr	r3, [r0, #8]
   63              	.LVL1:
   64 0026 102B     		cmp	r3, #16
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 20
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 20
 
 
   65 0028 05D0     		beq	.L6
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  101              		.thumb
  102              		.thumb_func
  103              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 21
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 21
 
 
  105              	DMA_CalcDMAMUXChannelBaseAndMask:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  127              	.LVL7:
 1070:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxChannel = (DMAMUX_Channel_TypeDef *)(uint32_t)(dmamux_base_addr + ((hdma->ChannelInde
  128              		.loc 1 1070 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 22
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 22
 
 
  129 0014 426C     		ldr	r2, [r0, #68]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  171              		@ args = 0, pretend = 0, frame = 0
  172              		@ frame_needed = 0, uses_anonymous_args = 0
  173              		@ link register save eliminated.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 23
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 23
 
 
  174              	.LVL10:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  219              		.loc 1 157 0
  220 0000 0028     		cmp	r0, #0
  221 0002 5CD0     		beq	.L23
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 24
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 24
 
 
  153:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t tmp;
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  265              		.loc 1 201 0
  266 003c 2069     		ldr	r0, [r4, #16]
  267 003e 0343     		orrs	r3, r3, r0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 25
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 25
 
 
  202:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.Mode                | hdma->Init.Priority;
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  240:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DMAmuxRequestGenStatus = 0U;
  309              		.loc 1 240 0
  310 0076 0023     		movs	r3, #0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 26
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 26
 
 
  311 0078 6365     		str	r3, [r4, #84]
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  354 00b2 0022     		movs	r2, #0
  355 00b4 1A60     		str	r2, [r3]
  236:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 27
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 27
 
 
  356              		.loc 1 236 0
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  407              		.cfi_offset 4, -12
  408              		.cfi_offset 5, -8
  409              		.cfi_offset 14, -4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 28
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 28
 
 
  410 0006 0446     		mov	r4, r0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  455 0050 5A60     		str	r2, [r3, #4]
  310:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
  456              		.loc 1 310 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 29
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 29
 
 
  457 0052 6368     		ldr	r3, [r4, #4]
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  498 008a D0E7     		b	.L35
  499              	.LVL30:
  500              	.L42:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 30
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 30
 
 
  315:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  551              		@ frame_needed = 0, uses_anonymous_args = 0
  552              	.LVL34:
  553 0000 70B5     		push	{r4, r5, r6, lr}
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 31
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 31
 
 
  554              	.LCFI7:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  398:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
  599              		.loc 1 398 0
  600 003a 2046     		mov	r0, r4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 32
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 32
 
 
  601 003c FFF7FEFF 		bl	DMA_SetConfig
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  650              		.loc 1 432 0 is_stmt 1 discriminator 2
  651 0010 90F82540 		ldrb	r4, [r0, #37]	@ zero_extendqisi2
  652 0014 E4B2     		uxtb	r4, r4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 33
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 33
 
 
  653 0016 012C     		cmp	r4, #1
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  697 0052 12F4803F 		tst	r2, #65536
  698 0056 03D0     		beq	.L56
  461:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 34
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 34
 
 
  699              		.loc 1 461 0
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  747              		.fpu fpv4-sp-d16
  749              	HAL_DMA_Abort:
  750              	.LFB333:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 35
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 35
 
 
  492:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  795 0038 22F00102 		bic	r2, r2, #1
  796 003c 0A60     		str	r2, [r1]
  514:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 36
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 36
 
 
  797              		.loc 1 514 0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  847              		.cfi_offset 3, -8
  848              		.cfi_offset 14, -4
  849              	.LVL61:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 37
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 37
 
 
  548:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  894 004a 4B60     		str	r3, [r1, #4]
  576:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
  895              		.loc 1 576 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 38
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 38
 
 
  896 004c C36C     		ldr	r3, [r0, #76]
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  613:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t temp;
  944              		.loc 1 613 0
  945              		.cfi_startproc
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 39
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 39
 
 
  946              		@ args = 0, pretend = 0, frame = 0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  992 0038 0446     		mov	r4, r0
  646:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
  993              		.loc 1 646 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 40
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 40
 
 
  994 003a FFF7FEFF 		bl	HAL_GetTick
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  1039              		.cfi_def_cfa_offset 0
  1040              		.cfi_restore 4
  1041              		.cfi_restore 5
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 41
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 41
 
 
  1042              		.cfi_restore 6
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  688:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
  1087              		.loc 1 688 0
  1088 00ae 636D     		ldr	r3, [r4, #84]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 42
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 42
 
 
  1089 00b0 7BB1     		cbz	r3, .L82
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  1133 00f8 84F82530 		strb	r3, [r4, #37]
  1134              	.L85:
  730:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 43
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 43
 
 
  1135              		.loc 1 730 0
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  1185 000a 436C     		ldr	r3, [r0, #68]
  1186 000c 03F01F03 		and	r3, r3, #31
  1187 0010 0422     		movs	r2, #4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 44
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 44
 
 
  1188 0012 9A40     		lsls	r2, r2, r3
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  1232 0054 13F0200F 		tst	r3, #32
  1233 0058 06D1     		bne	.L97
  774:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 45
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 45
 
 
  1234              		.loc 1 774 0
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  1279              	.LVL90:
  1280 00a6 0122     		movs	r2, #1
  1281 00a8 02FA03F3 		lsl	r3, r2, r3
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 46
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 46
 
 
  1282 00ac 4B60     		str	r3, [r1, #4]
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  1328              		.loc 1 842 0 is_stmt 1 discriminator 2
  1329 0010 93F82500 		ldrb	r0, [r3, #37]	@ zero_extendqisi2
  1330 0014 C0B2     		uxtb	r0, r0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 47
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 47
 
 
  1331 0016 0128     		cmp	r0, #1
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  1373 003e 0020     		movs	r0, #0
  856:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
  1374              		.loc 1 856 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 48
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 48
 
 
  1375 0040 ECE7     		b	.L101
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  1421 0010 90F82520 		ldrb	r2, [r0, #37]	@ zero_extendqisi2
  1422 0014 D2B2     		uxtb	r2, r2
  1423 0016 012A     		cmp	r2, #1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 49
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 49
 
 
  1424 0018 04D0     		beq	.L123
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  1468              		.loc 1 907 0
  1469 0042 EBE7     		b	.L113
  1470              	.LVL107:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 50
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 50
 
 
  1471              	.L118:
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  1517              	.LFB339:
  965:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   /* Return DMA handle state */
  1518              		.loc 1 965 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 51
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 51
 
 
  1519              		.cfi_startproc
@@ -3052,50 +3052,50 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 1
  1565              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
  1566              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
  1567              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s 			page 52
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 52
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g4xx_hal_dma.c
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:18     .text.DMA_SetConfig:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:24     .text.DMA_SetConfig:00000000 DMA_SetConfig
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:99     .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:105    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 DMA_CalcDMAMUXChannelBaseAndMask
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:152    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000034 $d
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:161    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:167    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000000 DMA_CalcDMAMUXRequestGenBaseAndMask
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:199    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000020 $d
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:205    .text.HAL_DMA_Init:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:212    .text.HAL_DMA_Init:00000000 HAL_DMA_Init
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:375    .text.HAL_DMA_Init:000000c4 $d
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:385    .text.HAL_DMA_DeInit:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:392    .text.HAL_DMA_DeInit:00000000 HAL_DMA_DeInit
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:529    .text.HAL_DMA_DeInit:000000a4 $d
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:539    .text.HAL_DMA_Start:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:546    .text.HAL_DMA_Start:00000000 HAL_DMA_Start
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:621    .text.HAL_DMA_Start_IT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:628    .text.HAL_DMA_Start_IT:00000000 HAL_DMA_Start_IT
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:742    .text.HAL_DMA_Abort:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:749    .text.HAL_DMA_Abort:00000000 HAL_DMA_Abort
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:830    .text.HAL_DMA_Abort_IT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:837    .text.HAL_DMA_Abort_IT:00000000 HAL_DMA_Abort_IT
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:935    .text.HAL_DMA_PollForTransfer:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:942    .text.HAL_DMA_PollForTransfer:00000000 HAL_DMA_PollForTransfer
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1155   .text.HAL_DMA_IRQHandler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1162   .text.HAL_DMA_IRQHandler:00000000 HAL_DMA_IRQHandler
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1303   .text.HAL_DMA_RegisterCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1310   .text.HAL_DMA_RegisterCallback:00000000 HAL_DMA_RegisterCallback
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1350   .text.HAL_DMA_RegisterCallback:0000002c $d
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1354   .text.HAL_DMA_RegisterCallback:00000030 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1396   .text.HAL_DMA_UnRegisterCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1403   .text.HAL_DMA_UnRegisterCallback:00000000 HAL_DMA_UnRegisterCallback
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1441   .text.HAL_DMA_UnRegisterCallback:0000002c $d
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1509   .text.HAL_DMA_GetState:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1516   .text.HAL_DMA_GetState:00000000 HAL_DMA_GetState
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1533   .text.HAL_DMA_GetError:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1540   .text.HAL_DMA_GetError:00000000 HAL_DMA_GetError
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1446   .text.HAL_DMA_UnRegisterCallback:00000031 $d
-C:\Users\82057\AppData\Local\Temp\ccPeI0Gc.s:1446   .text.HAL_DMA_UnRegisterCallback:00000032 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:18     .text.DMA_SetConfig:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:24     .text.DMA_SetConfig:00000000 DMA_SetConfig
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:99     .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:105    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 DMA_CalcDMAMUXChannelBaseAndMask
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:152    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000034 $d
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:161    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:167    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000000 DMA_CalcDMAMUXRequestGenBaseAndMask
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:199    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000020 $d
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:205    .text.HAL_DMA_Init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:212    .text.HAL_DMA_Init:00000000 HAL_DMA_Init
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:375    .text.HAL_DMA_Init:000000c4 $d
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:385    .text.HAL_DMA_DeInit:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:392    .text.HAL_DMA_DeInit:00000000 HAL_DMA_DeInit
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:529    .text.HAL_DMA_DeInit:000000a4 $d
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:539    .text.HAL_DMA_Start:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:546    .text.HAL_DMA_Start:00000000 HAL_DMA_Start
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:621    .text.HAL_DMA_Start_IT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:628    .text.HAL_DMA_Start_IT:00000000 HAL_DMA_Start_IT
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:742    .text.HAL_DMA_Abort:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:749    .text.HAL_DMA_Abort:00000000 HAL_DMA_Abort
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:830    .text.HAL_DMA_Abort_IT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:837    .text.HAL_DMA_Abort_IT:00000000 HAL_DMA_Abort_IT
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:935    .text.HAL_DMA_PollForTransfer:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:942    .text.HAL_DMA_PollForTransfer:00000000 HAL_DMA_PollForTransfer
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1155   .text.HAL_DMA_IRQHandler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1162   .text.HAL_DMA_IRQHandler:00000000 HAL_DMA_IRQHandler
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1303   .text.HAL_DMA_RegisterCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1310   .text.HAL_DMA_RegisterCallback:00000000 HAL_DMA_RegisterCallback
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1350   .text.HAL_DMA_RegisterCallback:0000002c $d
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1354   .text.HAL_DMA_RegisterCallback:00000030 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1396   .text.HAL_DMA_UnRegisterCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1403   .text.HAL_DMA_UnRegisterCallback:00000000 HAL_DMA_UnRegisterCallback
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1441   .text.HAL_DMA_UnRegisterCallback:0000002c $d
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1509   .text.HAL_DMA_GetState:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1516   .text.HAL_DMA_GetState:00000000 HAL_DMA_GetState
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1533   .text.HAL_DMA_GetError:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1540   .text.HAL_DMA_GetError:00000000 HAL_DMA_GetError
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1446   .text.HAL_DMA_UnRegisterCallback:00000031 $d
+C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1446   .text.HAL_DMA_UnRegisterCallback:00000032 $t
 
 UNDEFINED SYMBOLS
 HAL_GetTick

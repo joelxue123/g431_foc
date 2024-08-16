@@ -36,7 +36,7 @@ build/pid.o: Src/pid.c Inc/pid.h \
  Inc/spi_MEncoder.h Inc/adc.h Inc/stm32_math.h Inc/stm32_math_sin.h \
  Inc/security.h Inc/calibration.h Inc/pid.h Inc/scope.h \
  Inc/profile_joint.h Inc/icmu.h Inc/performance_test.h Inc/EM_test.h \
- Inc/icmu.h Inc/parameter_identification.h
+ Inc/icmu.h Inc/parameter_identification.h Inc/sensorless.h
 
 Inc/pid.h:
 
@@ -153,3 +153,5 @@ Inc/EM_test.h:
 Inc/icmu.h:
 
 Inc/parameter_identification.h:
+
+Inc/sensorless.h:
