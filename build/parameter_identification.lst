@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccpICUXV.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccpICUXV.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"parameter_identification.c"
@@ -58,15 +58,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccpICUXV.s 			page 1
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccpICUXV.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s 			page 2
 
 
   33              	.LVL0:
   27:Src/parameter_identification.c **** 	g_CmdMap[TAG_OPEN_PWM] = percent;//
   34              		.loc 1 27 0
-  35 0000 00B2     		sxth	r0, r0
-  36              	.LVL1:
-  37 0002 024B     		ldr	r3, .L2
+  35 0000 024B     		ldr	r3, .L2
+  36 0002 00B2     		sxth	r0, r0
+  37              	.LVL1:
   38 0004 A3F86002 		strh	r0, [r3, #608]	@ movhi
   28:Src/parameter_identification.c **** }
   39              		.loc 1 28 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccpICUXV.s 			page 1
   84              	.LFB335:
   34:Src/parameter_identification.c **** static s16 ElectricAngle = 0;
   35:Src/parameter_identification.c **** void measure_R(void)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccpICUXV.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s 			page 3
 
 
   36:Src/parameter_identification.c **** {
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccpICUXV.s 			page 1
   85:Src/parameter_identification.c **** 		default:
   86:Src/parameter_identification.c **** 			
   87:Src/parameter_identification.c **** 		break;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccpICUXV.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s 			page 4
 
 
   88:Src/parameter_identification.c **** 	}
@@ -221,19 +221,19 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccpICUXV.s 			page 1
  123              		.file 28 "Inc/icmu.h"
  124              		.file 29 "Inc/performance_test.h"
  125              		.file 30 "Inc/global.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccpICUXV.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 parameter_identification.c
-C:\Users\82057\AppData\Local\Temp\ccpICUXV.s:18     .text.set_vq:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccpICUXV.s:25     .text.set_vq:00000000 set_vq
-C:\Users\82057\AppData\Local\Temp\ccpICUXV.s:44     .text.set_vq:0000000c $d
-C:\Users\82057\AppData\Local\Temp\ccpICUXV.s:49     .text.get_iq:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccpICUXV.s:56     .text.get_iq:00000000 get_iq
-C:\Users\82057\AppData\Local\Temp\ccpICUXV.s:71     .text.get_iq:00000008 $d
-C:\Users\82057\AppData\Local\Temp\ccpICUXV.s:76     .text.measure_R:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccpICUXV.s:83     .text.measure_R:00000000 measure_R
+C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s:18     .text.set_vq:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s:25     .text.set_vq:00000000 set_vq
+C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s:44     .text.set_vq:0000000c $d
+C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s:49     .text.get_iq:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s:56     .text.get_iq:00000000 get_iq
+C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s:71     .text.get_iq:00000008 $d
+C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s:76     .text.measure_R:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccGqzwLZ.s:83     .text.measure_R:00000000 measure_R
 
 UNDEFINED SYMBOLS
 g_CmdMap

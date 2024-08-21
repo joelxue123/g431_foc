@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"stm32g4xx_it.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 1
   29:Src/stm32g4xx_it.c **** /* USER CODE BEGIN TD */
   30:Src/stm32g4xx_it.c **** 
   31:Src/stm32g4xx_it.c **** /* USER CODE END TD */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s 			page 2
 
 
   32:Src/stm32g4xx_it.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 1
   39              		.section	.text.HardFault_Handler,"ax",%progbits
   40              		.align	1
   41              		.global	HardFault_Handler
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s 			page 3
 
 
   42              		.syntax unified
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 1
  105:Src/stm32g4xx_it.c **** {
   70              		.loc 1 105 0
   71              		.cfi_startproc
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s 			page 4
 
 
   72              		@ Volatile: function does not return.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 1
  124:Src/stm32g4xx_it.c ****   while (1)
  125:Src/stm32g4xx_it.c ****   {
  126:Src/stm32g4xx_it.c ****     /* USER CODE BEGIN W1_BusFault_IRQn 0 */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s 			page 5
 
 
  127:Src/stm32g4xx_it.c ****     /* USER CODE END W1_BusFault_IRQn 0 */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 1
  157:Src/stm32g4xx_it.c ****   /* USER CODE BEGIN DebugMonitor_IRQn 1 */
  158:Src/stm32g4xx_it.c **** 
  159:Src/stm32g4xx_it.c ****   /* USER CODE END DebugMonitor_IRQn 1 */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s 			page 6
 
 
  160:Src/stm32g4xx_it.c **** }
@@ -329,44 +329,38 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 1
  154              		.cfi_startproc
  155              		@ args = 0, pretend = 0, frame = 0
  156              		@ frame_needed = 0, uses_anonymous_args = 0
- 157 0000 08B5     		push	{r3, lr}
- 158              	.LCFI0:
- 159              		.cfi_def_cfa_offset 8
- 160              		.cfi_offset 3, -8
- 161              		.cfi_offset 14, -4
+ 157              		@ link register save eliminated.
  171:Src/stm32g4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
  172:Src/stm32g4xx_it.c **** 
  173:Src/stm32g4xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
  174:Src/stm32g4xx_it.c ****   HAL_IncTick();
- 162              		.loc 1 174 0
- 163 0002 FFF7FEFF 		bl	HAL_IncTick
- 164              	.LVL0:
+ 158              		.loc 1 174 0
+ 159 0000 FFF7FEBF 		b	HAL_IncTick
+ 160              	.LVL0:
+ 161              		.cfi_endproc
+ 162              	.LFE335:
+ 164              		.section	.text.DMA1_Channel1_IRQHandler,"ax",%progbits
+ 165              		.align	1
+ 166              		.global	DMA1_Channel1_IRQHandler
+ 167              		.syntax unified
+ 168              		.thumb
+ 169              		.thumb_func
+ 170              		.fpu fpv4-sp-d16
+ 172              	DMA1_Channel1_IRQHandler:
+ 173              	.LFB336:
  175:Src/stm32g4xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
  176:Src/stm32g4xx_it.c **** 
  177:Src/stm32g4xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
  178:Src/stm32g4xx_it.c **** }
- 165              		.loc 1 178 0
- 166 0006 08BD     		pop	{r3, pc}
- 167              		.cfi_endproc
- 168              	.LFE335:
- 170              		.section	.text.DMA1_Channel1_IRQHandler,"ax",%progbits
- 171              		.align	1
- 172              		.global	DMA1_Channel1_IRQHandler
- 173              		.syntax unified
- 174              		.thumb
- 175              		.thumb_func
- 176              		.fpu fpv4-sp-d16
- 178              	DMA1_Channel1_IRQHandler:
- 179              	.LFB336:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 7
-
-
  179:Src/stm32g4xx_it.c **** 
  180:Src/stm32g4xx_it.c **** /******************************************************************************/
  181:Src/stm32g4xx_it.c **** /* STM32G4xx Peripheral Interrupt Handlers                                    */
  182:Src/stm32g4xx_it.c **** /* Add here the Interrupt Handlers for the used peripherals.                  */
  183:Src/stm32g4xx_it.c **** /* For the available peripheral interrupt handler names,                      */
  184:Src/stm32g4xx_it.c **** /* please refer to the startup file (startup_stm32g4xx.s).                    */
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s 			page 7
+
+
  185:Src/stm32g4xx_it.c **** /******************************************************************************/
  186:Src/stm32g4xx_it.c **** 
  187:Src/stm32g4xx_it.c **** /**
@@ -374,53 +368,44 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 1
  189:Src/stm32g4xx_it.c ****   */
  190:Src/stm32g4xx_it.c **** void DMA1_Channel1_IRQHandler(void)
  191:Src/stm32g4xx_it.c **** {
- 180              		.loc 1 191 0
- 181              		.cfi_startproc
- 182              		@ args = 0, pretend = 0, frame = 0
- 183              		@ frame_needed = 0, uses_anonymous_args = 0
- 184 0000 08B5     		push	{r3, lr}
- 185              	.LCFI1:
- 186              		.cfi_def_cfa_offset 8
- 187              		.cfi_offset 3, -8
- 188              		.cfi_offset 14, -4
+ 174              		.loc 1 191 0
+ 175              		.cfi_startproc
+ 176              		@ args = 0, pretend = 0, frame = 0
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178              		@ link register save eliminated.
  192:Src/stm32g4xx_it.c ****   /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
  193:Src/stm32g4xx_it.c **** 
  194:Src/stm32g4xx_it.c ****   /* USER CODE END DMA1_Channel1_IRQn 0 */
  195:Src/stm32g4xx_it.c ****   HAL_DMA_IRQHandler(&hdma_usart1_rx);
- 189              		.loc 1 195 0
- 190 0002 0248     		ldr	r0, .L16
- 191 0004 FFF7FEFF 		bl	HAL_DMA_IRQHandler
- 192              	.LVL1:
+ 179              		.loc 1 195 0
+ 180 0000 0148     		ldr	r0, .L14
+ 181 0002 FFF7FEBF 		b	HAL_DMA_IRQHandler
+ 182              	.LVL1:
+ 183              	.L15:
+ 184 0006 00BF     		.align	2
+ 185              	.L14:
+ 186 0008 00000000 		.word	hdma_usart1_rx
+ 187              		.cfi_endproc
+ 188              	.LFE336:
+ 190              		.section	.text.USART1_IRQHandler,"ax",%progbits
+ 191              		.align	1
+ 192              		.global	USART1_IRQHandler
+ 193              		.syntax unified
+ 194              		.thumb
+ 195              		.thumb_func
+ 196              		.fpu fpv4-sp-d16
+ 198              	USART1_IRQHandler:
+ 199              	.LFB337:
  196:Src/stm32g4xx_it.c ****   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
  197:Src/stm32g4xx_it.c **** 
  198:Src/stm32g4xx_it.c ****   /* USER CODE END DMA1_Channel1_IRQn 1 */
  199:Src/stm32g4xx_it.c **** }
- 193              		.loc 1 199 0
- 194 0008 08BD     		pop	{r3, pc}
- 195              	.L17:
- 196 000a 00BF     		.align	2
- 197              	.L16:
- 198 000c 00000000 		.word	hdma_usart1_rx
- 199              		.cfi_endproc
- 200              	.LFE336:
- 202              		.section	.text.USART1_IRQHandler,"ax",%progbits
- 203              		.align	1
- 204              		.global	USART1_IRQHandler
- 205              		.syntax unified
- 206              		.thumb
- 207              		.thumb_func
- 208              		.fpu fpv4-sp-d16
- 210              	USART1_IRQHandler:
- 211              	.LFB337:
  200:Src/stm32g4xx_it.c **** 
  201:Src/stm32g4xx_it.c **** /**
  202:Src/stm32g4xx_it.c ****   * @brief This function handles DMA1 channel2 global interrupt.
  203:Src/stm32g4xx_it.c ****   */
  204:Src/stm32g4xx_it.c **** 
  205:Src/stm32g4xx_it.c **** #if 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 8
-
-
  206:Src/stm32g4xx_it.c **** void DMA1_Channel2_IRQHandler(void)
  207:Src/stm32g4xx_it.c **** {
  208:Src/stm32g4xx_it.c ****   /* USER CODE BEGIN DMA1_Channel2_IRQn 0 */
@@ -433,82 +418,72 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 1
  215:Src/stm32g4xx_it.c **** }
  216:Src/stm32g4xx_it.c **** #endif
  217:Src/stm32g4xx_it.c **** 
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s 			page 8
+
+
  218:Src/stm32g4xx_it.c **** /**
  219:Src/stm32g4xx_it.c ****   * @brief This function handles USART1 global interrupt / USART1 wake-up interrupt through EXTI li
  220:Src/stm32g4xx_it.c ****   */
  221:Src/stm32g4xx_it.c **** void USART1_IRQHandler(void)
  222:Src/stm32g4xx_it.c **** {
- 212              		.loc 1 222 0
- 213              		.cfi_startproc
- 214              		@ args = 0, pretend = 0, frame = 0
- 215              		@ frame_needed = 0, uses_anonymous_args = 0
- 216 0000 08B5     		push	{r3, lr}
- 217              	.LCFI2:
- 218              		.cfi_def_cfa_offset 8
- 219              		.cfi_offset 3, -8
- 220              		.cfi_offset 14, -4
+ 200              		.loc 1 222 0
+ 201              		.cfi_startproc
+ 202              		@ args = 0, pretend = 0, frame = 0
+ 203              		@ frame_needed = 0, uses_anonymous_args = 0
+ 204              		@ link register save eliminated.
  223:Src/stm32g4xx_it.c ****   /* USER CODE BEGIN USART1_IRQn 0 */
  224:Src/stm32g4xx_it.c **** 
  225:Src/stm32g4xx_it.c ****   /* USER CODE END USART1_IRQn 0 */
  226:Src/stm32g4xx_it.c ****   HAL_UART_IRQHandler(&huart1);
- 221              		.loc 1 226 0
- 222 0002 0248     		ldr	r0, .L20
- 223 0004 FFF7FEFF 		bl	HAL_UART_IRQHandler
- 224              	.LVL2:
- 227:Src/stm32g4xx_it.c ****   /* USER CODE BEGIN USART1_IRQn 1 */
- 228:Src/stm32g4xx_it.c **** 
- 229:Src/stm32g4xx_it.c ****   /* USER CODE END USART1_IRQn 1 */
- 230:Src/stm32g4xx_it.c **** }
- 225              		.loc 1 230 0
- 226 0008 08BD     		pop	{r3, pc}
- 227              	.L21:
- 228 000a 00BF     		.align	2
- 229              	.L20:
- 230 000c 00000000 		.word	huart1
- 231              		.cfi_endproc
- 232              	.LFE337:
- 234              		.text
- 235              	.Letext0:
- 236              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 237              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 238              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 239              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
- 240              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
- 241              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
- 242              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
- 243              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
- 244              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 9
-
-
- 245              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
- 246              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 247              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cca2gc8S.s 			page 10
+ 205              		.loc 1 226 0
+ 206 0000 0148     		ldr	r0, .L17
+ 207 0002 FFF7FEBF 		b	HAL_UART_IRQHandler
+ 208              	.LVL2:
+ 209              	.L18:
+ 210 0006 00BF     		.align	2
+ 211              	.L17:
+ 212 0008 00000000 		.word	huart1
+ 213              		.cfi_endproc
+ 214              	.LFE337:
+ 216              		.text
+ 217              	.Letext0:
+ 218              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 219              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 220              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 221              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 222              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 223              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 224              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 225              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 226              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 227              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 228              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 229              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g4xx_it.c
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:18     .text.NMI_Handler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:25     .text.NMI_Handler:00000000 NMI_Handler
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:40     .text.HardFault_Handler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:47     .text.HardFault_Handler:00000000 HardFault_Handler
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:61     .text.MemManage_Handler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:68     .text.MemManage_Handler:00000000 MemManage_Handler
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:82     .text.BusFault_Handler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:89     .text.BusFault_Handler:00000000 BusFault_Handler
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:103    .text.UsageFault_Handler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:110    .text.UsageFault_Handler:00000000 UsageFault_Handler
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:124    .text.DebugMon_Handler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:131    .text.DebugMon_Handler:00000000 DebugMon_Handler
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:144    .text.SysTick_Handler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:151    .text.SysTick_Handler:00000000 SysTick_Handler
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:171    .text.DMA1_Channel1_IRQHandler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:178    .text.DMA1_Channel1_IRQHandler:00000000 DMA1_Channel1_IRQHandler
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:198    .text.DMA1_Channel1_IRQHandler:0000000c $d
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:203    .text.USART1_IRQHandler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:210    .text.USART1_IRQHandler:00000000 USART1_IRQHandler
-C:\Users\82057\AppData\Local\Temp\cca2gc8S.s:230    .text.USART1_IRQHandler:0000000c $d
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:18     .text.NMI_Handler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:25     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:40     .text.HardFault_Handler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:47     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:61     .text.MemManage_Handler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:68     .text.MemManage_Handler:00000000 MemManage_Handler
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:82     .text.BusFault_Handler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:89     .text.BusFault_Handler:00000000 BusFault_Handler
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:103    .text.UsageFault_Handler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:110    .text.UsageFault_Handler:00000000 UsageFault_Handler
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:124    .text.DebugMon_Handler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:131    .text.DebugMon_Handler:00000000 DebugMon_Handler
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:144    .text.SysTick_Handler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:151    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:165    .text.DMA1_Channel1_IRQHandler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:172    .text.DMA1_Channel1_IRQHandler:00000000 DMA1_Channel1_IRQHandler
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:186    .text.DMA1_Channel1_IRQHandler:00000008 $d
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:191    .text.USART1_IRQHandler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:198    .text.USART1_IRQHandler:00000000 USART1_IRQHandler
+C:\Users\82057\AppData\Local\Temp\cc8lXTrF.s:212    .text.USART1_IRQHandler:00000008 $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"pwm.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
   20:Src/pwm.c     **** //	
   21:Src/pwm.c     **** //	EXTI_Config.GPIOSel= EXTI_GPIOA;
   22:Src/pwm.c     **** //	EXTI_Config.Line =EXTI_LINE_3;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 2
 
 
   23:Src/pwm.c     **** //	EXTI_Config.Mode = EXTI_MODE_INTERRUPT;
@@ -66,7 +66,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
   25:Src/pwm.c     **** //	
   26:Src/pwm.c     **** 	EXTI->PR1 |= 0x0008;		// �����־
   37              		.loc 1 26 0
-  38 0002 0B4B     		ldr	r3, .L3
+  38 0002 0B4B     		ldr	r3, .L2
   39 0004 5A69     		ldr	r2, [r3, #20]
   40 0006 42F00802 		orr	r2, r2, #8
   41 000a 5A61     		str	r2, [r3, #20]
@@ -87,557 +87,557 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
   33:Src/pwm.c     **** 	HAL_NVIC_SetPriority(EXTI3_IRQn, 1, 1);
   50              		.loc 1 33 0
   51 001c 0122     		movs	r2, #1
-  52 001e 1146     		mov	r1, r2
-  53 0020 0920     		movs	r0, #9
+  52 001e 0920     		movs	r0, #9
+  53 0020 1146     		mov	r1, r2
   54 0022 FFF7FEFF 		bl	HAL_NVIC_SetPriority
   55              	.LVL0:
   34:Src/pwm.c     ****   HAL_NVIC_EnableIRQ(EXTI3_IRQn);
   56              		.loc 1 34 0
   57 0026 0920     		movs	r0, #9
-  58 0028 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
-  59              	.LVL1:
   35:Src/pwm.c     **** }
-  60              		.loc 1 35 0
-  61 002c 08BD     		pop	{r3, pc}
-  62              	.L4:
-  63 002e 00BF     		.align	2
-  64              	.L3:
-  65 0030 00040140 		.word	1073808384
-  66              		.cfi_endproc
-  67              	.LFE333:
-  69              		.section	.text.MX_TIM1_Init,"ax",%progbits
-  70              		.align	1
-  71              		.global	MX_TIM1_Init
-  72              		.syntax unified
-  73              		.thumb
-  74              		.thumb_func
-  75              		.fpu fpv4-sp-d16
-  77              	MX_TIM1_Init:
-  78              	.LFB334:
+  58              		.loc 1 35 0
+  59 0028 BDE80840 		pop	{r3, lr}
+  60              	.LCFI1:
+  61              		.cfi_restore 14
+  62              		.cfi_restore 3
+  63              		.cfi_def_cfa_offset 0
+  34:Src/pwm.c     ****   HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+  64              		.loc 1 34 0
+  65 002c FFF7FEBF 		b	HAL_NVIC_EnableIRQ
+  66              	.LVL1:
+  67              	.L3:
+  68              		.align	2
+  69              	.L2:
+  70 0030 00040140 		.word	1073808384
+  71              		.cfi_endproc
+  72              	.LFE333:
+  74              		.section	.text.MX_TIM1_Init,"ax",%progbits
+  75              		.align	1
+  76              		.global	MX_TIM1_Init
+  77              		.syntax unified
+  78              		.thumb
+  79              		.thumb_func
+  80              		.fpu fpv4-sp-d16
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 3
+
+
+  82              	MX_TIM1_Init:
+  83              	.LFB334:
   36:Src/pwm.c     **** 
   37:Src/pwm.c     **** 
   38:Src/pwm.c     **** /**
   39:Src/pwm.c     ****   * @brief TIM1 Initialization Function
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 3
-
-
   40:Src/pwm.c     ****   * @param None
   41:Src/pwm.c     ****   * @retval None
   42:Src/pwm.c     ****   */
   43:Src/pwm.c     ****  void MX_TIM1_Init(void)
   44:Src/pwm.c     **** {
-  79              		.loc 1 44 0
-  80              		.cfi_startproc
-  81              		@ args = 0, pretend = 0, frame = 112
-  82              		@ frame_needed = 0, uses_anonymous_args = 0
-  83 0000 10B5     		push	{r4, lr}
-  84              	.LCFI1:
-  85              		.cfi_def_cfa_offset 8
-  86              		.cfi_offset 4, -8
-  87              		.cfi_offset 14, -4
-  88 0002 9CB0     		sub	sp, sp, #112
+  84              		.loc 1 44 0
+  85              		.cfi_startproc
+  86              		@ args = 0, pretend = 0, frame = 112
+  87              		@ frame_needed = 0, uses_anonymous_args = 0
+  88 0000 30B5     		push	{r4, r5, lr}
   89              	.LCFI2:
-  90              		.cfi_def_cfa_offset 120
+  90              		.cfi_def_cfa_offset 12
+  91              		.cfi_offset 4, -12
+  92              		.cfi_offset 5, -8
+  93              		.cfi_offset 14, -4
   45:Src/pwm.c     **** 
   46:Src/pwm.c     ****   /* USER CODE BEGIN TIM1_Init 0 */
   47:Src/pwm.c     **** 
   48:Src/pwm.c     ****   /* USER CODE END TIM1_Init 0 */
   49:Src/pwm.c     **** 
   50:Src/pwm.c     ****   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  91              		.loc 1 50 0
-  92 0004 0024     		movs	r4, #0
-  93 0006 1894     		str	r4, [sp, #96]
-  94 0008 1994     		str	r4, [sp, #100]
-  95 000a 1A94     		str	r4, [sp, #104]
-  96 000c 1B94     		str	r4, [sp, #108]
+  94              		.loc 1 50 0
+  95 0002 1022     		movs	r2, #16
+  44:Src/pwm.c     **** 
+  96              		.loc 1 44 0
+  97 0004 9DB0     		sub	sp, sp, #116
+  98              	.LCFI3:
+  99              		.cfi_def_cfa_offset 128
   51:Src/pwm.c     ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
-  97              		.loc 1 51 0
-  98 000e 1594     		str	r4, [sp, #84]
-  99 0010 1694     		str	r4, [sp, #88]
- 100 0012 1794     		str	r4, [sp, #92]
+ 100              		.loc 1 51 0
+ 101 0006 0025     		movs	r5, #0
+  50:Src/pwm.c     ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 102              		.loc 1 50 0
+ 103 0008 0021     		movs	r1, #0
+ 104 000a 0DEB0200 		add	r0, sp, r2
+ 105 000e FFF7FEFF 		bl	memset
+ 106              	.LVL2:
   52:Src/pwm.c     ****   TIM_OC_InitTypeDef sConfigOC = {0};
- 101              		.loc 1 52 0
- 102 0014 0E94     		str	r4, [sp, #56]
- 103 0016 0F94     		str	r4, [sp, #60]
- 104 0018 1094     		str	r4, [sp, #64]
- 105 001a 1194     		str	r4, [sp, #68]
- 106 001c 1294     		str	r4, [sp, #72]
- 107 001e 1394     		str	r4, [sp, #76]
- 108 0020 1494     		str	r4, [sp, #80]
+ 107              		.loc 1 52 0
+ 108 0012 1C22     		movs	r2, #28
+ 109 0014 2946     		mov	r1, r5
+ 110 0016 08A8     		add	r0, sp, #32
+  51:Src/pwm.c     ****   TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 111              		.loc 1 51 0
+ 112 0018 CDE90155 		strd	r5, r5, [sp, #4]
+ 113 001c 0395     		str	r5, [sp, #12]
+ 114              		.loc 1 52 0
+ 115 001e FFF7FEFF 		bl	memset
+ 116              	.LVL3:
   53:Src/pwm.c     ****   TIM_BreakDeadTimeConfigTypeDef sBreakDeadTimeConfig = {0};
- 109              		.loc 1 53 0
- 110 0022 3422     		movs	r2, #52
- 111 0024 2146     		mov	r1, r4
- 112 0026 01A8     		add	r0, sp, #4
- 113 0028 FFF7FEFF 		bl	memset
- 114              	.LVL2:
+ 117              		.loc 1 53 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 4
+
+
+ 118 0022 3422     		movs	r2, #52
+ 119 0024 2946     		mov	r1, r5
+ 120 0026 0FA8     		add	r0, sp, #60
+ 121 0028 FFF7FEFF 		bl	memset
+ 122              	.LVL4:
   54:Src/pwm.c     **** 
   55:Src/pwm.c     ****   /* USER CODE BEGIN TIM1_Init 1 */
   56:Src/pwm.c     **** 
   57:Src/pwm.c     ****   /* USER CODE END TIM1_Init 1 */
   58:Src/pwm.c     ****   htim1.Instance = TIM1;
- 115              		.loc 1 58 0
- 116 002c 6748     		ldr	r0, .L27
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 4
-
-
- 117 002e 684B     		ldr	r3, .L27+4
- 118 0030 0360     		str	r3, [r0]
+ 123              		.loc 1 58 0
+ 124 002c 5B4C     		ldr	r4, .L45
+ 125 002e 5C4B     		ldr	r3, .L45+4
   59:Src/pwm.c     ****   htim1.Init.Prescaler = 0;
- 119              		.loc 1 59 0
- 120 0032 4460     		str	r4, [r0, #4]
   60:Src/pwm.c     ****   htim1.Init.CounterMode = TIM_COUNTERMODE_CENTERALIGNED1;
- 121              		.loc 1 60 0
- 122 0034 2023     		movs	r3, #32
- 123 0036 8360     		str	r3, [r0, #8]
   61:Src/pwm.c     ****   htim1.Init.Period = REAL_CCR;
- 124              		.loc 1 61 0
- 125 0038 4FF45263 		mov	r3, #3360
- 126 003c C360     		str	r3, [r0, #12]
+ 126              		.loc 1 61 0
+ 127 0030 4FF0200C 		mov	ip, #32
+  59:Src/pwm.c     ****   htim1.Init.Prescaler = 0;
+ 128              		.loc 1 59 0
+ 129 0034 C4E90035 		strd	r3, r5, [r4]
+ 130              		.loc 1 61 0
+ 131 0038 4FF45263 		mov	r3, #3360
+ 132 003c C4E902C3 		strd	ip, r3, [r4, #8]
   62:Src/pwm.c     ****   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
- 127              		.loc 1 62 0
- 128 003e 0461     		str	r4, [r0, #16]
   63:Src/pwm.c     ****   htim1.Init.RepetitionCounter = 0;
- 129              		.loc 1 63 0
- 130 0040 4461     		str	r4, [r0, #20]
   64:Src/pwm.c     ****   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
- 131              		.loc 1 64 0
- 132 0042 8023     		movs	r3, #128
- 133 0044 8361     		str	r3, [r0, #24]
   65:Src/pwm.c     **** 	
   66:Src/pwm.c     **** 	
   67:Src/pwm.c     ****   if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
- 134              		.loc 1 67 0
- 135 0046 FFF7FEFF 		bl	HAL_TIM_Base_Init
- 136              	.LVL3:
- 137 004a 0028     		cmp	r0, #0
- 138 004c 40F0A080 		bne	.L17
- 139              	.L6:
+ 133              		.loc 1 67 0
+ 134 0040 2046     		mov	r0, r4
+  64:Src/pwm.c     **** 	
+ 135              		.loc 1 64 0
+ 136 0042 8023     		movs	r3, #128
+  63:Src/pwm.c     ****   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+ 137              		.loc 1 63 0
+ 138 0044 C4E90455 		strd	r5, r5, [r4, #16]
+  64:Src/pwm.c     **** 	
+ 139              		.loc 1 64 0
+ 140 0048 A361     		str	r3, [r4, #24]
+ 141              		.loc 1 67 0
+ 142 004a FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 143              	.LVL5:
+ 144 004e 08B1     		cbz	r0, .L5
+ 145              	.LBB4:
   68:Src/pwm.c     ****   {
   69:Src/pwm.c     ****     Error_Handler();
+ 146              		.loc 1 69 0
+ 147 0050 FFF7FEFF 		bl	Error_Handler
+ 148              	.LVL6:
+ 149              	.L5:
+ 150              	.LBE4:
   70:Src/pwm.c     ****   }
   71:Src/pwm.c     ****   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
- 140              		.loc 1 71 0
- 141 0050 1CA9     		add	r1, sp, #112
- 142 0052 4FF48053 		mov	r3, #4096
- 143 0056 41F8103D 		str	r3, [r1, #-16]!
+ 151              		.loc 1 71 0
+ 152 0054 4FF48053 		mov	r3, #4096
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 5
+
+
   72:Src/pwm.c     ****   if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
- 144              		.loc 1 72 0
- 145 005a 5C48     		ldr	r0, .L27
- 146 005c FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
- 147              	.LVL4:
- 148 0060 0028     		cmp	r0, #0
- 149 0062 40F09880 		bne	.L18
- 150              	.L7:
+ 153              		.loc 1 72 0
+ 154 0058 04A9     		add	r1, sp, #16
+ 155 005a 5048     		ldr	r0, .L45
+  71:Src/pwm.c     ****   if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+ 156              		.loc 1 71 0
+ 157 005c 0493     		str	r3, [sp, #16]
+ 158              		.loc 1 72 0
+ 159 005e FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 160              	.LVL7:
+ 161 0062 08B1     		cbz	r0, .L6
+ 162              	.LBB5:
   73:Src/pwm.c     ****   {
   74:Src/pwm.c     ****     Error_Handler();
+ 163              		.loc 1 74 0
+ 164 0064 FFF7FEFF 		bl	Error_Handler
+ 165              	.LVL8:
+ 166              	.L6:
+ 167              	.LBE5:
   75:Src/pwm.c     ****   }
   76:Src/pwm.c     ****   if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
- 151              		.loc 1 76 0
- 152 0066 5948     		ldr	r0, .L27
- 153 0068 FFF7FEFF 		bl	HAL_TIM_PWM_Init
- 154              	.LVL5:
- 155 006c 0028     		cmp	r0, #0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 5
-
-
- 156 006e 40F09580 		bne	.L19
- 157              	.L8:
+ 168              		.loc 1 76 0
+ 169 0068 4C48     		ldr	r0, .L45
+ 170 006a FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 171              	.LVL9:
+ 172 006e 08B1     		cbz	r0, .L7
+ 173              	.LBB6:
   77:Src/pwm.c     ****   {
   78:Src/pwm.c     ****     Error_Handler();
+ 174              		.loc 1 78 0
+ 175 0070 FFF7FEFF 		bl	Error_Handler
+ 176              	.LVL10:
+ 177              	.L7:
+ 178              	.LBE6:
   79:Src/pwm.c     ****   }
   80:Src/pwm.c     ****   if (HAL_TIM_OC_Init(&htim1) != HAL_OK)
- 158              		.loc 1 80 0
- 159 0072 5648     		ldr	r0, .L27
- 160 0074 FFF7FEFF 		bl	HAL_TIM_OC_Init
- 161              	.LVL6:
- 162 0078 0028     		cmp	r0, #0
- 163 007a 40F09280 		bne	.L20
- 164              	.L9:
+ 179              		.loc 1 80 0
+ 180 0074 4948     		ldr	r0, .L45
+ 181 0076 FFF7FEFF 		bl	HAL_TIM_OC_Init
+ 182              	.LVL11:
+ 183 007a 08B1     		cbz	r0, .L8
+ 184              	.LBB7:
   81:Src/pwm.c     ****   {
   82:Src/pwm.c     ****     Error_Handler();
+ 185              		.loc 1 82 0
+ 186 007c FFF7FEFF 		bl	Error_Handler
+ 187              	.LVL12:
+ 188              	.L8:
+ 189              	.LBE7:
   83:Src/pwm.c     ****   }
   84:Src/pwm.c     ****   sMasterConfig.MasterOutputTrigger = TIM_TRGO_OC4REF;//TIM_TRGO_OC4REF;
- 165              		.loc 1 84 0
- 166 007e 7023     		movs	r3, #112
- 167 0080 1593     		str	r3, [sp, #84]
   85:Src/pwm.c     ****   sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
- 168              		.loc 1 85 0
- 169 0082 0023     		movs	r3, #0
- 170 0084 1693     		str	r3, [sp, #88]
+ 190              		.loc 1 85 0
+ 191 0080 7020     		movs	r0, #112
+ 192 0082 0023     		movs	r3, #0
+ 193 0084 CDE90103 		strd	r0, r3, [sp, #4]
   86:Src/pwm.c     ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
- 171              		.loc 1 86 0
- 172 0086 1793     		str	r3, [sp, #92]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 6
+
+
   87:Src/pwm.c     ****   if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
- 173              		.loc 1 87 0
- 174 0088 15A9     		add	r1, sp, #84
- 175 008a 5048     		ldr	r0, .L27
- 176 008c FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
- 177              	.LVL7:
- 178 0090 0028     		cmp	r0, #0
- 179 0092 40F08980 		bne	.L21
- 180              	.L10:
+ 194              		.loc 1 87 0
+ 195 0088 01A9     		add	r1, sp, #4
+ 196 008a 4448     		ldr	r0, .L45
+  86:Src/pwm.c     ****   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 197              		.loc 1 86 0
+ 198 008c 0393     		str	r3, [sp, #12]
+ 199              		.loc 1 87 0
+ 200 008e FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 201              	.LVL13:
+ 202 0092 08B1     		cbz	r0, .L9
+ 203              	.LBB8:
   88:Src/pwm.c     ****   {
   89:Src/pwm.c     ****     Error_Handler();
+ 204              		.loc 1 89 0
+ 205 0094 FFF7FEFF 		bl	Error_Handler
+ 206              	.LVL14:
+ 207              	.L9:
+ 208              	.LBE8:
   90:Src/pwm.c     ****   }
   91:Src/pwm.c     ****   sConfigOC.OCMode = TIM_OCMODE_PWM1;
- 181              		.loc 1 91 0
- 182 0096 6023     		movs	r3, #96
- 183 0098 0E93     		str	r3, [sp, #56]
+ 209              		.loc 1 91 0
+ 210 0098 6023     		movs	r3, #96
   92:Src/pwm.c     ****   sConfigOC.Pulse = (TIM1->ARR)>>1;
- 184              		.loc 1 92 0
- 185 009a 4D4B     		ldr	r3, .L27+4
- 186 009c DB6A     		ldr	r3, [r3, #44]
- 187 009e 5B08     		lsrs	r3, r3, #1
- 188 00a0 0F93     		str	r3, [sp, #60]
+ 211              		.loc 1 92 0
+ 212 009a 414D     		ldr	r5, .L45+4
+  91:Src/pwm.c     ****   sConfigOC.Pulse = (TIM1->ARR)>>1;
+ 213              		.loc 1 91 0
+ 214 009c 0893     		str	r3, [sp, #32]
+ 215              		.loc 1 92 0
+ 216 009e EB6A     		ldr	r3, [r5, #44]
   93:Src/pwm.c     ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
- 189              		.loc 1 93 0
- 190 00a2 0022     		movs	r2, #0
- 191 00a4 1092     		str	r2, [sp, #64]
   94:Src/pwm.c     ****   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
- 192              		.loc 1 94 0
- 193 00a6 1192     		str	r2, [sp, #68]
   95:Src/pwm.c     ****   sConfigOC.OCFastMode = TIM_OCFAST_ENABLE;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 6
-
-
- 194              		.loc 1 95 0
- 195 00a8 0423     		movs	r3, #4
- 196 00aa 1293     		str	r3, [sp, #72]
   96:Src/pwm.c     ****   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
- 197              		.loc 1 96 0
- 198 00ac 1392     		str	r2, [sp, #76]
   97:Src/pwm.c     ****   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
- 199              		.loc 1 97 0
- 200 00ae 1492     		str	r2, [sp, #80]
   98:Src/pwm.c     ****   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
- 201              		.loc 1 98 0
- 202 00b0 0EA9     		add	r1, sp, #56
- 203 00b2 4648     		ldr	r0, .L27
- 204 00b4 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
- 205              	.LVL8:
- 206 00b8 0028     		cmp	r0, #0
- 207 00ba 78D1     		bne	.L22
- 208              	.L11:
+ 217              		.loc 1 98 0
+ 218 00a0 3E48     		ldr	r0, .L45
+  92:Src/pwm.c     ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 219              		.loc 1 92 0
+ 220 00a2 5B08     		lsrs	r3, r3, #1
+  93:Src/pwm.c     ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 221              		.loc 1 93 0
+ 222 00a4 0022     		movs	r2, #0
+  92:Src/pwm.c     ****   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 223              		.loc 1 92 0
+ 224 00a6 0993     		str	r3, [sp, #36]
+ 225              		.loc 1 98 0
+ 226 00a8 08A9     		add	r1, sp, #32
+  95:Src/pwm.c     ****   sConfigOC.OCIdleState = TIM_OCIDLESTATE_RESET;
+ 227              		.loc 1 95 0
+ 228 00aa 0423     		movs	r3, #4
+  94:Src/pwm.c     ****   sConfigOC.OCFastMode = TIM_OCFAST_ENABLE;
+ 229              		.loc 1 94 0
+ 230 00ac CDE90A22 		strd	r2, r2, [sp, #40]
+  96:Src/pwm.c     ****   sConfigOC.OCNIdleState = TIM_OCNIDLESTATE_RESET;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 7
+
+
+ 231              		.loc 1 96 0
+ 232 00b0 CDE90C32 		strd	r3, r2, [sp, #48]
+  97:Src/pwm.c     ****   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+ 233              		.loc 1 97 0
+ 234 00b4 0E92     		str	r2, [sp, #56]
+ 235              		.loc 1 98 0
+ 236 00b6 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 237              	.LVL15:
+ 238 00ba 08B1     		cbz	r0, .L10
+ 239              	.LBB9:
   99:Src/pwm.c     ****   {
  100:Src/pwm.c     ****     Error_Handler();
+ 240              		.loc 1 100 0
+ 241 00bc FFF7FEFF 		bl	Error_Handler
+ 242              	.LVL16:
+ 243              	.L10:
+ 244              	.LBE9:
  101:Src/pwm.c     ****   }
  102:Src/pwm.c     **** 	sConfigOC.Pulse = (TIM1->ARR)>>2;
- 209              		.loc 1 102 0
- 210 00bc 444B     		ldr	r3, .L27+4
- 211 00be DB6A     		ldr	r3, [r3, #44]
- 212 00c0 9B08     		lsrs	r3, r3, #2
- 213 00c2 0F93     		str	r3, [sp, #60]
+ 245              		.loc 1 102 0
+ 246 00c0 EB6A     		ldr	r3, [r5, #44]
  103:Src/pwm.c     ****   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
- 214              		.loc 1 103 0
- 215 00c4 0422     		movs	r2, #4
- 216 00c6 0EA9     		add	r1, sp, #56
- 217 00c8 4048     		ldr	r0, .L27
- 218 00ca FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
- 219              	.LVL9:
- 220 00ce 0028     		cmp	r0, #0
- 221 00d0 70D1     		bne	.L23
- 222              	.L12:
+ 247              		.loc 1 103 0
+ 248 00c2 3648     		ldr	r0, .L45
+ 102:Src/pwm.c     ****   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+ 249              		.loc 1 102 0
+ 250 00c4 9B08     		lsrs	r3, r3, #2
+ 251              		.loc 1 103 0
+ 252 00c6 0422     		movs	r2, #4
+ 253 00c8 08A9     		add	r1, sp, #32
+ 102:Src/pwm.c     ****   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+ 254              		.loc 1 102 0
+ 255 00ca 0993     		str	r3, [sp, #36]
+ 256              		.loc 1 103 0
+ 257 00cc FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 258              	.LVL17:
+ 259 00d0 08B1     		cbz	r0, .L11
+ 260              	.LBB10:
  104:Src/pwm.c     ****   {
  105:Src/pwm.c     ****     Error_Handler();
+ 261              		.loc 1 105 0
+ 262 00d2 FFF7FEFF 		bl	Error_Handler
+ 263              	.LVL18:
+ 264              	.L11:
+ 265              	.LBE10:
  106:Src/pwm.c     ****   }
  107:Src/pwm.c     **** 	sConfigOC.Pulse = (TIM1->ARR)>>1;
- 223              		.loc 1 107 0
- 224 00d2 3F4B     		ldr	r3, .L27+4
- 225 00d4 DB6A     		ldr	r3, [r3, #44]
- 226 00d6 5B08     		lsrs	r3, r3, #1
- 227 00d8 0F93     		str	r3, [sp, #60]
+ 266              		.loc 1 107 0
+ 267 00d6 324B     		ldr	r3, .L45+4
  108:Src/pwm.c     ****   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
- 228              		.loc 1 108 0
- 229 00da 0822     		movs	r2, #8
- 230 00dc 0EA9     		add	r1, sp, #56
- 231 00de 3B48     		ldr	r0, .L27
- 232 00e0 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
- 233              	.LVL10:
- 234 00e4 0028     		cmp	r0, #0
- 235 00e6 68D1     		bne	.L24
- 236              	.L13:
+ 268              		.loc 1 108 0
+ 269 00d8 3048     		ldr	r0, .L45
+ 107:Src/pwm.c     ****   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+ 270              		.loc 1 107 0
+ 271 00da DB6A     		ldr	r3, [r3, #44]
+ 272              		.loc 1 108 0
+ 273 00dc 0822     		movs	r2, #8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 8
+
+
+ 107:Src/pwm.c     ****   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+ 274              		.loc 1 107 0
+ 275 00de 5B08     		lsrs	r3, r3, #1
+ 276              		.loc 1 108 0
+ 277 00e0 08A9     		add	r1, sp, #32
+ 107:Src/pwm.c     ****   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
+ 278              		.loc 1 107 0
+ 279 00e2 0993     		str	r3, [sp, #36]
+ 280              		.loc 1 108 0
+ 281 00e4 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 282              	.LVL19:
+ 283 00e8 08B1     		cbz	r0, .L12
+ 284              	.LBB11:
  109:Src/pwm.c     ****   {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 7
-
-
  110:Src/pwm.c     ****     Error_Handler();
+ 285              		.loc 1 110 0
+ 286 00ea FFF7FEFF 		bl	Error_Handler
+ 287              	.LVL20:
+ 288              	.L12:
+ 289              	.LBE11:
  111:Src/pwm.c     ****   }
  112:Src/pwm.c     ****   sConfigOC.OCMode = TIM_OCMODE_PWM2;
- 237              		.loc 1 112 0
- 238 00e8 7023     		movs	r3, #112
- 239 00ea 0E93     		str	r3, [sp, #56]
  113:Src/pwm.c     **** 	sConfigOC.Pulse = REAL_CCR-1;
- 240              		.loc 1 113 0
- 241 00ec 40F61F53 		movw	r3, #3359
- 242 00f0 0F93     		str	r3, [sp, #60]
+ 290              		.loc 1 113 0
+ 291 00ee 7021     		movs	r1, #112
+ 292 00f0 40F61F53 		movw	r3, #3359
+ 293 00f4 CDE90813 		strd	r1, r3, [sp, #32]
  114:Src/pwm.c     ****   if (HAL_TIM_OC_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
- 243              		.loc 1 114 0
- 244 00f2 0C22     		movs	r2, #12
- 245 00f4 0EA9     		add	r1, sp, #56
- 246 00f6 3548     		ldr	r0, .L27
- 247 00f8 FFF7FEFF 		bl	HAL_TIM_OC_ConfigChannel
- 248              	.LVL11:
- 249 00fc 0028     		cmp	r0, #0
- 250 00fe 5FD1     		bne	.L25
- 251              	.L14:
+ 294              		.loc 1 114 0
+ 295 00f8 0C22     		movs	r2, #12
+ 296 00fa 08A9     		add	r1, sp, #32
+ 297 00fc 2748     		ldr	r0, .L45
+ 298 00fe FFF7FEFF 		bl	HAL_TIM_OC_ConfigChannel
+ 299              	.LVL21:
+ 300 0102 08B1     		cbz	r0, .L13
+ 301              	.LBB12:
  115:Src/pwm.c     ****   {
  116:Src/pwm.c     ****     Error_Handler();
+ 302              		.loc 1 116 0
+ 303 0104 FFF7FEFF 		bl	Error_Handler
+ 304              	.LVL22:
+ 305              	.L13:
+ 306              	.LBE12:
  117:Src/pwm.c     ****   }
  118:Src/pwm.c     ****   sBreakDeadTimeConfig.OffStateRunMode = TIM_OSSR_ENABLE;
- 252              		.loc 1 118 0
- 253 0100 4FF40063 		mov	r3, #2048
- 254 0104 0193     		str	r3, [sp, #4]
  119:Src/pwm.c     ****   sBreakDeadTimeConfig.OffStateIDLEMode = TIM_OSSI_DISABLE;
- 255              		.loc 1 119 0
- 256 0106 0023     		movs	r3, #0
- 257 0108 0293     		str	r3, [sp, #8]
+ 307              		.loc 1 119 0
+ 308 0108 0023     		movs	r3, #0
+ 309 010a 4FF40062 		mov	r2, #2048
+ 310 010e CDE90F23 		strd	r2, r3, [sp, #60]
  120:Src/pwm.c     ****   sBreakDeadTimeConfig.LockLevel = TIM_LOCKLEVEL_OFF;
- 258              		.loc 1 120 0
- 259 010a 0393     		str	r3, [sp, #12]
- 121:Src/pwm.c     ****   sBreakDeadTimeConfig.DeadTime = 0;
- 260              		.loc 1 121 0
- 261 010c 0493     		str	r3, [sp, #16]
+ 121:Src/pwm.c     ****   sBreakDeadTimeConfig.DeadTime = 20;
+ 311              		.loc 1 121 0
+ 312 0112 1422     		movs	r2, #20
  122:Src/pwm.c     ****   sBreakDeadTimeConfig.BreakState = TIM_BREAK_DISABLE;
- 262              		.loc 1 122 0
- 263 010e 0593     		str	r3, [sp, #20]
+ 313              		.loc 1 122 0
+ 314 0114 CDE91223 		strd	r2, r3, [sp, #72]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 9
+
+
  123:Src/pwm.c     ****   sBreakDeadTimeConfig.BreakPolarity = TIM_BREAKPOLARITY_HIGH;
- 264              		.loc 1 123 0
- 265 0110 4FF40052 		mov	r2, #8192
- 266 0114 0692     		str	r2, [sp, #24]
+ 315              		.loc 1 123 0
+ 316 0118 4FF40052 		mov	r2, #8192
  124:Src/pwm.c     ****   sBreakDeadTimeConfig.BreakFilter = 0;
- 267              		.loc 1 124 0
- 268 0116 0793     		str	r3, [sp, #28]
+ 317              		.loc 1 124 0
+ 318 011c CDE91423 		strd	r2, r3, [sp, #80]
  125:Src/pwm.c     ****   sBreakDeadTimeConfig.BreakAFMode = TIM_BREAK_AFMODE_INPUT;
- 269              		.loc 1 125 0
- 270 0118 0893     		str	r3, [sp, #32]
  126:Src/pwm.c     ****   sBreakDeadTimeConfig.Break2State = TIM_BREAK2_DISABLE;
- 271              		.loc 1 126 0
- 272 011a 0993     		str	r3, [sp, #36]
  127:Src/pwm.c     ****   sBreakDeadTimeConfig.Break2Polarity = TIM_BREAK2POLARITY_HIGH;
- 273              		.loc 1 127 0
- 274 011c 4FF00072 		mov	r2, #33554432
- 275 0120 0A92     		str	r2, [sp, #40]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 8
-
-
  128:Src/pwm.c     ****   sBreakDeadTimeConfig.Break2Filter = 0;
- 276              		.loc 1 128 0
- 277 0122 0B93     		str	r3, [sp, #44]
  129:Src/pwm.c     ****   sBreakDeadTimeConfig.Break2AFMode = TIM_BREAK_AFMODE_INPUT;
- 278              		.loc 1 129 0
- 279 0124 0C93     		str	r3, [sp, #48]
  130:Src/pwm.c     ****   sBreakDeadTimeConfig.AutomaticOutput = TIM_AUTOMATICOUTPUT_DISABLE;
- 280              		.loc 1 130 0
- 281 0126 0D93     		str	r3, [sp, #52]
  131:Src/pwm.c     **** 	
  132:Src/pwm.c     ****   if (HAL_TIMEx_ConfigBreakDeadTime(&htim1, &sBreakDeadTimeConfig) != HAL_OK)
- 282              		.loc 1 132 0
- 283 0128 01A9     		add	r1, sp, #4
- 284 012a 2848     		ldr	r0, .L27
- 285 012c FFF7FEFF 		bl	HAL_TIMEx_ConfigBreakDeadTime
- 286              	.LVL12:
- 287 0130 0028     		cmp	r0, #0
- 288 0132 48D1     		bne	.L26
- 289              	.L15:
+ 319              		.loc 1 132 0
+ 320 0120 0FA9     		add	r1, sp, #60
+ 127:Src/pwm.c     ****   sBreakDeadTimeConfig.Break2Filter = 0;
+ 321              		.loc 1 127 0
+ 322 0122 4FF00072 		mov	r2, #33554432
+ 323              		.loc 1 132 0
+ 324 0126 1D48     		ldr	r0, .L45
+ 120:Src/pwm.c     ****   sBreakDeadTimeConfig.DeadTime = 20;
+ 325              		.loc 1 120 0
+ 326 0128 1193     		str	r3, [sp, #68]
+ 126:Src/pwm.c     ****   sBreakDeadTimeConfig.Break2Polarity = TIM_BREAK2POLARITY_HIGH;
+ 327              		.loc 1 126 0
+ 328 012a CDE91633 		strd	r3, r3, [sp, #88]
+ 128:Src/pwm.c     ****   sBreakDeadTimeConfig.Break2AFMode = TIM_BREAK_AFMODE_INPUT;
+ 329              		.loc 1 128 0
+ 330 012e CDE91823 		strd	r2, r3, [sp, #96]
+ 130:Src/pwm.c     **** 	
+ 331              		.loc 1 130 0
+ 332 0132 CDE91A33 		strd	r3, r3, [sp, #104]
+ 333              		.loc 1 132 0
+ 334 0136 FFF7FEFF 		bl	HAL_TIMEx_ConfigBreakDeadTime
+ 335              	.LVL23:
+ 336 013a 08B1     		cbz	r0, .L14
+ 337              	.LBB13:
  133:Src/pwm.c     ****   {
  134:Src/pwm.c     ****     Error_Handler();
+ 338              		.loc 1 134 0
+ 339 013c FFF7FEFF 		bl	Error_Handler
+ 340              	.LVL24:
+ 341              	.L14:
+ 342              	.LBE13:
  135:Src/pwm.c     ****   }
  136:Src/pwm.c     ****   /* USER CODE BEGIN TIM1_Init 2 */
  137:Src/pwm.c     **** 
  138:Src/pwm.c     ****   /* USER CODE END TIM1_Init 2 */
  139:Src/pwm.c     ****   HAL_TIM_MspPostInit(&htim1);
- 290              		.loc 1 139 0
- 291 0134 254C     		ldr	r4, .L27
- 292 0136 2046     		mov	r0, r4
- 293 0138 FFF7FEFF 		bl	HAL_TIM_MspPostInit
- 294              	.LVL13:
+ 343              		.loc 1 139 0
+ 344 0140 1648     		ldr	r0, .L45
+ 345 0142 FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 346              	.LVL25:
  140:Src/pwm.c     **** 	
  141:Src/pwm.c     **** 	
  142:Src/pwm.c     **** //	HAL_TIMEx_OCN_Start(&htim1,TIM_CHANNEL_1);
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 10
+
+
  143:Src/pwm.c     **** //	HAL_TIMEx_OCN_Start(&htim1,TIM_CHANNEL_2);
  144:Src/pwm.c     **** //	HAL_TIMEx_OCN_Start(&htim1,TIM_CHANNEL_3);
  145:Src/pwm.c     **** //	HAL_TIMEx_OCN_Start(&htim1,TIM_CHANNEL_4);
  146:Src/pwm.c     **** 	
  147:Src/pwm.c     **** 	
  148:Src/pwm.c     **** 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_1);
- 295              		.loc 1 148 0
- 296 013c 0021     		movs	r1, #0
- 297 013e 2046     		mov	r0, r4
- 298 0140 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 299              	.LVL14:
+ 347              		.loc 1 148 0
+ 348 0146 0021     		movs	r1, #0
+ 349 0148 1448     		ldr	r0, .L45
+ 350 014a FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 351              	.LVL26:
  149:Src/pwm.c     **** 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_2);
- 300              		.loc 1 149 0
- 301 0144 0421     		movs	r1, #4
- 302 0146 2046     		mov	r0, r4
- 303 0148 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 304              	.LVL15:
+ 352              		.loc 1 149 0
+ 353 014e 0421     		movs	r1, #4
+ 354 0150 1248     		ldr	r0, .L45
+ 355 0152 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 356              	.LVL27:
  150:Src/pwm.c     **** 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_3);
- 305              		.loc 1 150 0
- 306 014c 0821     		movs	r1, #8
- 307 014e 2046     		mov	r0, r4
- 308 0150 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 309              	.LVL16:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 9
-
-
+ 357              		.loc 1 150 0
+ 358 0156 0821     		movs	r1, #8
+ 359 0158 1048     		ldr	r0, .L45
+ 360 015a FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 361              	.LVL28:
  151:Src/pwm.c     **** 	HAL_TIM_PWM_Start(&htim1,TIM_CHANNEL_4);
- 310              		.loc 1 151 0
- 311 0154 0C21     		movs	r1, #12
- 312 0156 2046     		mov	r0, r4
- 313 0158 FFF7FEFF 		bl	HAL_TIM_PWM_Start
- 314              	.LVL17:
+ 362              		.loc 1 151 0
+ 363 015e 0C21     		movs	r1, #12
+ 364 0160 0E48     		ldr	r0, .L45
+ 365 0162 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 366              	.LVL29:
  152:Src/pwm.c     **** 	
  153:Src/pwm.c     **** 	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_1);
- 315              		.loc 1 153 0
- 316 015c 0021     		movs	r1, #0
- 317 015e 2046     		mov	r0, r4
- 318 0160 FFF7FEFF 		bl	HAL_TIMEx_PWMN_Start
- 319              	.LVL18:
+ 367              		.loc 1 153 0
+ 368 0166 0021     		movs	r1, #0
+ 369 0168 0C48     		ldr	r0, .L45
+ 370 016a FFF7FEFF 		bl	HAL_TIMEx_PWMN_Start
+ 371              	.LVL30:
  154:Src/pwm.c     **** 	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_2);
- 320              		.loc 1 154 0
- 321 0164 0421     		movs	r1, #4
- 322 0166 2046     		mov	r0, r4
- 323 0168 FFF7FEFF 		bl	HAL_TIMEx_PWMN_Start
- 324              	.LVL19:
+ 372              		.loc 1 154 0
+ 373 016e 0421     		movs	r1, #4
+ 374 0170 0A48     		ldr	r0, .L45
+ 375 0172 FFF7FEFF 		bl	HAL_TIMEx_PWMN_Start
+ 376              	.LVL31:
  155:Src/pwm.c     **** 	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_3);
- 325              		.loc 1 155 0
- 326 016c 0821     		movs	r1, #8
- 327 016e 2046     		mov	r0, r4
- 328 0170 FFF7FEFF 		bl	HAL_TIMEx_PWMN_Start
- 329              	.LVL20:
+ 377              		.loc 1 155 0
+ 378 0176 0821     		movs	r1, #8
+ 379 0178 0848     		ldr	r0, .L45
+ 380 017a FFF7FEFF 		bl	HAL_TIMEx_PWMN_Start
+ 381              	.LVL32:
  156:Src/pwm.c     **** 	HAL_TIMEx_PWMN_Start(&htim1,TIM_CHANNEL_4);
- 330              		.loc 1 156 0
- 331 0174 0C21     		movs	r1, #12
- 332 0176 2046     		mov	r0, r4
- 333 0178 FFF7FEFF 		bl	HAL_TIMEx_PWMN_Start
- 334              	.LVL21:
+ 382              		.loc 1 156 0
+ 383 017e 0C21     		movs	r1, #12
+ 384 0180 0648     		ldr	r0, .L45
+ 385 0182 FFF7FEFF 		bl	HAL_TIMEx_PWMN_Start
+ 386              	.LVL33:
  157:Src/pwm.c     **** 	
  158:Src/pwm.c     **** 	__HAL_TIM_ENABLE(&htim1);
- 335              		.loc 1 158 0
- 336 017c 2268     		ldr	r2, [r4]
- 337 017e 1368     		ldr	r3, [r2]
- 338 0180 43F00103 		orr	r3, r3, #1
- 339 0184 1360     		str	r3, [r2]
+ 387              		.loc 1 158 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 11
+
+
+ 388 0186 2268     		ldr	r2, [r4]
  159:Src/pwm.c     **** 	
  160:Src/pwm.c     **** 	HAL_ADCEx_InjectedStart_IT(&hadc1);
- 340              		.loc 1 160 0
- 341 0186 1348     		ldr	r0, .L27+8
- 342 0188 FFF7FEFF 		bl	HAL_ADCEx_InjectedStart_IT
- 343              	.LVL22:
+ 389              		.loc 1 160 0
+ 390 0188 0648     		ldr	r0, .L45+8
+ 158:Src/pwm.c     **** 	
+ 391              		.loc 1 158 0
+ 392 018a 1368     		ldr	r3, [r2]
+ 393 018c 43F00103 		orr	r3, r3, #1
+ 394 0190 1360     		str	r3, [r2]
+ 395              		.loc 1 160 0
+ 396 0192 FFF7FEFF 		bl	HAL_ADCEx_InjectedStart_IT
+ 397              	.LVL34:
  161:Src/pwm.c     **** }
- 344              		.loc 1 161 0
- 345 018c 1CB0     		add	sp, sp, #112
- 346              	.LCFI3:
- 347              		.cfi_remember_state
- 348              		.cfi_def_cfa_offset 8
- 349              		@ sp needed
- 350 018e 10BD     		pop	{r4, pc}
- 351              	.L17:
- 352              	.LCFI4:
- 353              		.cfi_restore_state
- 354              	.LBB4:
-  69:Src/pwm.c     ****   }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 10
-
-
- 355              		.loc 1 69 0
- 356 0190 FFF7FEFF 		bl	Error_Handler
- 357              	.LVL23:
- 358 0194 5CE7     		b	.L6
- 359              	.L18:
- 360              	.LBE4:
- 361              	.LBB5:
-  74:Src/pwm.c     ****   }
- 362              		.loc 1 74 0
- 363 0196 FFF7FEFF 		bl	Error_Handler
- 364              	.LVL24:
- 365 019a 64E7     		b	.L7
- 366              	.L19:
- 367              	.LBE5:
- 368              	.LBB6:
-  78:Src/pwm.c     ****   }
- 369              		.loc 1 78 0
- 370 019c FFF7FEFF 		bl	Error_Handler
- 371              	.LVL25:
- 372 01a0 67E7     		b	.L8
- 373              	.L20:
- 374              	.LBE6:
- 375              	.LBB7:
-  82:Src/pwm.c     ****   }
- 376              		.loc 1 82 0
- 377 01a2 FFF7FEFF 		bl	Error_Handler
- 378              	.LVL26:
- 379 01a6 6AE7     		b	.L9
- 380              	.L21:
- 381              	.LBE7:
- 382              	.LBB8:
-  89:Src/pwm.c     ****   }
- 383              		.loc 1 89 0
- 384 01a8 FFF7FEFF 		bl	Error_Handler
- 385              	.LVL27:
- 386 01ac 73E7     		b	.L10
- 387              	.L22:
- 388              	.LBE8:
- 389              	.LBB9:
- 100:Src/pwm.c     ****   }
- 390              		.loc 1 100 0
- 391 01ae FFF7FEFF 		bl	Error_Handler
- 392              	.LVL28:
- 393 01b2 83E7     		b	.L11
- 394              	.L23:
- 395              	.LBE9:
- 396              	.LBB10:
- 105:Src/pwm.c     ****   }
- 397              		.loc 1 105 0
- 398 01b4 FFF7FEFF 		bl	Error_Handler
- 399              	.LVL29:
- 400 01b8 8BE7     		b	.L12
- 401              	.L24:
- 402              	.LBE10:
- 403              	.LBB11:
- 110:Src/pwm.c     ****   }
- 404              		.loc 1 110 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 11
-
-
- 405 01ba FFF7FEFF 		bl	Error_Handler
- 406              	.LVL30:
- 407 01be 93E7     		b	.L13
- 408              	.L25:
- 409              	.LBE11:
- 410              	.LBB12:
- 116:Src/pwm.c     ****   }
- 411              		.loc 1 116 0
- 412 01c0 FFF7FEFF 		bl	Error_Handler
- 413              	.LVL31:
- 414 01c4 9CE7     		b	.L14
- 415              	.L26:
- 416              	.LBE12:
- 417              	.LBB13:
- 134:Src/pwm.c     ****   }
- 418              		.loc 1 134 0
- 419 01c6 FFF7FEFF 		bl	Error_Handler
- 420              	.LVL32:
- 421 01ca B3E7     		b	.L15
- 422              	.L28:
- 423              		.align	2
- 424              	.L27:
- 425 01cc 00000000 		.word	htim1
- 426 01d0 002C0140 		.word	1073818624
- 427 01d4 00000000 		.word	hadc1
- 428              	.LBE13:
- 429              		.cfi_endproc
- 430              	.LFE334:
- 432              		.section	.text.PWM_Init,"ax",%progbits
- 433              		.align	1
- 434              		.global	PWM_Init
- 435              		.syntax unified
- 436              		.thumb
- 437              		.thumb_func
- 438              		.fpu fpv4-sp-d16
- 440              	PWM_Init:
- 441              	.LFB335:
+ 398              		.loc 1 161 0
+ 399 0196 1DB0     		add	sp, sp, #116
+ 400              	.LCFI4:
+ 401              		.cfi_def_cfa_offset 12
+ 402              		@ sp needed
+ 403 0198 30BD     		pop	{r4, r5, pc}
+ 404              	.L46:
+ 405 019a 00BF     		.align	2
+ 406              	.L45:
+ 407 019c 00000000 		.word	htim1
+ 408 01a0 002C0140 		.word	1073818624
+ 409 01a4 00000000 		.word	hadc1
+ 410              		.cfi_endproc
+ 411              	.LFE334:
+ 413              		.section	.text.PWM_Init,"ax",%progbits
+ 414              		.align	1
+ 415              		.global	PWM_Init
+ 416              		.syntax unified
+ 417              		.thumb
+ 418              		.thumb_func
+ 419              		.fpu fpv4-sp-d16
+ 421              	PWM_Init:
+ 422              	.LFB335:
  162:Src/pwm.c     **** 
  163:Src/pwm.c     **** 
  164:Src/pwm.c     **** 
@@ -645,41 +645,46 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
  166:Src/pwm.c     **** 
  167:Src/pwm.c     **** void PWM_Init(void)
  168:Src/pwm.c     **** {
- 442              		.loc 1 168 0
- 443              		.cfi_startproc
- 444              		@ args = 0, pretend = 0, frame = 0
- 445              		@ frame_needed = 0, uses_anonymous_args = 0
- 446 0000 08B5     		push	{r3, lr}
- 447              	.LCFI5:
- 448              		.cfi_def_cfa_offset 8
- 449              		.cfi_offset 3, -8
- 450              		.cfi_offset 14, -4
+ 423              		.loc 1 168 0
+ 424              		.cfi_startproc
+ 425              		@ args = 0, pretend = 0, frame = 0
+ 426              		@ frame_needed = 0, uses_anonymous_args = 0
+ 427 0000 08B5     		push	{r3, lr}
+ 428              	.LCFI5:
+ 429              		.cfi_def_cfa_offset 8
+ 430              		.cfi_offset 3, -8
+ 431              		.cfi_offset 14, -4
  169:Src/pwm.c     **** 	
  170:Src/pwm.c     **** 	SWI_EXTI_Config();                                       //�������жϣ�ִ��λ�
- 451              		.loc 1 170 0
- 452 0002 FFF7FEFF 		bl	SWI_EXTI_Config
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 12
+ 432              		.loc 1 170 0
+ 433 0002 FFF7FEFF 		bl	SWI_EXTI_Config
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 12
 
 
- 453              	.LVL33:
+ 434              	.LVL35:
  171:Src/pwm.c     **** 	MX_TIM1_Init();
- 454              		.loc 1 171 0
- 455 0006 FFF7FEFF 		bl	MX_TIM1_Init
- 456              	.LVL34:
  172:Src/pwm.c     **** }
- 457              		.loc 1 172 0
- 458 000a 08BD     		pop	{r3, pc}
- 459              		.cfi_endproc
- 460              	.LFE335:
- 462              		.section	.text.PWM_Disable,"ax",%progbits
- 463              		.align	1
- 464              		.global	PWM_Disable
- 465              		.syntax unified
- 466              		.thumb
- 467              		.thumb_func
- 468              		.fpu fpv4-sp-d16
- 470              	PWM_Disable:
- 471              	.LFB337:
+ 435              		.loc 1 172 0
+ 436 0006 BDE80840 		pop	{r3, lr}
+ 437              	.LCFI6:
+ 438              		.cfi_restore 14
+ 439              		.cfi_restore 3
+ 440              		.cfi_def_cfa_offset 0
+ 171:Src/pwm.c     **** 	MX_TIM1_Init();
+ 441              		.loc 1 171 0
+ 442 000a FFF7FEBF 		b	MX_TIM1_Init
+ 443              	.LVL36:
+ 444              		.cfi_endproc
+ 445              	.LFE335:
+ 447              		.section	.text.PWM_Disable,"ax",%progbits
+ 448              		.align	1
+ 449              		.global	PWM_Disable
+ 450              		.syntax unified
+ 451              		.thumb
+ 452              		.thumb_func
+ 453              		.fpu fpv4-sp-d16
+ 455              	PWM_Disable:
+ 456              	.LFB337:
  173:Src/pwm.c     **** void PWM_Enable(void)
  174:Src/pwm.c     **** {
  175:Src/pwm.c     **** 	MP6540_ON();
@@ -690,70 +695,70 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
  180:Src/pwm.c     **** }
  181:Src/pwm.c     **** void PWM_Disable(void)
  182:Src/pwm.c     **** {
- 472              		.loc 1 182 0
- 473              		.cfi_startproc
- 474              		@ args = 0, pretend = 0, frame = 0
- 475              		@ frame_needed = 0, uses_anonymous_args = 0
- 476              		@ link register save eliminated.
+ 457              		.loc 1 182 0
+ 458              		.cfi_startproc
+ 459              		@ args = 0, pretend = 0, frame = 0
+ 460              		@ frame_needed = 0, uses_anonymous_args = 0
+ 461              		@ link register save eliminated.
  183:Src/pwm.c     **** 	MP6540_OFF();
- 477              		.loc 1 183 0
- 478 0000 0B4A     		ldr	r2, .L32
- 479 0002 5369     		ldr	r3, [r2, #20]
- 480 0004 23F48053 		bic	r3, r3, #4096
- 481 0008 5361     		str	r3, [r2, #20]
+ 462              		.loc 1 183 0
+ 463 0000 0B4A     		ldr	r2, .L49
+ 464 0002 5369     		ldr	r3, [r2, #20]
+ 465 0004 23F48053 		bic	r3, r3, #4096
+ 466 0008 5361     		str	r3, [r2, #20]
  184:Src/pwm.c     ****   g_CmdMap[TAG_MOTOR_ENABLE] = 0;
- 482              		.loc 1 184 0
- 483 000a 0022     		movs	r2, #0
- 484 000c 094B     		ldr	r3, .L32+4
- 485 000e A3F80222 		strh	r2, [r3, #514]	@ movhi
+ 467              		.loc 1 184 0
+ 468 000a 0A4B     		ldr	r3, .L49+4
+ 469 000c 0022     		movs	r2, #0
+ 470 000e A3F80222 		strh	r2, [r3, #514]	@ movhi
  185:Src/pwm.c     ****   g_bEnableHB = 0;
- 486              		.loc 1 185 0
- 487 0012 094B     		ldr	r3, .L32+8
- 488 0014 1A80     		strh	r2, [r3]	@ movhi
+ 471              		.loc 1 185 0
+ 472 0012 094B     		ldr	r3, .L49+8
+ 473 0014 1A80     		strh	r2, [r3]	@ movhi
  186:Src/pwm.c     **** 	
  187:Src/pwm.c     **** 		TIM1->CCR3 = 0;
- 489              		.loc 1 187 0
- 490 0016 094B     		ldr	r3, .L32+12
- 491 0018 DA63     		str	r2, [r3, #60]
+ 474              		.loc 1 187 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 13
+
+
+ 475 0016 094B     		ldr	r3, .L49+12
+ 476 0018 DA63     		str	r2, [r3, #60]
  188:Src/pwm.c     ****   TIM1->CCR2 = 0;
- 492              		.loc 1 188 0
- 493 001a 9A63     		str	r2, [r3, #56]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 13
-
-
+ 477              		.loc 1 188 0
+ 478 001a 9A63     		str	r2, [r3, #56]
  189:Src/pwm.c     ****   TIM1->CCR1 = 0;
- 494              		.loc 1 189 0
- 495 001c 5A63     		str	r2, [r3, #52]
+ 479              		.loc 1 189 0
+ 480 001c 5A63     		str	r2, [r3, #52]
  190:Src/pwm.c     ****   TIM1->CCER = (u16)5000;
- 496              		.loc 1 190 0
- 497 001e 41F28832 		movw	r2, #5000
- 498 0022 1A62     		str	r2, [r3, #32]
+ 481              		.loc 1 190 0
+ 482 001e 41F28832 		movw	r2, #5000
+ 483 0022 1A62     		str	r2, [r3, #32]
  191:Src/pwm.c     ****   TIM1->BDTR &= ~(TIM_BDTR_MOE);
- 499              		.loc 1 191 0
- 500 0024 5A6C     		ldr	r2, [r3, #68]
- 501 0026 22F40042 		bic	r2, r2, #32768
- 502 002a 5A64     		str	r2, [r3, #68]
+ 484              		.loc 1 191 0
+ 485 0024 5A6C     		ldr	r2, [r3, #68]
+ 486 0026 22F40042 		bic	r2, r2, #32768
+ 487 002a 5A64     		str	r2, [r3, #68]
  192:Src/pwm.c     **** }
- 503              		.loc 1 192 0
- 504 002c 7047     		bx	lr
- 505              	.L33:
- 506 002e 00BF     		.align	2
- 507              	.L32:
- 508 0030 00040048 		.word	1207960576
- 509 0034 00000000 		.word	g_CmdMap
- 510 0038 00000000 		.word	g_bEnableHB
- 511 003c 002C0140 		.word	1073818624
- 512              		.cfi_endproc
- 513              	.LFE337:
- 515              		.section	.text.Calculate_CCR,"ax",%progbits
- 516              		.align	1
- 517              		.global	Calculate_CCR
- 518              		.syntax unified
- 519              		.thumb
- 520              		.thumb_func
- 521              		.fpu fpv4-sp-d16
- 523              	Calculate_CCR:
- 524              	.LFB338:
+ 488              		.loc 1 192 0
+ 489 002c 7047     		bx	lr
+ 490              	.L50:
+ 491 002e 00BF     		.align	2
+ 492              	.L49:
+ 493 0030 00040048 		.word	1207960576
+ 494 0034 00000000 		.word	g_CmdMap
+ 495 0038 00000000 		.word	g_bEnableHB
+ 496 003c 002C0140 		.word	1073818624
+ 497              		.cfi_endproc
+ 498              	.LFE337:
+ 500              		.section	.text.Calculate_CCR,"ax",%progbits
+ 501              		.align	1
+ 502              		.global	Calculate_CCR
+ 503              		.syntax unified
+ 504              		.thumb
+ 505              		.thumb_func
+ 506              		.fpu fpv4-sp-d16
+ 508              	Calculate_CCR:
+ 509              	.LFB338:
  193:Src/pwm.c     **** 
  194:Src/pwm.c     **** 
  195:Src/pwm.c     **** 
@@ -773,14 +778,14 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
  209:Src/pwm.c     **** volatile int hall_c;
  210:Src/pwm.c     **** volatile  int hall_ture_value = 5;
  211:Src/pwm.c     **** volatile  int last_hall_ture_value = 0;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 14
+
+
  212:Src/pwm.c     **** volatile  int tmp_hall_ture_value =0;
  213:Src/pwm.c     **** /**********
  214:Src/pwm.c     **** * hall_ture_value
  215:Src/pwm.c     **** * hall_ture_value = 5     B 
  216:Src/pwm.c     **** * hall_ture_value = 1     C 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 14
-
-
  217:Src/pwm.c     ****  hall_ture_value = 3     C 
  218:Src/pwm.c     ****  hall_ture_value = 2     A 
  219:Src/pwm.c     ****  hall_ture_value = 6     A 
@@ -790,22 +795,20 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
  223:Src/pwm.c     **** volatile int G_hall_ture_value=0;
  224:Src/pwm.c     **** void Calculate_CCR(TIM_TypeDef* TIMx, s32 angle, s32 targetCCR)	  // Ŀ��CCR 0~MAX_CCR��Ӧ0
  225:Src/pwm.c     **** {
- 525              		.loc 1 225 0
- 526              		.cfi_startproc
- 527              		@ args = 0, pretend = 0, frame = 0
- 528              		@ frame_needed = 0, uses_anonymous_args = 0
- 529              	.LVL35:
- 530 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
- 531              	.LCFI6:
- 532              		.cfi_def_cfa_offset 24
- 533              		.cfi_offset 3, -24
- 534              		.cfi_offset 4, -20
- 535              		.cfi_offset 5, -16
- 536              		.cfi_offset 6, -12
- 537              		.cfi_offset 7, -8
- 538              		.cfi_offset 14, -4
- 539 0002 0546     		mov	r5, r0
- 540              	.LVL36:
+ 510              		.loc 1 225 0
+ 511              		.cfi_startproc
+ 512              		@ args = 0, pretend = 0, frame = 0
+ 513              		@ frame_needed = 0, uses_anonymous_args = 0
+ 514              	.LVL37:
+ 515 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 516              	.LCFI7:
+ 517              		.cfi_def_cfa_offset 24
+ 518              		.cfi_offset 4, -24
+ 519              		.cfi_offset 5, -20
+ 520              		.cfi_offset 6, -16
+ 521              		.cfi_offset 7, -12
+ 522              		.cfi_offset 8, -8
+ 523              		.cfi_offset 14, -4
  226:Src/pwm.c     **** 	static int p_cnt = 0;
  227:Src/pwm.c     **** 
  228:Src/pwm.c     ****   s32 t0, tk, tk_1;
@@ -818,71 +821,105 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
  235:Src/pwm.c     **** 	
  236:Src/pwm.c     **** 	
  237:Src/pwm.c     ****   angle = angle<0?0:(angle<EN_360?angle:(EN_360-1));
- 541              		.loc 1 237 0
- 542 0004 0029     		cmp	r1, #0
- 543 0006 06DB     		blt	.L43
- 544              		.loc 1 237 0 is_stmt 0 discriminator 1
- 545 0008 794B     		ldr	r3, .L54
- 546 000a B3F90030 		ldrsh	r3, [r3]
- 547 000e 8B42     		cmp	r3, r1
- 548 0010 02DC     		bgt	.L35
- 549              		.loc 1 237 0 discriminator 3
- 550 0012 591E     		subs	r1, r3, #1
- 551              	.LVL37:
- 552 0014 00E0     		b	.L35
- 553              	.LVL38:
- 554              	.L43:
- 555              		.loc 1 237 0
- 556 0016 0021     		movs	r1, #0
- 557              	.LVL39:
- 558              	.L35:
+ 524              		.loc 1 237 0
+ 525 0004 0D1E     		subs	r5, r1, #0
+ 225:Src/pwm.c     **** 	static int p_cnt = 0;
+ 526              		.loc 1 225 0
+ 527 0006 0646     		mov	r6, r0
+ 528 0008 744B     		ldr	r3, .L69
+ 529              		.loc 1 237 0
+ 530 000a C0F2DE80 		blt	.L63
+ 531              		.loc 1 237 0 is_stmt 0 discriminator 1
+ 532 000e 7449     		ldr	r1, .L69+4
+ 533              	.LVL38:
+ 534 0010 B1F90010 		ldrsh	r1, [r1]
+ 535 0014 A942     		cmp	r1, r5
+ 536 0016 00F3D980 		bgt	.L52
  238:Src/pwm.c     ****   targetCCR = targetCCR>MAX_CCR?MAX_CCR:(targetCCR<0?0:targetCCR);
- 559              		.loc 1 238 0 is_stmt 1 discriminator 8
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 15
+ 537              		.loc 1 238 0 is_stmt 1 discriminator 3
+ 538 001a B2F53D6F 		cmp	r2, #3024
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 15
 
 
- 560 0018 B2F53D6F 		cmp	r2, #3024
- 561 001c 40DC     		bgt	.L44
- 562              		.loc 1 238 0 is_stmt 0 discriminator 1
- 563 001e 22EAE276 		bic	r6, r2, r2, asr #31
- 564              	.L36:
- 565              	.LVL40:
+ 237:Src/pwm.c     ****   targetCCR = targetCCR>MAX_CCR?MAX_CCR:(targetCCR<0?0:targetCCR);
+ 539              		.loc 1 237 0 discriminator 3
+ 540 001e 01F1FF35 		add	r5, r1, #-1
+ 541              	.LVL39:
+ 542              		.loc 1 238 0 discriminator 3
+ 543 0022 28DC     		bgt	.L64
+ 544              	.L61:
+ 545              		.loc 1 238 0 is_stmt 0 discriminator 1
+ 546 0024 22EAE274 		bic	r4, r2, r2, asr #31
+ 547              	.L53:
+ 548              	.LVL40:
  239:Src/pwm.c     **** 	
  240:Src/pwm.c     **** 	
  241:Src/pwm.c     ****   if (angle >= 0 && angle < EN_60)
- 566              		.loc 1 241 0 is_stmt 1 discriminator 4
- 567 0022 0029     		cmp	r1, #0
- 568 0024 04DB     		blt	.L37
- 569              		.loc 1 241 0 is_stmt 0 discriminator 1
- 570 0026 734B     		ldr	r3, .L54+4
- 571 0028 B3F90000 		ldrsh	r0, [r3]
- 572              	.LVL41:
- 573 002c 8842     		cmp	r0, r1
- 574 002e 3ADC     		bgt	.L48
- 575              	.L37:
+ 549              		.loc 1 241 0 is_stmt 1 discriminator 4
+ 550 0028 002D     		cmp	r5, #0
+ 551 002a 27DB     		blt	.L54
+ 552              	.LVL41:
+ 553              	.L62:
+ 554              		.loc 1 241 0 is_stmt 0 discriminator 1
+ 555 002c B3F90000 		ldrsh	r0, [r3]
+ 556              	.LVL42:
+ 557 0030 A842     		cmp	r0, r5
+ 558 0032 23DD     		ble	.L54
  242:Src/pwm.c     ****   {
  243:Src/pwm.c     **** //    tk = ( Math_Sin_EN360(EN_60-angle) * targetCCR ) >> 15;
  244:Src/pwm.c     **** //    tk_1 = ( Math_Sin_EN360(angle) * targetCCR ) >> 15;
  245:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
+ 559              		.loc 1 245 0 is_stmt 1
+ 560 0034 ADB2     		uxth	r5, r5
+ 561              	.LVL43:
+ 562 0036 401B     		subs	r0, r0, r5
+ 563 0038 80B2     		uxth	r0, r0
+ 564 003a FFF7FEFF 		bl	Math_Sin_EN360
+ 565              	.LVL44:
+ 566 003e 2146     		mov	r1, r4
+ 567 0040 FFF7FEFF 		bl	Q15_MUL
+ 568              	.LVL45:
+ 569 0044 8046     		mov	r8, r0
+ 570              	.LVL46:
  246:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
+ 571              		.loc 1 246 0
+ 572 0046 2846     		mov	r0, r5
+ 573              	.LVL47:
+ 574 0048 FFF7FEFF 		bl	Math_Sin_EN360
+ 575              	.LVL48:
+ 576 004c 2146     		mov	r1, r4
+ 577 004e FFF7FEFF 		bl	Q15_MUL
+ 578              	.LVL49:
  247:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
+ 579              		.loc 1 247 0
+ 580 0052 C8F53D63 		rsb	r3, r8, #3024
+ 581 0056 1B1A     		subs	r3, r3, r0
  248:Src/pwm.c     ****     CCR3 = t0>>1;
+ 582              		.loc 1 248 0
+ 583 0058 5B10     		asrs	r3, r3, #1
+ 584              	.LVL50:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 16
+
+
  249:Src/pwm.c     ****     CCR2 = CCR3 + tk_1;
+ 585              		.loc 1 249 0
+ 586 005a C118     		adds	r1, r0, r3
+ 587              	.LVL51:
  250:Src/pwm.c     ****     CCR1 = CCR2 + tk;
  251:Src/pwm.c     **** 		g_Sector_test = 1;
+ 588              		.loc 1 251 0
+ 589 005c 6148     		ldr	r0, .L69+8
+ 590              	.LVL52:
+ 250:Src/pwm.c     ****     CCR1 = CCR2 + tk;
+ 591              		.loc 1 250 0
+ 592 005e 08EB0102 		add	r2, r8, r1
+ 593              	.LVL53:
+ 594              		.loc 1 251 0
+ 595 0062 0124     		movs	r4, #1
+ 596              	.LVL54:
+ 597              	.L68:
  252:Src/pwm.c     ****   }
  253:Src/pwm.c     ****   else if (angle >= EN_60 && angle < EN_120)
- 576              		.loc 1 253 0 is_stmt 1
- 577 0030 704B     		ldr	r3, .L54+4
- 578 0032 B3F90000 		ldrsh	r0, [r3]
- 579 0036 8842     		cmp	r0, r1
- 580 0038 04DC     		bgt	.L39
- 581              		.loc 1 253 0 is_stmt 0 discriminator 1
- 582 003a 6F4B     		ldr	r3, .L54+8
- 583 003c B3F90030 		ldrsh	r3, [r3]
- 584 0040 8B42     		cmp	r3, r1
- 585 0042 49DC     		bgt	.L49
- 586              	.L39:
  254:Src/pwm.c     ****   {
  255:Src/pwm.c     ****     angle -= EN_60;
  256:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
@@ -894,20 +931,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
  262:Src/pwm.c     **** 		g_Sector_test = 2;
  263:Src/pwm.c     ****   }
  264:Src/pwm.c     ****   else if (angle >= EN_120 && angle < EN_180)
- 587              		.loc 1 264 0 is_stmt 1
- 588 0044 6C4B     		ldr	r3, .L54+8
- 589 0046 B3F90030 		ldrsh	r3, [r3]
- 590 004a 8B42     		cmp	r3, r1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 16
-
-
- 591 004c 04DC     		bgt	.L40
- 592              		.loc 1 264 0 is_stmt 0 discriminator 1
- 593 004e 6B4A     		ldr	r2, .L54+12
- 594 0050 B2F90020 		ldrsh	r2, [r2]
- 595 0054 8A42     		cmp	r2, r1
- 596 0056 59DC     		bgt	.L50
- 597              	.L40:
  265:Src/pwm.c     ****   {
  266:Src/pwm.c     ****     angle -= EN_120;
  267:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
@@ -919,17 +942,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
  273:Src/pwm.c     **** 		g_Sector_test = 3;
  274:Src/pwm.c     ****   }
  275:Src/pwm.c     ****   else if (angle >= EN_180 && angle < EN_240)
- 598              		.loc 1 275 0 is_stmt 1
- 599 0058 684B     		ldr	r3, .L54+12
- 600 005a B3F90030 		ldrsh	r3, [r3]
- 601 005e 8B42     		cmp	r3, r1
- 602 0060 04DC     		bgt	.L41
- 603              		.loc 1 275 0 is_stmt 0 discriminator 1
- 604 0062 674A     		ldr	r2, .L54+16
- 605 0064 B2F90020 		ldrsh	r2, [r2]
- 606 0068 8A42     		cmp	r2, r1
- 607 006a 69DC     		bgt	.L51
- 608              	.L41:
  276:Src/pwm.c     ****   {
  277:Src/pwm.c     ****     angle -= EN_180;
  278:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
@@ -941,462 +953,459 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
  284:Src/pwm.c     **** 		g_Sector_test = 4;
  285:Src/pwm.c     ****   }
  286:Src/pwm.c     ****   else if (angle >= EN_240 && angle < EN_300)
- 609              		.loc 1 286 0 is_stmt 1
- 610 006c 644B     		ldr	r3, .L54+16
- 611 006e B3F90030 		ldrsh	r3, [r3]
- 612 0072 8B42     		cmp	r3, r1
- 613 0074 04DC     		bgt	.L42
- 614              		.loc 1 286 0 is_stmt 0 discriminator 1
- 615 0076 634A     		ldr	r2, .L54+20
- 616 0078 B2F90020 		ldrsh	r2, [r2]
- 617 007c 8A42     		cmp	r2, r1
- 618 007e 79DC     		bgt	.L52
- 619              	.L42:
  287:Src/pwm.c     ****   {
  288:Src/pwm.c     ****     angle -= EN_240;
  289:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
  290:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
  291:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 17
+
+
  292:Src/pwm.c     ****     CCR2 = t0>>1;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 17
-
-
  293:Src/pwm.c     ****     CCR1 = CCR2 + tk_1;
  294:Src/pwm.c     ****     CCR3 = CCR1 + tk;
  295:Src/pwm.c     **** 		g_Sector_test = 5;
  296:Src/pwm.c     **** 
  297:Src/pwm.c     ****   }
  298:Src/pwm.c     ****   else if (angle >= EN_300 && angle < EN_360)
- 620              		.loc 1 298 0 is_stmt 1
- 621 0080 604B     		ldr	r3, .L54+20
- 622 0082 B3F90040 		ldrsh	r4, [r3]
- 623 0086 8C42     		cmp	r4, r1
- 624 0088 00F3A880 		bgt	.L45
- 625              		.loc 1 298 0 is_stmt 0 discriminator 1
- 626 008c 584B     		ldr	r3, .L54
- 627 008e B3F90030 		ldrsh	r3, [r3]
- 628 0092 8B42     		cmp	r3, r1
- 629 0094 00F38880 		bgt	.L53
- 231:Src/pwm.c     **** 	
- 630              		.loc 1 231 0 is_stmt 1
- 631 0098 0023     		movs	r3, #0
- 230:Src/pwm.c     ****   s32 CCR3 = 0;
- 632              		.loc 1 230 0
- 633 009a 1A46     		mov	r2, r3
- 229:Src/pwm.c     ****   s32 CCR2 = 0;
- 634              		.loc 1 229 0
- 635 009c 1946     		mov	r1, r3
- 636              	.LVL42:
- 637 009e A0E0     		b	.L38
- 638              	.LVL43:
- 639              	.L44:
- 238:Src/pwm.c     **** 	
- 640              		.loc 1 238 0
- 641 00a0 4FF43D66 		mov	r6, #3024
- 642 00a4 BDE7     		b	.L36
- 643              	.LVL44:
- 644              	.L48:
- 245:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
- 645              		.loc 1 245 0
- 646 00a6 8FB2     		uxth	r7, r1
- 647 00a8 C01B     		subs	r0, r0, r7
- 648 00aa 80B2     		uxth	r0, r0
- 649 00ac FFF7FEFF 		bl	Math_Sin_EN360
- 650              	.LVL45:
- 651 00b0 3146     		mov	r1, r6
- 652 00b2 FFF7FEFF 		bl	Q15_MUL
- 653              	.LVL46:
- 654 00b6 0446     		mov	r4, r0
- 655              	.LVL47:
- 246:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
- 656              		.loc 1 246 0
- 657 00b8 3846     		mov	r0, r7
- 658              	.LVL48:
- 659 00ba FFF7FEFF 		bl	Math_Sin_EN360
- 660              	.LVL49:
- 661 00be 3146     		mov	r1, r6
- 662 00c0 FFF7FEFF 		bl	Q15_MUL
- 663              	.LVL50:
- 247:Src/pwm.c     ****     CCR3 = t0>>1;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 18
-
-
- 664              		.loc 1 247 0
- 665 00c4 C4F53D63 		rsb	r3, r4, #3024
- 666 00c8 1B1A     		subs	r3, r3, r0
- 667              	.LVL51:
- 248:Src/pwm.c     ****     CCR2 = CCR3 + tk_1;
- 668              		.loc 1 248 0
- 669 00ca 5B10     		asrs	r3, r3, #1
- 670              	.LVL52:
- 249:Src/pwm.c     ****     CCR1 = CCR2 + tk;
- 671              		.loc 1 249 0
- 672 00cc C218     		adds	r2, r0, r3
- 673              	.LVL53:
- 250:Src/pwm.c     **** 		g_Sector_test = 1;
- 674              		.loc 1 250 0
- 675 00ce A118     		adds	r1, r4, r2
- 676              	.LVL54:
- 251:Src/pwm.c     ****   }
- 677              		.loc 1 251 0
- 678 00d0 4D48     		ldr	r0, .L54+24
- 679              	.LVL55:
- 680 00d2 0124     		movs	r4, #1
- 681              	.LVL56:
- 682 00d4 0480     		strh	r4, [r0]	@ movhi
- 683 00d6 84E0     		b	.L38
- 684              	.LVL57:
- 685              	.L49:
- 255:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
- 686              		.loc 1 255 0
- 687 00d8 091A     		subs	r1, r1, r0
- 688              	.LVL58:
- 256:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
- 689              		.loc 1 256 0
- 690 00da 8CB2     		uxth	r4, r1
- 691 00dc 001B     		subs	r0, r0, r4
- 692 00de 80B2     		uxth	r0, r0
- 693 00e0 FFF7FEFF 		bl	Math_Sin_EN360
- 694              	.LVL59:
- 695 00e4 3146     		mov	r1, r6
- 696 00e6 FFF7FEFF 		bl	Q15_MUL
- 697              	.LVL60:
- 698 00ea 0746     		mov	r7, r0
- 699              	.LVL61:
- 257:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
- 700              		.loc 1 257 0
- 701 00ec 2046     		mov	r0, r4
- 702              	.LVL62:
- 703 00ee FFF7FEFF 		bl	Math_Sin_EN360
- 704              	.LVL63:
- 705 00f2 3146     		mov	r1, r6
- 706 00f4 FFF7FEFF 		bl	Q15_MUL
- 707              	.LVL64:
- 258:Src/pwm.c     ****     CCR3 = t0>>1;
- 708              		.loc 1 258 0
- 709 00f8 C7F53D63 		rsb	r3, r7, #3024
- 710 00fc 1B1A     		subs	r3, r3, r0
- 711              	.LVL65:
- 259:Src/pwm.c     ****     CCR1 = CCR3 + tk;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 19
-
-
- 712              		.loc 1 259 0
- 713 00fe 5B10     		asrs	r3, r3, #1
- 714              	.LVL66:
- 260:Src/pwm.c     ****     CCR2 = CCR1 + tk_1;
- 715              		.loc 1 260 0
- 716 0100 F918     		adds	r1, r7, r3
- 717              	.LVL67:
- 261:Src/pwm.c     **** 		g_Sector_test = 2;
- 718              		.loc 1 261 0
- 719 0102 4218     		adds	r2, r0, r1
- 720              	.LVL68:
- 262:Src/pwm.c     ****   }
- 721              		.loc 1 262 0
- 722 0104 4048     		ldr	r0, .L54+24
- 723              	.LVL69:
- 724 0106 0224     		movs	r4, #2
- 725 0108 0480     		strh	r4, [r0]	@ movhi
- 726 010a 6AE0     		b	.L38
- 727              	.LVL70:
- 728              	.L50:
- 266:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
- 729              		.loc 1 266 0
- 730 010c C91A     		subs	r1, r1, r3
- 731              	.LVL71:
- 267:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
- 732              		.loc 1 267 0
- 733 010e 8CB2     		uxth	r4, r1
- 734 0110 001B     		subs	r0, r0, r4
- 735 0112 80B2     		uxth	r0, r0
- 736 0114 FFF7FEFF 		bl	Math_Sin_EN360
- 737              	.LVL72:
- 738 0118 3146     		mov	r1, r6
- 739 011a FFF7FEFF 		bl	Q15_MUL
- 740              	.LVL73:
- 741 011e 0746     		mov	r7, r0
- 742              	.LVL74:
- 268:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
- 743              		.loc 1 268 0
- 744 0120 2046     		mov	r0, r4
- 745              	.LVL75:
- 746 0122 FFF7FEFF 		bl	Math_Sin_EN360
- 747              	.LVL76:
- 748 0126 3146     		mov	r1, r6
- 749 0128 FFF7FEFF 		bl	Q15_MUL
- 750              	.LVL77:
- 269:Src/pwm.c     ****     CCR1 = t0>>1;
- 751              		.loc 1 269 0
- 752 012c C7F53D61 		rsb	r1, r7, #3024
- 753 0130 091A     		subs	r1, r1, r0
- 754              	.LVL78:
- 270:Src/pwm.c     ****     CCR3 = CCR1 + tk_1;
- 755              		.loc 1 270 0
- 756 0132 4910     		asrs	r1, r1, #1
- 757              	.LVL79:
- 271:Src/pwm.c     ****     CCR2 = CCR3 + tk;
- 758              		.loc 1 271 0
- 759 0134 4318     		adds	r3, r0, r1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 20
-
-
- 760              	.LVL80:
- 272:Src/pwm.c     **** 		g_Sector_test = 3;
- 761              		.loc 1 272 0
- 762 0136 FA18     		adds	r2, r7, r3
- 763              	.LVL81:
- 273:Src/pwm.c     ****   }
- 764              		.loc 1 273 0
- 765 0138 3348     		ldr	r0, .L54+24
- 766              	.LVL82:
- 767 013a 0324     		movs	r4, #3
- 768 013c 0480     		strh	r4, [r0]	@ movhi
- 769 013e 50E0     		b	.L38
- 770              	.LVL83:
- 771              	.L51:
- 277:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
- 772              		.loc 1 277 0
- 773 0140 C91A     		subs	r1, r1, r3
- 774              	.LVL84:
- 278:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
- 775              		.loc 1 278 0
- 776 0142 8CB2     		uxth	r4, r1
- 777 0144 001B     		subs	r0, r0, r4
- 778 0146 80B2     		uxth	r0, r0
- 779 0148 FFF7FEFF 		bl	Math_Sin_EN360
- 780              	.LVL85:
- 781 014c 3146     		mov	r1, r6
- 782 014e FFF7FEFF 		bl	Q15_MUL
- 783              	.LVL86:
- 784 0152 0746     		mov	r7, r0
- 785              	.LVL87:
- 279:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
- 786              		.loc 1 279 0
- 787 0154 2046     		mov	r0, r4
- 788              	.LVL88:
- 789 0156 FFF7FEFF 		bl	Math_Sin_EN360
- 790              	.LVL89:
- 791 015a 3146     		mov	r1, r6
- 792 015c FFF7FEFF 		bl	Q15_MUL
- 793              	.LVL90:
- 280:Src/pwm.c     ****     CCR1 = t0>>1;
- 794              		.loc 1 280 0
- 795 0160 C7F53D61 		rsb	r1, r7, #3024
- 796 0164 091A     		subs	r1, r1, r0
- 797              	.LVL91:
- 281:Src/pwm.c     ****     CCR2 = CCR1 + tk;
- 798              		.loc 1 281 0
- 799 0166 4910     		asrs	r1, r1, #1
- 800              	.LVL92:
- 282:Src/pwm.c     ****     CCR3 = CCR2 + tk_1;
- 801              		.loc 1 282 0
- 802 0168 7A18     		adds	r2, r7, r1
- 803              	.LVL93:
- 283:Src/pwm.c     **** 		g_Sector_test = 4;
- 804              		.loc 1 283 0
- 805 016a 8318     		adds	r3, r0, r2
- 806              	.LVL94:
- 284:Src/pwm.c     ****   }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 21
-
-
- 807              		.loc 1 284 0
- 808 016c 2648     		ldr	r0, .L54+24
- 809              	.LVL95:
- 810 016e 0424     		movs	r4, #4
- 811 0170 0480     		strh	r4, [r0]	@ movhi
- 812 0172 36E0     		b	.L38
- 813              	.LVL96:
- 814              	.L52:
- 288:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
- 815              		.loc 1 288 0
- 816 0174 C91A     		subs	r1, r1, r3
- 817              	.LVL97:
- 289:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
- 818              		.loc 1 289 0
- 819 0176 8CB2     		uxth	r4, r1
- 820 0178 001B     		subs	r0, r0, r4
- 821 017a 80B2     		uxth	r0, r0
- 822 017c FFF7FEFF 		bl	Math_Sin_EN360
- 823              	.LVL98:
- 824 0180 3146     		mov	r1, r6
- 825 0182 FFF7FEFF 		bl	Q15_MUL
- 826              	.LVL99:
- 827 0186 0746     		mov	r7, r0
- 828              	.LVL100:
- 290:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
- 829              		.loc 1 290 0
- 830 0188 2046     		mov	r0, r4
- 831              	.LVL101:
- 832 018a FFF7FEFF 		bl	Math_Sin_EN360
- 833              	.LVL102:
- 834 018e 3146     		mov	r1, r6
- 835 0190 FFF7FEFF 		bl	Q15_MUL
- 836              	.LVL103:
- 291:Src/pwm.c     ****     CCR2 = t0>>1;
- 837              		.loc 1 291 0
- 838 0194 C7F53D62 		rsb	r2, r7, #3024
- 839 0198 121A     		subs	r2, r2, r0
- 840              	.LVL104:
- 292:Src/pwm.c     ****     CCR1 = CCR2 + tk_1;
- 841              		.loc 1 292 0
- 842 019a 5210     		asrs	r2, r2, #1
- 843              	.LVL105:
- 293:Src/pwm.c     ****     CCR3 = CCR1 + tk;
- 844              		.loc 1 293 0
- 845 019c 8118     		adds	r1, r0, r2
- 846              	.LVL106:
- 294:Src/pwm.c     **** 		g_Sector_test = 5;
- 847              		.loc 1 294 0
- 848 019e 7B18     		adds	r3, r7, r1
- 849              	.LVL107:
- 295:Src/pwm.c     **** 
- 850              		.loc 1 295 0
- 851 01a0 1948     		ldr	r0, .L54+24
- 852              	.LVL108:
- 853 01a2 0524     		movs	r4, #5
- 854 01a4 0480     		strh	r4, [r0]	@ movhi
- 855 01a6 1CE0     		b	.L38
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 22
-
-
- 856              	.LVL109:
- 857              	.L53:
  299:Src/pwm.c     ****   {
  300:Src/pwm.c     ****     angle -= EN_300;
- 858              		.loc 1 300 0
- 859 01a8 091B     		subs	r1, r1, r4
- 860              	.LVL110:
  301:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
- 861              		.loc 1 301 0
- 862 01aa 8CB2     		uxth	r4, r1
- 863 01ac 001B     		subs	r0, r0, r4
- 864 01ae 80B2     		uxth	r0, r0
- 865 01b0 FFF7FEFF 		bl	Math_Sin_EN360
- 866              	.LVL111:
- 867 01b4 3146     		mov	r1, r6
- 868 01b6 FFF7FEFF 		bl	Q15_MUL
- 869              	.LVL112:
- 870 01ba 0746     		mov	r7, r0
- 871              	.LVL113:
  302:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
- 872              		.loc 1 302 0
- 873 01bc 2046     		mov	r0, r4
- 874              	.LVL114:
- 875 01be FFF7FEFF 		bl	Math_Sin_EN360
- 876              	.LVL115:
- 877 01c2 3146     		mov	r1, r6
- 878 01c4 FFF7FEFF 		bl	Q15_MUL
- 879              	.LVL116:
  303:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
- 880              		.loc 1 303 0
- 881 01c8 C7F53D62 		rsb	r2, r7, #3024
- 882 01cc 121A     		subs	r2, r2, r0
- 883              	.LVL117:
  304:Src/pwm.c     ****     CCR2 = t0>>1;
- 884              		.loc 1 304 0
- 885 01ce 5210     		asrs	r2, r2, #1
- 886              	.LVL118:
  305:Src/pwm.c     ****     CCR3 = CCR2 + tk;
- 887              		.loc 1 305 0
- 888 01d0 BB18     		adds	r3, r7, r2
- 889              	.LVL119:
  306:Src/pwm.c     ****     CCR1 = CCR3 + tk_1;
- 890              		.loc 1 306 0
- 891 01d2 C118     		adds	r1, r0, r3
- 892              	.LVL120:
  307:Src/pwm.c     **** 		g_Sector_test = 6;
- 893              		.loc 1 307 0
- 894 01d4 0C48     		ldr	r0, .L54+24
- 895              	.LVL121:
- 896 01d6 0624     		movs	r4, #6
- 897 01d8 0480     		strh	r4, [r0]	@ movhi
- 898 01da 02E0     		b	.L38
- 899              	.LVL122:
- 900              	.L45:
- 231:Src/pwm.c     **** 	
- 901              		.loc 1 231 0
- 902 01dc 0023     		movs	r3, #0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 23
-
-
- 230:Src/pwm.c     ****   s32 CCR3 = 0;
- 903              		.loc 1 230 0
- 904 01de 1A46     		mov	r2, r3
- 229:Src/pwm.c     ****   s32 CCR2 = 0;
- 905              		.loc 1 229 0
- 906 01e0 1946     		mov	r1, r3
- 907              	.LVL123:
- 908              	.L38:
+ 598              		.loc 1 307 0
+ 599 0064 0480     		strh	r4, [r0]	@ movhi
+ 600              	.LVL55:
+ 601              	.L55:
  308:Src/pwm.c     ****   }
  309:Src/pwm.c     ****   TIMx->CCR3 = CCR3;
- 909              		.loc 1 309 0
- 910 01e2 EB63     		str	r3, [r5, #60]
+ 602              		.loc 1 309 0
+ 603 0066 F363     		str	r3, [r6, #60]
  310:Src/pwm.c     ****   TIMx->CCR2 = CCR2;
- 911              		.loc 1 310 0
- 912 01e4 AA63     		str	r2, [r5, #56]
  311:Src/pwm.c     ****   TIMx->CCR1 = CCR1;
- 913              		.loc 1 311 0
- 914 01e6 6963     		str	r1, [r5, #52]
  312:Src/pwm.c     ****   //TIMx->CCER = (u16)0x5555;
  313:Src/pwm.c     **** 	TIMx->CCER = (u16)PWM_OUTPUT_REG;
- 915              		.loc 1 313 0
- 916 01e8 45F25553 		movw	r3, #21845
- 917              	.LVL124:
- 918 01ec 2B62     		str	r3, [r5, #32]
+ 604              		.loc 1 313 0
+ 605 0068 45F25553 		movw	r3, #21845
+ 606              	.LVL56:
+ 310:Src/pwm.c     ****   TIMx->CCR2 = CCR2;
+ 607              		.loc 1 310 0
+ 608 006c B163     		str	r1, [r6, #56]
+ 609              	.LVL57:
+ 311:Src/pwm.c     ****   //TIMx->CCER = (u16)0x5555;
+ 610              		.loc 1 311 0
+ 611 006e 7263     		str	r2, [r6, #52]
+ 612              		.loc 1 313 0
+ 613 0070 3362     		str	r3, [r6, #32]
  314:Src/pwm.c     **** 	
  315:Src/pwm.c     **** 	
  316:Src/pwm.c     **** }
- 919              		.loc 1 316 0
- 920 01ee F8BD     		pop	{r3, r4, r5, r6, r7, pc}
- 921              	.LVL125:
- 922              	.L55:
- 923              		.align	2
- 924              	.L54:
- 925 01f0 00000000 		.word	EN_360
- 926 01f4 00000000 		.word	EN_60
- 927 01f8 00000000 		.word	EN_120
- 928 01fc 00000000 		.word	EN_180
- 929 0200 00000000 		.word	EN_240
- 930 0204 00000000 		.word	EN_300
- 931 0208 00000000 		.word	g_Sector_test
- 932              		.cfi_endproc
- 933              	.LFE338:
- 935              		.section	.text.PWM_OutPut_Open,"ax",%progbits
- 936              		.align	1
- 937              		.global	PWM_OutPut_Open
- 938              		.syntax unified
- 939              		.thumb
- 940              		.thumb_func
- 941              		.fpu fpv4-sp-d16
- 943              	PWM_OutPut_Open:
- 944              	.LFB339:
+ 614              		.loc 1 316 0
+ 615 0072 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 616              	.LVL58:
+ 617              	.L64:
+ 238:Src/pwm.c     **** 	
+ 618              		.loc 1 238 0
+ 619 0076 4FF43D64 		mov	r4, #3024
+ 620 007a D5E7     		b	.L53
+ 621              	.LVL59:
+ 622              	.L54:
+ 253:Src/pwm.c     ****   {
+ 623              		.loc 1 253 0
+ 624 007c B3F90000 		ldrsh	r0, [r3]
+ 625 0080 594B     		ldr	r3, .L69+12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 18
+
+
+ 626 0082 A842     		cmp	r0, r5
+ 627 0084 B3F900C0 		ldrsh	ip, [r3]
+ 628 0088 1ADC     		bgt	.L56
+ 253:Src/pwm.c     ****   {
+ 629              		.loc 1 253 0 is_stmt 0 discriminator 1
+ 630 008a AC45     		cmp	ip, r5
+ 631 008c 18DD     		ble	.L56
+ 632              	.LVL60:
+ 255:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
+ 633              		.loc 1 255 0 is_stmt 1
+ 634 008e 2D1A     		subs	r5, r5, r0
+ 635              	.LVL61:
+ 256:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
+ 636              		.loc 1 256 0
+ 637 0090 ADB2     		uxth	r5, r5
+ 638              	.LVL62:
+ 639 0092 401B     		subs	r0, r0, r5
+ 640 0094 80B2     		uxth	r0, r0
+ 641 0096 FFF7FEFF 		bl	Math_Sin_EN360
+ 642              	.LVL63:
+ 643 009a 2146     		mov	r1, r4
+ 644 009c FFF7FEFF 		bl	Q15_MUL
+ 645              	.LVL64:
+ 646 00a0 0746     		mov	r7, r0
+ 647              	.LVL65:
+ 257:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
+ 648              		.loc 1 257 0
+ 649 00a2 2846     		mov	r0, r5
+ 650              	.LVL66:
+ 651 00a4 FFF7FEFF 		bl	Math_Sin_EN360
+ 652              	.LVL67:
+ 653 00a8 2146     		mov	r1, r4
+ 654 00aa FFF7FEFF 		bl	Q15_MUL
+ 655              	.LVL68:
+ 258:Src/pwm.c     ****     CCR3 = t0>>1;
+ 656              		.loc 1 258 0
+ 657 00ae C7F53D63 		rsb	r3, r7, #3024
+ 658 00b2 1B1A     		subs	r3, r3, r0
+ 259:Src/pwm.c     ****     CCR1 = CCR3 + tk;
+ 659              		.loc 1 259 0
+ 660 00b4 5B10     		asrs	r3, r3, #1
+ 661              	.LVL69:
+ 260:Src/pwm.c     ****     CCR2 = CCR1 + tk_1;
+ 662              		.loc 1 260 0
+ 663 00b6 FA18     		adds	r2, r7, r3
+ 664              	.LVL70:
+ 261:Src/pwm.c     **** 		g_Sector_test = 2;
+ 665              		.loc 1 261 0
+ 666 00b8 8118     		adds	r1, r0, r2
+ 667              	.LVL71:
+ 262:Src/pwm.c     ****   }
+ 668              		.loc 1 262 0
+ 669 00ba 0224     		movs	r4, #2
+ 670              	.LVL72:
+ 671 00bc 4948     		ldr	r0, .L69+8
+ 672              	.LVL73:
+ 673 00be D1E7     		b	.L68
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 19
+
+
+ 674              	.LVL74:
+ 675              	.L56:
+ 676 00c0 4A4B     		ldr	r3, .L69+16
+ 264:Src/pwm.c     ****   {
+ 677              		.loc 1 264 0
+ 678 00c2 AC45     		cmp	ip, r5
+ 679 00c4 B3F90070 		ldrsh	r7, [r3]
+ 680 00c8 1BDC     		bgt	.L57
+ 264:Src/pwm.c     ****   {
+ 681              		.loc 1 264 0 is_stmt 0 discriminator 1
+ 682 00ca AF42     		cmp	r7, r5
+ 683 00cc 19DD     		ble	.L57
+ 684              	.LVL75:
+ 266:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
+ 685              		.loc 1 266 0 is_stmt 1
+ 686 00ce A5EB0C05 		sub	r5, r5, ip
+ 687              	.LVL76:
+ 267:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
+ 688              		.loc 1 267 0
+ 689 00d2 ADB2     		uxth	r5, r5
+ 690              	.LVL77:
+ 691 00d4 401B     		subs	r0, r0, r5
+ 692 00d6 80B2     		uxth	r0, r0
+ 693 00d8 FFF7FEFF 		bl	Math_Sin_EN360
+ 694              	.LVL78:
+ 695 00dc 2146     		mov	r1, r4
+ 696 00de FFF7FEFF 		bl	Q15_MUL
+ 697              	.LVL79:
+ 698 00e2 0746     		mov	r7, r0
+ 699              	.LVL80:
+ 268:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
+ 700              		.loc 1 268 0
+ 701 00e4 2846     		mov	r0, r5
+ 702              	.LVL81:
+ 703 00e6 FFF7FEFF 		bl	Math_Sin_EN360
+ 704              	.LVL82:
+ 705 00ea 2146     		mov	r1, r4
+ 706 00ec FFF7FEFF 		bl	Q15_MUL
+ 707              	.LVL83:
+ 269:Src/pwm.c     ****     CCR1 = t0>>1;
+ 708              		.loc 1 269 0
+ 709 00f0 C7F53D62 		rsb	r2, r7, #3024
+ 710 00f4 121A     		subs	r2, r2, r0
+ 270:Src/pwm.c     ****     CCR3 = CCR1 + tk_1;
+ 711              		.loc 1 270 0
+ 712 00f6 5210     		asrs	r2, r2, #1
+ 713              	.LVL84:
+ 271:Src/pwm.c     ****     CCR2 = CCR3 + tk;
+ 714              		.loc 1 271 0
+ 715 00f8 8318     		adds	r3, r0, r2
+ 716              	.LVL85:
+ 272:Src/pwm.c     **** 		g_Sector_test = 3;
+ 717              		.loc 1 272 0
+ 718 00fa F918     		adds	r1, r7, r3
+ 719              	.LVL86:
+ 273:Src/pwm.c     ****   }
+ 720              		.loc 1 273 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 20
+
+
+ 721 00fc 3948     		ldr	r0, .L69+8
+ 722              	.LVL87:
+ 723 00fe 0324     		movs	r4, #3
+ 724              	.LVL88:
+ 725 0100 B0E7     		b	.L68
+ 726              	.LVL89:
+ 727              	.L57:
+ 728 0102 3B4B     		ldr	r3, .L69+20
+ 275:Src/pwm.c     ****   {
+ 729              		.loc 1 275 0
+ 730 0104 AF42     		cmp	r7, r5
+ 731 0106 B3F90020 		ldrsh	r2, [r3]
+ 732 010a 1ADC     		bgt	.L58
+ 275:Src/pwm.c     ****   {
+ 733              		.loc 1 275 0 is_stmt 0 discriminator 1
+ 734 010c AA42     		cmp	r2, r5
+ 735 010e 18DD     		ble	.L58
+ 736              	.LVL90:
+ 277:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
+ 737              		.loc 1 277 0 is_stmt 1
+ 738 0110 EF1B     		subs	r7, r5, r7
+ 739              	.LVL91:
+ 278:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
+ 740              		.loc 1 278 0
+ 741 0112 BFB2     		uxth	r7, r7
+ 742              	.LVL92:
+ 743 0114 C01B     		subs	r0, r0, r7
+ 744 0116 80B2     		uxth	r0, r0
+ 745 0118 FFF7FEFF 		bl	Math_Sin_EN360
+ 746              	.LVL93:
+ 747 011c 2146     		mov	r1, r4
+ 748 011e FFF7FEFF 		bl	Q15_MUL
+ 749              	.LVL94:
+ 750 0122 0546     		mov	r5, r0
+ 751              	.LVL95:
+ 279:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
+ 752              		.loc 1 279 0
+ 753 0124 3846     		mov	r0, r7
+ 754              	.LVL96:
+ 755 0126 FFF7FEFF 		bl	Math_Sin_EN360
+ 756              	.LVL97:
+ 757 012a 2146     		mov	r1, r4
+ 758 012c FFF7FEFF 		bl	Q15_MUL
+ 759              	.LVL98:
+ 280:Src/pwm.c     ****     CCR1 = t0>>1;
+ 760              		.loc 1 280 0
+ 761 0130 C5F53D62 		rsb	r2, r5, #3024
+ 762 0134 121A     		subs	r2, r2, r0
+ 281:Src/pwm.c     ****     CCR2 = CCR1 + tk;
+ 763              		.loc 1 281 0
+ 764 0136 5210     		asrs	r2, r2, #1
+ 765              	.LVL99:
+ 282:Src/pwm.c     ****     CCR3 = CCR2 + tk_1;
+ 766              		.loc 1 282 0
+ 767 0138 A918     		adds	r1, r5, r2
+ 768              	.LVL100:
+ 283:Src/pwm.c     **** 		g_Sector_test = 4;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 21
+
+
+ 769              		.loc 1 283 0
+ 770 013a 4318     		adds	r3, r0, r1
+ 771              	.LVL101:
+ 284:Src/pwm.c     ****   }
+ 772              		.loc 1 284 0
+ 773 013c 0424     		movs	r4, #4
+ 774              	.LVL102:
+ 775 013e 2948     		ldr	r0, .L69+8
+ 776              	.LVL103:
+ 777 0140 90E7     		b	.L68
+ 778              	.LVL104:
+ 779              	.L58:
+ 780 0142 2C4B     		ldr	r3, .L69+24
+ 286:Src/pwm.c     ****   {
+ 781              		.loc 1 286 0
+ 782 0144 AA42     		cmp	r2, r5
+ 783 0146 B3F90030 		ldrsh	r3, [r3]
+ 784 014a 1ADC     		bgt	.L59
+ 286:Src/pwm.c     ****   {
+ 785              		.loc 1 286 0 is_stmt 0 discriminator 1
+ 786 014c AB42     		cmp	r3, r5
+ 787 014e 1ADD     		ble	.L60
+ 788              	.LVL105:
+ 288:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
+ 789              		.loc 1 288 0 is_stmt 1
+ 790 0150 AD1A     		subs	r5, r5, r2
+ 791              	.LVL106:
+ 289:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
+ 792              		.loc 1 289 0
+ 793 0152 ADB2     		uxth	r5, r5
+ 794              	.LVL107:
+ 795 0154 401B     		subs	r0, r0, r5
+ 796 0156 80B2     		uxth	r0, r0
+ 797 0158 FFF7FEFF 		bl	Math_Sin_EN360
+ 798              	.LVL108:
+ 799 015c 2146     		mov	r1, r4
+ 800 015e FFF7FEFF 		bl	Q15_MUL
+ 801              	.LVL109:
+ 802 0162 0746     		mov	r7, r0
+ 803              	.LVL110:
+ 290:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
+ 804              		.loc 1 290 0
+ 805 0164 2846     		mov	r0, r5
+ 806              	.LVL111:
+ 807 0166 FFF7FEFF 		bl	Math_Sin_EN360
+ 808              	.LVL112:
+ 809 016a 2146     		mov	r1, r4
+ 810 016c FFF7FEFF 		bl	Q15_MUL
+ 811              	.LVL113:
+ 291:Src/pwm.c     ****     CCR2 = t0>>1;
+ 812              		.loc 1 291 0
+ 813 0170 C7F53D61 		rsb	r1, r7, #3024
+ 814 0174 091A     		subs	r1, r1, r0
+ 292:Src/pwm.c     ****     CCR1 = CCR2 + tk_1;
+ 815              		.loc 1 292 0
+ 816 0176 4910     		asrs	r1, r1, #1
+ 817              	.LVL114:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 22
+
+
+ 293:Src/pwm.c     ****     CCR3 = CCR1 + tk;
+ 818              		.loc 1 293 0
+ 819 0178 4218     		adds	r2, r0, r1
+ 820              	.LVL115:
+ 294:Src/pwm.c     **** 		g_Sector_test = 5;
+ 821              		.loc 1 294 0
+ 822 017a BB18     		adds	r3, r7, r2
+ 823              	.LVL116:
+ 295:Src/pwm.c     **** 
+ 824              		.loc 1 295 0
+ 825 017c 1948     		ldr	r0, .L69+8
+ 826              	.LVL117:
+ 827 017e 0524     		movs	r4, #5
+ 828              	.LVL118:
+ 829 0180 70E7     		b	.L68
+ 830              	.LVL119:
+ 831              	.L59:
+ 298:Src/pwm.c     ****   {
+ 832              		.loc 1 298 0
+ 833 0182 AB42     		cmp	r3, r5
+ 834 0184 1DDC     		bgt	.L66
+ 835              	.L60:
+ 298:Src/pwm.c     ****   {
+ 836              		.loc 1 298 0 is_stmt 0 discriminator 1
+ 837 0186 164A     		ldr	r2, .L69+4
+ 838 0188 B2F90020 		ldrsh	r2, [r2]
+ 839 018c AA42     		cmp	r2, r5
+ 840 018e 18DD     		ble	.L66
+ 841              	.LVL120:
+ 300:Src/pwm.c     ****     tk = Q15_MUL(Math_Sin_EN360(EN_60-angle),targetCCR);
+ 842              		.loc 1 300 0 is_stmt 1
+ 843 0190 EB1A     		subs	r3, r5, r3
+ 844              	.LVL121:
+ 301:Src/pwm.c     ****     tk_1 = Q15_MUL(Math_Sin_EN360(angle),targetCCR);
+ 845              		.loc 1 301 0
+ 846 0192 9DB2     		uxth	r5, r3
+ 847 0194 401B     		subs	r0, r0, r5
+ 848 0196 80B2     		uxth	r0, r0
+ 849 0198 FFF7FEFF 		bl	Math_Sin_EN360
+ 850              	.LVL122:
+ 851 019c 2146     		mov	r1, r4
+ 852 019e FFF7FEFF 		bl	Q15_MUL
+ 853              	.LVL123:
+ 854 01a2 0746     		mov	r7, r0
+ 855              	.LVL124:
+ 302:Src/pwm.c     ****     t0 = MAX_CCR - tk - tk_1;
+ 856              		.loc 1 302 0
+ 857 01a4 2846     		mov	r0, r5
+ 858              	.LVL125:
+ 859 01a6 FFF7FEFF 		bl	Math_Sin_EN360
+ 860              	.LVL126:
+ 861 01aa 2146     		mov	r1, r4
+ 862 01ac FFF7FEFF 		bl	Q15_MUL
+ 863              	.LVL127:
+ 303:Src/pwm.c     ****     CCR2 = t0>>1;
+ 864              		.loc 1 303 0
+ 865 01b0 C7F53D61 		rsb	r1, r7, #3024
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 23
+
+
+ 866 01b4 091A     		subs	r1, r1, r0
+ 304:Src/pwm.c     ****     CCR3 = CCR2 + tk;
+ 867              		.loc 1 304 0
+ 868 01b6 4910     		asrs	r1, r1, #1
+ 869              	.LVL128:
+ 305:Src/pwm.c     ****     CCR1 = CCR3 + tk_1;
+ 870              		.loc 1 305 0
+ 871 01b8 7B18     		adds	r3, r7, r1
+ 872              	.LVL129:
+ 306:Src/pwm.c     **** 		g_Sector_test = 6;
+ 873              		.loc 1 306 0
+ 874 01ba C218     		adds	r2, r0, r3
+ 875              	.LVL130:
+ 307:Src/pwm.c     ****   }
+ 876              		.loc 1 307 0
+ 877 01bc 0624     		movs	r4, #6
+ 878              	.LVL131:
+ 879 01be 0948     		ldr	r0, .L69+8
+ 880              	.LVL132:
+ 881 01c0 50E7     		b	.L68
+ 882              	.LVL133:
+ 883              	.L66:
+ 231:Src/pwm.c     **** 	
+ 884              		.loc 1 231 0
+ 885 01c2 0023     		movs	r3, #0
+ 230:Src/pwm.c     ****   s32 CCR3 = 0;
+ 886              		.loc 1 230 0
+ 887 01c4 1946     		mov	r1, r3
+ 229:Src/pwm.c     ****   s32 CCR2 = 0;
+ 888              		.loc 1 229 0
+ 889 01c6 1A46     		mov	r2, r3
+ 890 01c8 4DE7     		b	.L55
+ 891              	.LVL134:
+ 892              	.L63:
+ 237:Src/pwm.c     ****   targetCCR = targetCCR>MAX_CCR?MAX_CCR:(targetCCR<0?0:targetCCR);
+ 893              		.loc 1 237 0
+ 894 01ca 0025     		movs	r5, #0
+ 895              	.LVL135:
+ 896              	.L52:
+ 238:Src/pwm.c     **** 	
+ 897              		.loc 1 238 0
+ 898 01cc B2F53D6F 		cmp	r2, #3024
+ 899 01d0 7FF728AF 		ble	.L61
+ 900 01d4 4FF43D64 		mov	r4, #3024
+ 901 01d8 28E7     		b	.L62
+ 902              	.L70:
+ 903 01da 00BF     		.align	2
+ 904              	.L69:
+ 905 01dc 00000000 		.word	EN_60
+ 906 01e0 00000000 		.word	EN_360
+ 907 01e4 00000000 		.word	g_Sector_test
+ 908 01e8 00000000 		.word	EN_120
+ 909 01ec 00000000 		.word	EN_180
+ 910 01f0 00000000 		.word	EN_240
+ 911 01f4 00000000 		.word	EN_300
+ 912              		.cfi_endproc
+ 913              	.LFE338:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 24
+
+
+ 915              		.section	.text.PWM_OutPut_Open,"ax",%progbits
+ 916              		.align	1
+ 917              		.global	PWM_OutPut_Open
+ 918              		.syntax unified
+ 919              		.thumb
+ 920              		.thumb_func
+ 921              		.fpu fpv4-sp-d16
+ 923              	PWM_OutPut_Open:
+ 924              	.LFB339:
  317:Src/pwm.c     **** 
  318:Src/pwm.c     **** 
  319:Src/pwm.c     **** 
  320:Src/pwm.c     **** volatile int g_high_fre_pulse =1;
  321:Src/pwm.c     **** 
  322:Src/pwm.c     **** void PWM_OutPut_Open(TIM_TypeDef* TIMx, s32 ElectricAngle, s32 TimerCCR)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 24
-
-
  323:Src/pwm.c     **** {
- 945              		.loc 1 323 0
- 946              		.cfi_startproc
- 947              		@ args = 0, pretend = 0, frame = 0
- 948              		@ frame_needed = 0, uses_anonymous_args = 0
- 949              	.LVL126:
- 950 0000 10B5     		push	{r4, lr}
- 951              	.LCFI7:
- 952              		.cfi_def_cfa_offset 8
- 953              		.cfi_offset 4, -8
- 954              		.cfi_offset 14, -4
- 955 0002 1446     		mov	r4, r2
- 956              	.LVL127:
- 957              	.LBB14:
- 958              	.LBB15:
- 959              		.file 2 "Inc/stm32_math.h"
+ 925              		.loc 1 323 0
+ 926              		.cfi_startproc
+ 927              		@ args = 0, pretend = 0, frame = 0
+ 928              		@ frame_needed = 0, uses_anonymous_args = 0
+ 929              		@ link register save eliminated.
+ 930              	.LVL136:
+ 931              	.LBB14:
+ 932              	.LBB15:
+ 933              		.file 2 "Inc/stm32_math.h"
    1:Inc/stm32_math.h **** #ifndef __STM32_MATH_H__
    2:Inc/stm32_math.h **** #define __STM32_MATH_H__
    3:Inc/stm32_math.h **** 
@@ -1421,26 +1430,40 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
   22:Inc/stm32_math.h **** {
   23:Inc/stm32_math.h ****     int rst;
   24:Inc/stm32_math.h ****     rst = (data_in >= max) ? max : data_in;
- 960              		.loc 2 24 0
- 961 0004 1346     		mov	r3, r2
- 962 0006 B2F53D6F 		cmp	r2, #3024
- 963 000a A8BF     		it	ge
- 964 000c 4FF43D63 		movge	r3, #3024
- 965              	.LVL128:
+ 934              		.loc 2 24 0
+ 935 0000 1346     		mov	r3, r2
+ 936 0002 B2F53D6F 		cmp	r2, #3024
+ 937              	.LBE15:
+ 938              	.LBE14:
+ 939              		.loc 1 323 0
+ 940 0006 10B4     		push	{r4}
+ 941              	.LCFI8:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 25
+
+
+ 942              		.cfi_def_cfa_offset 4
+ 943              		.cfi_offset 4, -4
+ 944              		.loc 1 323 0
+ 945 0008 1446     		mov	r4, r2
+ 946              	.LBB17:
+ 947              	.LBB16:
   25:Inc/stm32_math.h ****     rst = (rst <= min) ? min : rst;
- 966              		.loc 2 25 0
- 967 0010 0C4A     		ldr	r2, .L63
- 968              	.LVL129:
- 969 0012 9A42     		cmp	r2, r3
- 970 0014 B8BF     		it	lt
- 971 0016 1A46     		movlt	r2, r3
- 972              	.LVL130:
- 973              	.LBE15:
- 974              	.LBE14:
+ 948              		.loc 2 25 0
+ 949 000a 0E4A     		ldr	r2, .L75
+ 950              	.LVL137:
+  24:Inc/stm32_math.h ****     rst = (rst <= min) ? min : rst;
+ 951              		.loc 2 24 0
+ 952 000c A8BF     		it	ge
+ 953 000e 4FF43D63 		movge	r3, #3024
+ 954              	.LVL138:
+ 955              		.loc 2 25 0
+ 956 0012 9A42     		cmp	r2, r3
+ 957 0014 B8BF     		it	lt
+ 958 0016 1A46     		movlt	r2, r3
+ 959              	.LVL139:
+ 960              	.LBE16:
+ 961              	.LBE17:
  324:Src/pwm.c     ****   s32 angle = 0;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 25
-
-
  325:Src/pwm.c     **** 	
  326:Src/pwm.c     **** 
  327:Src/pwm.c     **** 	
@@ -1450,11 +1473,8 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
  331:Src/pwm.c     ****   //TimerCCR = TimerCCR>MAX_CCR?MAX_CCR:(TimerCCR<-MAX_CCR?-MAX_CCR:TimerCCR);
  332:Src/pwm.c     ****   TimerCCR = LIMIT_INT(TimerCCR, MAX_CCR,-MAX_CCR);
  333:Src/pwm.c     ****   if (TimerCCR >= 0)
- 975              		.loc 1 333 0
- 976 0018 002C     		cmp	r4, #0
- 977 001a 08DB     		blt	.L61
- 978              	.LVL131:
- 979              	.L57:
+ 962              		.loc 1 333 0
+ 963 0018 002C     		cmp	r4, #0
  334:Src/pwm.c     ****   {
  335:Src/pwm.c     ****     angle = ElectricAngle;
  336:Src/pwm.c     ****   }
@@ -1462,256 +1482,264 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 1
  338:Src/pwm.c     ****   {
  339:Src/pwm.c     ****     TimerCCR = -TimerCCR;
  340:Src/pwm.c     ****     angle = ElectricAngle + EN_180;
+ 964              		.loc 1 340 0
+ 965 001a BEBF     		ittt	lt
+ 966 001c 0A4B     		ldrlt	r3, .L75+4
+ 967 001e B3F90030 		ldrshlt	r3, [r3]
+ 968 0022 C918     		addlt	r1, r1, r3
+ 969              	.LVL140:
  341:Src/pwm.c     ****   }
  342:Src/pwm.c     ****   if (angle >= EN_360)
- 980              		.loc 1 342 0
- 981 001c 0A4B     		ldr	r3, .L63+4
- 982 001e B3F90030 		ldrsh	r3, [r3]
- 983 0022 8B42     		cmp	r3, r1
- 984 0024 09DD     		ble	.L62
- 343:Src/pwm.c     ****     angle -= EN_360;
- 344:Src/pwm.c     ****   else if (angle < 0)
- 985              		.loc 1 344 0
- 986 0026 0029     		cmp	r1, #0
- 987 0028 08DA     		bge	.L59
- 345:Src/pwm.c     ****     angle += EN_360;
- 988              		.loc 1 345 0
- 989 002a 1944     		add	r1, r1, r3
- 990              	.LVL132:
- 991 002c 06E0     		b	.L59
- 992              	.LVL133:
- 993              	.L61:
+ 970              		.loc 1 342 0
+ 971 0024 094B     		ldr	r3, .L75+8
+ 972 0026 B3F90030 		ldrsh	r3, [r3]
  339:Src/pwm.c     ****     angle = ElectricAngle + EN_180;
- 994              		.loc 1 339 0
- 995 002e 5242     		negs	r2, r2
- 996              	.LVL134:
- 340:Src/pwm.c     ****   }
- 997              		.loc 1 340 0
- 998 0030 064B     		ldr	r3, .L63+8
- 999 0032 B3F90030 		ldrsh	r3, [r3]
- 1000 0036 1944     		add	r1, r1, r3
- 1001              	.LVL135:
- 1002 0038 F0E7     		b	.L57
- 1003              	.L62:
- 343:Src/pwm.c     ****   else if (angle < 0)
- 1004              		.loc 1 343 0
- 1005 003a C91A     		subs	r1, r1, r3
- 1006              	.LVL136:
- 1007              	.L59:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 26
+ 973              		.loc 1 339 0
+ 974 002a B8BF     		it	lt
+ 975 002c 5242     		rsblt	r2, r2, #0
+ 976              	.LVL141:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 26
 
 
+ 977              		.loc 1 342 0
+ 978 002e 8B42     		cmp	r3, r1
+ 979 0030 04DC     		bgt	.L73
+ 343:Src/pwm.c     ****     angle -= EN_360;
+ 980              		.loc 1 343 0
+ 981 0032 C91A     		subs	r1, r1, r3
+ 982              	.LVL142:
+ 983              	.L74:
+ 344:Src/pwm.c     ****   else if (angle < 0)
+ 345:Src/pwm.c     ****     angle += EN_360;
  346:Src/pwm.c     ****   Calculate_CCR(TIMx, angle, TimerCCR);
- 1008              		.loc 1 346 0
- 1009 003c FFF7FEFF 		bl	Calculate_CCR
- 1010              	.LVL137:
  347:Src/pwm.c     **** }
- 1011              		.loc 1 347 0
- 1012 0040 10BD     		pop	{r4, pc}
- 1013              	.L64:
- 1014 0042 00BF     		.align	2
- 1015              	.L63:
- 1016 0044 30F4FFFF 		.word	-3024
- 1017 0048 00000000 		.word	EN_360
- 1018 004c 00000000 		.word	EN_180
- 1019              		.cfi_endproc
- 1020              	.LFE339:
- 1022              		.section	.text.PWM_Enable,"ax",%progbits
- 1023              		.align	1
- 1024              		.global	PWM_Enable
- 1025              		.syntax unified
- 1026              		.thumb
- 1027              		.thumb_func
- 1028              		.fpu fpv4-sp-d16
- 1030              	PWM_Enable:
- 1031              	.LFB336:
+ 984              		.loc 1 347 0
+ 985 0034 5DF8044B 		ldr	r4, [sp], #4
+ 986              	.LCFI9:
+ 987              		.cfi_remember_state
+ 988              		.cfi_restore 4
+ 989              		.cfi_def_cfa_offset 0
+ 346:Src/pwm.c     **** }
+ 990              		.loc 1 346 0
+ 991 0038 FFF7FEBF 		b	Calculate_CCR
+ 992              	.LVL143:
+ 993              	.L73:
+ 994              	.LCFI10:
+ 995              		.cfi_restore_state
+ 344:Src/pwm.c     ****   else if (angle < 0)
+ 996              		.loc 1 344 0
+ 997 003c 0029     		cmp	r1, #0
+ 345:Src/pwm.c     ****   Calculate_CCR(TIMx, angle, TimerCCR);
+ 998              		.loc 1 345 0
+ 999 003e B8BF     		it	lt
+ 1000 0040 C918     		addlt	r1, r1, r3
+ 1001              	.LVL144:
+ 1002 0042 F7E7     		b	.L74
+ 1003              	.L76:
+ 1004              		.align	2
+ 1005              	.L75:
+ 1006 0044 30F4FFFF 		.word	-3024
+ 1007 0048 00000000 		.word	EN_180
+ 1008 004c 00000000 		.word	EN_360
+ 1009              		.cfi_endproc
+ 1010              	.LFE339:
+ 1012              		.section	.text.PWM_Enable,"ax",%progbits
+ 1013              		.align	1
+ 1014              		.global	PWM_Enable
+ 1015              		.syntax unified
+ 1016              		.thumb
+ 1017              		.thumb_func
+ 1018              		.fpu fpv4-sp-d16
+ 1020              	PWM_Enable:
+ 1021              	.LFB336:
  174:Src/pwm.c     **** 	MP6540_ON();
- 1032              		.loc 1 174 0
- 1033              		.cfi_startproc
- 1034              		@ args = 0, pretend = 0, frame = 0
- 1035              		@ frame_needed = 0, uses_anonymous_args = 0
- 1036 0000 08B5     		push	{r3, lr}
- 1037              	.LCFI8:
- 1038              		.cfi_def_cfa_offset 8
- 1039              		.cfi_offset 3, -8
- 1040              		.cfi_offset 14, -4
+ 1022              		.loc 1 174 0
+ 1023              		.cfi_startproc
+ 1024              		@ args = 0, pretend = 0, frame = 0
+ 1025              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1026              		@ link register save eliminated.
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 27
+
+
  175:Src/pwm.c     ****   g_CmdMap[TAG_MOTOR_ENABLE] = 1;
- 1041              		.loc 1 175 0
- 1042 0002 0B4A     		ldr	r2, .L67
- 1043 0004 5369     		ldr	r3, [r2, #20]
- 1044 0006 43F48053 		orr	r3, r3, #4096
- 1045 000a 5361     		str	r3, [r2, #20]
- 176:Src/pwm.c     ****   g_bEnableHB = 1;
- 1046              		.loc 1 176 0
- 1047 000c 0123     		movs	r3, #1
- 1048 000e 094A     		ldr	r2, .L67+4
- 1049 0010 A2F80232 		strh	r3, [r2, #514]	@ movhi
- 177:Src/pwm.c     ****   TIM1->BDTR|=(TIM_BDTR_MOE);
- 1050              		.loc 1 177 0
- 1051 0014 084A     		ldr	r2, .L67+8
- 1052 0016 1380     		strh	r3, [r2]	@ movhi
+ 1027              		.loc 1 175 0
+ 1028 0000 0A4A     		ldr	r2, .L78
  178:Src/pwm.c     ****   PWM_OutPut_Open(TIM1,g_ElectricAngle,0);
- 1053              		.loc 1 178 0
- 1054 0018 0848     		ldr	r0, .L67+12
- 1055 001a 436C     		ldr	r3, [r0, #68]
- 1056 001c 43F40043 		orr	r3, r3, #32768
- 1057 0020 4364     		str	r3, [r0, #68]
+ 1029              		.loc 1 178 0
+ 1030 0002 0B48     		ldr	r0, .L78+4
+ 175:Src/pwm.c     ****   g_CmdMap[TAG_MOTOR_ENABLE] = 1;
+ 1031              		.loc 1 175 0
+ 1032 0004 5369     		ldr	r3, [r2, #20]
+ 1033 0006 43F48053 		orr	r3, r3, #4096
+ 1034 000a 5361     		str	r3, [r2, #20]
+ 176:Src/pwm.c     ****   g_bEnableHB = 1;
+ 1035              		.loc 1 176 0
+ 1036 000c 094A     		ldr	r2, .L78+8
+ 1037 000e 0123     		movs	r3, #1
+ 1038 0010 A2F80232 		strh	r3, [r2, #514]	@ movhi
+ 177:Src/pwm.c     ****   TIM1->BDTR|=(TIM_BDTR_MOE);
+ 1039              		.loc 1 177 0
+ 1040 0014 084A     		ldr	r2, .L78+12
+ 1041 0016 1380     		strh	r3, [r2]	@ movhi
+ 178:Src/pwm.c     ****   PWM_OutPut_Open(TIM1,g_ElectricAngle,0);
+ 1042              		.loc 1 178 0
+ 1043 0018 436C     		ldr	r3, [r0, #68]
+ 1044 001a 43F40043 		orr	r3, r3, #32768
+ 1045 001e 4364     		str	r3, [r0, #68]
  179:Src/pwm.c     **** }
- 1058              		.loc 1 179 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 27
+ 1046              		.loc 1 179 0
+ 1047 0020 064B     		ldr	r3, .L78+16
+ 1048 0022 0022     		movs	r2, #0
+ 1049 0024 1968     		ldr	r1, [r3]
+ 1050 0026 FFF7FEBF 		b	PWM_OutPut_Open
+ 1051              	.LVL145:
+ 1052              	.L79:
+ 1053 002a 00BF     		.align	2
+ 1054              	.L78:
+ 1055 002c 00040048 		.word	1207960576
+ 1056 0030 002C0140 		.word	1073818624
+ 1057 0034 00000000 		.word	g_CmdMap
+ 1058 0038 00000000 		.word	g_bEnableHB
+ 1059 003c 00000000 		.word	g_ElectricAngle
+ 1060              		.cfi_endproc
+ 1061              	.LFE336:
+ 1063              		.global	g_high_fre_pulse
+ 1064              		.global	G_hall_ture_value
+ 1065              		.global	tmp_hall_ture_value
+ 1066              		.global	last_hall_ture_value
+ 1067              		.global	hall_ture_value
+ 1068              		.comm	hall_c,4,4
+ 1069              		.comm	hall_b,4,4
+ 1070              		.comm	hall_a,4,4
+ 1071              		.global	cnt
+ 1072              		.global	hall_value
+ 1073              		.global	sample_invered
+ 1074              		.comm	htim1,76,4
+ 1075              		.section	.bss.G_hall_ture_value,"aw",%nobits
+ 1076              		.align	2
+ 1079              	G_hall_ture_value:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 28
 
 
- 1059 0022 074B     		ldr	r3, .L67+16
- 1060 0024 1968     		ldr	r1, [r3]
- 1061 0026 0022     		movs	r2, #0
- 1062 0028 FFF7FEFF 		bl	PWM_OutPut_Open
- 1063              	.LVL138:
- 180:Src/pwm.c     **** void PWM_Disable(void)
- 1064              		.loc 1 180 0
- 1065 002c 08BD     		pop	{r3, pc}
- 1066              	.L68:
- 1067 002e 00BF     		.align	2
- 1068              	.L67:
- 1069 0030 00040048 		.word	1207960576
- 1070 0034 00000000 		.word	g_CmdMap
- 1071 0038 00000000 		.word	g_bEnableHB
- 1072 003c 002C0140 		.word	1073818624
- 1073 0040 00000000 		.word	g_ElectricAngle
- 1074              		.cfi_endproc
- 1075              	.LFE336:
- 1077              		.global	g_high_fre_pulse
- 1078              		.global	G_hall_ture_value
- 1079              		.global	tmp_hall_ture_value
- 1080              		.global	last_hall_ture_value
- 1081              		.global	hall_ture_value
- 1082              		.comm	hall_c,4,4
- 1083              		.comm	hall_b,4,4
- 1084              		.comm	hall_a,4,4
- 1085              		.global	cnt
- 1086              		.global	hall_value
- 1087              		.global	sample_invered
- 1088              		.comm	htim1,76,4
- 1089              		.section	.bss.G_hall_ture_value,"aw",%nobits
- 1090              		.align	2
- 1093              	G_hall_ture_value:
- 1094 0000 00000000 		.space	4
- 1095              		.section	.bss.cnt,"aw",%nobits
- 1096              		.align	2
- 1099              	cnt:
- 1100 0000 00000000 		.space	4
- 1101              		.section	.bss.last_hall_ture_value,"aw",%nobits
- 1102              		.align	2
- 1105              	last_hall_ture_value:
- 1106 0000 00000000 		.space	4
- 1107              		.section	.bss.sample_invered,"aw",%nobits
- 1108              		.align	2
- 1111              	sample_invered:
- 1112 0000 00000000 		.space	4
- 1113              		.section	.bss.tmp_hall_ture_value,"aw",%nobits
- 1114              		.align	2
- 1117              	tmp_hall_ture_value:
- 1118 0000 00000000 		.space	4
- 1119              		.section	.data.g_high_fre_pulse,"aw",%progbits
- 1120              		.align	2
- 1123              	g_high_fre_pulse:
- 1124 0000 01000000 		.word	1
- 1125              		.section	.data.hall_ture_value,"aw",%progbits
- 1126              		.align	2
- 1129              	hall_ture_value:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 28
+ 1080 0000 00000000 		.space	4
+ 1081              		.section	.bss.cnt,"aw",%nobits
+ 1082              		.align	2
+ 1085              	cnt:
+ 1086 0000 00000000 		.space	4
+ 1087              		.section	.bss.last_hall_ture_value,"aw",%nobits
+ 1088              		.align	2
+ 1091              	last_hall_ture_value:
+ 1092 0000 00000000 		.space	4
+ 1093              		.section	.bss.sample_invered,"aw",%nobits
+ 1094              		.align	2
+ 1097              	sample_invered:
+ 1098 0000 00000000 		.space	4
+ 1099              		.section	.bss.tmp_hall_ture_value,"aw",%nobits
+ 1100              		.align	2
+ 1103              	tmp_hall_ture_value:
+ 1104 0000 00000000 		.space	4
+ 1105              		.section	.data.g_high_fre_pulse,"aw",%progbits
+ 1106              		.align	2
+ 1109              	g_high_fre_pulse:
+ 1110 0000 01000000 		.word	1
+ 1111              		.section	.data.hall_ture_value,"aw",%progbits
+ 1112              		.align	2
+ 1115              	hall_ture_value:
+ 1116 0000 05000000 		.word	5
+ 1117              		.section	.data.hall_value,"aw",%progbits
+ 1118              		.align	2
+ 1121              	hall_value:
+ 1122 0000 01000000 		.word	1
+ 1123              		.text
+ 1124              	.Letext0:
+ 1125              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 1126              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 1127              		.file 5 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 1128              		.file 6 "Drivers/CMSIS/Include/core_cm4.h"
+ 1129              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 1130              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 1131              		.file 9 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 1132              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 1133              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 1134              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 1135              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 1136              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 1137              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 1138              		.file 16 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 1139              		.file 17 "Inc/PWM.h"
+ 1140              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 1141              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 1142              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ 1143              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 1144              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 1145              		.file 23 "Inc/uart.h"
+ 1146              		.file 24 "Inc/spi_MEncoder.h"
+ 1147              		.file 25 "Inc/adc.h"
+ 1148              		.file 26 "Inc/stm32_math_sin.h"
+ 1149              		.file 27 "Inc/pid.h"
+ 1150              		.file 28 "Inc/profile_joint.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 29
 
 
- 1130 0000 05000000 		.word	5
- 1131              		.section	.data.hall_value,"aw",%progbits
- 1132              		.align	2
- 1135              	hall_value:
- 1136 0000 01000000 		.word	1
- 1137              		.text
- 1138              	.Letext0:
- 1139              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 1140              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 1141              		.file 5 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
- 1142              		.file 6 "Drivers/CMSIS/Include/core_cm4.h"
- 1143              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
- 1144              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
- 1145              		.file 9 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
- 1146              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
- 1147              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
- 1148              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
- 1149              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
- 1150              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
- 1151              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
- 1152              		.file 16 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 1153              		.file 17 "Inc/PWM.h"
- 1154              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 1155              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 1156              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
- 1157              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 1158              		.file 22 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 1159              		.file 23 "Inc/uart.h"
- 1160              		.file 24 "Inc/spi_MEncoder.h"
- 1161              		.file 25 "Inc/adc.h"
- 1162              		.file 26 "Inc/stm32_math_sin.h"
- 1163              		.file 27 "Inc/pid.h"
- 1164              		.file 28 "Inc/profile_joint.h"
- 1165              		.file 29 "Inc/icmu.h"
- 1166              		.file 30 "Inc/performance_test.h"
- 1167              		.file 31 "Inc/global.h"
- 1168              		.file 32 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h"
- 1169              		.file 33 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h"
- 1170              		.file 34 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h"
- 1171              		.file 35 "<built-in>"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 29
+ 1151              		.file 29 "Inc/icmu.h"
+ 1152              		.file 30 "Inc/performance_test.h"
+ 1153              		.file 31 "Inc/global.h"
+ 1154              		.file 32 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h"
+ 1155              		.file 33 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc_ex.h"
+ 1156              		.file 34 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h"
+ 1157              		.file 35 "<built-in>"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 30
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 pwm.c
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:18     .text.SWI_EXTI_Config:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:25     .text.SWI_EXTI_Config:00000000 SWI_EXTI_Config
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:65     .text.SWI_EXTI_Config:00000030 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:70     .text.MX_TIM1_Init:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:77     .text.MX_TIM1_Init:00000000 MX_TIM1_Init
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:425    .text.MX_TIM1_Init:000001cc $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:18     .text.SWI_EXTI_Config:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:25     .text.SWI_EXTI_Config:00000000 SWI_EXTI_Config
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:70     .text.SWI_EXTI_Config:00000030 $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:75     .text.MX_TIM1_Init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:82     .text.MX_TIM1_Init:00000000 MX_TIM1_Init
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:407    .text.MX_TIM1_Init:0000019c $d
                             *COM*:0000004c htim1
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:433    .text.PWM_Init:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:440    .text.PWM_Init:00000000 PWM_Init
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:463    .text.PWM_Disable:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:470    .text.PWM_Disable:00000000 PWM_Disable
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:508    .text.PWM_Disable:00000030 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:516    .text.Calculate_CCR:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:523    .text.Calculate_CCR:00000000 Calculate_CCR
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:925    .text.Calculate_CCR:000001f0 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:936    .text.PWM_OutPut_Open:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:943    .text.PWM_OutPut_Open:00000000 PWM_OutPut_Open
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1016   .text.PWM_OutPut_Open:00000044 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1023   .text.PWM_Enable:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1030   .text.PWM_Enable:00000000 PWM_Enable
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1069   .text.PWM_Enable:00000030 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1123   .data.g_high_fre_pulse:00000000 g_high_fre_pulse
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1093   .bss.G_hall_ture_value:00000000 G_hall_ture_value
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1117   .bss.tmp_hall_ture_value:00000000 tmp_hall_ture_value
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1105   .bss.last_hall_ture_value:00000000 last_hall_ture_value
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1129   .data.hall_ture_value:00000000 hall_ture_value
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:414    .text.PWM_Init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:421    .text.PWM_Init:00000000 PWM_Init
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:448    .text.PWM_Disable:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:455    .text.PWM_Disable:00000000 PWM_Disable
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:493    .text.PWM_Disable:00000030 $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:501    .text.Calculate_CCR:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:508    .text.Calculate_CCR:00000000 Calculate_CCR
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:905    .text.Calculate_CCR:000001dc $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:916    .text.PWM_OutPut_Open:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:923    .text.PWM_OutPut_Open:00000000 PWM_OutPut_Open
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1006   .text.PWM_OutPut_Open:00000044 $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1013   .text.PWM_Enable:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1020   .text.PWM_Enable:00000000 PWM_Enable
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1055   .text.PWM_Enable:0000002c $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1109   .data.g_high_fre_pulse:00000000 g_high_fre_pulse
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1079   .bss.G_hall_ture_value:00000000 G_hall_ture_value
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1103   .bss.tmp_hall_ture_value:00000000 tmp_hall_ture_value
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1091   .bss.last_hall_ture_value:00000000 last_hall_ture_value
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1115   .data.hall_ture_value:00000000 hall_ture_value
                             *COM*:00000004 hall_c
                             *COM*:00000004 hall_b
                             *COM*:00000004 hall_a
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1099   .bss.cnt:00000000 cnt
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1135   .data.hall_value:00000000 hall_value
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1111   .bss.sample_invered:00000000 sample_invered
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1090   .bss.G_hall_ture_value:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1096   .bss.cnt:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1102   .bss.last_hall_ture_value:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1108   .bss.sample_invered:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1114   .bss.tmp_hall_ture_value:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1120   .data.g_high_fre_pulse:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1126   .data.hall_ture_value:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s:1132   .data.hall_value:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1085   .bss.cnt:00000000 cnt
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1121   .data.hall_value:00000000 hall_value
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1097   .bss.sample_invered:00000000 sample_invered
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1076   .bss.G_hall_ture_value:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1082   .bss.cnt:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1088   .bss.last_hall_ture_value:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1094   .bss.sample_invered:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1100   .bss.tmp_hall_ture_value:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1106   .data.g_high_fre_pulse:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1112   .data.hall_ture_value:00000000 $d
+C:\Users\82057\AppData\Local\Temp\cceBErjc.s:1118   .data.hall_value:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_NVIC_SetPriority
 HAL_NVIC_EnableIRQ
 memset
 HAL_TIM_Base_Init
+Error_Handler
 HAL_TIM_ConfigClockSource
 HAL_TIM_PWM_Init
 HAL_TIM_OC_Init
@@ -1720,23 +1748,22 @@ HAL_TIM_PWM_ConfigChannel
 HAL_TIM_OC_ConfigChannel
 HAL_TIMEx_ConfigBreakDeadTime
 HAL_TIM_MspPostInit
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cceBErjc.s 			page 31
+
+
 HAL_TIM_PWM_Start
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cclQ1Gvc.s 			page 30
-
-
 HAL_TIMEx_PWMN_Start
 HAL_ADCEx_InjectedStart_IT
-Error_Handler
 hadc1
 g_CmdMap
 g_bEnableHB
 Math_Sin_EN360
 Q15_MUL
-EN_360
 EN_60
+EN_360
+g_Sector_test
 EN_120
 EN_180
 EN_240
 EN_300
-g_Sector_test
 g_ElectricAngle

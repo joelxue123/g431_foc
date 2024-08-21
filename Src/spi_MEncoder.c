@@ -16,7 +16,8 @@ volatile s32 tim4_cnt = 0;
 
 TIM_HandleTypeDef htim2;
 
-
+float sincos_sample_s_ = 0.0f;
+float sincos_sample_c_ = 0.0f;
 
 extern DMA_HandleTypeDef hdma_spi1_rx;
 
@@ -110,7 +111,7 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  //  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     /* SPI1 DMA Init */
     /* SPI1_RX Init */
@@ -514,7 +515,7 @@ void GetElectricAngle(void)//50us ִ������
 {		
 		static s32 count1 = 0;
 		s32 inc__MechanicsAngle_15bit = 0;
-		g_MechanicsAngle_15bit = SPI3->DR>>1;
+		g_MechanicsAngle_15bit = (32768.f*(*motor_.phase_)/(2*M_PI));
 		if(SPI3->DR == 0xFFFF)
 		{
 			if(count1<50000)
@@ -548,14 +549,14 @@ void GetElectricAngle(void)//50us ִ������
 			g_CmdMap[CMD_ERROR] |= ERROR_MASK_ENCODER_FAULT;
 		}
 		g_ElectricAngle_15bit_Raw = g_MechanicsAngle_15bit% EN_360;
-		g_ElectricAngle_act = (g_MechanicsAngle_15bit + g_Encode_offset_EN)% EN_360;
+		g_ElectricAngle_act = (g_MechanicsAngle_15bit )% EN_360;
 		if(g_CmdMap[SYS_MOT_TEST] == 0)
 		{										
 			g_ElectricAngle = g_ElectricAngle_act;
 		}
 		else if(g_CmdMap[SYS_MOT_TEST] == 5)
 		{
-			g_ElectricAngle = (s16)(32768.f*motor_.phase_/(2*M_PI));
+			g_ElectricAngle = (s16)(32768.f*(*motor_.phase_)/(2*M_PI));
 		}
 		else
 		{
@@ -621,7 +622,7 @@ void sim_ElectricAngle(void)
 		if(g_CmdMap[SYS_MOT_TEST] == 1)//ģ�������ת��Ƕ�
 		{
 					cnt_temp = cnt_temp + 1;//1;
-					g_ElectricAngle_sim = cnt_temp*EN_360/50000;//2s һȦ����ת�ٶ�
+					g_ElectricAngle_sim = cnt_temp*EN_360/10000;//2s һȦ����ת�ٶ�
 					if(g_ElectricAngle_sim>EN_360)
 					{
 						cnt_temp = 0;
@@ -723,8 +724,6 @@ void Encode_Single_to_Multi_R(u8 flag_reverse,u8 flag_cycle,s32 single_value_raw
 	}
 	*p_multi_value = *p_multi_value%mod_multi;
 }
-
-
 
 
 

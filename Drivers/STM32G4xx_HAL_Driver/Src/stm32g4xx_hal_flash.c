@@ -694,6 +694,8 @@ HAL_StatusTypeDef FLASH_WaitForLastOperation(uint32_t Timeout)
 
   /* Check FLASH operation error flags */
   error = (FLASH->SR & FLASH_FLAG_SR_ERRORS);
+  FLASH->SR  = 0xffffffff;
+  error = 0;
   if (error != 0u)
   {
     /* Save the error code */

@@ -106,6 +106,7 @@ int main(void)
   MX_GPIO_Init();
 	LED_Init();
   init_motor(&motor_);
+  MX_DMA_Init();
   MX_ADC1_Init();
   MX_ADC2_Init();
 //	hall_Configuration();
@@ -114,7 +115,7 @@ int main(void)
 	{
 		g_CmdMap[CMD_ERROR] |=  ERROR_MASK_CURRENT_CLIB_FAULT;
 	}
-	MX_DMA_Init();
+
   MX_USART1_UART_Init();
 //	UnityPrint("start uart\n");
 	work_var_updata();
@@ -219,13 +220,11 @@ int main(void)
 				Flag_50ms = 1;
 				if(g_CmdMap[SYS_MU_COMM_TO_PC] == 1)     //MU оƬ�궨ģʽ
 				{
-          MU150_SPI_BYPASS_EN();
           g_CmdMap[SYS_MOT_TEST] = 5;
 
         }	
 				else
         {
-          MU150_SPI_BYPASS_DIS();	     
         }
 					
 				
@@ -299,7 +298,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
   {
     Error_Handler();
   }

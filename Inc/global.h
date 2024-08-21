@@ -191,7 +191,7 @@
 
 
 //�ڴ���Ʊ��궨��
-#define CMDMAP_INDLEN		  									(32) 		//�ڴ���Ʊ���������
+#define CMDMAP_INDLEN		  									(34) 		//�ڴ���Ʊ���������
 #define CMDMAP_SUBLEN		 										16 		//�ڴ���Ʊ���������
 #define CMDMAP_LEN			  									(CMDMAP_INDLEN*CMDMAP_SUBLEN)            //�ڴ���Ʊ��ܳ��ȣ����ֵ�λ��
 #define USERCMDMAP_INDLEN		  							16 		//�ڴ���Ʊ���������
@@ -570,7 +570,7 @@ extern s16 s_count_50ms;
 extern s16 s_count_5ms;
 extern s16 s_count_1ms;
 extern u8 Flag_1ms;
-extern u8 Flag_50ms;
+extern u16 Flag_50ms;
 
 // �����궨����
 extern s32	g_ZeroCur_MotorA;    // ��������궨ֵ

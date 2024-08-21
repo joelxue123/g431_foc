@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"limit_pos_detection.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 1
   29:Src/limit_pos_detection.c **** 	#define MIN_CUR_LOWER_LIMIT_PU  (-60*16384/100)
   30:Src/limit_pos_detection.c **** 	#define MAX_CUR_LOWER_LIMIT_PU   (-5*16384/100)
   31:Src/limit_pos_detection.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 2
 
 
   32:Src/limit_pos_detection.c **** 
@@ -69,134 +69,140 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 1
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              	.LVL0:
-  33 0000 38B5     		push	{r3, r4, r5, lr}
+  33 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
   34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 16
-  36              		.cfi_offset 3, -16
-  37              		.cfi_offset 4, -12
-  38              		.cfi_offset 5, -8
-  39              		.cfi_offset 14, -4
-  40              	.LVL1:
+  35              		.cfi_def_cfa_offset 32
+  36              		.cfi_offset 4, -32
+  37              		.cfi_offset 5, -28
+  38              		.cfi_offset 6, -24
+  39              		.cfi_offset 7, -20
+  40              		.cfi_offset 8, -16
+  41              		.cfi_offset 9, -12
+  42              		.cfi_offset 10, -8
+  43              		.cfi_offset 14, -4
   35:Src/limit_pos_detection.c **** 	s16 i=0;
   36:Src/limit_pos_detection.c **** 	static int time_after_power_on = 0;
   37:Src/limit_pos_detection.c **** 	static int repeat_cnt =0;
   38:Src/limit_pos_detection.c **** 	
   39:Src/limit_pos_detection.c **** /***********增加标志位******/		
   40:Src/limit_pos_detection.c **** 	if(g_reachUpperLimit == 1)
-  41              		.loc 1 40 0
-  42 0002 744B     		ldr	r3, .L35
-  43 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  44 0006 DBB2     		uxtb	r3, r3
-  45 0008 012B     		cmp	r3, #1
-  46 000a 38D0     		beq	.L29
+  44              		.loc 1 40 0
+  45 0004 2E4E     		ldr	r6, .L38
+  46 0006 2F4C     		ldr	r4, .L38+4
+  47 0008 3378     		ldrb	r3, [r6]	@ zero_extendqisi2
   41:Src/limit_pos_detection.c **** 	{
   42:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_STATE_WORD] = g_CmdMap[CMD_STATE_WORD]|(0x0001<<6);
   43:Src/limit_pos_detection.c **** 	}
   44:Src/limit_pos_detection.c **** 	else
   45:Src/limit_pos_detection.c **** 	{
   46:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_STATE_WORD] = g_CmdMap[CMD_STATE_WORD]&(~(0x0001<<6));
-  47              		.loc 1 46 0
-  48 000c 724A     		ldr	r2, .L35+4
-  49 000e 938D     		ldrh	r3, [r2, #44]
-  50 0010 1BB2     		sxth	r3, r3
-  51 0012 23F04003 		bic	r3, r3, #64
-  52 0016 9385     		strh	r3, [r2, #44]	@ movhi
-  53              	.L3:
   47:Src/limit_pos_detection.c **** 	}
   48:Src/limit_pos_detection.c **** 	
   49:Src/limit_pos_detection.c **** 	if(g_reachLowerLimit == 1)
-  54              		.loc 1 49 0
-  55 0018 704B     		ldr	r3, .L35+8
-  56 001a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  57 001c DBB2     		uxtb	r3, r3
-  58 001e 012B     		cmp	r3, #1
-  59 0020 34D0     		beq	.L30
+  48              		.loc 1 49 0
+  49 000a 2F4D     		ldr	r5, .L38+8
+  40:Src/limit_pos_detection.c **** 	{
+  50              		.loc 1 40 0
+  51 000c 012B     		cmp	r3, #1
+  42:Src/limit_pos_detection.c **** 	}
+  52              		.loc 1 42 0
+  53 000e A38D     		ldrh	r3, [r4, #44]
+  54 0010 1BB2     		sxth	r3, r3
+  55 0012 0CBF     		ite	eq
+  56 0014 43F04003 		orreq	r3, r3, #64
+  46:Src/limit_pos_detection.c **** 	}
+  57              		.loc 1 46 0
+  58 0018 23F04003 		bicne	r3, r3, #64
+  59 001c A385     		strh	r3, [r4, #44]	@ movhi
+  60              		.loc 1 49 0
+  61 001e 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+  62 0020 012B     		cmp	r3, #1
   50:Src/limit_pos_detection.c **** 	{
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 3
+
+
   51:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_STATE_WORD] = g_CmdMap[CMD_STATE_WORD]|(0x0001<<7);
+  63              		.loc 1 51 0
+  64 0022 A38D     		ldrh	r3, [r4, #44]
+  65 0024 1BB2     		sxth	r3, r3
+  66 0026 0CBF     		ite	eq
+  67 0028 43F08003 		orreq	r3, r3, #128
   52:Src/limit_pos_detection.c **** 	}
   53:Src/limit_pos_detection.c **** 	else
   54:Src/limit_pos_detection.c **** 	{
   55:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_STATE_WORD] = g_CmdMap[CMD_STATE_WORD]&(~(0x0001<<7));
-  60              		.loc 1 55 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 3
-
-
-  61 0022 6D4A     		ldr	r2, .L35+4
-  62 0024 938D     		ldrh	r3, [r2, #44]
-  63 0026 1BB2     		sxth	r3, r3
-  64 0028 23F08003 		bic	r3, r3, #128
-  65 002c 9385     		strh	r3, [r2, #44]	@ movhi
-  66              	.L5:
+  68              		.loc 1 55 0
+  69 002c 23F08003 		bicne	r3, r3, #128
+  70 0030 A385     		strh	r3, [r4, #44]	@ movhi
   56:Src/limit_pos_detection.c **** 	}
   57:Src/limit_pos_detection.c **** 	
   58:Src/limit_pos_detection.c **** 	if(( g_CmdMap[CMD_ERROR] & 0x0fff ) )
-  67              		.loc 1 58 0
-  68 002e 6A4B     		ldr	r3, .L35+4
-  69 0030 B3F85430 		ldrh	r3, [r3, #84]
-  70 0034 C3F30B03 		ubfx	r3, r3, #0, #12
-  71 0038 002B     		cmp	r3, #0
-  72 003a 2ED0     		beq	.L6
+  71              		.loc 1 58 0
+  72 0032 B4F85430 		ldrh	r3, [r4, #84]
+  73 0036 C3F30B03 		ubfx	r3, r3, #0, #12
+  34:Src/limit_pos_detection.c **** 	s16 i=0;
+  74              		.loc 1 34 0
+  75 003a 8046     		mov	r8, r0
+  76 003c 0F46     		mov	r7, r1
+  77              		.loc 1 58 0
+  78 003e EBB1     		cbz	r3, .L6
   59:Src/limit_pos_detection.c **** 	{
   60:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_STATE_WORD] |= FAULT;
-  73              		.loc 1 60 0
-  74 003c 664A     		ldr	r2, .L35+4
-  75 003e 938D     		ldrh	r3, [r2, #44]
-  76 0040 1BB2     		sxth	r3, r3
-  77 0042 43F00203 		orr	r3, r3, #2
-  78 0046 9385     		strh	r3, [r2, #44]	@ movhi
-  79              	.L7:
+  79              		.loc 1 60 0
+  80 0040 A38D     		ldrh	r3, [r4, #44]
+  81 0042 1BB2     		sxth	r3, r3
+  82 0044 43F00203 		orr	r3, r3, #2
+  83              	.L33:
   61:Src/limit_pos_detection.c **** 	}
   62:Src/limit_pos_detection.c **** 	else
   63:Src/limit_pos_detection.c **** 	{
   64:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_STATE_WORD] &= (~FAULT);
+  84              		.loc 1 64 0
+  85 0048 A385     		strh	r3, [r4, #44]	@ movhi
   65:Src/limit_pos_detection.c **** 	}
   66:Src/limit_pos_detection.c **** 	
   67:Src/limit_pos_detection.c **** 	if(( g_CmdMap[CMD_ERROR] & 0xf000) )
-  80              		.loc 1 67 0
-  81 0048 634B     		ldr	r3, .L35+4
-  82 004a B3F85430 		ldrh	r3, [r3, #84]
-  83 004e 13F4704F 		tst	r3, #61440
-  84 0052 29D0     		beq	.L8
+  86              		.loc 1 67 0
+  87 004a B4F85430 		ldrh	r3, [r4, #84]
+  88 004e 13F4704F 		tst	r3, #61440
   68:Src/limit_pos_detection.c **** 	{
   69:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_STATE_WORD] |= ALERT;
-  85              		.loc 1 69 0
-  86 0054 604A     		ldr	r2, .L35+4
-  87 0056 938D     		ldrh	r3, [r2, #44]
-  88 0058 1BB2     		sxth	r3, r3
-  89 005a 43F00103 		orr	r3, r3, #1
-  90 005e 9385     		strh	r3, [r2, #44]	@ movhi
-  91              	.L9:
+  89              		.loc 1 69 0
+  90 0052 A38D     		ldrh	r3, [r4, #44]
+  91 0054 1BB2     		sxth	r3, r3
+  92 0056 14BF     		ite	ne
+  93 0058 43F00103 		orrne	r3, r3, #1
   70:Src/limit_pos_detection.c **** 	}
   71:Src/limit_pos_detection.c **** 	else
   72:Src/limit_pos_detection.c **** 	{
   73:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_STATE_WORD] &= (~ALERT);
+  94              		.loc 1 73 0
+  95 005c 23F00103 		biceq	r3, r3, #1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 4
+
+
+  96 0060 A385     		strh	r3, [r4, #44]	@ movhi
   74:Src/limit_pos_detection.c **** 	}
   75:Src/limit_pos_detection.c **** 	
   76:Src/limit_pos_detection.c **** 	if(g_CmdMap[TAG_MOTOR_ENABLE] == 0) 				
-  92              		.loc 1 76 0
-  93 0060 5D4B     		ldr	r3, .L35+4
-  94 0062 B3F80232 		ldrh	r3, [r3, #514]
-  95 0066 1BB2     		sxth	r3, r3
-  96 0068 2BBB     		cbnz	r3, .L10
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 4
-
-
+  97              		.loc 1 76 0
+  98 0062 B4F80222 		ldrh	r2, [r4, #514]
+  99 0066 12B2     		sxth	r2, r2
+ 100 0068 6AB9     		cbnz	r2, .L10
   77:Src/limit_pos_detection.c **** 	{
   78:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_STATE_WORD] &=  (~RUNNNING);
-  97              		.loc 1 78 0
-  98 006a 5B4A     		ldr	r2, .L35+4
-  99 006c 938D     		ldrh	r3, [r2, #44]
- 100 006e 1BB2     		sxth	r3, r3
- 101 0070 23F00403 		bic	r3, r3, #4
- 102 0074 9385     		strh	r3, [r2, #44]	@ movhi
+ 101              		.loc 1 78 0
+ 102 006a A38D     		ldrh	r3, [r4, #44]
+ 103 006c 1BB2     		sxth	r3, r3
+ 104 006e 23F00403 		bic	r3, r3, #4
+ 105 0072 A385     		strh	r3, [r4, #44]	@ movhi
   79:Src/limit_pos_detection.c **** 		
   80:Src/limit_pos_detection.c **** 		time_after_power_on = 0;
- 103              		.loc 1 80 0
- 104 0076 5A4B     		ldr	r3, .L35+12
- 105 0078 0022     		movs	r2, #0
- 106 007a 1A60     		str	r2, [r3]
- 107              	.LVL2:
- 108              	.L1:
+ 106              		.loc 1 80 0
+ 107 0074 154B     		ldr	r3, .L38+12
+ 108 0076 1A60     		str	r2, [r3]
+ 109              	.LVL1:
+ 110              	.L1:
   81:Src/limit_pos_detection.c **** 		return;
   82:Src/limit_pos_detection.c **** 	}
   83:Src/limit_pos_detection.c **** 	
@@ -232,15 +238,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 1
  113:Src/limit_pos_detection.c **** 	}
  114:Src/limit_pos_detection.c **** 	/****使能开始后延时 100ms 再启动找极限功能*****/	
  115:Src/limit_pos_detection.c **** 	
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 5
+
+
  116:Src/limit_pos_detection.c **** 	
  117:Src/limit_pos_detection.c **** 	/******找极限代码*******/
  118:Src/limit_pos_detection.c **** 	
  119:Src/limit_pos_detection.c **** 	/*******每10ms才允许执行一次********/
  120:Src/limit_pos_detection.c **** 	if( ++repeat_cnt < 10)
  121:Src/limit_pos_detection.c **** 	{
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 5
-
-
  122:Src/limit_pos_detection.c **** 		return;
  123:Src/limit_pos_detection.c **** 	}	
  124:Src/limit_pos_detection.c **** 	repeat_cnt = 0;
@@ -292,15 +298,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 1
  170:Src/limit_pos_detection.c **** 	
  171:Src/limit_pos_detection.c **** 	if(g_current_array[0]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
  172:Src/limit_pos_detection.c **** 		&&g_current_array[1]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 6
+
+
  173:Src/limit_pos_detection.c **** 		&&g_current_array[2]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
  174:Src/limit_pos_detection.c **** 		&&g_current_array[3]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
  175:Src/limit_pos_detection.c **** 		&&g_current_array[4]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
  176:Src/limit_pos_detection.c **** 		&&g_current_array[5]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
  177:Src/limit_pos_detection.c **** 		&&g_current_array[6]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
  178:Src/limit_pos_detection.c **** 		&&g_current_array[7]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 6
-
-
  179:Src/limit_pos_detection.c **** 		&&g_posNotChange == 1
  180:Src/limit_pos_detection.c **** 		&&g_CmdMap[TAG_MOTOR_ENABLE] == 1
  181:Src/limit_pos_detection.c **** 	)
@@ -341,746 +347,624 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 1
  216:Src/limit_pos_detection.c **** 
  217:Src/limit_pos_detection.c **** 	
  218:Src/limit_pos_detection.c **** }
- 109              		.loc 1 218 0
- 110 007c 38BD     		pop	{r3, r4, r5, pc}
- 111              	.LVL3:
- 112              	.L29:
-  42:Src/limit_pos_detection.c **** 	}
- 113              		.loc 1 42 0
- 114 007e 564A     		ldr	r2, .L35+4
- 115 0080 938D     		ldrh	r3, [r2, #44]
- 116 0082 1BB2     		sxth	r3, r3
- 117 0084 43F04003 		orr	r3, r3, #64
- 118 0088 9385     		strh	r3, [r2, #44]	@ movhi
- 119 008a C5E7     		b	.L3
- 120              	.L30:
-  51:Src/limit_pos_detection.c **** 	}
- 121              		.loc 1 51 0
- 122 008c 524A     		ldr	r2, .L35+4
- 123 008e 938D     		ldrh	r3, [r2, #44]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 7
-
-
- 124 0090 1BB2     		sxth	r3, r3
- 125 0092 43F08003 		orr	r3, r3, #128
- 126 0096 9385     		strh	r3, [r2, #44]	@ movhi
- 127 0098 C9E7     		b	.L5
- 128              	.L6:
+ 111              		.loc 1 218 0
+ 112 0078 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 113              	.LVL2:
+ 114              	.L6:
   64:Src/limit_pos_detection.c **** 	}
- 129              		.loc 1 64 0
- 130 009a 4F4A     		ldr	r2, .L35+4
- 131 009c 938D     		ldrh	r3, [r2, #44]
- 132 009e 1BB2     		sxth	r3, r3
- 133 00a0 23F00203 		bic	r3, r3, #2
- 134 00a4 9385     		strh	r3, [r2, #44]	@ movhi
- 135 00a6 CFE7     		b	.L7
- 136              	.L8:
-  73:Src/limit_pos_detection.c **** 	}
- 137              		.loc 1 73 0
- 138 00a8 4B4A     		ldr	r2, .L35+4
- 139 00aa 938D     		ldrh	r3, [r2, #44]
- 140 00ac 1BB2     		sxth	r3, r3
- 141 00ae 23F00103 		bic	r3, r3, #1
- 142 00b2 9385     		strh	r3, [r2, #44]	@ movhi
- 143 00b4 D4E7     		b	.L9
- 144              	.L10:
- 145 00b6 0C46     		mov	r4, r1
- 146 00b8 0546     		mov	r5, r0
+ 115              		.loc 1 64 0
+ 116 007c A38D     		ldrh	r3, [r4, #44]
+ 117 007e 1BB2     		sxth	r3, r3
+ 118 0080 23F00203 		bic	r3, r3, #2
+ 119 0084 E0E7     		b	.L33
+ 120              	.L10:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 7
+
+
   84:Src/limit_pos_detection.c **** 	{
- 147              		.loc 1 84 0
- 148 00ba 474B     		ldr	r3, .L35+4
- 149 00bc B3F84800 		ldrh	r0, [r3, #72]
- 150              	.LVL4:
- 151 00c0 B3F84C10 		ldrh	r1, [r3, #76]
- 152              	.LVL5:
- 153 00c4 09B2     		sxth	r1, r1
- 154 00c6 00B2     		sxth	r0, r0
- 155 00c8 FFF7FEFF 		bl	target_position_arrived
- 156              	.LVL6:
- 157 00cc E0B9     		cbnz	r0, .L12
+ 121              		.loc 1 84 0
+ 122 0086 B4F84800 		ldrh	r0, [r4, #72]
+ 123              	.LVL3:
+ 124 008a B4F84C10 		ldrh	r1, [r4, #76]
+ 125              	.LVL4:
+ 126 008e 00B2     		sxth	r0, r0
+ 127 0090 09B2     		sxth	r1, r1
+ 128 0092 FFF7FEFF 		bl	target_position_arrived
+ 129              	.LVL5:
   86:Src/limit_pos_detection.c **** 	}
- 158              		.loc 1 86 0
- 159 00ce 424A     		ldr	r2, .L35+4
- 160 00d0 938D     		ldrh	r3, [r2, #44]
- 161 00d2 1BB2     		sxth	r3, r3
- 162 00d4 23F00403 		bic	r3, r3, #4
- 163 00d8 9385     		strh	r3, [r2, #44]	@ movhi
- 164              	.L13:
-  97:Src/limit_pos_detection.c **** 	{
- 165              		.loc 1 97 0
- 166 00da 3F4B     		ldr	r3, .L35+4
- 167 00dc 5B8E     		ldrh	r3, [r3, #50]
- 168 00de 1BB2     		sxth	r3, r3
- 169 00e0 012B     		cmp	r3, #1
- 170 00e2 CBD1     		bne	.L1
- 104:Src/limit_pos_detection.c **** 	
- 171              		.loc 1 104 0
- 172 00e4 3E4A     		ldr	r2, .L35+12
- 173 00e6 1368     		ldr	r3, [r2]
- 174 00e8 0133     		adds	r3, r3, #1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 8
-
-
- 175 00ea 1360     		str	r3, [r2]
- 106:Src/limit_pos_detection.c **** 	{
- 176              		.loc 1 106 0
- 177 00ec 632B     		cmp	r3, #99
- 178 00ee C5DD     		ble	.L1
- 112:Src/limit_pos_detection.c **** 	}
- 179              		.loc 1 112 0
- 180 00f0 1346     		mov	r3, r2
- 181 00f2 6522     		movs	r2, #101
- 182 00f4 1A60     		str	r2, [r3]
- 120:Src/limit_pos_detection.c **** 	{
- 183              		.loc 1 120 0
- 184 00f6 3B4A     		ldr	r2, .L35+16
- 185 00f8 1368     		ldr	r3, [r2]
- 186 00fa 0133     		adds	r3, r3, #1
- 187 00fc 1360     		str	r3, [r2]
- 188 00fe 092B     		cmp	r3, #9
- 189 0100 BCDD     		ble	.L1
- 124:Src/limit_pos_detection.c **** 	
- 190              		.loc 1 124 0
- 191 0102 0023     		movs	r3, #0
- 192 0104 1360     		str	r3, [r2]
- 126:Src/limit_pos_detection.c **** 	{
- 193              		.loc 1 126 0
- 194 0106 13E0     		b	.L14
- 195              	.L12:
+ 130              		.loc 1 86 0
+ 131 0096 A38D     		ldrh	r3, [r4, #44]
+ 132 0098 1BB2     		sxth	r3, r3
+  84:Src/limit_pos_detection.c **** 	{
+ 133              		.loc 1 84 0
+ 134 009a 68B9     		cbnz	r0, .L12
+  86:Src/limit_pos_detection.c **** 	}
+ 135              		.loc 1 86 0
+ 136 009c 23F00403 		bic	r3, r3, #4
+ 137              	.L35:
   90:Src/limit_pos_detection.c **** 	}
- 196              		.loc 1 90 0
- 197 0108 334A     		ldr	r2, .L35+4
- 198 010a 938D     		ldrh	r3, [r2, #44]
- 199 010c 1BB2     		sxth	r3, r3
- 200 010e 43F00403 		orr	r3, r3, #4
- 201 0112 9385     		strh	r3, [r2, #44]	@ movhi
- 202 0114 E1E7     		b	.L13
- 203              	.LVL7:
- 204              	.L15:
- 128:Src/limit_pos_detection.c **** 		g_current_array[i] = g_current_array[i+1];
- 205              		.loc 1 128 0 discriminator 3
- 206 0116 591C     		adds	r1, r3, #1
- 207 0118 334A     		ldr	r2, .L35+20
- 208 011a 32F81100 		ldrh	r0, [r2, r1, lsl #1]
- 209 011e 22F81300 		strh	r0, [r2, r3, lsl #1]	@ movhi
+ 138              		.loc 1 90 0
+ 139 00a0 A385     		strh	r3, [r4, #44]	@ movhi
+  97:Src/limit_pos_detection.c **** 	{
+ 140              		.loc 1 97 0
+ 141 00a2 638E     		ldrh	r3, [r4, #50]
+ 142 00a4 1BB2     		sxth	r3, r3
+ 143 00a6 012B     		cmp	r3, #1
+ 144 00a8 E6D1     		bne	.L1
+ 104:Src/limit_pos_detection.c **** 	
+ 145              		.loc 1 104 0
+ 146 00aa 084A     		ldr	r2, .L38+12
+ 147 00ac 1368     		ldr	r3, [r2]
+ 148 00ae 0133     		adds	r3, r3, #1
+ 106:Src/limit_pos_detection.c **** 	{
+ 149              		.loc 1 106 0
+ 150 00b0 632B     		cmp	r3, #99
+ 151 00b2 0DDC     		bgt	.L15
+ 152              	.L37:
+ 120:Src/limit_pos_detection.c **** 	{
+ 153              		.loc 1 120 0
+ 154 00b4 1360     		str	r3, [r2]
+ 155 00b6 DFE7     		b	.L1
+ 156              	.L12:
+  90:Src/limit_pos_detection.c **** 	}
+ 157              		.loc 1 90 0
+ 158 00b8 43F00403 		orr	r3, r3, #4
+ 159 00bc F0E7     		b	.L35
+ 160              	.L39:
+ 161 00be 00BF     		.align	2
+ 162              	.L38:
+ 163 00c0 00000000 		.word	.LANCHOR0
+ 164 00c4 00000000 		.word	g_CmdMap
+ 165 00c8 00000000 		.word	.LANCHOR1
+ 166 00cc 00000000 		.word	.LANCHOR2
+ 167              	.L15:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 8
+
+
+ 112:Src/limit_pos_detection.c **** 	}
+ 168              		.loc 1 112 0
+ 169 00d0 6523     		movs	r3, #101
+ 170 00d2 1360     		str	r3, [r2]
+ 120:Src/limit_pos_detection.c **** 	{
+ 171              		.loc 1 120 0
+ 172 00d4 854A     		ldr	r2, .L40
+ 173 00d6 1368     		ldr	r3, [r2]
+ 174 00d8 0133     		adds	r3, r3, #1
+ 175 00da 092B     		cmp	r3, #9
+ 176 00dc EADD     		ble	.L37
+ 124:Src/limit_pos_detection.c **** 	
+ 177              		.loc 1 124 0
+ 178 00de 0021     		movs	r1, #0
+ 179 00e0 1160     		str	r1, [r2]
  129:Src/limit_pos_detection.c **** 	}
- 210              		.loc 1 129 0 discriminator 3
- 211 0122 324A     		ldr	r2, .L35+24
- 212 0124 32F81110 		ldrh	r1, [r2, r1, lsl #1]
- 213 0128 22F81310 		strh	r1, [r2, r3, lsl #1]	@ movhi
+ 180              		.loc 1 129 0
+ 181 00e2 8348     		ldr	r0, .L40+4
+ 128:Src/limit_pos_detection.c **** 		g_current_array[i] = g_current_array[i+1];
+ 182              		.loc 1 128 0
+ 183 00e4 834A     		ldr	r2, .L40+8
+ 184 00e6 0346     		mov	r3, r0
+ 185 00e8 9446     		mov	ip, r2
+ 186              	.LVL6:
+ 187              	.L18:
+ 128:Src/limit_pos_detection.c **** 		g_current_array[i] = g_current_array[i+1];
+ 188              		.loc 1 128 0 is_stmt 0 discriminator 3
+ 189 00ea 8E46     		mov	lr, r1
+ 190 00ec 0131     		adds	r1, r1, #1
+ 191              	.LVL7:
  126:Src/limit_pos_detection.c **** 	{
- 214              		.loc 1 126 0 discriminator 3
- 215 012c 0133     		adds	r3, r3, #1
- 216              	.LVL8:
- 217 012e 1BB2     		sxth	r3, r3
- 218              	.LVL9:
- 219              	.L14:
+ 192              		.loc 1 126 0 is_stmt 1 discriminator 3
+ 193 00ee 0729     		cmp	r1, #7
+ 128:Src/limit_pos_detection.c **** 		g_current_array[i] = g_current_array[i+1];
+ 194              		.loc 1 128 0 discriminator 3
+ 195 00f0 32F81190 		ldrh	r9, [r2, r1, lsl #1]
+ 196 00f4 22F81E90 		strh	r9, [r2, lr, lsl #1]	@ movhi
+ 129:Src/limit_pos_detection.c **** 	}
+ 197              		.loc 1 129 0 discriminator 3
+ 198 00f8 30F81190 		ldrh	r9, [r0, r1, lsl #1]
+ 199 00fc 20F81E90 		strh	r9, [r0, lr, lsl #1]	@ movhi
+ 200              	.LVL8:
  126:Src/limit_pos_detection.c **** 	{
- 220              		.loc 1 126 0 is_stmt 0 discriminator 1
- 221 0130 062B     		cmp	r3, #6
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 9
-
-
- 222 0132 F0DD     		ble	.L15
+ 201              		.loc 1 126 0 discriminator 3
+ 202 0100 F3D1     		bne	.L18
  131:Src/limit_pos_detection.c **** 	g_current_array[7] = current_set;
- 223              		.loc 1 131 0 is_stmt 1
- 224 0134 2C4B     		ldr	r3, .L35+20
- 225              	.LVL10:
- 226 0136 DD81     		strh	r5, [r3, #14]	@ movhi
+ 203              		.loc 1 131 0
+ 204 0102 A2F80E80 		strh	r8, [r2, #14]	@ movhi
  132:Src/limit_pos_detection.c **** 	g_pos_act_average = (g_pos_act_array[0]+g_pos_act_array[1]+g_pos_act_array[2]+g_pos_act_array[3]
- 227              		.loc 1 132 0
- 228 0138 2C4A     		ldr	r2, .L35+24
- 229 013a D481     		strh	r4, [r2, #14]	@ movhi
+ 205              		.loc 1 132 0
+ 206 0106 C781     		strh	r7, [r0, #14]	@ movhi
+ 133:Src/limit_pos_detection.c **** 										+g_pos_act_array[4]+g_pos_act_array[5]+g_pos_act_array[6]+g_pos_act_array[7])/8;
+ 207              		.loc 1 133 0
+ 208 0108 B2F80090 		ldrh	r9, [r2]
+ 209 010c B2F802A0 		ldrh	r10, [r2, #2]
+ 210 0110 B2F80480 		ldrh	r8, [r2, #4]
+ 211 0114 B2F806E0 		ldrh	lr, [r2, #6]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 9
+
+
+ 134:Src/limit_pos_detection.c **** 	g_posNotChange = 1;
+ 212              		.loc 1 134 0
+ 213 0118 1789     		ldrh	r7, [r2, #8]
+ 214 011a 5089     		ldrh	r0, [r2, #10]
+ 215 011c 9189     		ldrh	r1, [r2, #12]
+ 216              	.LVL9:
+ 217 011e D289     		ldrh	r2, [r2, #14]
+ 133:Src/limit_pos_detection.c **** 										+g_pos_act_array[4]+g_pos_act_array[5]+g_pos_act_array[6]+g_pos_act_array[7])/8;
+ 218              		.loc 1 133 0
+ 219 0120 0FFA8AFA 		sxth	r10, r10
+ 220 0124 0AFA89F9 		sxtah	r9, r10, r9
+ 221 0128 09FA88F8 		sxtah	r8, r9, r8
+ 222 012c 08FA8EFE 		sxtah	lr, r8, lr
+ 134:Src/limit_pos_detection.c **** 	g_posNotChange = 1;
+ 223              		.loc 1 134 0
+ 224 0130 0EFA87F7 		sxtah	r7, lr, r7
+ 225 0134 07FA80F0 		sxtah	r0, r7, r0
+ 226 0138 00FA81F1 		sxtah	r1, r0, r1
+ 227 013c 01FA82F2 		sxtah	r2, r1, r2
+ 228 0140 0821     		movs	r1, #8
+ 229 0142 92FBF1F2 		sdiv	r2, r2, r1
  133:Src/limit_pos_detection.c **** 										+g_pos_act_array[4]+g_pos_act_array[5]+g_pos_act_array[6]+g_pos_act_array[7])/8;
  230              		.loc 1 133 0
- 231 013c 1A88     		ldrh	r2, [r3]
- 232 013e 5988     		ldrh	r1, [r3, #2]
- 233 0140 09B2     		sxth	r1, r1
- 234 0142 01FA82F1 		sxtah	r1, r1, r2
- 235 0146 9A88     		ldrh	r2, [r3, #4]
- 236 0148 01FA82F2 		sxtah	r2, r1, r2
- 237 014c D988     		ldrh	r1, [r3, #6]
- 238 014e 02FA81F2 		sxtah	r2, r2, r1
- 134:Src/limit_pos_detection.c **** 	g_posNotChange = 1;
- 239              		.loc 1 134 0
- 240 0152 1989     		ldrh	r1, [r3, #8]
- 241 0154 02FA81F1 		sxtah	r1, r2, r1
- 242 0158 5A89     		ldrh	r2, [r3, #10]
- 243 015a 01FA82F1 		sxtah	r1, r1, r2
- 244 015e 9A89     		ldrh	r2, [r3, #12]
- 245 0160 01FA82F2 		sxtah	r2, r1, r2
- 246 0164 DB89     		ldrh	r3, [r3, #14]
- 247 0166 02FA83F3 		sxtah	r3, r2, r3
- 248 016a 002B     		cmp	r3, #0
- 249 016c 08DB     		blt	.L31
- 250              	.L16:
- 133:Src/limit_pos_detection.c **** 										+g_pos_act_array[4]+g_pos_act_array[5]+g_pos_act_array[6]+g_pos_act_array[7])/8;
- 251              		.loc 1 133 0
- 252 016e 43F3CF03 		sbfx	r3, r3, #3, #16
- 253 0172 1F4A     		ldr	r2, .L35+28
- 254 0174 1380     		strh	r3, [r2]	@ movhi
+ 231 0146 6C49     		ldr	r1, .L40+12
  135:Src/limit_pos_detection.c **** 	for(i=0;i<8;i++)
- 255              		.loc 1 135 0
- 256 0176 1F4B     		ldr	r3, .L35+32
- 257 0178 0122     		movs	r2, #1
- 258 017a 1A70     		strb	r2, [r3]
- 259              	.LVL11:
- 136:Src/limit_pos_detection.c **** 	{
- 260              		.loc 1 136 0
- 261 017c 0022     		movs	r2, #0
- 262 017e 10E0     		b	.L17
- 263              	.LVL12:
- 264              	.L31:
- 134:Src/limit_pos_detection.c **** 	g_posNotChange = 1;
- 265              		.loc 1 134 0
- 266 0180 0733     		adds	r3, r3, #7
- 267 0182 F4E7     		b	.L16
- 268              	.LVL13:
- 269              	.L33:
+ 232              		.loc 1 135 0
+ 233 0148 6C48     		ldr	r0, .L40+16
+ 133:Src/limit_pos_detection.c **** 										+g_pos_act_array[4]+g_pos_act_array[5]+g_pos_act_array[6]+g_pos_act_array[7])/8;
+ 234              		.loc 1 133 0
+ 235 014a 12B2     		sxth	r2, r2
+ 236 014c 0A80     		strh	r2, [r1]	@ movhi
+ 135:Src/limit_pos_detection.c **** 	for(i=0;i<8;i++)
+ 237              		.loc 1 135 0
+ 238 014e 0122     		movs	r2, #1
+ 239 0150 0270     		strb	r2, [r0]
+ 240              	.LVL10:
+ 241 0152 0027     		movs	r7, #0
+ 242              	.LVL11:
+ 243              	.L23:
  138:Src/limit_pos_detection.c **** 		{
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 10
+ 244              		.loc 1 138 0
+ 245 0154 0A88     		ldrh	r2, [r1]
+ 246 0156 3CF817E0 		ldrh	lr, [ip, r7, lsl #1]
+ 247 015a 12B2     		sxth	r2, r2
+ 248 015c 0FFA8EFE 		sxth	lr, lr
+ 249 0160 A2EB0E02 		sub	r2, r2, lr
+ 250 0164 002A     		cmp	r2, #0
+ 251 0166 B5BF     		itete	lt
+ 252 0168 3CF81720 		ldrhlt	r2, [ip, r7, lsl #1]
+ 253 016c 0A88     		ldrhge	r2, [r1]
+ 254 016e B1F800E0 		ldrhlt	lr, [r1]
+ 255 0172 3CF817E0 		ldrhge	lr, [ip, r7, lsl #1]
+ 256 0176 B4BF     		ite	lt
+ 257 0178 12B2     		sxthlt	r2, r2
+ 258 017a 12B2     		sxthge	r2, r2
+ 259 017c 0FFA8EFE 		sxth	lr, lr
+ 260 0180 A2EB0E02 		sub	r2, r2, lr
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 10
 
 
- 270              		.loc 1 138 0 discriminator 1
- 271 0184 184B     		ldr	r3, .L35+20
- 272 0186 33F81230 		ldrh	r3, [r3, r2, lsl #1]
- 273 018a 1BB2     		sxth	r3, r3
- 274 018c 1849     		ldr	r1, .L35+28
- 275 018e 0988     		ldrh	r1, [r1]
- 276 0190 09B2     		sxth	r1, r1
- 277 0192 5B1A     		subs	r3, r3, r1
- 278 0194 0A2B     		cmp	r3, #10
- 279 0196 D4BF     		ite	le
- 280 0198 0023     		movle	r3, #0
- 281 019a 0123     		movgt	r3, #1
- 282              	.L19:
- 138:Src/limit_pos_detection.c **** 		{
- 283              		.loc 1 138 0 is_stmt 0 discriminator 4
- 284 019c 63BB     		cbnz	r3, .L32
- 136:Src/limit_pos_detection.c **** 	{
- 285              		.loc 1 136 0 is_stmt 1 discriminator 2
- 286 019e 0132     		adds	r2, r2, #1
- 287              	.LVL14:
- 288 01a0 12B2     		sxth	r2, r2
- 289              	.LVL15:
- 290              	.L17:
- 136:Src/limit_pos_detection.c **** 	{
- 291              		.loc 1 136 0 is_stmt 0 discriminator 1
- 292 01a2 072A     		cmp	r2, #7
- 293 01a4 2BDC     		bgt	.L21
- 138:Src/limit_pos_detection.c **** 		{
- 294              		.loc 1 138 0 is_stmt 1
- 295 01a6 124B     		ldr	r3, .L35+28
- 296 01a8 1B88     		ldrh	r3, [r3]
- 297 01aa 1BB2     		sxth	r3, r3
- 298 01ac 0E49     		ldr	r1, .L35+20
- 299 01ae 31F81210 		ldrh	r1, [r1, r2, lsl #1]
- 300 01b2 09B2     		sxth	r1, r1
- 301 01b4 5B1A     		subs	r3, r3, r1
- 302 01b6 002B     		cmp	r3, #0
- 303 01b8 E4DB     		blt	.L33
- 138:Src/limit_pos_detection.c **** 		{
- 304              		.loc 1 138 0 is_stmt 0 discriminator 2
- 305 01ba 0D4B     		ldr	r3, .L35+28
- 306 01bc 1B88     		ldrh	r3, [r3]
- 307 01be 1BB2     		sxth	r3, r3
- 308 01c0 0949     		ldr	r1, .L35+20
- 309 01c2 31F81210 		ldrh	r1, [r1, r2, lsl #1]
- 310 01c6 09B2     		sxth	r1, r1
- 311 01c8 5B1A     		subs	r3, r3, r1
- 312 01ca 0A2B     		cmp	r3, #10
- 313 01cc D4BF     		ite	le
- 314 01ce 0023     		movle	r3, #0
- 315 01d0 0123     		movgt	r3, #1
- 316 01d2 E3E7     		b	.L19
- 317              	.L36:
- 318              		.align	2
- 319              	.L35:
- 320 01d4 00000000 		.word	.LANCHOR0
- 321 01d8 00000000 		.word	g_CmdMap
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 11
-
-
- 322 01dc 00000000 		.word	.LANCHOR1
- 323 01e0 00000000 		.word	.LANCHOR2
- 324 01e4 00000000 		.word	.LANCHOR3
- 325 01e8 00000000 		.word	.LANCHOR4
- 326 01ec 00000000 		.word	.LANCHOR5
- 327 01f0 00000000 		.word	.LANCHOR6
- 328 01f4 00000000 		.word	.LANCHOR7
- 329              	.L32:
+ 261 0184 0A2A     		cmp	r2, #10
+ 262 0186 D4BF     		ite	le
+ 263 0188 0022     		movle	r2, #0
+ 264 018a 0122     		movgt	r2, #1
+ 265 018c 002A     		cmp	r2, #0
+ 266 018e 00F0A780 		beq	.L21
  141:Src/limit_pos_detection.c **** 			break;
- 330              		.loc 1 141 0 is_stmt 1
- 331 01f8 6E4B     		ldr	r3, .L37
- 332 01fa 0022     		movs	r2, #0
- 333              	.LVL16:
- 334 01fc 1A70     		strb	r2, [r3]
- 335              	.L21:
+ 267              		.loc 1 141 0
+ 268 0192 0022     		movs	r2, #0
+ 269 0194 0270     		strb	r2, [r0]
+ 270              	.LVL12:
+ 271              	.L22:
  149:Src/limit_pos_detection.c **** 	{
- 336              		.loc 1 149 0
- 337 01fe 6E4B     		ldr	r3, .L37+4
- 338 0200 5B8C     		ldrh	r3, [r3, #34]
- 339 0202 1BB2     		sxth	r3, r3
- 340 0204 40F23232 		movw	r2, #818
- 341 0208 9342     		cmp	r3, r2
- 342 020a 03DC     		bgt	.L23
+ 272              		.loc 1 149 0
+ 273 0196 628C     		ldrh	r2, [r4, #34]
+ 274 0198 40F23237 		movw	r7, #818
+ 275 019c 12B2     		sxth	r2, r2
+ 276 019e BA42     		cmp	r2, r7
  151:Src/limit_pos_detection.c **** 	}
- 343              		.loc 1 151 0
- 344 020c 6A4B     		ldr	r3, .L37+4
- 345 020e 40F23332 		movw	r2, #819
- 346 0212 5A84     		strh	r2, [r3, #34]	@ movhi
- 347              	.L23:
+ 277              		.loc 1 151 0
+ 278 01a0 DCBF     		itt	le
+ 279 01a2 40F23332 		movwle	r2, #819
+ 280 01a6 6284     		strhle	r2, [r4, #34]	@ movhi
  154:Src/limit_pos_detection.c **** 	{
- 348              		.loc 1 154 0
- 349 0214 684B     		ldr	r3, .L37+4
- 350 0216 5B8C     		ldrh	r3, [r3, #34]
- 351 0218 1BB2     		sxth	r3, r3
- 352 021a 42F26662 		movw	r2, #9830
- 353 021e 9342     		cmp	r3, r2
- 354 0220 01DD     		ble	.L24
+ 281              		.loc 1 154 0
+ 282 01a8 628C     		ldrh	r2, [r4, #34]
+ 283 01aa 42F26667 		movw	r7, #9830
+ 284 01ae 12B2     		sxth	r2, r2
+ 285 01b0 BA42     		cmp	r2, r7
  156:Src/limit_pos_detection.c **** 	}
- 355              		.loc 1 156 0
- 356 0222 654B     		ldr	r3, .L37+4
- 357 0224 5A84     		strh	r2, [r3, #34]	@ movhi
- 358              	.L24:
+ 286              		.loc 1 156 0
+ 287 01b2 C8BF     		it	gt
+ 288 01b4 6784     		strhgt	r7, [r4, #34]	@ movhi
  159:Src/limit_pos_detection.c **** 	{
- 359              		.loc 1 159 0
- 360 0226 644B     		ldr	r3, .L37+4
- 361 0228 9B8C     		ldrh	r3, [r3, #36]
- 362 022a 1BB2     		sxth	r3, r3
- 363 022c 634A     		ldr	r2, .L37+8
- 364 022e 9342     		cmp	r3, r2
- 365 0230 03DA     		bge	.L25
+ 289              		.loc 1 159 0
+ 290 01b6 A28C     		ldrh	r2, [r4, #36]
+ 291 01b8 514F     		ldr	r7, .L40+20
+ 292 01ba 12B2     		sxth	r2, r2
+ 293 01bc BA42     		cmp	r2, r7
  161:Src/limit_pos_detection.c **** 	}
- 366              		.loc 1 161 0
- 367 0232 614B     		ldr	r3, .L37+4
- 368 0234 4DF69A12 		movw	r2, #55706
- 369 0238 9A84     		strh	r2, [r3, #36]	@ movhi
- 370              	.L25:
+ 294              		.loc 1 161 0
+ 295 01be BCBF     		itt	lt
+ 296 01c0 4DF69A12 		movwlt	r2, #55706
+ 297 01c4 A284     		strhlt	r2, [r4, #36]	@ movhi
  164:Src/limit_pos_detection.c **** 	{
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 12
-
-
- 371              		.loc 1 164 0
- 372 023a 5F4B     		ldr	r3, .L37+4
- 373 023c 9B8C     		ldrh	r3, [r3, #36]
- 374 023e 1BB2     		sxth	r3, r3
- 375 0240 5F4A     		ldr	r2, .L37+12
- 376 0242 9342     		cmp	r3, r2
- 377 0244 03DB     		blt	.L26
+ 298              		.loc 1 164 0
+ 299 01c6 A28C     		ldrh	r2, [r4, #36]
+ 300 01c8 4E4F     		ldr	r7, .L40+24
+ 301 01ca 12B2     		sxth	r2, r2
+ 302 01cc BA42     		cmp	r2, r7
  166:Src/limit_pos_detection.c **** 	}
- 378              		.loc 1 166 0
- 379 0246 5C4B     		ldr	r3, .L37+4
- 380 0248 4FF6CD42 		movw	r2, #64717
- 381 024c 9A84     		strh	r2, [r3, #36]	@ movhi
- 382              	.L26:
+ 303              		.loc 1 166 0
+ 304 01ce A4BF     		itt	ge
+ 305 01d0 4FF6CD42 		movwge	r2, #64717
+ 306 01d4 A284     		strhge	r2, [r4, #36]	@ movhi
  171:Src/limit_pos_detection.c **** 		&&g_current_array[1]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
- 383              		.loc 1 171 0
- 384 024e 5D4B     		ldr	r3, .L37+16
- 385 0250 1A88     		ldrh	r2, [r3]
- 386 0252 12B2     		sxth	r2, r2
- 387 0254 584B     		ldr	r3, .L37+4
- 388 0256 5B8C     		ldrh	r3, [r3, #34]
- 389 0258 1BB2     		sxth	r3, r3
- 390 025a 9A42     		cmp	r2, r3
- 391 025c 42DB     		blt	.L27
+ 307              		.loc 1 171 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 11
+
+
+ 308 01d6 1F88     		ldrh	r7, [r3]
+ 309 01d8 628C     		ldrh	r2, [r4, #34]
+ 310 01da 3FB2     		sxth	r7, r7
+ 311 01dc 12B2     		sxth	r2, r2
+ 312 01de 9742     		cmp	r7, r2
+ 313 01e0 36DB     		blt	.L28
  172:Src/limit_pos_detection.c **** 		&&g_current_array[2]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
- 392              		.loc 1 172 0
- 393 025e 594B     		ldr	r3, .L37+16
- 394 0260 5A88     		ldrh	r2, [r3, #2]
- 395 0262 12B2     		sxth	r2, r2
- 396 0264 544B     		ldr	r3, .L37+4
- 397 0266 5B8C     		ldrh	r3, [r3, #34]
- 398 0268 1BB2     		sxth	r3, r3
- 399 026a 9A42     		cmp	r2, r3
- 400 026c 3ADB     		blt	.L27
+ 314              		.loc 1 172 0
+ 315 01e2 5F88     		ldrh	r7, [r3, #2]
+ 316 01e4 628C     		ldrh	r2, [r4, #34]
+ 317 01e6 3FB2     		sxth	r7, r7
+ 318 01e8 12B2     		sxth	r2, r2
+ 319 01ea 9742     		cmp	r7, r2
+ 320 01ec 30DB     		blt	.L28
  173:Src/limit_pos_detection.c **** 		&&g_current_array[3]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
- 401              		.loc 1 173 0
- 402 026e 554B     		ldr	r3, .L37+16
- 403 0270 9A88     		ldrh	r2, [r3, #4]
- 404 0272 12B2     		sxth	r2, r2
- 405 0274 504B     		ldr	r3, .L37+4
- 406 0276 5B8C     		ldrh	r3, [r3, #34]
- 407 0278 1BB2     		sxth	r3, r3
- 408 027a 9A42     		cmp	r2, r3
- 409 027c 32DB     		blt	.L27
+ 321              		.loc 1 173 0
+ 322 01ee 9F88     		ldrh	r7, [r3, #4]
+ 323 01f0 628C     		ldrh	r2, [r4, #34]
+ 324 01f2 3FB2     		sxth	r7, r7
+ 325 01f4 12B2     		sxth	r2, r2
+ 326 01f6 9742     		cmp	r7, r2
+ 327 01f8 2ADB     		blt	.L28
  174:Src/limit_pos_detection.c **** 		&&g_current_array[4]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
- 410              		.loc 1 174 0
- 411 027e 514B     		ldr	r3, .L37+16
- 412 0280 DA88     		ldrh	r2, [r3, #6]
- 413 0282 12B2     		sxth	r2, r2
- 414 0284 4C4B     		ldr	r3, .L37+4
- 415 0286 5B8C     		ldrh	r3, [r3, #34]
- 416 0288 1BB2     		sxth	r3, r3
- 417 028a 9A42     		cmp	r2, r3
- 418 028c 2ADB     		blt	.L27
+ 328              		.loc 1 174 0
+ 329 01fa DF88     		ldrh	r7, [r3, #6]
+ 330 01fc 628C     		ldrh	r2, [r4, #34]
+ 331 01fe 3FB2     		sxth	r7, r7
+ 332 0200 12B2     		sxth	r2, r2
+ 333 0202 9742     		cmp	r7, r2
+ 334 0204 24DB     		blt	.L28
  175:Src/limit_pos_detection.c **** 		&&g_current_array[5]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
- 419              		.loc 1 175 0
- 420 028e 4D4B     		ldr	r3, .L37+16
- 421 0290 1A89     		ldrh	r2, [r3, #8]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 13
-
-
- 422 0292 12B2     		sxth	r2, r2
- 423 0294 484B     		ldr	r3, .L37+4
- 424 0296 5B8C     		ldrh	r3, [r3, #34]
- 425 0298 1BB2     		sxth	r3, r3
- 426 029a 9A42     		cmp	r2, r3
- 427 029c 22DB     		blt	.L27
+ 335              		.loc 1 175 0
+ 336 0206 1F89     		ldrh	r7, [r3, #8]
+ 337 0208 628C     		ldrh	r2, [r4, #34]
+ 338 020a 3FB2     		sxth	r7, r7
+ 339 020c 12B2     		sxth	r2, r2
+ 340 020e 9742     		cmp	r7, r2
+ 341 0210 1EDB     		blt	.L28
  176:Src/limit_pos_detection.c **** 		&&g_current_array[6]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
- 428              		.loc 1 176 0
- 429 029e 494B     		ldr	r3, .L37+16
- 430 02a0 5A89     		ldrh	r2, [r3, #10]
- 431 02a2 12B2     		sxth	r2, r2
- 432 02a4 444B     		ldr	r3, .L37+4
- 433 02a6 5B8C     		ldrh	r3, [r3, #34]
- 434 02a8 1BB2     		sxth	r3, r3
- 435 02aa 9A42     		cmp	r2, r3
- 436 02ac 1ADB     		blt	.L27
+ 342              		.loc 1 176 0
+ 343 0212 5F89     		ldrh	r7, [r3, #10]
+ 344 0214 628C     		ldrh	r2, [r4, #34]
+ 345 0216 3FB2     		sxth	r7, r7
+ 346 0218 12B2     		sxth	r2, r2
+ 347 021a 9742     		cmp	r7, r2
+ 348 021c 18DB     		blt	.L28
  177:Src/limit_pos_detection.c **** 		&&g_current_array[7]>= g_CmdMap[CMD_CUR_UPPER_LIMIT_PU]
- 437              		.loc 1 177 0
- 438 02ae 454B     		ldr	r3, .L37+16
- 439 02b0 9A89     		ldrh	r2, [r3, #12]
- 440 02b2 12B2     		sxth	r2, r2
- 441 02b4 404B     		ldr	r3, .L37+4
- 442 02b6 5B8C     		ldrh	r3, [r3, #34]
- 443 02b8 1BB2     		sxth	r3, r3
- 444 02ba 9A42     		cmp	r2, r3
- 445 02bc 12DB     		blt	.L27
+ 349              		.loc 1 177 0
+ 350 021e 9F89     		ldrh	r7, [r3, #12]
+ 351 0220 628C     		ldrh	r2, [r4, #34]
+ 352 0222 3FB2     		sxth	r7, r7
+ 353 0224 12B2     		sxth	r2, r2
+ 354 0226 9742     		cmp	r7, r2
+ 355 0228 12DB     		blt	.L28
  178:Src/limit_pos_detection.c **** 		&&g_posNotChange == 1
- 446              		.loc 1 178 0
- 447 02be 414B     		ldr	r3, .L37+16
- 448 02c0 DA89     		ldrh	r2, [r3, #14]
- 449 02c2 12B2     		sxth	r2, r2
- 450 02c4 3C4B     		ldr	r3, .L37+4
- 451 02c6 5B8C     		ldrh	r3, [r3, #34]
- 452 02c8 1BB2     		sxth	r3, r3
- 453 02ca 9A42     		cmp	r2, r3
- 454 02cc 0ADB     		blt	.L27
+ 356              		.loc 1 178 0
+ 357 022a DF89     		ldrh	r7, [r3, #14]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 12
+
+
+ 358 022c 628C     		ldrh	r2, [r4, #34]
+ 359 022e 3FB2     		sxth	r7, r7
+ 360 0230 12B2     		sxth	r2, r2
+ 361 0232 9742     		cmp	r7, r2
+ 362 0234 0CDB     		blt	.L28
  179:Src/limit_pos_detection.c **** 		&&g_CmdMap[TAG_MOTOR_ENABLE] == 1
- 455              		.loc 1 179 0
- 456 02ce 394B     		ldr	r3, .L37
- 457 02d0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 458 02d2 DBB2     		uxtb	r3, r3
- 459 02d4 012B     		cmp	r3, #1
- 460 02d6 05D1     		bne	.L27
+ 363              		.loc 1 179 0
+ 364 0236 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
+ 365 0238 012A     		cmp	r2, #1
+ 366 023a 09D1     		bne	.L28
  180:Src/limit_pos_detection.c **** 	)
- 461              		.loc 1 180 0
- 462 02d8 374B     		ldr	r3, .L37+4
- 463 02da B3F80232 		ldrh	r3, [r3, #514]
- 464 02de 1BB2     		sxth	r3, r3
- 465 02e0 012B     		cmp	r3, #1
- 466 02e2 5DD0     		beq	.L34
- 467              	.L27:
- 187:Src/limit_pos_detection.c **** 		&&g_current_array[1]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
- 468              		.loc 1 187 0
- 469 02e4 374B     		ldr	r3, .L37+16
- 470 02e6 1A88     		ldrh	r2, [r3]
- 471 02e8 12B2     		sxth	r2, r2
- 472 02ea 334B     		ldr	r3, .L37+4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 14
-
-
- 473 02ec 9B8C     		ldrh	r3, [r3, #36]
- 474 02ee 1BB2     		sxth	r3, r3
- 475 02f0 9A42     		cmp	r2, r3
- 476 02f2 3FF7C3AE 		bgt	.L1
- 188:Src/limit_pos_detection.c **** 		&&g_current_array[2]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
- 477              		.loc 1 188 0
- 478 02f6 334B     		ldr	r3, .L37+16
- 479 02f8 5A88     		ldrh	r2, [r3, #2]
- 480 02fa 12B2     		sxth	r2, r2
- 481 02fc 2E4B     		ldr	r3, .L37+4
- 482 02fe 9B8C     		ldrh	r3, [r3, #36]
- 483 0300 1BB2     		sxth	r3, r3
- 484 0302 9A42     		cmp	r2, r3
- 485 0304 3FF7BAAE 		bgt	.L1
- 189:Src/limit_pos_detection.c **** 		&&g_current_array[3]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
- 486              		.loc 1 189 0
- 487 0308 2E4B     		ldr	r3, .L37+16
- 488 030a 9A88     		ldrh	r2, [r3, #4]
- 489 030c 12B2     		sxth	r2, r2
- 490 030e 2A4B     		ldr	r3, .L37+4
- 491 0310 9B8C     		ldrh	r3, [r3, #36]
- 492 0312 1BB2     		sxth	r3, r3
- 493 0314 9A42     		cmp	r2, r3
- 494 0316 3FF7B1AE 		bgt	.L1
- 190:Src/limit_pos_detection.c **** 		&&g_current_array[4]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
- 495              		.loc 1 190 0
- 496 031a 2A4B     		ldr	r3, .L37+16
- 497 031c DA88     		ldrh	r2, [r3, #6]
- 498 031e 12B2     		sxth	r2, r2
- 499 0320 254B     		ldr	r3, .L37+4
- 500 0322 9B8C     		ldrh	r3, [r3, #36]
- 501 0324 1BB2     		sxth	r3, r3
- 502 0326 9A42     		cmp	r2, r3
- 503 0328 3FF7A8AE 		bgt	.L1
- 191:Src/limit_pos_detection.c **** 		&&g_current_array[5]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
- 504              		.loc 1 191 0
- 505 032c 254B     		ldr	r3, .L37+16
- 506 032e 1A89     		ldrh	r2, [r3, #8]
- 507 0330 12B2     		sxth	r2, r2
- 508 0332 214B     		ldr	r3, .L37+4
- 509 0334 9B8C     		ldrh	r3, [r3, #36]
- 510 0336 1BB2     		sxth	r3, r3
- 511 0338 9A42     		cmp	r2, r3
- 512 033a 3FF79FAE 		bgt	.L1
- 192:Src/limit_pos_detection.c **** 		&&g_current_array[6]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
- 513              		.loc 1 192 0
- 514 033e 214B     		ldr	r3, .L37+16
- 515 0340 5A89     		ldrh	r2, [r3, #10]
- 516 0342 12B2     		sxth	r2, r2
- 517 0344 1C4B     		ldr	r3, .L37+4
- 518 0346 9B8C     		ldrh	r3, [r3, #36]
- 519 0348 1BB2     		sxth	r3, r3
- 520 034a 9A42     		cmp	r2, r3
- 521 034c 3FF796AE 		bgt	.L1
- 193:Src/limit_pos_detection.c **** 		&&g_current_array[7]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
- 522              		.loc 1 193 0
- 523 0350 1C4B     		ldr	r3, .L37+16
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 15
-
-
- 524 0352 9A89     		ldrh	r2, [r3, #12]
- 525 0354 12B2     		sxth	r2, r2
- 526 0356 184B     		ldr	r3, .L37+4
- 527 0358 9B8C     		ldrh	r3, [r3, #36]
- 528 035a 1BB2     		sxth	r3, r3
- 529 035c 9A42     		cmp	r2, r3
- 530 035e 3FF78DAE 		bgt	.L1
- 194:Src/limit_pos_detection.c **** 		&&g_posNotChange == 1
- 531              		.loc 1 194 0
- 532 0362 184B     		ldr	r3, .L37+16
- 533 0364 DA89     		ldrh	r2, [r3, #14]
- 534 0366 12B2     		sxth	r2, r2
- 535 0368 134B     		ldr	r3, .L37+4
- 536 036a 9B8C     		ldrh	r3, [r3, #36]
- 537 036c 1BB2     		sxth	r3, r3
- 538 036e 9A42     		cmp	r2, r3
- 539 0370 3FF784AE 		bgt	.L1
- 195:Src/limit_pos_detection.c **** 		&&g_CmdMap[TAG_MOTOR_ENABLE] == 1
- 540              		.loc 1 195 0
- 541 0374 0F4B     		ldr	r3, .L37
- 542 0376 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 543 0378 DBB2     		uxtb	r3, r3
- 544 037a 012B     		cmp	r3, #1
- 545 037c 7FF47EAE 		bne	.L1
- 196:Src/limit_pos_detection.c **** 	)
- 546              		.loc 1 196 0
- 547 0380 0D4B     		ldr	r3, .L37+4
- 548 0382 B3F80232 		ldrh	r3, [r3, #514]
- 549 0386 1BB2     		sxth	r3, r3
- 550 0388 012B     		cmp	r3, #1
- 551 038a 7FF477AE 		bne	.L1
- 199:Src/limit_pos_detection.c **** 		g_reachLowerLimit = 1;
- 552              		.loc 1 199 0
- 553 038e 0E4B     		ldr	r3, .L37+20
- 554 0390 1A88     		ldrh	r2, [r3]
- 555 0392 094B     		ldr	r3, .L37+4
- 556 0394 1A86     		strh	r2, [r3, #48]	@ movhi
- 200:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_PAUSE] = 1;
- 557              		.loc 1 200 0
- 558 0396 0122     		movs	r2, #1
- 559 0398 0C49     		ldr	r1, .L37+24
- 560 039a 0A70     		strb	r2, [r1]
- 201:Src/limit_pos_detection.c **** 	}	
- 561              		.loc 1 201 0
- 562 039c 9A82     		strh	r2, [r3, #20]	@ movhi
- 563 039e 6DE6     		b	.L1
- 564              	.L34:
+ 367              		.loc 1 180 0
+ 368 023c B4F80222 		ldrh	r2, [r4, #514]
+ 369 0240 12B2     		sxth	r2, r2
+ 370 0242 012A     		cmp	r2, #1
+ 371 0244 04D1     		bne	.L28
  183:Src/limit_pos_detection.c **** 		g_reachUpperLimit = 1;
- 565              		.loc 1 183 0
- 566 03a0 094B     		ldr	r3, .L37+20
- 567 03a2 1A88     		ldrh	r2, [r3]
- 568 03a4 044B     		ldr	r3, .L37+4
- 569 03a6 DA85     		strh	r2, [r3, #46]	@ movhi
+ 372              		.loc 1 183 0
+ 373 0246 0A88     		ldrh	r2, [r1]
+ 374 0248 E285     		strh	r2, [r4, #46]	@ movhi
  184:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_PAUSE] = 1;
- 570              		.loc 1 184 0
- 571 03a8 0122     		movs	r2, #1
- 572 03aa 0949     		ldr	r1, .L37+28
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 16
-
-
- 573 03ac 0A70     		strb	r2, [r1]
+ 375              		.loc 1 184 0
+ 376 024a 0122     		movs	r2, #1
+ 377 024c 3270     		strb	r2, [r6]
  185:Src/limit_pos_detection.c **** 	}
- 574              		.loc 1 185 0
- 575 03ae 9A82     		strh	r2, [r3, #20]	@ movhi
- 576 03b0 98E7     		b	.L27
- 577              	.L38:
- 578 03b2 00BF     		.align	2
- 579              	.L37:
- 580 03b4 00000000 		.word	.LANCHOR7
- 581 03b8 00000000 		.word	g_CmdMap
- 582 03bc 9AD9FFFF 		.word	-9830
- 583 03c0 CEFCFFFF 		.word	-818
- 584 03c4 00000000 		.word	.LANCHOR5
- 585 03c8 00000000 		.word	.LANCHOR6
- 586 03cc 00000000 		.word	.LANCHOR1
- 587 03d0 00000000 		.word	.LANCHOR0
- 588              		.cfi_endproc
- 589              	.LFE333:
- 591              		.section	.text.clear_limit_event,"ax",%progbits
- 592              		.align	1
- 593              		.global	clear_limit_event
- 594              		.syntax unified
- 595              		.thumb
- 596              		.thumb_func
- 597              		.fpu fpv4-sp-d16
- 599              	clear_limit_event:
- 600              	.LFB334:
+ 378              		.loc 1 185 0
+ 379 024e A282     		strh	r2, [r4, #20]	@ movhi
+ 380              	.L28:
+ 187:Src/limit_pos_detection.c **** 		&&g_current_array[1]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
+ 381              		.loc 1 187 0
+ 382 0250 1E88     		ldrh	r6, [r3]
+ 383 0252 A28C     		ldrh	r2, [r4, #36]
+ 384 0254 36B2     		sxth	r6, r6
+ 385 0256 12B2     		sxth	r2, r2
+ 386 0258 9642     		cmp	r6, r2
+ 387 025a 3FF70DAF 		bgt	.L1
+ 188:Src/limit_pos_detection.c **** 		&&g_current_array[2]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
+ 388              		.loc 1 188 0
+ 389 025e 5E88     		ldrh	r6, [r3, #2]
+ 390 0260 A28C     		ldrh	r2, [r4, #36]
+ 391 0262 36B2     		sxth	r6, r6
+ 392 0264 12B2     		sxth	r2, r2
+ 393 0266 9642     		cmp	r6, r2
+ 394 0268 3FF706AF 		bgt	.L1
+ 189:Src/limit_pos_detection.c **** 		&&g_current_array[3]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
+ 395              		.loc 1 189 0
+ 396 026c 9E88     		ldrh	r6, [r3, #4]
+ 397 026e A28C     		ldrh	r2, [r4, #36]
+ 398 0270 36B2     		sxth	r6, r6
+ 399 0272 12B2     		sxth	r2, r2
+ 400 0274 9642     		cmp	r6, r2
+ 401 0276 3FF7FFAE 		bgt	.L1
+ 190:Src/limit_pos_detection.c **** 		&&g_current_array[4]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
+ 402              		.loc 1 190 0
+ 403 027a DE88     		ldrh	r6, [r3, #6]
+ 404 027c A28C     		ldrh	r2, [r4, #36]
+ 405 027e 36B2     		sxth	r6, r6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 13
+
+
+ 406 0280 12B2     		sxth	r2, r2
+ 407 0282 9642     		cmp	r6, r2
+ 408 0284 3FF7F8AE 		bgt	.L1
+ 191:Src/limit_pos_detection.c **** 		&&g_current_array[5]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
+ 409              		.loc 1 191 0
+ 410 0288 1E89     		ldrh	r6, [r3, #8]
+ 411 028a A28C     		ldrh	r2, [r4, #36]
+ 412 028c 36B2     		sxth	r6, r6
+ 413 028e 12B2     		sxth	r2, r2
+ 414 0290 9642     		cmp	r6, r2
+ 415 0292 3FF7F1AE 		bgt	.L1
+ 192:Src/limit_pos_detection.c **** 		&&g_current_array[6]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
+ 416              		.loc 1 192 0
+ 417 0296 5E89     		ldrh	r6, [r3, #10]
+ 418 0298 A28C     		ldrh	r2, [r4, #36]
+ 419 029a 36B2     		sxth	r6, r6
+ 420 029c 12B2     		sxth	r2, r2
+ 421 029e 9642     		cmp	r6, r2
+ 422 02a0 3FF7EAAE 		bgt	.L1
+ 193:Src/limit_pos_detection.c **** 		&&g_current_array[7]<= g_CmdMap[CMD_CUR_LOWER_LIMIT_PU]
+ 423              		.loc 1 193 0
+ 424 02a4 9E89     		ldrh	r6, [r3, #12]
+ 425 02a6 A28C     		ldrh	r2, [r4, #36]
+ 426 02a8 36B2     		sxth	r6, r6
+ 427 02aa 12B2     		sxth	r2, r2
+ 428 02ac 9642     		cmp	r6, r2
+ 429 02ae 3FF7E3AE 		bgt	.L1
+ 194:Src/limit_pos_detection.c **** 		&&g_posNotChange == 1
+ 430              		.loc 1 194 0
+ 431 02b2 DA89     		ldrh	r2, [r3, #14]
+ 432 02b4 A38C     		ldrh	r3, [r4, #36]
+ 433 02b6 12B2     		sxth	r2, r2
+ 434 02b8 1BB2     		sxth	r3, r3
+ 435 02ba 9A42     		cmp	r2, r3
+ 436 02bc 3FF7DCAE 		bgt	.L1
+ 195:Src/limit_pos_detection.c **** 		&&g_CmdMap[TAG_MOTOR_ENABLE] == 1
+ 437              		.loc 1 195 0
+ 438 02c0 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
+ 439 02c2 012B     		cmp	r3, #1
+ 440 02c4 7FF4D8AE 		bne	.L1
+ 196:Src/limit_pos_detection.c **** 	)
+ 441              		.loc 1 196 0
+ 442 02c8 B4F80232 		ldrh	r3, [r4, #514]
+ 443 02cc 1BB2     		sxth	r3, r3
+ 444 02ce 012B     		cmp	r3, #1
+ 445 02d0 7FF4D2AE 		bne	.L1
+ 199:Src/limit_pos_detection.c **** 		g_reachLowerLimit = 1;
+ 446              		.loc 1 199 0
+ 447 02d4 0B88     		ldrh	r3, [r1]
+ 448 02d6 2386     		strh	r3, [r4, #48]	@ movhi
+ 200:Src/limit_pos_detection.c **** 		g_CmdMap[CMD_PAUSE] = 1;
+ 449              		.loc 1 200 0
+ 450 02d8 0123     		movs	r3, #1
+ 451 02da 2B70     		strb	r3, [r5]
+ 201:Src/limit_pos_detection.c **** 	}	
+ 452              		.loc 1 201 0
+ 453 02dc A382     		strh	r3, [r4, #20]	@ movhi
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 14
+
+
+ 454 02de CBE6     		b	.L1
+ 455              	.LVL13:
+ 456              	.L21:
+ 457 02e0 0137     		adds	r7, r7, #1
+ 458              	.LVL14:
+ 136:Src/limit_pos_detection.c **** 	{
+ 459              		.loc 1 136 0 discriminator 2
+ 460 02e2 082F     		cmp	r7, #8
+ 461 02e4 7FF436AF 		bne	.L23
+ 462 02e8 55E7     		b	.L22
+ 463              	.L41:
+ 464 02ea 00BF     		.align	2
+ 465              	.L40:
+ 466 02ec 00000000 		.word	.LANCHOR3
+ 467 02f0 00000000 		.word	.LANCHOR5
+ 468 02f4 00000000 		.word	.LANCHOR4
+ 469 02f8 00000000 		.word	.LANCHOR6
+ 470 02fc 00000000 		.word	.LANCHOR7
+ 471 0300 9AD9FFFF 		.word	-9830
+ 472 0304 CEFCFFFF 		.word	-818
+ 473              		.cfi_endproc
+ 474              	.LFE333:
+ 476              		.section	.text.clear_limit_event,"ax",%progbits
+ 477              		.align	1
+ 478              		.global	clear_limit_event
+ 479              		.syntax unified
+ 480              		.thumb
+ 481              		.thumb_func
+ 482              		.fpu fpv4-sp-d16
+ 484              	clear_limit_event:
+ 485              	.LFB334:
  219:Src/limit_pos_detection.c **** 
  220:Src/limit_pos_detection.c **** 
  221:Src/limit_pos_detection.c **** 
  222:Src/limit_pos_detection.c **** 
  223:Src/limit_pos_detection.c **** void clear_limit_event(void)
  224:Src/limit_pos_detection.c **** {
- 601              		.loc 1 224 0
- 602              		.cfi_startproc
- 603              		@ args = 0, pretend = 0, frame = 0
- 604              		@ frame_needed = 0, uses_anonymous_args = 0
- 605              		@ link register save eliminated.
+ 486              		.loc 1 224 0
+ 487              		.cfi_startproc
+ 488              		@ args = 0, pretend = 0, frame = 0
+ 489              		@ frame_needed = 0, uses_anonymous_args = 0
+ 490              		@ link register save eliminated.
  225:Src/limit_pos_detection.c **** 	g_reachLowerLimit = 0;
- 606              		.loc 1 225 0
- 607 0000 0023     		movs	r3, #0
- 608 0002 024A     		ldr	r2, .L40
- 609 0004 1370     		strb	r3, [r2]
+ 491              		.loc 1 225 0
+ 492 0000 024A     		ldr	r2, .L43
+ 493 0002 0023     		movs	r3, #0
+ 494 0004 1370     		strb	r3, [r2]
  226:Src/limit_pos_detection.c **** 	g_reachUpperLimit = 0;
- 610              		.loc 1 226 0
- 611 0006 024A     		ldr	r2, .L40+4
- 612 0008 1370     		strb	r3, [r2]
+ 495              		.loc 1 226 0
+ 496 0006 024A     		ldr	r2, .L43+4
+ 497 0008 1370     		strb	r3, [r2]
  227:Src/limit_pos_detection.c **** }
- 613              		.loc 1 227 0
- 614 000a 7047     		bx	lr
- 615              	.L41:
- 616              		.align	2
- 617              	.L40:
- 618 000c 00000000 		.word	.LANCHOR1
- 619 0010 00000000 		.word	.LANCHOR0
- 620              		.cfi_endproc
- 621              	.LFE334:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 17
+ 498              		.loc 1 227 0
+ 499 000a 7047     		bx	lr
+ 500              	.L44:
+ 501              		.align	2
+ 502              	.L43:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 15
 
 
- 623              		.global	g_posNotChange
- 624              		.global	g_reachLowerLimit
- 625              		.global	g_reachUpperLimit
- 626              		.global	g_current_average
- 627              		.global	g_current_array
- 628              		.global	g_pos_act_average
- 629              		.global	g_pos_act_array
- 630              		.section	.bss.g_current_array,"aw",%nobits
- 631              		.align	2
- 632              		.set	.LANCHOR5,. + 0
- 635              	g_current_array:
- 636 0000 00000000 		.space	16
- 636      00000000 
- 636      00000000 
- 636      00000000 
- 637              		.section	.bss.g_current_average,"aw",%nobits
- 638              		.align	1
- 641              	g_current_average:
- 642 0000 0000     		.space	2
- 643              		.section	.bss.g_posNotChange,"aw",%nobits
- 644              		.set	.LANCHOR7,. + 0
- 647              	g_posNotChange:
- 648 0000 00       		.space	1
- 649              		.section	.bss.g_pos_act_array,"aw",%nobits
- 650              		.align	2
- 651              		.set	.LANCHOR4,. + 0
- 654              	g_pos_act_array:
- 655 0000 00000000 		.space	16
- 655      00000000 
- 655      00000000 
- 655      00000000 
- 656              		.section	.bss.g_pos_act_average,"aw",%nobits
- 657              		.align	1
- 658              		.set	.LANCHOR6,. + 0
- 661              	g_pos_act_average:
- 662 0000 0000     		.space	2
- 663              		.section	.bss.g_reachLowerLimit,"aw",%nobits
- 664              		.set	.LANCHOR1,. + 0
- 667              	g_reachLowerLimit:
- 668 0000 00       		.space	1
- 669              		.section	.bss.g_reachUpperLimit,"aw",%nobits
- 670              		.set	.LANCHOR0,. + 0
- 673              	g_reachUpperLimit:
- 674 0000 00       		.space	1
- 675              		.section	.bss.repeat_cnt.11856,"aw",%nobits
- 676              		.align	2
- 677              		.set	.LANCHOR3,. + 0
- 680              	repeat_cnt.11856:
- 681 0000 00000000 		.space	4
- 682              		.section	.bss.time_after_power_on.11855,"aw",%nobits
- 683              		.align	2
- 684              		.set	.LANCHOR2,. + 0
- 687              	time_after_power_on.11855:
- 688 0000 00000000 		.space	4
- 689              		.text
- 690              	.Letext0:
- 691              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 18
+ 503 000c 00000000 		.word	.LANCHOR1
+ 504 0010 00000000 		.word	.LANCHOR0
+ 505              		.cfi_endproc
+ 506              	.LFE334:
+ 508              		.global	g_posNotChange
+ 509              		.global	g_reachLowerLimit
+ 510              		.global	g_reachUpperLimit
+ 511              		.global	g_current_average
+ 512              		.global	g_current_array
+ 513              		.global	g_pos_act_average
+ 514              		.global	g_pos_act_array
+ 515              		.section	.bss.g_current_array,"aw",%nobits
+ 516              		.align	1
+ 517              		.set	.LANCHOR5,. + 0
+ 520              	g_current_array:
+ 521 0000 00000000 		.space	16
+ 521      00000000 
+ 521      00000000 
+ 521      00000000 
+ 522              		.section	.bss.g_current_average,"aw",%nobits
+ 523              		.align	1
+ 526              	g_current_average:
+ 527 0000 0000     		.space	2
+ 528              		.section	.bss.g_posNotChange,"aw",%nobits
+ 529              		.set	.LANCHOR7,. + 0
+ 532              	g_posNotChange:
+ 533 0000 00       		.space	1
+ 534              		.section	.bss.g_pos_act_array,"aw",%nobits
+ 535              		.align	1
+ 536              		.set	.LANCHOR4,. + 0
+ 539              	g_pos_act_array:
+ 540 0000 00000000 		.space	16
+ 540      00000000 
+ 540      00000000 
+ 540      00000000 
+ 541              		.section	.bss.g_pos_act_average,"aw",%nobits
+ 542              		.align	1
+ 543              		.set	.LANCHOR6,. + 0
+ 546              	g_pos_act_average:
+ 547 0000 0000     		.space	2
+ 548              		.section	.bss.g_reachLowerLimit,"aw",%nobits
+ 549              		.set	.LANCHOR1,. + 0
+ 552              	g_reachLowerLimit:
+ 553 0000 00       		.space	1
+ 554              		.section	.bss.g_reachUpperLimit,"aw",%nobits
+ 555              		.set	.LANCHOR0,. + 0
+ 558              	g_reachUpperLimit:
+ 559 0000 00       		.space	1
+ 560              		.section	.bss.repeat_cnt.11857,"aw",%nobits
+ 561              		.align	2
+ 562              		.set	.LANCHOR3,. + 0
+ 565              	repeat_cnt.11857:
+ 566 0000 00000000 		.space	4
+ 567              		.section	.bss.time_after_power_on.11856,"aw",%nobits
+ 568              		.align	2
+ 569              		.set	.LANCHOR2,. + 0
+ 572              	time_after_power_on.11856:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 16
 
 
- 692              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 693              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
- 694              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
- 695              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
- 696              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
- 697              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
- 698              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
- 699              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
- 700              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
- 701              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
- 702              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
- 703              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
- 704              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 705              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 706              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 707              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
- 708              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 709              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 710              		.file 21 "Inc/uart.h"
- 711              		.file 22 "Inc/pwm.h"
- 712              		.file 23 "Inc/spi_MEncoder.h"
- 713              		.file 24 "Inc/adc.h"
- 714              		.file 25 "Inc/stm32_math_sin.h"
- 715              		.file 26 "Inc/pid.h"
- 716              		.file 27 "Inc/profile_joint.h"
- 717              		.file 28 "Inc/icmu.h"
- 718              		.file 29 "Inc/performance_test.h"
- 719              		.file 30 "Inc/global.h"
- 720              		.file 31 "Inc/limit_pos_detection.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s 			page 19
+ 573 0000 00000000 		.space	4
+ 574              		.text
+ 575              	.Letext0:
+ 576              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 577              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 578              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 579              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 580              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 581              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 582              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 583              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 584              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 585              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 586              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 587              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 588              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 589              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 590              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 591              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 592              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ 593              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 594              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 595              		.file 21 "Inc/uart.h"
+ 596              		.file 22 "Inc/pwm.h"
+ 597              		.file 23 "Inc/spi_MEncoder.h"
+ 598              		.file 24 "Inc/adc.h"
+ 599              		.file 25 "Inc/stm32_math_sin.h"
+ 600              		.file 26 "Inc/pid.h"
+ 601              		.file 27 "Inc/profile_joint.h"
+ 602              		.file 28 "Inc/icmu.h"
+ 603              		.file 29 "Inc/performance_test.h"
+ 604              		.file 30 "Inc/global.h"
+ 605              		.file 31 "Inc/limit_pos_detection.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s 			page 17
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 limit_pos_detection.c
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:18     .text.detect_limitPos:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:25     .text.detect_limitPos:00000000 detect_limitPos
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:320    .text.detect_limitPos:000001d4 $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:331    .text.detect_limitPos:000001f8 $t
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:580    .text.detect_limitPos:000003b4 $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:592    .text.clear_limit_event:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:599    .text.clear_limit_event:00000000 clear_limit_event
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:618    .text.clear_limit_event:0000000c $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:647    .bss.g_posNotChange:00000000 g_posNotChange
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:667    .bss.g_reachLowerLimit:00000000 g_reachLowerLimit
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:673    .bss.g_reachUpperLimit:00000000 g_reachUpperLimit
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:641    .bss.g_current_average:00000000 g_current_average
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:635    .bss.g_current_array:00000000 g_current_array
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:661    .bss.g_pos_act_average:00000000 g_pos_act_average
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:654    .bss.g_pos_act_array:00000000 g_pos_act_array
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:631    .bss.g_current_array:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:638    .bss.g_current_average:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:648    .bss.g_posNotChange:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:650    .bss.g_pos_act_array:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:657    .bss.g_pos_act_average:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:668    .bss.g_reachLowerLimit:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:674    .bss.g_reachUpperLimit:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:676    .bss.repeat_cnt.11856:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:680    .bss.repeat_cnt.11856:00000000 repeat_cnt.11856
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:683    .bss.time_after_power_on.11855:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccAcq5Oa.s:687    .bss.time_after_power_on.11855:00000000 time_after_power_on.11855
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:18     .text.detect_limitPos:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:25     .text.detect_limitPos:00000000 detect_limitPos
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:163    .text.detect_limitPos:000000c0 $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:169    .text.detect_limitPos:000000d0 $t
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:466    .text.detect_limitPos:000002ec $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:477    .text.clear_limit_event:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:484    .text.clear_limit_event:00000000 clear_limit_event
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:503    .text.clear_limit_event:0000000c $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:532    .bss.g_posNotChange:00000000 g_posNotChange
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:552    .bss.g_reachLowerLimit:00000000 g_reachLowerLimit
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:558    .bss.g_reachUpperLimit:00000000 g_reachUpperLimit
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:526    .bss.g_current_average:00000000 g_current_average
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:520    .bss.g_current_array:00000000 g_current_array
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:546    .bss.g_pos_act_average:00000000 g_pos_act_average
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:539    .bss.g_pos_act_array:00000000 g_pos_act_array
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:516    .bss.g_current_array:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:523    .bss.g_current_average:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:533    .bss.g_posNotChange:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:535    .bss.g_pos_act_array:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:542    .bss.g_pos_act_average:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:553    .bss.g_reachLowerLimit:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:559    .bss.g_reachUpperLimit:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:561    .bss.repeat_cnt.11857:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:565    .bss.repeat_cnt.11857:00000000 repeat_cnt.11857
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:568    .bss.time_after_power_on.11856:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccgkqEJ6.s:572    .bss.time_after_power_on.11856:00000000 time_after_power_on.11856
 
 UNDEFINED SYMBOLS
 target_position_arrived

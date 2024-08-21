@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"stm32_math_sin.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 1
   29:Src/stm32_math_sin.c **** 0x5155, 0x51A2, 0x51F0, 0x523D, 0x528A, 0x52D7, 0x5324, 0x5370, 0x53BD, 0x5409, 0x5455, 0x54A0, 0x5
   30:Src/stm32_math_sin.c **** 0x5617, 0x5662, 0x56AC, 0x56F6, 0x5740, 0x5789, 0x57D3, 0x581C, 0x5865, 0x58AE, 0x58F6, 0x593F, 0x5
   31:Src/stm32_math_sin.c **** 0x5AA5, 0x5AEC, 0x5B33, 0x5B79, 0x5BC0, 0x5C06, 0x5C4C, 0x5C91, 0x5CD7, 0x5D1C, 0x5D61, 0x5DA6, 0x5
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 2
 
 
   32:Src/stm32_math_sin.c **** 0x5EFA, 0x5F3E, 0x5F81, 0x5FC4, 0x6006, 0x6049, 0x608B, 0x60CD, 0x610F, 0x6150, 0x6192, 0x61D3, 0x6
@@ -92,38 +92,40 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 1
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   33              	.LVL0:
-  34 0000 82B0     		sub	sp, sp, #8
-  35              	.LCFI0:
-  36              		.cfi_def_cfa_offset 8
   57:Src/stm32_math_sin.c ****   int32_t shindex;
   58:Src/stm32_math_sin.c ****   uint16_t uhindex; 
   59:Src/stm32_math_sin.c ****   Trig_Components Local_Components;
   60:Src/stm32_math_sin.c ****   
   61:Src/stm32_math_sin.c ****   /* 11 bit index computation  */  
   62:Src/stm32_math_sin.c ****   shindex =((int32_t)32768 + (int32_t)hAngle); 
-  37              		.loc 1 62 0
-  38 0002 00F50040 		add	r0, r0, #32768
-  39              	.LVL1:
+  34              		.loc 1 62 0
+  35 0000 00F50040 		add	r0, r0, #32768
+  36              	.LVL1:
   63:Src/stm32_math_sin.c ****   uhindex = (uint16_t)shindex;
   64:Src/stm32_math_sin.c ****   //uhindex /= (uint16_t)32;     
   65:Src/stm32_math_sin.c ****   uhindex = uhindex >> 5; 
-  40              		.loc 1 65 0
-  41 0006 C0F34A10 		ubfx	r0, r0, #5, #11
-  42              	.LVL2:
+  37              		.loc 1 65 0
+  38 0004 C0F34A10 		ubfx	r0, r0, #5, #11
+  39              	.LVL2:
   66:Src/stm32_math_sin.c **** 
   67:Src/stm32_math_sin.c ****   switch ((uint16_t)(uhindex) & SIN_MASK_512) 
-  43              		.loc 1 67 0
-  44 000a 00F4C063 		and	r3, r0, #1536
-  45 000e B3F5007F 		cmp	r3, #512
-  46 0012 40D0     		beq	.L3
-  47 0014 15D9     		bls	.L9
-  48 0016 B3F5806F 		cmp	r3, #1024
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 3
+  40              		.loc 1 67 0
+  41 0008 00F4C061 		and	r1, r0, #1536
+  42 000c B1F5007F 		cmp	r1, #512
+  56:Src/stm32_math_sin.c ****   int32_t shindex;
+  43              		.loc 1 56 0
+  44 0010 82B0     		sub	sp, sp, #8
+  45              	.LCFI0:
+  46              		.cfi_def_cfa_offset 8
+  47              		.loc 1 67 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 3
 
 
-  49 001a 24D0     		beq	.L6
-  50 001c B3F5C06F 		cmp	r3, #1536
-  51 0020 2FD1     		bne	.L2
+  48 0012 35D0     		beq	.L3
+  49 0014 09D8     		bhi	.L4
+  50 0016 31B3     		cbz	r1, .L5
+  51              	.LVL3:
+  52              	.L2:
   68:Src/stm32_math_sin.c ****   {
   69:Src/stm32_math_sin.c ****   case U0_90_512:
   70:Src/stm32_math_sin.c ****     Local_Components.hSin = hSin_Cos_Table_512[uhindex & 0x1FF];
@@ -132,68 +134,13 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 1
   73:Src/stm32_math_sin.c ****   
   74:Src/stm32_math_sin.c ****   case U90_180_512:  
   75:Src/stm32_math_sin.c ****      Local_Components.hSin = hSin_Cos_Table_512[0x1FFu-(uhindex & 0x1FF)];
-  52              		.loc 1 75 0
-  53 0022 C343     		mvns	r3, r0
-  54 0024 C3F30803 		ubfx	r3, r3, #0, #9
-  55 0028 234A     		ldr	r2, .L10
-  56 002a 32F91330 		ldrsh	r3, [r2, r3, lsl #1]
-  57 002e ADF80030 		strh	r3, [sp]	@ movhi
   76:Src/stm32_math_sin.c ****      Local_Components.hCos = -hSin_Cos_Table_512[uhindex & 0x1FF];
-  58              		.loc 1 76 0
-  59 0032 C0F30800 		ubfx	r0, r0, #0, #9
-  60              	.LVL3:
-  61 0036 32F81030 		ldrh	r3, [r2, r0, lsl #1]
-  62 003a 5B42     		negs	r3, r3
-  63 003c ADF80230 		strh	r3, [sp, #2]	@ movhi
   77:Src/stm32_math_sin.c ****     break;
-  64              		.loc 1 77 0
-  65 0040 1FE0     		b	.L2
-  66              	.LVL4:
-  67              	.L9:
-  67:Src/stm32_math_sin.c ****   {
-  68              		.loc 1 67 0
-  69 0042 F3B9     		cbnz	r3, .L2
   78:Src/stm32_math_sin.c ****   
   79:Src/stm32_math_sin.c ****   case U180_270_512:
   80:Src/stm32_math_sin.c ****      Local_Components.hSin = -hSin_Cos_Table_512[uhindex & 0x1FF];
-  70              		.loc 1 80 0
-  71 0044 C0F30803 		ubfx	r3, r0, #0, #9
-  72 0048 1B4A     		ldr	r2, .L10
-  73 004a 32F81330 		ldrh	r3, [r2, r3, lsl #1]
-  74 004e 5B42     		negs	r3, r3
-  75 0050 ADF80030 		strh	r3, [sp]	@ movhi
   81:Src/stm32_math_sin.c ****      Local_Components.hCos = -hSin_Cos_Table_512[0x1FFu-(uhindex & 0x1FF)];
-  76              		.loc 1 81 0
-  77 0054 C043     		mvns	r0, r0
-  78              	.LVL5:
-  79 0056 C0F30800 		ubfx	r0, r0, #0, #9
-  80              	.LVL6:
-  81 005a 32F81030 		ldrh	r3, [r2, r0, lsl #1]
-  82 005e 5B42     		negs	r3, r3
-  83 0060 ADF80230 		strh	r3, [sp, #2]	@ movhi
   82:Src/stm32_math_sin.c ****     break;
-  84              		.loc 1 82 0
-  85 0064 0DE0     		b	.L2
-  86              	.LVL7:
-  87              	.L6:
-  70:Src/stm32_math_sin.c ****     Local_Components.hCos = hSin_Cos_Table_512[0x1FFu-(uhindex & 0x1FF)];
-  88              		.loc 1 70 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 4
-
-
-  89 0066 C0F30802 		ubfx	r2, r0, #0, #9
-  90 006a 134B     		ldr	r3, .L10
-  91 006c 33F91220 		ldrsh	r2, [r3, r2, lsl #1]
-  92 0070 ADF80020 		strh	r2, [sp]	@ movhi
-  71:Src/stm32_math_sin.c ****     break;
-  93              		.loc 1 71 0
-  94 0074 C043     		mvns	r0, r0
-  95              	.LVL8:
-  96 0076 C0F30800 		ubfx	r0, r0, #0, #9
-  97              	.LVL9:
-  98 007a 33F91030 		ldrsh	r3, [r3, r0, lsl #1]
-  99 007e ADF80230 		strh	r3, [sp, #2]	@ movhi
- 100              	.L2:
   83:Src/stm32_math_sin.c ****   
   84:Src/stm32_math_sin.c ****   case U270_360_512:
   85:Src/stm32_math_sin.c ****      Local_Components.hSin =  -hSin_Cos_Table_512[0x1FFu-(uhindex & 0x1FF)];
@@ -203,774 +150,873 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 1
   89:Src/stm32_math_sin.c ****     break;
   90:Src/stm32_math_sin.c ****   }
   91:Src/stm32_math_sin.c ****   return (Local_Components);
- 101              		.loc 1 91 0
- 102 0082 009B     		ldr	r3, [sp]
- 103 0084 0020     		movs	r0, #0
- 104 0086 9AB2     		uxth	r2, r3
- 105 0088 62F30F00 		bfi	r0, r2, #0, #16
- 106 008c 1B0C     		lsrs	r3, r3, #16
- 107 008e 63F31F40 		bfi	r0, r3, #16, #16
+  53              		.loc 1 91 0
+  54 0018 92B2     		uxth	r2, r2
+  55 001a 0020     		movs	r0, #0
+  56 001c 62F30F00 		bfi	r0, r2, #0, #16
+  57 0020 9BB2     		uxth	r3, r3
+  58 0022 63F31F40 		bfi	r0, r3, #16, #16
   92:Src/stm32_math_sin.c **** }
- 108              		.loc 1 92 0
- 109 0092 02B0     		add	sp, sp, #8
- 110              	.LCFI1:
- 111              		.cfi_remember_state
- 112              		.cfi_def_cfa_offset 0
- 113              		@ sp needed
- 114 0094 7047     		bx	lr
- 115              	.LVL10:
- 116              	.L3:
- 117              	.LCFI2:
- 118              		.cfi_restore_state
+  59              		.loc 1 92 0
+  60 0026 02B0     		add	sp, sp, #8
+  61              	.LCFI1:
+  62              		.cfi_remember_state
+  63              		.cfi_def_cfa_offset 0
+  64              		@ sp needed
+  65 0028 7047     		bx	lr
+  66              	.LVL4:
+  67              	.L4:
+  68              	.LCFI2:
+  69              		.cfi_restore_state
+  67:Src/stm32_math_sin.c ****   {
+  70              		.loc 1 67 0
+  71 002a B1F5806F 		cmp	r1, #1024
+  72 002e 0FD0     		beq	.L6
+  73 0030 B1F5C06F 		cmp	r1, #1536
+  74 0034 F0D1     		bne	.L2
+  75:Src/stm32_math_sin.c ****      Local_Components.hCos = -hSin_Cos_Table_512[uhindex & 0x1FF];
+  75              		.loc 1 75 0
+  76 0036 C343     		mvns	r3, r0
+  77 0038 1849     		ldr	r1, .L9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 4
+
+
+  78 003a C3F30803 		ubfx	r3, r3, #0, #9
+  76:Src/stm32_math_sin.c ****     break;
+  79              		.loc 1 76 0
+  80 003e C0F30800 		ubfx	r0, r0, #0, #9
+  81              	.LVL5:
+  75:Src/stm32_math_sin.c ****      Local_Components.hCos = -hSin_Cos_Table_512[uhindex & 0x1FF];
+  82              		.loc 1 75 0
+  83 0042 31F91320 		ldrsh	r2, [r1, r3, lsl #1]
+  84              	.LVL6:
+  76:Src/stm32_math_sin.c ****     break;
+  85              		.loc 1 76 0
+  86 0046 31F81030 		ldrh	r3, [r1, r0, lsl #1]
+  87              	.L8:
+  81:Src/stm32_math_sin.c ****     break;
+  88              		.loc 1 81 0
+  89 004a 5B42     		negs	r3, r3
+  90 004c 1BB2     		sxth	r3, r3
+  91              	.LVL7:
+  82:Src/stm32_math_sin.c ****   
+  92              		.loc 1 82 0
+  93 004e E3E7     		b	.L2
+  94              	.LVL8:
+  95              	.L6:
+  70:Src/stm32_math_sin.c ****     Local_Components.hCos = hSin_Cos_Table_512[0x1FFu-(uhindex & 0x1FF)];
+  96              		.loc 1 70 0
+  97 0050 C0F30802 		ubfx	r2, r0, #0, #9
+  71:Src/stm32_math_sin.c ****     break;
+  98              		.loc 1 71 0
+  99 0054 C043     		mvns	r0, r0
+ 100              	.LVL9:
+  70:Src/stm32_math_sin.c ****     Local_Components.hCos = hSin_Cos_Table_512[0x1FFu-(uhindex & 0x1FF)];
+ 101              		.loc 1 70 0
+ 102 0056 114B     		ldr	r3, .L9
+  71:Src/stm32_math_sin.c ****     break;
+ 103              		.loc 1 71 0
+ 104 0058 C0F30800 		ubfx	r0, r0, #0, #9
+ 105              	.LVL10:
+  70:Src/stm32_math_sin.c ****     Local_Components.hCos = hSin_Cos_Table_512[0x1FFu-(uhindex & 0x1FF)];
+ 106              		.loc 1 70 0
+ 107 005c 33F91220 		ldrsh	r2, [r3, r2, lsl #1]
+ 108              	.LVL11:
+  71:Src/stm32_math_sin.c ****     break;
+ 109              		.loc 1 71 0
+ 110 0060 33F91030 		ldrsh	r3, [r3, r0, lsl #1]
+ 111              	.LVL12:
+  72:Src/stm32_math_sin.c ****   
+ 112              		.loc 1 72 0
+ 113 0064 D8E7     		b	.L2
+ 114              	.LVL13:
+ 115              	.L5:
+  80:Src/stm32_math_sin.c ****      Local_Components.hCos = -hSin_Cos_Table_512[0x1FFu-(uhindex & 0x1FF)];
+ 116              		.loc 1 80 0
+ 117 0066 0D4B     		ldr	r3, .L9
+ 118 0068 C0F30802 		ubfx	r2, r0, #0, #9
+  81:Src/stm32_math_sin.c ****     break;
+ 119              		.loc 1 81 0
+ 120 006c C043     		mvns	r0, r0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 5
+
+
+ 121              	.LVL14:
+  80:Src/stm32_math_sin.c ****      Local_Components.hCos = -hSin_Cos_Table_512[0x1FFu-(uhindex & 0x1FF)];
+ 122              		.loc 1 80 0
+ 123 006e 33F81220 		ldrh	r2, [r3, r2, lsl #1]
+  81:Src/stm32_math_sin.c ****     break;
+ 124              		.loc 1 81 0
+ 125 0072 C0F30800 		ubfx	r0, r0, #0, #9
+ 126              	.LVL15:
+  80:Src/stm32_math_sin.c ****      Local_Components.hCos = -hSin_Cos_Table_512[0x1FFu-(uhindex & 0x1FF)];
+ 127              		.loc 1 80 0
+ 128 0076 5242     		negs	r2, r2
+ 129 0078 12B2     		sxth	r2, r2
+ 130              	.LVL16:
+  81:Src/stm32_math_sin.c ****     break;
+ 131              		.loc 1 81 0
+ 132 007a 33F81030 		ldrh	r3, [r3, r0, lsl #1]
+ 133 007e E4E7     		b	.L8
+ 134              	.LVL17:
+ 135              	.L3:
   85:Src/stm32_math_sin.c ****      Local_Components.hCos =  hSin_Cos_Table_512[uhindex & 0x1FF]; 
- 119              		.loc 1 85 0
- 120 0096 C343     		mvns	r3, r0
- 121 0098 C3F30803 		ubfx	r3, r3, #0, #9
- 122 009c 064A     		ldr	r2, .L10
- 123 009e 32F81330 		ldrh	r3, [r2, r3, lsl #1]
- 124 00a2 5B42     		negs	r3, r3
- 125 00a4 ADF80030 		strh	r3, [sp]	@ movhi
+ 136              		.loc 1 85 0
+ 137 0080 C343     		mvns	r3, r0
+ 138 0082 0649     		ldr	r1, .L9
+ 139 0084 C3F30803 		ubfx	r3, r3, #0, #9
   86:Src/stm32_math_sin.c ****     break;
- 126              		.loc 1 86 0
- 127 00a8 C0F30800 		ubfx	r0, r0, #0, #9
- 128              	.LVL11:
- 129 00ac 32F91030 		ldrsh	r3, [r2, r0, lsl #1]
- 130 00b0 ADF80230 		strh	r3, [sp, #2]	@ movhi
+ 140              		.loc 1 86 0
+ 141 0088 C0F30800 		ubfx	r0, r0, #0, #9
+ 142              	.LVL18:
+  85:Src/stm32_math_sin.c ****      Local_Components.hCos =  hSin_Cos_Table_512[uhindex & 0x1FF]; 
+ 143              		.loc 1 85 0
+ 144 008c 31F81320 		ldrh	r2, [r1, r3, lsl #1]
+  86:Src/stm32_math_sin.c ****     break;
+ 145              		.loc 1 86 0
+ 146 0090 31F91030 		ldrsh	r3, [r1, r0, lsl #1]
+  85:Src/stm32_math_sin.c ****      Local_Components.hCos =  hSin_Cos_Table_512[uhindex & 0x1FF]; 
+ 147              		.loc 1 85 0
+ 148 0094 5242     		negs	r2, r2
+ 149 0096 12B2     		sxth	r2, r2
+ 150              	.LVL19:
   87:Src/stm32_math_sin.c ****   default:
- 131              		.loc 1 87 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 5
+ 151              		.loc 1 87 0
+ 152 0098 BEE7     		b	.L2
+ 153              	.L10:
+ 154 009a 00BF     		.align	2
+ 155              	.L9:
+ 156 009c 00000000 		.word	.LANCHOR0
+ 157              		.cfi_endproc
+ 158              	.LFE333:
+ 160              		.section	.text.Math_Sin_EN360,"ax",%progbits
+ 161              		.align	1
+ 162              		.global	Math_Sin_EN360
+ 163              		.syntax unified
+ 164              		.thumb
+ 165              		.thumb_func
+ 166              		.fpu fpv4-sp-d16
+ 168              	Math_Sin_EN360:
+ 169              	.LFB334:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 6
 
 
- 132 00b4 E5E7     		b	.L2
- 133              	.L11:
- 134 00b6 00BF     		.align	2
- 135              	.L10:
- 136 00b8 00000000 		.word	.LANCHOR0
- 137              		.cfi_endproc
- 138              	.LFE333:
- 140              		.section	.text.Math_Sin_EN360,"ax",%progbits
- 141              		.align	1
- 142              		.global	Math_Sin_EN360
- 143              		.syntax unified
- 144              		.thumb
- 145              		.thumb_func
- 146              		.fpu fpv4-sp-d16
- 148              	Math_Sin_EN360:
- 149              	.LFB334:
   93:Src/stm32_math_sin.c **** 
   94:Src/stm32_math_sin.c **** 
   95:Src/stm32_math_sin.c **** // 将360度等分EN_360份，求sin，计算结果放大32768倍
   96:Src/stm32_math_sin.c **** // input：0 <= angle <= EN_360
   97:Src/stm32_math_sin.c **** s32 Math_Sin_EN360(u16 angle)
   98:Src/stm32_math_sin.c **** {
- 150              		.loc 1 98 0
- 151              		.cfi_startproc
- 152              		@ args = 0, pretend = 0, frame = 8
- 153              		@ frame_needed = 0, uses_anonymous_args = 0
- 154              	.LVL12:
- 155 0000 00B5     		push	{lr}
- 156              	.LCFI3:
- 157              		.cfi_def_cfa_offset 4
- 158              		.cfi_offset 14, -4
- 159 0002 83B0     		sub	sp, sp, #12
- 160              	.LCFI4:
- 161              		.cfi_def_cfa_offset 16
- 162              	.LVL13:
+ 170              		.loc 1 98 0
+ 171              		.cfi_startproc
+ 172              		@ args = 0, pretend = 0, frame = 8
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174              	.LVL20:
   99:Src/stm32_math_sin.c ****   Trig_Components Trig_temp;
  100:Src/stm32_math_sin.c ****   s32 angle_temp = 0; 
  101:Src/stm32_math_sin.c ****   angle_temp = (int)angle << 15;
- 163              		.loc 1 101 0
- 164 0004 C003     		lsls	r0, r0, #15
- 165              	.LVL14:
  102:Src/stm32_math_sin.c ****   angle_temp /= EN_180;    
- 166              		.loc 1 102 0
- 167 0006 064B     		ldr	r3, .L14
- 168 0008 B3F90030 		ldrsh	r3, [r3]
- 169 000c 90FBF3F0 		sdiv	r0, r0, r3
- 170              	.LVL15:
+ 175              		.loc 1 102 0
+ 176 0000 064B     		ldr	r3, .L12
+  98:Src/stm32_math_sin.c ****   Trig_Components Trig_temp;
+ 177              		.loc 1 98 0
+ 178 0002 07B5     		push	{r0, r1, r2, lr}
+ 179              	.LCFI3:
+ 180              		.cfi_def_cfa_offset 16
+ 181              		.cfi_offset 14, -4
+ 182              		.loc 1 102 0
+ 183 0004 B3F90030 		ldrsh	r3, [r3]
+ 101:Src/stm32_math_sin.c ****   angle_temp /= EN_180;    
+ 184              		.loc 1 101 0
+ 185 0008 C003     		lsls	r0, r0, #15
+ 186              	.LVL21:
+ 187              		.loc 1 102 0
+ 188 000a 90FBF3F0 		sdiv	r0, r0, r3
+ 189              	.LVL22:
  103:Src/stm32_math_sin.c ****   Trig_temp = Math_Trig_Functions_512(angle_temp);  
- 171              		.loc 1 103 0
- 172 0010 00B2     		sxth	r0, r0
- 173              	.LVL16:
- 174 0012 FFF7FEFF 		bl	Math_Trig_Functions_512
- 175              	.LVL17:
+ 190              		.loc 1 103 0
+ 191 000e 00B2     		sxth	r0, r0
+ 192              	.LVL23:
+ 193 0010 FFF7FEFF 		bl	Math_Trig_Functions_512
+ 194              	.LVL24:
  104:Src/stm32_math_sin.c ****   return Trig_temp.hSin;
  105:Src/stm32_math_sin.c **** }
- 176              		.loc 1 105 0
- 177 0016 00B2     		sxth	r0, r0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 6
+ 195              		.loc 1 105 0
+ 196 0014 00B2     		sxth	r0, r0
+ 197 0016 03B0     		add	sp, sp, #12
+ 198              	.LCFI4:
+ 199              		.cfi_def_cfa_offset 4
+ 200              		@ sp needed
+ 201 0018 5DF804FB 		ldr	pc, [sp], #4
+ 202              	.L13:
+ 203              		.align	2
+ 204              	.L12:
+ 205 001c 00000000 		.word	EN_180
+ 206              		.cfi_endproc
+ 207              	.LFE334:
+ 209              		.section	.text.Math_Cos_EN360,"ax",%progbits
+ 210              		.align	1
+ 211              		.global	Math_Cos_EN360
+ 212              		.syntax unified
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 7
 
 
- 178 0018 03B0     		add	sp, sp, #12
- 179              	.LCFI5:
- 180              		.cfi_def_cfa_offset 4
- 181              		@ sp needed
- 182 001a 5DF804FB 		ldr	pc, [sp], #4
- 183              	.L15:
- 184 001e 00BF     		.align	2
- 185              	.L14:
- 186 0020 00000000 		.word	EN_180
- 187              		.cfi_endproc
- 188              	.LFE334:
- 190              		.section	.text.Math_Cos_EN360,"ax",%progbits
- 191              		.align	1
- 192              		.global	Math_Cos_EN360
- 193              		.syntax unified
- 194              		.thumb
- 195              		.thumb_func
- 196              		.fpu fpv4-sp-d16
- 198              	Math_Cos_EN360:
- 199              	.LFB335:
+ 213              		.thumb
+ 214              		.thumb_func
+ 215              		.fpu fpv4-sp-d16
+ 217              	Math_Cos_EN360:
+ 218              	.LFB335:
  106:Src/stm32_math_sin.c **** 
  107:Src/stm32_math_sin.c **** 
  108:Src/stm32_math_sin.c **** // 将360度等分EN_360份，求cos，计算结果放大32768倍
  109:Src/stm32_math_sin.c **** // input：0 <= angle <= EN_360
  110:Src/stm32_math_sin.c **** s32 Math_Cos_EN360(u16 angle)
  111:Src/stm32_math_sin.c **** {
- 200              		.loc 1 111 0
- 201              		.cfi_startproc
- 202              		@ args = 0, pretend = 0, frame = 8
- 203              		@ frame_needed = 0, uses_anonymous_args = 0
- 204              	.LVL18:
- 205 0000 00B5     		push	{lr}
- 206              	.LCFI6:
- 207              		.cfi_def_cfa_offset 4
- 208              		.cfi_offset 14, -4
- 209 0002 83B0     		sub	sp, sp, #12
- 210              	.LCFI7:
- 211              		.cfi_def_cfa_offset 16
- 212              	.LVL19:
+ 219              		.loc 1 111 0
+ 220              		.cfi_startproc
+ 221              		@ args = 0, pretend = 0, frame = 8
+ 222              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223              	.LVL25:
  112:Src/stm32_math_sin.c ****   Trig_Components Trig_temp;
  113:Src/stm32_math_sin.c ****   s32 angle_temp = 0;
  114:Src/stm32_math_sin.c ****   
  115:Src/stm32_math_sin.c ****   angle_temp = (int)angle << 15;
- 213              		.loc 1 115 0
- 214 0004 C003     		lsls	r0, r0, #15
- 215              	.LVL20:
  116:Src/stm32_math_sin.c ****   
  117:Src/stm32_math_sin.c ****   angle_temp /= EN_180;
- 216              		.loc 1 117 0
- 217 0006 064B     		ldr	r3, .L18
- 218 0008 B3F90030 		ldrsh	r3, [r3]
- 219 000c 90FBF3F0 		sdiv	r0, r0, r3
- 220              	.LVL21:
+ 224              		.loc 1 117 0
+ 225 0000 064B     		ldr	r3, .L15
+ 111:Src/stm32_math_sin.c ****   Trig_Components Trig_temp;
+ 226              		.loc 1 111 0
+ 227 0002 07B5     		push	{r0, r1, r2, lr}
+ 228              	.LCFI5:
+ 229              		.cfi_def_cfa_offset 16
+ 230              		.cfi_offset 14, -4
+ 231              		.loc 1 117 0
+ 232 0004 B3F90030 		ldrsh	r3, [r3]
+ 115:Src/stm32_math_sin.c ****   
+ 233              		.loc 1 115 0
+ 234 0008 C003     		lsls	r0, r0, #15
+ 235              	.LVL26:
+ 236              		.loc 1 117 0
+ 237 000a 90FBF3F0 		sdiv	r0, r0, r3
+ 238              	.LVL27:
  118:Src/stm32_math_sin.c ****     
  119:Src/stm32_math_sin.c ****   Trig_temp = Math_Trig_Functions_512(angle_temp);
- 221              		.loc 1 119 0
- 222 0010 00B2     		sxth	r0, r0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 7
-
-
- 223              	.LVL22:
- 224 0012 FFF7FEFF 		bl	Math_Trig_Functions_512
- 225              	.LVL23:
+ 239              		.loc 1 119 0
+ 240 000e 00B2     		sxth	r0, r0
+ 241              	.LVL28:
+ 242 0010 FFF7FEFF 		bl	Math_Trig_Functions_512
+ 243              	.LVL29:
  120:Src/stm32_math_sin.c ****   
  121:Src/stm32_math_sin.c ****   return Trig_temp.hCos;
  122:Src/stm32_math_sin.c **** }
- 226              		.loc 1 122 0
- 227 0016 0014     		asrs	r0, r0, #16
- 228 0018 03B0     		add	sp, sp, #12
- 229              	.LCFI8:
- 230              		.cfi_def_cfa_offset 4
- 231              		@ sp needed
- 232 001a 5DF804FB 		ldr	pc, [sp], #4
- 233              	.L19:
- 234 001e 00BF     		.align	2
- 235              	.L18:
- 236 0020 00000000 		.word	EN_180
- 237              		.cfi_endproc
- 238              	.LFE335:
- 240              		.global	hSin_Cos_Table_512
- 241              		.section	.rodata.hSin_Cos_Table_512,"a",%progbits
- 242              		.align	2
- 243              		.set	.LANCHOR0,. + 0
- 246              	hSin_Cos_Table_512:
- 247 0000 0000     		.short	0
- 248 0002 6400     		.short	100
- 249 0004 C900     		.short	201
- 250 0006 2E01     		.short	302
- 251 0008 9201     		.short	402
- 252 000a F701     		.short	503
- 253 000c 5C02     		.short	604
- 254 000e C102     		.short	705
- 255 0010 2503     		.short	805
- 256 0012 8A03     		.short	906
- 257 0014 EF03     		.short	1007
- 258 0016 5304     		.short	1107
- 259 0018 B804     		.short	1208
- 260 001a 1D05     		.short	1309
- 261 001c 8105     		.short	1409
- 262 001e E605     		.short	1510
- 263 0020 4A06     		.short	1610
- 264 0022 AF06     		.short	1711
- 265 0024 1407     		.short	1812
- 266 0026 7807     		.short	1912
- 267 0028 DD07     		.short	2013
- 268 002a 4108     		.short	2113
- 269 002c A608     		.short	2214
- 270 002e 0A09     		.short	2314
- 271 0030 6F09     		.short	2415
- 272 0032 D309     		.short	2515
- 273 0034 380A     		.short	2616
- 274 0036 9C0A     		.short	2716
- 275 0038 000B     		.short	2816
- 276 003a 650B     		.short	2917
- 277 003c C90B     		.short	3017
- 278 003e 2D0C     		.short	3117
- 279 0040 910C     		.short	3217
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 8
+ 244              		.loc 1 122 0
+ 245 0014 0014     		asrs	r0, r0, #16
+ 246 0016 03B0     		add	sp, sp, #12
+ 247              	.LCFI6:
+ 248              		.cfi_def_cfa_offset 4
+ 249              		@ sp needed
+ 250 0018 5DF804FB 		ldr	pc, [sp], #4
+ 251              	.L16:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 8
 
 
- 280 0042 F60C     		.short	3318
- 281 0044 5A0D     		.short	3418
- 282 0046 BE0D     		.short	3518
- 283 0048 220E     		.short	3618
- 284 004a 860E     		.short	3718
- 285 004c EA0E     		.short	3818
- 286 004e 4E0F     		.short	3918
- 287 0050 B20F     		.short	4018
- 288 0052 1610     		.short	4118
- 289 0054 7A10     		.short	4218
- 290 0056 DE10     		.short	4318
- 291 0058 4211     		.short	4418
- 292 005a A611     		.short	4518
- 293 005c 0912     		.short	4617
- 294 005e 6D12     		.short	4717
- 295 0060 D112     		.short	4817
- 296 0062 3413     		.short	4916
- 297 0064 9813     		.short	5016
- 298 0066 FB13     		.short	5115
- 299 0068 5F14     		.short	5215
- 300 006a C214     		.short	5314
- 301 006c 2615     		.short	5414
- 302 006e 8915     		.short	5513
- 303 0070 EC15     		.short	5612
- 304 0072 4F16     		.short	5711
- 305 0074 B316     		.short	5811
- 306 0076 1617     		.short	5910
- 307 0078 7917     		.short	6009
- 308 007a DC17     		.short	6108
- 309 007c 3F18     		.short	6207
- 310 007e A218     		.short	6306
- 311 0080 0419     		.short	6404
- 312 0082 6719     		.short	6503
- 313 0084 CA19     		.short	6602
- 314 0086 2C1A     		.short	6700
- 315 0088 8F1A     		.short	6799
- 316 008a F21A     		.short	6898
- 317 008c 541B     		.short	6996
- 318 008e B61B     		.short	7094
- 319 0090 191C     		.short	7193
- 320 0092 7B1C     		.short	7291
- 321 0094 DD1C     		.short	7389
- 322 0096 3F1D     		.short	7487
- 323 0098 A11D     		.short	7585
- 324 009a 031E     		.short	7683
- 325 009c 651E     		.short	7781
- 326 009e C71E     		.short	7879
- 327 00a0 281F     		.short	7976
- 328 00a2 8A1F     		.short	8074
- 329 00a4 EC1F     		.short	8172
- 330 00a6 4D20     		.short	8269
- 331 00a8 AF20     		.short	8367
- 332 00aa 1021     		.short	8464
- 333 00ac 7121     		.short	8561
- 334 00ae D221     		.short	8658
- 335 00b0 3422     		.short	8756
- 336 00b2 9522     		.short	8853
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 9
+ 252              		.align	2
+ 253              	.L15:
+ 254 001c 00000000 		.word	EN_180
+ 255              		.cfi_endproc
+ 256              	.LFE335:
+ 258              		.global	hSin_Cos_Table_512
+ 259              		.section	.rodata.hSin_Cos_Table_512,"a",%progbits
+ 260              		.align	1
+ 261              		.set	.LANCHOR0,. + 0
+ 264              	hSin_Cos_Table_512:
+ 265 0000 0000     		.short	0
+ 266 0002 6400     		.short	100
+ 267 0004 C900     		.short	201
+ 268 0006 2E01     		.short	302
+ 269 0008 9201     		.short	402
+ 270 000a F701     		.short	503
+ 271 000c 5C02     		.short	604
+ 272 000e C102     		.short	705
+ 273 0010 2503     		.short	805
+ 274 0012 8A03     		.short	906
+ 275 0014 EF03     		.short	1007
+ 276 0016 5304     		.short	1107
+ 277 0018 B804     		.short	1208
+ 278 001a 1D05     		.short	1309
+ 279 001c 8105     		.short	1409
+ 280 001e E605     		.short	1510
+ 281 0020 4A06     		.short	1610
+ 282 0022 AF06     		.short	1711
+ 283 0024 1407     		.short	1812
+ 284 0026 7807     		.short	1912
+ 285 0028 DD07     		.short	2013
+ 286 002a 4108     		.short	2113
+ 287 002c A608     		.short	2214
+ 288 002e 0A09     		.short	2314
+ 289 0030 6F09     		.short	2415
+ 290 0032 D309     		.short	2515
+ 291 0034 380A     		.short	2616
+ 292 0036 9C0A     		.short	2716
+ 293 0038 000B     		.short	2816
+ 294 003a 650B     		.short	2917
+ 295 003c C90B     		.short	3017
+ 296 003e 2D0C     		.short	3117
+ 297 0040 910C     		.short	3217
+ 298 0042 F60C     		.short	3318
+ 299 0044 5A0D     		.short	3418
+ 300 0046 BE0D     		.short	3518
+ 301 0048 220E     		.short	3618
+ 302 004a 860E     		.short	3718
+ 303 004c EA0E     		.short	3818
+ 304 004e 4E0F     		.short	3918
+ 305 0050 B20F     		.short	4018
+ 306 0052 1610     		.short	4118
+ 307 0054 7A10     		.short	4218
+ 308 0056 DE10     		.short	4318
+ 309 0058 4211     		.short	4418
+ 310 005a A611     		.short	4518
+ 311 005c 0912     		.short	4617
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 9
 
 
- 337 00b4 F622     		.short	8950
- 338 00b6 5623     		.short	9046
- 339 00b8 B723     		.short	9143
- 340 00ba 1824     		.short	9240
- 341 00bc 7824     		.short	9336
- 342 00be D924     		.short	9433
- 343 00c0 3925     		.short	9529
- 344 00c2 9A25     		.short	9626
- 345 00c4 FA25     		.short	9722
- 346 00c6 5A26     		.short	9818
- 347 00c8 BA26     		.short	9914
- 348 00ca 1A27     		.short	10010
- 349 00cc 7A27     		.short	10106
- 350 00ce DA27     		.short	10202
- 351 00d0 3928     		.short	10297
- 352 00d2 9928     		.short	10393
- 353 00d4 F828     		.short	10488
- 354 00d6 5829     		.short	10584
- 355 00d8 B729     		.short	10679
- 356 00da 162A     		.short	10774
- 357 00dc 752A     		.short	10869
- 358 00de D42A     		.short	10964
- 359 00e0 332B     		.short	11059
- 360 00e2 922B     		.short	11154
- 361 00e4 F12B     		.short	11249
- 362 00e6 4F2C     		.short	11343
- 363 00e8 AE2C     		.short	11438
- 364 00ea 0C2D     		.short	11532
- 365 00ec 6A2D     		.short	11626
- 366 00ee C82D     		.short	11720
- 367 00f0 262E     		.short	11814
- 368 00f2 842E     		.short	11908
- 369 00f4 E22E     		.short	12002
- 370 00f6 402F     		.short	12096
- 371 00f8 9D2F     		.short	12189
- 372 00fa FB2F     		.short	12283
- 373 00fc 5830     		.short	12376
- 374 00fe B530     		.short	12469
- 375 0100 1231     		.short	12562
- 376 0102 6F31     		.short	12655
- 377 0104 CC31     		.short	12748
- 378 0106 2932     		.short	12841
- 379 0108 8532     		.short	12933
- 380 010a E232     		.short	13026
- 381 010c 3E33     		.short	13118
- 382 010e 9A33     		.short	13210
- 383 0110 F633     		.short	13302
- 384 0112 5234     		.short	13394
- 385 0114 AE34     		.short	13486
- 386 0116 0A35     		.short	13578
- 387 0118 6635     		.short	13670
- 388 011a C135     		.short	13761
- 389 011c 1D36     		.short	13853
- 390 011e 7836     		.short	13944
- 391 0120 D336     		.short	14035
- 392 0122 2E37     		.short	14126
- 393 0124 8937     		.short	14217
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 10
+ 312 005e 6D12     		.short	4717
+ 313 0060 D112     		.short	4817
+ 314 0062 3413     		.short	4916
+ 315 0064 9813     		.short	5016
+ 316 0066 FB13     		.short	5115
+ 317 0068 5F14     		.short	5215
+ 318 006a C214     		.short	5314
+ 319 006c 2615     		.short	5414
+ 320 006e 8915     		.short	5513
+ 321 0070 EC15     		.short	5612
+ 322 0072 4F16     		.short	5711
+ 323 0074 B316     		.short	5811
+ 324 0076 1617     		.short	5910
+ 325 0078 7917     		.short	6009
+ 326 007a DC17     		.short	6108
+ 327 007c 3F18     		.short	6207
+ 328 007e A218     		.short	6306
+ 329 0080 0419     		.short	6404
+ 330 0082 6719     		.short	6503
+ 331 0084 CA19     		.short	6602
+ 332 0086 2C1A     		.short	6700
+ 333 0088 8F1A     		.short	6799
+ 334 008a F21A     		.short	6898
+ 335 008c 541B     		.short	6996
+ 336 008e B61B     		.short	7094
+ 337 0090 191C     		.short	7193
+ 338 0092 7B1C     		.short	7291
+ 339 0094 DD1C     		.short	7389
+ 340 0096 3F1D     		.short	7487
+ 341 0098 A11D     		.short	7585
+ 342 009a 031E     		.short	7683
+ 343 009c 651E     		.short	7781
+ 344 009e C71E     		.short	7879
+ 345 00a0 281F     		.short	7976
+ 346 00a2 8A1F     		.short	8074
+ 347 00a4 EC1F     		.short	8172
+ 348 00a6 4D20     		.short	8269
+ 349 00a8 AF20     		.short	8367
+ 350 00aa 1021     		.short	8464
+ 351 00ac 7121     		.short	8561
+ 352 00ae D221     		.short	8658
+ 353 00b0 3422     		.short	8756
+ 354 00b2 9522     		.short	8853
+ 355 00b4 F622     		.short	8950
+ 356 00b6 5623     		.short	9046
+ 357 00b8 B723     		.short	9143
+ 358 00ba 1824     		.short	9240
+ 359 00bc 7824     		.short	9336
+ 360 00be D924     		.short	9433
+ 361 00c0 3925     		.short	9529
+ 362 00c2 9A25     		.short	9626
+ 363 00c4 FA25     		.short	9722
+ 364 00c6 5A26     		.short	9818
+ 365 00c8 BA26     		.short	9914
+ 366 00ca 1A27     		.short	10010
+ 367 00cc 7A27     		.short	10106
+ 368 00ce DA27     		.short	10202
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 10
 
 
- 394 0126 E337     		.short	14307
- 395 0128 3E38     		.short	14398
- 396 012a 9838     		.short	14488
- 397 012c F238     		.short	14578
- 398 012e 4D39     		.short	14669
- 399 0130 A739     		.short	14759
- 400 0132 003A     		.short	14848
- 401 0134 5A3A     		.short	14938
- 402 0136 B43A     		.short	15028
- 403 0138 0D3B     		.short	15117
- 404 013a 663B     		.short	15206
- 405 013c C03B     		.short	15296
- 406 013e 193C     		.short	15385
- 407 0140 723C     		.short	15474
- 408 0142 CA3C     		.short	15562
- 409 0144 233D     		.short	15651
- 410 0146 7B3D     		.short	15739
- 411 0148 D33D     		.short	15827
- 412 014a 2C3E     		.short	15916
- 413 014c 843E     		.short	16004
- 414 014e DB3E     		.short	16091
- 415 0150 333F     		.short	16179
- 416 0152 8B3F     		.short	16267
- 417 0154 E23F     		.short	16354
- 418 0156 3940     		.short	16441
- 419 0158 9040     		.short	16528
- 420 015a E740     		.short	16615
- 421 015c 3E41     		.short	16702
- 422 015e 9441     		.short	16788
- 423 0160 EB41     		.short	16875
- 424 0162 4142     		.short	16961
- 425 0164 9742     		.short	17047
- 426 0166 ED42     		.short	17133
- 427 0168 4343     		.short	17219
- 428 016a 9843     		.short	17304
- 429 016c EE43     		.short	17390
- 430 016e 4344     		.short	17475
- 431 0170 9844     		.short	17560
- 432 0172 ED44     		.short	17645
- 433 0174 4245     		.short	17730
- 434 0176 9745     		.short	17815
- 435 0178 EB45     		.short	17899
- 436 017a 3F46     		.short	17983
- 437 017c 9446     		.short	18068
- 438 017e E746     		.short	18151
- 439 0180 3B47     		.short	18235
- 440 0182 8F47     		.short	18319
- 441 0184 E247     		.short	18402
- 442 0186 3648     		.short	18486
- 443 0188 8948     		.short	18569
- 444 018a DC48     		.short	18652
- 445 018c 2E49     		.short	18734
- 446 018e 8149     		.short	18817
- 447 0190 D349     		.short	18899
- 448 0192 254A     		.short	18981
- 449 0194 774A     		.short	19063
- 450 0196 C94A     		.short	19145
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 11
+ 369 00d0 3928     		.short	10297
+ 370 00d2 9928     		.short	10393
+ 371 00d4 F828     		.short	10488
+ 372 00d6 5829     		.short	10584
+ 373 00d8 B729     		.short	10679
+ 374 00da 162A     		.short	10774
+ 375 00dc 752A     		.short	10869
+ 376 00de D42A     		.short	10964
+ 377 00e0 332B     		.short	11059
+ 378 00e2 922B     		.short	11154
+ 379 00e4 F12B     		.short	11249
+ 380 00e6 4F2C     		.short	11343
+ 381 00e8 AE2C     		.short	11438
+ 382 00ea 0C2D     		.short	11532
+ 383 00ec 6A2D     		.short	11626
+ 384 00ee C82D     		.short	11720
+ 385 00f0 262E     		.short	11814
+ 386 00f2 842E     		.short	11908
+ 387 00f4 E22E     		.short	12002
+ 388 00f6 402F     		.short	12096
+ 389 00f8 9D2F     		.short	12189
+ 390 00fa FB2F     		.short	12283
+ 391 00fc 5830     		.short	12376
+ 392 00fe B530     		.short	12469
+ 393 0100 1231     		.short	12562
+ 394 0102 6F31     		.short	12655
+ 395 0104 CC31     		.short	12748
+ 396 0106 2932     		.short	12841
+ 397 0108 8532     		.short	12933
+ 398 010a E232     		.short	13026
+ 399 010c 3E33     		.short	13118
+ 400 010e 9A33     		.short	13210
+ 401 0110 F633     		.short	13302
+ 402 0112 5234     		.short	13394
+ 403 0114 AE34     		.short	13486
+ 404 0116 0A35     		.short	13578
+ 405 0118 6635     		.short	13670
+ 406 011a C135     		.short	13761
+ 407 011c 1D36     		.short	13853
+ 408 011e 7836     		.short	13944
+ 409 0120 D336     		.short	14035
+ 410 0122 2E37     		.short	14126
+ 411 0124 8937     		.short	14217
+ 412 0126 E337     		.short	14307
+ 413 0128 3E38     		.short	14398
+ 414 012a 9838     		.short	14488
+ 415 012c F238     		.short	14578
+ 416 012e 4D39     		.short	14669
+ 417 0130 A739     		.short	14759
+ 418 0132 003A     		.short	14848
+ 419 0134 5A3A     		.short	14938
+ 420 0136 B43A     		.short	15028
+ 421 0138 0D3B     		.short	15117
+ 422 013a 663B     		.short	15206
+ 423 013c C03B     		.short	15296
+ 424 013e 193C     		.short	15385
+ 425 0140 723C     		.short	15474
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 11
 
 
- 451 0198 1B4B     		.short	19227
- 452 019a 6C4B     		.short	19308
- 453 019c BE4B     		.short	19390
- 454 019e 0F4C     		.short	19471
- 455 01a0 604C     		.short	19552
- 456 01a2 B04C     		.short	19632
- 457 01a4 014D     		.short	19713
- 458 01a6 514D     		.short	19793
- 459 01a8 A14D     		.short	19873
- 460 01aa F14D     		.short	19953
- 461 01ac 414E     		.short	20033
- 462 01ae 914E     		.short	20113
- 463 01b0 E04E     		.short	20192
- 464 01b2 304F     		.short	20272
- 465 01b4 7F4F     		.short	20351
- 466 01b6 CD4F     		.short	20429
- 467 01b8 1C50     		.short	20508
- 468 01ba 6B50     		.short	20587
- 469 01bc B950     		.short	20665
- 470 01be 0751     		.short	20743
- 471 01c0 5551     		.short	20821
- 472 01c2 A251     		.short	20898
- 473 01c4 F051     		.short	20976
- 474 01c6 3D52     		.short	21053
- 475 01c8 8A52     		.short	21130
- 476 01ca D752     		.short	21207
- 477 01cc 2453     		.short	21284
- 478 01ce 7053     		.short	21360
- 479 01d0 BD53     		.short	21437
- 480 01d2 0954     		.short	21513
- 481 01d4 5554     		.short	21589
- 482 01d6 A054     		.short	21664
- 483 01d8 EC54     		.short	21740
- 484 01da 3755     		.short	21815
- 485 01dc 8255     		.short	21890
- 486 01de CD55     		.short	21965
- 487 01e0 1756     		.short	22039
- 488 01e2 6256     		.short	22114
- 489 01e4 AC56     		.short	22188
- 490 01e6 F656     		.short	22262
- 491 01e8 4057     		.short	22336
- 492 01ea 8957     		.short	22409
- 493 01ec D357     		.short	22483
- 494 01ee 1C58     		.short	22556
- 495 01f0 6558     		.short	22629
- 496 01f2 AE58     		.short	22702
- 497 01f4 F658     		.short	22774
- 498 01f6 3F59     		.short	22847
- 499 01f8 8759     		.short	22919
- 500 01fa CF59     		.short	22991
- 501 01fc 165A     		.short	23062
- 502 01fe 5E5A     		.short	23134
- 503 0200 A55A     		.short	23205
- 504 0202 EC5A     		.short	23276
- 505 0204 335B     		.short	23347
- 506 0206 795B     		.short	23417
- 507 0208 C05B     		.short	23488
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 12
+ 426 0142 CA3C     		.short	15562
+ 427 0144 233D     		.short	15651
+ 428 0146 7B3D     		.short	15739
+ 429 0148 D33D     		.short	15827
+ 430 014a 2C3E     		.short	15916
+ 431 014c 843E     		.short	16004
+ 432 014e DB3E     		.short	16091
+ 433 0150 333F     		.short	16179
+ 434 0152 8B3F     		.short	16267
+ 435 0154 E23F     		.short	16354
+ 436 0156 3940     		.short	16441
+ 437 0158 9040     		.short	16528
+ 438 015a E740     		.short	16615
+ 439 015c 3E41     		.short	16702
+ 440 015e 9441     		.short	16788
+ 441 0160 EB41     		.short	16875
+ 442 0162 4142     		.short	16961
+ 443 0164 9742     		.short	17047
+ 444 0166 ED42     		.short	17133
+ 445 0168 4343     		.short	17219
+ 446 016a 9843     		.short	17304
+ 447 016c EE43     		.short	17390
+ 448 016e 4344     		.short	17475
+ 449 0170 9844     		.short	17560
+ 450 0172 ED44     		.short	17645
+ 451 0174 4245     		.short	17730
+ 452 0176 9745     		.short	17815
+ 453 0178 EB45     		.short	17899
+ 454 017a 3F46     		.short	17983
+ 455 017c 9446     		.short	18068
+ 456 017e E746     		.short	18151
+ 457 0180 3B47     		.short	18235
+ 458 0182 8F47     		.short	18319
+ 459 0184 E247     		.short	18402
+ 460 0186 3648     		.short	18486
+ 461 0188 8948     		.short	18569
+ 462 018a DC48     		.short	18652
+ 463 018c 2E49     		.short	18734
+ 464 018e 8149     		.short	18817
+ 465 0190 D349     		.short	18899
+ 466 0192 254A     		.short	18981
+ 467 0194 774A     		.short	19063
+ 468 0196 C94A     		.short	19145
+ 469 0198 1B4B     		.short	19227
+ 470 019a 6C4B     		.short	19308
+ 471 019c BE4B     		.short	19390
+ 472 019e 0F4C     		.short	19471
+ 473 01a0 604C     		.short	19552
+ 474 01a2 B04C     		.short	19632
+ 475 01a4 014D     		.short	19713
+ 476 01a6 514D     		.short	19793
+ 477 01a8 A14D     		.short	19873
+ 478 01aa F14D     		.short	19953
+ 479 01ac 414E     		.short	20033
+ 480 01ae 914E     		.short	20113
+ 481 01b0 E04E     		.short	20192
+ 482 01b2 304F     		.short	20272
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 12
 
 
- 508 020a 065C     		.short	23558
- 509 020c 4C5C     		.short	23628
- 510 020e 915C     		.short	23697
- 511 0210 D75C     		.short	23767
- 512 0212 1C5D     		.short	23836
- 513 0214 615D     		.short	23905
- 514 0216 A65D     		.short	23974
- 515 0218 EA5D     		.short	24042
- 516 021a 2F5E     		.short	24111
- 517 021c 735E     		.short	24179
- 518 021e B75E     		.short	24247
- 519 0220 FA5E     		.short	24314
- 520 0222 3E5F     		.short	24382
- 521 0224 815F     		.short	24449
- 522 0226 C45F     		.short	24516
- 523 0228 0660     		.short	24582
- 524 022a 4960     		.short	24649
- 525 022c 8B60     		.short	24715
- 526 022e CD60     		.short	24781
- 527 0230 0F61     		.short	24847
- 528 0232 5061     		.short	24912
- 529 0234 9261     		.short	24978
- 530 0236 D361     		.short	25043
- 531 0238 1462     		.short	25108
- 532 023a 5462     		.short	25172
- 533 023c 9562     		.short	25237
- 534 023e D562     		.short	25301
- 535 0240 1563     		.short	25365
- 536 0242 5463     		.short	25428
- 537 0244 9463     		.short	25492
- 538 0246 D363     		.short	25555
- 539 0248 1264     		.short	25618
- 540 024a 5064     		.short	25680
- 541 024c 8F64     		.short	25743
- 542 024e CD64     		.short	25805
- 543 0250 0B65     		.short	25867
- 544 0252 4965     		.short	25929
- 545 0254 8665     		.short	25990
- 546 0256 C365     		.short	26051
- 547 0258 0066     		.short	26112
- 548 025a 3D66     		.short	26173
- 549 025c 7A66     		.short	26234
- 550 025e B666     		.short	26294
- 551 0260 F266     		.short	26354
- 552 0262 2E67     		.short	26414
- 553 0264 6967     		.short	26473
- 554 0266 A467     		.short	26532
- 555 0268 DF67     		.short	26591
- 556 026a 1A68     		.short	26650
- 557 026c 5468     		.short	26708
- 558 026e 8F68     		.short	26767
- 559 0270 C968     		.short	26825
- 560 0272 0269     		.short	26882
- 561 0274 3C69     		.short	26940
- 562 0276 7569     		.short	26997
- 563 0278 AE69     		.short	27054
- 564 027a E769     		.short	27111
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 13
+ 483 01b4 7F4F     		.short	20351
+ 484 01b6 CD4F     		.short	20429
+ 485 01b8 1C50     		.short	20508
+ 486 01ba 6B50     		.short	20587
+ 487 01bc B950     		.short	20665
+ 488 01be 0751     		.short	20743
+ 489 01c0 5551     		.short	20821
+ 490 01c2 A251     		.short	20898
+ 491 01c4 F051     		.short	20976
+ 492 01c6 3D52     		.short	21053
+ 493 01c8 8A52     		.short	21130
+ 494 01ca D752     		.short	21207
+ 495 01cc 2453     		.short	21284
+ 496 01ce 7053     		.short	21360
+ 497 01d0 BD53     		.short	21437
+ 498 01d2 0954     		.short	21513
+ 499 01d4 5554     		.short	21589
+ 500 01d6 A054     		.short	21664
+ 501 01d8 EC54     		.short	21740
+ 502 01da 3755     		.short	21815
+ 503 01dc 8255     		.short	21890
+ 504 01de CD55     		.short	21965
+ 505 01e0 1756     		.short	22039
+ 506 01e2 6256     		.short	22114
+ 507 01e4 AC56     		.short	22188
+ 508 01e6 F656     		.short	22262
+ 509 01e8 4057     		.short	22336
+ 510 01ea 8957     		.short	22409
+ 511 01ec D357     		.short	22483
+ 512 01ee 1C58     		.short	22556
+ 513 01f0 6558     		.short	22629
+ 514 01f2 AE58     		.short	22702
+ 515 01f4 F658     		.short	22774
+ 516 01f6 3F59     		.short	22847
+ 517 01f8 8759     		.short	22919
+ 518 01fa CF59     		.short	22991
+ 519 01fc 165A     		.short	23062
+ 520 01fe 5E5A     		.short	23134
+ 521 0200 A55A     		.short	23205
+ 522 0202 EC5A     		.short	23276
+ 523 0204 335B     		.short	23347
+ 524 0206 795B     		.short	23417
+ 525 0208 C05B     		.short	23488
+ 526 020a 065C     		.short	23558
+ 527 020c 4C5C     		.short	23628
+ 528 020e 915C     		.short	23697
+ 529 0210 D75C     		.short	23767
+ 530 0212 1C5D     		.short	23836
+ 531 0214 615D     		.short	23905
+ 532 0216 A65D     		.short	23974
+ 533 0218 EA5D     		.short	24042
+ 534 021a 2F5E     		.short	24111
+ 535 021c 735E     		.short	24179
+ 536 021e B75E     		.short	24247
+ 537 0220 FA5E     		.short	24314
+ 538 0222 3E5F     		.short	24382
+ 539 0224 815F     		.short	24449
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 13
 
 
- 565 027c 1F6A     		.short	27167
- 566 027e 576A     		.short	27223
- 567 0280 8F6A     		.short	27279
- 568 0282 C76A     		.short	27335
- 569 0284 FE6A     		.short	27390
- 570 0286 356B     		.short	27445
- 571 0288 6C6B     		.short	27500
- 572 028a A36B     		.short	27555
- 573 028c D96B     		.short	27609
- 574 028e 0F6C     		.short	27663
- 575 0290 456C     		.short	27717
- 576 0292 7B6C     		.short	27771
- 577 0294 B06C     		.short	27824
- 578 0296 E56C     		.short	27877
- 579 0298 1A6D     		.short	27930
- 580 029a 4F6D     		.short	27983
- 581 029c 836D     		.short	28035
- 582 029e B76D     		.short	28087
- 583 02a0 EB6D     		.short	28139
- 584 02a2 1E6E     		.short	28190
- 585 02a4 516E     		.short	28241
- 586 02a6 846E     		.short	28292
- 587 02a8 B76E     		.short	28343
- 588 02aa E96E     		.short	28393
- 589 02ac 1B6F     		.short	28443
- 590 02ae 4D6F     		.short	28493
- 591 02b0 7F6F     		.short	28543
- 592 02b2 B06F     		.short	28592
- 593 02b4 E16F     		.short	28641
- 594 02b6 1270     		.short	28690
- 595 02b8 4370     		.short	28739
- 596 02ba 7370     		.short	28787
- 597 02bc A370     		.short	28835
- 598 02be D370     		.short	28883
- 599 02c0 0271     		.short	28930
- 600 02c2 3171     		.short	28977
- 601 02c4 6071     		.short	29024
- 602 02c6 8F71     		.short	29071
- 603 02c8 BD71     		.short	29117
- 604 02ca EB71     		.short	29163
- 605 02cc 1972     		.short	29209
- 606 02ce 4672     		.short	29254
- 607 02d0 7472     		.short	29300
- 608 02d2 A172     		.short	29345
- 609 02d4 CD72     		.short	29389
- 610 02d6 FA72     		.short	29434
- 611 02d8 2673     		.short	29478
- 612 02da 5273     		.short	29522
- 613 02dc 7D73     		.short	29565
- 614 02de A873     		.short	29608
- 615 02e0 D373     		.short	29651
- 616 02e2 FE73     		.short	29694
- 617 02e4 2974     		.short	29737
- 618 02e6 5374     		.short	29779
- 619 02e8 7D74     		.short	29821
- 620 02ea A674     		.short	29862
- 621 02ec D074     		.short	29904
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 14
+ 540 0226 C45F     		.short	24516
+ 541 0228 0660     		.short	24582
+ 542 022a 4960     		.short	24649
+ 543 022c 8B60     		.short	24715
+ 544 022e CD60     		.short	24781
+ 545 0230 0F61     		.short	24847
+ 546 0232 5061     		.short	24912
+ 547 0234 9261     		.short	24978
+ 548 0236 D361     		.short	25043
+ 549 0238 1462     		.short	25108
+ 550 023a 5462     		.short	25172
+ 551 023c 9562     		.short	25237
+ 552 023e D562     		.short	25301
+ 553 0240 1563     		.short	25365
+ 554 0242 5463     		.short	25428
+ 555 0244 9463     		.short	25492
+ 556 0246 D363     		.short	25555
+ 557 0248 1264     		.short	25618
+ 558 024a 5064     		.short	25680
+ 559 024c 8F64     		.short	25743
+ 560 024e CD64     		.short	25805
+ 561 0250 0B65     		.short	25867
+ 562 0252 4965     		.short	25929
+ 563 0254 8665     		.short	25990
+ 564 0256 C365     		.short	26051
+ 565 0258 0066     		.short	26112
+ 566 025a 3D66     		.short	26173
+ 567 025c 7A66     		.short	26234
+ 568 025e B666     		.short	26294
+ 569 0260 F266     		.short	26354
+ 570 0262 2E67     		.short	26414
+ 571 0264 6967     		.short	26473
+ 572 0266 A467     		.short	26532
+ 573 0268 DF67     		.short	26591
+ 574 026a 1A68     		.short	26650
+ 575 026c 5468     		.short	26708
+ 576 026e 8F68     		.short	26767
+ 577 0270 C968     		.short	26825
+ 578 0272 0269     		.short	26882
+ 579 0274 3C69     		.short	26940
+ 580 0276 7569     		.short	26997
+ 581 0278 AE69     		.short	27054
+ 582 027a E769     		.short	27111
+ 583 027c 1F6A     		.short	27167
+ 584 027e 576A     		.short	27223
+ 585 0280 8F6A     		.short	27279
+ 586 0282 C76A     		.short	27335
+ 587 0284 FE6A     		.short	27390
+ 588 0286 356B     		.short	27445
+ 589 0288 6C6B     		.short	27500
+ 590 028a A36B     		.short	27555
+ 591 028c D96B     		.short	27609
+ 592 028e 0F6C     		.short	27663
+ 593 0290 456C     		.short	27717
+ 594 0292 7B6C     		.short	27771
+ 595 0294 B06C     		.short	27824
+ 596 0296 E56C     		.short	27877
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 14
 
 
- 622 02ee F974     		.short	29945
- 623 02f0 2175     		.short	29985
- 624 02f2 4A75     		.short	30026
- 625 02f4 7275     		.short	30066
- 626 02f6 9A75     		.short	30106
- 627 02f8 C175     		.short	30145
- 628 02fa E975     		.short	30185
- 629 02fc 1076     		.short	30224
- 630 02fe 3776     		.short	30263
- 631 0300 5D76     		.short	30301
- 632 0302 8376     		.short	30339
- 633 0304 A976     		.short	30377
- 634 0306 CF76     		.short	30415
- 635 0308 F476     		.short	30452
- 636 030a 1977     		.short	30489
- 637 030c 3E77     		.short	30526
- 638 030e 6277     		.short	30562
- 639 0310 8777     		.short	30599
- 640 0312 AA77     		.short	30634
- 641 0314 CE77     		.short	30670
- 642 0316 F177     		.short	30705
- 643 0318 1478     		.short	30740
- 644 031a 3778     		.short	30775
- 645 031c 5A78     		.short	30810
- 646 031e 7C78     		.short	30844
- 647 0320 9D78     		.short	30877
- 648 0322 BF78     		.short	30911
- 649 0324 E078     		.short	30944
- 650 0326 0179     		.short	30977
- 651 0328 2279     		.short	31010
- 652 032a 4279     		.short	31042
- 653 032c 6279     		.short	31074
- 654 032e 8279     		.short	31106
- 655 0330 A279     		.short	31138
- 656 0332 C179     		.short	31169
- 657 0334 E079     		.short	31200
- 658 0336 FF79     		.short	31231
- 659 0338 1D7A     		.short	31261
- 660 033a 3B7A     		.short	31291
- 661 033c 597A     		.short	31321
- 662 033e 767A     		.short	31350
- 663 0340 937A     		.short	31379
- 664 0342 B07A     		.short	31408
- 665 0344 CD7A     		.short	31437
- 666 0346 E97A     		.short	31465
- 667 0348 057B     		.short	31493
- 668 034a 217B     		.short	31521
- 669 034c 3C7B     		.short	31548
- 670 034e 577B     		.short	31575
- 671 0350 727B     		.short	31602
- 672 0352 8C7B     		.short	31628
- 673 0354 A67B     		.short	31654
- 674 0356 C07B     		.short	31680
- 675 0358 DA7B     		.short	31706
- 676 035a F37B     		.short	31731
- 677 035c 0C7C     		.short	31756
- 678 035e 257C     		.short	31781
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 15
+ 597 0298 1A6D     		.short	27930
+ 598 029a 4F6D     		.short	27983
+ 599 029c 836D     		.short	28035
+ 600 029e B76D     		.short	28087
+ 601 02a0 EB6D     		.short	28139
+ 602 02a2 1E6E     		.short	28190
+ 603 02a4 516E     		.short	28241
+ 604 02a6 846E     		.short	28292
+ 605 02a8 B76E     		.short	28343
+ 606 02aa E96E     		.short	28393
+ 607 02ac 1B6F     		.short	28443
+ 608 02ae 4D6F     		.short	28493
+ 609 02b0 7F6F     		.short	28543
+ 610 02b2 B06F     		.short	28592
+ 611 02b4 E16F     		.short	28641
+ 612 02b6 1270     		.short	28690
+ 613 02b8 4370     		.short	28739
+ 614 02ba 7370     		.short	28787
+ 615 02bc A370     		.short	28835
+ 616 02be D370     		.short	28883
+ 617 02c0 0271     		.short	28930
+ 618 02c2 3171     		.short	28977
+ 619 02c4 6071     		.short	29024
+ 620 02c6 8F71     		.short	29071
+ 621 02c8 BD71     		.short	29117
+ 622 02ca EB71     		.short	29163
+ 623 02cc 1972     		.short	29209
+ 624 02ce 4672     		.short	29254
+ 625 02d0 7472     		.short	29300
+ 626 02d2 A172     		.short	29345
+ 627 02d4 CD72     		.short	29389
+ 628 02d6 FA72     		.short	29434
+ 629 02d8 2673     		.short	29478
+ 630 02da 5273     		.short	29522
+ 631 02dc 7D73     		.short	29565
+ 632 02de A873     		.short	29608
+ 633 02e0 D373     		.short	29651
+ 634 02e2 FE73     		.short	29694
+ 635 02e4 2974     		.short	29737
+ 636 02e6 5374     		.short	29779
+ 637 02e8 7D74     		.short	29821
+ 638 02ea A674     		.short	29862
+ 639 02ec D074     		.short	29904
+ 640 02ee F974     		.short	29945
+ 641 02f0 2175     		.short	29985
+ 642 02f2 4A75     		.short	30026
+ 643 02f4 7275     		.short	30066
+ 644 02f6 9A75     		.short	30106
+ 645 02f8 C175     		.short	30145
+ 646 02fa E975     		.short	30185
+ 647 02fc 1076     		.short	30224
+ 648 02fe 3776     		.short	30263
+ 649 0300 5D76     		.short	30301
+ 650 0302 8376     		.short	30339
+ 651 0304 A976     		.short	30377
+ 652 0306 CF76     		.short	30415
+ 653 0308 F476     		.short	30452
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 15
 
 
- 679 0360 3D7C     		.short	31805
- 680 0362 557C     		.short	31829
- 681 0364 6D7C     		.short	31853
- 682 0366 847C     		.short	31876
- 683 0368 9C7C     		.short	31900
- 684 036a B27C     		.short	31922
- 685 036c C97C     		.short	31945
- 686 036e DF7C     		.short	31967
- 687 0370 F57C     		.short	31989
- 688 0372 0B7D     		.short	32011
- 689 0374 207D     		.short	32032
- 690 0376 357D     		.short	32053
- 691 0378 4A7D     		.short	32074
- 692 037a 5E7D     		.short	32094
- 693 037c 737D     		.short	32115
- 694 037e 867D     		.short	32134
- 695 0380 9A7D     		.short	32154
- 696 0382 AD7D     		.short	32173
- 697 0384 C07D     		.short	32192
- 698 0386 D37D     		.short	32211
- 699 0388 E57D     		.short	32229
- 700 038a F77D     		.short	32247
- 701 038c 097E     		.short	32265
- 702 038e 1A7E     		.short	32282
- 703 0390 2B7E     		.short	32299
- 704 0392 3C7E     		.short	32316
- 705 0394 4D7E     		.short	32333
- 706 0396 5D7E     		.short	32349
- 707 0398 6D7E     		.short	32365
- 708 039a 7C7E     		.short	32380
- 709 039c 8B7E     		.short	32395
- 710 039e 9A7E     		.short	32410
- 711 03a0 A97E     		.short	32425
- 712 03a2 B77E     		.short	32439
- 713 03a4 C67E     		.short	32454
- 714 03a6 D37E     		.short	32467
- 715 03a8 E17E     		.short	32481
- 716 03aa EE7E     		.short	32494
- 717 03ac FB7E     		.short	32507
- 718 03ae 077F     		.short	32519
- 719 03b0 137F     		.short	32531
- 720 03b2 1F7F     		.short	32543
- 721 03b4 2B7F     		.short	32555
- 722 03b6 367F     		.short	32566
- 723 03b8 417F     		.short	32577
- 724 03ba 4C7F     		.short	32588
- 725 03bc 567F     		.short	32598
- 726 03be 607F     		.short	32608
- 727 03c0 6A7F     		.short	32618
- 728 03c2 737F     		.short	32627
- 729 03c4 7C7F     		.short	32636
- 730 03c6 857F     		.short	32645
- 731 03c8 8E7F     		.short	32654
- 732 03ca 967F     		.short	32662
- 733 03cc 9E7F     		.short	32670
- 734 03ce A57F     		.short	32677
- 735 03d0 AD7F     		.short	32685
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 16
+ 654 030a 1977     		.short	30489
+ 655 030c 3E77     		.short	30526
+ 656 030e 6277     		.short	30562
+ 657 0310 8777     		.short	30599
+ 658 0312 AA77     		.short	30634
+ 659 0314 CE77     		.short	30670
+ 660 0316 F177     		.short	30705
+ 661 0318 1478     		.short	30740
+ 662 031a 3778     		.short	30775
+ 663 031c 5A78     		.short	30810
+ 664 031e 7C78     		.short	30844
+ 665 0320 9D78     		.short	30877
+ 666 0322 BF78     		.short	30911
+ 667 0324 E078     		.short	30944
+ 668 0326 0179     		.short	30977
+ 669 0328 2279     		.short	31010
+ 670 032a 4279     		.short	31042
+ 671 032c 6279     		.short	31074
+ 672 032e 8279     		.short	31106
+ 673 0330 A279     		.short	31138
+ 674 0332 C179     		.short	31169
+ 675 0334 E079     		.short	31200
+ 676 0336 FF79     		.short	31231
+ 677 0338 1D7A     		.short	31261
+ 678 033a 3B7A     		.short	31291
+ 679 033c 597A     		.short	31321
+ 680 033e 767A     		.short	31350
+ 681 0340 937A     		.short	31379
+ 682 0342 B07A     		.short	31408
+ 683 0344 CD7A     		.short	31437
+ 684 0346 E97A     		.short	31465
+ 685 0348 057B     		.short	31493
+ 686 034a 217B     		.short	31521
+ 687 034c 3C7B     		.short	31548
+ 688 034e 577B     		.short	31575
+ 689 0350 727B     		.short	31602
+ 690 0352 8C7B     		.short	31628
+ 691 0354 A67B     		.short	31654
+ 692 0356 C07B     		.short	31680
+ 693 0358 DA7B     		.short	31706
+ 694 035a F37B     		.short	31731
+ 695 035c 0C7C     		.short	31756
+ 696 035e 257C     		.short	31781
+ 697 0360 3D7C     		.short	31805
+ 698 0362 557C     		.short	31829
+ 699 0364 6D7C     		.short	31853
+ 700 0366 847C     		.short	31876
+ 701 0368 9C7C     		.short	31900
+ 702 036a B27C     		.short	31922
+ 703 036c C97C     		.short	31945
+ 704 036e DF7C     		.short	31967
+ 705 0370 F57C     		.short	31989
+ 706 0372 0B7D     		.short	32011
+ 707 0374 207D     		.short	32032
+ 708 0376 357D     		.short	32053
+ 709 0378 4A7D     		.short	32074
+ 710 037a 5E7D     		.short	32094
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 16
 
 
- 736 03d2 B47F     		.short	32692
- 737 03d4 BA7F     		.short	32698
- 738 03d6 C17F     		.short	32705
- 739 03d8 C77F     		.short	32711
- 740 03da CC7F     		.short	32716
- 741 03dc D27F     		.short	32722
- 742 03de D77F     		.short	32727
- 743 03e0 DC7F     		.short	32732
- 744 03e2 E07F     		.short	32736
- 745 03e4 E47F     		.short	32740
- 746 03e6 E87F     		.short	32744
- 747 03e8 EC7F     		.short	32748
- 748 03ea EF7F     		.short	32751
- 749 03ec F27F     		.short	32754
- 750 03ee F57F     		.short	32757
- 751 03f0 F77F     		.short	32759
- 752 03f2 F97F     		.short	32761
- 753 03f4 FB7F     		.short	32763
- 754 03f6 FC7F     		.short	32764
- 755 03f8 FD7F     		.short	32765
- 756 03fa FE7F     		.short	32766
- 757 03fc FE7F     		.short	32766
- 758 03fe FF7F     		.short	32767
- 759              		.text
- 760              	.Letext0:
- 761              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 762              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 763              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 764              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
- 765              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
- 766              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
- 767              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
- 768              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
- 769              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
- 770              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
- 771              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
- 772              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
- 773              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
- 774              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 775              		.file 16 "Inc/stm32_math_sin.h"
- 776              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 777              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 778              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
- 779              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 780              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 781              		.file 22 "Inc/uart.h"
- 782              		.file 23 "Inc/pwm.h"
- 783              		.file 24 "Inc/spi_MEncoder.h"
- 784              		.file 25 "Inc/adc.h"
- 785              		.file 26 "Inc/pid.h"
- 786              		.file 27 "Inc/profile_joint.h"
- 787              		.file 28 "Inc/icmu.h"
- 788              		.file 29 "Inc/performance_test.h"
- 789              		.file 30 "Inc/global.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s 			page 17
+ 711 037c 737D     		.short	32115
+ 712 037e 867D     		.short	32134
+ 713 0380 9A7D     		.short	32154
+ 714 0382 AD7D     		.short	32173
+ 715 0384 C07D     		.short	32192
+ 716 0386 D37D     		.short	32211
+ 717 0388 E57D     		.short	32229
+ 718 038a F77D     		.short	32247
+ 719 038c 097E     		.short	32265
+ 720 038e 1A7E     		.short	32282
+ 721 0390 2B7E     		.short	32299
+ 722 0392 3C7E     		.short	32316
+ 723 0394 4D7E     		.short	32333
+ 724 0396 5D7E     		.short	32349
+ 725 0398 6D7E     		.short	32365
+ 726 039a 7C7E     		.short	32380
+ 727 039c 8B7E     		.short	32395
+ 728 039e 9A7E     		.short	32410
+ 729 03a0 A97E     		.short	32425
+ 730 03a2 B77E     		.short	32439
+ 731 03a4 C67E     		.short	32454
+ 732 03a6 D37E     		.short	32467
+ 733 03a8 E17E     		.short	32481
+ 734 03aa EE7E     		.short	32494
+ 735 03ac FB7E     		.short	32507
+ 736 03ae 077F     		.short	32519
+ 737 03b0 137F     		.short	32531
+ 738 03b2 1F7F     		.short	32543
+ 739 03b4 2B7F     		.short	32555
+ 740 03b6 367F     		.short	32566
+ 741 03b8 417F     		.short	32577
+ 742 03ba 4C7F     		.short	32588
+ 743 03bc 567F     		.short	32598
+ 744 03be 607F     		.short	32608
+ 745 03c0 6A7F     		.short	32618
+ 746 03c2 737F     		.short	32627
+ 747 03c4 7C7F     		.short	32636
+ 748 03c6 857F     		.short	32645
+ 749 03c8 8E7F     		.short	32654
+ 750 03ca 967F     		.short	32662
+ 751 03cc 9E7F     		.short	32670
+ 752 03ce A57F     		.short	32677
+ 753 03d0 AD7F     		.short	32685
+ 754 03d2 B47F     		.short	32692
+ 755 03d4 BA7F     		.short	32698
+ 756 03d6 C17F     		.short	32705
+ 757 03d8 C77F     		.short	32711
+ 758 03da CC7F     		.short	32716
+ 759 03dc D27F     		.short	32722
+ 760 03de D77F     		.short	32727
+ 761 03e0 DC7F     		.short	32732
+ 762 03e2 E07F     		.short	32736
+ 763 03e4 E47F     		.short	32740
+ 764 03e6 E87F     		.short	32744
+ 765 03e8 EC7F     		.short	32748
+ 766 03ea EF7F     		.short	32751
+ 767 03ec F27F     		.short	32754
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 17
+
+
+ 768 03ee F57F     		.short	32757
+ 769 03f0 F77F     		.short	32759
+ 770 03f2 F97F     		.short	32761
+ 771 03f4 FB7F     		.short	32763
+ 772 03f6 FC7F     		.short	32764
+ 773 03f8 FD7F     		.short	32765
+ 774 03fa FE7F     		.short	32766
+ 775 03fc FE7F     		.short	32766
+ 776 03fe FF7F     		.short	32767
+ 777              		.text
+ 778              	.Letext0:
+ 779              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 780              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 781              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 782              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 783              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 784              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 785              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 786              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 787              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 788              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 789              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 790              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 791              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 792              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 793              		.file 16 "Inc/stm32_math_sin.h"
+ 794              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 795              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 796              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ 797              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 798              		.file 21 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 799              		.file 22 "Inc/uart.h"
+ 800              		.file 23 "Inc/pwm.h"
+ 801              		.file 24 "Inc/spi_MEncoder.h"
+ 802              		.file 25 "Inc/adc.h"
+ 803              		.file 26 "Inc/pid.h"
+ 804              		.file 27 "Inc/profile_joint.h"
+ 805              		.file 28 "Inc/icmu.h"
+ 806              		.file 29 "Inc/performance_test.h"
+ 807              		.file 30 "Inc/global.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s 			page 18
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32_math_sin.c
-C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:18     .text.Math_Trig_Functions_512:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:25     .text.Math_Trig_Functions_512:00000000 Math_Trig_Functions_512
-C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:136    .text.Math_Trig_Functions_512:000000b8 $d
-C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:141    .text.Math_Sin_EN360:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:148    .text.Math_Sin_EN360:00000000 Math_Sin_EN360
-C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:186    .text.Math_Sin_EN360:00000020 $d
-C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:191    .text.Math_Cos_EN360:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:198    .text.Math_Cos_EN360:00000000 Math_Cos_EN360
-C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:236    .text.Math_Cos_EN360:00000020 $d
-C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:246    .rodata.hSin_Cos_Table_512:00000000 hSin_Cos_Table_512
-C:\Users\82057\AppData\Local\Temp\ccWuTBHI.s:242    .rodata.hSin_Cos_Table_512:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s:18     .text.Math_Trig_Functions_512:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s:25     .text.Math_Trig_Functions_512:00000000 Math_Trig_Functions_512
+C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s:156    .text.Math_Trig_Functions_512:0000009c $d
+C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s:161    .text.Math_Sin_EN360:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s:168    .text.Math_Sin_EN360:00000000 Math_Sin_EN360
+C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s:205    .text.Math_Sin_EN360:0000001c $d
+C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s:210    .text.Math_Cos_EN360:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s:217    .text.Math_Cos_EN360:00000000 Math_Cos_EN360
+C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s:254    .text.Math_Cos_EN360:0000001c $d
+C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s:264    .rodata.hSin_Cos_Table_512:00000000 hSin_Cos_Table_512
+C:\Users\82057\AppData\Local\Temp\ccUEhcbX.s:260    .rodata.hSin_Cos_Table_512:00000000 $d
 
 UNDEFINED SYMBOLS
 EN_180

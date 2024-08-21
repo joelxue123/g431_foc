@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"stm32g4xx_hal_dma.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
   30:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****        necessary). Please refer to the Reference manual for connection between peripherals
   31:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****        and DMA requests.
   32:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 2
 
 
   33:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****    (#) For a given Channel, program the required configuration through the following parameters:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
   87:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   */
   88:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
   89:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** /* Includes ------------------------------------------------------------------*/
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 3
 
 
   90:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** #include "stm32g4xx_hal.h"
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  144:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
  145:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** /**
  146:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @brief  Initialize the DMA according to the specified
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 4
 
 
  147:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *         parameters in the DMA_InitTypeDef and initialize the associated handle.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  201:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphInc           | hdma->Init.MemInc           |
  202:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphDataAlignment | hdma->Init.MemDataAlignment |
  203:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.Mode                | hdma->Init.Priority;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 5
 
 
  204:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  258:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @brief  DeInitialize the DMA peripheral.
  259:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
  260:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *               the configuration information for the specified DMA Channel.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 6
 
 
  261:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @retval HAL status
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  315:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     DMA_CalcDMAMUXRequestGenBaseAndMask(hdma);
  316:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
  317:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     /* Reset the DMAMUX request generator register*/
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 7
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 7
 
 
  318:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DMAmuxRequestGen->RGCR = 0U;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  372:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *               the configuration information for the specified DMA Channel.
  373:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  SrcAddress The source memory Buffer address
  374:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  DstAddress The destination memory Buffer address
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 8
 
 
  375:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  DataLength The length of data to be transferred from source to destination (up to 256Kb
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  429:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   /* Process locked */
  430:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   __HAL_LOCK(hdma);
  431:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 9
 
 
  432:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   if (HAL_DMA_STATE_READY == hdma->State)
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  486:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @brief  Abort the DMA Transfer.
  487:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  hdma pointer to a DMA_HandleTypeDef structure that contains
  488:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *               the configuration information for the specified DMA Channel.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 10
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 10
 
 
  489:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     * @retval HAL status
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  543:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   */
  544:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** HAL_StatusTypeDef HAL_DMA_Abort_IT(DMA_HandleTypeDef *hdma)
  545:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 11
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 11
 
 
  546:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  600:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   return status;
  601:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
  602:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 12
 
 
  603:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** /**
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  657:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       /* Update error code */
  658:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       hdma->ErrorCode = HAL_DMA_ERROR_TE;
  659:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 13
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 13
 
 
  660:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       /* Change the DMA state */
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  714:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   if (HAL_DMA_FULL_TRANSFER == CompleteLevel)
  715:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
  716:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     /* Clear the transfer complete flag */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 14
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 14
 
 
  717:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DmaBaseAddress->IFCR = ((uint32_t)DMA_FLAG_TC1 << (hdma->ChannelIndex & 0x1FU));
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  771:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     if ((hdma->Instance->CCR & DMA_CCR_CIRC) == 0U)
  772:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
  773:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       /* Disable the transfer complete and error interrupt */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 15
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 15
 
 
  774:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       __HAL_DMA_DISABLE_IT(hdma, DMA_IT_TE | DMA_IT_TC);
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  828:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *                               the configuration information for the specified DMA Channel.
  829:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  CallbackID           User Callback identifier
  830:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *                               a HAL_DMA_CallbackIDTypeDef ENUM as parameter.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 16
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 16
 
 
  831:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  pCallback            pointer to private callbacsk function which has pointer to
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  885:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   */
  886:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** HAL_StatusTypeDef HAL_DMA_UnRegisterCallback(DMA_HandleTypeDef *hdma, HAL_DMA_CallbackIDTypeDef Cal
  887:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 17
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 17
 
 
  888:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  942:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** /** @defgroup DMA_Exported_Functions_Group3 Peripheral State and Errors functions
  943:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *  @brief    Peripheral State and Errors functions
  944:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   *
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 18
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 18
 
 
  945:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** @verbatim
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
  999:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @param  DataLength The length of data to be transferred from source to destination
 1000:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @retval HAL status
 1001:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 19
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 19
 
 
 1002:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** static void DMA_SetConfig(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, uint32
@@ -1087,64 +1087,63 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              		@ link register save eliminated.
-  32              	.LVL0:
-  33 0000 70B4     		push	{r4, r5, r6}
-  34              	.LCFI0:
-  35              		.cfi_def_cfa_offset 12
-  36              		.cfi_offset 4, -12
-  37              		.cfi_offset 5, -8
-  38              		.cfi_offset 6, -4
+  31              	.LVL0:
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 16
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
 1004:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   /* Clear the DMAMUX synchro overrun flag */
 1005:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
   39              		.loc 1 1005 0
-  40 0002 C46C     		ldr	r4, [r0, #76]
-  41 0004 056D     		ldr	r5, [r0, #80]
-  42 0006 6560     		str	r5, [r4, #4]
+  40 0002 D0E91345 		ldrd	r4, r5, [r0, #76]
+  41 0006 6560     		str	r5, [r4, #4]
 1006:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1007:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   if (hdma->DMAmuxRequestGen != 0U)
-  43              		.loc 1 1007 0
-  44 0008 446D     		ldr	r4, [r0, #84]
-  45 000a 14B1     		cbz	r4, .L2
+  42              		.loc 1 1007 0
+  43 0008 446D     		ldr	r4, [r0, #84]
+  44 000a 14B1     		cbz	r4, .L2
 1008:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
 1009:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     /* Clear the DMAMUX request generator overrun flag */
 1010:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DMAmuxRequestGenStatus->RGCFR = hdma->DMAmuxRequestGenStatusMask;
-  46              		.loc 1 1010 0
-  47 000c 846D     		ldr	r4, [r0, #88]
-  48 000e C56D     		ldr	r5, [r0, #92]
-  49 0010 6560     		str	r5, [r4, #4]
-  50              	.L2:
+  45              		.loc 1 1010 0
+  46 000c D0E91645 		ldrd	r4, r5, [r0, #88]
+  47 0010 6560     		str	r5, [r4, #4]
+  48              	.L2:
 1011:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
 1012:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1013:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   /* Clear all flags */
 1014:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DmaBaseAddress->IFCR = (DMA_ISR_GIF1 << (hdma->ChannelIndex & 0x1FU));
-  51              		.loc 1 1014 0
-  52 0012 446C     		ldr	r4, [r0, #68]
-  53 0014 04F01F05 		and	r5, r4, #31
-  54 0018 066C     		ldr	r6, [r0, #64]
-  55 001a 0124     		movs	r4, #1
-  56 001c AC40     		lsls	r4, r4, r5
-  57 001e 7460     		str	r4, [r6, #4]
+  49              		.loc 1 1014 0
+  50 0012 D0E91064 		ldrd	r6, r4, [r0, #64]
+  51 0016 04F01F05 		and	r5, r4, #31
+  52 001a 0124     		movs	r4, #1
+  53 001c AC40     		lsls	r4, r4, r5
+  54 001e 7460     		str	r4, [r6, #4]
 1015:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1016:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   /* Configure DMA Channel data length */
 1017:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->Instance->CNDTR = DataLength;
-  58              		.loc 1 1017 0
-  59 0020 0468     		ldr	r4, [r0]
-  60 0022 6360     		str	r3, [r4, #4]
+  55              		.loc 1 1017 0
+  56 0020 0468     		ldr	r4, [r0]
+  57 0022 6360     		str	r3, [r4, #4]
 1018:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1019:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   /* Memory to Peripheral */
 1020:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   if ((hdma->Init.Direction) == DMA_MEMORY_TO_PERIPH)
-  61              		.loc 1 1020 0
-  62 0024 8368     		ldr	r3, [r0, #8]
-  63              	.LVL1:
-  64 0026 102B     		cmp	r3, #16
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 20
-
-
-  65 0028 05D0     		beq	.L6
+  58              		.loc 1 1020 0
+  59 0024 8368     		ldr	r3, [r0, #8]
+  60              	.LVL1:
+  61 0026 102B     		cmp	r3, #16
 1021:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
 1022:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     /* Configure DMA Channel destination address */
 1023:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->Instance->CPAR = DstAddress;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 20
+
+
+  62              		.loc 1 1023 0
+  63 0028 0BBF     		itete	eq
+  64 002a A260     		streq	r2, [r4, #8]
 1024:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1025:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     /* Configure DMA Channel source address */
 1026:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->Instance->CMAR = SrcAddress;
@@ -1154,55 +1153,30 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
 1030:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
 1031:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     /* Configure DMA Channel source address */
 1032:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->Instance->CPAR = SrcAddress;
-  66              		.loc 1 1032 0
-  67 002a 0368     		ldr	r3, [r0]
-  68 002c 9960     		str	r1, [r3, #8]
-  69              	.LVL2:
+  65              		.loc 1 1032 0
+  66 002c A160     		strne	r1, [r4, #8]
+1026:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+  67              		.loc 1 1026 0
+  68 002e E160     		streq	r1, [r4, #12]
 1033:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1034:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     /* Configure DMA Channel destination address */
 1035:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->Instance->CMAR = DstAddress;
-  70              		.loc 1 1035 0
-  71 002e 0368     		ldr	r3, [r0]
-  72 0030 DA60     		str	r2, [r3, #12]
-  73              	.L1:
+  69              		.loc 1 1035 0
+  70 0030 E260     		strne	r2, [r4, #12]
 1036:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
 1037:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
-  74              		.loc 1 1037 0
-  75 0032 70BC     		pop	{r4, r5, r6}
-  76              	.LCFI1:
-  77              		.cfi_remember_state
-  78              		.cfi_restore 6
-  79              		.cfi_restore 5
-  80              		.cfi_restore 4
-  81              		.cfi_def_cfa_offset 0
-  82 0034 7047     		bx	lr
-  83              	.LVL3:
-  84              	.L6:
-  85              	.LCFI2:
-  86              		.cfi_restore_state
-1023:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-  87              		.loc 1 1023 0
-  88 0036 0368     		ldr	r3, [r0]
-  89 0038 9A60     		str	r2, [r3, #8]
-  90              	.LVL4:
-1026:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
-  91              		.loc 1 1026 0
-  92 003a 0368     		ldr	r3, [r0]
-  93 003c D960     		str	r1, [r3, #12]
-  94 003e F8E7     		b	.L1
-  95              		.cfi_endproc
-  96              	.LFE341:
-  98              		.section	.text.DMA_CalcDMAMUXChannelBaseAndMask,"ax",%progbits
-  99              		.align	1
- 100              		.syntax unified
- 101              		.thumb
- 102              		.thumb_func
- 103              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 21
-
-
- 105              	DMA_CalcDMAMUXChannelBaseAndMask:
- 106              	.LFB342:
+  71              		.loc 1 1037 0
+  72 0032 70BD     		pop	{r4, r5, r6, pc}
+  73              		.cfi_endproc
+  74              	.LFE341:
+  76              		.section	.text.DMA_CalcDMAMUXChannelBaseAndMask,"ax",%progbits
+  77              		.align	1
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  81              		.fpu fpv4-sp-d16
+  83              	DMA_CalcDMAMUXChannelBaseAndMask:
+  84              	.LFB342:
 1038:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1039:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** /**
 1040:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @brief  Updates the DMA handle with the DMAMUX  channel and status mask depending on stream num
@@ -1212,23 +1186,22 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
 1044:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   */
 1045:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** static void DMA_CalcDMAMUXChannelBaseAndMask(DMA_HandleTypeDef *hdma)
 1046:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** {
- 107              		.loc 1 1046 0
- 108              		.cfi_startproc
- 109              		@ args = 0, pretend = 0, frame = 0
- 110              		@ frame_needed = 0, uses_anonymous_args = 0
- 111              		@ link register save eliminated.
- 112              	.LVL5:
+  85              		.loc 1 1046 0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              	.LVL2:
 1047:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t dmamux_base_addr;
 1048:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t channel_number;
 1049:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   DMAMUX_Channel_TypeDef *DMAMUX1_ChannelBase;
 1050:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1051:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   /* check if instance is not outside the DMA channel range */
 1052:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   if ((uint32_t)hdma->Instance < (uint32_t)DMA2_Channel1)
- 113              		.loc 1 1052 0
- 114 0000 0368     		ldr	r3, [r0]
- 115 0002 0C4A     		ldr	r2, .L11
- 116 0004 9342     		cmp	r3, r2
- 117 0006 13D9     		bls	.L10
+  90              		.loc 1 1052 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 21
+
+
+  91 0000 0368     		ldr	r3, [r0]
 1053:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
 1054:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     /* DMA1 */
 1055:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     DMAMUX1_ChannelBase = DMAMUX1_Channel0;
@@ -1240,69 +1213,208 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
 1061:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     DMAMUX1_ChannelBase = DMAMUX1_Channel8;
 1062:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** #elif defined (STM32G431xx) || defined (STM32G441xx) || defined (STM32GBK1CB)
 1063:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     DMAMUX1_ChannelBase = DMAMUX1_Channel6;
- 118              		.loc 1 1063 0
- 119 0008 0B49     		ldr	r1, .L11+4
- 120              	.L8:
- 121              	.LVL6:
+  92              		.loc 1 1063 0
+  93 0002 0D49     		ldr	r1, .L11
+  94 0004 0D4A     		ldr	r2, .L11+4
+1046:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t dmamux_base_addr;
+  95              		.loc 1 1046 0
+  96 0006 10B5     		push	{r4, lr}
+  97              	.LCFI1:
+  98              		.cfi_def_cfa_offset 8
+  99              		.cfi_offset 4, -8
+ 100              		.cfi_offset 14, -4
+ 101              		.loc 1 1063 0
+ 102 0008 0D4C     		ldr	r4, .L11+8
+ 103 000a A342     		cmp	r3, r4
+ 104 000c 88BF     		it	hi
+ 105 000e 0A46     		movhi	r2, r1
+ 106              	.LVL3:
 1064:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** #else
 1065:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     DMAMUX1_ChannelBase = DMAMUX1_Channel7;
 1066:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** #endif /* STM32G4x1xx) */
 1067:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
 1068:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   dmamux_base_addr = (uint32_t)DMAMUX1_ChannelBase;
 1069:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   channel_number = (((uint32_t)hdma->Instance & 0xFFU) - 8U) / 20U;
- 122              		.loc 1 1069 0
- 123 000a DBB2     		uxtb	r3, r3
- 124 000c 083B     		subs	r3, r3, #8
- 125 000e 0B4A     		ldr	r2, .L11+8
- 126 0010 A2FB0323 		umull	r2, r3, r2, r3
- 127              	.LVL7:
 1070:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxChannel = (DMAMUX_Channel_TypeDef *)(uint32_t)(dmamux_base_addr + ((hdma->ChannelInde
- 128              		.loc 1 1070 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 22
-
-
- 129 0014 426C     		ldr	r2, [r0, #68]
- 130 0016 22F00302 		bic	r2, r2, #3
- 131 001a 0A44     		add	r2, r2, r1
- 132 001c 8264     		str	r2, [r0, #72]
+ 107              		.loc 1 1070 0
+ 108 0010 416C     		ldr	r1, [r0, #68]
+ 109 0012 21F00301 		bic	r1, r1, #3
+ 110 0016 0A44     		add	r2, r2, r1
+ 111              	.LVL4:
+ 112 0018 8264     		str	r2, [r0, #72]
+1069:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxChannel = (DMAMUX_Channel_TypeDef *)(uint32_t)(dmamux_base_addr + ((hdma->ChannelInde
+ 113              		.loc 1 1069 0
+ 114 001a DBB2     		uxtb	r3, r3
+ 115              	.LVL5:
 1071:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxChannelStatus = DMAMUX1_ChannelStatus;
- 133              		.loc 1 1071 0
- 134 001e 084A     		ldr	r2, .L11+12
- 135 0020 C264     		str	r2, [r0, #76]
+ 116              		.loc 1 1071 0
+ 117 001c 094A     		ldr	r2, .L11+12
+ 118 001e C264     		str	r2, [r0, #76]
+1069:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxChannel = (DMAMUX_Channel_TypeDef *)(uint32_t)(dmamux_base_addr + ((hdma->ChannelInde
+ 119              		.loc 1 1069 0
+ 120 0020 083B     		subs	r3, r3, #8
+ 121 0022 1422     		movs	r2, #20
+ 122 0024 B3FBF2F3 		udiv	r3, r3, r2
 1072:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxChannelStatusMask = 1UL << (channel_number & 0x1FU);
- 136              		.loc 1 1072 0
- 137 0022 C3F30413 		ubfx	r3, r3, #4, #5
- 138              	.LVL8:
- 139 0026 0122     		movs	r2, #1
- 140 0028 02FA03F3 		lsl	r3, r2, r3
- 141 002c 0365     		str	r3, [r0, #80]
+ 123              		.loc 1 1072 0
+ 124 0028 0122     		movs	r2, #1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 22
+
+
+ 125 002a 03F01F03 		and	r3, r3, #31
+ 126 002e 02FA03F3 		lsl	r3, r2, r3
+ 127 0032 0365     		str	r3, [r0, #80]
 1073:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
- 142              		.loc 1 1073 0
- 143 002e 7047     		bx	lr
- 144              	.LVL9:
- 145              	.L10:
-1055:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 146              		.loc 1 1055 0
- 147 0030 0449     		ldr	r1, .L11+16
- 148 0032 EAE7     		b	.L8
- 149              	.L12:
- 150              		.align	2
- 151              	.L11:
- 152 0034 07040240 		.word	1073873927
- 153 0038 20080240 		.word	1073874976
- 154 003c CDCCCCCC 		.word	-858993459
- 155 0040 80080240 		.word	1073875072
- 156 0044 00080240 		.word	1073874944
- 157              		.cfi_endproc
- 158              	.LFE342:
- 160              		.section	.text.DMA_CalcDMAMUXRequestGenBaseAndMask,"ax",%progbits
- 161              		.align	1
- 162              		.syntax unified
- 163              		.thumb
- 164              		.thumb_func
- 165              		.fpu fpv4-sp-d16
- 167              	DMA_CalcDMAMUXRequestGenBaseAndMask:
- 168              	.LFB343:
+ 128              		.loc 1 1073 0
+ 129 0034 10BD     		pop	{r4, pc}
+ 130              	.LVL6:
+ 131              	.L12:
+ 132 0036 00BF     		.align	2
+ 133              	.L11:
+ 134 0038 20080240 		.word	1073874976
+ 135 003c 00080240 		.word	1073874944
+ 136 0040 07040240 		.word	1073873927
+ 137 0044 80080240 		.word	1073875072
+ 138              		.cfi_endproc
+ 139              	.LFE342:
+ 141              		.section	.text.HAL_DMA_Init,"ax",%progbits
+ 142              		.align	1
+ 143              		.global	HAL_DMA_Init
+ 144              		.syntax unified
+ 145              		.thumb
+ 146              		.thumb_func
+ 147              		.fpu fpv4-sp-d16
+ 149              	HAL_DMA_Init:
+ 150              	.LFB329:
+ 153:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t tmp;
+ 151              		.loc 1 153 0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155              	.LVL7:
+ 156 0000 10B5     		push	{r4, lr}
+ 157              	.LCFI2:
+ 158              		.cfi_def_cfa_offset 8
+ 159              		.cfi_offset 4, -8
+ 160              		.cfi_offset 14, -4
+ 157:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 161              		.loc 1 157 0
+ 162 0002 0446     		mov	r4, r0
+ 163 0004 0028     		cmp	r0, #0
+ 164 0006 5DD0     		beq	.L20
+ 175:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 165              		.loc 1 175 0
+ 166 0008 0168     		ldr	r1, [r0]
+ 167 000a 2F4B     		ldr	r3, .L22
+ 168 000c 9942     		cmp	r1, r3
+ 169 000e 4FF01400 		mov	r0, #20
+ 170              	.LVL8:
+ 171 0012 4AD8     		bhi	.L15
+ 178:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DmaBaseAddress = DMA1;
+ 172              		.loc 1 178 0
+ 173 0014 2D4A     		ldr	r2, .L22+4
+ 174 0016 0A44     		add	r2, r2, r1
+ 175 0018 B2FBF0F2 		udiv	r2, r2, r0
+ 176 001c 9200     		lsls	r2, r2, #2
+ 177 001e 6264     		str	r2, [r4, #68]
+ 179:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 23
+
+
+ 178              		.loc 1 179 0
+ 179 0020 A3F20743 		subw	r3, r3, #1031
+ 180              	.L21:
+ 185:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 181              		.loc 1 185 0
+ 182 0024 2364     		str	r3, [r4, #64]
+ 189:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 183              		.loc 1 189 0
+ 184 0026 0223     		movs	r3, #2
+ 185 0028 84F82530 		strb	r3, [r4, #37]
+ 200:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphInc           | hdma->Init.MemInc           |
+ 186              		.loc 1 200 0
+ 187 002c D4E90230 		ldrd	r3, r0, [r4, #8]
+ 188 0030 0343     		orrs	r3, r3, r0
+ 201:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphDataAlignment | hdma->Init.MemDataAlignment |
+ 189              		.loc 1 201 0
+ 190 0032 2069     		ldr	r0, [r4, #16]
+ 192:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 191              		.loc 1 192 0
+ 192 0034 0A68     		ldr	r2, [r1]
+ 193              	.LVL9:
+ 201:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphDataAlignment | hdma->Init.MemDataAlignment |
+ 194              		.loc 1 201 0
+ 195 0036 0343     		orrs	r3, r3, r0
+ 196 0038 6069     		ldr	r0, [r4, #20]
+ 197 003a 0343     		orrs	r3, r3, r0
+ 202:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.Mode                | hdma->Init.Priority;
+ 198              		.loc 1 202 0
+ 199 003c A069     		ldr	r0, [r4, #24]
+ 200 003e 0343     		orrs	r3, r3, r0
+ 201 0040 E069     		ldr	r0, [r4, #28]
+ 202 0042 0343     		orrs	r3, r3, r0
+ 203:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 203              		.loc 1 203 0
+ 204 0044 206A     		ldr	r0, [r4, #32]
+ 195:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****                       DMA_CCR_MINC  | DMA_CCR_PINC   | DMA_CCR_CIRC   |
+ 205              		.loc 1 195 0
+ 206 0046 22F4FF42 		bic	r2, r2, #32640
+ 207              	.LVL10:
+ 208 004a 22F07002 		bic	r2, r2, #112
+ 209              	.LVL11:
+ 203:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 210              		.loc 1 203 0
+ 211 004e 0343     		orrs	r3, r3, r0
+ 200:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphInc           | hdma->Init.MemInc           |
+ 212              		.loc 1 200 0
+ 213 0050 1343     		orrs	r3, r3, r2
+ 214              	.LVL12:
+ 206:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 215              		.loc 1 206 0
+ 216 0052 0B60     		str	r3, [r1]
+ 211:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 217              		.loc 1 211 0
+ 218 0054 2046     		mov	r0, r4
+ 219 0056 FFF7FEFF 		bl	DMA_CalcDMAMUXChannelBaseAndMask
+ 220              	.LVL13:
+ 213:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 24
+
+
+ 221              		.loc 1 213 0
+ 222 005a A368     		ldr	r3, [r4, #8]
+ 220:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 223              		.loc 1 220 0
+ 224 005c A16C     		ldr	r1, [r4, #72]
+ 213:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 225              		.loc 1 213 0
+ 226 005e B3F5804F 		cmp	r3, #16384
+ 216:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 227              		.loc 1 216 0
+ 228 0062 04BF     		itt	eq
+ 229 0064 0023     		moveq	r3, #0
+ 230 0066 6360     		streq	r3, [r4, #4]
+ 220:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 231              		.loc 1 220 0
+ 232 0068 6268     		ldr	r2, [r4, #4]
+ 233 006a D3B2     		uxtb	r3, r2
+ 234 006c 0B60     		str	r3, [r1]
+ 223:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 235              		.loc 1 223 0
+ 236 006e D4E91310 		ldrd	r1, r0, [r4, #76]
+ 225:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 237              		.loc 1 225 0
+ 238 0072 013A     		subs	r2, r2, #1
+ 239 0074 032A     		cmp	r2, #3
+ 223:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 240              		.loc 1 223 0
+ 241 0076 4860     		str	r0, [r1, #4]
+ 225:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 242              		.loc 1 225 0
+ 243 0078 1FD8     		bhi	.L18
+ 244              	.LVL14:
+ 245              	.LBB4:
+ 246              	.LBB5:
 1074:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1075:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** /**
 1076:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   * @brief  Updates the DMA handle with the DMAMUX  request generator params
@@ -1313,1789 +1425,1556 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 1
 1081:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1082:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** static void DMA_CalcDMAMUXRequestGenBaseAndMask(DMA_HandleTypeDef *hdma)
 1083:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** {
- 169              		.loc 1 1083 0
- 170              		.cfi_startproc
- 171              		@ args = 0, pretend = 0, frame = 0
- 172              		@ frame_needed = 0, uses_anonymous_args = 0
- 173              		@ link register save eliminated.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 23
-
-
- 174              	.LVL10:
 1084:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t request =  hdma->Init.Request & DMAMUX_CxCR_DMAREQ_ID;
- 175              		.loc 1 1084 0
- 176 0000 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
- 177              	.LVL11:
 1085:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1086:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   /* DMA Channels are connected to DMAMUX1 request generator blocks*/
 1087:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxRequestGen = (DMAMUX_RequestGen_TypeDef *)((uint32_t)(((uint32_t)DMAMUX1_RequestGener
- 178              		.loc 1 1087 0
- 179 0002 074A     		ldr	r2, .L14
- 180 0004 1A44     		add	r2, r2, r3
- 181 0006 9200     		lsls	r2, r2, #2
- 182 0008 4265     		str	r2, [r0, #84]
+ 247              		.loc 1 1087 0
+ 248 007a 154A     		ldr	r2, .L22+8
 1088:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1089:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxRequestGenStatus = DMAMUX1_RequestGenStatus;
- 183              		.loc 1 1089 0
- 184 000a 064A     		ldr	r2, .L14+4
- 185 000c 8265     		str	r2, [r0, #88]
+ 249              		.loc 1 1089 0
+ 250 007c 1548     		ldr	r0, .L22+12
+ 251 007e A065     		str	r0, [r4, #88]
+1087:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 252              		.loc 1 1087 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 25
+
+
+ 253 0080 1A44     		add	r2, r2, r3
 1090:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
 1091:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxRequestGenStatusMask = 1UL << ((request - 1U) & 0x1FU);
- 186              		.loc 1 1091 0
- 187 000e 013B     		subs	r3, r3, #1
- 188              	.LVL12:
- 189 0010 03F01F03 		and	r3, r3, #31
- 190              	.LVL13:
- 191 0014 0122     		movs	r2, #1
- 192 0016 02FA03F3 		lsl	r3, r2, r3
- 193 001a C365     		str	r3, [r0, #92]
-1092:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
- 194              		.loc 1 1092 0
- 195 001c 7047     		bx	lr
- 196              	.L15:
- 197 001e 00BF     		.align	2
- 198              	.L14:
- 199 0020 3F820010 		.word	268468799
- 200 0024 40090240 		.word	1073875264
- 201              		.cfi_endproc
- 202              	.LFE343:
- 204              		.section	.text.HAL_DMA_Init,"ax",%progbits
- 205              		.align	1
- 206              		.global	HAL_DMA_Init
- 207              		.syntax unified
- 208              		.thumb
- 209              		.thumb_func
- 210              		.fpu fpv4-sp-d16
- 212              	HAL_DMA_Init:
- 213              	.LFB329:
- 153:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t tmp;
- 214              		.loc 1 153 0
- 215              		.cfi_startproc
- 216              		@ args = 0, pretend = 0, frame = 0
- 217              		@ frame_needed = 0, uses_anonymous_args = 0
- 218              	.LVL14:
- 157:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 219              		.loc 1 157 0
- 220 0000 0028     		cmp	r0, #0
- 221 0002 5CD0     		beq	.L23
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 24
-
-
- 153:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t tmp;
- 222              		.loc 1 153 0
- 223 0004 10B5     		push	{r4, lr}
- 224              	.LCFI3:
- 225              		.cfi_def_cfa_offset 8
- 226              		.cfi_offset 4, -8
- 227              		.cfi_offset 14, -4
- 228 0006 0446     		mov	r4, r0
- 175:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 229              		.loc 1 175 0
- 230 0008 0268     		ldr	r2, [r0]
- 231 000a 2E4B     		ldr	r3, .L30
- 232 000c 9A42     		cmp	r2, r3
- 233 000e 3ED8     		bhi	.L18
- 178:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DmaBaseAddress = DMA1;
- 234              		.loc 1 178 0
- 235 0010 2D4B     		ldr	r3, .L30+4
- 236 0012 1344     		add	r3, r3, r2
- 237 0014 2D4A     		ldr	r2, .L30+8
- 238 0016 A2FB0323 		umull	r2, r3, r2, r3
- 239 001a 1B09     		lsrs	r3, r3, #4
- 240 001c 9B00     		lsls	r3, r3, #2
- 241 001e 4364     		str	r3, [r0, #68]
- 179:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 242              		.loc 1 179 0
- 243 0020 2B4B     		ldr	r3, .L30+12
- 244 0022 0364     		str	r3, [r0, #64]
- 245              	.L19:
- 189:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 246              		.loc 1 189 0
- 247 0024 0223     		movs	r3, #2
- 248 0026 84F82530 		strb	r3, [r4, #37]
- 192:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 249              		.loc 1 192 0
- 250 002a 2168     		ldr	r1, [r4]
- 251 002c 0A68     		ldr	r2, [r1]
- 252              	.LVL15:
- 195:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****                       DMA_CCR_MINC  | DMA_CCR_PINC   | DMA_CCR_CIRC   |
- 253              		.loc 1 195 0
- 254 002e 22F4FF42 		bic	r2, r2, #32640
- 255              	.LVL16:
- 256 0032 22F07002 		bic	r2, r2, #112
- 257              	.LVL17:
- 200:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphInc           | hdma->Init.MemInc           |
- 258              		.loc 1 200 0
- 259 0036 A368     		ldr	r3, [r4, #8]
- 201:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphDataAlignment | hdma->Init.MemDataAlignment |
- 260              		.loc 1 201 0
- 261 0038 E068     		ldr	r0, [r4, #12]
- 262              	.LVL18:
- 200:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphInc           | hdma->Init.MemInc           |
- 263              		.loc 1 200 0
- 264 003a 0343     		orrs	r3, r3, r0
- 201:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphDataAlignment | hdma->Init.MemDataAlignment |
- 265              		.loc 1 201 0
- 266 003c 2069     		ldr	r0, [r4, #16]
- 267 003e 0343     		orrs	r3, r3, r0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 25
-
-
- 202:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.Mode                | hdma->Init.Priority;
- 268              		.loc 1 202 0
- 269 0040 6069     		ldr	r0, [r4, #20]
- 201:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphDataAlignment | hdma->Init.MemDataAlignment |
- 270              		.loc 1 201 0
- 271 0042 0343     		orrs	r3, r3, r0
- 202:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.Mode                | hdma->Init.Priority;
- 272              		.loc 1 202 0
- 273 0044 A069     		ldr	r0, [r4, #24]
- 274 0046 0343     		orrs	r3, r3, r0
- 203:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 275              		.loc 1 203 0
- 276 0048 E069     		ldr	r0, [r4, #28]
- 202:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.Mode                | hdma->Init.Priority;
- 277              		.loc 1 202 0
- 278 004a 0343     		orrs	r3, r3, r0
- 203:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 279              		.loc 1 203 0
- 280 004c 206A     		ldr	r0, [r4, #32]
- 281 004e 0343     		orrs	r3, r3, r0
- 200:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****           hdma->Init.PeriphInc           | hdma->Init.MemInc           |
- 282              		.loc 1 200 0
- 283 0050 1343     		orrs	r3, r3, r2
- 284              	.LVL19:
- 206:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 285              		.loc 1 206 0
- 286 0052 0B60     		str	r3, [r1]
- 211:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 287              		.loc 1 211 0
- 288 0054 2046     		mov	r0, r4
- 289 0056 FFF7FEFF 		bl	DMA_CalcDMAMUXChannelBaseAndMask
- 290              	.LVL20:
- 213:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 291              		.loc 1 213 0
- 292 005a A368     		ldr	r3, [r4, #8]
- 293 005c B3F5804F 		cmp	r3, #16384
- 294 0060 20D0     		beq	.L28
- 295              	.L20:
- 220:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 296              		.loc 1 220 0
- 297 0062 A36C     		ldr	r3, [r4, #72]
- 298 0064 2279     		ldrb	r2, [r4, #4]	@ zero_extendqisi2
- 299 0066 1A60     		str	r2, [r3]
- 223:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 300              		.loc 1 223 0
- 301 0068 E36C     		ldr	r3, [r4, #76]
- 302 006a 226D     		ldr	r2, [r4, #80]
- 303 006c 5A60     		str	r2, [r3, #4]
- 225:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 304              		.loc 1 225 0
- 305 006e 6368     		ldr	r3, [r4, #4]
- 306 0070 013B     		subs	r3, r3, #1
- 307 0072 032B     		cmp	r3, #3
- 308 0074 19D9     		bls	.L29
- 240:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DMAmuxRequestGenStatus = 0U;
- 309              		.loc 1 240 0
- 310 0076 0023     		movs	r3, #0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 26
-
-
- 311 0078 6365     		str	r3, [r4, #84]
- 241:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DMAmuxRequestGenStatusMask = 0U;
- 312              		.loc 1 241 0
- 313 007a A365     		str	r3, [r4, #88]
- 242:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 314              		.loc 1 242 0
- 315 007c E365     		str	r3, [r4, #92]
- 316              	.L22:
- 246:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 317              		.loc 1 246 0
- 318 007e 0020     		movs	r0, #0
- 319 0080 E063     		str	r0, [r4, #60]
- 249:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 320              		.loc 1 249 0
- 321 0082 0123     		movs	r3, #1
- 322 0084 84F82530 		strb	r3, [r4, #37]
- 252:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 323              		.loc 1 252 0
- 324 0088 84F82400 		strb	r0, [r4, #36]
- 255:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 325              		.loc 1 255 0
- 326 008c 10BD     		pop	{r4, pc}
- 327              	.LVL21:
- 328              	.L18:
- 184:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DmaBaseAddress = DMA2;
- 329              		.loc 1 184 0
- 330 008e 114B     		ldr	r3, .L30+16
- 331 0090 1344     		add	r3, r3, r2
- 332 0092 0E4A     		ldr	r2, .L30+8
- 333 0094 A2FB0323 		umull	r2, r3, r2, r3
- 334 0098 1B09     		lsrs	r3, r3, #4
- 335 009a 9B00     		lsls	r3, r3, #2
- 336 009c 4364     		str	r3, [r0, #68]
- 185:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 337              		.loc 1 185 0
- 338 009e 0E4B     		ldr	r3, .L30+20
- 339 00a0 0364     		str	r3, [r0, #64]
- 340 00a2 BFE7     		b	.L19
- 341              	.LVL22:
- 342              	.L28:
- 216:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 343              		.loc 1 216 0
- 344 00a4 0023     		movs	r3, #0
- 345 00a6 6360     		str	r3, [r4, #4]
- 346 00a8 DBE7     		b	.L20
- 347              	.L29:
- 230:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 348              		.loc 1 230 0
- 349 00aa 2046     		mov	r0, r4
- 350 00ac FFF7FEFF 		bl	DMA_CalcDMAMUXRequestGenBaseAndMask
- 351              	.LVL23:
+ 254              		.loc 1 1091 0
+ 255 0082 013B     		subs	r3, r3, #1
+ 256              	.LVL15:
+1087:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 257              		.loc 1 1087 0
+ 258 0084 9200     		lsls	r2, r2, #2
+ 259              		.loc 1 1091 0
+ 260 0086 0121     		movs	r1, #1
+ 261 0088 03F01F03 		and	r3, r3, #31
+ 262              	.LVL16:
+ 263 008c 01FA03F3 		lsl	r3, r1, r3
+ 264              	.LBE5:
+ 265              	.LBE4:
  233:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 352              		.loc 1 233 0
- 353 00b0 636D     		ldr	r3, [r4, #84]
- 354 00b2 0022     		movs	r2, #0
- 355 00b4 1A60     		str	r2, [r3]
+ 266              		.loc 1 233 0
+ 267 0090 0021     		movs	r1, #0
+ 268              	.LBB7:
+ 269              	.LBB6:
+1087:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 270              		.loc 1 1087 0
+ 271 0092 6265     		str	r2, [r4, #84]
+ 272              		.loc 1 1091 0
+ 273 0094 E365     		str	r3, [r4, #92]
+ 274              	.LVL17:
+ 275              	.LBE6:
+ 276              	.LBE7:
+ 233:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 277              		.loc 1 233 0
+ 278 0096 1160     		str	r1, [r2]
  236:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 27
-
-
- 356              		.loc 1 236 0
- 357 00b6 A36D     		ldr	r3, [r4, #88]
- 358 00b8 E26D     		ldr	r2, [r4, #92]
- 359 00ba 5A60     		str	r2, [r3, #4]
- 360 00bc DFE7     		b	.L22
- 361              	.LVL24:
- 362              	.L23:
- 363              	.LCFI4:
- 364              		.cfi_def_cfa_offset 0
- 365              		.cfi_restore 4
- 366              		.cfi_restore 14
- 159:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 367              		.loc 1 159 0
- 368 00be 0120     		movs	r0, #1
- 369              	.LVL25:
+ 279              		.loc 1 236 0
+ 280 0098 4360     		str	r3, [r0, #4]
+ 281              	.L19:
+ 246:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 282              		.loc 1 246 0
+ 283 009a 0020     		movs	r0, #0
+ 249:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 284              		.loc 1 249 0
+ 285 009c 0123     		movs	r3, #1
+ 246:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 286              		.loc 1 246 0
+ 287 009e E063     		str	r0, [r4, #60]
+ 252:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 288              		.loc 1 252 0
+ 289 00a0 84F82400 		strb	r0, [r4, #36]
+ 249:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 290              		.loc 1 249 0
+ 291 00a4 84F82530 		strb	r3, [r4, #37]
+ 292              	.L14:
  255:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 370              		.loc 1 255 0
- 371 00c0 7047     		bx	lr
- 372              	.L31:
- 373 00c2 00BF     		.align	2
- 374              	.L30:
- 375 00c4 07040240 		.word	1073873927
- 376 00c8 F8FFFDBF 		.word	-1073872904
- 377 00cc CDCCCCCC 		.word	-858993459
- 378 00d0 00000240 		.word	1073872896
- 379 00d4 F8FBFDBF 		.word	-1073873928
- 380 00d8 00040240 		.word	1073873920
- 381              		.cfi_endproc
- 382              	.LFE329:
- 384              		.section	.text.HAL_DMA_DeInit,"ax",%progbits
- 385              		.align	1
- 386              		.global	HAL_DMA_DeInit
- 387              		.syntax unified
- 388              		.thumb
- 389              		.thumb_func
- 390              		.fpu fpv4-sp-d16
- 392              	HAL_DMA_DeInit:
- 393              	.LFB330:
+ 293              		.loc 1 255 0
+ 294 00a8 10BD     		pop	{r4, pc}
+ 295              	.LVL18:
+ 296              	.L15:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 26
+
+
+ 184:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DmaBaseAddress = DMA2;
+ 297              		.loc 1 184 0
+ 298 00aa 0B4B     		ldr	r3, .L22+16
+ 299 00ac 0B44     		add	r3, r3, r1
+ 300 00ae B3FBF0F3 		udiv	r3, r3, r0
+ 301 00b2 9B00     		lsls	r3, r3, #2
+ 302 00b4 6364     		str	r3, [r4, #68]
+ 185:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 303              		.loc 1 185 0
+ 304 00b6 094B     		ldr	r3, .L22+20
+ 305 00b8 B4E7     		b	.L21
+ 306              	.L18:
+ 240:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DMAmuxRequestGenStatus = 0U;
+ 307              		.loc 1 240 0
+ 308 00ba 0023     		movs	r3, #0
+ 241:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DMAmuxRequestGenStatusMask = 0U;
+ 309              		.loc 1 241 0
+ 310 00bc C4E91533 		strd	r3, r3, [r4, #84]
+ 242:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 311              		.loc 1 242 0
+ 312 00c0 E365     		str	r3, [r4, #92]
+ 313 00c2 EAE7     		b	.L19
+ 314              	.LVL19:
+ 315              	.L20:
+ 159:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 316              		.loc 1 159 0
+ 317 00c4 0120     		movs	r0, #1
+ 318              	.LVL20:
+ 319 00c6 EFE7     		b	.L14
+ 320              	.L23:
+ 321              		.align	2
+ 322              	.L22:
+ 323 00c8 07040240 		.word	1073873927
+ 324 00cc F8FFFDBF 		.word	-1073872904
+ 325 00d0 3F820010 		.word	268468799
+ 326 00d4 40090240 		.word	1073875264
+ 327 00d8 F8FBFDBF 		.word	-1073873928
+ 328 00dc 00040240 		.word	1073873920
+ 329              		.cfi_endproc
+ 330              	.LFE329:
+ 332              		.section	.text.HAL_DMA_DeInit,"ax",%progbits
+ 333              		.align	1
+ 334              		.global	HAL_DMA_DeInit
+ 335              		.syntax unified
+ 336              		.thumb
+ 337              		.thumb_func
+ 338              		.fpu fpv4-sp-d16
+ 340              	HAL_DMA_DeInit:
+ 341              	.LFB330:
  264:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 394              		.loc 1 264 0
- 395              		.cfi_startproc
- 396              		@ args = 0, pretend = 0, frame = 0
- 397              		@ frame_needed = 0, uses_anonymous_args = 0
- 398              	.LVL26:
+ 342              		.loc 1 264 0
+ 343              		.cfi_startproc
+ 344              		@ args = 0, pretend = 0, frame = 0
+ 345              		@ frame_needed = 0, uses_anonymous_args = 0
+ 346              	.LVL21:
+ 347 0000 70B5     		push	{r4, r5, r6, lr}
+ 348              	.LCFI3:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 27
+
+
+ 349              		.cfi_def_cfa_offset 16
+ 350              		.cfi_offset 4, -16
+ 351              		.cfi_offset 5, -12
+ 352              		.cfi_offset 6, -8
+ 353              		.cfi_offset 14, -4
  267:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 399              		.loc 1 267 0
- 400 0000 0028     		cmp	r0, #0
- 401 0002 4CD0     		beq	.L37
- 264:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 402              		.loc 1 264 0
- 403 0004 38B5     		push	{r3, r4, r5, lr}
- 404              	.LCFI5:
- 405              		.cfi_def_cfa_offset 16
- 406              		.cfi_offset 3, -16
- 407              		.cfi_offset 4, -12
- 408              		.cfi_offset 5, -8
- 409              		.cfi_offset 14, -4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 28
-
-
- 410 0006 0446     		mov	r4, r0
+ 354              		.loc 1 267 0
+ 355 0002 0446     		mov	r4, r0
+ 356 0004 0028     		cmp	r0, #0
+ 357 0006 45D0     		beq	.L29
  276:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 411              		.loc 1 276 0
- 412 0008 0268     		ldr	r2, [r0]
- 413 000a 1368     		ldr	r3, [r2]
- 414 000c 23F00103 		bic	r3, r3, #1
- 415 0010 1360     		str	r3, [r2]
+ 358              		.loc 1 276 0
+ 359 0008 0168     		ldr	r1, [r0]
+ 360 000a 0B68     		ldr	r3, [r1]
+ 361 000c 23F00103 		bic	r3, r3, #1
+ 362 0010 0B60     		str	r3, [r1]
  279:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 416              		.loc 1 279 0
- 417 0012 0268     		ldr	r2, [r0]
- 418 0014 234B     		ldr	r3, .L43
- 419 0016 9A42     		cmp	r2, r3
- 420 0018 2DD8     		bhi	.L34
+ 363              		.loc 1 279 0
+ 364 0012 214B     		ldr	r3, .L31
+ 365 0014 9942     		cmp	r1, r3
+ 366 0016 4FF01400 		mov	r0, #20
+ 367              	.LVL22:
+ 368 001a 33D8     		bhi	.L26
  282:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DmaBaseAddress = DMA1;
- 421              		.loc 1 282 0
- 422 001a 234B     		ldr	r3, .L43+4
- 423 001c 1344     		add	r3, r3, r2
- 424 001e 234A     		ldr	r2, .L43+8
- 425 0020 A2FB0323 		umull	r2, r3, r2, r3
- 426 0024 1B09     		lsrs	r3, r3, #4
- 427 0026 9B00     		lsls	r3, r3, #2
- 428 0028 4364     		str	r3, [r0, #68]
+ 369              		.loc 1 282 0
+ 370 001c 1F4A     		ldr	r2, .L31+4
+ 371 001e 0A44     		add	r2, r2, r1
+ 372 0020 B2FBF0F2 		udiv	r2, r2, r0
+ 373 0024 9200     		lsls	r2, r2, #2
+ 374 0026 6264     		str	r2, [r4, #68]
  283:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 429              		.loc 1 283 0
- 430 002a 214B     		ldr	r3, .L43+12
- 431 002c 0364     		str	r3, [r0, #64]
- 432              	.L35:
- 293:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 433              		.loc 1 293 0
- 434 002e 2368     		ldr	r3, [r4]
- 435 0030 0025     		movs	r5, #0
- 436 0032 1D60     		str	r5, [r3]
- 296:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 437              		.loc 1 296 0
- 438 0034 636C     		ldr	r3, [r4, #68]
- 439 0036 03F01F02 		and	r2, r3, #31
- 440 003a 216C     		ldr	r1, [r4, #64]
- 441 003c 0123     		movs	r3, #1
- 442 003e 9340     		lsls	r3, r3, r2
- 443 0040 4B60     		str	r3, [r1, #4]
- 301:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 444              		.loc 1 301 0
- 445 0042 2046     		mov	r0, r4
- 446              	.LVL27:
- 447 0044 FFF7FEFF 		bl	DMA_CalcDMAMUXChannelBaseAndMask
- 448              	.LVL28:
- 304:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 449              		.loc 1 304 0
- 450 0048 A36C     		ldr	r3, [r4, #72]
- 451 004a 1D60     		str	r5, [r3]
- 307:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 452              		.loc 1 307 0
- 453 004c E36C     		ldr	r3, [r4, #76]
- 454 004e 226D     		ldr	r2, [r4, #80]
- 455 0050 5A60     		str	r2, [r3, #4]
- 310:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 456              		.loc 1 310 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 29
-
-
- 457 0052 6368     		ldr	r3, [r4, #4]
- 458 0054 013B     		subs	r3, r3, #1
- 459 0056 032B     		cmp	r3, #3
- 460 0058 18D9     		bls	.L42
- 461              	.L36:
- 324:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxRequestGenStatus = 0U;
- 462              		.loc 1 324 0
- 463 005a 0020     		movs	r0, #0
- 464 005c 6065     		str	r0, [r4, #84]
- 325:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxRequestGenStatusMask = 0U;
- 465              		.loc 1 325 0
- 466 005e A065     		str	r0, [r4, #88]
- 326:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 467              		.loc 1 326 0
- 468 0060 E065     		str	r0, [r4, #92]
- 329:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->XferHalfCpltCallback = NULL;
- 469              		.loc 1 329 0
- 470 0062 E062     		str	r0, [r4, #44]
- 330:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->XferErrorCallback = NULL;
- 471              		.loc 1 330 0
- 472 0064 2063     		str	r0, [r4, #48]
- 331:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->XferAbortCallback = NULL;
- 473              		.loc 1 331 0
- 474 0066 6063     		str	r0, [r4, #52]
- 332:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 475              		.loc 1 332 0
- 476 0068 A063     		str	r0, [r4, #56]
- 335:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 477              		.loc 1 335 0
- 478 006a E063     		str	r0, [r4, #60]
- 338:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 479              		.loc 1 338 0
- 480 006c 84F82500 		strb	r0, [r4, #37]
- 341:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 481              		.loc 1 341 0
- 482 0070 84F82400 		strb	r0, [r4, #36]
- 344:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 483              		.loc 1 344 0
- 484 0074 38BD     		pop	{r3, r4, r5, pc}
- 485              	.LVL29:
- 486              	.L34:
- 288:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DmaBaseAddress = DMA2;
- 487              		.loc 1 288 0
- 488 0076 0F4B     		ldr	r3, .L43+16
- 489 0078 1344     		add	r3, r3, r2
- 490 007a 0C4A     		ldr	r2, .L43+8
- 491 007c A2FB0323 		umull	r2, r3, r2, r3
- 492 0080 1B09     		lsrs	r3, r3, #4
- 493 0082 9B00     		lsls	r3, r3, #2
- 494 0084 4364     		str	r3, [r0, #68]
+ 375              		.loc 1 283 0
+ 376 0028 A3F20743 		subw	r3, r3, #1031
+ 377              	.L30:
  289:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 495              		.loc 1 289 0
- 496 0086 0C4B     		ldr	r3, .L43+20
- 497 0088 0364     		str	r3, [r0, #64]
- 498 008a D0E7     		b	.L35
- 499              	.LVL30:
- 500              	.L42:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 30
+ 378              		.loc 1 289 0
+ 379 002c 2364     		str	r3, [r4, #64]
+ 296:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 380              		.loc 1 296 0
+ 381 002e D4E91023 		ldrd	r2, r3, [r4, #64]
+ 382 0032 0125     		movs	r5, #1
+ 383 0034 03F01F03 		and	r3, r3, #31
+ 384 0038 05FA03F3 		lsl	r3, r5, r3
+ 293:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 385              		.loc 1 293 0
+ 386 003c 0026     		movs	r6, #0
+ 387 003e 0E60     		str	r6, [r1]
+ 301:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 388              		.loc 1 301 0
+ 389 0040 2046     		mov	r0, r4
+ 296:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 390              		.loc 1 296 0
+ 391 0042 5360     		str	r3, [r2, #4]
+ 301:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 392              		.loc 1 301 0
+ 393 0044 FFF7FEFF 		bl	DMA_CalcDMAMUXChannelBaseAndMask
+ 394              	.LVL23:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 28
 
 
- 315:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 501              		.loc 1 315 0
- 502 008c 2046     		mov	r0, r4
- 503 008e FFF7FEFF 		bl	DMA_CalcDMAMUXRequestGenBaseAndMask
- 504              	.LVL31:
+ 304:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 395              		.loc 1 304 0
+ 396 0048 A36C     		ldr	r3, [r4, #72]
+ 310:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 397              		.loc 1 310 0
+ 398 004a 6168     		ldr	r1, [r4, #4]
+ 304:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 399              		.loc 1 304 0
+ 400 004c 1E60     		str	r6, [r3]
+ 307:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 401              		.loc 1 307 0
+ 402 004e D4E91332 		ldrd	r3, r2, [r4, #76]
+ 403 0052 5A60     		str	r2, [r3, #4]
+ 310:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 404              		.loc 1 310 0
+ 405 0054 4A1E     		subs	r2, r1, #1
+ 406 0056 032A     		cmp	r2, #3
+ 407 0058 06D8     		bhi	.L28
+ 408              	.LVL24:
+ 409              	.LBB10:
+ 410              	.LBB11:
+1087:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 411              		.loc 1 1087 0
+ 412 005a 114B     		ldr	r3, .L31+8
+ 413 005c 0B44     		add	r3, r3, r1
+ 414 005e 9B00     		lsls	r3, r3, #2
+ 415              		.loc 1 1091 0
+ 416 0060 9540     		lsls	r5, r5, r2
+ 417              	.LVL25:
+ 418              	.LBE11:
+ 419              	.LBE10:
  318:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 505              		.loc 1 318 0
- 506 0092 636D     		ldr	r3, [r4, #84]
- 507 0094 1D60     		str	r5, [r3]
+ 420              		.loc 1 318 0
+ 421 0062 1E60     		str	r6, [r3]
  321:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 508              		.loc 1 321 0
- 509 0096 A36D     		ldr	r3, [r4, #88]
- 510 0098 E26D     		ldr	r2, [r4, #92]
- 511 009a 5A60     		str	r2, [r3, #4]
- 512 009c DDE7     		b	.L36
- 513              	.LVL32:
- 514              	.L37:
- 515              	.LCFI6:
- 516              		.cfi_def_cfa_offset 0
- 517              		.cfi_restore 3
- 518              		.cfi_restore 4
- 519              		.cfi_restore 5
- 520              		.cfi_restore 14
- 269:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 521              		.loc 1 269 0
- 522 009e 0120     		movs	r0, #1
- 523              	.LVL33:
+ 422              		.loc 1 321 0
+ 423 0064 0F4B     		ldr	r3, .L31+12
+ 424 0066 5D60     		str	r5, [r3, #4]
+ 425              	.L28:
+ 324:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxRequestGenStatus = 0U;
+ 426              		.loc 1 324 0
+ 427 0068 0020     		movs	r0, #0
+ 428              	.LVL26:
+ 325:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->DMAmuxRequestGenStatusMask = 0U;
+ 429              		.loc 1 325 0
+ 430 006a C4E91500 		strd	r0, r0, [r4, #84]
+ 330:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   hdma->XferErrorCallback = NULL;
+ 431              		.loc 1 330 0
+ 432 006e C4E90B00 		strd	r0, r0, [r4, #44]
+ 332:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 433              		.loc 1 332 0
+ 434 0072 C4E90D00 		strd	r0, r0, [r4, #52]
+ 335:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 435              		.loc 1 335 0
+ 436 0076 E063     		str	r0, [r4, #60]
+ 326:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 437              		.loc 1 326 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 29
+
+
+ 438 0078 E065     		str	r0, [r4, #92]
+ 338:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 439              		.loc 1 338 0
+ 440 007a 84F82500 		strb	r0, [r4, #37]
+ 341:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 441              		.loc 1 341 0
+ 442 007e 84F82400 		strb	r0, [r4, #36]
+ 443              	.L25:
  344:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 524              		.loc 1 344 0
- 525 00a0 7047     		bx	lr
- 526              	.L44:
- 527 00a2 00BF     		.align	2
- 528              	.L43:
- 529 00a4 07040240 		.word	1073873927
- 530 00a8 F8FFFDBF 		.word	-1073872904
- 531 00ac CDCCCCCC 		.word	-858993459
- 532 00b0 00000240 		.word	1073872896
- 533 00b4 F8FBFDBF 		.word	-1073873928
- 534 00b8 00040240 		.word	1073873920
- 535              		.cfi_endproc
- 536              	.LFE330:
- 538              		.section	.text.HAL_DMA_Start,"ax",%progbits
- 539              		.align	1
- 540              		.global	HAL_DMA_Start
- 541              		.syntax unified
- 542              		.thumb
- 543              		.thumb_func
- 544              		.fpu fpv4-sp-d16
- 546              	HAL_DMA_Start:
- 547              	.LFB331:
+ 444              		.loc 1 344 0
+ 445 0082 70BD     		pop	{r4, r5, r6, pc}
+ 446              	.LVL27:
+ 447              	.L26:
+ 288:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->DmaBaseAddress = DMA2;
+ 448              		.loc 1 288 0
+ 449 0084 084B     		ldr	r3, .L31+16
+ 450 0086 0B44     		add	r3, r3, r1
+ 451 0088 B3FBF0F3 		udiv	r3, r3, r0
+ 452 008c 9B00     		lsls	r3, r3, #2
+ 453 008e 6364     		str	r3, [r4, #68]
+ 289:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 454              		.loc 1 289 0
+ 455 0090 064B     		ldr	r3, .L31+20
+ 456 0092 CBE7     		b	.L30
+ 457              	.LVL28:
+ 458              	.L29:
+ 269:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 459              		.loc 1 269 0
+ 460 0094 0120     		movs	r0, #1
+ 461              	.LVL29:
+ 462 0096 F4E7     		b	.L25
+ 463              	.L32:
+ 464              		.align	2
+ 465              	.L31:
+ 466 0098 07040240 		.word	1073873927
+ 467 009c F8FFFDBF 		.word	-1073872904
+ 468 00a0 3F820010 		.word	268468799
+ 469 00a4 40090240 		.word	1073875264
+ 470 00a8 F8FBFDBF 		.word	-1073873928
+ 471 00ac 00040240 		.word	1073873920
+ 472              		.cfi_endproc
+ 473              	.LFE330:
+ 475              		.section	.text.HAL_DMA_Start,"ax",%progbits
+ 476              		.align	1
+ 477              		.global	HAL_DMA_Start
+ 478              		.syntax unified
+ 479              		.thumb
+ 480              		.thumb_func
+ 481              		.fpu fpv4-sp-d16
+ 483              	HAL_DMA_Start:
+ 484              	.LFB331:
  379:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
- 548              		.loc 1 379 0
- 549              		.cfi_startproc
- 550              		@ args = 0, pretend = 0, frame = 0
- 551              		@ frame_needed = 0, uses_anonymous_args = 0
- 552              	.LVL34:
- 553 0000 70B5     		push	{r4, r5, r6, lr}
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 31
+ 485              		.loc 1 379 0
+ 486              		.cfi_startproc
+ 487              		@ args = 0, pretend = 0, frame = 0
+ 488              		@ frame_needed = 0, uses_anonymous_args = 0
+ 489              	.LVL30:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 30
 
 
- 554              	.LCFI7:
- 555              		.cfi_def_cfa_offset 16
- 556              		.cfi_offset 4, -16
- 557              		.cfi_offset 5, -12
- 558              		.cfi_offset 6, -8
- 559              		.cfi_offset 14, -4
- 560              	.LVL35:
+ 490 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 491              	.LCFI4:
+ 492              		.cfi_def_cfa_offset 24
+ 493              		.cfi_offset 3, -24
+ 494              		.cfi_offset 4, -20
+ 495              		.cfi_offset 5, -16
+ 496              		.cfi_offset 6, -12
+ 497              		.cfi_offset 7, -8
+ 498              		.cfi_offset 14, -4
  386:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 561              		.loc 1 386 0
- 562 0002 90F82440 		ldrb	r4, [r0, #36]	@ zero_extendqisi2
- 563 0006 012C     		cmp	r4, #1
- 564 0008 21D0     		beq	.L48
+ 499              		.loc 1 386 0
+ 500 0002 90F82450 		ldrb	r5, [r0, #36]	@ zero_extendqisi2
+ 501 0006 012D     		cmp	r5, #1
+ 502 0008 1DD0     		beq	.L36
  386:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 565              		.loc 1 386 0 is_stmt 0 discriminator 2
- 566 000a 0124     		movs	r4, #1
- 567 000c 80F82440 		strb	r4, [r0, #36]
+ 503              		.loc 1 386 0 is_stmt 0 discriminator 2
+ 504 000a 0125     		movs	r5, #1
+ 505 000c 80F82450 		strb	r5, [r0, #36]
  388:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 568              		.loc 1 388 0 is_stmt 1 discriminator 2
- 569 0010 90F82540 		ldrb	r4, [r0, #37]	@ zero_extendqisi2
- 570 0014 E4B2     		uxtb	r4, r4
- 571 0016 012C     		cmp	r4, #1
- 572 0018 04D0     		beq	.L50
- 406:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     status = HAL_BUSY;
- 573              		.loc 1 406 0
- 574 001a 0023     		movs	r3, #0
- 575              	.LVL36:
- 576 001c 80F82430 		strb	r3, [r0, #36]
- 577              	.LVL37:
- 407:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 578              		.loc 1 407 0
- 579 0020 0220     		movs	r0, #2
- 580              	.LVL38:
- 581              	.L46:
- 410:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 582              		.loc 1 410 0
- 583 0022 70BD     		pop	{r4, r5, r6, pc}
- 584              	.LVL39:
- 585              	.L50:
- 586 0024 0446     		mov	r4, r0
- 391:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->ErrorCode = HAL_DMA_ERROR_NONE;
- 587              		.loc 1 391 0
- 588 0026 0220     		movs	r0, #2
- 589              	.LVL40:
- 590 0028 84F82500 		strb	r0, [r4, #37]
- 392:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 591              		.loc 1 392 0
- 592 002c 0025     		movs	r5, #0
- 593 002e E563     		str	r5, [r4, #60]
+ 506              		.loc 1 388 0 is_stmt 1 discriminator 2
+ 507 0010 90F82550 		ldrb	r5, [r0, #37]	@ zero_extendqisi2
+ 508 0014 012D     		cmp	r5, #1
+ 509 0016 4FF00006 		mov	r6, #0
+ 510 001a 4FF00205 		mov	r5, #2
+ 511 001e 10D1     		bne	.L35
  395:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 594              		.loc 1 395 0
- 595 0030 2668     		ldr	r6, [r4]
- 596 0032 3068     		ldr	r0, [r6]
- 597 0034 20F00100 		bic	r0, r0, #1
- 598 0038 3060     		str	r0, [r6]
+ 512              		.loc 1 395 0
+ 513 0020 0768     		ldr	r7, [r0]
+ 391:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->ErrorCode = HAL_DMA_ERROR_NONE;
+ 514              		.loc 1 391 0
+ 515 0022 80F82550 		strb	r5, [r0, #37]
+ 392:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 516              		.loc 1 392 0
+ 517 0026 C663     		str	r6, [r0, #60]
+ 395:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 518              		.loc 1 395 0
+ 519 0028 3D68     		ldr	r5, [r7]
+ 520 002a 25F00105 		bic	r5, r5, #1
+ 521 002e 3D60     		str	r5, [r7]
  398:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 599              		.loc 1 398 0
- 600 003a 2046     		mov	r0, r4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 32
-
-
- 601 003c FFF7FEFF 		bl	DMA_SetConfig
- 602              	.LVL41:
+ 522              		.loc 1 398 0
+ 523 0030 FFF7FEFF 		bl	DMA_SetConfig
+ 524              	.LVL31:
  401:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 603              		.loc 1 401 0
- 604 0040 2268     		ldr	r2, [r4]
- 605 0042 1368     		ldr	r3, [r2]
- 606 0044 43F00103 		orr	r3, r3, #1
- 607 0048 1360     		str	r3, [r2]
+ 525              		.loc 1 401 0
+ 526 0034 0268     		ldr	r2, [r0]
+ 527              	.LVL32:
+ 528 0036 1368     		ldr	r3, [r2]
+ 529 0038 43F00103 		orr	r3, r3, #1
+ 530 003c 1360     		str	r3, [r2]
  380:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 608              		.loc 1 380 0
- 609 004a 2846     		mov	r0, r5
- 610 004c E9E7     		b	.L46
- 611              	.LVL42:
- 612              	.L48:
+ 531              		.loc 1 380 0
+ 532 003e 3046     		mov	r0, r6
+ 533              	.LVL33:
+ 534              	.L34:
+ 410:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 535              		.loc 1 410 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 31
+
+
+ 536 0040 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 537              	.LVL34:
+ 538              	.L35:
+ 406:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     status = HAL_BUSY;
+ 539              		.loc 1 406 0
+ 540 0042 80F82460 		strb	r6, [r0, #36]
+ 541              	.LVL35:
+ 542              	.L36:
  386:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 613              		.loc 1 386 0
- 614 004e 0220     		movs	r0, #2
- 615              	.LVL43:
- 616 0050 E7E7     		b	.L46
- 617              		.cfi_endproc
- 618              	.LFE331:
- 620              		.section	.text.HAL_DMA_Start_IT,"ax",%progbits
- 621              		.align	1
- 622              		.global	HAL_DMA_Start_IT
- 623              		.syntax unified
- 624              		.thumb
- 625              		.thumb_func
- 626              		.fpu fpv4-sp-d16
- 628              	HAL_DMA_Start_IT:
- 629              	.LFB332:
+ 543              		.loc 1 386 0
+ 544 0046 0220     		movs	r0, #2
+ 545              	.LVL36:
+ 546 0048 FAE7     		b	.L34
+ 547              		.cfi_endproc
+ 548              	.LFE331:
+ 550              		.section	.text.HAL_DMA_Start_IT,"ax",%progbits
+ 551              		.align	1
+ 552              		.global	HAL_DMA_Start_IT
+ 553              		.syntax unified
+ 554              		.thumb
+ 555              		.thumb_func
+ 556              		.fpu fpv4-sp-d16
+ 558              	HAL_DMA_Start_IT:
+ 559              	.LFB332:
  423:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
- 630              		.loc 1 423 0
- 631              		.cfi_startproc
- 632              		@ args = 0, pretend = 0, frame = 0
- 633              		@ frame_needed = 0, uses_anonymous_args = 0
- 634              	.LVL44:
- 635 0000 38B5     		push	{r3, r4, r5, lr}
- 636              	.LCFI8:
- 637              		.cfi_def_cfa_offset 16
- 638              		.cfi_offset 3, -16
- 639              		.cfi_offset 4, -12
- 640              		.cfi_offset 5, -8
- 641              		.cfi_offset 14, -4
- 642              	.LVL45:
+ 560              		.loc 1 423 0
+ 561              		.cfi_startproc
+ 562              		@ args = 0, pretend = 0, frame = 0
+ 563              		@ frame_needed = 0, uses_anonymous_args = 0
+ 564              	.LVL37:
+ 565 0000 70B5     		push	{r4, r5, r6, lr}
+ 566              	.LCFI5:
+ 567              		.cfi_def_cfa_offset 16
+ 568              		.cfi_offset 4, -16
+ 569              		.cfi_offset 5, -12
+ 570              		.cfi_offset 6, -8
+ 571              		.cfi_offset 14, -4
  430:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 643              		.loc 1 430 0
- 644 0002 90F82440 		ldrb	r4, [r0, #36]	@ zero_extendqisi2
- 645 0006 012C     		cmp	r4, #1
- 646 0008 42D0     		beq	.L58
+ 572              		.loc 1 430 0
+ 573 0002 90F82450 		ldrb	r5, [r0, #36]	@ zero_extendqisi2
+ 574 0006 012D     		cmp	r5, #1
+ 423:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 575              		.loc 1 423 0
+ 576 0008 0446     		mov	r4, r0
  430:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 647              		.loc 1 430 0 is_stmt 0 discriminator 2
- 648 000a 0124     		movs	r4, #1
- 649 000c 80F82440 		strb	r4, [r0, #36]
+ 577              		.loc 1 430 0
+ 578 000a 39D0     		beq	.L44
+ 430:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 579              		.loc 1 430 0 is_stmt 0 discriminator 2
+ 580 000c 0125     		movs	r5, #1
+ 581 000e 80F82450 		strb	r5, [r0, #36]
  432:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 650              		.loc 1 432 0 is_stmt 1 discriminator 2
- 651 0010 90F82540 		ldrb	r4, [r0, #37]	@ zero_extendqisi2
- 652 0014 E4B2     		uxtb	r4, r4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 33
+ 582              		.loc 1 432 0 is_stmt 1 discriminator 2
+ 583 0012 90F82550 		ldrb	r5, [r0, #37]	@ zero_extendqisi2
+ 584 0016 012D     		cmp	r5, #1
+ 585 0018 4FF00006 		mov	r6, #0
+ 586 001c 4FF00205 		mov	r5, #2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 32
 
 
- 653 0016 012C     		cmp	r4, #1
- 654 0018 04D0     		beq	.L60
- 477:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 655              		.loc 1 477 0
- 656 001a 0023     		movs	r3, #0
- 657              	.LVL46:
- 658 001c 80F82430 		strb	r3, [r0, #36]
- 659              	.LVL47:
- 480:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 660              		.loc 1 480 0
- 661 0020 0220     		movs	r0, #2
- 662              	.LVL48:
- 663              	.L52:
- 483:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 664              		.loc 1 483 0
- 665 0022 38BD     		pop	{r3, r4, r5, pc}
- 666              	.LVL49:
- 667              	.L60:
- 668 0024 0446     		mov	r4, r0
+ 587 0020 2CD1     		bne	.L39
  435:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     hdma->ErrorCode = HAL_DMA_ERROR_NONE;
- 669              		.loc 1 435 0
- 670 0026 0220     		movs	r0, #2
- 671              	.LVL50:
- 672 0028 84F82500 		strb	r0, [r4, #37]
+ 588              		.loc 1 435 0
+ 589 0022 80F82550 		strb	r5, [r0, #37]
  436:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 673              		.loc 1 436 0
- 674 002c 0020     		movs	r0, #0
- 675 002e E063     		str	r0, [r4, #60]
+ 590              		.loc 1 436 0
+ 591 0026 C663     		str	r6, [r0, #60]
  439:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 676              		.loc 1 439 0
- 677 0030 2568     		ldr	r5, [r4]
- 678 0032 2868     		ldr	r0, [r5]
- 679 0034 20F00100 		bic	r0, r0, #1
- 680 0038 2860     		str	r0, [r5]
+ 592              		.loc 1 439 0
+ 593 0028 0668     		ldr	r6, [r0]
+ 594 002a 3568     		ldr	r5, [r6]
+ 595 002c 25F00105 		bic	r5, r5, #1
+ 596 0030 3560     		str	r5, [r6]
  442:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 681              		.loc 1 442 0
- 682 003a 2046     		mov	r0, r4
- 683 003c FFF7FEFF 		bl	DMA_SetConfig
- 684              	.LVL51:
+ 597              		.loc 1 442 0
+ 598 0032 FFF7FEFF 		bl	DMA_SetConfig
+ 599              	.LVL38:
  446:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 685              		.loc 1 446 0
- 686 0040 236B     		ldr	r3, [r4, #48]
- 687 0042 D3B1     		cbz	r3, .L54
+ 600              		.loc 1 446 0
+ 601 0036 026B     		ldr	r2, [r0, #48]
+ 602              	.LVL39:
+ 603 0038 0368     		ldr	r3, [r0]
+ 604 003a BAB1     		cbz	r2, .L40
  449:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 688              		.loc 1 449 0
- 689 0044 2268     		ldr	r2, [r4]
- 690 0046 1368     		ldr	r3, [r2]
- 691 0048 43F00E03 		orr	r3, r3, #14
- 692 004c 1360     		str	r3, [r2]
- 693              	.L55:
- 458:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 694              		.loc 1 458 0
- 695 004e A36C     		ldr	r3, [r4, #72]
- 696 0050 1A68     		ldr	r2, [r3]
- 697 0052 12F4803F 		tst	r2, #65536
- 698 0056 03D0     		beq	.L56
- 461:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 34
-
-
- 699              		.loc 1 461 0
- 700 0058 1A68     		ldr	r2, [r3]
- 701 005a 42F48072 		orr	r2, r2, #256
- 702 005e 1A60     		str	r2, [r3]
- 703              	.L56:
- 464:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 704              		.loc 1 464 0
- 705 0060 636D     		ldr	r3, [r4, #84]
- 706 0062 1BB1     		cbz	r3, .L57
- 468:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 707              		.loc 1 468 0
- 708 0064 1A68     		ldr	r2, [r3]
- 709 0066 42F48072 		orr	r2, r2, #256
- 710 006a 1A60     		str	r2, [r3]
- 711              	.L57:
- 472:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 712              		.loc 1 472 0
- 713 006c 2268     		ldr	r2, [r4]
- 714 006e 1368     		ldr	r3, [r2]
- 715 0070 43F00103 		orr	r3, r3, #1
- 716 0074 1360     		str	r3, [r2]
- 424:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 717              		.loc 1 424 0
- 718 0076 0020     		movs	r0, #0
- 719 0078 D3E7     		b	.L52
- 720              	.L54:
- 453:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       __HAL_DMA_ENABLE_IT(hdma, (DMA_IT_TC | DMA_IT_TE));
- 721              		.loc 1 453 0
- 722 007a 2268     		ldr	r2, [r4]
- 723 007c 1368     		ldr	r3, [r2]
- 724 007e 23F00403 		bic	r3, r3, #4
- 725 0082 1360     		str	r3, [r2]
+ 605              		.loc 1 449 0
+ 606 003c 1A68     		ldr	r2, [r3]
+ 607 003e 42F00E02 		orr	r2, r2, #14
+ 608              	.L51:
  454:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 726              		.loc 1 454 0
- 727 0084 2268     		ldr	r2, [r4]
- 728 0086 1368     		ldr	r3, [r2]
- 729 0088 43F00A03 		orr	r3, r3, #10
- 730 008c 1360     		str	r3, [r2]
- 731 008e DEE7     		b	.L55
- 732              	.LVL52:
- 733              	.L58:
+ 609              		.loc 1 454 0
+ 610 0042 1A60     		str	r2, [r3]
+ 458:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 611              		.loc 1 458 0
+ 612 0044 A26C     		ldr	r2, [r4, #72]
+ 613 0046 1168     		ldr	r1, [r2]
+ 614              	.LVL40:
+ 615 0048 C903     		lsls	r1, r1, #15
+ 461:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
+ 616              		.loc 1 461 0
+ 617 004a 42BF     		ittt	mi
+ 618 004c 1168     		ldrmi	r1, [r2]
+ 619 004e 41F48071 		orrmi	r1, r1, #256
+ 620 0052 1160     		strmi	r1, [r2]
+ 464:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 621              		.loc 1 464 0
+ 622 0054 626D     		ldr	r2, [r4, #84]
+ 623 0056 1AB1     		cbz	r2, .L43
+ 468:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
+ 624              		.loc 1 468 0
+ 625 0058 1168     		ldr	r1, [r2]
+ 626 005a 41F48071 		orr	r1, r1, #256
+ 627 005e 1160     		str	r1, [r2]
+ 628              	.L43:
+ 472:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 629              		.loc 1 472 0
+ 630 0060 1A68     		ldr	r2, [r3]
+ 631 0062 42F00102 		orr	r2, r2, #1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 33
+
+
+ 632 0066 1A60     		str	r2, [r3]
+ 424:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 633              		.loc 1 424 0
+ 634 0068 0020     		movs	r0, #0
+ 635              	.LVL41:
+ 636              	.L38:
+ 483:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 637              		.loc 1 483 0
+ 638 006a 70BD     		pop	{r4, r5, r6, pc}
+ 639              	.LVL42:
+ 640              	.L40:
+ 453:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       __HAL_DMA_ENABLE_IT(hdma, (DMA_IT_TC | DMA_IT_TE));
+ 641              		.loc 1 453 0
+ 642 006c 1A68     		ldr	r2, [r3]
+ 643 006e 22F00402 		bic	r2, r2, #4
+ 644 0072 1A60     		str	r2, [r3]
+ 454:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
+ 645              		.loc 1 454 0
+ 646 0074 1A68     		ldr	r2, [r3]
+ 647 0076 42F00A02 		orr	r2, r2, #10
+ 648 007a E2E7     		b	.L51
+ 649              	.LVL43:
+ 650              	.L39:
+ 477:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 651              		.loc 1 477 0
+ 652 007c 80F82460 		strb	r6, [r0, #36]
+ 653              	.LVL44:
+ 654              	.L44:
  430:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 734              		.loc 1 430 0
- 735 0090 0220     		movs	r0, #2
- 736              	.LVL53:
- 737 0092 C6E7     		b	.L52
- 738              		.cfi_endproc
- 739              	.LFE332:
- 741              		.section	.text.HAL_DMA_Abort,"ax",%progbits
- 742              		.align	1
- 743              		.global	HAL_DMA_Abort
- 744              		.syntax unified
- 745              		.thumb
- 746              		.thumb_func
- 747              		.fpu fpv4-sp-d16
- 749              	HAL_DMA_Abort:
- 750              	.LFB333:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 35
-
-
+ 655              		.loc 1 430 0
+ 656 0080 0220     		movs	r0, #2
+ 657              	.LVL45:
+ 658 0082 F2E7     		b	.L38
+ 659              		.cfi_endproc
+ 660              	.LFE332:
+ 662              		.section	.text.HAL_DMA_Abort,"ax",%progbits
+ 663              		.align	1
+ 664              		.global	HAL_DMA_Abort
+ 665              		.syntax unified
+ 666              		.thumb
+ 667              		.thumb_func
+ 668              		.fpu fpv4-sp-d16
+ 670              	HAL_DMA_Abort:
+ 671              	.LFB333:
  492:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
- 751              		.loc 1 492 0
- 752              		.cfi_startproc
- 753              		@ args = 0, pretend = 0, frame = 0
- 754              		@ frame_needed = 0, uses_anonymous_args = 0
- 755              		@ link register save eliminated.
- 756              	.LVL54:
- 757 0000 0346     		mov	r3, r0
- 758              	.LVL55:
+ 672              		.loc 1 492 0
+ 673              		.cfi_startproc
+ 674              		@ args = 0, pretend = 0, frame = 0
+ 675              		@ frame_needed = 0, uses_anonymous_args = 0
+ 676              		@ link register save eliminated.
+ 677              	.LVL46:
  495:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 759              		.loc 1 495 0
- 760 0002 90F82520 		ldrb	r2, [r0, #37]	@ zero_extendqisi2
- 761 0006 D2B2     		uxtb	r2, r2
- 762 0008 022A     		cmp	r2, #2
- 763 000a 09D0     		beq	.L62
+ 678              		.loc 1 495 0
+ 679 0000 90F82520 		ldrb	r2, [r0, #37]	@ zero_extendqisi2
+ 680 0004 022A     		cmp	r2, #2
+ 492:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 681              		.loc 1 492 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 34
+
+
+ 682 0006 0346     		mov	r3, r0
+ 495:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 683              		.loc 1 495 0
+ 684 0008 09D0     		beq	.L53
  498:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 764              		.loc 1 498 0
- 765 000c 0422     		movs	r2, #4
- 766 000e C263     		str	r2, [r0, #60]
- 767              	.LVL56:
+ 685              		.loc 1 498 0
+ 686 000a 0422     		movs	r2, #4
+ 687 000c C263     		str	r2, [r0, #60]
+ 688              	.LVL47:
  500:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 768              		.loc 1 500 0
- 769 0010 0120     		movs	r0, #1
- 770              	.LVL57:
- 771              	.L63:
+ 689              		.loc 1 500 0
+ 690 000e 0120     		movs	r0, #1
+ 691              	.LVL48:
+ 692              	.L54:
  530:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 772              		.loc 1 530 0
- 773 0012 0122     		movs	r2, #1
- 774 0014 83F82520 		strb	r2, [r3, #37]
+ 693              		.loc 1 530 0
+ 694 0010 0122     		movs	r2, #1
+ 695 0012 83F82520 		strb	r2, [r3, #37]
  533:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 775              		.loc 1 533 0
- 776 0018 0022     		movs	r2, #0
- 777 001a 83F82420 		strb	r2, [r3, #36]
+ 696              		.loc 1 533 0
+ 697 0016 0022     		movs	r2, #0
+ 698 0018 83F82420 		strb	r2, [r3, #36]
  536:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 778              		.loc 1 536 0
- 779 001e 7047     		bx	lr
- 780              	.LVL58:
- 781              	.L62:
+ 699              		.loc 1 536 0
+ 700 001c 7047     		bx	lr
+ 701              	.LVL49:
+ 702              	.L53:
  505:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      
- 782              		.loc 1 505 0
- 783 0020 0168     		ldr	r1, [r0]
- 784 0022 0A68     		ldr	r2, [r1]
- 785 0024 22F00E02 		bic	r2, r2, #14
- 786 0028 0A60     		str	r2, [r1]
+ 703              		.loc 1 505 0
+ 704 001e 0268     		ldr	r2, [r0]
  508:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      
- 787              		.loc 1 508 0
- 788 002a 816C     		ldr	r1, [r0, #72]
- 789 002c 0A68     		ldr	r2, [r1]
- 790 002e 22F48072 		bic	r2, r2, #256
- 791 0032 0A60     		str	r2, [r1]
+ 705              		.loc 1 508 0
+ 706 0020 806C     		ldr	r0, [r0, #72]
+ 707              	.LVL50:
+ 505:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      
+ 708              		.loc 1 505 0
+ 709 0022 1168     		ldr	r1, [r2]
+ 710 0024 21F00E01 		bic	r1, r1, #14
+ 711 0028 1160     		str	r1, [r2]
+ 508:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      
+ 712              		.loc 1 508 0
+ 713 002a 0168     		ldr	r1, [r0]
+ 714 002c 21F48071 		bic	r1, r1, #256
+ 715 0030 0160     		str	r1, [r0]
  511:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      
- 792              		.loc 1 511 0
- 793 0034 0168     		ldr	r1, [r0]
- 794 0036 0A68     		ldr	r2, [r1]
- 795 0038 22F00102 		bic	r2, r2, #1
- 796 003c 0A60     		str	r2, [r1]
+ 716              		.loc 1 511 0
+ 717 0032 1168     		ldr	r1, [r2]
+ 718 0034 21F00101 		bic	r1, r1, #1
+ 719 0038 1160     		str	r1, [r2]
  514:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 36
-
-
- 797              		.loc 1 514 0
- 798 003e 426C     		ldr	r2, [r0, #68]
- 799 0040 02F01F01 		and	r1, r2, #31
- 800 0044 006C     		ldr	r0, [r0, #64]
- 801              	.LVL59:
- 802 0046 0122     		movs	r2, #1
- 803 0048 8A40     		lsls	r2, r2, r1
- 804 004a 4260     		str	r2, [r0, #4]
+ 720              		.loc 1 514 0
+ 721 003a D3E91002 		ldrd	r0, r2, [r3, #64]
+ 722 003e 02F01F01 		and	r1, r2, #31
+ 723 0042 0122     		movs	r2, #1
+ 724 0044 8A40     		lsls	r2, r2, r1
+ 725 0046 4260     		str	r2, [r0, #4]
  517:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      
- 805              		.loc 1 517 0
- 806 004c DA6C     		ldr	r2, [r3, #76]
- 807 004e 196D     		ldr	r1, [r3, #80]
- 808 0050 5160     		str	r1, [r2, #4]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 35
+
+
+ 726              		.loc 1 517 0
+ 727 0048 D3E91321 		ldrd	r2, r1, [r3, #76]
  519:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      {
- 809              		.loc 1 519 0
- 810 0052 5A6D     		ldr	r2, [r3, #84]
- 811 0054 42B1     		cbz	r2, .L64
+ 728              		.loc 1 519 0
+ 729 004c 586D     		ldr	r0, [r3, #84]
+ 517:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      
+ 730              		.loc 1 517 0
+ 731 004e 5160     		str	r1, [r2, #4]
+ 519:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      {
+ 732              		.loc 1 519 0
+ 733 0050 0028     		cmp	r0, #0
+ 734 0052 DDD0     		beq	.L54
  523:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      
- 812              		.loc 1 523 0
- 813 0056 1168     		ldr	r1, [r2]
- 814 0058 21F48071 		bic	r1, r1, #256
- 815 005c 1160     		str	r1, [r2]
+ 735              		.loc 1 523 0
+ 736 0054 0268     		ldr	r2, [r0]
+ 737 0056 22F48072 		bic	r2, r2, #256
+ 738 005a 0260     		str	r2, [r0]
  526:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      }
- 816              		.loc 1 526 0
- 817 005e 9A6D     		ldr	r2, [r3, #88]
- 818 0060 D96D     		ldr	r1, [r3, #92]
- 819 0062 5160     		str	r1, [r2, #4]
+ 739              		.loc 1 526 0
+ 740 005c D3E91621 		ldrd	r2, r1, [r3, #88]
  493:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 820              		.loc 1 493 0
- 821 0064 0020     		movs	r0, #0
- 822 0066 D4E7     		b	.L63
- 823              	.L64:
- 824 0068 0020     		movs	r0, #0
- 825 006a D2E7     		b	.L63
- 826              		.cfi_endproc
- 827              	.LFE333:
- 829              		.section	.text.HAL_DMA_Abort_IT,"ax",%progbits
- 830              		.align	1
- 831              		.global	HAL_DMA_Abort_IT
- 832              		.syntax unified
- 833              		.thumb
- 834              		.thumb_func
- 835              		.fpu fpv4-sp-d16
- 837              	HAL_DMA_Abort_IT:
- 838              	.LFB334:
+ 741              		.loc 1 493 0
+ 742 0060 0020     		movs	r0, #0
+ 526:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****      }
+ 743              		.loc 1 526 0
+ 744 0062 5160     		str	r1, [r2, #4]
+ 745 0064 D4E7     		b	.L54
+ 746              		.cfi_endproc
+ 747              	.LFE333:
+ 749              		.section	.text.HAL_DMA_Abort_IT,"ax",%progbits
+ 750              		.align	1
+ 751              		.global	HAL_DMA_Abort_IT
+ 752              		.syntax unified
+ 753              		.thumb
+ 754              		.thumb_func
+ 755              		.fpu fpv4-sp-d16
+ 757              	HAL_DMA_Abort_IT:
+ 758              	.LFB334:
  545:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
- 839              		.loc 1 545 0
- 840              		.cfi_startproc
- 841              		@ args = 0, pretend = 0, frame = 0
- 842              		@ frame_needed = 0, uses_anonymous_args = 0
- 843              	.LVL60:
- 844 0000 08B5     		push	{r3, lr}
- 845              	.LCFI9:
- 846              		.cfi_def_cfa_offset 8
- 847              		.cfi_offset 3, -8
- 848              		.cfi_offset 14, -4
- 849              	.LVL61:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 37
-
-
+ 759              		.loc 1 545 0
+ 760              		.cfi_startproc
+ 761              		@ args = 0, pretend = 0, frame = 0
+ 762              		@ frame_needed = 0, uses_anonymous_args = 0
+ 763              	.LVL51:
  548:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 850              		.loc 1 548 0
- 851 0002 90F82530 		ldrb	r3, [r0, #37]	@ zero_extendqisi2
- 852 0006 DBB2     		uxtb	r3, r3
- 853 0008 022B     		cmp	r3, #2
- 854 000a 09D0     		beq	.L66
+ 764              		.loc 1 548 0
+ 765 0000 90F82530 		ldrb	r3, [r0, #37]	@ zero_extendqisi2
+ 766 0004 022B     		cmp	r3, #2
+ 545:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 767              		.loc 1 545 0
+ 768 0006 10B5     		push	{r4, lr}
+ 769              	.LCFI6:
+ 770              		.cfi_def_cfa_offset 8
+ 771              		.cfi_offset 4, -8
+ 772              		.cfi_offset 14, -4
+ 548:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 773              		.loc 1 548 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 36
+
+
+ 774 0008 09D0     		beq	.L57
  551:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 855              		.loc 1 551 0
- 856 000c 0423     		movs	r3, #4
- 857 000e C363     		str	r3, [r0, #60]
- 554:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 858              		.loc 1 554 0
- 859 0010 0123     		movs	r3, #1
- 860 0012 80F82530 		strb	r3, [r0, #37]
+ 775              		.loc 1 551 0
+ 776 000a 0423     		movs	r3, #4
+ 777 000c C363     		str	r3, [r0, #60]
  557:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 861              		.loc 1 557 0
- 862 0016 0022     		movs	r2, #0
- 863 0018 80F82420 		strb	r2, [r0, #36]
- 864              	.LVL62:
- 559:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 865              		.loc 1 559 0
- 866 001c 1846     		mov	r0, r3
- 867              	.LVL63:
- 868              	.L67:
- 601:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 869              		.loc 1 601 0
- 870 001e 08BD     		pop	{r3, pc}
- 871              	.LVL64:
- 872              	.L66:
- 564:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 873              		.loc 1 564 0
- 874 0020 0268     		ldr	r2, [r0]
- 875 0022 1368     		ldr	r3, [r2]
- 876 0024 23F00E03 		bic	r3, r3, #14
- 877 0028 1360     		str	r3, [r2]
- 567:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 878              		.loc 1 567 0
- 879 002a 0268     		ldr	r2, [r0]
- 880 002c 1368     		ldr	r3, [r2]
- 881 002e 23F00103 		bic	r3, r3, #1
- 882 0032 1360     		str	r3, [r2]
- 570:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 883              		.loc 1 570 0
- 884 0034 826C     		ldr	r2, [r0, #72]
- 885 0036 1368     		ldr	r3, [r2]
- 886 0038 23F48073 		bic	r3, r3, #256
- 887 003c 1360     		str	r3, [r2]
- 573:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 888              		.loc 1 573 0
- 889 003e 436C     		ldr	r3, [r0, #68]
- 890 0040 03F01F02 		and	r2, r3, #31
- 891 0044 016C     		ldr	r1, [r0, #64]
- 892 0046 0123     		movs	r3, #1
- 893 0048 9340     		lsls	r3, r3, r2
- 894 004a 4B60     		str	r3, [r1, #4]
- 576:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 895              		.loc 1 576 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 38
-
-
- 896 004c C36C     		ldr	r3, [r0, #76]
- 897 004e 026D     		ldr	r2, [r0, #80]
- 898 0050 5A60     		str	r2, [r3, #4]
- 578:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 899              		.loc 1 578 0
- 900 0052 436D     		ldr	r3, [r0, #84]
- 901 0054 33B1     		cbz	r3, .L68
- 582:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 902              		.loc 1 582 0
- 903 0056 1A68     		ldr	r2, [r3]
- 904 0058 22F48072 		bic	r2, r2, #256
- 905 005c 1A60     		str	r2, [r3]
- 585:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 906              		.loc 1 585 0
- 907 005e 836D     		ldr	r3, [r0, #88]
- 908 0060 C26D     		ldr	r2, [r0, #92]
- 909 0062 5A60     		str	r2, [r3, #4]
- 910              	.L68:
- 589:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 911              		.loc 1 589 0
- 912 0064 0123     		movs	r3, #1
- 913 0066 80F82530 		strb	r3, [r0, #37]
- 592:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 914              		.loc 1 592 0
- 915 006a 0023     		movs	r3, #0
- 916 006c 80F82430 		strb	r3, [r0, #36]
- 595:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 917              		.loc 1 595 0
- 918 0070 836B     		ldr	r3, [r0, #56]
- 919 0072 13B1     		cbz	r3, .L69
- 597:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 920              		.loc 1 597 0
- 921 0074 9847     		blx	r3
- 922              	.LVL65:
+ 778              		.loc 1 557 0
+ 779 000e 0022     		movs	r2, #0
+ 554:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 780              		.loc 1 554 0
+ 781 0010 0123     		movs	r3, #1
+ 782 0012 80F82530 		strb	r3, [r0, #37]
+ 557:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 783              		.loc 1 557 0
+ 784 0016 80F82420 		strb	r2, [r0, #36]
+ 785              	.LVL52:
+ 786              	.L60:
  546:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 923              		.loc 1 546 0
- 924 0076 0020     		movs	r0, #0
- 925 0078 D1E7     		b	.L67
- 926              	.LVL66:
- 927              	.L69:
- 928 007a 0020     		movs	r0, #0
- 929              	.LVL67:
- 930 007c CFE7     		b	.L67
- 931              		.cfi_endproc
- 932              	.LFE334:
- 934              		.section	.text.HAL_DMA_PollForTransfer,"ax",%progbits
- 935              		.align	1
- 936              		.global	HAL_DMA_PollForTransfer
- 937              		.syntax unified
- 938              		.thumb
- 939              		.thumb_func
- 940              		.fpu fpv4-sp-d16
- 942              	HAL_DMA_PollForTransfer:
- 943              	.LFB335:
+ 787              		.loc 1 546 0
+ 788 001a 1846     		mov	r0, r3
+ 789              	.LVL53:
+ 790 001c 2BE0     		b	.L58
+ 791              	.LVL54:
+ 792              	.L57:
+ 564:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 793              		.loc 1 564 0
+ 794 001e 0368     		ldr	r3, [r0]
+ 795 0020 1A68     		ldr	r2, [r3]
+ 796 0022 22F00E02 		bic	r2, r2, #14
+ 797 0026 1A60     		str	r2, [r3]
+ 567:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 798              		.loc 1 567 0
+ 799 0028 1A68     		ldr	r2, [r3]
+ 800 002a 22F00102 		bic	r2, r2, #1
+ 801 002e 1A60     		str	r2, [r3]
+ 570:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 802              		.loc 1 570 0
+ 803 0030 826C     		ldr	r2, [r0, #72]
+ 804 0032 1368     		ldr	r3, [r2]
+ 805 0034 23F48073 		bic	r3, r3, #256
+ 806 0038 1360     		str	r3, [r2]
+ 573:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 807              		.loc 1 573 0
+ 808 003a D0E91013 		ldrd	r1, r3, [r0, #64]
+ 809 003e 03F01F02 		and	r2, r3, #31
+ 810 0042 0123     		movs	r3, #1
+ 811 0044 9340     		lsls	r3, r3, r2
+ 812 0046 4B60     		str	r3, [r1, #4]
+ 576:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 813              		.loc 1 576 0
+ 814 0048 D0E91332 		ldrd	r3, r2, [r0, #76]
+ 815 004c 5A60     		str	r2, [r3, #4]
+ 578:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 816              		.loc 1 578 0
+ 817 004e 436D     		ldr	r3, [r0, #84]
+ 818 0050 33B1     		cbz	r3, .L59
+ 582:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 37
+
+
+ 819              		.loc 1 582 0
+ 820 0052 1A68     		ldr	r2, [r3]
+ 821 0054 22F48072 		bic	r2, r2, #256
+ 822 0058 1A60     		str	r2, [r3]
+ 585:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
+ 823              		.loc 1 585 0
+ 824 005a D0E91632 		ldrd	r3, r2, [r0, #88]
+ 825 005e 5A60     		str	r2, [r3, #4]
+ 826              	.L59:
+ 589:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 827              		.loc 1 589 0
+ 828 0060 0123     		movs	r3, #1
+ 829 0062 80F82530 		strb	r3, [r0, #37]
+ 595:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 830              		.loc 1 595 0
+ 831 0066 836B     		ldr	r3, [r0, #56]
+ 592:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 832              		.loc 1 592 0
+ 833 0068 0024     		movs	r4, #0
+ 834 006a 80F82440 		strb	r4, [r0, #36]
+ 595:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 835              		.loc 1 595 0
+ 836 006e 002B     		cmp	r3, #0
+ 837 0070 D3D0     		beq	.L60
+ 597:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
+ 838              		.loc 1 597 0
+ 839 0072 9847     		blx	r3
+ 840              	.LVL55:
+ 546:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 841              		.loc 1 546 0
+ 842 0074 2046     		mov	r0, r4
+ 843              	.LVL56:
+ 844              	.L58:
+ 601:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 845              		.loc 1 601 0
+ 846 0076 10BD     		pop	{r4, pc}
+ 847              		.cfi_endproc
+ 848              	.LFE334:
+ 850              		.section	.text.HAL_DMA_PollForTransfer,"ax",%progbits
+ 851              		.align	1
+ 852              		.global	HAL_DMA_PollForTransfer
+ 853              		.syntax unified
+ 854              		.thumb
+ 855              		.thumb_func
+ 856              		.fpu fpv4-sp-d16
+ 858              	HAL_DMA_PollForTransfer:
+ 859              	.LFB335:
  613:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t temp;
- 944              		.loc 1 613 0
- 945              		.cfi_startproc
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 39
+ 860              		.loc 1 613 0
+ 861              		.cfi_startproc
+ 862              		@ args = 0, pretend = 0, frame = 0
+ 863              		@ frame_needed = 0, uses_anonymous_args = 0
+ 864              	.LVL57:
+ 865 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 866              	.LCFI7:
+ 867              		.cfi_def_cfa_offset 32
+ 868              		.cfi_offset 4, -32
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 38
 
 
- 946              		@ args = 0, pretend = 0, frame = 0
- 947              		@ frame_needed = 0, uses_anonymous_args = 0
- 948              	.LVL68:
+ 869              		.cfi_offset 5, -28
+ 870              		.cfi_offset 6, -24
+ 871              		.cfi_offset 7, -20
+ 872              		.cfi_offset 8, -16
+ 873              		.cfi_offset 9, -12
+ 874              		.cfi_offset 10, -8
+ 875              		.cfi_offset 14, -4
  617:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 949              		.loc 1 617 0
- 950 0000 90F82530 		ldrb	r3, [r0, #37]	@ zero_extendqisi2
- 951 0004 DBB2     		uxtb	r3, r3
- 952 0006 022B     		cmp	r3, #2
- 953 0008 06D0     		beq	.L72
- 620:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     __HAL_UNLOCK(hdma);
- 954              		.loc 1 620 0
- 955 000a 0423     		movs	r3, #4
- 956 000c C363     		str	r3, [r0, #60]
- 621:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     return HAL_ERROR;
- 957              		.loc 1 621 0
- 958 000e 0023     		movs	r3, #0
- 959 0010 80F82430 		strb	r3, [r0, #36]
- 622:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 960              		.loc 1 622 0
- 961 0014 0120     		movs	r0, #1
- 962              	.LVL69:
- 963 0016 7047     		bx	lr
- 964              	.LVL70:
- 965              	.L72:
- 626:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 966              		.loc 1 626 0
- 967 0018 0368     		ldr	r3, [r0]
- 968 001a 1B68     		ldr	r3, [r3]
- 969 001c 13F0200F 		tst	r3, #32
- 970 0020 2ED1     		bne	.L89
+ 876              		.loc 1 617 0
+ 877 0004 90F82550 		ldrb	r5, [r0, #37]	@ zero_extendqisi2
+ 878 0008 EBB2     		uxtb	r3, r5
+ 879 000a 022B     		cmp	r3, #2
  613:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t temp;
- 971              		.loc 1 613 0
- 972 0022 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 973              	.LCFI10:
- 974              		.cfi_def_cfa_offset 24
- 975              		.cfi_offset 4, -24
- 976              		.cfi_offset 5, -20
- 977              		.cfi_offset 6, -16
- 978              		.cfi_offset 7, -12
- 979              		.cfi_offset 8, -8
- 980              		.cfi_offset 14, -4
+ 880              		.loc 1 613 0
+ 881 000c 0446     		mov	r4, r0
+ 882 000e 0E46     		mov	r6, r1
+ 883 0010 9046     		mov	r8, r2
+ 617:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 884              		.loc 1 617 0
+ 885 0012 07D0     		beq	.L65
+ 620:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     __HAL_UNLOCK(hdma);
+ 886              		.loc 1 620 0
+ 887 0014 0423     		movs	r3, #4
+ 888 0016 C363     		str	r3, [r0, #60]
+ 621:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     return HAL_ERROR;
+ 889              		.loc 1 621 0
+ 890 0018 0023     		movs	r3, #0
+ 891 001a 80F82430 		strb	r3, [r0, #36]
+ 892              	.LVL58:
+ 893              	.L92:
+ 629:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 894              		.loc 1 629 0
+ 895 001e 0120     		movs	r0, #1
+ 896              	.LVL59:
+ 897              	.L66:
+ 733:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 898              		.loc 1 733 0
+ 899 0020 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 900              	.LVL60:
+ 901              	.L65:
+ 626:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 902              		.loc 1 626 0
+ 903 0024 0268     		ldr	r2, [r0]
+ 904              	.LVL61:
+ 905 0026 1268     		ldr	r2, [r2]
+ 906 0028 9206     		lsls	r2, r2, #26
+ 907 002a 03D5     		bpl	.L67
+ 628:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     return HAL_ERROR;
+ 908              		.loc 1 628 0
+ 909 002c 4FF48073 		mov	r3, #256
+ 910 0030 C363     		str	r3, [r0, #60]
+ 911 0032 F4E7     		b	.L92
+ 912              	.L67:
+ 913 0034 456C     		ldr	r5, [r0, #68]
+ 914 0036 05F01F05 		and	r5, r5, #31
  633:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 981              		.loc 1 633 0
- 982 0026 81BB     		cbnz	r1, .L75
- 637:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 983              		.loc 1 637 0
- 984 0028 466C     		ldr	r6, [r0, #68]
- 985 002a 06F01F06 		and	r6, r6, #31
- 986 002e 0223     		movs	r3, #2
- 987 0030 03FA06F6 		lsl	r6, r3, r6
- 988              	.LVL71:
- 989              	.L76:
- 990 0034 1546     		mov	r5, r2
- 991 0036 0F46     		mov	r7, r1
- 992 0038 0446     		mov	r4, r0
+ 915              		.loc 1 633 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 39
+
+
+ 916 003a 0029     		cmp	r1, #0
+ 917 003c 35D1     		bne	.L68
+ 918              	.L91:
+ 642:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 919              		.loc 1 642 0
+ 920 003e 03FA05F5 		lsl	r5, r3, r5
+ 921              	.LVL62:
  646:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 993              		.loc 1 646 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 40
-
-
- 994 003a FFF7FEFF 		bl	HAL_GetTick
- 995              	.LVL72:
- 996 003e 8046     		mov	r8, r0
- 997              	.LVL73:
- 998              	.L79:
- 648:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 999              		.loc 1 648 0
- 1000 0040 226C     		ldr	r2, [r4, #64]
- 1001 0042 1368     		ldr	r3, [r2]
- 1002 0044 3342     		tst	r3, r6
- 1003 0046 32D1     		bne	.L90
+ 922              		.loc 1 646 0
+ 923 0042 FFF7FEFF 		bl	HAL_GetTick
+ 924              	.LVL63:
  650:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 1004              		.loc 1 650 0
- 1005 0048 1168     		ldr	r1, [r2]
- 1006 004a 636C     		ldr	r3, [r4, #68]
- 1007 004c 03F01F03 		and	r3, r3, #31
- 1008 0050 0820     		movs	r0, #8
- 1009 0052 9840     		lsls	r0, r0, r3
- 1010 0054 0142     		tst	r1, r0
- 1011 0056 1FD1     		bne	.L91
+ 925              		.loc 1 650 0
+ 926 0046 4FF0080A 		mov	r10, #8
+ 646:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 927              		.loc 1 646 0
+ 928 004a 8146     		mov	r9, r0
+ 929              	.LVL64:
+ 930              	.L70:
+ 931 004c D4E91073 		ldrd	r7, r3, [r4, #64]
+ 932 0050 03F01F03 		and	r3, r3, #31
+ 650:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 933              		.loc 1 650 0
+ 934 0054 0AFA03F2 		lsl	r2, r10, r3
+ 935              	.L72:
+ 648:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 936              		.loc 1 648 0
+ 937 0058 3968     		ldr	r1, [r7]
+ 938 005a 2940     		ands	r1, r1, r5
+ 939 005c 27D0     		beq	.L74
+ 688:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 940              		.loc 1 688 0
+ 941 005e 626D     		ldr	r2, [r4, #84]
+ 942 0060 6AB1     		cbz	r2, .L75
+ 691:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 943              		.loc 1 691 0
+ 944 0062 A06D     		ldr	r0, [r4, #88]
+ 945 0064 E56D     		ldr	r5, [r4, #92]
+ 946              	.LVL65:
+ 947 0066 0168     		ldr	r1, [r0]
+ 948 0068 2942     		tst	r1, r5
+ 949 006a 08D0     		beq	.L75
+ 694:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 950              		.loc 1 694 0
+ 951 006c 1168     		ldr	r1, [r2]
+ 952 006e 41F48071 		orr	r1, r1, #256
+ 953 0072 1160     		str	r1, [r2]
+ 697:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 954              		.loc 1 697 0
+ 955 0074 4560     		str	r5, [r0, #4]
+ 700:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
+ 956              		.loc 1 700 0
+ 957 0076 E26B     		ldr	r2, [r4, #60]
+ 958 0078 42F48062 		orr	r2, r2, #1024
+ 959 007c E263     		str	r2, [r4, #60]
+ 960              	.L75:
+ 705:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 40
+
+
+ 961              		.loc 1 705 0
+ 962 007e E26C     		ldr	r2, [r4, #76]
+ 963 0080 216D     		ldr	r1, [r4, #80]
+ 964 0082 1068     		ldr	r0, [r2]
+ 965 0084 0842     		tst	r0, r1
+ 708:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 966              		.loc 1 708 0
+ 967 0086 1FBF     		itttt	ne
+ 968 0088 5160     		strne	r1, [r2, #4]
+ 711:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 969              		.loc 1 711 0
+ 970 008a E26B     		ldrne	r2, [r4, #60]
+ 971 008c 42F40072 		orrne	r2, r2, #512
+ 972 0090 E263     		strne	r2, [r4, #60]
+ 714:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 973              		.loc 1 714 0
+ 974 0092 76BB     		cbnz	r6, .L77
+ 717:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 975              		.loc 1 717 0
+ 976 0094 0222     		movs	r2, #2
+ 977 0096 02FA03F3 		lsl	r3, r2, r3
+ 978 009a 7B60     		str	r3, [r7, #4]
+ 721:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 979              		.loc 1 721 0
+ 980 009c 0123     		movs	r3, #1
+ 981 009e 84F82530 		strb	r3, [r4, #37]
+ 982              	.L78:
+ 730:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 983              		.loc 1 730 0
+ 984 00a2 0020     		movs	r0, #0
+ 985 00a4 84F82400 		strb	r0, [r4, #36]
+ 732:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
+ 986              		.loc 1 732 0
+ 987 00a8 BAE7     		b	.L66
+ 988              	.LVL66:
+ 989              	.L68:
+ 642:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
+ 990              		.loc 1 642 0
+ 991 00aa 0423     		movs	r3, #4
+ 992 00ac C7E7     		b	.L91
+ 993              	.LVL67:
+ 994              	.L74:
+ 650:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 995              		.loc 1 650 0
+ 996 00ae 3868     		ldr	r0, [r7]
+ 997 00b0 1042     		tst	r0, r2
+ 998 00b2 09D0     		beq	.L71
+ 655:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 999              		.loc 1 655 0
+ 1000 00b4 0120     		movs	r0, #1
+ 1001 00b6 00FA03F3 		lsl	r3, r0, r3
+ 1002 00ba 7B60     		str	r3, [r7, #4]
+ 658:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1003              		.loc 1 658 0
+ 1004 00bc E063     		str	r0, [r4, #60]
+ 664:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1005              		.loc 1 664 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 41
+
+
+ 1006 00be 84F82410 		strb	r1, [r4, #36]
+ 661:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1007              		.loc 1 661 0
+ 1008 00c2 84F82500 		strb	r0, [r4, #37]
+ 666:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
+ 1009              		.loc 1 666 0
+ 1010 00c6 ABE7     		b	.L66
+ 1011              	.L71:
  669:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
  1012              		.loc 1 669 0
- 1013 0058 B5F1FF3F 		cmp	r5, #-1
- 1014 005c F0D0     		beq	.L79
+ 1013 00c8 B8F1FF3F 		cmp	r8, #-1
+ 1014 00cc C4D0     		beq	.L72
  671:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       {
  1015              		.loc 1 671 0
- 1016 005e FFF7FEFF 		bl	HAL_GetTick
- 1017              	.LVL74:
- 1018 0062 A0EB0800 		sub	r0, r0, r8
- 1019 0066 A842     		cmp	r0, r5
- 1020 0068 01D8     		bhi	.L80
+ 1016 00ce FFF7FEFF 		bl	HAL_GetTick
+ 1017              	.LVL68:
+ 1018 00d2 A0EB0900 		sub	r0, r0, r9
+ 1019 00d6 4045     		cmp	r0, r8
+ 1020 00d8 02D8     		bhi	.L73
  671:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       {
  1021              		.loc 1 671 0 is_stmt 0 discriminator 1
- 1022 006a 002D     		cmp	r5, #0
- 1023 006c E8D1     		bne	.L79
- 1024              	.L80:
+ 1022 00da B8F1000F 		cmp	r8, #0
+ 1023 00de B5D1     		bne	.L70
+ 1024              	.L73:
  674:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
  1025              		.loc 1 674 0 is_stmt 1
- 1026 006e 2023     		movs	r3, #32
- 1027 0070 E363     		str	r3, [r4, #60]
+ 1026 00e0 2023     		movs	r3, #32
+ 1027 00e2 E363     		str	r3, [r4, #60]
  677:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
  1028              		.loc 1 677 0
- 1029 0072 0120     		movs	r0, #1
- 1030 0074 84F82500 		strb	r0, [r4, #37]
+ 1029 00e4 0120     		movs	r0, #1
  680:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1031              		.loc 1 680 0
- 1032 0078 0023     		movs	r3, #0
- 1033 007a 84F82430 		strb	r3, [r4, #36]
+ 1030              		.loc 1 680 0
+ 1031 00e6 0023     		movs	r3, #0
+ 677:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1032              		.loc 1 677 0
+ 1033 00e8 84F82500 		strb	r0, [r4, #37]
+ 680:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1034              		.loc 1 680 0
+ 1035 00ec 84F82430 		strb	r3, [r4, #36]
  682:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****       }
- 1034              		.loc 1 682 0
- 1035 007e 40E0     		b	.L73
- 1036              	.LVL75:
- 1037              	.L89:
- 1038              	.LCFI11:
- 1039              		.cfi_def_cfa_offset 0
- 1040              		.cfi_restore 4
- 1041              		.cfi_restore 5
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 41
-
-
- 1042              		.cfi_restore 6
- 1043              		.cfi_restore 7
- 1044              		.cfi_restore 8
- 1045              		.cfi_restore 14
- 628:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     return HAL_ERROR;
- 1046              		.loc 1 628 0
- 1047 0080 4FF48073 		mov	r3, #256
- 1048 0084 C363     		str	r3, [r0, #60]
- 629:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 1049              		.loc 1 629 0
- 1050 0086 0120     		movs	r0, #1
- 1051              	.LVL76:
- 733:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1052              		.loc 1 733 0
- 1053 0088 7047     		bx	lr
- 1054              	.LVL77:
- 1055              	.L75:
- 1056              	.LCFI12:
- 1057              		.cfi_def_cfa_offset 24
- 1058              		.cfi_offset 4, -24
- 1059              		.cfi_offset 5, -20
- 1060              		.cfi_offset 6, -16
- 1061              		.cfi_offset 7, -12
- 1062              		.cfi_offset 8, -8
- 1063              		.cfi_offset 14, -4
- 642:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 1064              		.loc 1 642 0
- 1065 008a 466C     		ldr	r6, [r0, #68]
- 1066 008c 06F01F06 		and	r6, r6, #31
- 1067 0090 0423     		movs	r3, #4
- 1068 0092 03FA06F6 		lsl	r6, r3, r6
- 1069              	.LVL78:
- 1070 0096 CDE7     		b	.L76
- 1071              	.LVL79:
- 1072              	.L91:
- 655:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1073              		.loc 1 655 0
- 1074 0098 0120     		movs	r0, #1
- 1075 009a 00FA03F3 		lsl	r3, r0, r3
- 1076 009e 5360     		str	r3, [r2, #4]
- 658:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1077              		.loc 1 658 0
- 1078 00a0 E063     		str	r0, [r4, #60]
- 661:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1079              		.loc 1 661 0
- 1080 00a2 84F82500 		strb	r0, [r4, #37]
- 664:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1081              		.loc 1 664 0
- 1082 00a6 0023     		movs	r3, #0
- 1083 00a8 84F82430 		strb	r3, [r4, #36]
- 666:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 1084              		.loc 1 666 0
- 1085 00ac 29E0     		b	.L73
- 1086              	.L90:
- 688:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 1087              		.loc 1 688 0
- 1088 00ae 636D     		ldr	r3, [r4, #84]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 42
-
-
- 1089 00b0 7BB1     		cbz	r3, .L82
- 691:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 1090              		.loc 1 691 0
- 1091 00b2 A26D     		ldr	r2, [r4, #88]
- 1092 00b4 1168     		ldr	r1, [r2]
- 1093 00b6 E26D     		ldr	r2, [r4, #92]
- 1094 00b8 1142     		tst	r1, r2
- 1095 00ba 0AD0     		beq	.L82
- 694:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1096              		.loc 1 694 0
- 1097 00bc 1A68     		ldr	r2, [r3]
- 1098 00be 42F48072 		orr	r2, r2, #256
- 1099 00c2 1A60     		str	r2, [r3]
- 697:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1100              		.loc 1 697 0
- 1101 00c4 A36D     		ldr	r3, [r4, #88]
- 1102 00c6 E26D     		ldr	r2, [r4, #92]
- 1103 00c8 5A60     		str	r2, [r3, #4]
- 700:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 1104              		.loc 1 700 0
- 1105 00ca E36B     		ldr	r3, [r4, #60]
- 1106 00cc 43F48063 		orr	r3, r3, #1024
- 1107 00d0 E363     		str	r3, [r4, #60]
- 1108              	.L82:
- 705:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 1109              		.loc 1 705 0
- 1110 00d2 E36C     		ldr	r3, [r4, #76]
- 1111 00d4 1968     		ldr	r1, [r3]
- 1112 00d6 226D     		ldr	r2, [r4, #80]
- 1113 00d8 1142     		tst	r1, r2
- 1114 00da 04D0     		beq	.L83
- 708:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1115              		.loc 1 708 0
- 1116 00dc 5A60     		str	r2, [r3, #4]
- 711:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 1117              		.loc 1 711 0
- 1118 00de E36B     		ldr	r3, [r4, #60]
- 1119 00e0 43F40073 		orr	r3, r3, #512
- 1120 00e4 E363     		str	r3, [r4, #60]
- 1121              	.L83:
- 714:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 1122              		.loc 1 714 0
- 1123 00e6 77B9     		cbnz	r7, .L84
- 717:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1124              		.loc 1 717 0
- 1125 00e8 636C     		ldr	r3, [r4, #68]
- 1126 00ea 03F01F02 		and	r2, r3, #31
- 1127 00ee 216C     		ldr	r1, [r4, #64]
- 1128 00f0 0223     		movs	r3, #2
- 1129 00f2 9340     		lsls	r3, r3, r2
- 1130 00f4 4B60     		str	r3, [r1, #4]
- 721:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 1131              		.loc 1 721 0
- 1132 00f6 0123     		movs	r3, #1
- 1133 00f8 84F82530 		strb	r3, [r4, #37]
- 1134              	.L85:
- 730:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 43
-
-
- 1135              		.loc 1 730 0
- 1136 00fc 0020     		movs	r0, #0
- 1137 00fe 84F82400 		strb	r0, [r4, #36]
- 1138              	.L73:
- 733:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1139              		.loc 1 733 0
- 1140 0102 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 1141              	.LVL80:
- 1142              	.L84:
+ 1036              		.loc 1 682 0
+ 1037 00f0 96E7     		b	.L66
+ 1038              	.LVL69:
+ 1039              	.L77:
  726:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 1143              		.loc 1 726 0
- 1144 0106 636C     		ldr	r3, [r4, #68]
- 1145 0108 03F01F02 		and	r2, r3, #31
- 1146 010c 216C     		ldr	r1, [r4, #64]
- 1147 010e 0423     		movs	r3, #4
- 1148 0110 9340     		lsls	r3, r3, r2
- 1149 0112 4B60     		str	r3, [r1, #4]
- 1150 0114 F2E7     		b	.L85
- 1151              		.cfi_endproc
- 1152              	.LFE335:
- 1154              		.section	.text.HAL_DMA_IRQHandler,"ax",%progbits
- 1155              		.align	1
- 1156              		.global	HAL_DMA_IRQHandler
- 1157              		.syntax unified
- 1158              		.thumb
- 1159              		.thumb_func
- 1160              		.fpu fpv4-sp-d16
- 1162              	HAL_DMA_IRQHandler:
- 1163              	.LFB336:
+ 1040              		.loc 1 726 0
+ 1041 00f2 0422     		movs	r2, #4
+ 1042 00f4 02FA03F3 		lsl	r3, r2, r3
+ 1043 00f8 7B60     		str	r3, [r7, #4]
+ 1044 00fa D2E7     		b	.L78
+ 1045              		.cfi_endproc
+ 1046              	.LFE335:
+ 1048              		.section	.text.HAL_DMA_IRQHandler,"ax",%progbits
+ 1049              		.align	1
+ 1050              		.global	HAL_DMA_IRQHandler
+ 1051              		.syntax unified
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 42
+
+
+ 1052              		.thumb
+ 1053              		.thumb_func
+ 1054              		.fpu fpv4-sp-d16
+ 1056              	HAL_DMA_IRQHandler:
+ 1057              	.LFB336:
  742:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t flag_it = hdma->DmaBaseAddress->ISR;
- 1164              		.loc 1 742 0
- 1165              		.cfi_startproc
- 1166              		@ args = 0, pretend = 0, frame = 0
- 1167              		@ frame_needed = 0, uses_anonymous_args = 0
- 1168              	.LVL81:
- 1169 0000 38B5     		push	{r3, r4, r5, lr}
- 1170              	.LCFI13:
- 1171              		.cfi_def_cfa_offset 16
- 1172              		.cfi_offset 3, -16
- 1173              		.cfi_offset 4, -12
- 1174              		.cfi_offset 5, -8
- 1175              		.cfi_offset 14, -4
+ 1058              		.loc 1 742 0
+ 1059              		.cfi_startproc
+ 1060              		@ args = 0, pretend = 0, frame = 0
+ 1061              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1062              		@ link register save eliminated.
+ 1063              	.LVL70:
  743:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t source_it = hdma->Instance->CCR;
- 1176              		.loc 1 743 0
- 1177 0002 036C     		ldr	r3, [r0, #64]
- 1178 0004 1968     		ldr	r1, [r3]
- 1179              	.LVL82:
+ 1064              		.loc 1 743 0
+ 1065 0000 016C     		ldr	r1, [r0, #64]
+ 747:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 1066              		.loc 1 747 0
+ 1067 0002 426C     		ldr	r2, [r0, #68]
  744:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1180              		.loc 1 744 0
- 1181 0006 0468     		ldr	r4, [r0]
- 1182 0008 2568     		ldr	r5, [r4]
- 1183              	.LVL83:
+ 1068              		.loc 1 744 0
+ 1069 0004 0368     		ldr	r3, [r0]
+ 742:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t flag_it = hdma->DmaBaseAddress->ISR;
+ 1070              		.loc 1 742 0
+ 1071 0006 70B4     		push	{r4, r5, r6}
+ 1072              	.LCFI8:
+ 1073              		.cfi_def_cfa_offset 12
+ 1074              		.cfi_offset 4, -12
+ 1075              		.cfi_offset 5, -8
+ 1076              		.cfi_offset 6, -4
  747:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 1184              		.loc 1 747 0
- 1185 000a 436C     		ldr	r3, [r0, #68]
- 1186 000c 03F01F03 		and	r3, r3, #31
- 1187 0010 0422     		movs	r2, #4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 44
-
-
- 1188 0012 9A40     		lsls	r2, r2, r3
- 1189 0014 0A42     		tst	r2, r1
- 1190 0016 15D0     		beq	.L93
+ 1077              		.loc 1 747 0
+ 1078 0008 02F01F02 		and	r2, r2, #31
+ 743:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   uint32_t source_it = hdma->Instance->CCR;
+ 1079              		.loc 1 743 0
+ 1080 000c 0E68     		ldr	r6, [r1]
+ 1081              	.LVL71:
+ 744:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1082              		.loc 1 744 0
+ 1083 000e 1D68     		ldr	r5, [r3]
+ 1084              	.LVL72:
  747:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 1191              		.loc 1 747 0 is_stmt 0 discriminator 1
- 1192 0018 15F0040F 		tst	r5, #4
- 1193 001c 12D0     		beq	.L93
+ 1085              		.loc 1 747 0
+ 1086 0010 0424     		movs	r4, #4
+ 1087 0012 9440     		lsls	r4, r4, r2
+ 1088 0014 3442     		tst	r4, r6
+ 1089 0016 0ED0     		beq	.L94
+ 747:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 1090              		.loc 1 747 0 is_stmt 0 discriminator 1
+ 1091 0018 15F0040F 		tst	r5, #4
+ 1092 001c 0BD0     		beq	.L94
  750:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 1194              		.loc 1 750 0 is_stmt 1
- 1195 001e 2368     		ldr	r3, [r4]
- 1196 0020 13F0200F 		tst	r3, #32
- 1197 0024 03D1     		bne	.L94
+ 1093              		.loc 1 750 0 is_stmt 1
+ 1094 001e 1A68     		ldr	r2, [r3]
+ 1095 0020 9206     		lsls	r2, r2, #26
  753:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 1198              		.loc 1 753 0
- 1199 0026 2368     		ldr	r3, [r4]
- 1200 0028 23F00403 		bic	r3, r3, #4
- 1201 002c 2360     		str	r3, [r4]
- 1202              	.L94:
- 756:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1203              		.loc 1 756 0
- 1204 002e 436C     		ldr	r3, [r0, #68]
- 1205 0030 03F01F02 		and	r2, r3, #31
- 1206 0034 016C     		ldr	r1, [r0, #64]
- 1207              	.LVL84:
- 1208 0036 0423     		movs	r3, #4
- 1209 0038 9340     		lsls	r3, r3, r2
- 1210 003a 4B60     		str	r3, [r1, #4]
+ 1096              		.loc 1 753 0
+ 1097 0022 5EBF     		ittt	pl
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 43
+
+
+ 1098 0024 1A68     		ldrpl	r2, [r3]
+ 1099 0026 22F00402 		bicpl	r2, r2, #4
+ 1100 002a 1A60     		strpl	r2, [r3]
  761:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 1211              		.loc 1 761 0
- 1212 003c 036B     		ldr	r3, [r0, #48]
- 1213 003e 03B1     		cbz	r3, .L92
- 764:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 1214              		.loc 1 764 0
- 1215 0040 9847     		blx	r3
- 1216              	.LVL85:
- 1217              	.L92:
- 823:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1218              		.loc 1 823 0
- 1219 0042 38BD     		pop	{r3, r4, r5, pc}
- 1220              	.LVL86:
- 1221              	.L93:
- 768:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****            && (0U != (source_it & DMA_IT_TC)))
- 1222              		.loc 1 768 0
- 1223 0044 0222     		movs	r2, #2
- 1224 0046 9A40     		lsls	r2, r2, r3
- 1225 0048 0A42     		tst	r2, r1
- 1226 004a 1CD0     		beq	.L96
- 769:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 1227              		.loc 1 769 0
- 1228 004c 15F0020F 		tst	r5, #2
- 1229 0050 19D0     		beq	.L96
- 771:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 1230              		.loc 1 771 0
- 1231 0052 2368     		ldr	r3, [r4]
- 1232 0054 13F0200F 		tst	r3, #32
- 1233 0058 06D1     		bne	.L97
- 774:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 45
-
-
- 1234              		.loc 1 774 0
- 1235 005a 2368     		ldr	r3, [r4]
- 1236 005c 23F00A03 		bic	r3, r3, #10
- 1237 0060 2360     		str	r3, [r4]
- 777:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 1238              		.loc 1 777 0
- 1239 0062 0123     		movs	r3, #1
- 1240 0064 80F82530 		strb	r3, [r0, #37]
- 1241              	.L97:
- 780:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1242              		.loc 1 780 0
- 1243 0068 436C     		ldr	r3, [r0, #68]
- 1244 006a 03F01F02 		and	r2, r3, #31
- 1245 006e 016C     		ldr	r1, [r0, #64]
- 1246              	.LVL87:
- 1247 0070 0223     		movs	r3, #2
- 1248 0072 9340     		lsls	r3, r3, r2
- 1249 0074 4B60     		str	r3, [r1, #4]
- 783:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1250              		.loc 1 783 0
- 1251 0076 0023     		movs	r3, #0
- 1252 0078 80F82430 		strb	r3, [r0, #36]
- 785:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 1253              		.loc 1 785 0
- 1254 007c C36A     		ldr	r3, [r0, #44]
- 1255 007e 002B     		cmp	r3, #0
- 1256 0080 DFD0     		beq	.L92
- 788:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 1257              		.loc 1 788 0
- 1258 0082 9847     		blx	r3
- 1259              	.LVL88:
- 1260 0084 DDE7     		b	.L92
- 1261              	.LVL89:
- 1262              	.L96:
- 792:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****            && (0U != (source_it & DMA_IT_TE)))
- 1263              		.loc 1 792 0
- 1264 0086 0822     		movs	r2, #8
- 1265 0088 02FA03F3 		lsl	r3, r2, r3
- 1266 008c 0B42     		tst	r3, r1
- 1267 008e D8D0     		beq	.L92
- 793:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 1268              		.loc 1 793 0
- 1269 0090 15F0080F 		tst	r5, #8
- 1270 0094 D5D0     		beq	.L92
- 798:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1271              		.loc 1 798 0
- 1272 0096 2368     		ldr	r3, [r4]
- 1273 0098 23F00E03 		bic	r3, r3, #14
- 1274 009c 2360     		str	r3, [r4]
- 801:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1275              		.loc 1 801 0
- 1276 009e 436C     		ldr	r3, [r0, #68]
- 1277 00a0 03F01F03 		and	r3, r3, #31
- 1278 00a4 016C     		ldr	r1, [r0, #64]
- 1279              	.LVL90:
- 1280 00a6 0122     		movs	r2, #1
- 1281 00a8 02FA03F3 		lsl	r3, r2, r3
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 46
-
-
- 1282 00ac 4B60     		str	r3, [r1, #4]
- 804:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1283              		.loc 1 804 0
- 1284 00ae C263     		str	r2, [r0, #60]
- 807:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1285              		.loc 1 807 0
- 1286 00b0 80F82520 		strb	r2, [r0, #37]
- 810:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1287              		.loc 1 810 0
- 1288 00b4 0023     		movs	r3, #0
- 1289 00b6 80F82430 		strb	r3, [r0, #36]
+ 1101              		.loc 1 761 0
+ 1102 002c 036B     		ldr	r3, [r0, #48]
+ 756:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1103              		.loc 1 756 0
+ 1104 002e 4C60     		str	r4, [r1, #4]
+ 1105              	.LVL73:
+ 1106              	.L127:
  812:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 1290              		.loc 1 812 0
- 1291 00ba 436B     		ldr	r3, [r0, #52]
- 1292 00bc 002B     		cmp	r3, #0
- 1293 00be C0D0     		beq	.L92
+ 1107              		.loc 1 812 0
+ 1108 0030 73B3     		cbz	r3, .L93
+ 823:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1109              		.loc 1 823 0
+ 1110 0032 70BC     		pop	{r4, r5, r6}
+ 1111              	.LCFI9:
+ 1112              		.cfi_remember_state
+ 1113              		.cfi_restore 6
+ 1114              		.cfi_restore 5
+ 1115              		.cfi_restore 4
+ 1116              		.cfi_def_cfa_offset 0
+ 1117              	.LVL74:
  815:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
- 1294              		.loc 1 815 0
- 1295 00c0 9847     		blx	r3
- 1296              	.LVL91:
- 822:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
- 1297              		.loc 1 822 0
- 1298 00c2 BEE7     		b	.L92
- 1299              		.cfi_endproc
- 1300              	.LFE336:
- 1302              		.section	.text.HAL_DMA_RegisterCallback,"ax",%progbits
- 1303              		.align	1
- 1304              		.global	HAL_DMA_RegisterCallback
- 1305              		.syntax unified
- 1306              		.thumb
- 1307              		.thumb_func
- 1308              		.fpu fpv4-sp-d16
- 1310              	HAL_DMA_RegisterCallback:
- 1311              	.LFB337:
+ 1118              		.loc 1 815 0
+ 1119 0034 1847     		bx	r3	@ indirect register sibling call
+ 1120              	.LVL75:
+ 1121              	.L94:
+ 1122              	.LCFI10:
+ 1123              		.cfi_restore_state
+ 768:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****            && (0U != (source_it & DMA_IT_TC)))
+ 1124              		.loc 1 768 0
+ 1125 0036 0224     		movs	r4, #2
+ 1126 0038 9440     		lsls	r4, r4, r2
+ 1127 003a 3442     		tst	r4, r6
+ 1128 003c 12D0     		beq	.L98
+ 769:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 1129              		.loc 1 769 0
+ 1130 003e 15F0020F 		tst	r5, #2
+ 1131 0042 0FD0     		beq	.L98
+ 771:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 1132              		.loc 1 771 0
+ 1133 0044 1A68     		ldr	r2, [r3]
+ 1134 0046 9506     		lsls	r5, r2, #26
+ 1135              	.LVL76:
+ 1136 0048 06D4     		bmi	.L99
+ 774:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1137              		.loc 1 774 0
+ 1138 004a 1A68     		ldr	r2, [r3]
+ 1139 004c 22F00A02 		bic	r2, r2, #10
+ 1140 0050 1A60     		str	r2, [r3]
+ 777:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     }
+ 1141              		.loc 1 777 0
+ 1142 0052 0123     		movs	r3, #1
+ 1143 0054 80F82530 		strb	r3, [r0, #37]
+ 1144              	.L99:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 44
+
+
+ 783:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1145              		.loc 1 783 0
+ 1146 0058 0023     		movs	r3, #0
+ 780:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1147              		.loc 1 780 0
+ 1148 005a 4C60     		str	r4, [r1, #4]
+ 783:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1149              		.loc 1 783 0
+ 1150 005c 80F82430 		strb	r3, [r0, #36]
+ 785:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 1151              		.loc 1 785 0
+ 1152 0060 C36A     		ldr	r3, [r0, #44]
+ 1153 0062 E5E7     		b	.L127
+ 1154              	.LVL77:
+ 1155              	.L98:
+ 792:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****            && (0U != (source_it & DMA_IT_TE)))
+ 1156              		.loc 1 792 0
+ 1157 0064 0824     		movs	r4, #8
+ 1158 0066 9440     		lsls	r4, r4, r2
+ 1159 0068 3442     		tst	r4, r6
+ 1160 006a 11D0     		beq	.L93
+ 793:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 1161              		.loc 1 793 0
+ 1162 006c 2C07     		lsls	r4, r5, #28
+ 1163 006e 0FD5     		bpl	.L93
+ 798:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1164              		.loc 1 798 0
+ 1165 0070 1C68     		ldr	r4, [r3]
+ 1166 0072 24F00E04 		bic	r4, r4, #14
+ 1167 0076 1C60     		str	r4, [r3]
+ 801:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1168              		.loc 1 801 0
+ 1169 0078 0123     		movs	r3, #1
+ 1170 007a 03FA02F2 		lsl	r2, r3, r2
+ 1171 007e 4A60     		str	r2, [r1, #4]
+ 804:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1172              		.loc 1 804 0
+ 1173 0080 C363     		str	r3, [r0, #60]
+ 807:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1174              		.loc 1 807 0
+ 1175 0082 80F82530 		strb	r3, [r0, #37]
+ 810:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1176              		.loc 1 810 0
+ 1177 0086 0023     		movs	r3, #0
+ 1178 0088 80F82430 		strb	r3, [r0, #36]
+ 812:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 1179              		.loc 1 812 0
+ 1180 008c 436B     		ldr	r3, [r0, #52]
+ 1181 008e CFE7     		b	.L127
+ 1182              	.LVL78:
+ 1183              	.L93:
+ 823:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1184              		.loc 1 823 0
+ 1185 0090 70BC     		pop	{r4, r5, r6}
+ 1186              	.LCFI11:
+ 1187              		.cfi_restore 6
+ 1188              		.cfi_restore 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 45
+
+
+ 1189              		.cfi_restore 4
+ 1190              		.cfi_def_cfa_offset 0
+ 1191              	.LVL79:
+ 1192 0092 7047     		bx	lr
+ 1193              		.cfi_endproc
+ 1194              	.LFE336:
+ 1196              		.section	.text.HAL_DMA_RegisterCallback,"ax",%progbits
+ 1197              		.align	1
+ 1198              		.global	HAL_DMA_RegisterCallback
+ 1199              		.syntax unified
+ 1200              		.thumb
+ 1201              		.thumb_func
+ 1202              		.fpu fpv4-sp-d16
+ 1204              	HAL_DMA_RegisterCallback:
+ 1205              	.LFB337:
  836:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
- 1312              		.loc 1 836 0
- 1313              		.cfi_startproc
- 1314              		@ args = 0, pretend = 0, frame = 0
- 1315              		@ frame_needed = 0, uses_anonymous_args = 0
- 1316              		@ link register save eliminated.
- 1317              	.LVL92:
- 1318 0000 0346     		mov	r3, r0
- 1319              	.LVL93:
+ 1206              		.loc 1 836 0
+ 1207              		.cfi_startproc
+ 1208              		@ args = 0, pretend = 0, frame = 0
+ 1209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1210              	.LVL80:
  840:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1320              		.loc 1 840 0
- 1321 0002 90F82400 		ldrb	r0, [r0, #36]	@ zero_extendqisi2
- 1322              	.LVL94:
- 1323 0006 0128     		cmp	r0, #1
- 1324 0008 20D0     		beq	.L107
+ 1211              		.loc 1 840 0
+ 1212 0000 90F82430 		ldrb	r3, [r0, #36]	@ zero_extendqisi2
+ 1213 0004 012B     		cmp	r3, #1
+ 836:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 1214              		.loc 1 836 0
+ 1215 0006 10B5     		push	{r4, lr}
+ 1216              	.LCFI12:
+ 1217              		.cfi_def_cfa_offset 8
+ 1218              		.cfi_offset 4, -8
+ 1219              		.cfi_offset 14, -4
+ 836:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 1220              		.loc 1 836 0
+ 1221 0008 0446     		mov	r4, r0
  840:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1325              		.loc 1 840 0 is_stmt 0 discriminator 2
- 1326 000a 0120     		movs	r0, #1
- 1327 000c 83F82400 		strb	r0, [r3, #36]
+ 1222              		.loc 1 840 0
+ 1223 000a 1AD0     		beq	.L137
+ 840:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1224              		.loc 1 840 0 is_stmt 0 discriminator 2
+ 1225 000c 0123     		movs	r3, #1
+ 1226 000e 80F82430 		strb	r3, [r0, #36]
  842:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 1328              		.loc 1 842 0 is_stmt 1 discriminator 2
- 1329 0010 93F82500 		ldrb	r0, [r3, #37]	@ zero_extendqisi2
- 1330 0014 C0B2     		uxtb	r0, r0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 47
-
-
- 1331 0016 0128     		cmp	r0, #1
- 1332 0018 04D0     		beq	.L110
- 869:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 1333              		.loc 1 869 0
- 1334 001a 0120     		movs	r0, #1
- 1335              	.L101:
- 1336              	.LVL95:
- 873:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1337              		.loc 1 873 0
- 1338 001c 0022     		movs	r2, #0
- 1339              	.LVL96:
- 1340 001e 83F82420 		strb	r2, [r3, #36]
- 875:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
- 1341              		.loc 1 875 0
- 1342 0022 7047     		bx	lr
- 1343              	.LVL97:
- 1344              	.L110:
+ 1227              		.loc 1 842 0 is_stmt 1 discriminator 2
+ 1228 0012 90F82500 		ldrb	r0, [r0, #37]	@ zero_extendqisi2
+ 1229              	.LVL81:
+ 1230 0016 9842     		cmp	r0, r3
+ 1231 0018 11D1     		bne	.L139
  844:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 1345              		.loc 1 844 0
- 1346 0024 0329     		cmp	r1, #3
- 1347 0026 0FD8     		bhi	.L109
- 1348 0028 DFE801F0 		tbb	[pc, r1]
- 1349              	.L103:
- 1350 002c 02       		.byte	(.L102-.L103)/2
- 1351 002d 05       		.byte	(.L104-.L103)/2
- 1352 002e 08       		.byte	(.L105-.L103)/2
- 1353 002f 0B       		.byte	(.L106-.L103)/2
- 1354              		.p2align 1
- 1355              	.L102:
+ 1232              		.loc 1 844 0
+ 1233 001a 0329     		cmp	r1, #3
+ 1234 001c 0FD8     		bhi	.L139
+ 1235 001e DFE801F0 		tbb	[pc, r1]
+ 1236              	.L133:
+ 1237 0022 02       		.byte	(.L132-.L133)/2
+ 1238 0023 08       		.byte	(.L134-.L133)/2
+ 1239 0024 0A       		.byte	(.L135-.L133)/2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 46
+
+
+ 1240 0025 0C       		.byte	(.L136-.L133)/2
+ 1241              		.p2align 1
+ 1242              	.L132:
  847:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
- 1356              		.loc 1 847 0
- 1357 0030 DA62     		str	r2, [r3, #44]
+ 1243              		.loc 1 847 0
+ 1244 0026 E262     		str	r2, [r4, #44]
+ 1245              	.L140:
  837:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1358              		.loc 1 837 0
- 1359 0032 0020     		movs	r0, #0
- 848:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1360              		.loc 1 848 0
- 1361 0034 F2E7     		b	.L101
- 1362              	.L104:
- 851:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
- 1363              		.loc 1 851 0
- 1364 0036 1A63     		str	r2, [r3, #48]
- 837:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1365              		.loc 1 837 0
- 1366 0038 0020     		movs	r0, #0
- 852:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1367              		.loc 1 852 0
- 1368 003a EFE7     		b	.L101
- 1369              	.L105:
- 855:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
- 1370              		.loc 1 855 0
- 1371 003c 5A63     		str	r2, [r3, #52]
- 837:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1372              		.loc 1 837 0
- 1373 003e 0020     		movs	r0, #0
- 856:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1374              		.loc 1 856 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 48
-
-
- 1375 0040 ECE7     		b	.L101
- 1376              	.L106:
- 859:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
- 1377              		.loc 1 859 0
- 1378 0042 9A63     		str	r2, [r3, #56]
- 837:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1379              		.loc 1 837 0
- 1380 0044 0020     		movs	r0, #0
- 860:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1381              		.loc 1 860 0
- 1382 0046 E9E7     		b	.L101
- 1383              	.L109:
- 863:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
- 1384              		.loc 1 863 0
- 1385 0048 0120     		movs	r0, #1
- 1386 004a E7E7     		b	.L101
- 1387              	.L107:
- 840:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1388              		.loc 1 840 0
- 1389 004c 0220     		movs	r0, #2
+ 1246              		.loc 1 837 0
+ 1247 0028 0020     		movs	r0, #0
+ 1248              	.L131:
+ 1249              	.LVL82:
+ 873:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1250              		.loc 1 873 0
+ 1251 002a 0023     		movs	r3, #0
+ 1252 002c 84F82430 		strb	r3, [r4, #36]
+ 1253              	.LVL83:
+ 1254              	.L130:
  876:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1390              		.loc 1 876 0
- 1391 004e 7047     		bx	lr
- 1392              		.cfi_endproc
- 1393              	.LFE337:
- 1395              		.section	.text.HAL_DMA_UnRegisterCallback,"ax",%progbits
- 1396              		.align	1
- 1397              		.global	HAL_DMA_UnRegisterCallback
- 1398              		.syntax unified
- 1399              		.thumb
- 1400              		.thumb_func
- 1401              		.fpu fpv4-sp-d16
- 1403              	HAL_DMA_UnRegisterCallback:
- 1404              	.LFB338:
+ 1255              		.loc 1 876 0
+ 1256 0030 10BD     		pop	{r4, pc}
+ 1257              	.LVL84:
+ 1258              	.L134:
+ 851:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
+ 1259              		.loc 1 851 0
+ 1260 0032 2263     		str	r2, [r4, #48]
+ 1261 0034 F8E7     		b	.L140
+ 1262              	.L135:
+ 855:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
+ 1263              		.loc 1 855 0
+ 1264 0036 6263     		str	r2, [r4, #52]
+ 1265 0038 F6E7     		b	.L140
+ 1266              	.L136:
+ 859:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
+ 1267              		.loc 1 859 0
+ 1268 003a A263     		str	r2, [r4, #56]
+ 1269 003c F4E7     		b	.L140
+ 1270              	.L139:
+ 863:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
+ 1271              		.loc 1 863 0
+ 1272 003e 0120     		movs	r0, #1
+ 1273 0040 F3E7     		b	.L131
+ 1274              	.LVL85:
+ 1275              	.L137:
+ 840:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1276              		.loc 1 840 0
+ 1277 0042 0220     		movs	r0, #2
+ 1278              	.LVL86:
+ 1279 0044 F4E7     		b	.L130
+ 1280              		.cfi_endproc
+ 1281              	.LFE337:
+ 1283              		.section	.text.HAL_DMA_UnRegisterCallback,"ax",%progbits
+ 1284              		.align	1
+ 1285              		.global	HAL_DMA_UnRegisterCallback
+ 1286              		.syntax unified
+ 1287              		.thumb
+ 1288              		.thumb_func
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 47
+
+
+ 1289              		.fpu fpv4-sp-d16
+ 1291              	HAL_DMA_UnRegisterCallback:
+ 1292              	.LFB338:
  887:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
- 1405              		.loc 1 887 0
- 1406              		.cfi_startproc
- 1407              		@ args = 0, pretend = 0, frame = 0
- 1408              		@ frame_needed = 0, uses_anonymous_args = 0
- 1409              		@ link register save eliminated.
- 1410              	.LVL98:
- 1411 0000 0346     		mov	r3, r0
- 1412              	.LVL99:
+ 1293              		.loc 1 887 0
+ 1294              		.cfi_startproc
+ 1295              		@ args = 0, pretend = 0, frame = 0
+ 1296              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1297              		@ link register save eliminated.
+ 1298              	.LVL87:
  891:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1413              		.loc 1 891 0
- 1414 0002 90F82420 		ldrb	r2, [r0, #36]	@ zero_extendqisi2
- 1415 0006 012A     		cmp	r2, #1
- 1416 0008 27D0     		beq	.L120
+ 1299              		.loc 1 891 0
+ 1300 0000 90F82420 		ldrb	r2, [r0, #36]	@ zero_extendqisi2
+ 1301 0004 012A     		cmp	r2, #1
+ 887:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 1302              		.loc 1 887 0
+ 1303 0006 0346     		mov	r3, r0
  891:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1417              		.loc 1 891 0 is_stmt 0 discriminator 2
- 1418 000a 0122     		movs	r2, #1
- 1419 000c 80F82420 		strb	r2, [r0, #36]
+ 1304              		.loc 1 891 0
+ 1305 0008 1FD0     		beq	.L150
  893:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
- 1420              		.loc 1 893 0 is_stmt 1 discriminator 2
- 1421 0010 90F82520 		ldrb	r2, [r0, #37]	@ zero_extendqisi2
- 1422 0014 D2B2     		uxtb	r2, r2
- 1423 0016 012A     		cmp	r2, #1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 49
-
-
- 1424 0018 04D0     		beq	.L123
- 927:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   }
- 1425              		.loc 1 927 0
- 1426 001a 0120     		movs	r0, #1
- 1427              	.LVL100:
- 1428              	.L113:
- 931:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1429              		.loc 1 931 0
- 1430 001c 0022     		movs	r2, #0
- 1431 001e 83F82420 		strb	r2, [r3, #36]
- 933:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
- 1432              		.loc 1 933 0
- 1433 0022 7047     		bx	lr
- 1434              	.LVL101:
- 1435              	.L123:
- 895:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
- 1436              		.loc 1 895 0
- 1437 0024 0429     		cmp	r1, #4
- 1438 0026 16D8     		bhi	.L122
- 1439 0028 DFE801F0 		tbb	[pc, r1]
- 1440              	.L115:
- 1441 002c 03       		.byte	(.L114-.L115)/2
- 1442 002d 06       		.byte	(.L116-.L115)/2
- 1443 002e 09       		.byte	(.L117-.L115)/2
- 1444 002f 0C       		.byte	(.L118-.L115)/2
- 1445 0030 0F       		.byte	(.L119-.L115)/2
- 1446 0031 00       		.p2align 1
- 1447              	.L114:
- 898:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
- 1448              		.loc 1 898 0
- 1449 0032 0020     		movs	r0, #0
- 1450              	.LVL102:
- 1451 0034 D862     		str	r0, [r3, #44]
- 899:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1452              		.loc 1 899 0
- 1453 0036 F1E7     		b	.L113
- 1454              	.LVL103:
- 1455              	.L116:
- 902:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
- 1456              		.loc 1 902 0
- 1457 0038 0020     		movs	r0, #0
- 1458              	.LVL104:
- 1459 003a 1863     		str	r0, [r3, #48]
- 903:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1460              		.loc 1 903 0
- 1461 003c EEE7     		b	.L113
- 1462              	.LVL105:
- 1463              	.L117:
- 906:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
- 1464              		.loc 1 906 0
- 1465 003e 0020     		movs	r0, #0
- 1466              	.LVL106:
- 1467 0040 5863     		str	r0, [r3, #52]
- 907:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1468              		.loc 1 907 0
- 1469 0042 EBE7     		b	.L113
- 1470              	.LVL107:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 50
-
-
- 1471              	.L118:
- 910:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
- 1472              		.loc 1 910 0
- 1473 0044 0020     		movs	r0, #0
- 1474              	.LVL108:
- 1475 0046 9863     		str	r0, [r3, #56]
- 911:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1476              		.loc 1 911 0
- 1477 0048 E8E7     		b	.L113
- 1478              	.LVL109:
- 1479              	.L119:
- 914:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         hdma->XferHalfCpltCallback = NULL;
- 1480              		.loc 1 914 0
- 1481 004a 0020     		movs	r0, #0
- 1482              	.LVL110:
- 1483 004c D862     		str	r0, [r3, #44]
- 915:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         hdma->XferErrorCallback = NULL;
- 1484              		.loc 1 915 0
- 1485 004e 1863     		str	r0, [r3, #48]
- 916:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         hdma->XferAbortCallback = NULL;
- 1486              		.loc 1 916 0
- 1487 0050 5863     		str	r0, [r3, #52]
- 917:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
- 1488              		.loc 1 917 0
- 1489 0052 9863     		str	r0, [r3, #56]
- 918:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1490              		.loc 1 918 0
- 1491 0054 E2E7     		b	.L113
- 1492              	.LVL111:
- 1493              	.L122:
- 921:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
- 1494              		.loc 1 921 0
- 1495 0056 0120     		movs	r0, #1
- 1496              	.LVL112:
- 1497 0058 E0E7     		b	.L113
- 1498              	.LVL113:
- 1499              	.L120:
+ 1306              		.loc 1 893 0 discriminator 2
+ 1307 000a 93F82520 		ldrb	r2, [r3, #37]	@ zero_extendqisi2
  891:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1500              		.loc 1 891 0
- 1501 005a 0220     		movs	r0, #2
- 1502              	.LVL114:
+ 1308              		.loc 1 891 0 discriminator 2
+ 1309 000e 0120     		movs	r0, #1
+ 1310              	.LVL88:
+ 893:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 1311              		.loc 1 893 0 discriminator 2
+ 1312 0010 8242     		cmp	r2, r0
+ 891:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1313              		.loc 1 891 0 discriminator 2
+ 1314 0012 83F82400 		strb	r0, [r3, #36]
+ 893:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   {
+ 1315              		.loc 1 893 0 discriminator 2
+ 1316 0016 09D1     		bne	.L143
+ 1317 0018 0022     		movs	r2, #0
+ 895:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****     {
+ 1318              		.loc 1 895 0
+ 1319 001a 0429     		cmp	r1, #4
+ 1320 001c 13D8     		bhi	.L152
+ 1321 001e DFE801F0 		tbb	[pc, r1]
+ 1322              	.L145:
+ 1323 0022 03       		.byte	(.L144-.L145)/2
+ 1324 0023 09       		.byte	(.L146-.L145)/2
+ 1325 0024 0B       		.byte	(.L147-.L145)/2
+ 1326 0025 10       		.byte	(.L148-.L145)/2
+ 1327 0026 0D       		.byte	(.L149-.L145)/2
+ 1328 0027 00       		.p2align 1
+ 1329              	.L144:
+ 898:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
+ 1330              		.loc 1 898 0
+ 1331 0028 DA62     		str	r2, [r3, #44]
+ 1332              	.L153:
+ 888:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1333              		.loc 1 888 0
+ 1334 002a 0020     		movs	r0, #0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 48
+
+
+ 1335              	.L143:
+ 1336              	.LVL89:
+ 931:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1337              		.loc 1 931 0
+ 1338 002c 0022     		movs	r2, #0
+ 1339 002e 83F82420 		strb	r2, [r3, #36]
+ 933:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
+ 1340              		.loc 1 933 0
+ 1341 0032 7047     		bx	lr
+ 1342              	.LVL90:
+ 1343              	.L146:
+ 902:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
+ 1344              		.loc 1 902 0
+ 1345 0034 1A63     		str	r2, [r3, #48]
+ 1346 0036 F8E7     		b	.L153
+ 1347              	.L147:
+ 906:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
+ 1348              		.loc 1 906 0
+ 1349 0038 5A63     		str	r2, [r3, #52]
+ 1350 003a F6E7     		b	.L153
+ 1351              	.L149:
+ 915:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         hdma->XferErrorCallback = NULL;
+ 1352              		.loc 1 915 0
+ 1353 003c C3E90B22 		strd	r2, r2, [r3, #44]
+ 916:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         hdma->XferAbortCallback = NULL;
+ 1354              		.loc 1 916 0
+ 1355 0040 5A63     		str	r2, [r3, #52]
+ 1356              	.L148:
+ 910:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
+ 1357              		.loc 1 910 0
+ 1358 0042 9A63     		str	r2, [r3, #56]
+ 1359 0044 F1E7     		b	.L153
+ 1360              	.L152:
+ 921:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****         break;
+ 1361              		.loc 1 921 0
+ 1362 0046 0120     		movs	r0, #1
+ 1363 0048 F0E7     		b	.L143
+ 1364              	.LVL91:
+ 1365              	.L150:
+ 891:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
+ 1366              		.loc 1 891 0
+ 1367 004a 0220     		movs	r0, #2
+ 1368              	.LVL92:
  934:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1503              		.loc 1 934 0
- 1504 005c 7047     		bx	lr
- 1505              		.cfi_endproc
- 1506              	.LFE338:
- 1508              		.section	.text.HAL_DMA_GetState,"ax",%progbits
- 1509              		.align	1
- 1510              		.global	HAL_DMA_GetState
- 1511              		.syntax unified
- 1512              		.thumb
- 1513              		.thumb_func
- 1514              		.fpu fpv4-sp-d16
- 1516              	HAL_DMA_GetState:
- 1517              	.LFB339:
+ 1369              		.loc 1 934 0
+ 1370 004c 7047     		bx	lr
+ 1371              		.cfi_endproc
+ 1372              	.LFE338:
+ 1374              		.section	.text.HAL_DMA_GetState,"ax",%progbits
+ 1375              		.align	1
+ 1376              		.global	HAL_DMA_GetState
+ 1377              		.syntax unified
+ 1378              		.thumb
+ 1379              		.thumb_func
+ 1380              		.fpu fpv4-sp-d16
+ 1382              	HAL_DMA_GetState:
+ 1383              	.LFB339:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 49
+
+
  965:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   /* Return DMA handle state */
- 1518              		.loc 1 965 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 51
-
-
- 1519              		.cfi_startproc
- 1520              		@ args = 0, pretend = 0, frame = 0
- 1521              		@ frame_needed = 0, uses_anonymous_args = 0
- 1522              		@ link register save eliminated.
- 1523              	.LVL115:
+ 1384              		.loc 1 965 0
+ 1385              		.cfi_startproc
+ 1386              		@ args = 0, pretend = 0, frame = 0
+ 1387              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1388              		@ link register save eliminated.
+ 1389              	.LVL93:
  967:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
- 1524              		.loc 1 967 0
- 1525 0000 90F82500 		ldrb	r0, [r0, #37]	@ zero_extendqisi2
- 1526              	.LVL116:
+ 1390              		.loc 1 967 0
+ 1391 0000 90F82500 		ldrb	r0, [r0, #37]	@ zero_extendqisi2
+ 1392              	.LVL94:
  968:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1527              		.loc 1 968 0
- 1528 0004 7047     		bx	lr
- 1529              		.cfi_endproc
- 1530              	.LFE339:
- 1532              		.section	.text.HAL_DMA_GetError,"ax",%progbits
- 1533              		.align	1
- 1534              		.global	HAL_DMA_GetError
- 1535              		.syntax unified
- 1536              		.thumb
- 1537              		.thumb_func
- 1538              		.fpu fpv4-sp-d16
- 1540              	HAL_DMA_GetError:
- 1541              	.LFB340:
+ 1393              		.loc 1 968 0
+ 1394 0004 7047     		bx	lr
+ 1395              		.cfi_endproc
+ 1396              	.LFE339:
+ 1398              		.section	.text.HAL_DMA_GetError,"ax",%progbits
+ 1399              		.align	1
+ 1400              		.global	HAL_DMA_GetError
+ 1401              		.syntax unified
+ 1402              		.thumb
+ 1403              		.thumb_func
+ 1404              		.fpu fpv4-sp-d16
+ 1406              	HAL_DMA_GetError:
+ 1407              	.LFB340:
  977:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c ****   return hdma->ErrorCode;
- 1542              		.loc 1 977 0
- 1543              		.cfi_startproc
- 1544              		@ args = 0, pretend = 0, frame = 0
- 1545              		@ frame_needed = 0, uses_anonymous_args = 0
- 1546              		@ link register save eliminated.
- 1547              	.LVL117:
+ 1408              		.loc 1 977 0
+ 1409              		.cfi_startproc
+ 1410              		@ args = 0, pretend = 0, frame = 0
+ 1411              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1412              		@ link register save eliminated.
+ 1413              	.LVL95:
  978:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** }
- 1548              		.loc 1 978 0
- 1549 0000 C06B     		ldr	r0, [r0, #60]
- 1550              	.LVL118:
+ 1414              		.loc 1 978 0
+ 1415 0000 C06B     		ldr	r0, [r0, #60]
+ 1416              	.LVL96:
  979:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.c **** 
- 1551              		.loc 1 979 0
- 1552 0002 7047     		bx	lr
- 1553              		.cfi_endproc
- 1554              	.LFE340:
- 1556              		.text
- 1557              	.Letext0:
- 1558              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 1559              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 1560              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 1561              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
- 1562              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
- 1563              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
- 1564              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
- 1565              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
- 1566              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 1567              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccfApmzb.s 			page 52
+ 1417              		.loc 1 979 0
+ 1418 0002 7047     		bx	lr
+ 1419              		.cfi_endproc
+ 1420              	.LFE340:
+ 1422              		.text
+ 1423              	.Letext0:
+ 1424              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 1425              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 1426              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 1427              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 1428              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 1429              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 1430              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 1431              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 1432              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 1433              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccQRk62N.s 			page 50
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g4xx_hal_dma.c
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:18     .text.DMA_SetConfig:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:24     .text.DMA_SetConfig:00000000 DMA_SetConfig
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:99     .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:105    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 DMA_CalcDMAMUXChannelBaseAndMask
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:152    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000034 $d
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:161    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:167    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000000 DMA_CalcDMAMUXRequestGenBaseAndMask
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:199    .text.DMA_CalcDMAMUXRequestGenBaseAndMask:00000020 $d
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:205    .text.HAL_DMA_Init:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:212    .text.HAL_DMA_Init:00000000 HAL_DMA_Init
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:375    .text.HAL_DMA_Init:000000c4 $d
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:385    .text.HAL_DMA_DeInit:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:392    .text.HAL_DMA_DeInit:00000000 HAL_DMA_DeInit
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:529    .text.HAL_DMA_DeInit:000000a4 $d
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:539    .text.HAL_DMA_Start:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:546    .text.HAL_DMA_Start:00000000 HAL_DMA_Start
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:621    .text.HAL_DMA_Start_IT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:628    .text.HAL_DMA_Start_IT:00000000 HAL_DMA_Start_IT
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:742    .text.HAL_DMA_Abort:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:749    .text.HAL_DMA_Abort:00000000 HAL_DMA_Abort
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:830    .text.HAL_DMA_Abort_IT:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:837    .text.HAL_DMA_Abort_IT:00000000 HAL_DMA_Abort_IT
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:935    .text.HAL_DMA_PollForTransfer:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:942    .text.HAL_DMA_PollForTransfer:00000000 HAL_DMA_PollForTransfer
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1155   .text.HAL_DMA_IRQHandler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1162   .text.HAL_DMA_IRQHandler:00000000 HAL_DMA_IRQHandler
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1303   .text.HAL_DMA_RegisterCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1310   .text.HAL_DMA_RegisterCallback:00000000 HAL_DMA_RegisterCallback
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1350   .text.HAL_DMA_RegisterCallback:0000002c $d
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1354   .text.HAL_DMA_RegisterCallback:00000030 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1396   .text.HAL_DMA_UnRegisterCallback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1403   .text.HAL_DMA_UnRegisterCallback:00000000 HAL_DMA_UnRegisterCallback
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1441   .text.HAL_DMA_UnRegisterCallback:0000002c $d
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1509   .text.HAL_DMA_GetState:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1516   .text.HAL_DMA_GetState:00000000 HAL_DMA_GetState
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1533   .text.HAL_DMA_GetError:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1540   .text.HAL_DMA_GetError:00000000 HAL_DMA_GetError
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1446   .text.HAL_DMA_UnRegisterCallback:00000031 $d
-C:\Users\82057\AppData\Local\Temp\ccfApmzb.s:1446   .text.HAL_DMA_UnRegisterCallback:00000032 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:18     .text.DMA_SetConfig:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:24     .text.DMA_SetConfig:00000000 DMA_SetConfig
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:77     .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:83     .text.DMA_CalcDMAMUXChannelBaseAndMask:00000000 DMA_CalcDMAMUXChannelBaseAndMask
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:134    .text.DMA_CalcDMAMUXChannelBaseAndMask:00000038 $d
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:142    .text.HAL_DMA_Init:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:149    .text.HAL_DMA_Init:00000000 HAL_DMA_Init
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:323    .text.HAL_DMA_Init:000000c8 $d
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:333    .text.HAL_DMA_DeInit:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:340    .text.HAL_DMA_DeInit:00000000 HAL_DMA_DeInit
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:466    .text.HAL_DMA_DeInit:00000098 $d
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:476    .text.HAL_DMA_Start:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:483    .text.HAL_DMA_Start:00000000 HAL_DMA_Start
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:551    .text.HAL_DMA_Start_IT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:558    .text.HAL_DMA_Start_IT:00000000 HAL_DMA_Start_IT
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:663    .text.HAL_DMA_Abort:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:670    .text.HAL_DMA_Abort:00000000 HAL_DMA_Abort
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:750    .text.HAL_DMA_Abort_IT:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:757    .text.HAL_DMA_Abort_IT:00000000 HAL_DMA_Abort_IT
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:851    .text.HAL_DMA_PollForTransfer:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:858    .text.HAL_DMA_PollForTransfer:00000000 HAL_DMA_PollForTransfer
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1049   .text.HAL_DMA_IRQHandler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1056   .text.HAL_DMA_IRQHandler:00000000 HAL_DMA_IRQHandler
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1197   .text.HAL_DMA_RegisterCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1204   .text.HAL_DMA_RegisterCallback:00000000 HAL_DMA_RegisterCallback
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1237   .text.HAL_DMA_RegisterCallback:00000022 $d
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1241   .text.HAL_DMA_RegisterCallback:00000026 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1284   .text.HAL_DMA_UnRegisterCallback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1291   .text.HAL_DMA_UnRegisterCallback:00000000 HAL_DMA_UnRegisterCallback
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1323   .text.HAL_DMA_UnRegisterCallback:00000022 $d
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1375   .text.HAL_DMA_GetState:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1382   .text.HAL_DMA_GetState:00000000 HAL_DMA_GetState
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1399   .text.HAL_DMA_GetError:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1406   .text.HAL_DMA_GetError:00000000 HAL_DMA_GetError
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1328   .text.HAL_DMA_UnRegisterCallback:00000027 $d
+C:\Users\82057\AppData\Local\Temp\ccQRk62N.s:1328   .text.HAL_DMA_UnRegisterCallback:00000028 $t
 
 UNDEFINED SYMBOLS
 HAL_GetTick

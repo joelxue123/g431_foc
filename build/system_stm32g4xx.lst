@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccktpWqV.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"system_stm32g4xx.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 1
   29:Src/system_stm32g4xx.c ****   *-----------------------------------------------------------------------------
   30:Src/system_stm32g4xx.c ****   *        SYSCLK(Hz)                             | 16000000
   31:Src/system_stm32g4xx.c ****   *-----------------------------------------------------------------------------
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccktpWqV.s 			page 2
 
 
   32:Src/system_stm32g4xx.c ****   *        HCLK(Hz)                               | 16000000
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 1
   86:Src/system_stm32g4xx.c ****   #define HSI_VALUE    16000000U /*!< Value of the Internal oscillator in Hz*/
   87:Src/system_stm32g4xx.c **** #endif /* HSI_VALUE */
   88:Src/system_stm32g4xx.c **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccktpWqV.s 			page 3
 
 
   89:Src/system_stm32g4xx.c **** /**
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 1
  143:Src/system_stm32g4xx.c ****   * @{
  144:Src/system_stm32g4xx.c ****   */
  145:Src/system_stm32g4xx.c ****   /* The SystemCoreClock variable is updated in three ways:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccktpWqV.s 			page 4
 
 
  146:Src/system_stm32g4xx.c ****       1) by calling CMSIS function SystemCoreClockUpdate()
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 1
   38              		.loc 1 189 0
   39 000e 4FF00062 		mov	r2, #134217728
   40 0012 9A60     		str	r2, [r3, #8]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccktpWqV.s 			page 5
 
 
  190:Src/system_stm32g4xx.c **** #endif /* USER_VECT_TAB_ADDRESS */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 1
  227:Src/system_stm32g4xx.c ****   * @retval None
  228:Src/system_stm32g4xx.c ****   */
  229:Src/system_stm32g4xx.c **** void SystemCoreClockUpdate(void)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccktpWqV.s 			page 6
 
 
  230:Src/system_stm32g4xx.c **** {
@@ -306,25 +306,35 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 1
   61              		.cfi_startproc
   62              		@ args = 0, pretend = 0, frame = 0
   63              		@ frame_needed = 0, uses_anonymous_args = 0
-  64              		@ link register save eliminated.
  231:Src/system_stm32g4xx.c ****   uint32_t tmp, pllvco, pllr, pllsource, pllm;
  232:Src/system_stm32g4xx.c **** 
  233:Src/system_stm32g4xx.c ****   /* Get SYSCLK source -------------------------------------------------------*/
  234:Src/system_stm32g4xx.c ****   switch (RCC->CFGR & RCC_CFGR_SWS)
-  65              		.loc 1 234 0
-  66 0000 1E4B     		ldr	r3, .L13
-  67 0002 9B68     		ldr	r3, [r3, #8]
-  68 0004 03F00C03 		and	r3, r3, #12
-  69 0008 082B     		cmp	r3, #8
-  70 000a 12D0     		beq	.L6
-  71 000c 0C2B     		cmp	r3, #12
-  72 000e 14D0     		beq	.L7
-  73 0010 042B     		cmp	r3, #4
-  74 0012 0AD0     		beq	.L11
-  75              	.L5:
+  64              		.loc 1 234 0
+  65 0000 184A     		ldr	r2, .L13
+  66 0002 1948     		ldr	r0, .L13+4
+  67 0004 9368     		ldr	r3, [r2, #8]
+  68 0006 03F00C03 		and	r3, r3, #12
+  69 000a 082B     		cmp	r3, #8
+ 230:Src/system_stm32g4xx.c ****   uint32_t tmp, pllvco, pllr, pllsource, pllm;
+  70              		.loc 1 230 0
+  71 000c 10B5     		push	{r4, lr}
+  72              	.LCFI0:
+  73              		.cfi_def_cfa_offset 8
+  74              		.cfi_offset 4, -8
+  75              		.cfi_offset 14, -4
+  76              		.loc 1 234 0
+  77 000e 0ED0     		beq	.L6
+  78 0010 0C2B     		cmp	r3, #12
+  79 0012 0ED0     		beq	.L7
+  80 0014 042B     		cmp	r3, #4
+  81 0016 01D1     		bne	.L5
  235:Src/system_stm32g4xx.c ****   {
  236:Src/system_stm32g4xx.c ****     case 0x04:  /* HSI used as system clock source */
  237:Src/system_stm32g4xx.c ****       SystemCoreClock = HSI_VALUE;
+  82              		.loc 1 237 0
+  83 0018 144B     		ldr	r3, .L13+8
+  84              	.L12:
  238:Src/system_stm32g4xx.c ****       break;
  239:Src/system_stm32g4xx.c **** 
  240:Src/system_stm32g4xx.c ****     case 0x08:  /* HSE used as system clock source */
@@ -348,6 +358,12 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 1
  258:Src/system_stm32g4xx.c ****       pllvco = pllvco * ((RCC->PLLCFGR & RCC_PLLCFGR_PLLN) >> 8);
  259:Src/system_stm32g4xx.c ****       pllr = (((RCC->PLLCFGR & RCC_PLLCFGR_PLLR) >> 25) + 1U) * 2U;
  260:Src/system_stm32g4xx.c ****       SystemCoreClock = pllvco/pllr;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccktpWqV.s 			page 7
+
+
+  85              		.loc 1 260 0
+  86 001a 0360     		str	r3, [r0]
+  87              	.L5:
  261:Src/system_stm32g4xx.c ****       break;
  262:Src/system_stm32g4xx.c **** 
  263:Src/system_stm32g4xx.c ****     default:
@@ -356,184 +372,165 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 1
  266:Src/system_stm32g4xx.c ****   /* Compute HCLK clock frequency --------------------------------------------*/
  267:Src/system_stm32g4xx.c ****   /* Get HCLK prescaler */
  268:Src/system_stm32g4xx.c ****   tmp = AHBPrescTable[((RCC->CFGR & RCC_CFGR_HPRE) >> 4)];
-  76              		.loc 1 268 0
-  77 0014 194B     		ldr	r3, .L13
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 7
-
-
-  78 0016 9B68     		ldr	r3, [r3, #8]
-  79 0018 C3F30313 		ubfx	r3, r3, #4, #4
-  80 001c 184A     		ldr	r2, .L13+4
-  81 001e D15C     		ldrb	r1, [r2, r3]	@ zero_extendqisi2
-  82              	.LVL0:
+  88              		.loc 1 268 0
+  89 001c 9368     		ldr	r3, [r2, #8]
+  90              	.LVL0:
+  91 001e 144A     		ldr	r2, .L13+12
+  92 0020 C3F30313 		ubfx	r3, r3, #4, #4
+  93              	.LVL1:
+  94 0024 D25C     		ldrb	r2, [r2, r3]	@ zero_extendqisi2
  269:Src/system_stm32g4xx.c ****   /* HCLK clock frequency */
  270:Src/system_stm32g4xx.c ****   SystemCoreClock >>= tmp;
-  83              		.loc 1 270 0
-  84 0020 184A     		ldr	r2, .L13+8
-  85 0022 1368     		ldr	r3, [r2]
-  86 0024 CB40     		lsrs	r3, r3, r1
-  87 0026 1360     		str	r3, [r2]
+  95              		.loc 1 270 0
+  96 0026 0368     		ldr	r3, [r0]
+  97 0028 D340     		lsrs	r3, r3, r2
+  98 002a 0360     		str	r3, [r0]
  271:Src/system_stm32g4xx.c **** }
-  88              		.loc 1 271 0
-  89 0028 7047     		bx	lr
-  90              	.LVL1:
-  91              	.L11:
- 237:Src/system_stm32g4xx.c ****       break;
-  92              		.loc 1 237 0
-  93 002a 164B     		ldr	r3, .L13+8
-  94 002c 164A     		ldr	r2, .L13+12
-  95 002e 1A60     		str	r2, [r3]
- 238:Src/system_stm32g4xx.c **** 
-  96              		.loc 1 238 0
-  97 0030 F0E7     		b	.L5
-  98              	.L6:
+  99              		.loc 1 271 0
+ 100 002c 10BD     		pop	{r4, pc}
+ 101              	.L6:
  241:Src/system_stm32g4xx.c ****       break;
-  99              		.loc 1 241 0
- 100 0032 144B     		ldr	r3, .L13+8
- 101 0034 154A     		ldr	r2, .L13+16
- 102 0036 1A60     		str	r2, [r3]
- 242:Src/system_stm32g4xx.c **** 
- 103              		.loc 1 242 0
- 104 0038 ECE7     		b	.L5
+ 102              		.loc 1 241 0
+ 103 002e 114B     		ldr	r3, .L13+16
+ 104 0030 F3E7     		b	.L12
  105              	.L7:
  248:Src/system_stm32g4xx.c ****       pllm = ((RCC->PLLCFGR & RCC_PLLCFGR_PLLM) >> 4) + 1U ;
  106              		.loc 1 248 0
- 107 003a 104B     		ldr	r3, .L13
- 108 003c DA68     		ldr	r2, [r3, #12]
- 109 003e 02F00302 		and	r2, r2, #3
- 110              	.LVL2:
+ 107 0032 D168     		ldr	r1, [r2, #12]
+ 108              	.LVL2:
  249:Src/system_stm32g4xx.c ****       if (pllsource == 0x02UL) /* HSI used as PLL clock source */
- 111              		.loc 1 249 0
- 112 0042 DB68     		ldr	r3, [r3, #12]
- 113 0044 C3F30313 		ubfx	r3, r3, #4, #4
- 114 0048 0133     		adds	r3, r3, #1
+ 109              		.loc 1 249 0
+ 110 0034 D368     		ldr	r3, [r2, #12]
+ 258:Src/system_stm32g4xx.c ****       pllr = (((RCC->PLLCFGR & RCC_PLLCFGR_PLLR) >> 25) + 1U) * 2U;
+ 111              		.loc 1 258 0
+ 112 0036 D468     		ldr	r4, [r2, #12]
+ 248:Src/system_stm32g4xx.c ****       pllm = ((RCC->PLLCFGR & RCC_PLLCFGR_PLLM) >> 4) + 1U ;
+ 113              		.loc 1 248 0
+ 114 0038 01F00301 		and	r1, r1, #3
  115              	.LVL3:
  250:Src/system_stm32g4xx.c ****       {
  116              		.loc 1 250 0
- 117 004a 022A     		cmp	r2, #2
- 118 004c 12D0     		beq	.L12
- 256:Src/system_stm32g4xx.c ****       }
- 119              		.loc 1 256 0
- 120 004e 0F4A     		ldr	r2, .L13+16
- 121              	.LVL4:
- 122 0050 B2FBF3F3 		udiv	r3, r2, r3
- 123              	.LVL5:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 8
-
-
- 124              	.L10:
- 258:Src/system_stm32g4xx.c ****       pllr = (((RCC->PLLCFGR & RCC_PLLCFGR_PLLR) >> 25) + 1U) * 2U;
- 125              		.loc 1 258 0
- 126 0054 0949     		ldr	r1, .L13
- 127 0056 CA68     		ldr	r2, [r1, #12]
- 128 0058 C2F30622 		ubfx	r2, r2, #8, #7
- 129 005c 03FB02F3 		mul	r3, r3, r2
- 130              	.LVL6:
- 259:Src/system_stm32g4xx.c ****       SystemCoreClock = pllvco/pllr;
- 131              		.loc 1 259 0
- 132 0060 CA68     		ldr	r2, [r1, #12]
- 133 0062 C2F34162 		ubfx	r2, r2, #25, #2
- 134 0066 0132     		adds	r2, r2, #1
- 135 0068 5200     		lsls	r2, r2, #1
- 136              	.LVL7:
- 260:Src/system_stm32g4xx.c ****       break;
- 137              		.loc 1 260 0
- 138 006a B3FBF2F3 		udiv	r3, r3, r2
- 139              	.LVL8:
- 140 006e 054A     		ldr	r2, .L13+8
- 141              	.LVL9:
- 142 0070 1360     		str	r3, [r2]
- 261:Src/system_stm32g4xx.c **** 
- 143              		.loc 1 261 0
- 144 0072 CFE7     		b	.L5
- 145              	.LVL10:
- 146              	.L12:
+ 117 003c 0229     		cmp	r1, #2
+ 249:Src/system_stm32g4xx.c ****       if (pllsource == 0x02UL) /* HSI used as PLL clock source */
+ 118              		.loc 1 249 0
+ 119 003e C3F30313 		ubfx	r3, r3, #4, #4
  252:Src/system_stm32g4xx.c ****       }
- 147              		.loc 1 252 0
- 148 0074 044A     		ldr	r2, .L13+12
- 149              	.LVL11:
- 150 0076 B2FBF3F3 		udiv	r3, r2, r3
- 151              	.LVL12:
- 152 007a EBE7     		b	.L10
- 153              	.L14:
- 154              		.align	2
- 155              	.L13:
- 156 007c 00100240 		.word	1073876992
- 157 0080 00000000 		.word	.LANCHOR1
- 158 0084 00000000 		.word	.LANCHOR0
- 159 0088 0024F400 		.word	16000000
- 160 008c 00127A00 		.word	8000000
- 161              		.cfi_endproc
- 162              	.LFE330:
- 164              		.global	APBPrescTable
- 165              		.global	AHBPrescTable
- 166              		.global	SystemCoreClock
- 167              		.section	.data.SystemCoreClock,"aw",%progbits
- 168              		.align	2
- 169              		.set	.LANCHOR0,. + 0
- 172              	SystemCoreClock:
- 173 0000 0024F400 		.word	16000000
- 174              		.section	.rodata.AHBPrescTable,"a",%progbits
- 175              		.align	2
- 176              		.set	.LANCHOR1,. + 0
- 179              	AHBPrescTable:
- 180 0000 00       		.byte	0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 9
+ 120              		.loc 1 252 0
+ 121 0042 0CBF     		ite	eq
+ 122 0044 0949     		ldreq	r1, .L13+8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccktpWqV.s 			page 8
 
 
- 181 0001 00       		.byte	0
- 182 0002 00       		.byte	0
- 183 0003 00       		.byte	0
- 184 0004 00       		.byte	0
- 185 0005 00       		.byte	0
- 186 0006 00       		.byte	0
- 187 0007 00       		.byte	0
- 188 0008 01       		.byte	1
- 189 0009 02       		.byte	2
- 190 000a 03       		.byte	3
- 191 000b 04       		.byte	4
- 192 000c 06       		.byte	6
- 193 000d 07       		.byte	7
- 194 000e 08       		.byte	8
- 195 000f 09       		.byte	9
- 196              		.section	.rodata.APBPrescTable,"a",%progbits
- 197              		.align	2
- 200              	APBPrescTable:
- 201 0000 00       		.byte	0
- 202 0001 00       		.byte	0
- 203 0002 00       		.byte	0
- 204 0003 00       		.byte	0
- 205 0004 01       		.byte	1
- 206 0005 02       		.byte	2
- 207 0006 03       		.byte	3
- 208 0007 04       		.byte	4
- 209              		.text
- 210              	.Letext0:
- 211              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 212              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 213              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 214              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
- 215              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
- 216              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
- 217              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
- 218              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 219              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc67YuKi.s 			page 10
+ 123              	.LVL4:
+ 256:Src/system_stm32g4xx.c ****       }
+ 124              		.loc 1 256 0
+ 125 0046 0B49     		ldrne	r1, .L13+16
+ 249:Src/system_stm32g4xx.c ****       if (pllsource == 0x02UL) /* HSI used as PLL clock source */
+ 126              		.loc 1 249 0
+ 127 0048 0133     		adds	r3, r3, #1
+ 128              	.LVL5:
+ 256:Src/system_stm32g4xx.c ****       }
+ 129              		.loc 1 256 0
+ 130 004a B1FBF3F3 		udiv	r3, r1, r3
+ 131              	.LVL6:
+ 259:Src/system_stm32g4xx.c ****       SystemCoreClock = pllvco/pllr;
+ 132              		.loc 1 259 0
+ 133 004e D168     		ldr	r1, [r2, #12]
+ 134              	.LVL7:
+ 135 0050 C1F34161 		ubfx	r1, r1, #25, #2
+ 136              	.LVL8:
+ 258:Src/system_stm32g4xx.c ****       pllr = (((RCC->PLLCFGR & RCC_PLLCFGR_PLLR) >> 25) + 1U) * 2U;
+ 137              		.loc 1 258 0
+ 138 0054 C4F30624 		ubfx	r4, r4, #8, #7
+ 139              	.LVL9:
+ 259:Src/system_stm32g4xx.c ****       SystemCoreClock = pllvco/pllr;
+ 140              		.loc 1 259 0
+ 141 0058 0131     		adds	r1, r1, #1
+ 258:Src/system_stm32g4xx.c ****       pllr = (((RCC->PLLCFGR & RCC_PLLCFGR_PLLR) >> 25) + 1U) * 2U;
+ 142              		.loc 1 258 0
+ 143 005a 6343     		muls	r3, r4, r3
+ 259:Src/system_stm32g4xx.c ****       SystemCoreClock = pllvco/pllr;
+ 144              		.loc 1 259 0
+ 145 005c 4900     		lsls	r1, r1, #1
+ 260:Src/system_stm32g4xx.c ****       break;
+ 146              		.loc 1 260 0
+ 147 005e B3FBF1F3 		udiv	r3, r3, r1
+ 148 0062 DAE7     		b	.L12
+ 149              	.L14:
+ 150              		.align	2
+ 151              	.L13:
+ 152 0064 00100240 		.word	1073876992
+ 153 0068 00000000 		.word	.LANCHOR0
+ 154 006c 0024F400 		.word	16000000
+ 155 0070 00000000 		.word	.LANCHOR1
+ 156 0074 00127A00 		.word	8000000
+ 157              		.cfi_endproc
+ 158              	.LFE330:
+ 160              		.global	APBPrescTable
+ 161              		.global	AHBPrescTable
+ 162              		.global	SystemCoreClock
+ 163              		.section	.data.SystemCoreClock,"aw",%progbits
+ 164              		.align	2
+ 165              		.set	.LANCHOR0,. + 0
+ 168              	SystemCoreClock:
+ 169 0000 0024F400 		.word	16000000
+ 170              		.section	.rodata.AHBPrescTable,"a",%progbits
+ 171              		.set	.LANCHOR1,. + 0
+ 174              	AHBPrescTable:
+ 175 0000 00       		.byte	0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccktpWqV.s 			page 9
+
+
+ 176 0001 00       		.byte	0
+ 177 0002 00       		.byte	0
+ 178 0003 00       		.byte	0
+ 179 0004 00       		.byte	0
+ 180 0005 00       		.byte	0
+ 181 0006 00       		.byte	0
+ 182 0007 00       		.byte	0
+ 183 0008 01       		.byte	1
+ 184 0009 02       		.byte	2
+ 185 000a 03       		.byte	3
+ 186 000b 04       		.byte	4
+ 187 000c 06       		.byte	6
+ 188 000d 07       		.byte	7
+ 189 000e 08       		.byte	8
+ 190 000f 09       		.byte	9
+ 191              		.section	.rodata.APBPrescTable,"a",%progbits
+ 194              	APBPrescTable:
+ 195 0000 00       		.byte	0
+ 196 0001 00       		.byte	0
+ 197 0002 00       		.byte	0
+ 198 0003 00       		.byte	0
+ 199 0004 01       		.byte	1
+ 200 0005 02       		.byte	2
+ 201 0006 03       		.byte	3
+ 202 0007 04       		.byte	4
+ 203              		.text
+ 204              	.Letext0:
+ 205              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 206              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 207              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 208              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 209              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 210              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 211              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 212              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 213              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccktpWqV.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 system_stm32g4xx.c
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:18     .text.SystemInit:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:25     .text.SystemInit:00000000 SystemInit
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:46     .text.SystemInit:00000018 $d
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:51     .text.SystemCoreClockUpdate:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:58     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:156    .text.SystemCoreClockUpdate:0000007c $d
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:200    .rodata.APBPrescTable:00000000 APBPrescTable
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:179    .rodata.AHBPrescTable:00000000 AHBPrescTable
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:172    .data.SystemCoreClock:00000000 SystemCoreClock
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:168    .data.SystemCoreClock:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:175    .rodata.AHBPrescTable:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cc67YuKi.s:197    .rodata.APBPrescTable:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccktpWqV.s:18     .text.SystemInit:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccktpWqV.s:25     .text.SystemInit:00000000 SystemInit
+C:\Users\82057\AppData\Local\Temp\ccktpWqV.s:46     .text.SystemInit:00000018 $d
+C:\Users\82057\AppData\Local\Temp\ccktpWqV.s:51     .text.SystemCoreClockUpdate:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccktpWqV.s:58     .text.SystemCoreClockUpdate:00000000 SystemCoreClockUpdate
+C:\Users\82057\AppData\Local\Temp\ccktpWqV.s:152    .text.SystemCoreClockUpdate:00000064 $d
+C:\Users\82057\AppData\Local\Temp\ccktpWqV.s:194    .rodata.APBPrescTable:00000000 APBPrescTable
+C:\Users\82057\AppData\Local\Temp\ccktpWqV.s:174    .rodata.AHBPrescTable:00000000 AHBPrescTable
+C:\Users\82057\AppData\Local\Temp\ccktpWqV.s:168    .data.SystemCoreClock:00000000 SystemCoreClock
+C:\Users\82057\AppData\Local\Temp\ccktpWqV.s:164    .data.SystemCoreClock:00000000 $d
 
 NO UNDEFINED SYMBOLS

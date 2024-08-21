@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"stm32g4xx_hal_dma_ex.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
   29:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****    (+) Configure the DMA_MUX Request Generator Block using HAL_DMAEx_ConfigMuxRequestGenerator func
   30:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****        Functions HAL_DMAEx_EnableMuxRequestGenerator and HAL_DMAEx_DisableMuxRequestGenerator can t
   31:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****        to respectively enable/disable the request generator.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 2
 
 
   32:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
   86:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
   87:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
   88:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** /**
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 3
 
 
   89:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   * @brief  Configure the DMAMUX synchronization parameters for a given DMA channel (instance).
@@ -133,8 +133,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
-  32              		@ link register save eliminated.
-  33              	.LVL0:
+  32              	.LVL0:
   97:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* Check the parameters */
   98:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   assert_param(IS_DMA_ALL_INSTANCE(hdma->Instance));
   99:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
@@ -147,17 +146,48 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  106:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  107:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /*Check if the DMA state is ready */
  108:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   if (hdma->State == HAL_DMA_STATE_READY)
-  34              		.loc 1 108 0
-  35 0000 90F82530 		ldrb	r3, [r0, #37]	@ zero_extendqisi2
-  36 0004 DBB2     		uxtb	r3, r3
-  37 0006 012B     		cmp	r3, #1
-  38 0008 01D0     		beq	.L9
+  33              		.loc 1 108 0
+  34 0000 90F82530 		ldrb	r3, [r0, #37]	@ zero_extendqisi2
+  35 0004 012B     		cmp	r3, #1
+  96:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* Check the parameters */
+  36              		.loc 1 96 0
+  37 0006 30B5     		push	{r4, r5, lr}
+  38              	.LCFI0:
+  39              		.cfi_def_cfa_offset 12
+  40              		.cfi_offset 4, -12
+  41              		.cfi_offset 5, -8
+  42              		.cfi_offset 14, -4
+  43              		.loc 1 108 0
+  44 0008 1BD1     		bne	.L3
  109:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
  110:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Process Locked */
  111:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     __HAL_LOCK(hdma);
+  45              		.loc 1 111 0
+  46 000a 90F82430 		ldrb	r3, [r0, #36]	@ zero_extendqisi2
+  47 000e 012B     		cmp	r3, #1
+  48 0010 19D0     		beq	.L4
  112:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  113:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Set the new synchronization parameters (and keep the request ID filled during the Init)*/
  114:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     MODIFY_REG(hdma->DMAmuxChannel->CCR, \
+  49              		.loc 1 114 0 discriminator 2
+  50 0012 D1E90043 		ldrd	r4, r3, [r1]
+  51 0016 43EA0463 		orr	r3, r3, r4, lsl #24
+  52 001a CC68     		ldr	r4, [r1, #12]
+  53 001c 856C     		ldr	r5, [r0, #72]
+  54 001e 013C     		subs	r4, r4, #1
+  55 0020 43EAC443 		orr	r3, r3, r4, lsl #19
+  56 0024 0C7A     		ldrb	r4, [r1, #8]	@ zero_extendqisi2
+  57 0026 2A68     		ldr	r2, [r5]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 4
+
+
+  58 0028 497A     		ldrb	r1, [r1, #9]	@ zero_extendqisi2
+  59              	.LVL1:
+  60 002a 43EA0443 		orr	r3, r3, r4, lsl #16
+  61 002e 43EA4123 		orr	r3, r3, r1, lsl #9
+  62 0032 D2B2     		uxtb	r2, r2
+  63 0034 1343     		orrs	r3, r3, r2
+  64 0036 2B60     		str	r3, [r5]
  115:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                (~DMAMUX_CxCR_DMAREQ_ID), \
  116:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                ((pSyncConfig->SyncSignalID) << DMAMUX_CxCR_SYNC_ID_Pos) | ((pSyncConfig->RequestNum
  117:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                pSyncConfig->SyncPolarity | ((uint32_t)pSyncConfig->SyncEnable << DMAMUX_CxCR_SE_Pos
@@ -165,96 +195,52 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  119:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  120:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Process UnLocked */
  121:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     __HAL_UNLOCK(hdma);
+  65              		.loc 1 121 0 discriminator 2
+  66 0038 0023     		movs	r3, #0
+  67 003a 80F82430 		strb	r3, [r0, #36]
  122:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  123:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     return HAL_OK;
+  68              		.loc 1 123 0 discriminator 2
+  69 003e 1846     		mov	r0, r3
+  70              	.LVL2:
+  71              	.L2:
  124:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
  125:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   else
  126:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
  127:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /*DMA State not Ready*/
  128:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     return HAL_ERROR;
-  39              		.loc 1 128 0
-  40 000a 0120     		movs	r0, #1
-  41              	.LVL1:
-  42 000c 7047     		bx	lr
-  43              	.LVL2:
-  44              	.L9:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 4
-
-
- 111:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
-  45              		.loc 1 111 0
-  46 000e 90F82430 		ldrb	r3, [r0, #36]	@ zero_extendqisi2
-  47 0012 012B     		cmp	r3, #1
-  48 0014 1CD0     		beq	.L4
-  96:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* Check the parameters */
-  49              		.loc 1 96 0 discriminator 2
-  50 0016 30B4     		push	{r4, r5}
-  51              	.LCFI0:
-  52              		.cfi_def_cfa_offset 8
-  53              		.cfi_offset 4, -8
-  54              		.cfi_offset 5, -4
- 111:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
-  55              		.loc 1 111 0 discriminator 2
-  56 0018 0123     		movs	r3, #1
-  57 001a 80F82430 		strb	r3, [r0, #36]
- 114:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                (~DMAMUX_CxCR_DMAREQ_ID), \
-  58              		.loc 1 114 0 discriminator 2
-  59 001e 846C     		ldr	r4, [r0, #72]
-  60 0020 2268     		ldr	r2, [r4]
-  61 0022 D2B2     		uxtb	r2, r2
-  62 0024 0D68     		ldr	r5, [r1]
-  63 0026 CB68     		ldr	r3, [r1, #12]
-  64 0028 013B     		subs	r3, r3, #1
-  65 002a DB04     		lsls	r3, r3, #19
-  66 002c 43EA0563 		orr	r3, r3, r5, lsl #24
-  67 0030 4D68     		ldr	r5, [r1, #4]
-  68 0032 2B43     		orrs	r3, r3, r5
-  69 0034 0D7A     		ldrb	r5, [r1, #8]	@ zero_extendqisi2
-  70 0036 43EA0543 		orr	r3, r3, r5, lsl #16
-  71 003a 497A     		ldrb	r1, [r1, #9]	@ zero_extendqisi2
-  72              	.LVL3:
-  73 003c 43EA4123 		orr	r3, r3, r1, lsl #9
-  74 0040 1343     		orrs	r3, r3, r2
-  75 0042 2360     		str	r3, [r4]
- 121:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
-  76              		.loc 1 121 0 discriminator 2
-  77 0044 0023     		movs	r3, #0
-  78 0046 80F82430 		strb	r3, [r0, #36]
- 123:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
-  79              		.loc 1 123 0 discriminator 2
-  80 004a 1846     		mov	r0, r3
-  81              	.LVL4:
  129:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
  130:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** }
-  82              		.loc 1 130 0 discriminator 2
-  83 004c 30BC     		pop	{r4, r5}
-  84              	.LCFI1:
-  85              		.cfi_restore 5
-  86              		.cfi_restore 4
-  87              		.cfi_def_cfa_offset 0
-  88 004e 7047     		bx	lr
-  89              	.LVL5:
-  90              	.L4:
+  72              		.loc 1 130 0
+  73 0040 30BD     		pop	{r4, r5, pc}
+  74              	.LVL3:
+  75              	.L3:
+ 128:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
+  76              		.loc 1 128 0
+  77 0042 0120     		movs	r0, #1
+  78              	.LVL4:
+  79 0044 FCE7     		b	.L2
+  80              	.LVL5:
+  81              	.L4:
  111:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
-  91              		.loc 1 111 0
-  92 0050 0220     		movs	r0, #2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 5
+  82              		.loc 1 111 0
+  83 0046 0220     		movs	r0, #2
+  84              	.LVL6:
+  85 0048 FAE7     		b	.L2
+  86              		.cfi_endproc
+  87              	.LFE329:
+  89              		.section	.text.HAL_DMAEx_ConfigMuxRequestGenerator,"ax",%progbits
+  90              		.align	1
+  91              		.global	HAL_DMAEx_ConfigMuxRequestGenerator
+  92              		.syntax unified
+  93              		.thumb
+  94              		.thumb_func
+  95              		.fpu fpv4-sp-d16
+  97              	HAL_DMAEx_ConfigMuxRequestGenerator:
+  98              	.LFB330:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 5
 
 
-  93              	.LVL6:
-  94              		.loc 1 130 0
-  95 0052 7047     		bx	lr
-  96              		.cfi_endproc
-  97              	.LFE329:
-  99              		.section	.text.HAL_DMAEx_ConfigMuxRequestGenerator,"ax",%progbits
- 100              		.align	1
- 101              		.global	HAL_DMAEx_ConfigMuxRequestGenerator
- 102              		.syntax unified
- 103              		.thumb
- 104              		.thumb_func
- 105              		.fpu fpv4-sp-d16
- 107              	HAL_DMAEx_ConfigMuxRequestGenerator:
- 108              	.LFB330:
  131:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  132:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** /**
  133:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   * @brief  Configure the DMAMUX request generator block used by the given DMA channel (instance).
@@ -268,12 +254,11 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  141:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** HAL_StatusTypeDef HAL_DMAEx_ConfigMuxRequestGenerator(DMA_HandleTypeDef *hdma,
  142:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                                                       HAL_DMA_MuxRequestGeneratorConfigTypeDef *pRe
  143:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** {
- 109              		.loc 1 143 0
- 110              		.cfi_startproc
- 111              		@ args = 0, pretend = 0, frame = 0
- 112              		@ frame_needed = 0, uses_anonymous_args = 0
- 113              		@ link register save eliminated.
- 114              	.LVL7:
+  99              		.loc 1 143 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              	.LVL7:
  144:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* Check the parameters */
  145:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   assert_param(IS_DMA_ALL_INSTANCE(hdma->Instance));
  146:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
@@ -286,70 +271,48 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  153:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****      and DMA is using a DMAMUX request generator block
  154:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   */
  155:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   if ((hdma->State == HAL_DMA_STATE_READY) && (hdma->DMAmuxRequestGen != 0U))
+ 104              		.loc 1 155 0
+ 105 0000 90F82530 		ldrb	r3, [r0, #37]	@ zero_extendqisi2
+ 106 0004 DBB2     		uxtb	r3, r3
+ 107 0006 012B     		cmp	r3, #1
+ 143:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* Check the parameters */
+ 108              		.loc 1 143 0
+ 109 0008 30B5     		push	{r4, r5, lr}
+ 110              	.LCFI1:
+ 111              		.cfi_def_cfa_offset 12
+ 112              		.cfi_offset 4, -12
+ 113              		.cfi_offset 5, -8
+ 114              		.cfi_offset 14, -4
  115              		.loc 1 155 0
- 116 0000 90F82530 		ldrb	r3, [r0, #37]	@ zero_extendqisi2
- 117 0004 DBB2     		uxtb	r3, r3
- 118 0006 012B     		cmp	r3, #1
- 119 0008 01D0     		beq	.L21
+ 116 000a 1AD1     		bne	.L8
+ 117              		.loc 1 155 0 is_stmt 0 discriminator 1
+ 118 000c 456D     		ldr	r5, [r0, #84]
+ 119 000e C5B1     		cbz	r5, .L8
  156:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
  157:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Process Locked */
  158:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     __HAL_LOCK(hdma);
+ 120              		.loc 1 158 0 is_stmt 1
+ 121 0010 90F82430 		ldrb	r3, [r0, #36]	@ zero_extendqisi2
+ 122 0014 012B     		cmp	r3, #1
+ 123 0016 16D0     		beq	.L10
  159:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  160:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Set the request generator new parameters */
  161:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     hdma->DMAmuxRequestGen->RGCR = pRequestGeneratorConfig->SignalID | \
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 6
+
+
  162:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                                    ((pRequestGeneratorConfig->RequestNumber - 1U) << (POSITION_VAL(
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 6
-
-
- 163:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                                    pRequestGeneratorConfig->Polarity;
- 164:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Process UnLocked */
- 165:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     __HAL_UNLOCK(hdma);
- 166:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
- 167:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     return HAL_OK;
- 168:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
- 169:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   else
- 170:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
- 171:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     return HAL_ERROR;
- 120              		.loc 1 171 0
- 121 000a 0120     		movs	r0, #1
- 122              	.LVL8:
- 172:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
- 173:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** }
- 123              		.loc 1 173 0
- 124 000c 7047     		bx	lr
- 125              	.LVL9:
- 126              	.L21:
- 143:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* Check the parameters */
- 127              		.loc 1 143 0 discriminator 1
- 128 000e 30B4     		push	{r4, r5}
- 129              	.LCFI2:
- 130              		.cfi_def_cfa_offset 8
- 131              		.cfi_offset 4, -8
- 132              		.cfi_offset 5, -4
- 155:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
- 133              		.loc 1 155 0 discriminator 1
- 134 0010 456D     		ldr	r5, [r0, #84]
- 135 0012 05B3     		cbz	r5, .L14
- 158:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
- 136              		.loc 1 158 0
- 137 0014 90F82430 		ldrb	r3, [r0, #36]	@ zero_extendqisi2
- 138 0018 012B     		cmp	r3, #1
- 139 001a 1ED0     		beq	.L15
- 158:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
- 140              		.loc 1 158 0 is_stmt 0 discriminator 2
- 141 001c 0123     		movs	r3, #1
- 142 001e 80F82430 		strb	r3, [r0, #36]
+ 124              		.loc 1 162 0 discriminator 2
+ 125 0018 8B68     		ldr	r3, [r1, #8]
  161:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                                    ((pRequestGeneratorConfig->RequestNumber - 1U) << (POSITION_VAL(
- 143              		.loc 1 161 0 is_stmt 1 discriminator 2
- 144 0022 0A68     		ldr	r2, [r1]
- 162:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                                    pRequestGeneratorConfig->Polarity;
- 145              		.loc 1 162 0 discriminator 2
- 146 0024 8B68     		ldr	r3, [r1, #8]
- 147 0026 5C1E     		subs	r4, r3, #1
- 148              	.LVL10:
- 149              	.LBB6:
- 150              	.LBB7:
- 151              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+ 126              		.loc 1 161 0 discriminator 2
+ 127 001a 0C68     		ldr	r4, [r1]
+ 128              		.loc 1 162 0 discriminator 2
+ 129 001c 013B     		subs	r3, r3, #1
+ 130              	.LVL8:
+ 131              	.LBB6:
+ 132              	.LBB7:
+ 133              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -358,9 +321,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
    6:Drivers/CMSIS/Include/cmsis_gcc.h ****  ******************************************************************************/
    7:Drivers/CMSIS/Include/cmsis_gcc.h **** /*
    8:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Copyright (c) 2009-2019 Arm Limited. All rights reserved.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 7
-
-
    9:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
   11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
@@ -398,6 +358,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
   43:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __INLINE
   44:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __INLINE                               inline
   45:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 7
+
+
   46:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
   47:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
   48:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -418,9 +381,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
   63:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   64:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
   65:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 8
-
-
   66:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
   68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
@@ -458,6 +418,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  100:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
  101:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  102:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 8
+
+
  103:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
  104:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
  105:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
@@ -478,9 +441,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  120:Drivers/CMSIS/Include/cmsis_gcc.h **** /* #########################  Startup and Lowlevel Init  ######################## */
  121:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  122:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __PROGRAM_START
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 9
-
-
  123:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Initializes data and bss sections
@@ -518,6 +478,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  157:Drivers/CMSIS/Include/cmsis_gcc.h ****   for (__zero_table_t const* pTable = &__zero_table_start__; pTable < &__zero_table_end__; ++pTable
  158:Drivers/CMSIS/Include/cmsis_gcc.h ****     for(uint32_t i=0u; i<pTable->wlen; ++i) {
  159:Drivers/CMSIS/Include/cmsis_gcc.h ****       pTable->dest[i] = 0u;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 9
+
+
  160:Drivers/CMSIS/Include/cmsis_gcc.h ****     }
  161:Drivers/CMSIS/Include/cmsis_gcc.h ****   }
  162:Drivers/CMSIS/Include/cmsis_gcc.h ****  
@@ -538,9 +501,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  177:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __VECTOR_TABLE
  178:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __VECTOR_TABLE            __Vectors
  179:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 10
-
-
  180:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  181:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __VECTOR_TABLE_ATTRIBUTE
  182:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __VECTOR_TABLE_ATTRIBUTE  __attribute((used, section(".vectors")))
@@ -578,6 +538,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  214:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Control Register
  215:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the content of the Control Register.
  216:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Control Register value
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 10
+
+
  217:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  218:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_CONTROL(void)
  219:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -598,9 +561,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  234:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  235:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  236:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 11
-
-
  237:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, control_ns" : "=r" (result) );
  238:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  239:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -638,6 +598,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  271:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  272:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_IPSR(void)
  273:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 11
+
+
  274:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  275:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  276:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, ipsr" : "=r" (result) );
@@ -658,9 +621,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  291:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  292:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  293:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 12
-
-
  294:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  295:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  296:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get xPSR Register
@@ -698,6 +658,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  328:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  329:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PSP_NS(void)
  330:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 12
+
+
  331:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  332:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  333:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, psp_ns"  : "=r" (result) );
@@ -718,9 +681,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  348:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  349:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  350:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 13
-
-
  351:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  352:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Process Stack Pointer (non-secure)
  353:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Process Stack Pointer (PSP) when in secure sta
@@ -758,6 +718,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  385:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  386:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  387:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp_ns" : "=r" (result) );
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 13
+
+
  388:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  389:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  390:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -778,9 +741,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  405:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  406:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Main Stack Pointer (non-secure)
  407:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Main Stack Pointer (MSP) when in secure state.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 14
-
-
  408:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    topOfMainStack  Main Stack Pointer value to set
  409:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  410:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_MSP_NS(uint32_t topOfMainStack)
@@ -818,6 +778,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  442:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  443:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  444:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 14
+
+
  445:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Priority Mask
  446:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current state of the priority mask bit from the Priority Mask Register.
  447:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Priority Mask value
@@ -838,9 +801,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  462:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Priority Mask value
  463:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  464:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PRIMASK_NS(void)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 15
-
-
  465:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  466:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  467:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -878,6 +838,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  499:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
  500:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    )
  501:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 15
+
+
  502:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable FIQ
  503:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables FIQ interrupts by clearing the F-bit in the CPSR.
  504:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
@@ -898,9 +861,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  519:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid f" : : : "memory");
  520:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  521:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 16
-
-
  522:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  523:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  524:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Base Priority
@@ -938,6 +898,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  556:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    basePri  Base Priority value to set
  557:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  558:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_BASEPRI(uint32_t basePri)
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 16
+
+
  559:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  560:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR basepri, %0" : : "r" (basePri) : "memory");
  561:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -958,9 +921,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  576:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  577:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  578:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Base Priority with condition
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 17
-
-
  579:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Base Priority register only if BASEPRI masking is disable
  580:Drivers/CMSIS/Include/cmsis_gcc.h ****            or the new value increases the BASEPRI priority level.
  581:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    basePri  Base Priority value to set
@@ -998,6 +958,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  613:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, faultmask_ns" : "=r" (result) );
  614:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  615:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 17
+
+
  616:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  617:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  618:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1018,9 +981,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  633:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Fault Mask register when in secure state.
  634:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    faultMask  Fault Mask value to set
  635:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 18
-
-
  636:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_FAULTMASK_NS(uint32_t faultMask)
  637:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  638:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR faultmask_ns, %0" : : "r" (faultMask) : "memory");
@@ -1058,6 +1018,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  670:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  671:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  672:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 18
+
+
  673:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  674:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Process Stack Pointer Limit (non-secure)
  675:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
@@ -1078,9 +1041,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  690:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  691:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  692:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 19
-
-
  693:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  694:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  695:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -1118,6 +1078,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  727:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
  728:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure PSPLIM is RAZ/WI
  729:Drivers/CMSIS/Include/cmsis_gcc.h ****   (void)ProcStackPtrLimit;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 19
+
+
  730:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
  731:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR psplim_ns, %0\n" : : "r" (ProcStackPtrLimit));
  732:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -1138,9 +1101,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  747:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  748:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
  749:Drivers/CMSIS/Include/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 20
-
-
  750:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
  751:Drivers/CMSIS/Include/cmsis_gcc.h ****   return 0U;
  752:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
@@ -1178,6 +1138,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  784:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Main Stack Pointer Limit
  785:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
  786:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored in non-secure
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 20
+
+
  787:Drivers/CMSIS/Include/cmsis_gcc.h ****   mode.
  788:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  789:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Main Stack Pointer Limit (MSPLIM).
@@ -1198,9 +1161,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  804:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
  805:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  806:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Main Stack Pointer Limit (non-secure)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 21
-
-
  807:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
  808:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored.
  809:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1238,6 +1198,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  841:Drivers/CMSIS/Include/cmsis_gcc.h ****   return __builtin_arm_get_fpscr();
  842:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
  843:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 21
+
+
  844:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  845:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("VMRS %0, fpscr" : "=r" (result) );
  846:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
@@ -1258,9 +1221,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  861:Drivers/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
  862:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__FPU_USED   ) && (__FPU_USED    == 1U))     )
  863:Drivers/CMSIS/Include/cmsis_gcc.h **** #if __has_builtin(__builtin_arm_set_fpscr)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 22
-
-
  864:Drivers/CMSIS/Include/cmsis_gcc.h **** // Re-enable using built-in when GCC has been fixed
  865:Drivers/CMSIS/Include/cmsis_gcc.h **** // || (__GNUC__ > 7) || (__GNUC__ == 7 && __GNUC_MINOR__ >= 2)
  866:Drivers/CMSIS/Include/cmsis_gcc.h ****   /* see https://gcc.gnu.org/ml/gcc-patches/2017-04/msg00443.html */
@@ -1298,6 +1258,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  898:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  899:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  900:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   No Operation
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 22
+
+
  901:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details No Operation does nothing. This instruction can be used for code alignment purposes.
  902:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  903:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __NOP()                             __ASM volatile ("nop")
@@ -1318,9 +1281,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  918:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  919:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  920:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 23
-
-
  921:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Send Event
  922:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Send Event is a hint instruction. It causes an event to be signaled to the CPU.
  923:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -1358,6 +1318,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  955:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DMB(void)
  956:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  957:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("dmb 0xF":::"memory");
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 23
+
+
  958:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  959:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  960:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1378,9 +1341,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  975:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
  976:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  977:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 24
-
-
  978:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  979:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  980:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -1418,6 +1378,9 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
 1012:Drivers/CMSIS/Include/cmsis_gcc.h **** 
 1013:Drivers/CMSIS/Include/cmsis_gcc.h **** 
 1014:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 24
+
+
 1015:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Rotate Right in unsigned value (32 bit)
 1016:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Rotate Right (immediate) provides the value of the contents of a register rotated by a v
 1017:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    op1  Value to rotate
@@ -1438,9 +1401,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
 1032:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
 1033:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Breakpoint
 1034:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Causes the processor to enter Debug state.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 25
-
-
 1035:Drivers/CMSIS/Include/cmsis_gcc.h ****            Debug tools can use this to investigate system state when the instruction at a particula
 1036:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    value  is ignored by the processor.
 1037:Drivers/CMSIS/Include/cmsis_gcc.h ****                  If required, a debugger can use it to store additional information about the break
@@ -1462,22 +1422,25 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
 1053:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
 1054:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    )
 1055:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("rbit %0, %1" : "=r" (result) : "r" (value) );
- 152              		.loc 2 1055 0 discriminator 2
- 153 0028 4FF47803 		mov	r3, #16252928
- 154              		.syntax unified
- 155              	@ 1055 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 156 002c 93FAA3F3 		rbit r3, r3
- 157              	@ 0 "" 2
- 158              	.LVL11:
- 159              		.thumb
- 160              		.syntax unified
- 161              	.LBE7:
- 162              	.LBE6:
- 163              	.LBB8:
- 164              	.LBB9:
+ 134              		.loc 2 1055 0 discriminator 2
+ 135 001e 4FF47802 		mov	r2, #16252928
+ 136              		.syntax unified
+ 137              	@ 1055 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 138 0022 92FAA2F2 		rbit r2, r2
+ 139              	@ 0 "" 2
+ 140              	.LVL9:
+ 141              		.thumb
+ 142              		.syntax unified
+ 143              	.LBE7:
+ 144              	.LBE6:
+ 145              	.LBB8:
+ 146              	.LBB9:
 1056:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
 1057:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t s = (4U /*sizeof(v)*/ * 8U) - 1U; /* extra shift needed at end */
 1058:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 25
+
+
 1059:Drivers/CMSIS/Include/cmsis_gcc.h ****   result = value;                      /* r will be reversed bits of v; first get LSB of v */
 1060:Drivers/CMSIS/Include/cmsis_gcc.h ****   for (value >>= 1U; value != 0U; value >>= 1U)
 1061:Drivers/CMSIS/Include/cmsis_gcc.h ****   {
@@ -1498,9 +1461,6 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
 1076:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return             number of leading zeros in value
 1077:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
 1078:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint8_t __CLZ(uint32_t value)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 26
-
-
 1079:Drivers/CMSIS/Include/cmsis_gcc.h **** {
 1080:Drivers/CMSIS/Include/cmsis_gcc.h ****   /* Even though __builtin_clz produces a CLZ instruction on ARM, formally
 1081:Drivers/CMSIS/Include/cmsis_gcc.h ****      __builtin_clz(0) is undefined behaviour, so handle this case specially.
@@ -1512,89 +1472,71 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
 1087:Drivers/CMSIS/Include/cmsis_gcc.h ****      single CLZ instruction.
 1088:Drivers/CMSIS/Include/cmsis_gcc.h ****    */
 1089:Drivers/CMSIS/Include/cmsis_gcc.h ****   if (value == 0U)
- 165              		.loc 2 1089 0 discriminator 2
- 166 0030 7BB1     		cbz	r3, .L16
 1090:Drivers/CMSIS/Include/cmsis_gcc.h ****   {
 1091:Drivers/CMSIS/Include/cmsis_gcc.h ****     return 32U;
 1092:Drivers/CMSIS/Include/cmsis_gcc.h ****   }
 1093:Drivers/CMSIS/Include/cmsis_gcc.h ****   return __builtin_clz(value);
- 167              		.loc 2 1093 0
- 168 0032 B3FA83F3 		clz	r3, r3
- 169              	.L12:
- 170              	.LBE9:
- 171              	.LBE8:
- 162:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                                    pRequestGeneratorConfig->Polarity;
- 172              		.loc 1 162 0
- 173 0036 03F01F03 		and	r3, r3, #31
- 174 003a 04FA03F3 		lsl	r3, r4, r3
+ 147              		.loc 2 1093 0 discriminator 2
+ 148 0026 B2FA82F2 		clz	r2, r2
+ 149              	.LBE9:
+ 150              	.LBE8:
+ 151              		.loc 1 162 0 discriminator 2
+ 152 002a 02F01F02 		and	r2, r2, #31
+ 153 002e 9340     		lsls	r3, r3, r2
+ 154 0030 4A68     		ldr	r2, [r1, #4]
+ 155 0032 2243     		orrs	r2, r2, r4
+ 156 0034 1343     		orrs	r3, r3, r2
  161:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                                    ((pRequestGeneratorConfig->RequestNumber - 1U) << (POSITION_VAL(
- 175              		.loc 1 161 0
- 176 003e 1343     		orrs	r3, r3, r2
- 163:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Process UnLocked */
- 177              		.loc 1 163 0
- 178 0040 4A68     		ldr	r2, [r1, #4]
- 162:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                                    pRequestGeneratorConfig->Polarity;
- 179              		.loc 1 162 0
- 180 0042 1343     		orrs	r3, r3, r2
- 161:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                                    ((pRequestGeneratorConfig->RequestNumber - 1U) << (POSITION_VAL(
- 181              		.loc 1 161 0
- 182 0044 2B60     		str	r3, [r5]
- 165:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
- 183              		.loc 1 165 0
- 184 0046 0023     		movs	r3, #0
- 185 0048 80F82430 		strb	r3, [r0, #36]
- 167:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
- 186              		.loc 1 167 0
- 187 004c 1846     		mov	r0, r3
- 188              	.LVL12:
- 189              	.L11:
- 190              		.loc 1 173 0
- 191 004e 30BC     		pop	{r4, r5}
- 192              	.LCFI3:
- 193              		.cfi_remember_state
- 194              		.cfi_restore 5
- 195              		.cfi_restore 4
- 196              		.cfi_def_cfa_offset 0
- 197 0050 7047     		bx	lr
- 198              	.LVL13:
- 199              	.L16:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 27
+ 157              		.loc 1 161 0 discriminator 2
+ 158 0036 2B60     		str	r3, [r5]
+ 163:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****                                    pRequestGeneratorConfig->Polarity;
+ 164:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Process UnLocked */
+ 165:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     __HAL_UNLOCK(hdma);
+ 159              		.loc 1 165 0 discriminator 2
+ 160 0038 0023     		movs	r3, #0
+ 161 003a 80F82430 		strb	r3, [r0, #36]
+ 166:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
+ 167:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     return HAL_OK;
+ 162              		.loc 1 167 0 discriminator 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 26
 
 
- 200              	.LCFI4:
- 201              		.cfi_restore_state
- 202              	.LBB11:
- 203              	.LBB10:
-1091:Drivers/CMSIS/Include/cmsis_gcc.h ****   }
- 204              		.loc 2 1091 0
- 205 0052 2023     		movs	r3, #32
- 206 0054 EFE7     		b	.L12
- 207              	.L14:
- 208              	.LBE10:
- 209              	.LBE11:
+ 163 003e 1846     		mov	r0, r3
+ 164              	.LVL10:
+ 165              	.L6:
+ 168:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
+ 169:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   else
+ 170:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
+ 171:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     return HAL_ERROR;
+ 172:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
+ 173:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** }
+ 166              		.loc 1 173 0
+ 167 0040 30BD     		pop	{r4, r5, pc}
+ 168              	.LVL11:
+ 169              	.L8:
  171:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
- 210              		.loc 1 171 0
- 211 0056 0120     		movs	r0, #1
- 212              	.LVL14:
- 213 0058 F9E7     		b	.L11
- 214              	.LVL15:
- 215              	.L15:
+ 170              		.loc 1 171 0
+ 171 0042 0120     		movs	r0, #1
+ 172              	.LVL12:
+ 173 0044 FCE7     		b	.L6
+ 174              	.LVL13:
+ 175              	.L10:
  158:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
- 216              		.loc 1 158 0
- 217 005a 0220     		movs	r0, #2
- 218              	.LVL16:
- 219 005c F7E7     		b	.L11
- 220              		.cfi_endproc
- 221              	.LFE330:
- 223              		.section	.text.HAL_DMAEx_EnableMuxRequestGenerator,"ax",%progbits
- 224              		.align	1
- 225              		.global	HAL_DMAEx_EnableMuxRequestGenerator
- 226              		.syntax unified
- 227              		.thumb
- 228              		.thumb_func
- 229              		.fpu fpv4-sp-d16
- 231              	HAL_DMAEx_EnableMuxRequestGenerator:
- 232              	.LFB331:
+ 176              		.loc 1 158 0
+ 177 0046 0220     		movs	r0, #2
+ 178              	.LVL14:
+ 179 0048 FAE7     		b	.L6
+ 180              		.cfi_endproc
+ 181              	.LFE330:
+ 183              		.section	.text.HAL_DMAEx_EnableMuxRequestGenerator,"ax",%progbits
+ 184              		.align	1
+ 185              		.global	HAL_DMAEx_EnableMuxRequestGenerator
+ 186              		.syntax unified
+ 187              		.thumb
+ 188              		.thumb_func
+ 189              		.fpu fpv4-sp-d16
+ 191              	HAL_DMAEx_EnableMuxRequestGenerator:
+ 192              	.LFB331:
  174:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  175:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** /**
  176:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   * @brief  Enable the DMAMUX request generator block used by the given DMA channel (instance).
@@ -1604,71 +1546,66 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  180:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   */
  181:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** HAL_StatusTypeDef HAL_DMAEx_EnableMuxRequestGenerator(DMA_HandleTypeDef *hdma)
  182:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** {
- 233              		.loc 1 182 0
- 234              		.cfi_startproc
- 235              		@ args = 0, pretend = 0, frame = 0
- 236              		@ frame_needed = 0, uses_anonymous_args = 0
- 237              		@ link register save eliminated.
- 238              	.LVL17:
+ 193              		.loc 1 182 0
+ 194              		.cfi_startproc
+ 195              		@ args = 0, pretend = 0, frame = 0
+ 196              		@ frame_needed = 0, uses_anonymous_args = 0
+ 197              		@ link register save eliminated.
+ 198              	.LVL15:
  183:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* Check the parameters */
  184:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   assert_param(IS_DMA_ALL_INSTANCE(hdma->Instance));
  185:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  186:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* check if the DMA state is ready
  187:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****      and DMA is using a DMAMUX request generator block
  188:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   */
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 27
+
+
  189:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   if ((hdma->State != HAL_DMA_STATE_RESET) && (hdma->DMAmuxRequestGen != 0))
- 239              		.loc 1 189 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 28
-
-
- 240 0000 90F82530 		ldrb	r3, [r0, #37]	@ zero_extendqisi2
- 241 0004 3BB1     		cbz	r3, .L24
- 242              		.loc 1 189 0 is_stmt 0 discriminator 1
- 243 0006 436D     		ldr	r3, [r0, #84]
- 244 0008 3BB1     		cbz	r3, .L25
+ 199              		.loc 1 189 0
+ 200 0000 90F82530 		ldrb	r3, [r0, #37]	@ zero_extendqisi2
+ 201 0004 3BB1     		cbz	r3, .L15
+ 202              		.loc 1 189 0 is_stmt 0 discriminator 1
+ 203 0006 436D     		ldr	r3, [r0, #84]
+ 204 0008 2BB1     		cbz	r3, .L15
  190:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
  191:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  192:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Enable the request generator*/
  193:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     hdma->DMAmuxRequestGen->RGCR |= DMAMUX_RGxCR_GE;
- 245              		.loc 1 193 0 is_stmt 1
- 246 000a 1A68     		ldr	r2, [r3]
- 247 000c 42F48032 		orr	r2, r2, #65536
- 248 0010 1A60     		str	r2, [r3]
+ 205              		.loc 1 193 0 is_stmt 1
+ 206 000a 1A68     		ldr	r2, [r3]
+ 207 000c 42F48032 		orr	r2, r2, #65536
+ 208 0010 1A60     		str	r2, [r3]
  194:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  195:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     return HAL_OK;
- 249              		.loc 1 195 0
- 250 0012 0020     		movs	r0, #0
- 251              	.LVL18:
- 252 0014 7047     		bx	lr
- 253              	.LVL19:
- 254              	.L24:
+ 209              		.loc 1 195 0
+ 210 0012 0020     		movs	r0, #0
+ 211              	.LVL16:
+ 212 0014 7047     		bx	lr
+ 213              	.LVL17:
+ 214              	.L15:
  196:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
  197:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   else
  198:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
  199:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     return HAL_ERROR;
- 255              		.loc 1 199 0
- 256 0016 0120     		movs	r0, #1
- 257              	.LVL20:
- 258 0018 7047     		bx	lr
- 259              	.LVL21:
- 260              	.L25:
- 261 001a 0120     		movs	r0, #1
- 262              	.LVL22:
+ 215              		.loc 1 199 0
+ 216 0016 0120     		movs	r0, #1
+ 217              	.LVL18:
  200:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
  201:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** }
- 263              		.loc 1 201 0
- 264 001c 7047     		bx	lr
- 265              		.cfi_endproc
- 266              	.LFE331:
- 268              		.section	.text.HAL_DMAEx_DisableMuxRequestGenerator,"ax",%progbits
- 269              		.align	1
- 270              		.global	HAL_DMAEx_DisableMuxRequestGenerator
- 271              		.syntax unified
- 272              		.thumb
- 273              		.thumb_func
- 274              		.fpu fpv4-sp-d16
- 276              	HAL_DMAEx_DisableMuxRequestGenerator:
- 277              	.LFB332:
+ 218              		.loc 1 201 0
+ 219 0018 7047     		bx	lr
+ 220              		.cfi_endproc
+ 221              	.LFE331:
+ 223              		.section	.text.HAL_DMAEx_DisableMuxRequestGenerator,"ax",%progbits
+ 224              		.align	1
+ 225              		.global	HAL_DMAEx_DisableMuxRequestGenerator
+ 226              		.syntax unified
+ 227              		.thumb
+ 228              		.thumb_func
+ 229              		.fpu fpv4-sp-d16
+ 231              	HAL_DMAEx_DisableMuxRequestGenerator:
+ 232              	.LFB332:
  202:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  203:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** /**
  204:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   * @brief  Disable the DMAMUX request generator block used by the given DMA channel (instance).
@@ -1678,15 +1615,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  208:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   */
  209:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** HAL_StatusTypeDef HAL_DMAEx_DisableMuxRequestGenerator(DMA_HandleTypeDef *hdma)
  210:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** {
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 29
+ 233              		.loc 1 210 0
+ 234              		.cfi_startproc
+ 235              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 28
 
 
- 278              		.loc 1 210 0
- 279              		.cfi_startproc
- 280              		@ args = 0, pretend = 0, frame = 0
- 281              		@ frame_needed = 0, uses_anonymous_args = 0
- 282              		@ link register save eliminated.
- 283              	.LVL23:
+ 236              		@ frame_needed = 0, uses_anonymous_args = 0
+ 237              		@ link register save eliminated.
+ 238              	.LVL19:
  211:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* Check the parameters */
  212:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   assert_param(IS_DMA_ALL_INSTANCE(hdma->Instance));
  213:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
@@ -1694,212 +1631,224 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 1
  215:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****      and DMA is using a DMAMUX request generator block
  216:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   */
  217:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   if ((hdma->State != HAL_DMA_STATE_RESET) && (hdma->DMAmuxRequestGen != 0))
- 284              		.loc 1 217 0
- 285 0000 90F82530 		ldrb	r3, [r0, #37]	@ zero_extendqisi2
- 286 0004 3BB1     		cbz	r3, .L28
- 287              		.loc 1 217 0 is_stmt 0 discriminator 1
- 288 0006 436D     		ldr	r3, [r0, #84]
- 289 0008 3BB1     		cbz	r3, .L29
+ 239              		.loc 1 217 0
+ 240 0000 90F82530 		ldrb	r3, [r0, #37]	@ zero_extendqisi2
+ 241 0004 3BB1     		cbz	r3, .L19
+ 242              		.loc 1 217 0 is_stmt 0 discriminator 1
+ 243 0006 436D     		ldr	r3, [r0, #84]
+ 244 0008 2BB1     		cbz	r3, .L19
  218:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
  219:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  220:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Disable the request generator*/
  221:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     hdma->DMAmuxRequestGen->RGCR &= ~DMAMUX_RGxCR_GE;
- 290              		.loc 1 221 0 is_stmt 1
- 291 000a 1A68     		ldr	r2, [r3]
- 292 000c 22F48032 		bic	r2, r2, #65536
- 293 0010 1A60     		str	r2, [r3]
+ 245              		.loc 1 221 0 is_stmt 1
+ 246 000a 1A68     		ldr	r2, [r3]
+ 247 000c 22F48032 		bic	r2, r2, #65536
+ 248 0010 1A60     		str	r2, [r3]
  222:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  223:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     return HAL_OK;
- 294              		.loc 1 223 0
- 295 0012 0020     		movs	r0, #0
- 296              	.LVL24:
- 297 0014 7047     		bx	lr
- 298              	.LVL25:
- 299              	.L28:
+ 249              		.loc 1 223 0
+ 250 0012 0020     		movs	r0, #0
+ 251              	.LVL20:
+ 252 0014 7047     		bx	lr
+ 253              	.LVL21:
+ 254              	.L19:
  224:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
  225:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   else
  226:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
  227:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     return HAL_ERROR;
- 300              		.loc 1 227 0
- 301 0016 0120     		movs	r0, #1
- 302              	.LVL26:
- 303 0018 7047     		bx	lr
- 304              	.LVL27:
- 305              	.L29:
- 306 001a 0120     		movs	r0, #1
- 307              	.LVL28:
+ 255              		.loc 1 227 0
+ 256 0016 0120     		movs	r0, #1
+ 257              	.LVL22:
  228:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
  229:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** }
- 308              		.loc 1 229 0
- 309 001c 7047     		bx	lr
- 310              		.cfi_endproc
- 311              	.LFE332:
- 313              		.section	.text.HAL_DMAEx_MUX_IRQHandler,"ax",%progbits
- 314              		.align	1
- 315              		.global	HAL_DMAEx_MUX_IRQHandler
- 316              		.syntax unified
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 30
-
-
- 317              		.thumb
- 318              		.thumb_func
- 319              		.fpu fpv4-sp-d16
- 321              	HAL_DMAEx_MUX_IRQHandler:
- 322              	.LFB333:
+ 258              		.loc 1 229 0
+ 259 0018 7047     		bx	lr
+ 260              		.cfi_endproc
+ 261              	.LFE332:
+ 263              		.section	.text.HAL_DMAEx_MUX_IRQHandler,"ax",%progbits
+ 264              		.align	1
+ 265              		.global	HAL_DMAEx_MUX_IRQHandler
+ 266              		.syntax unified
+ 267              		.thumb
+ 268              		.thumb_func
+ 269              		.fpu fpv4-sp-d16
+ 271              	HAL_DMAEx_MUX_IRQHandler:
+ 272              	.LFB333:
  230:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  231:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** /**
  232:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   * @brief  Handles DMAMUX interrupt request.
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 29
+
+
  233:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   * @param  hdma: pointer to a DMA_HandleTypeDef structure that contains
  234:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   *               the configuration information for the specified DMA channel.
  235:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   * @retval None
  236:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   */
  237:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** void HAL_DMAEx_MUX_IRQHandler(DMA_HandleTypeDef *hdma)
  238:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** {
- 323              		.loc 1 238 0
- 324              		.cfi_startproc
- 325              		@ args = 0, pretend = 0, frame = 0
- 326              		@ frame_needed = 0, uses_anonymous_args = 0
- 327              	.LVL29:
- 328 0000 10B5     		push	{r4, lr}
- 329              	.LCFI5:
- 330              		.cfi_def_cfa_offset 8
- 331              		.cfi_offset 4, -8
- 332              		.cfi_offset 14, -4
- 333 0002 0446     		mov	r4, r0
+ 273              		.loc 1 238 0
+ 274              		.cfi_startproc
+ 275              		@ args = 0, pretend = 0, frame = 0
+ 276              		@ frame_needed = 0, uses_anonymous_args = 0
+ 277              	.LVL23:
  239:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* Check for DMAMUX Synchronization overrun */
  240:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   if ((hdma->DMAmuxChannelStatus->CSR & hdma->DMAmuxChannelStatusMask) != 0U)
- 334              		.loc 1 240 0
- 335 0004 C36C     		ldr	r3, [r0, #76]
- 336 0006 1A68     		ldr	r2, [r3]
- 337 0008 036D     		ldr	r3, [r0, #80]
- 338 000a 1A42     		tst	r2, r3
- 339 000c 0ED0     		beq	.L31
+ 278              		.loc 1 240 0
+ 279 0000 C26C     		ldr	r2, [r0, #76]
+ 280 0002 016D     		ldr	r1, [r0, #80]
+ 281 0004 1368     		ldr	r3, [r2]
+ 282 0006 0B42     		tst	r3, r1
+ 238:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* Check for DMAMUX Synchronization overrun */
+ 283              		.loc 1 238 0
+ 284 0008 70B5     		push	{r4, r5, r6, lr}
+ 285              	.LCFI2:
+ 286              		.cfi_def_cfa_offset 16
+ 287              		.cfi_offset 4, -16
+ 288              		.cfi_offset 5, -12
+ 289              		.cfi_offset 6, -8
+ 290              		.cfi_offset 14, -4
+ 238:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   /* Check for DMAMUX Synchronization overrun */
+ 291              		.loc 1 238 0
+ 292 000a 0446     		mov	r4, r0
+ 293              		.loc 1 240 0
+ 294 000c 0CD0     		beq	.L22
  241:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
  242:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Disable the synchro overrun interrupt */
  243:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     hdma->DMAmuxChannel->CCR &= ~DMAMUX_CxCR_SOIE;
- 340              		.loc 1 243 0
- 341 000e 826C     		ldr	r2, [r0, #72]
- 342 0010 1368     		ldr	r3, [r2]
- 343 0012 23F48073 		bic	r3, r3, #256
- 344 0016 1360     		str	r3, [r2]
+ 295              		.loc 1 243 0
+ 296 000e 856C     		ldr	r5, [r0, #72]
+ 297 0010 2B68     		ldr	r3, [r5]
+ 298 0012 23F48073 		bic	r3, r3, #256
+ 299 0016 2B60     		str	r3, [r5]
  244:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  245:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Clear the DMAMUX synchro overrun flag */
  246:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
- 345              		.loc 1 246 0
- 346 0018 C36C     		ldr	r3, [r0, #76]
- 347 001a 026D     		ldr	r2, [r0, #80]
- 348 001c 5A60     		str	r2, [r3, #4]
+ 300              		.loc 1 246 0
+ 301 0018 5160     		str	r1, [r2, #4]
  247:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  248:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* Update error code */
  249:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     hdma->ErrorCode |= HAL_DMA_ERROR_SYNC;
- 349              		.loc 1 249 0
- 350 001e C36B     		ldr	r3, [r0, #60]
- 351 0020 43F40073 		orr	r3, r3, #512
- 352 0024 C363     		str	r3, [r0, #60]
+ 302              		.loc 1 249 0
+ 303 001a C36B     		ldr	r3, [r0, #60]
+ 304 001c 43F40073 		orr	r3, r3, #512
+ 305 0020 C363     		str	r3, [r0, #60]
  250:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  251:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     if (hdma->XferErrorCallback != NULL)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 31
+ 306              		.loc 1 251 0
+ 307 0022 436B     		ldr	r3, [r0, #52]
+ 308 0024 03B1     		cbz	r3, .L22
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 30
 
 
- 353              		.loc 1 251 0
- 354 0026 436B     		ldr	r3, [r0, #52]
- 355 0028 03B1     		cbz	r3, .L31
  252:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     {
  253:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       /* Transfer error callback */
  254:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       hdma->XferErrorCallback(hdma);
- 356              		.loc 1 254 0
- 357 002a 9847     		blx	r3
- 358              	.LVL30:
- 359              	.L31:
+ 309              		.loc 1 254 0
+ 310 0026 9847     		blx	r3
+ 311              	.LVL24:
+ 312              	.L22:
  255:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     }
  256:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
  257:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  258:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   if (hdma->DMAmuxRequestGen != 0)
- 360              		.loc 1 258 0
- 361 002c 636D     		ldr	r3, [r4, #84]
- 362 002e 9BB1     		cbz	r3, .L30
+ 313              		.loc 1 258 0
+ 314 0028 636D     		ldr	r3, [r4, #84]
+ 315 002a 9BB1     		cbz	r3, .L20
  259:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   {
  260:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     /* if using a DMAMUX request generator block Check for DMAMUX request generator overrun */
  261:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     if ((hdma->DMAmuxRequestGenStatus->RGSR & hdma->DMAmuxRequestGenStatusMask) != 0U)
- 363              		.loc 1 261 0
- 364 0030 A26D     		ldr	r2, [r4, #88]
- 365 0032 1168     		ldr	r1, [r2]
- 366 0034 E26D     		ldr	r2, [r4, #92]
- 367 0036 1142     		tst	r1, r2
- 368 0038 0ED0     		beq	.L30
+ 316              		.loc 1 261 0
+ 317 002c A16D     		ldr	r1, [r4, #88]
+ 318 002e E06D     		ldr	r0, [r4, #92]
+ 319 0030 0A68     		ldr	r2, [r1]
+ 320 0032 0242     		tst	r2, r0
+ 321 0034 0ED0     		beq	.L20
  262:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     {
  263:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       /* Disable the request gen overrun interrupt */
  264:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       hdma->DMAmuxRequestGen->RGCR &= ~DMAMUX_RGxCR_OIE;
- 369              		.loc 1 264 0
- 370 003a 1A68     		ldr	r2, [r3]
- 371 003c 22F48072 		bic	r2, r2, #256
- 372 0040 1A60     		str	r2, [r3]
+ 322              		.loc 1 264 0
+ 323 0036 1A68     		ldr	r2, [r3]
+ 324 0038 22F48072 		bic	r2, r2, #256
+ 325 003c 1A60     		str	r2, [r3]
  265:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  266:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       /* Clear the DMAMUX request generator overrun flag */
  267:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       hdma->DMAmuxRequestGenStatus->RGCFR = hdma->DMAmuxRequestGenStatusMask;
- 373              		.loc 1 267 0
- 374 0042 A36D     		ldr	r3, [r4, #88]
- 375 0044 E26D     		ldr	r2, [r4, #92]
- 376 0046 5A60     		str	r2, [r3, #4]
+ 326              		.loc 1 267 0
+ 327 003e 4860     		str	r0, [r1, #4]
  268:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  269:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       /* Update error code */
  270:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       hdma->ErrorCode |= HAL_DMA_ERROR_REQGEN;
- 377              		.loc 1 270 0
- 378 0048 E36B     		ldr	r3, [r4, #60]
- 379 004a 43F48063 		orr	r3, r3, #1024
- 380 004e E363     		str	r3, [r4, #60]
+ 328              		.loc 1 270 0
+ 329 0040 E36B     		ldr	r3, [r4, #60]
+ 330 0042 43F48063 		orr	r3, r3, #1024
+ 331 0046 E363     		str	r3, [r4, #60]
  271:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** 
  272:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       if (hdma->XferErrorCallback != NULL)
- 381              		.loc 1 272 0
- 382 0050 636B     		ldr	r3, [r4, #52]
- 383 0052 0BB1     		cbz	r3, .L30
+ 332              		.loc 1 272 0
+ 333 0048 636B     		ldr	r3, [r4, #52]
+ 334 004a 1BB1     		cbz	r3, .L20
  273:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       {
  274:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****         /* Transfer error callback */
  275:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****         hdma->XferErrorCallback(hdma);
- 384              		.loc 1 275 0
- 385 0054 2046     		mov	r0, r4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 32
-
-
- 386 0056 9847     		blx	r3
- 387              	.LVL31:
- 388              	.L30:
+ 335              		.loc 1 275 0
+ 336 004c 2046     		mov	r0, r4
  276:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       }
  277:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****     }
  278:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****   }
  279:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c **** }
- 389              		.loc 1 279 0
- 390 0058 10BD     		pop	{r4, pc}
- 391              		.cfi_endproc
- 392              	.LFE333:
- 394              		.text
- 395              	.Letext0:
- 396              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 397              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 398              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
- 399              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
- 400              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
- 401              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
- 402              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
- 403              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
- 404              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h"
- 405              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
- 406              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 407              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s 			page 33
+ 337              		.loc 1 279 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 31
+
+
+ 338 004e BDE87040 		pop	{r4, r5, r6, lr}
+ 339              	.LCFI3:
+ 340              		.cfi_remember_state
+ 341              		.cfi_restore 14
+ 342              		.cfi_restore 6
+ 343              		.cfi_restore 5
+ 344              		.cfi_restore 4
+ 345              		.cfi_def_cfa_offset 0
+ 346              	.LVL25:
+ 275:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma_ex.c ****       }
+ 347              		.loc 1 275 0
+ 348 0052 1847     		bx	r3	@ indirect register sibling call
+ 349              	.LVL26:
+ 350              	.L20:
+ 351              	.LCFI4:
+ 352              		.cfi_restore_state
+ 353              		.loc 1 279 0
+ 354 0054 70BD     		pop	{r4, r5, r6, pc}
+ 355              		.cfi_endproc
+ 356              	.LFE333:
+ 358              		.text
+ 359              	.Letext0:
+ 360              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 361              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 362              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 363              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 364              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 365              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 366              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 367              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 368              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma_ex.h"
+ 369              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 370              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 371              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s 			page 32
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g4xx_hal_dma_ex.c
-C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s:18     .text.HAL_DMAEx_ConfigMuxSync:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s:25     .text.HAL_DMAEx_ConfigMuxSync:00000000 HAL_DMAEx_ConfigMuxSync
-C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s:100    .text.HAL_DMAEx_ConfigMuxRequestGenerator:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s:107    .text.HAL_DMAEx_ConfigMuxRequestGenerator:00000000 HAL_DMAEx_ConfigMuxRequestGenerator
-C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s:224    .text.HAL_DMAEx_EnableMuxRequestGenerator:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s:231    .text.HAL_DMAEx_EnableMuxRequestGenerator:00000000 HAL_DMAEx_EnableMuxRequestGenerator
-C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s:269    .text.HAL_DMAEx_DisableMuxRequestGenerator:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s:276    .text.HAL_DMAEx_DisableMuxRequestGenerator:00000000 HAL_DMAEx_DisableMuxRequestGenerator
-C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s:314    .text.HAL_DMAEx_MUX_IRQHandler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccC9HJAi.s:321    .text.HAL_DMAEx_MUX_IRQHandler:00000000 HAL_DMAEx_MUX_IRQHandler
+C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s:18     .text.HAL_DMAEx_ConfigMuxSync:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s:25     .text.HAL_DMAEx_ConfigMuxSync:00000000 HAL_DMAEx_ConfigMuxSync
+C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s:90     .text.HAL_DMAEx_ConfigMuxRequestGenerator:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s:97     .text.HAL_DMAEx_ConfigMuxRequestGenerator:00000000 HAL_DMAEx_ConfigMuxRequestGenerator
+C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s:184    .text.HAL_DMAEx_EnableMuxRequestGenerator:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s:191    .text.HAL_DMAEx_EnableMuxRequestGenerator:00000000 HAL_DMAEx_EnableMuxRequestGenerator
+C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s:224    .text.HAL_DMAEx_DisableMuxRequestGenerator:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s:231    .text.HAL_DMAEx_DisableMuxRequestGenerator:00000000 HAL_DMAEx_DisableMuxRequestGenerator
+C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s:264    .text.HAL_DMAEx_MUX_IRQHandler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccnkyKA4.s:271    .text.HAL_DMAEx_MUX_IRQHandler:00000000 HAL_DMAEx_MUX_IRQHandler
 
 NO UNDEFINED SYMBOLS

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccVN2MmZ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"app_freertos.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s 			page 1
   29:Src/app_freertos.c **** 
   30:Src/app_freertos.c **** /* Private typedef -----------------------------------------------------------*/
   31:Src/app_freertos.c **** /* USER CODE BEGIN PTD */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccVN2MmZ.s 			page 2
 
 
   32:Src/app_freertos.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s 			page 1
   68:Src/app_freertos.c **** {
   48              		.loc 1 68 0
   49              		.cfi_startproc
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccVN2MmZ.s 			page 3
 
 
   50              		@ args = 0, pretend = 0, frame = 0
@@ -139,52 +139,35 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s 			page 1
   64              		.thumb_func
   65              		.fpu fpv4-sp-d16
   67              	vApplicationIdleHook:
-  68              	.LFB336:
-  71:Src/app_freertos.c **** /* USER CODE END 1 */
-  72:Src/app_freertos.c **** 
-  73:Src/app_freertos.c **** /* USER CODE BEGIN 2 */
-  74:Src/app_freertos.c **** __weak void vApplicationIdleHook( void )
-  75:Src/app_freertos.c **** {
-  69              		.loc 1 75 0
-  70              		.cfi_startproc
-  71              		@ args = 0, pretend = 0, frame = 0
-  72              		@ frame_needed = 0, uses_anonymous_args = 0
-  73              		@ link register save eliminated.
-  76:Src/app_freertos.c ****    /* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
-  77:Src/app_freertos.c ****    to 1 in FreeRTOSConfig.h. It will be called on each iteration of the idle
-  78:Src/app_freertos.c ****    task. It is essential that code added to this hook function never attempts
-  79:Src/app_freertos.c ****    to block in any way (for example, call xQueueReceive() with a block time
-  80:Src/app_freertos.c ****    specified, or call vTaskDelay()). If the application makes use of the
-  81:Src/app_freertos.c ****    vTaskDelete() API function (as this demo application does) then it is also
-  82:Src/app_freertos.c ****    important that vApplicationIdleHook() is permitted to return to its calling
-  83:Src/app_freertos.c ****    function, because it is the responsibility of the idle task to clean up
-  84:Src/app_freertos.c ****    memory allocated by the kernel to any task that has since been deleted. */
-  85:Src/app_freertos.c **** }
-  74              		.loc 1 85 0
-  75 0000 7047     		bx	lr
-  76              		.cfi_endproc
-  77              	.LFE336:
-  79              		.text
-  80              	.Letext0:
-  81              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
-  82              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
-  83              		.file 4 "Inc/FreeRTOSConfig.h"
-  84              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
-  85              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
-  86              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
-  87              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
-  88              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
-  89              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s 			page 4
+  68              	.LFB338:
+  69              		.cfi_startproc
+  70              		@ args = 0, pretend = 0, frame = 0
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72              		@ link register save eliminated.
+  73 0000 7047     		bx	lr
+  74              		.cfi_endproc
+  75              	.LFE338:
+  77              		.text
+  78              	.Letext0:
+  79              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+  80              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+  81              		.file 4 "Inc/FreeRTOSConfig.h"
+  82              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+  83              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+  84              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+  85              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+  86              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+  87              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccVN2MmZ.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 app_freertos.c
-C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s:18     .text.configureTimerForRunTimeStats:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s:25     .text.configureTimerForRunTimeStats:00000000 configureTimerForRunTimeStats
-C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s:39     .text.getRunTimeCounterValue:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s:46     .text.getRunTimeCounterValue:00000000 getRunTimeCounterValue
-C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s:60     .text.vApplicationIdleHook:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cc7mgpAd.s:67     .text.vApplicationIdleHook:00000000 vApplicationIdleHook
+C:\Users\82057\AppData\Local\Temp\ccVN2MmZ.s:18     .text.configureTimerForRunTimeStats:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccVN2MmZ.s:25     .text.configureTimerForRunTimeStats:00000000 configureTimerForRunTimeStats
+C:\Users\82057\AppData\Local\Temp\ccVN2MmZ.s:39     .text.getRunTimeCounterValue:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccVN2MmZ.s:46     .text.getRunTimeCounterValue:00000000 getRunTimeCounterValue
+C:\Users\82057\AppData\Local\Temp\ccVN2MmZ.s:60     .text.vApplicationIdleHook:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccVN2MmZ.s:67     .text.vApplicationIdleHook:00000000 vApplicationIdleHook
 
 NO UNDEFINED SYMBOLS

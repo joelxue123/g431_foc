@@ -32,9 +32,9 @@ static s32 Flash_Prepared(u32 Address, u32 Len)
 	
 	HAL_FLASH_Unlock();
 	
-	FLASH_EraseInit.Banks = 0X01;
+	FLASH_EraseInit.Banks = FLASH_BANK_1;
 	FLASH_EraseInit.NbPages = 0X01;
-	FLASH_EraseInit.Page = Address>>11;
+	FLASH_EraseInit.Page = ( (Address  & 0x00ffffff)>>11 );
 	FLASH_EraseInit.TypeErase = FLASH_TYPEERASE_PAGES;
 
 
@@ -50,15 +50,16 @@ static s32 Flash_Prepared(u32 Address, u32 Len)
 
   return 1;
 }
-
+  volatile u32 FlashDestination =0;
+  volatile u32 FlashSource = 0;
 //��16λ��Ϊ��λ������д��Flash
 s32 Flash_Write(u32 Address, const u64* pData, u32 Len)
 {
   u32 i;
-  u32 FlashDestination = Address;
-  u32 FlashSource;
+   FlashDestination = Address;
+   FlashSource;
   HAL_StatusTypeDef FLASHStatus = HAL_OK;
-	uint32_t TypeProgram;
+ uint32_t TypeProgram;
 	
 	TypeProgram = FLASH_TYPEPROGRAM_DOUBLEWORD;
 

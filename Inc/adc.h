@@ -4,9 +4,9 @@
 
 #include "stm32g4xx_hal.h"
 
-#define ADC_REF 3300 															// Ê¹ÓÃ¸ß¾«¶ÈÍòÓÃ±í²âµÃ
-#define VOLT_SAMPNUM 			20 											//µçÑ¹Æ½¾ùÂË²¨²ÉÑù´ÎÊý
-#define TEMP_SAMPNUM 			20 											//ÎÂ¶ÈÆ½¾ùÂË²¨²ÉÑù´ÎÊý
+#define ADC_REF 3300 															// Ê¹ï¿½Ã¸ß¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½
+#define VOLT_SAMPNUM 			20 											//ï¿½ï¿½Ñ¹Æ½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define TEMP_SAMPNUM 			20 											//ï¿½Â¶ï¿½Æ½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define OTHER_SAMPNUM 		20
 
 extern volatile s16 VOLT_Filter;															
@@ -17,8 +17,9 @@ extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
 
 
+extern volatile uint16_t adc_measurements_[2];
 
-extern void ADC_Configuration(void);  				// ADCÏà¹Ø³õÊ¼»¯
+extern void ADC_Configuration(void);  				// ADCï¿½ï¿½Ø³ï¿½Ê¼ï¿½ï¿½
 extern s32 Get_VOLT_Filter(void);
 extern s32 Get_TEMP_Filter(void);
 void pos_linearity_ini(void);

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"stm32g4xx_hal_cortex.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
   29:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     ===========================================================
   30:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     [..]
   31:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     This section provides functions allowing to configure the NVIC interrupts (IRQ).
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 2
 
 
   32:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     The Cortex-M4 exceptions are managed by CMSIS functions.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
   86:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                            |                                   |                             | 4 bi
   87:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     -----------------------------------------------------------------------------------------------
   88:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****      NVIC_PRIORITYGROUP_1  |                0-1                |            0-7              | 1 bi
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 3
 
 
   89:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                            |                                   |                             | 3 bi
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  143:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  144:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  145:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief  Set the priority grouping field (pre-emption priority and subpriority)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 4
 
 
  146:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   *         using the required unlock sequence.
@@ -206,8 +206,8 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   33              	.LVL0:
-  34              	.LBB52:
-  35              	.LBB53:
+  34              	.LBB20:
+  35              	.LBB21:
   36              		.file 2 "Drivers/CMSIS/Include/core_cm4.h"
    1:Drivers/CMSIS/Include/core_cm4.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/core_cm4.h ****  * @file     core_cm4.h
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
   27:Drivers/CMSIS/Include/core_cm4.h **** #elif defined (__clang__)
   28:Drivers/CMSIS/Include/core_cm4.h ****   #pragma clang system_header   /* treat file as system include file */
   29:Drivers/CMSIS/Include/core_cm4.h **** #endif
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 5
 
 
   30:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
   84:Drivers/CMSIS/Include/core_cm4.h ****   #else
   85:Drivers/CMSIS/Include/core_cm4.h ****     #define __FPU_USED         0U
   86:Drivers/CMSIS/Include/core_cm4.h ****   #endif
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 6
 
 
   87:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  141:Drivers/CMSIS/Include/core_cm4.h ****       #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)
  142:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       0U
  143:Drivers/CMSIS/Include/core_cm4.h ****     #endif
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 7
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 7
 
 
  144:Drivers/CMSIS/Include/core_cm4.h ****   #else
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  198:Drivers/CMSIS/Include/core_cm4.h ****     #define __NVIC_PRIO_BITS          3U
  199:Drivers/CMSIS/Include/core_cm4.h ****     #warning "__NVIC_PRIO_BITS not defined in device header file; using default!"
  200:Drivers/CMSIS/Include/core_cm4.h ****   #endif
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 8
 
 
  201:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  255:Drivers/CMSIS/Include/core_cm4.h **** 
  256:Drivers/CMSIS/Include/core_cm4.h **** /**
  257:Drivers/CMSIS/Include/core_cm4.h ****   \brief  Union type to access the Application Program Status Register (APSR).
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 9
 
 
  258:Drivers/CMSIS/Include/core_cm4.h ****  */
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  312:Drivers/CMSIS/Include/core_cm4.h **** 
  313:Drivers/CMSIS/Include/core_cm4.h **** /**
  314:Drivers/CMSIS/Include/core_cm4.h ****   \brief  Union type to access the Special-Purpose Program Status Registers (xPSR).
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 10
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 10
 
 
  315:Drivers/CMSIS/Include/core_cm4.h ****  */
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  369:Drivers/CMSIS/Include/core_cm4.h ****   \brief  Union type to access the Control Registers (CONTROL).
  370:Drivers/CMSIS/Include/core_cm4.h ****  */
  371:Drivers/CMSIS/Include/core_cm4.h **** typedef union
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 11
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 11
 
 
  372:Drivers/CMSIS/Include/core_cm4.h **** {
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  426:Drivers/CMSIS/Include/core_cm4.h **** 
  427:Drivers/CMSIS/Include/core_cm4.h **** /*@} end of group CMSIS_NVIC */
  428:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 12
 
 
  429:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  483:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_NMIPENDSET_Msk            (1UL << SCB_ICSR_NMIPENDSET_Pos)               /*!< SCB 
  484:Drivers/CMSIS/Include/core_cm4.h **** 
  485:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_PENDSVSET_Pos             28U                                            /*!< SCB 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 13
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 13
 
 
  486:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_PENDSVSET_Msk             (1UL << SCB_ICSR_PENDSVSET_Pos)                /*!< SCB 
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  540:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SCR_SEVONPEND_Msk              (1UL << SCB_SCR_SEVONPEND_Pos)                 /*!< SCB 
  541:Drivers/CMSIS/Include/core_cm4.h **** 
  542:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SCR_SLEEPDEEP_Pos               2U                                            /*!< SCB 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 14
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 14
 
 
  543:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SCR_SLEEPDEEP_Msk              (1UL << SCB_SCR_SLEEPDEEP_Pos)                 /*!< SCB 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  597:Drivers/CMSIS/Include/core_cm4.h **** 
  598:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_SVCALLACT_Pos             7U                                            /*!< SCB 
  599:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_SHCSR_SVCALLACT_Msk            (1UL << SCB_SHCSR_SVCALLACT_Pos)               /*!< SCB 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 15
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 15
 
 
  600:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  654:Drivers/CMSIS/Include/core_cm4.h **** 
  655:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_PRECISERR_Pos            (SCB_CFSR_BUSFAULTSR_Pos + 1U)                  /*!< SCB 
  656:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_PRECISERR_Msk            (1UL << SCB_CFSR_PRECISERR_Pos)                 /*!< SCB 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 16
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 16
 
 
  657:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  711:Drivers/CMSIS/Include/core_cm4.h ****   \defgroup CMSIS_SCnSCB System Controls not in SCB (SCnSCB)
  712:Drivers/CMSIS/Include/core_cm4.h ****   \brief    Type definitions for the System Control and ID Register not in the SCB
  713:Drivers/CMSIS/Include/core_cm4.h ****   @{
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 17
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 17
 
 
  714:Drivers/CMSIS/Include/core_cm4.h ****  */
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  768:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CTRL_COUNTFLAG_Pos         16U                                            /*!< SysT
  769:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CTRL_COUNTFLAG_Msk         (1UL << SysTick_CTRL_COUNTFLAG_Pos)            /*!< SysT
  770:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 18
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 18
 
 
  771:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CTRL_CLKSOURCE_Pos          2U                                            /*!< SysT
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  825:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED3[32U];
  826:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED4[43U];
  827:Drivers/CMSIS/Include/core_cm4.h ****   __OM  uint32_t LAR;                    /*!< Offset: 0xFB0 ( /W)  ITM Lock Access Register */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 19
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 19
 
 
  828:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t LSR;                    /*!< Offset: 0xFB4 (R/ )  ITM Lock Status Register */
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  882:Drivers/CMSIS/Include/core_cm4.h **** 
  883:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_LSR_Present_Pos                 0U                                            /*!< ITM 
  884:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_LSR_Present_Msk                (1UL /*<< ITM_LSR_Present_Pos*/)               /*!< ITM 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 20
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 20
 
 
  885:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  939:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_NOPRFCNT_Pos              24U                                         /*!< DWT CTR
  940:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_NOPRFCNT_Msk              (0x1UL << DWT_CTRL_NOPRFCNT_Pos)            /*!< DWT CTR
  941:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 21
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 21
 
 
  942:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_CYCEVTENA_Pos             22U                                         /*!< DWT CTR
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  996:Drivers/CMSIS/Include/core_cm4.h **** 
  997:Drivers/CMSIS/Include/core_cm4.h **** /* DWT Folded-instruction Count Register Definitions */
  998:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FOLDCNT_FOLDCNT_Pos             0U                                         /*!< DWT FOL
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 22
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 22
 
 
  999:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FOLDCNT_FOLDCNT_Msk            (0xFFUL /*<< DWT_FOLDCNT_FOLDCNT_Pos*/)     /*!< DWT FOL
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1053:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t SPPR;                   /*!< Offset: 0x0F0 (R/W)  Selected Pin Protocol Register *
 1054:Drivers/CMSIS/Include/core_cm4.h ****         uint32_t RESERVED2[131U];
 1055:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t FFSR;                   /*!< Offset: 0x300 (R/ )  Formatter and Flush Status Regis
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 23
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 23
 
 
 1056:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t FFCR;                   /*!< Offset: 0x304 (R/W)  Formatter and Flush Control Regi
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1110:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO0_ITM_bytecount_Pos        27U                                         /*!< TPI FIF
 1111:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO0_ITM_bytecount_Msk        (0x3UL << TPI_FIFO0_ITM_bytecount_Pos)      /*!< TPI FIF
 1112:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 24
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 24
 
 
 1113:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_FIFO0_ETM_ATVALID_Pos          26U                                         /*!< TPI FIF
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1167:Drivers/CMSIS/Include/core_cm4.h **** 
 1168:Drivers/CMSIS/Include/core_cm4.h **** /* TPI DEVID Register Definitions */
 1169:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_DEVID_NRZVALID_Pos             11U                                         /*!< TPI DEV
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 25
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 25
 
 
 1170:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_DEVID_NRZVALID_Msk             (0x1UL << TPI_DEVID_NRZVALID_Pos)           /*!< TPI DEV
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1224:Drivers/CMSIS/Include/core_cm4.h **** 
 1225:Drivers/CMSIS/Include/core_cm4.h **** /* MPU Type Register Definitions */
 1226:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_TYPE_IREGION_Pos               16U                                            /*!< MPU 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 26
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 26
 
 
 1227:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_TYPE_IREGION_Msk               (0xFFUL << MPU_TYPE_IREGION_Pos)               /*!< MPU 
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1281:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_SRD_Pos                    8U                                            /*!< MPU 
 1282:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_SRD_Msk                   (0xFFUL << MPU_RASR_SRD_Pos)                   /*!< MPU 
 1283:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 27
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 27
 
 
 1284:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_RASR_SIZE_Pos                   1U                                            /*!< MPU 
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1338:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_USER_Msk                 (1UL << FPU_FPCCR_USER_Pos)                    /*!< FPCC
 1339:Drivers/CMSIS/Include/core_cm4.h **** 
 1340:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_LSPACT_Pos                0U                                            /*!< FPCC
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 28
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 28
 
 
 1341:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPCCR_LSPACT_Msk               (1UL /*<< FPU_FPCCR_LSPACT_Pos*/)              /*!< FPCC
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1395:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR1_FtZ_mode_Pos              0U                                            /*!< MVFR
 1396:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_MVFR1_FtZ_mode_Msk             (0xFUL /*<< FPU_MVFR1_FtZ_mode_Pos*/)          /*!< MVFR
 1397:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 29
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 29
 
 
 1398:Drivers/CMSIS/Include/core_cm4.h **** /* Media and FP Feature Register 2 Definitions */
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1452:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_C_STEP_Pos          2U                                            /*!< Core
 1453:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_C_STEP_Msk         (1UL << CoreDebug_DHCSR_C_STEP_Pos)            /*!< Core
 1454:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 30
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 30
 
 
 1455:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DHCSR_C_HALT_Pos          1U                                            /*!< Core
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1509:Drivers/CMSIS/Include/core_cm4.h **** 
 1510:Drivers/CMSIS/Include/core_cm4.h **** 
 1511:Drivers/CMSIS/Include/core_cm4.h **** /**
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 31
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 31
 
 
 1512:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup    CMSIS_core_register
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1566:Drivers/CMSIS/Include/core_cm4.h **** #endif
 1567:Drivers/CMSIS/Include/core_cm4.h **** 
 1568:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_BASE            (SCS_BASE +  0x0F30UL)                    /*!< Floating Point Unit */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 32
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 32
 
 
 1569:Drivers/CMSIS/Include/core_cm4.h **** #define FPU                 ((FPU_Type       *)     FPU_BASE      )   /*!< Floating Point Unit */
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1623:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_SetVector              __NVIC_SetVector
 1624:Drivers/CMSIS/Include/core_cm4.h ****   #define NVIC_GetVector              __NVIC_GetVector
 1625:Drivers/CMSIS/Include/core_cm4.h **** #endif  /* (CMSIS_VECTAB_VIRTUAL) */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 33
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 33
 
 
 1626:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1959,54 +1959,51 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
   43              	.LVL2:
   44 0008 1B04     		lsls	r3, r3, #16
   45 000a 1B0C     		lsrs	r3, r3, #16
-  46              	.LVL3:
+  46 000c 43F0BF63 		orr	r3, r3, #100139008
 1655:Drivers/CMSIS/Include/core_cm4.h ****   reg_value  =  (reg_value                                   |
 1656:Drivers/CMSIS/Include/core_cm4.h ****                 ((uint32_t)0x5FAUL << SCB_AIRCR_VECTKEY_Pos) |
 1657:Drivers/CMSIS/Include/core_cm4.h ****                 (PriorityGroupTmp << SCB_AIRCR_PRIGROUP_Pos)  );              /* Insert write key a
   47              		.loc 2 1657 0
-  48 000c 0002     		lsls	r0, r0, #8
-  49              	.LVL4:
-  50 000e 00F4E060 		and	r0, r0, #1792
-1656:Drivers/CMSIS/Include/core_cm4.h ****                 (PriorityGroupTmp << SCB_AIRCR_PRIGROUP_Pos)  );              /* Insert write key a
-  51              		.loc 2 1656 0
-  52 0012 1843     		orrs	r0, r0, r3
+  48 0010 0002     		lsls	r0, r0, #8
+  49              	.LVL3:
+  50 0012 43F40033 		orr	r3, r3, #131072
+  51 0016 00F4E060 		and	r0, r0, #1792
 1655:Drivers/CMSIS/Include/core_cm4.h ****   reg_value  =  (reg_value                                   |
-  53              		.loc 2 1655 0
-  54 0014 40F0BF60 		orr	r0, r0, #100139008
-  55 0018 40F40030 		orr	r0, r0, #131072
-  56              	.LVL5:
+  52              		.loc 2 1655 0
+  53 001a 0343     		orrs	r3, r3, r0
+  54              	.LVL4:
 1658:Drivers/CMSIS/Include/core_cm4.h ****   SCB->AIRCR =  reg_value;
-  57              		.loc 2 1658 0
-  58 001c D060     		str	r0, [r2, #12]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 34
+  55              		.loc 2 1658 0
+  56 001c D360     		str	r3, [r2, #12]
+  57              	.LVL5:
+  58              	.LBE21:
+  59              	.LBE20:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 34
 
 
-  59              	.LVL6:
-  60              	.LBE53:
-  61              	.LBE52:
  165:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Check the parameters */
  166:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   assert_param(IS_NVIC_PRIORITY_GROUP(PriorityGroup));
  167:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  168:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Set the PRIGROUP[10:8] bits according to the PriorityGroup parameter value */
  169:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   NVIC_SetPriorityGrouping(PriorityGroup);
  170:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
-  62              		.loc 1 170 0
-  63 001e 7047     		bx	lr
-  64              	.L3:
-  65              		.align	2
-  66              	.L2:
-  67 0020 00ED00E0 		.word	-536810240
-  68              		.cfi_endproc
-  69              	.LFE329:
-  71              		.section	.text.HAL_NVIC_SetPriority,"ax",%progbits
-  72              		.align	1
-  73              		.global	HAL_NVIC_SetPriority
-  74              		.syntax unified
-  75              		.thumb
-  76              		.thumb_func
-  77              		.fpu fpv4-sp-d16
-  79              	HAL_NVIC_SetPriority:
-  80              	.LFB330:
+  60              		.loc 1 170 0
+  61 001e 7047     		bx	lr
+  62              	.L3:
+  63              		.align	2
+  64              	.L2:
+  65 0020 00ED00E0 		.word	-536810240
+  66              		.cfi_endproc
+  67              	.LFE329:
+  69              		.section	.text.HAL_NVIC_SetPriority,"ax",%progbits
+  70              		.align	1
+  71              		.global	HAL_NVIC_SetPriority
+  72              		.syntax unified
+  73              		.thumb
+  74              		.thumb_func
+  75              		.fpu fpv4-sp-d16
+  77              	HAL_NVIC_SetPriority:
+  78              	.LFB330:
  171:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  172:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  173:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief  Set the priority of an interrupt.
@@ -2023,24 +2020,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  184:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  185:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** void HAL_NVIC_SetPriority(IRQn_Type IRQn, uint32_t PreemptPriority, uint32_t SubPriority)
  186:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
-  81              		.loc 1 186 0
-  82              		.cfi_startproc
-  83              		@ args = 0, pretend = 0, frame = 0
-  84              		@ frame_needed = 0, uses_anonymous_args = 0
-  85              		@ link register save eliminated.
-  86              	.LVL7:
-  87 0000 30B4     		push	{r4, r5}
-  88              	.LCFI0:
-  89              		.cfi_def_cfa_offset 8
-  90              		.cfi_offset 4, -8
-  91              		.cfi_offset 5, -4
-  92              	.LBB54:
-  93              	.LBB55:
+  79              		.loc 1 186 0
+  80              		.cfi_startproc
+  81              		@ args = 0, pretend = 0, frame = 0
+  82              		@ frame_needed = 0, uses_anonymous_args = 0
+  83              	.LVL6:
+  84              	.LBB28:
+  85              	.LBB29:
 1659:Drivers/CMSIS/Include/core_cm4.h **** }
 1660:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 35
-
-
 1661:Drivers/CMSIS/Include/core_cm4.h **** 
 1662:Drivers/CMSIS/Include/core_cm4.h **** /**
 1663:Drivers/CMSIS/Include/core_cm4.h ****   \brief   Get Priority Grouping
@@ -2050,15 +2038,31 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1667:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE uint32_t __NVIC_GetPriorityGrouping(void)
 1668:Drivers/CMSIS/Include/core_cm4.h **** {
 1669:Drivers/CMSIS/Include/core_cm4.h ****   return ((uint32_t)((SCB->AIRCR & SCB_AIRCR_PRIGROUP_Msk) >> SCB_AIRCR_PRIGROUP_Pos));
-  94              		.loc 2 1669 0
-  95 0002 174B     		ldr	r3, .L10
-  96 0004 DB68     		ldr	r3, [r3, #12]
-  97 0006 C3F30223 		ubfx	r3, r3, #8, #3
-  98              	.LVL8:
-  99              	.LBE55:
- 100              	.LBE54:
- 101              	.LBB56:
- 102              	.LBB57:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 35
+
+
+  86              		.loc 2 1669 0
+  87 0000 174B     		ldr	r3, .L9
+  88              	.LBE29:
+  89              	.LBE28:
+  90              		.loc 1 186 0
+  91 0002 70B5     		push	{r4, r5, r6, lr}
+  92              	.LCFI0:
+  93              		.cfi_def_cfa_offset 16
+  94              		.cfi_offset 4, -16
+  95              		.cfi_offset 5, -12
+  96              		.cfi_offset 6, -8
+  97              		.cfi_offset 14, -4
+  98              	.LBB31:
+  99              	.LBB30:
+ 100              		.loc 2 1669 0
+ 101 0004 DC68     		ldr	r4, [r3, #12]
+ 102 0006 C4F30224 		ubfx	r4, r4, #8, #3
+ 103              	.LVL7:
+ 104              	.LBE30:
+ 105              	.LBE31:
+ 106              	.LBB32:
+ 107              	.LBB33:
 1670:Drivers/CMSIS/Include/core_cm4.h **** }
 1671:Drivers/CMSIS/Include/core_cm4.h **** 
 1672:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -2094,13 +2098,13 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1702:Drivers/CMSIS/Include/core_cm4.h ****     return((uint32_t)(((NVIC->ISER[(((uint32_t)IRQn) >> 5UL)] & (1UL << (((uint32_t)IRQn) & 0x1FUL)
 1703:Drivers/CMSIS/Include/core_cm4.h ****   }
 1704:Drivers/CMSIS/Include/core_cm4.h ****   else
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 36
+
+
 1705:Drivers/CMSIS/Include/core_cm4.h ****   {
 1706:Drivers/CMSIS/Include/core_cm4.h ****     return(0U);
 1707:Drivers/CMSIS/Include/core_cm4.h ****   }
 1708:Drivers/CMSIS/Include/core_cm4.h **** }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 36
-
-
 1709:Drivers/CMSIS/Include/core_cm4.h **** 
 1710:Drivers/CMSIS/Include/core_cm4.h **** 
 1711:Drivers/CMSIS/Include/core_cm4.h **** /**
@@ -2154,13 +2158,13 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1759:Drivers/CMSIS/Include/core_cm4.h ****     NVIC->ISPR[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
 1760:Drivers/CMSIS/Include/core_cm4.h ****   }
 1761:Drivers/CMSIS/Include/core_cm4.h **** }
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 37
+
+
 1762:Drivers/CMSIS/Include/core_cm4.h **** 
 1763:Drivers/CMSIS/Include/core_cm4.h **** 
 1764:Drivers/CMSIS/Include/core_cm4.h **** /**
 1765:Drivers/CMSIS/Include/core_cm4.h ****   \brief   Clear Pending Interrupt
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 37
-
-
 1766:Drivers/CMSIS/Include/core_cm4.h ****   \details Clears the pending bit of a device specific interrupt in the NVIC pending register.
 1767:Drivers/CMSIS/Include/core_cm4.h ****   \param [in]      IRQn  Device specific interrupt number.
 1768:Drivers/CMSIS/Include/core_cm4.h ****   \note    IRQn must not be negative.
@@ -2214,13 +2218,13 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1816:Drivers/CMSIS/Include/core_cm4.h ****   {
 1817:Drivers/CMSIS/Include/core_cm4.h ****     SCB->SHP[(((uint32_t)IRQn) & 0xFUL)-4UL] = (uint8_t)((priority << (8U - __NVIC_PRIO_BITS)) & (u
 1818:Drivers/CMSIS/Include/core_cm4.h ****   }
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 38
+
+
 1819:Drivers/CMSIS/Include/core_cm4.h **** }
 1820:Drivers/CMSIS/Include/core_cm4.h **** 
 1821:Drivers/CMSIS/Include/core_cm4.h **** 
 1822:Drivers/CMSIS/Include/core_cm4.h **** /**
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 38
-
-
 1823:Drivers/CMSIS/Include/core_cm4.h ****   \brief   Get Interrupt Priority
 1824:Drivers/CMSIS/Include/core_cm4.h ****   \details Reads the priority of a device specific interrupt or a processor exception.
 1825:Drivers/CMSIS/Include/core_cm4.h ****            The interrupt number can be positive to specify a device specific interrupt,
@@ -2261,63 +2265,92 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1860:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t SubPriorityBits;
 1861:Drivers/CMSIS/Include/core_cm4.h **** 
 1862:Drivers/CMSIS/Include/core_cm4.h ****   PreemptPriorityBits = ((7UL - PriorityGroupTmp) > (uint32_t)(__NVIC_PRIO_BITS)) ? (uint32_t)(__NV
- 103              		.loc 2 1862 0
- 104 000a C3F10704 		rsb	r4, r3, #7
- 105 000e 042C     		cmp	r4, #4
- 106 0010 28BF     		it	cs
- 107 0012 0424     		movcs	r4, #4
- 108              	.LVL9:
+ 108              		.loc 2 1862 0
+ 109 000a C4F10705 		rsb	r5, r4, #7
+ 110 000e 042D     		cmp	r5, #4
 1863:Drivers/CMSIS/Include/core_cm4.h ****   SubPriorityBits     = ((PriorityGroupTmp + (uint32_t)(__NVIC_PRIO_BITS)) < (uint32_t)7UL) ? (uint
- 109              		.loc 2 1863 0
- 110 0014 1D1D     		adds	r5, r3, #4
- 111 0016 062D     		cmp	r5, #6
- 112 0018 18D9     		bls	.L8
- 113 001a 033B     		subs	r3, r3, #3
- 114              	.LVL10:
- 115              	.L5:
+ 111              		.loc 2 1863 0
+ 112 0010 04F10403 		add	r3, r4, #4
+1862:Drivers/CMSIS/Include/core_cm4.h ****   SubPriorityBits     = ((PriorityGroupTmp + (uint32_t)(__NVIC_PRIO_BITS)) < (uint32_t)7UL) ? (uint
+ 113              		.loc 2 1862 0
+ 114 0014 28BF     		it	cs
+ 115 0016 0425     		movcs	r5, #4
+ 116              	.LVL8:
 1864:Drivers/CMSIS/Include/core_cm4.h **** 
 1865:Drivers/CMSIS/Include/core_cm4.h ****   return (
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 39
+
+
 1866:Drivers/CMSIS/Include/core_cm4.h ****            ((PreemptPriority & (uint32_t)((1UL << (PreemptPriorityBits)) - 1UL)) << SubPriorityBits
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 39
-
-
- 116              		.loc 2 1866 0
- 117 001c 4FF0FF35 		mov	r5, #-1
- 118              	.LVL11:
- 119 0020 05FA04F4 		lsl	r4, r5, r4
- 120              	.LVL12:
- 121 0024 21EA0401 		bic	r1, r1, r4
- 122              	.LVL13:
- 123 0028 9940     		lsls	r1, r1, r3
+ 117              		.loc 2 1866 0
+ 118 0018 4FF0FF36 		mov	r6, #-1
+1863:Drivers/CMSIS/Include/core_cm4.h **** 
+ 119              		.loc 2 1863 0
+ 120 001c 062B     		cmp	r3, #6
+ 121              		.loc 2 1866 0
+ 122 001e 06FA05F3 		lsl	r3, r6, r5
+1863:Drivers/CMSIS/Include/core_cm4.h **** 
+ 123              		.loc 2 1863 0
+ 124 0022 8CBF     		ite	hi
+ 125 0024 033C     		subhi	r4, r4, #3
+ 126              	.LVL9:
+ 127 0026 0024     		movls	r4, #0
+ 128              	.LVL10:
+ 129              		.loc 2 1866 0
+ 130 0028 21EA0303 		bic	r3, r1, r3
+ 131 002c A340     		lsls	r3, r3, r4
 1867:Drivers/CMSIS/Include/core_cm4.h ****            ((SubPriority     & (uint32_t)((1UL << (SubPriorityBits    )) - 1UL)))
- 124              		.loc 2 1867 0
- 125 002a 05FA03F3 		lsl	r3, r5, r3
- 126              	.LVL14:
- 127 002e 22EA0303 		bic	r3, r2, r3
-1866:Drivers/CMSIS/Include/core_cm4.h ****            ((SubPriority     & (uint32_t)((1UL << (SubPriorityBits    )) - 1UL)))
- 128              		.loc 2 1866 0
- 129 0032 1943     		orrs	r1, r1, r3
- 130              	.LVL15:
- 131              	.LBE57:
- 132              	.LBE56:
- 133              	.LBB59:
- 134              	.LBB60:
+ 132              		.loc 2 1867 0
+ 133 002e 06FA04F4 		lsl	r4, r6, r4
+ 134              	.LVL11:
+ 135 0032 22EA0404 		bic	r4, r2, r4
+ 136              	.LBE33:
+ 137              	.LBE32:
+ 138              	.LBB35:
+ 139              	.LBB36:
 1811:Drivers/CMSIS/Include/core_cm4.h ****   {
- 135              		.loc 2 1811 0
- 136 0034 0028     		cmp	r0, #0
- 137 0036 0BDB     		blt	.L6
+ 140              		.loc 2 1811 0
+ 141 0036 0028     		cmp	r0, #0
+ 142              	.LBE36:
+ 143              	.LBE35:
+ 144              	.LBB38:
+ 145              	.LBB34:
+1866:Drivers/CMSIS/Include/core_cm4.h ****            ((SubPriority     & (uint32_t)((1UL << (SubPriorityBits    )) - 1UL)))
+ 146              		.loc 2 1866 0
+ 147 0038 43EA0403 		orr	r3, r3, r4
+ 148              	.LBE34:
+ 149              	.LBE38:
+ 150              	.LBB39:
+ 151              	.LBB37:
 1813:Drivers/CMSIS/Include/core_cm4.h ****   }
- 138              		.loc 2 1813 0
- 139 0038 0901     		lsls	r1, r1, #4
- 140 003a C9B2     		uxtb	r1, r1
- 141 003c 00F16040 		add	r0, r0, #-536870912
- 142              	.LVL16:
- 143 0040 00F56140 		add	r0, r0, #57600
- 144 0044 80F80013 		strb	r1, [r0, #768]
- 145              	.LVL17:
- 146              	.L4:
- 147              	.LBE60:
- 148              	.LBE59:
+ 152              		.loc 2 1813 0
+ 153 003c A8BF     		it	ge
+ 154 003e 00F16040 		addge	r0, r0, #-536870912
+ 155              	.LVL12:
+ 156 0042 4FEA0313 		lsl	r3, r3, #4
+1817:Drivers/CMSIS/Include/core_cm4.h ****   }
+ 157              		.loc 2 1817 0
+ 158 0046 BCBF     		itt	lt
+ 159 0048 00F00F00 		andlt	r0, r0, #15
+ 160 004c 054A     		ldrlt	r2, .L9+4
+ 161              	.LVL13:
+ 162 004e DBB2     		uxtb	r3, r3
+1813:Drivers/CMSIS/Include/core_cm4.h ****   }
+ 163              		.loc 2 1813 0
+ 164 0050 AABF     		itet	ge
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 40
+
+
+ 165 0052 00F56140 		addge	r0, r0, #57600
+1817:Drivers/CMSIS/Include/core_cm4.h ****   }
+ 166              		.loc 2 1817 0
+ 167 0056 1354     		strblt	r3, [r2, r0]
+ 168              	.LVL14:
+1813:Drivers/CMSIS/Include/core_cm4.h ****   }
+ 169              		.loc 2 1813 0
+ 170 0058 80F80033 		strbge	r3, [r0, #768]
+ 171              	.LBE37:
+ 172              	.LBE39:
  187:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   uint32_t prioritygroup;
  188:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  189:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Check the parameters */
@@ -2328,63 +2361,24 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  194:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  195:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   NVIC_SetPriority(IRQn, NVIC_EncodePriority(prioritygroup, PreemptPriority, SubPriority));
  196:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 149              		.loc 1 196 0
- 150 0048 30BC     		pop	{r4, r5}
- 151              	.LCFI1:
- 152              		.cfi_remember_state
- 153              		.cfi_restore 5
- 154              		.cfi_restore 4
- 155              		.cfi_def_cfa_offset 0
- 156 004a 7047     		bx	lr
- 157              	.LVL18:
- 158              	.L8:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 40
-
-
- 159              	.LCFI2:
- 160              		.cfi_restore_state
- 161              	.LBB62:
- 162              	.LBB58:
-1863:Drivers/CMSIS/Include/core_cm4.h **** 
- 163              		.loc 2 1863 0
- 164 004c 0023     		movs	r3, #0
- 165              	.LVL19:
- 166 004e E5E7     		b	.L5
- 167              	.LVL20:
- 168              	.L6:
- 169              	.LBE58:
- 170              	.LBE62:
- 171              	.LBB63:
- 172              	.LBB61:
-1817:Drivers/CMSIS/Include/core_cm4.h ****   }
- 173              		.loc 2 1817 0
- 174 0050 00F00F00 		and	r0, r0, #15
- 175              	.LVL21:
- 176 0054 0901     		lsls	r1, r1, #4
- 177 0056 C9B2     		uxtb	r1, r1
- 178 0058 024B     		ldr	r3, .L10+4
- 179 005a 1954     		strb	r1, [r3, r0]
- 180              	.LVL22:
- 181              	.LBE61:
- 182              	.LBE63:
- 183              		.loc 1 196 0
- 184 005c F4E7     		b	.L4
- 185              	.L11:
- 186 005e 00BF     		.align	2
- 187              	.L10:
- 188 0060 00ED00E0 		.word	-536810240
- 189 0064 14ED00E0 		.word	-536810220
- 190              		.cfi_endproc
- 191              	.LFE330:
- 193              		.section	.text.HAL_NVIC_EnableIRQ,"ax",%progbits
- 194              		.align	1
- 195              		.global	HAL_NVIC_EnableIRQ
- 196              		.syntax unified
- 197              		.thumb
- 198              		.thumb_func
- 199              		.fpu fpv4-sp-d16
- 201              	HAL_NVIC_EnableIRQ:
- 202              	.LFB331:
+ 173              		.loc 1 196 0
+ 174 005c 70BD     		pop	{r4, r5, r6, pc}
+ 175              	.L10:
+ 176 005e 00BF     		.align	2
+ 177              	.L9:
+ 178 0060 00ED00E0 		.word	-536810240
+ 179 0064 14ED00E0 		.word	-536810220
+ 180              		.cfi_endproc
+ 181              	.LFE330:
+ 183              		.section	.text.HAL_NVIC_EnableIRQ,"ax",%progbits
+ 184              		.align	1
+ 185              		.global	HAL_NVIC_EnableIRQ
+ 186              		.syntax unified
+ 187              		.thumb
+ 188              		.thumb_func
+ 189              		.fpu fpv4-sp-d16
+ 191              	HAL_NVIC_EnableIRQ:
+ 192              	.LFB331:
  197:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  198:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  199:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief  Enable a device specific interrupt in the NVIC interrupt controller.
@@ -2397,99 +2391,99 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  206:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  207:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** void HAL_NVIC_EnableIRQ(IRQn_Type IRQn)
  208:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 203              		.loc 1 208 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 41
+ 193              		.loc 1 208 0
+ 194              		.cfi_startproc
+ 195              		@ args = 0, pretend = 0, frame = 0
+ 196              		@ frame_needed = 0, uses_anonymous_args = 0
+ 197              		@ link register save eliminated.
+ 198              	.LVL15:
+ 199              	.LBB42:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 41
 
 
- 204              		.cfi_startproc
- 205              		@ args = 0, pretend = 0, frame = 0
- 206              		@ frame_needed = 0, uses_anonymous_args = 0
- 207              		@ link register save eliminated.
- 208              	.LVL23:
- 209              	.LBB64:
- 210              	.LBB65:
+ 200              	.LBB43:
 1681:Drivers/CMSIS/Include/core_cm4.h ****   {
- 211              		.loc 2 1681 0
- 212 0000 0028     		cmp	r0, #0
- 213              	.LVL24:
- 214 0002 07DB     		blt	.L12
+ 201              		.loc 2 1681 0
+ 202 0000 0028     		cmp	r0, #0
+ 203              	.LVL16:
+ 204 0002 08DB     		blt	.L11
 1683:Drivers/CMSIS/Include/core_cm4.h ****     NVIC->ISER[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
- 215              		.loc 2 1683 0
+ 205              		.loc 2 1683 0
 1684:Drivers/CMSIS/Include/core_cm4.h ****     __COMPILER_BARRIER();
- 216              		.loc 2 1684 0
- 217 0004 00F01F02 		and	r2, r0, #31
- 218 0008 4009     		lsrs	r0, r0, #5
- 219 000a 0123     		movs	r3, #1
- 220 000c 9340     		lsls	r3, r3, r2
- 221 000e 024A     		ldr	r2, .L14
- 222 0010 42F82030 		str	r3, [r2, r0, lsl #2]
+ 206              		.loc 2 1684 0
+ 207 0004 0123     		movs	r3, #1
+ 208 0006 4209     		lsrs	r2, r0, #5
+ 209 0008 00F01F00 		and	r0, r0, #31
+ 210 000c 03FA00F0 		lsl	r0, r3, r0
+ 211 0010 014B     		ldr	r3, .L13
+ 212 0012 43F82200 		str	r0, [r3, r2, lsl #2]
 1685:Drivers/CMSIS/Include/core_cm4.h ****   }
- 223              		.loc 2 1685 0
- 224              	.LVL25:
- 225              	.L12:
- 226              	.LBE65:
- 227              	.LBE64:
+ 213              		.loc 2 1685 0
+ 214              	.LVL17:
+ 215              	.L11:
+ 216              	.LBE43:
+ 217              	.LBE42:
  209:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Check the parameters */
  210:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   assert_param(IS_NVIC_DEVICE_IRQ(IRQn));
  211:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   
  212:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Enable interrupt */
  213:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   NVIC_EnableIRQ(IRQn);
  214:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 228              		.loc 1 214 0
- 229 0014 7047     		bx	lr
- 230              	.L15:
- 231 0016 00BF     		.align	2
- 232              	.L14:
- 233 0018 00E100E0 		.word	-536813312
- 234              		.cfi_endproc
- 235              	.LFE331:
- 237              		.section	.text.HAL_NVIC_DisableIRQ,"ax",%progbits
- 238              		.align	1
- 239              		.global	HAL_NVIC_DisableIRQ
- 240              		.syntax unified
- 241              		.thumb
- 242              		.thumb_func
- 243              		.fpu fpv4-sp-d16
- 245              	HAL_NVIC_DisableIRQ:
- 246              	.LFB332:
+ 218              		.loc 1 214 0
+ 219 0016 7047     		bx	lr
+ 220              	.L14:
+ 221              		.align	2
+ 222              	.L13:
+ 223 0018 00E100E0 		.word	-536813312
+ 224              		.cfi_endproc
+ 225              	.LFE331:
+ 227              		.section	.text.HAL_NVIC_DisableIRQ,"ax",%progbits
+ 228              		.align	1
+ 229              		.global	HAL_NVIC_DisableIRQ
+ 230              		.syntax unified
+ 231              		.thumb
+ 232              		.thumb_func
+ 233              		.fpu fpv4-sp-d16
+ 235              	HAL_NVIC_DisableIRQ:
+ 236              	.LFB332:
  215:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  216:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  217:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief  Disable a device specific interrupt in the NVIC interrupt controller.
  218:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @param  IRQn External interrupt number.
  219:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   *         This parameter can be an enumerator of IRQn_Type enumeration
  220:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   *         (For the complete STM32 Devices IRQ Channels list, please refer to the appropriate CMSI
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 42
-
-
  221:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @retval None
  222:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  223:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** void HAL_NVIC_DisableIRQ(IRQn_Type IRQn)
  224:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 247              		.loc 1 224 0
- 248              		.cfi_startproc
- 249              		@ args = 0, pretend = 0, frame = 0
- 250              		@ frame_needed = 0, uses_anonymous_args = 0
- 251              		@ link register save eliminated.
- 252              	.LVL26:
- 253              	.LBB66:
- 254              	.LBB67:
+ 237              		.loc 1 224 0
+ 238              		.cfi_startproc
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 42
+
+
+ 239              		@ args = 0, pretend = 0, frame = 0
+ 240              		@ frame_needed = 0, uses_anonymous_args = 0
+ 241              		@ link register save eliminated.
+ 242              	.LVL18:
+ 243              	.LBB50:
+ 244              	.LBB51:
 1719:Drivers/CMSIS/Include/core_cm4.h ****   {
- 255              		.loc 2 1719 0
- 256 0000 0028     		cmp	r0, #0
- 257              	.LVL27:
- 258 0002 0CDB     		blt	.L16
+ 245              		.loc 2 1719 0
+ 246 0000 0028     		cmp	r0, #0
+ 247              	.LVL19:
+ 248 0002 0DDB     		blt	.L15
 1721:Drivers/CMSIS/Include/core_cm4.h ****     __DSB();
- 259              		.loc 2 1721 0
- 260 0004 00F01F02 		and	r2, r0, #31
- 261 0008 4009     		lsrs	r0, r0, #5
- 262 000a 0123     		movs	r3, #1
- 263 000c 9340     		lsls	r3, r3, r2
- 264 000e 2030     		adds	r0, r0, #32
- 265 0010 034A     		ldr	r2, .L18
- 266 0012 42F82030 		str	r3, [r2, r0, lsl #2]
- 267              	.LBB68:
- 268              	.LBB69:
- 269              		.file 3 "Drivers/CMSIS/Include/cmsis_gcc.h"
+ 249              		.loc 2 1721 0
+ 250 0004 4309     		lsrs	r3, r0, #5
+ 251 0006 0122     		movs	r2, #1
+ 252 0008 00F01F00 		and	r0, r0, #31
+ 253 000c 02FA00F0 		lsl	r0, r2, r0
+ 254 0010 2033     		adds	r3, r3, #32
+ 255 0012 044A     		ldr	r2, .L17
+ 256 0014 42F82300 		str	r0, [r2, r3, lsl #2]
+ 257              	.LBB52:
+ 258              	.LBB53:
+ 259              		.file 3 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -2518,15 +2512,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
   26:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_H
   27:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   28:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ignore some GCC warnings */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 43
-
-
   29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
   30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
   31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
   32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
   33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 43
+
+
   35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
   36:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
   37:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -2578,15 +2572,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
   83:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
   84:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
   85:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 44
-
-
   86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
   87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
   91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 44
+
+
   92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
   93:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   94:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
@@ -2638,15 +2632,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  140:Drivers/CMSIS/Include/cmsis_gcc.h ****   
  141:Drivers/CMSIS/Include/cmsis_gcc.h ****   typedef struct {
  142:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t* dest;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 45
-
-
  143:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t  wlen;
  144:Drivers/CMSIS/Include/cmsis_gcc.h ****   } __zero_table_t;
  145:Drivers/CMSIS/Include/cmsis_gcc.h ****   
  146:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_start__;
  147:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_end__;
  148:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_start__;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 45
+
+
  149:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_end__;
  150:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  151:Drivers/CMSIS/Include/cmsis_gcc.h ****   for (__copy_table_t const* pTable = &__copy_table_start__; pTable < &__copy_table_end__; ++pTable
@@ -2698,15 +2692,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  197:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  198:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
  199:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 46
-
-
  200:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  201:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  202:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  203:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
  204:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
  205:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 46
+
+
  206:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  207:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
  208:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -2758,15 +2752,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  254:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
  255:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  256:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Control Register (non-secure)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 47
-
-
  257:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Writes the given value to the non-secure Control Register when in secure state.
  258:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    control  Control Register value to set
  259:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  260:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
  261:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  262:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR control_ns, %0" : : "r" (control) : "memory");
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 47
+
+
  263:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  264:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  265:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -2818,15 +2812,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  311:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Process Stack Pointer (PSP).
  312:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               PSP Register value
  313:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 48
-
-
  314:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_PSP(void)
  315:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  316:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  317:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  318:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, psp"  : "=r" (result) );
  319:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 48
+
+
  320:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  321:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  322:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -2878,15 +2872,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  368:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_MSP(void)
  369:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  370:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 49
-
-
  371:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  372:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp" : "=r" (result) );
  373:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  374:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  375:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  376:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 49
+
+
  377:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
  378:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  379:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Main Stack Pointer (non-secure)
@@ -2938,15 +2932,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  425:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  426:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  427:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, sp_ns" : "=r" (result) );
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 50
-
-
  428:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  429:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  430:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  431:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  432:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  433:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Stack Pointer (non-secure)
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 50
+
+
  434:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Stack Pointer (SP) when in secure state.
  435:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    topOfStack  Stack Pointer value to set
  436:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -2998,15 +2992,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  482:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  483:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  484:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 51
-
-
  485:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
  486:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  487:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Priority Mask (non-secure)
  488:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Priority Mask Register when in secure state.
  489:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    priMask  Priority Mask
  490:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 51
+
+
  491:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_PRIMASK_NS(uint32_t priMask)
  492:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  493:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR primask_ns, %0" : : "r" (priMask) : "memory");
@@ -3058,15 +3052,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  539:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Base Priority (non-secure)
  540:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Base Priority register when in secure state.
  541:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Base Priority register value
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 52
-
-
  542:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  543:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_BASEPRI_NS(void)
  544:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  545:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  546:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  547:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, basepri_ns" : "=r" (result) );
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 52
+
+
  548:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  549:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  550:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -3118,15 +3112,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  596:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  597:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  598:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, faultmask" : "=r" (result) );
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 53
-
-
  599:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  600:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  601:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  602:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  603:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
  604:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 53
+
+
  605:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Fault Mask (non-secure)
  606:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Fault Mask register when in secure state.
  607:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Fault Mask register value
@@ -3178,15 +3172,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  653:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always in non-secure
  654:Drivers/CMSIS/Include/cmsis_gcc.h ****   mode.
  655:Drivers/CMSIS/Include/cmsis_gcc.h ****   
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 54
-
-
  656:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Process Stack Pointer Limit (PSPLIM).
  657:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               PSPLIM Register value
  658:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  659:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_PSPLIM(void)
  660:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  661:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 54
+
+
  662:Drivers/CMSIS/Include/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
  663:Drivers/CMSIS/Include/cmsis_gcc.h ****     // without main extensions, the non-secure PSPLIM is RAZ/WI
  664:Drivers/CMSIS/Include/cmsis_gcc.h ****   return 0U;
@@ -3238,15 +3232,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  710:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
  711:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR psplim, %0" : : "r" (ProcStackPtrLimit));
  712:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 55
-
-
  713:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  714:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  715:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  716:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
  717:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  718:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Process Stack Pointer (non-secure)
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 55
+
+
  719:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
  720:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored.
  721:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -3298,15 +3292,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  767:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               MSPLIM Register value
  768:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  769:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_MSPLIM_NS(void)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 56
-
-
  770:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  771:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
  772:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
  773:Drivers/CMSIS/Include/cmsis_gcc.h ****   return 0U;
  774:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
  775:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 56
+
+
  776:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msplim_ns" : "=r" (result) );
  777:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
  778:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -3358,15 +3352,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  824:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
  825:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
  826:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 57
-
-
  827:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  828:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  829:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get FPSCR
  830:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Floating Point Status/Control register.
  831:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Floating Point Status/Control register value
  832:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 57
+
+
  833:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_FPSCR(void)
  834:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  835:Drivers/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
@@ -3418,15 +3412,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  881:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
  882:Drivers/CMSIS/Include/cmsis_gcc.h ****   Access to dedicated instructions
  883:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 58
-
-
  884:Drivers/CMSIS/Include/cmsis_gcc.h **** */
  885:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  886:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Define macros for porting to both thumb1 and thumb2.
  887:Drivers/CMSIS/Include/cmsis_gcc.h ****  * For thumb1, use low register (r0-r7), specified by constraint "l"
  888:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Otherwise, use general registers, specified by constraint "r" */
  889:Drivers/CMSIS/Include/cmsis_gcc.h **** #if defined (__thumb__) && !defined (__thumb2__)
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 58
+
+
  890:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_OUT_REG(r) "=l" (r)
  891:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_RW_REG(r) "+l" (r)
  892:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_USE_REG(r) "l" (r)
@@ -3478,92 +3472,92 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  938:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  939:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  940:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Data Synchronization Barrier
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 59
-
-
  941:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Acts as a special kind of Data Memory Barrier.
  942:Drivers/CMSIS/Include/cmsis_gcc.h ****            It completes when all explicit memory accesses before this instruction complete.
  943:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  944:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DSB(void)
  945:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  946:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("dsb 0xF":::"memory");
- 270              		.loc 3 946 0
- 271              		.syntax unified
- 272              	@ 946 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 273 0016 BFF34F8F 		dsb 0xF
- 274              	@ 0 "" 2
- 275              		.thumb
- 276              		.syntax unified
- 277              	.LBE69:
- 278              	.LBE68:
- 279              	.LBB70:
- 280              	.LBB71:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 59
+
+
+ 260              		.loc 3 946 0
+ 261              		.syntax unified
+ 262              	@ 946 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 263 0018 BFF34F8F 		dsb 0xF
+ 264              	@ 0 "" 2
+ 265              		.thumb
+ 266              		.syntax unified
+ 267              	.LBE53:
+ 268              	.LBE52:
+ 269              	.LBB54:
+ 270              	.LBB55:
  935:Drivers/CMSIS/Include/cmsis_gcc.h **** }
- 281              		.loc 3 935 0
- 282              		.syntax unified
- 283              	@ 935 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 284 001a BFF36F8F 		isb 0xF
- 285              	@ 0 "" 2
- 286              	.LVL28:
- 287              		.thumb
- 288              		.syntax unified
- 289              	.L16:
- 290              	.LBE71:
- 291              	.LBE70:
- 292              	.LBE67:
- 293              	.LBE66:
+ 271              		.loc 3 935 0
+ 272              		.syntax unified
+ 273              	@ 935 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 274 001c BFF36F8F 		isb 0xF
+ 275              	@ 0 "" 2
+ 276              	.LVL20:
+ 277              		.thumb
+ 278              		.syntax unified
+ 279              	.L15:
+ 280              	.LBE55:
+ 281              	.LBE54:
+ 282              	.LBE51:
+ 283              	.LBE50:
  225:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Check the parameters */
  226:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   assert_param(IS_NVIC_DEVICE_IRQ(IRQn));
  227:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   
  228:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Disable interrupt */
  229:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   NVIC_DisableIRQ(IRQn);
  230:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 294              		.loc 1 230 0
- 295 001e 7047     		bx	lr
- 296              	.L19:
- 297              		.align	2
- 298              	.L18:
- 299 0020 00E100E0 		.word	-536813312
- 300              		.cfi_endproc
- 301              	.LFE332:
- 303              		.section	.text.HAL_NVIC_SystemReset,"ax",%progbits
- 304              		.align	1
- 305              		.global	HAL_NVIC_SystemReset
- 306              		.syntax unified
- 307              		.thumb
- 308              		.thumb_func
- 309              		.fpu fpv4-sp-d16
- 311              	HAL_NVIC_SystemReset:
- 312              	.LFB333:
+ 284              		.loc 1 230 0
+ 285 0020 7047     		bx	lr
+ 286              	.L18:
+ 287 0022 00BF     		.align	2
+ 288              	.L17:
+ 289 0024 00E100E0 		.word	-536813312
+ 290              		.cfi_endproc
+ 291              	.LFE332:
+ 293              		.section	.text.HAL_NVIC_SystemReset,"ax",%progbits
+ 294              		.align	1
+ 295              		.global	HAL_NVIC_SystemReset
+ 296              		.syntax unified
+ 297              		.thumb
+ 298              		.thumb_func
+ 299              		.fpu fpv4-sp-d16
+ 301              	HAL_NVIC_SystemReset:
+ 302              	.LFB333:
  231:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  232:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  233:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief  Initiate a system reset request to reset the MCU.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 60
-
-
  234:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @retval None
  235:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  236:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** void HAL_NVIC_SystemReset(void)
  237:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 313              		.loc 1 237 0
- 314              		.cfi_startproc
- 315              		@ Volatile: function does not return.
- 316              		@ args = 0, pretend = 0, frame = 0
- 317              		@ frame_needed = 0, uses_anonymous_args = 0
- 318              		@ link register save eliminated.
- 319              	.LBB78:
- 320              	.LBB79:
- 321              	.LBB80:
- 322              	.LBB81:
- 323              		.loc 3 946 0
- 324              		.syntax unified
- 325              	@ 946 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 326 0000 BFF34F8F 		dsb 0xF
- 327              	@ 0 "" 2
- 328              		.thumb
- 329              		.syntax unified
- 330              	.LBE81:
- 331              	.LBE80:
+ 303              		.loc 1 237 0
+ 304              		.cfi_startproc
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 60
+
+
+ 305              		@ Volatile: function does not return.
+ 306              		@ args = 0, pretend = 0, frame = 0
+ 307              		@ frame_needed = 0, uses_anonymous_args = 0
+ 308              		@ link register save eliminated.
+ 309              	.LBB62:
+ 310              	.LBB63:
+ 311              	.LBB64:
+ 312              	.LBB65:
+ 313              		.loc 3 946 0
+ 314              		.syntax unified
+ 315              	@ 946 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 316 0000 BFF34F8F 		dsb 0xF
+ 317              	@ 0 "" 2
+ 318              		.thumb
+ 319              		.syntax unified
+ 320              	.LBE65:
+ 321              	.LBE64:
 1868:Drivers/CMSIS/Include/core_cm4.h ****          );
 1869:Drivers/CMSIS/Include/core_cm4.h **** }
 1870:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3598,15 +3592,15 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1899:Drivers/CMSIS/Include/core_cm4.h ****   \details Sets an interrupt vector in SRAM based interrupt vector table.
 1900:Drivers/CMSIS/Include/core_cm4.h ****            The interrupt number can be positive to specify a device specific interrupt,
 1901:Drivers/CMSIS/Include/core_cm4.h ****            or negative to specify a processor exception.
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 61
-
-
 1902:Drivers/CMSIS/Include/core_cm4.h ****            VTOR must been relocated to SRAM before.
 1903:Drivers/CMSIS/Include/core_cm4.h ****   \param [in]   IRQn      Interrupt number
 1904:Drivers/CMSIS/Include/core_cm4.h ****   \param [in]   vector    Address of interrupt handler function
 1905:Drivers/CMSIS/Include/core_cm4.h ****  */
 1906:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE void __NVIC_SetVector(IRQn_Type IRQn, uint32_t vector)
 1907:Drivers/CMSIS/Include/core_cm4.h **** {
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 61
+
+
 1908:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t vectors = (uint32_t )SCB->VTOR;
 1909:Drivers/CMSIS/Include/core_cm4.h ****   (* (int *) (vectors + ((int32_t)IRQn + NVIC_USER_IRQ_OFFSET) * 4)) = vector;
 1910:Drivers/CMSIS/Include/core_cm4.h ****   /* ARM Application Note 321 states that the M4 does not require the architectural barrier */
@@ -3638,62 +3632,65 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 1936:Drivers/CMSIS/Include/core_cm4.h ****                                                                        buffered write are completed
 1937:Drivers/CMSIS/Include/core_cm4.h ****   SCB->AIRCR  = (uint32_t)((0x5FAUL << SCB_AIRCR_VECTKEY_Pos)    |
 1938:Drivers/CMSIS/Include/core_cm4.h ****                            (SCB->AIRCR & SCB_AIRCR_PRIGROUP_Msk) |
- 332              		.loc 2 1938 0
- 333 0004 0549     		ldr	r1, .L22
- 334 0006 CA68     		ldr	r2, [r1, #12]
- 335 0008 02F4E062 		and	r2, r2, #1792
+ 322              		.loc 2 1938 0
+ 323 0004 0549     		ldr	r1, .L21
 1937:Drivers/CMSIS/Include/core_cm4.h ****                            (SCB->AIRCR & SCB_AIRCR_PRIGROUP_Msk) |
- 336              		.loc 2 1937 0
- 337 000c 044B     		ldr	r3, .L22+4
- 338 000e 1343     		orrs	r3, r3, r2
- 339 0010 CB60     		str	r3, [r1, #12]
- 340              	.LBB82:
- 341              	.LBB83:
- 342              		.loc 3 946 0
- 343              		.syntax unified
- 344              	@ 946 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 345 0012 BFF34F8F 		dsb 0xF
- 346              	@ 0 "" 2
- 347              		.thumb
- 348              		.syntax unified
- 349              	.L21:
- 350              	.LBE83:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 62
-
-
- 351              	.LBE82:
+ 324              		.loc 2 1937 0
+ 325 0006 064B     		ldr	r3, .L21+4
+ 326              		.loc 2 1938 0
+ 327 0008 CA68     		ldr	r2, [r1, #12]
+ 328 000a 02F4E062 		and	r2, r2, #1792
+1937:Drivers/CMSIS/Include/core_cm4.h ****                            (SCB->AIRCR & SCB_AIRCR_PRIGROUP_Msk) |
+ 329              		.loc 2 1937 0
+ 330 000e 1343     		orrs	r3, r3, r2
+ 331 0010 CB60     		str	r3, [r1, #12]
+ 332              	.LBB66:
+ 333              	.LBB67:
+ 334              		.loc 3 946 0
+ 335              		.syntax unified
+ 336              	@ 946 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 337 0012 BFF34F8F 		dsb 0xF
+ 338              	@ 0 "" 2
+ 339              		.thumb
+ 340              		.syntax unified
+ 341              	.L20:
+ 342              	.LBE67:
+ 343              	.LBE66:
 1939:Drivers/CMSIS/Include/core_cm4.h ****                             SCB_AIRCR_SYSRESETREQ_Msk    );         /* Keep priority group unchange
 1940:Drivers/CMSIS/Include/core_cm4.h ****   __DSB();                                                          /* Ensure completion of memory 
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 62
+
+
 1941:Drivers/CMSIS/Include/core_cm4.h **** 
 1942:Drivers/CMSIS/Include/core_cm4.h ****   for(;;)                                                           /* wait until reset */
 1943:Drivers/CMSIS/Include/core_cm4.h ****   {
 1944:Drivers/CMSIS/Include/core_cm4.h ****     __NOP();
- 352              		.loc 2 1944 0
- 353              		.syntax unified
- 354              	@ 1944 "Drivers/CMSIS/Include/core_cm4.h" 1
- 355 0016 00BF     		nop
- 356              	@ 0 "" 2
- 357              		.thumb
- 358              		.syntax unified
- 359 0018 FDE7     		b	.L21
- 360              	.L23:
- 361 001a 00BF     		.align	2
- 362              	.L22:
- 363 001c 00ED00E0 		.word	-536810240
- 364 0020 0400FA05 		.word	100270084
- 365              	.LBE79:
- 366              	.LBE78:
- 367              		.cfi_endproc
- 368              	.LFE333:
- 370              		.section	.text.HAL_SYSTICK_Config,"ax",%progbits
- 371              		.align	1
- 372              		.global	HAL_SYSTICK_Config
- 373              		.syntax unified
- 374              		.thumb
- 375              		.thumb_func
- 376              		.fpu fpv4-sp-d16
- 378              	HAL_SYSTICK_Config:
- 379              	.LFB334:
+ 344              		.loc 2 1944 0
+ 345              		.syntax unified
+ 346              	@ 1944 "Drivers/CMSIS/Include/core_cm4.h" 1
+ 347 0016 00BF     		nop
+ 348              	@ 0 "" 2
+ 349              		.thumb
+ 350              		.syntax unified
+ 351 0018 FDE7     		b	.L20
+ 352              	.L22:
+ 353 001a 00BF     		.align	2
+ 354              	.L21:
+ 355 001c 00ED00E0 		.word	-536810240
+ 356 0020 0400FA05 		.word	100270084
+ 357              	.LBE63:
+ 358              	.LBE62:
+ 359              		.cfi_endproc
+ 360              	.LFE333:
+ 362              		.section	.text.HAL_SYSTICK_Config,"ax",%progbits
+ 363              		.align	1
+ 364              		.global	HAL_SYSTICK_Config
+ 365              		.syntax unified
+ 366              		.thumb
+ 367              		.thumb_func
+ 368              		.fpu fpv4-sp-d16
+ 370              	HAL_SYSTICK_Config:
+ 371              	.LFB334:
  238:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* System Reset */
  239:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   NVIC_SystemReset();
  240:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
@@ -3707,23 +3704,23 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  248:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  249:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** uint32_t HAL_SYSTICK_Config(uint32_t TicksNumb)
  250:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 380              		.loc 1 250 0
- 381              		.cfi_startproc
- 382              		@ args = 0, pretend = 0, frame = 0
- 383              		@ frame_needed = 0, uses_anonymous_args = 0
- 384              		@ link register save eliminated.
- 385              	.LVL29:
- 386              	.LBB84:
- 387              	.LBB85:
+ 372              		.loc 1 250 0
+ 373              		.cfi_startproc
+ 374              		@ args = 0, pretend = 0, frame = 0
+ 375              		@ frame_needed = 0, uses_anonymous_args = 0
+ 376              		@ link register save eliminated.
+ 377              	.LVL21:
+ 378              	.LBB72:
+ 379              	.LBB73:
 1945:Drivers/CMSIS/Include/core_cm4.h ****   }
 1946:Drivers/CMSIS/Include/core_cm4.h **** }
 1947:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 63
-
-
 1948:Drivers/CMSIS/Include/core_cm4.h **** /*@} end of CMSIS_Core_NVICFunctions */
 1949:Drivers/CMSIS/Include/core_cm4.h **** 
 1950:Drivers/CMSIS/Include/core_cm4.h **** 
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 63
+
+
 1951:Drivers/CMSIS/Include/core_cm4.h **** /* ##########################  MPU functions  #################################### */
 1952:Drivers/CMSIS/Include/core_cm4.h **** 
 1953:Drivers/CMSIS/Include/core_cm4.h **** #if defined (__MPU_PRESENT) && (__MPU_PRESENT == 1U)
@@ -3778,12 +3775,12 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 2002:Drivers/CMSIS/Include/core_cm4.h ****  */
 2003:Drivers/CMSIS/Include/core_cm4.h **** 
 2004:Drivers/CMSIS/Include/core_cm4.h **** #if defined (__Vendor_SysTickConfig) && (__Vendor_SysTickConfig == 0U)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 64
-
-
 2005:Drivers/CMSIS/Include/core_cm4.h **** 
 2006:Drivers/CMSIS/Include/core_cm4.h **** /**
 2007:Drivers/CMSIS/Include/core_cm4.h ****   \brief   System Tick Configuration
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 64
+
+
 2008:Drivers/CMSIS/Include/core_cm4.h ****   \details Initializes the System Timer and its interrupt, and starts the System Tick Timer.
 2009:Drivers/CMSIS/Include/core_cm4.h ****            Counter is in free running mode to generate periodic interrupts.
 2010:Drivers/CMSIS/Include/core_cm4.h ****   \param [in]  ticks  Number of ticks between two interrupts.
@@ -3796,58 +3793,68 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
 2017:Drivers/CMSIS/Include/core_cm4.h **** __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks)
 2018:Drivers/CMSIS/Include/core_cm4.h **** {
 2019:Drivers/CMSIS/Include/core_cm4.h ****   if ((ticks - 1UL) > SysTick_LOAD_RELOAD_Msk)
- 388              		.loc 2 2019 0
- 389 0000 0138     		subs	r0, r0, #1
- 390              	.LVL30:
- 391 0002 B0F1807F 		cmp	r0, #16777216
- 392 0006 0AD2     		bcs	.L26
+ 380              		.loc 2 2019 0
+ 381 0000 0138     		subs	r0, r0, #1
+ 382              	.LVL22:
+ 383 0002 B0F1807F 		cmp	r0, #16777216
+ 384 0006 0AD2     		bcs	.L25
 2020:Drivers/CMSIS/Include/core_cm4.h ****   {
 2021:Drivers/CMSIS/Include/core_cm4.h ****     return (1UL);                                                   /* Reload value impossible */
 2022:Drivers/CMSIS/Include/core_cm4.h ****   }
 2023:Drivers/CMSIS/Include/core_cm4.h **** 
 2024:Drivers/CMSIS/Include/core_cm4.h ****   SysTick->LOAD  = (uint32_t)(ticks - 1UL);                         /* set reload register */
- 393              		.loc 2 2024 0
- 394 0008 064B     		ldr	r3, .L27
- 395 000a 5860     		str	r0, [r3, #4]
- 396              	.LVL31:
- 397              	.LBB86:
- 398              	.LBB87:
+ 385              		.loc 2 2024 0
+ 386 0008 064B     		ldr	r3, .L26
+ 387              	.LBB74:
+ 388              	.LBB75:
 1817:Drivers/CMSIS/Include/core_cm4.h ****   }
- 399              		.loc 2 1817 0
- 400 000c 064A     		ldr	r2, .L27+4
- 401 000e F021     		movs	r1, #240
- 402 0010 82F82310 		strb	r1, [r2, #35]
- 403              	.LVL32:
- 404              	.LBE87:
- 405              	.LBE86:
+ 389              		.loc 2 1817 0
+ 390 000a 074A     		ldr	r2, .L26+4
+ 391              	.LBE75:
+ 392              	.LBE74:
+ 393              		.loc 2 2024 0
+ 394 000c 5860     		str	r0, [r3, #4]
+ 395              	.LVL23:
+ 396              	.LBB77:
+ 397              	.LBB76:
+1817:Drivers/CMSIS/Include/core_cm4.h ****   }
+ 398              		.loc 2 1817 0
+ 399 000e F021     		movs	r1, #240
+ 400 0010 82F82310 		strb	r1, [r2, #35]
+ 401              	.LVL24:
+ 402              	.LBE76:
+ 403              	.LBE77:
 2025:Drivers/CMSIS/Include/core_cm4.h ****   NVIC_SetPriority (SysTick_IRQn, (1UL << __NVIC_PRIO_BITS) - 1UL); /* set Priority for Systick Int
 2026:Drivers/CMSIS/Include/core_cm4.h ****   SysTick->VAL   = 0UL;                                             /* Load the SysTick Counter Val
- 406              		.loc 2 2026 0
- 407 0014 0020     		movs	r0, #0
- 408              	.LVL33:
- 409 0016 9860     		str	r0, [r3, #8]
+ 404              		.loc 2 2026 0
+ 405 0014 0020     		movs	r0, #0
+ 406              	.LVL25:
 2027:Drivers/CMSIS/Include/core_cm4.h ****   SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk |
- 410              		.loc 2 2027 0
- 411 0018 0722     		movs	r2, #7
+ 407              		.loc 2 2027 0
+ 408 0016 0722     		movs	r2, #7
+2026:Drivers/CMSIS/Include/core_cm4.h ****   SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk |
+ 409              		.loc 2 2026 0
+ 410 0018 9860     		str	r0, [r3, #8]
+ 411              		.loc 2 2027 0
  412 001a 1A60     		str	r2, [r3]
  413 001c 7047     		bx	lr
- 414              	.L26:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 65
+
+
+ 414              	.L25:
 2021:Drivers/CMSIS/Include/core_cm4.h ****   }
  415              		.loc 2 2021 0
  416 001e 0120     		movs	r0, #1
- 417              	.LVL34:
- 418              	.LBE85:
- 419              	.LBE84:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 65
-
-
+ 417              	.LVL26:
+ 418              	.LBE73:
+ 419              	.LBE72:
  251:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****    return SysTick_Config(TicksNumb);
  252:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
  420              		.loc 1 252 0
  421 0020 7047     		bx	lr
- 422              	.L28:
+ 422              	.L27:
  423 0022 00BF     		.align	2
- 424              	.L27:
+ 424              	.L26:
  425 0024 10E000E0 		.word	-536813552
  426 0028 00ED00E0 		.word	-536810240
  427              		.cfi_endproc
@@ -3891,27 +3898,27 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  441              		.cfi_startproc
  442              		@ args = 0, pretend = 0, frame = 0
  443              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 66
+
+
  444              		@ link register save eliminated.
- 445              	.LBB88:
- 446              	.LBB89:
+ 445              	.LBB80:
+ 446              	.LBB81:
 1669:Drivers/CMSIS/Include/core_cm4.h **** }
  447              		.loc 2 1669 0
- 448 0000 024B     		ldr	r3, .L30
+ 448 0000 024B     		ldr	r3, .L29
  449 0002 D868     		ldr	r0, [r3, #12]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 66
-
-
- 450              	.LBE89:
- 451              	.LBE88:
+ 450              	.LBE81:
+ 451              	.LBE80:
  279:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Get the PRIGROUP[10:8] field value */
  280:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   return NVIC_GetPriorityGrouping();
  281:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
  452              		.loc 1 281 0
  453 0004 C0F30220 		ubfx	r0, r0, #8, #3
  454 0008 7047     		bx	lr
- 455              	.L31:
+ 455              	.L30:
  456 000a 00BF     		.align	2
- 457              	.L30:
+ 457              	.L29:
  458 000c 00ED00E0 		.word	-536810240
  459              		.cfi_endproc
  460              	.LFE335:
@@ -3951,136 +3958,145 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  472              		.loc 1 305 0
  473              		.cfi_startproc
  474              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 67
+
+
  475              		@ frame_needed = 0, uses_anonymous_args = 0
- 476              		@ link register save eliminated.
- 477              	.LVL35:
- 478 0000 70B4     		push	{r4, r5, r6}
- 479              	.LCFI3:
- 480              		.cfi_def_cfa_offset 12
- 481              		.cfi_offset 4, -12
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 67
-
-
- 482              		.cfi_offset 5, -8
- 483              		.cfi_offset 6, -4
- 484              	.LVL36:
- 485              	.LBB90:
- 486              	.LBB91:
+ 476              	.LVL27:
+ 477 0000 70B5     		push	{r4, r5, r6, lr}
+ 478              	.LCFI1:
+ 479              		.cfi_def_cfa_offset 16
+ 480              		.cfi_offset 4, -16
+ 481              		.cfi_offset 5, -12
+ 482              		.cfi_offset 6, -8
+ 483              		.cfi_offset 14, -4
+ 484              	.LBB86:
+ 485              	.LBB87:
 1834:Drivers/CMSIS/Include/core_cm4.h ****   {
- 487              		.loc 2 1834 0
- 488 0002 0028     		cmp	r0, #0
- 489              	.LVL37:
- 490 0004 21DB     		blt	.L33
+ 486              		.loc 2 1834 0
+ 487 0002 0028     		cmp	r0, #0
+ 488              	.LVL28:
 1836:Drivers/CMSIS/Include/core_cm4.h ****   }
- 491              		.loc 2 1836 0
- 492 0006 00F16040 		add	r0, r0, #-536870912
- 493 000a 00F56140 		add	r0, r0, #57600
- 494 000e 90F80003 		ldrb	r0, [r0, #768]	@ zero_extendqisi2
- 495 0012 0009     		lsrs	r0, r0, #4
- 496              	.L34:
- 497              	.LVL38:
- 498              	.LBE91:
- 499              	.LBE90:
- 500              	.LBB93:
- 501              	.LBB94:
+ 489              		.loc 2 1836 0
+ 490 0004 AEBF     		itee	ge
+ 491 0006 00F16040 		addge	r0, r0, #-536870912
+1840:Drivers/CMSIS/Include/core_cm4.h ****   }
+ 492              		.loc 2 1840 0
+ 493 000a 00F00F00 		andlt	r0, r0, #15
+ 494 000e 124C     		ldrlt	r4, .L37
+ 495              	.LBE87:
+ 496              	.LBE86:
+ 497              	.LBB90:
+ 498              	.LBB91:
 1885:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t PreemptPriorityBits;
- 502              		.loc 2 1885 0
- 503 0014 01F00701 		and	r1, r1, #7
- 504              	.LVL39:
+ 499              		.loc 2 1885 0
+ 500 0010 01F00701 		and	r1, r1, #7
+ 501              	.LVL29:
+ 502              	.LBE91:
+ 503              	.LBE90:
+ 504              	.LBB94:
+ 505              	.LBB88:
+1836:Drivers/CMSIS/Include/core_cm4.h ****   }
+ 506              		.loc 2 1836 0
+ 507 0014 AABF     		itet	ge
+ 508 0016 00F56140 		addge	r0, r0, #57600
+1840:Drivers/CMSIS/Include/core_cm4.h ****   }
+ 509              		.loc 2 1840 0
+ 510 001a 205C     		ldrblt	r0, [r4, r0]	@ zero_extendqisi2
+1836:Drivers/CMSIS/Include/core_cm4.h ****   }
+ 511              		.loc 2 1836 0
+ 512 001c 90F80003 		ldrbge	r0, [r0, #768]	@ zero_extendqisi2
+ 513              	.LBE88:
+ 514              	.LBE94:
+ 515              	.LBB95:
+ 516              	.LBB92:
 1889:Drivers/CMSIS/Include/core_cm4.h ****   SubPriorityBits     = ((PriorityGroupTmp + (uint32_t)(__NVIC_PRIO_BITS)) < (uint32_t)7UL) ? (uint
- 505              		.loc 2 1889 0
- 506 0018 C1F10704 		rsb	r4, r1, #7
- 507 001c 042C     		cmp	r4, #4
- 508 001e 28BF     		it	cs
- 509 0020 0424     		movcs	r4, #4
- 510              	.LVL40:
+ 517              		.loc 2 1889 0
+ 518 0020 C1F10704 		rsb	r4, r1, #7
 1890:Drivers/CMSIS/Include/core_cm4.h **** 
- 511              		.loc 2 1890 0
- 512 0022 0D1D     		adds	r5, r1, #4
- 513 0024 062D     		cmp	r5, #6
- 514 0026 16D9     		bls	.L36
- 515 0028 0339     		subs	r1, r1, #3
- 516              	.LVL41:
- 517              	.L35:
+ 519              		.loc 2 1890 0
+ 520 0024 0D1D     		adds	r5, r1, #4
+1889:Drivers/CMSIS/Include/core_cm4.h ****   SubPriorityBits     = ((PriorityGroupTmp + (uint32_t)(__NVIC_PRIO_BITS)) < (uint32_t)7UL) ? (uint
+ 521              		.loc 2 1889 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 68
+
+
+ 522 0026 042C     		cmp	r4, #4
+ 523 0028 28BF     		it	cs
+ 524 002a 0424     		movcs	r4, #4
+1890:Drivers/CMSIS/Include/core_cm4.h **** 
+ 525              		.loc 2 1890 0
+ 526 002c 062D     		cmp	r5, #6
+ 527              	.LBE92:
+ 528              	.LBE95:
+ 529              	.LBB96:
+ 530              	.LBB89:
+1840:Drivers/CMSIS/Include/core_cm4.h ****   }
+ 531              		.loc 2 1840 0
+ 532 002e 4FEA1010 		lsr	r0, r0, #4
+ 533              	.LVL30:
+ 534              	.LBE89:
+ 535              	.LBE96:
+ 536              	.LBB97:
+ 537              	.LBB93:
+1890:Drivers/CMSIS/Include/core_cm4.h **** 
+ 538              		.loc 2 1890 0
+ 539 0032 8CBF     		ite	hi
+ 540 0034 0339     		subhi	r1, r1, #3
+ 541              	.LVL31:
+ 542 0036 0021     		movls	r1, #0
+ 543              	.LVL32:
 1892:Drivers/CMSIS/Include/core_cm4.h ****   *pSubPriority     = (Priority                   ) & (uint32_t)((1UL << (SubPriorityBits    )) - 1
- 518              		.loc 2 1892 0
- 519 002a 20FA01F6 		lsr	r6, r0, r1
- 520 002e 4FF0FF35 		mov	r5, #-1
- 521              	.LVL42:
- 522 0032 05FA04F4 		lsl	r4, r5, r4
- 523              	.LVL43:
- 524 0036 26EA0404 		bic	r4, r6, r4
- 525 003a 1460     		str	r4, [r2]
+ 544              		.loc 2 1892 0
+ 545 0038 4FF0FF35 		mov	r5, #-1
+ 546              	.LVL33:
+ 547 003c 20FA01F6 		lsr	r6, r0, r1
+ 548 0040 05FA04F4 		lsl	r4, r5, r4
+ 549              	.LVL34:
 1893:Drivers/CMSIS/Include/core_cm4.h **** }
- 526              		.loc 2 1893 0
- 527 003c 05FA01F1 		lsl	r1, r5, r1
- 528              	.LVL44:
- 529 0040 20EA0100 		bic	r0, r0, r1
- 530 0044 1860     		str	r0, [r3]
- 531              	.LVL45:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 68
-
-
- 532              	.LBE94:
- 533              	.LBE93:
+ 550              		.loc 2 1893 0
+ 551 0044 05FA01F1 		lsl	r1, r5, r1
+ 552              	.LVL35:
+1892:Drivers/CMSIS/Include/core_cm4.h ****   *pSubPriority     = (Priority                   ) & (uint32_t)((1UL << (SubPriorityBits    )) - 1
+ 553              		.loc 2 1892 0
+ 554 0048 26EA0404 		bic	r4, r6, r4
+1893:Drivers/CMSIS/Include/core_cm4.h **** }
+ 555              		.loc 2 1893 0
+ 556 004c 20EA0100 		bic	r0, r0, r1
+1892:Drivers/CMSIS/Include/core_cm4.h ****   *pSubPriority     = (Priority                   ) & (uint32_t)((1UL << (SubPriorityBits    )) - 1
+ 557              		.loc 2 1892 0
+ 558 0050 1460     		str	r4, [r2]
+1893:Drivers/CMSIS/Include/core_cm4.h **** }
+ 559              		.loc 2 1893 0
+ 560 0052 1860     		str	r0, [r3]
+ 561              	.LVL36:
+ 562              	.LBE93:
+ 563              	.LBE97:
  306:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Check the parameters */
  307:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   assert_param(IS_NVIC_PRIORITY_GROUP(PriorityGroup));
  308:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****  /* Get priority for Cortex-M system or device specific interrupts */
  309:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   NVIC_DecodePriority(NVIC_GetPriority(IRQn), PriorityGroup, pPreemptPriority, pSubPriority);
  310:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 534              		.loc 1 310 0
- 535 0046 70BC     		pop	{r4, r5, r6}
- 536              	.LCFI4:
- 537              		.cfi_remember_state
- 538              		.cfi_restore 6
- 539              		.cfi_restore 5
- 540              		.cfi_restore 4
- 541              		.cfi_def_cfa_offset 0
- 542 0048 7047     		bx	lr
- 543              	.LVL46:
- 544              	.L33:
- 545              	.LCFI5:
- 546              		.cfi_restore_state
- 547              	.LBB96:
- 548              	.LBB92:
-1840:Drivers/CMSIS/Include/core_cm4.h ****   }
- 549              		.loc 2 1840 0
- 550 004a 00F00F00 		and	r0, r0, #15
- 551 004e 034C     		ldr	r4, .L38
- 552 0050 205C     		ldrb	r0, [r4, r0]	@ zero_extendqisi2
- 553 0052 0009     		lsrs	r0, r0, #4
- 554 0054 DEE7     		b	.L34
- 555              	.LVL47:
- 556              	.L36:
- 557              	.LBE92:
- 558              	.LBE96:
- 559              	.LBB97:
- 560              	.LBB95:
-1890:Drivers/CMSIS/Include/core_cm4.h **** 
- 561              		.loc 2 1890 0
- 562 0056 0021     		movs	r1, #0
- 563              	.LVL48:
- 564 0058 E7E7     		b	.L35
- 565              	.L39:
- 566 005a 00BF     		.align	2
- 567              	.L38:
- 568 005c 14ED00E0 		.word	-536810220
- 569              	.LBE95:
- 570              	.LBE97:
- 571              		.cfi_endproc
- 572              	.LFE336:
- 574              		.section	.text.HAL_NVIC_SetPendingIRQ,"ax",%progbits
- 575              		.align	1
- 576              		.global	HAL_NVIC_SetPendingIRQ
- 577              		.syntax unified
- 578              		.thumb
- 579              		.thumb_func
- 580              		.fpu fpv4-sp-d16
- 582              	HAL_NVIC_SetPendingIRQ:
- 583              	.LFB337:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 69
+ 564              		.loc 1 310 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 69
 
 
+ 565 0054 70BD     		pop	{r4, r5, r6, pc}
+ 566              	.L38:
+ 567 0056 00BF     		.align	2
+ 568              	.L37:
+ 569 0058 14ED00E0 		.word	-536810220
+ 570              		.cfi_endproc
+ 571              	.LFE336:
+ 573              		.section	.text.HAL_NVIC_SetPendingIRQ,"ax",%progbits
+ 574              		.align	1
+ 575              		.global	HAL_NVIC_SetPendingIRQ
+ 576              		.syntax unified
+ 577              		.thumb
+ 578              		.thumb_func
+ 579              		.fpu fpv4-sp-d16
+ 581              	HAL_NVIC_SetPendingIRQ:
+ 582              	.LFB337:
  311:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  312:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  313:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief  Set Pending bit of an external interrupt.
@@ -4091,58 +4107,58 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  318:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  319:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** void HAL_NVIC_SetPendingIRQ(IRQn_Type IRQn)
  320:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 584              		.loc 1 320 0
- 585              		.cfi_startproc
- 586              		@ args = 0, pretend = 0, frame = 0
- 587              		@ frame_needed = 0, uses_anonymous_args = 0
- 588              		@ link register save eliminated.
- 589              	.LVL49:
- 590              	.LBB98:
- 591              	.LBB99:
+ 583              		.loc 1 320 0
+ 584              		.cfi_startproc
+ 585              		@ args = 0, pretend = 0, frame = 0
+ 586              		@ frame_needed = 0, uses_anonymous_args = 0
+ 587              		@ link register save eliminated.
+ 588              	.LVL37:
+ 589              	.LBB100:
+ 590              	.LBB101:
 1757:Drivers/CMSIS/Include/core_cm4.h ****   {
- 592              		.loc 2 1757 0
- 593 0000 0028     		cmp	r0, #0
- 594              	.LVL50:
- 595 0002 08DB     		blt	.L40
+ 591              		.loc 2 1757 0
+ 592 0000 0028     		cmp	r0, #0
+ 593              	.LVL38:
+ 594 0002 09DB     		blt	.L39
 1759:Drivers/CMSIS/Include/core_cm4.h ****   }
- 596              		.loc 2 1759 0
- 597 0004 00F01F02 		and	r2, r0, #31
- 598 0008 4009     		lsrs	r0, r0, #5
- 599 000a 0123     		movs	r3, #1
- 600 000c 9340     		lsls	r3, r3, r2
- 601 000e 4030     		adds	r0, r0, #64
- 602 0010 014A     		ldr	r2, .L42
- 603 0012 42F82030 		str	r3, [r2, r0, lsl #2]
- 604              	.LVL51:
- 605              	.L40:
- 606              	.LBE99:
- 607              	.LBE98:
+ 595              		.loc 2 1759 0
+ 596 0004 4309     		lsrs	r3, r0, #5
+ 597 0006 0122     		movs	r2, #1
+ 598 0008 00F01F00 		and	r0, r0, #31
+ 599 000c 02FA00F0 		lsl	r0, r2, r0
+ 600 0010 4033     		adds	r3, r3, #64
+ 601 0012 024A     		ldr	r2, .L41
+ 602 0014 42F82300 		str	r0, [r2, r3, lsl #2]
+ 603              	.LVL39:
+ 604              	.L39:
+ 605              	.LBE101:
+ 606              	.LBE100:
  321:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Check the parameters */
  322:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   assert_param(IS_NVIC_DEVICE_IRQ(IRQn));
  323:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   
  324:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Set interrupt pending */
  325:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   NVIC_SetPendingIRQ(IRQn);
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 70
+
+
  326:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 608              		.loc 1 326 0
- 609 0016 7047     		bx	lr
- 610              	.L43:
- 611              		.align	2
- 612              	.L42:
- 613 0018 00E100E0 		.word	-536813312
- 614              		.cfi_endproc
- 615              	.LFE337:
- 617              		.section	.text.HAL_NVIC_GetPendingIRQ,"ax",%progbits
- 618              		.align	1
- 619              		.global	HAL_NVIC_GetPendingIRQ
- 620              		.syntax unified
- 621              		.thumb
- 622              		.thumb_func
- 623              		.fpu fpv4-sp-d16
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 70
-
-
- 625              	HAL_NVIC_GetPendingIRQ:
- 626              	.LFB338:
+ 607              		.loc 1 326 0
+ 608 0018 7047     		bx	lr
+ 609              	.L42:
+ 610 001a 00BF     		.align	2
+ 611              	.L41:
+ 612 001c 00E100E0 		.word	-536813312
+ 613              		.cfi_endproc
+ 614              	.LFE337:
+ 616              		.section	.text.HAL_NVIC_GetPendingIRQ,"ax",%progbits
+ 617              		.align	1
+ 618              		.global	HAL_NVIC_GetPendingIRQ
+ 619              		.syntax unified
+ 620              		.thumb
+ 621              		.thumb_func
+ 622              		.fpu fpv4-sp-d16
+ 624              	HAL_NVIC_GetPendingIRQ:
+ 625              	.LFB338:
  327:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  328:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  329:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief  Get Pending Interrupt (read the pending register in the NVIC
@@ -4155,62 +4171,61 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  336:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  337:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** uint32_t HAL_NVIC_GetPendingIRQ(IRQn_Type IRQn)
  338:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 627              		.loc 1 338 0
- 628              		.cfi_startproc
- 629              		@ args = 0, pretend = 0, frame = 0
- 630              		@ frame_needed = 0, uses_anonymous_args = 0
- 631              		@ link register save eliminated.
- 632              	.LVL52:
- 633              	.LBB100:
- 634              	.LBB101:
+ 626              		.loc 1 338 0
+ 627              		.cfi_startproc
+ 628              		@ args = 0, pretend = 0, frame = 0
+ 629              		@ frame_needed = 0, uses_anonymous_args = 0
+ 630              		@ link register save eliminated.
+ 631              	.LVL40:
+ 632              	.LBB104:
+ 633              	.LBB105:
 1738:Drivers/CMSIS/Include/core_cm4.h ****   {
- 635              		.loc 2 1738 0
- 636 0000 0028     		cmp	r0, #0
- 637              	.LVL53:
- 638 0002 0BDB     		blt	.L46
+ 634              		.loc 2 1738 0
+ 635 0000 031E     		subs	r3, r0, #0
 1740:Drivers/CMSIS/Include/core_cm4.h ****   }
- 639              		.loc 2 1740 0
- 640 0004 4309     		lsrs	r3, r0, #5
- 641 0006 4033     		adds	r3, r3, #64
- 642 0008 054A     		ldr	r2, .L47
- 643 000a 52F82330 		ldr	r3, [r2, r3, lsl #2]
- 644 000e 00F01F00 		and	r0, r0, #31
- 645 0012 23FA00F0 		lsr	r0, r3, r0
- 646 0016 00F00100 		and	r0, r0, #1
- 647 001a 7047     		bx	lr
- 648              	.L46:
+ 636              		.loc 2 1740 0
+ 637 0002 A1BF     		itttt	ge
+ 638 0004 5A09     		lsrge	r2, r3, #5
+ 639 0006 4032     		addge	r2, r2, #64
+ 640 0008 0549     		ldrge	r1, .L46
+ 641 000a 51F82200 		ldrge	r0, [r1, r2, lsl #2]
+ 642              	.LVL41:
+ 643 000e A3BF     		ittte	ge
+ 644 0010 03F01F03 		andge	r3, r3, #31
+ 645 0014 D840     		lsrge	r0, r0, r3
+ 646 0016 00F00100 		andge	r0, r0, #1
 1744:Drivers/CMSIS/Include/core_cm4.h ****   }
- 649              		.loc 2 1744 0
- 650 001c 0020     		movs	r0, #0
- 651              	.LVL54:
- 652              	.LBE101:
- 653              	.LBE100:
+ 647              		.loc 2 1744 0
+ 648 001a 0020     		movlt	r0, #0
+ 649              	.LVL42:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 71
+
+
+ 650              	.LBE105:
+ 651              	.LBE104:
  339:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Check the parameters */
  340:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   assert_param(IS_NVIC_DEVICE_IRQ(IRQn));
  341:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   
  342:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Return 1 if pending else 0 */
  343:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   return NVIC_GetPendingIRQ(IRQn);
  344:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 654              		.loc 1 344 0
- 655 001e 7047     		bx	lr
- 656              	.L48:
- 657              		.align	2
- 658              	.L47:
- 659 0020 00E100E0 		.word	-536813312
- 660              		.cfi_endproc
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 71
-
-
- 661              	.LFE338:
- 663              		.section	.text.HAL_NVIC_ClearPendingIRQ,"ax",%progbits
- 664              		.align	1
- 665              		.global	HAL_NVIC_ClearPendingIRQ
- 666              		.syntax unified
- 667              		.thumb
- 668              		.thumb_func
- 669              		.fpu fpv4-sp-d16
- 671              	HAL_NVIC_ClearPendingIRQ:
- 672              	.LFB339:
+ 652              		.loc 1 344 0
+ 653 001c 7047     		bx	lr
+ 654              	.L47:
+ 655 001e 00BF     		.align	2
+ 656              	.L46:
+ 657 0020 00E100E0 		.word	-536813312
+ 658              		.cfi_endproc
+ 659              	.LFE338:
+ 661              		.section	.text.HAL_NVIC_ClearPendingIRQ,"ax",%progbits
+ 662              		.align	1
+ 663              		.global	HAL_NVIC_ClearPendingIRQ
+ 664              		.syntax unified
+ 665              		.thumb
+ 666              		.thumb_func
+ 667              		.fpu fpv4-sp-d16
+ 669              	HAL_NVIC_ClearPendingIRQ:
+ 670              	.LFB339:
  345:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  346:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  347:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief  Clear the pending bit of an external interrupt.
@@ -4221,58 +4236,58 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  352:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  353:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** void HAL_NVIC_ClearPendingIRQ(IRQn_Type IRQn)
  354:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 673              		.loc 1 354 0
- 674              		.cfi_startproc
- 675              		@ args = 0, pretend = 0, frame = 0
- 676              		@ frame_needed = 0, uses_anonymous_args = 0
- 677              		@ link register save eliminated.
- 678              	.LVL55:
- 679              	.LBB102:
- 680              	.LBB103:
+ 671              		.loc 1 354 0
+ 672              		.cfi_startproc
+ 673              		@ args = 0, pretend = 0, frame = 0
+ 674              		@ frame_needed = 0, uses_anonymous_args = 0
+ 675              		@ link register save eliminated.
+ 676              	.LVL43:
+ 677              	.LBB108:
+ 678              	.LBB109:
 1772:Drivers/CMSIS/Include/core_cm4.h ****   {
- 681              		.loc 2 1772 0
- 682 0000 0028     		cmp	r0, #0
- 683              	.LVL56:
- 684 0002 08DB     		blt	.L49
+ 679              		.loc 2 1772 0
+ 680 0000 0028     		cmp	r0, #0
+ 681              	.LVL44:
+ 682 0002 09DB     		blt	.L48
 1774:Drivers/CMSIS/Include/core_cm4.h ****   }
- 685              		.loc 2 1774 0
- 686 0004 00F01F02 		and	r2, r0, #31
- 687 0008 4009     		lsrs	r0, r0, #5
- 688 000a 0123     		movs	r3, #1
- 689 000c 9340     		lsls	r3, r3, r2
- 690 000e 6030     		adds	r0, r0, #96
- 691 0010 014A     		ldr	r2, .L51
- 692 0012 42F82030 		str	r3, [r2, r0, lsl #2]
- 693              	.LVL57:
- 694              	.L49:
- 695              	.LBE103:
- 696              	.LBE102:
+ 683              		.loc 2 1774 0
+ 684 0004 4309     		lsrs	r3, r0, #5
+ 685 0006 0122     		movs	r2, #1
+ 686 0008 00F01F00 		and	r0, r0, #31
+ 687 000c 02FA00F0 		lsl	r0, r2, r0
+ 688 0010 6033     		adds	r3, r3, #96
+ 689 0012 024A     		ldr	r2, .L50
+ 690 0014 42F82300 		str	r0, [r2, r3, lsl #2]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 72
+
+
+ 691              	.LVL45:
+ 692              	.L48:
+ 693              	.LBE109:
+ 694              	.LBE108:
  355:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Check the parameters */
  356:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   assert_param(IS_NVIC_DEVICE_IRQ(IRQn));
  357:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   
  358:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Clear pending interrupt */
  359:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   NVIC_ClearPendingIRQ(IRQn);
  360:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 697              		.loc 1 360 0
- 698 0016 7047     		bx	lr
- 699              	.L52:
- 700              		.align	2
- 701              	.L51:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 72
-
-
- 702 0018 00E100E0 		.word	-536813312
- 703              		.cfi_endproc
- 704              	.LFE339:
- 706              		.section	.text.HAL_NVIC_GetActive,"ax",%progbits
- 707              		.align	1
- 708              		.global	HAL_NVIC_GetActive
- 709              		.syntax unified
- 710              		.thumb
- 711              		.thumb_func
- 712              		.fpu fpv4-sp-d16
- 714              	HAL_NVIC_GetActive:
- 715              	.LFB340:
+ 695              		.loc 1 360 0
+ 696 0018 7047     		bx	lr
+ 697              	.L51:
+ 698 001a 00BF     		.align	2
+ 699              	.L50:
+ 700 001c 00E100E0 		.word	-536813312
+ 701              		.cfi_endproc
+ 702              	.LFE339:
+ 704              		.section	.text.HAL_NVIC_GetActive,"ax",%progbits
+ 705              		.align	1
+ 706              		.global	HAL_NVIC_GetActive
+ 707              		.syntax unified
+ 708              		.thumb
+ 709              		.thumb_func
+ 710              		.fpu fpv4-sp-d16
+ 712              	HAL_NVIC_GetActive:
+ 713              	.LFB340:
  361:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  362:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  363:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief Get active interrupt (read the active register in NVIC and return the active bit).
@@ -4284,59 +4299,58 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  369:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  370:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** uint32_t HAL_NVIC_GetActive(IRQn_Type IRQn)
  371:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 716              		.loc 1 371 0
- 717              		.cfi_startproc
- 718              		@ args = 0, pretend = 0, frame = 0
- 719              		@ frame_needed = 0, uses_anonymous_args = 0
- 720              		@ link register save eliminated.
- 721              	.LVL58:
- 722              	.LBB104:
- 723              	.LBB105:
+ 714              		.loc 1 371 0
+ 715              		.cfi_startproc
+ 716              		@ args = 0, pretend = 0, frame = 0
+ 717              		@ frame_needed = 0, uses_anonymous_args = 0
+ 718              		@ link register save eliminated.
+ 719              	.LVL46:
+ 720              	.LBB112:
+ 721              	.LBB113:
 1789:Drivers/CMSIS/Include/core_cm4.h ****   {
- 724              		.loc 2 1789 0
- 725 0000 0028     		cmp	r0, #0
- 726              	.LVL59:
- 727 0002 0BDB     		blt	.L55
+ 722              		.loc 2 1789 0
+ 723 0000 031E     		subs	r3, r0, #0
 1791:Drivers/CMSIS/Include/core_cm4.h ****   }
- 728              		.loc 2 1791 0
- 729 0004 4309     		lsrs	r3, r0, #5
- 730 0006 8033     		adds	r3, r3, #128
- 731 0008 054A     		ldr	r2, .L56
- 732 000a 52F82330 		ldr	r3, [r2, r3, lsl #2]
- 733 000e 00F01F00 		and	r0, r0, #31
- 734 0012 23FA00F0 		lsr	r0, r3, r0
- 735 0016 00F00100 		and	r0, r0, #1
- 736 001a 7047     		bx	lr
- 737              	.L55:
+ 724              		.loc 2 1791 0
+ 725 0002 A1BF     		itttt	ge
+ 726 0004 5A09     		lsrge	r2, r3, #5
+ 727 0006 8032     		addge	r2, r2, #128
+ 728 0008 0549     		ldrge	r1, .L55
+ 729 000a 51F82200 		ldrge	r0, [r1, r2, lsl #2]
+ 730              	.LVL47:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 73
+
+
+ 731 000e A3BF     		ittte	ge
+ 732 0010 03F01F03 		andge	r3, r3, #31
+ 733 0014 D840     		lsrge	r0, r0, r3
+ 734 0016 00F00100 		andge	r0, r0, #1
 1795:Drivers/CMSIS/Include/core_cm4.h ****   }
- 738              		.loc 2 1795 0
- 739 001c 0020     		movs	r0, #0
- 740              	.LVL60:
- 741              	.LBE105:
- 742              	.LBE104:
+ 735              		.loc 2 1795 0
+ 736 001a 0020     		movlt	r0, #0
+ 737              	.LVL48:
+ 738              	.LBE113:
+ 739              	.LBE112:
  372:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Return 1 if active else 0 */
  373:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   return NVIC_GetActive(IRQn);
  374:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 743              		.loc 1 374 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 73
-
-
- 744 001e 7047     		bx	lr
- 745              	.L57:
- 746              		.align	2
- 747              	.L56:
- 748 0020 00E100E0 		.word	-536813312
- 749              		.cfi_endproc
- 750              	.LFE340:
- 752              		.section	.text.HAL_SYSTICK_CLKSourceConfig,"ax",%progbits
- 753              		.align	1
- 754              		.global	HAL_SYSTICK_CLKSourceConfig
- 755              		.syntax unified
- 756              		.thumb
- 757              		.thumb_func
- 758              		.fpu fpv4-sp-d16
- 760              	HAL_SYSTICK_CLKSourceConfig:
- 761              	.LFB341:
+ 740              		.loc 1 374 0
+ 741 001c 7047     		bx	lr
+ 742              	.L56:
+ 743 001e 00BF     		.align	2
+ 744              	.L55:
+ 745 0020 00E100E0 		.word	-536813312
+ 746              		.cfi_endproc
+ 747              	.LFE340:
+ 749              		.section	.text.HAL_SYSTICK_CLKSourceConfig,"ax",%progbits
+ 750              		.align	1
+ 751              		.global	HAL_SYSTICK_CLKSourceConfig
+ 752              		.syntax unified
+ 753              		.thumb
+ 754              		.thumb_func
+ 755              		.fpu fpv4-sp-d16
+ 757              	HAL_SYSTICK_CLKSourceConfig:
+ 758              	.LFB341:
  375:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  376:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  377:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief  Configure the SysTick clock source.
@@ -4348,59 +4362,55 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  383:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  384:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** void HAL_SYSTICK_CLKSourceConfig(uint32_t CLKSource)
  385:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 762              		.loc 1 385 0
- 763              		.cfi_startproc
- 764              		@ args = 0, pretend = 0, frame = 0
- 765              		@ frame_needed = 0, uses_anonymous_args = 0
- 766              		@ link register save eliminated.
- 767              	.LVL61:
+ 759              		.loc 1 385 0
+ 760              		.cfi_startproc
+ 761              		@ args = 0, pretend = 0, frame = 0
+ 762              		@ frame_needed = 0, uses_anonymous_args = 0
+ 763              		@ link register save eliminated.
+ 764              	.LVL49:
+ 765 0000 044B     		ldr	r3, .L61
  386:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Check the parameters */
  387:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   assert_param(IS_SYSTICK_CLK_SOURCE(CLKSource));
  388:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   if (CLKSource == SYSTICK_CLKSOURCE_HCLK)
- 768              		.loc 1 388 0
- 769 0000 0428     		cmp	r0, #4
- 770 0002 05D0     		beq	.L61
  389:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   {
  390:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     SysTick->CTRL |= SYSTICK_CLKSOURCE_HCLK;
+ 766              		.loc 1 390 0
+ 767 0002 1A68     		ldr	r2, [r3]
+ 388:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   {
+ 768              		.loc 1 388 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 74
+
+
+ 769 0004 0428     		cmp	r0, #4
+ 770              		.loc 1 390 0
+ 771 0006 0CBF     		ite	eq
+ 772 0008 42F00402 		orreq	r2, r2, #4
  391:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   }
  392:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   else
  393:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   {
  394:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     SysTick->CTRL &= ~SYSTICK_CLKSOURCE_HCLK;
- 771              		.loc 1 394 0
- 772 0004 054A     		ldr	r2, .L62
- 773 0006 1368     		ldr	r3, [r2]
- 774 0008 23F00403 		bic	r3, r3, #4
- 775 000c 1360     		str	r3, [r2]
+ 773              		.loc 1 394 0
+ 774 000c 22F00402 		bicne	r2, r2, #4
+ 775 0010 1A60     		str	r2, [r3]
  395:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   }
  396:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
  776              		.loc 1 396 0
- 777 000e 7047     		bx	lr
- 778              	.L61:
- 390:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   }
- 779              		.loc 1 390 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 74
-
-
- 780 0010 024A     		ldr	r2, .L62
- 781 0012 1368     		ldr	r3, [r2]
- 782 0014 43F00403 		orr	r3, r3, #4
- 783 0018 1360     		str	r3, [r2]
- 784 001a 7047     		bx	lr
- 785              	.L63:
- 786              		.align	2
- 787              	.L62:
- 788 001c 10E000E0 		.word	-536813552
- 789              		.cfi_endproc
- 790              	.LFE341:
- 792              		.section	.text.HAL_SYSTICK_Callback,"ax",%progbits
- 793              		.align	1
- 794              		.weak	HAL_SYSTICK_Callback
- 795              		.syntax unified
- 796              		.thumb
- 797              		.thumb_func
- 798              		.fpu fpv4-sp-d16
- 800              	HAL_SYSTICK_Callback:
- 801              	.LFB343:
+ 777 0012 7047     		bx	lr
+ 778              	.L62:
+ 779              		.align	2
+ 780              	.L61:
+ 781 0014 10E000E0 		.word	-536813552
+ 782              		.cfi_endproc
+ 783              	.LFE341:
+ 785              		.section	.text.HAL_SYSTICK_Callback,"ax",%progbits
+ 786              		.align	1
+ 787              		.weak	HAL_SYSTICK_Callback
+ 788              		.syntax unified
+ 789              		.thumb
+ 790              		.thumb_func
+ 791              		.fpu fpv4-sp-d16
+ 793              	HAL_SYSTICK_Callback:
+ 794              	.LFB343:
  397:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  398:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  399:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief  Handle SYSTICK interrupt request.
@@ -4417,59 +4427,59 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  410:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  411:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** __weak void HAL_SYSTICK_Callback(void)
  412:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 802              		.loc 1 412 0
- 803              		.cfi_startproc
- 804              		@ args = 0, pretend = 0, frame = 0
- 805              		@ frame_needed = 0, uses_anonymous_args = 0
- 806              		@ link register save eliminated.
+ 795              		.loc 1 412 0
+ 796              		.cfi_startproc
+ 797              		@ args = 0, pretend = 0, frame = 0
+ 798              		@ frame_needed = 0, uses_anonymous_args = 0
+ 799              		@ link register save eliminated.
  413:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* NOTE : This function should not be modified, when the callback is needed,
  414:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****             the HAL_SYSTICK_Callback could be implemented in the user file
  415:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****    */
  416:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 807              		.loc 1 416 0
- 808 0000 7047     		bx	lr
- 809              		.cfi_endproc
- 810              	.LFE343:
- 812              		.section	.text.HAL_SYSTICK_IRQHandler,"ax",%progbits
- 813              		.align	1
- 814              		.global	HAL_SYSTICK_IRQHandler
- 815              		.syntax unified
- 816              		.thumb
- 817              		.thumb_func
- 818              		.fpu fpv4-sp-d16
- 820              	HAL_SYSTICK_IRQHandler:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 75
+ 800              		.loc 1 416 0
+ 801 0000 7047     		bx	lr
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 75
 
 
- 821              	.LFB342:
+ 802              		.cfi_endproc
+ 803              	.LFE343:
+ 805              		.section	.text.HAL_SYSTICK_IRQHandler,"ax",%progbits
+ 806              		.align	1
+ 807              		.global	HAL_SYSTICK_IRQHandler
+ 808              		.syntax unified
+ 809              		.thumb
+ 810              		.thumb_func
+ 811              		.fpu fpv4-sp-d16
+ 813              	HAL_SYSTICK_IRQHandler:
+ 814              	.LFB342:
  403:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   HAL_SYSTICK_Callback();
- 822              		.loc 1 403 0
- 823              		.cfi_startproc
- 824              		@ args = 0, pretend = 0, frame = 0
- 825              		@ frame_needed = 0, uses_anonymous_args = 0
- 826 0000 08B5     		push	{r3, lr}
- 827              	.LCFI6:
- 828              		.cfi_def_cfa_offset 8
- 829              		.cfi_offset 3, -8
- 830              		.cfi_offset 14, -4
+ 815              		.loc 1 403 0
+ 816              		.cfi_startproc
+ 817              		@ args = 0, pretend = 0, frame = 0
+ 818              		@ frame_needed = 0, uses_anonymous_args = 0
+ 819 0000 08B5     		push	{r3, lr}
+ 820              	.LCFI2:
+ 821              		.cfi_def_cfa_offset 8
+ 822              		.cfi_offset 3, -8
+ 823              		.cfi_offset 14, -4
  404:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 831              		.loc 1 404 0
- 832 0002 FFF7FEFF 		bl	HAL_SYSTICK_Callback
- 833              	.LVL62:
+ 824              		.loc 1 404 0
+ 825 0002 FFF7FEFF 		bl	HAL_SYSTICK_Callback
+ 826              	.LVL50:
  405:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
- 834              		.loc 1 405 0
- 835 0006 08BD     		pop	{r3, pc}
- 836              		.cfi_endproc
- 837              	.LFE342:
- 839              		.section	.text.HAL_MPU_Enable,"ax",%progbits
- 840              		.align	1
- 841              		.global	HAL_MPU_Enable
- 842              		.syntax unified
- 843              		.thumb
- 844              		.thumb_func
- 845              		.fpu fpv4-sp-d16
- 847              	HAL_MPU_Enable:
- 848              	.LFB344:
+ 827              		.loc 1 405 0
+ 828 0006 08BD     		pop	{r3, pc}
+ 829              		.cfi_endproc
+ 830              	.LFE342:
+ 832              		.section	.text.HAL_MPU_Enable,"ax",%progbits
+ 833              		.align	1
+ 834              		.global	HAL_MPU_Enable
+ 835              		.syntax unified
+ 836              		.thumb
+ 837              		.thumb_func
+ 838              		.fpu fpv4-sp-d16
+ 840              	HAL_MPU_Enable:
+ 841              	.LFB344:
  417:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  418:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** #if (__MPU_PRESENT == 1)
  419:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
@@ -4485,85 +4495,85 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  429:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  430:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** void HAL_MPU_Enable(uint32_t MPU_Control)
  431:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 849              		.loc 1 431 0
- 850              		.cfi_startproc
- 851              		@ args = 0, pretend = 0, frame = 0
- 852              		@ frame_needed = 0, uses_anonymous_args = 0
- 853              		@ link register save eliminated.
- 854              	.LVL63:
+ 842              		.loc 1 431 0
+ 843              		.cfi_startproc
+ 844              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 76
+
+
+ 845              		@ frame_needed = 0, uses_anonymous_args = 0
+ 846              		@ link register save eliminated.
+ 847              	.LVL51:
  432:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Enable the MPU */
  433:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   MPU->CTRL = (MPU_Control | MPU_CTRL_ENABLE_Msk);
- 855              		.loc 1 433 0
- 856 0000 40F00100 		orr	r0, r0, #1
- 857              	.LVL64:
- 858 0004 034B     		ldr	r3, .L68
- 859 0006 5860     		str	r0, [r3, #4]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 76
-
-
- 860              	.LBB106:
- 861              	.LBB107:
- 862              		.loc 3 946 0
- 863              		.syntax unified
- 864              	@ 946 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 865 0008 BFF34F8F 		dsb 0xF
- 866              	@ 0 "" 2
- 867              		.thumb
- 868              		.syntax unified
- 869              	.LBE107:
- 870              	.LBE106:
- 871              	.LBB108:
- 872              	.LBB109:
+ 848              		.loc 1 433 0
+ 849 0000 044B     		ldr	r3, .L66
+ 850 0002 40F00100 		orr	r0, r0, #1
+ 851              	.LVL52:
+ 852 0006 5860     		str	r0, [r3, #4]
+ 853              	.LBB114:
+ 854              	.LBB115:
+ 855              		.loc 3 946 0
+ 856              		.syntax unified
+ 857              	@ 946 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 858 0008 BFF34F8F 		dsb 0xF
+ 859              	@ 0 "" 2
+ 860              		.thumb
+ 861              		.syntax unified
+ 862              	.LBE115:
+ 863              	.LBE114:
+ 864              	.LBB116:
+ 865              	.LBB117:
  935:Drivers/CMSIS/Include/cmsis_gcc.h **** }
- 873              		.loc 3 935 0
- 874              		.syntax unified
- 875              	@ 935 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 876 000c BFF36F8F 		isb 0xF
- 877              	@ 0 "" 2
- 878              		.thumb
- 879              		.syntax unified
- 880              	.LBE109:
- 881              	.LBE108:
+ 866              		.loc 3 935 0
+ 867              		.syntax unified
+ 868              	@ 935 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 869 000c BFF36F8F 		isb 0xF
+ 870              	@ 0 "" 2
+ 871              		.thumb
+ 872              		.syntax unified
+ 873              	.LBE117:
+ 874              	.LBE116:
  434:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  435:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Ensure MPU setting take effects */
  436:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   __DSB();
  437:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   __ISB();
  438:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 882              		.loc 1 438 0
- 883 0010 7047     		bx	lr
- 884              	.L69:
- 885 0012 00BF     		.align	2
- 886              	.L68:
- 887 0014 90ED00E0 		.word	-536810096
- 888              		.cfi_endproc
- 889              	.LFE344:
- 891              		.section	.text.HAL_MPU_Disable,"ax",%progbits
- 892              		.align	1
- 893              		.global	HAL_MPU_Disable
- 894              		.syntax unified
- 895              		.thumb
- 896              		.thumb_func
- 897              		.fpu fpv4-sp-d16
- 899              	HAL_MPU_Disable:
- 900              	.LFB345:
+ 875              		.loc 1 438 0
+ 876 0010 7047     		bx	lr
+ 877              	.L67:
+ 878 0012 00BF     		.align	2
+ 879              	.L66:
+ 880 0014 90ED00E0 		.word	-536810096
+ 881              		.cfi_endproc
+ 882              	.LFE344:
+ 884              		.section	.text.HAL_MPU_Disable,"ax",%progbits
+ 885              		.align	1
+ 886              		.global	HAL_MPU_Disable
+ 887              		.syntax unified
+ 888              		.thumb
+ 889              		.thumb_func
+ 890              		.fpu fpv4-sp-d16
+ 892              	HAL_MPU_Disable:
+ 893              	.LFB345:
  439:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  440:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 77
+
+
  441:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
  442:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @brief  Disable the MPU.
  443:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @retval None
  444:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  445:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** void HAL_MPU_Disable(void)
  446:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 901              		.loc 1 446 0
- 902              		.cfi_startproc
- 903              		@ args = 0, pretend = 0, frame = 0
- 904              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 77
-
-
- 905              		@ link register save eliminated.
- 906              	.LBB110:
- 907              	.LBB111:
+ 894              		.loc 1 446 0
+ 895              		.cfi_startproc
+ 896              		@ args = 0, pretend = 0, frame = 0
+ 897              		@ frame_needed = 0, uses_anonymous_args = 0
+ 898              		@ link register save eliminated.
+ 899              	.LBB118:
+ 900              	.LBB119:
  947:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  948:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  949:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -4575,42 +4585,45 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  955:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DMB(void)
  956:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  957:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("dmb 0xF":::"memory");
- 908              		.loc 3 957 0
- 909              		.syntax unified
- 910              	@ 957 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 911 0000 BFF35F8F 		dmb 0xF
- 912              	@ 0 "" 2
- 913              		.thumb
- 914              		.syntax unified
- 915              	.LBE111:
- 916              	.LBE110:
+ 901              		.loc 3 957 0
+ 902              		.syntax unified
+ 903              	@ 957 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 904 0000 BFF35F8F 		dmb 0xF
+ 905              	@ 0 "" 2
+ 906              		.thumb
+ 907              		.syntax unified
+ 908              	.LBE119:
+ 909              	.LBE118:
  447:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Make sure outstanding transfers are done */
  448:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   __DMB();
  449:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  450:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Disable the MPU and clear the control register*/
  451:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   MPU->CTRL  = 0;
- 917              		.loc 1 451 0
- 918 0004 014B     		ldr	r3, .L71
- 919 0006 0022     		movs	r2, #0
- 920 0008 5A60     		str	r2, [r3, #4]
+ 910              		.loc 1 451 0
+ 911 0004 014B     		ldr	r3, .L69
+ 912 0006 0022     		movs	r2, #0
+ 913 0008 5A60     		str	r2, [r3, #4]
  452:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 921              		.loc 1 452 0
- 922 000a 7047     		bx	lr
- 923              	.L72:
- 924              		.align	2
- 925              	.L71:
- 926 000c 90ED00E0 		.word	-536810096
- 927              		.cfi_endproc
- 928              	.LFE345:
- 930              		.section	.text.HAL_MPU_ConfigRegion,"ax",%progbits
- 931              		.align	1
- 932              		.global	HAL_MPU_ConfigRegion
- 933              		.syntax unified
- 934              		.thumb
- 935              		.thumb_func
- 936              		.fpu fpv4-sp-d16
- 938              	HAL_MPU_ConfigRegion:
- 939              	.LFB346:
+ 914              		.loc 1 452 0
+ 915 000a 7047     		bx	lr
+ 916              	.L70:
+ 917              		.align	2
+ 918              	.L69:
+ 919 000c 90ED00E0 		.word	-536810096
+ 920              		.cfi_endproc
+ 921              	.LFE345:
+ 923              		.section	.text.HAL_MPU_ConfigRegion,"ax",%progbits
+ 924              		.align	1
+ 925              		.global	HAL_MPU_ConfigRegion
+ 926              		.syntax unified
+ 927              		.thumb
+ 928              		.thumb_func
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 78
+
+
+ 929              		.fpu fpv4-sp-d16
+ 931              	HAL_MPU_ConfigRegion:
+ 932              	.LFB346:
  453:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  454:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  455:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** /**
@@ -4618,33 +4631,37 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  457:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @param  MPU_Init: Pointer to a MPU_Region_InitTypeDef structure that contains
  458:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   *                the initialization and configuration information.
  459:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   * @retval None
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 78
-
-
  460:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   */
  461:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** void HAL_MPU_ConfigRegion(MPU_Region_InitTypeDef *MPU_Init)
  462:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** {
- 940              		.loc 1 462 0
- 941              		.cfi_startproc
- 942              		@ args = 0, pretend = 0, frame = 0
- 943              		@ frame_needed = 0, uses_anonymous_args = 0
- 944              		@ link register save eliminated.
- 945              	.LVL65:
+ 933              		.loc 1 462 0
+ 934              		.cfi_startproc
+ 935              		@ args = 0, pretend = 0, frame = 0
+ 936              		@ frame_needed = 0, uses_anonymous_args = 0
+ 937              	.LVL53:
  463:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Check the parameters */
  464:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   assert_param(IS_MPU_REGION_NUMBER(MPU_Init->Number));
  465:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   assert_param(IS_MPU_REGION_ENABLE(MPU_Init->Enable));
  466:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  467:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Set the Region number */
  468:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   MPU->RNR = MPU_Init->Number;
- 946              		.loc 1 468 0
- 947 0000 4278     		ldrb	r2, [r0, #1]	@ zero_extendqisi2
- 948 0002 134B     		ldr	r3, .L77
- 949 0004 9A60     		str	r2, [r3, #8]
+ 938              		.loc 1 468 0
+ 939 0000 124A     		ldr	r2, .L74
+ 940 0002 4378     		ldrb	r3, [r0, #1]	@ zero_extendqisi2
+ 462:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   /* Check the parameters */
+ 941              		.loc 1 462 0
+ 942 0004 10B5     		push	{r4, lr}
+ 943              	.LCFI3:
+ 944              		.cfi_def_cfa_offset 8
+ 945              		.cfi_offset 4, -8
+ 946              		.cfi_offset 14, -4
+ 947              		.loc 1 468 0
+ 948 0006 9360     		str	r3, [r2, #8]
  469:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  470:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   if ((MPU_Init->Enable) != 0U)
- 950              		.loc 1 470 0
- 951 0006 0378     		ldrb	r3, [r0]	@ zero_extendqisi2
- 952 0008 23B9     		cbnz	r3, .L76
+ 949              		.loc 1 470 0
+ 950 0008 0178     		ldrb	r1, [r0]	@ zero_extendqisi2
+ 951 000a D9B1     		cbz	r1, .L72
  471:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   {
  472:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     /* Check the parameters */
  473:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     assert_param(IS_MPU_INSTRUCTION_ACCESS(MPU_Init->DisableExec));
@@ -4657,171 +4674,158 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 1
  480:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     assert_param(IS_MPU_REGION_SIZE(MPU_Init->Size));
  481:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** 
  482:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     MPU->RBAR = MPU_Init->BaseAddress;
+ 952              		.loc 1 482 0
+ 953 000c 4368     		ldr	r3, [r0, #4]
+ 954 000e D360     		str	r3, [r2, #12]
  483:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     MPU->RASR = ((uint32_t)MPU_Init->DisableExec        << MPU_RASR_XN_Pos)   |
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 79
+
+
  484:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->AccessPermission   << MPU_RASR_AP_Pos)   |
+ 955              		.loc 1 484 0
+ 956 0010 C37A     		ldrb	r3, [r0, #11]	@ zero_extendqisi2
+ 483:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     MPU->RASR = ((uint32_t)MPU_Init->DisableExec        << MPU_RASR_XN_Pos)   |
+ 957              		.loc 1 483 0
+ 958 0012 047B     		ldrb	r4, [r0, #12]	@ zero_extendqisi2
+ 959              		.loc 1 484 0
+ 960 0014 1B06     		lsls	r3, r3, #24
+ 483:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     MPU->RASR = ((uint32_t)MPU_Init->DisableExec        << MPU_RASR_XN_Pos)   |
+ 961              		.loc 1 483 0
+ 962 0016 43EA0473 		orr	r3, r3, r4, lsl #28
  485:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->TypeExtField       << MPU_RASR_TEX_Pos)  |
  486:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsShareable        << MPU_RASR_S_Pos)    |
  487:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsCacheable        << MPU_RASR_C_Pos)    |
  488:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsBufferable       << MPU_RASR_B_Pos)    |
  489:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->SubRegionDisable   << MPU_RASR_SRD_Pos)  |
  490:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->Size               << MPU_RASR_SIZE_Pos) |
+ 963              		.loc 1 490 0
+ 964 001a 0B43     		orrs	r3, r3, r1
+ 485:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->TypeExtField       << MPU_RASR_TEX_Pos)  |
+ 965              		.loc 1 485 0
+ 966 001c 817A     		ldrb	r1, [r0, #10]	@ zero_extendqisi2
+ 967              		.loc 1 490 0
+ 968 001e 43EAC143 		orr	r3, r3, r1, lsl #19
+ 486:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsCacheable        << MPU_RASR_C_Pos)    |
+ 969              		.loc 1 486 0
+ 970 0022 417B     		ldrb	r1, [r0, #13]	@ zero_extendqisi2
+ 971              		.loc 1 490 0
+ 972 0024 43EA8143 		orr	r3, r3, r1, lsl #18
+ 487:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsBufferable       << MPU_RASR_B_Pos)    |
+ 973              		.loc 1 487 0
+ 974 0028 817B     		ldrb	r1, [r0, #14]	@ zero_extendqisi2
+ 975              		.loc 1 490 0
+ 976 002a 43EA4143 		orr	r3, r3, r1, lsl #17
+ 488:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->SubRegionDisable   << MPU_RASR_SRD_Pos)  |
+ 977              		.loc 1 488 0
+ 978 002e C17B     		ldrb	r1, [r0, #15]	@ zero_extendqisi2
+ 979              		.loc 1 490 0
+ 980 0030 43EA0143 		orr	r3, r3, r1, lsl #16
+ 489:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->Size               << MPU_RASR_SIZE_Pos) |
+ 981              		.loc 1 489 0
+ 982 0034 417A     		ldrb	r1, [r0, #9]	@ zero_extendqisi2
+ 983              		.loc 1 490 0
+ 984 0036 43EA0123 		orr	r3, r3, r1, lsl #8
+ 985 003a 017A     		ldrb	r1, [r0, #8]	@ zero_extendqisi2
+ 986 003c 43EA4103 		orr	r3, r3, r1, lsl #1
+ 483:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->AccessPermission   << MPU_RASR_AP_Pos)   |
+ 987              		.loc 1 483 0
+ 988 0040 1361     		str	r3, [r2, #16]
+ 989              	.L71:
  491:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->Enable             << MPU_RASR_ENABLE_Pos);
  492:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   }
  493:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   else
  494:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   {
  495:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     MPU->RBAR = 0x00;
- 953              		.loc 1 495 0
- 954 000a 114B     		ldr	r3, .L77
- 955 000c 0022     		movs	r2, #0
- 956 000e DA60     		str	r2, [r3, #12]
  496:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     MPU->RASR = 0x00;
- 957              		.loc 1 496 0
- 958 0010 1A61     		str	r2, [r3, #16]
  497:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   }
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 79
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 80
 
 
  498:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c **** }
- 959              		.loc 1 498 0
- 960 0012 7047     		bx	lr
- 961              	.L76:
- 482:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     MPU->RASR = ((uint32_t)MPU_Init->DisableExec        << MPU_RASR_XN_Pos)   |
- 962              		.loc 1 482 0
- 963 0014 4368     		ldr	r3, [r0, #4]
- 964 0016 0E4A     		ldr	r2, .L77
- 965 0018 D360     		str	r3, [r2, #12]
- 483:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->AccessPermission   << MPU_RASR_AP_Pos)   |
- 966              		.loc 1 483 0
- 967 001a 017B     		ldrb	r1, [r0, #12]	@ zero_extendqisi2
- 484:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->TypeExtField       << MPU_RASR_TEX_Pos)  |
- 968              		.loc 1 484 0
- 969 001c C37A     		ldrb	r3, [r0, #11]	@ zero_extendqisi2
- 970 001e 1B06     		lsls	r3, r3, #24
- 483:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->AccessPermission   << MPU_RASR_AP_Pos)   |
- 971              		.loc 1 483 0
- 972 0020 43EA0173 		orr	r3, r3, r1, lsl #28
- 485:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsShareable        << MPU_RASR_S_Pos)    |
- 973              		.loc 1 485 0
- 974 0024 817A     		ldrb	r1, [r0, #10]	@ zero_extendqisi2
- 484:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->TypeExtField       << MPU_RASR_TEX_Pos)  |
- 975              		.loc 1 484 0
- 976 0026 43EAC143 		orr	r3, r3, r1, lsl #19
- 486:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsCacheable        << MPU_RASR_C_Pos)    |
- 977              		.loc 1 486 0
- 978 002a 417B     		ldrb	r1, [r0, #13]	@ zero_extendqisi2
- 485:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsShareable        << MPU_RASR_S_Pos)    |
- 979              		.loc 1 485 0
- 980 002c 43EA8143 		orr	r3, r3, r1, lsl #18
- 487:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsBufferable       << MPU_RASR_B_Pos)    |
- 981              		.loc 1 487 0
- 982 0030 817B     		ldrb	r1, [r0, #14]	@ zero_extendqisi2
- 486:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsCacheable        << MPU_RASR_C_Pos)    |
- 983              		.loc 1 486 0
- 984 0032 43EA4143 		orr	r3, r3, r1, lsl #17
- 488:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->SubRegionDisable   << MPU_RASR_SRD_Pos)  |
- 985              		.loc 1 488 0
- 986 0036 C17B     		ldrb	r1, [r0, #15]	@ zero_extendqisi2
- 487:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsBufferable       << MPU_RASR_B_Pos)    |
- 987              		.loc 1 487 0
- 988 0038 43EA0143 		orr	r3, r3, r1, lsl #16
- 489:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->Size               << MPU_RASR_SIZE_Pos) |
- 989              		.loc 1 489 0
- 990 003c 417A     		ldrb	r1, [r0, #9]	@ zero_extendqisi2
- 488:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->SubRegionDisable   << MPU_RASR_SRD_Pos)  |
- 991              		.loc 1 488 0
- 992 003e 43EA0123 		orr	r3, r3, r1, lsl #8
- 490:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->Enable             << MPU_RASR_ENABLE_Pos);
- 993              		.loc 1 490 0
- 994 0042 017A     		ldrb	r1, [r0, #8]	@ zero_extendqisi2
- 489:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->Size               << MPU_RASR_SIZE_Pos) |
- 995              		.loc 1 489 0
- 996 0044 43EA4103 		orr	r3, r3, r1, lsl #1
- 491:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   }
- 997              		.loc 1 491 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 80
-
-
- 998 0048 0178     		ldrb	r1, [r0]	@ zero_extendqisi2
- 490:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->Enable             << MPU_RASR_ENABLE_Pos);
- 999              		.loc 1 490 0
- 1000 004a 0B43     		orrs	r3, r3, r1
- 483:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****                 ((uint32_t)MPU_Init->AccessPermission   << MPU_RASR_AP_Pos)   |
- 1001              		.loc 1 483 0
- 1002 004c 1361     		str	r3, [r2, #16]
- 1003 004e 7047     		bx	lr
- 1004              	.L78:
- 1005              		.align	2
- 1006              	.L77:
- 1007 0050 90ED00E0 		.word	-536810096
- 1008              		.cfi_endproc
- 1009              	.LFE346:
- 1011              		.text
- 1012              	.Letext0:
- 1013              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 1014              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 1015              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
- 1016              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
- 1017              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
- 1018              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h"
- 1019              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
- 1020              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 1021              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s 			page 81
+ 990              		.loc 1 498 0
+ 991 0042 10BD     		pop	{r4, pc}
+ 992              	.L72:
+ 495:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****     MPU->RASR = 0x00;
+ 993              		.loc 1 495 0
+ 994 0044 D160     		str	r1, [r2, #12]
+ 496:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.c ****   }
+ 995              		.loc 1 496 0
+ 996 0046 1161     		str	r1, [r2, #16]
+ 997              		.loc 1 498 0
+ 998 0048 FBE7     		b	.L71
+ 999              	.L75:
+ 1000 004a 00BF     		.align	2
+ 1001              	.L74:
+ 1002 004c 90ED00E0 		.word	-536810096
+ 1003              		.cfi_endproc
+ 1004              	.LFE346:
+ 1006              		.text
+ 1007              	.Letext0:
+ 1008              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 1009              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 1010              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 1011              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 1012              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 1013              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_cortex.h"
+ 1014              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 1015              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 1016              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s 			page 81
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g4xx_hal_cortex.c
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:18     .text.HAL_NVIC_SetPriorityGrouping:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:25     .text.HAL_NVIC_SetPriorityGrouping:00000000 HAL_NVIC_SetPriorityGrouping
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:67     .text.HAL_NVIC_SetPriorityGrouping:00000020 $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:72     .text.HAL_NVIC_SetPriority:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:79     .text.HAL_NVIC_SetPriority:00000000 HAL_NVIC_SetPriority
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:188    .text.HAL_NVIC_SetPriority:00000060 $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:194    .text.HAL_NVIC_EnableIRQ:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:201    .text.HAL_NVIC_EnableIRQ:00000000 HAL_NVIC_EnableIRQ
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:233    .text.HAL_NVIC_EnableIRQ:00000018 $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:238    .text.HAL_NVIC_DisableIRQ:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:245    .text.HAL_NVIC_DisableIRQ:00000000 HAL_NVIC_DisableIRQ
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:299    .text.HAL_NVIC_DisableIRQ:00000020 $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:304    .text.HAL_NVIC_SystemReset:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:311    .text.HAL_NVIC_SystemReset:00000000 HAL_NVIC_SystemReset
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:363    .text.HAL_NVIC_SystemReset:0000001c $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:371    .text.HAL_SYSTICK_Config:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:378    .text.HAL_SYSTICK_Config:00000000 HAL_SYSTICK_Config
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:425    .text.HAL_SYSTICK_Config:00000024 $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:431    .text.HAL_NVIC_GetPriorityGrouping:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:438    .text.HAL_NVIC_GetPriorityGrouping:00000000 HAL_NVIC_GetPriorityGrouping
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:458    .text.HAL_NVIC_GetPriorityGrouping:0000000c $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:463    .text.HAL_NVIC_GetPriority:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:470    .text.HAL_NVIC_GetPriority:00000000 HAL_NVIC_GetPriority
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:568    .text.HAL_NVIC_GetPriority:0000005c $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:575    .text.HAL_NVIC_SetPendingIRQ:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:582    .text.HAL_NVIC_SetPendingIRQ:00000000 HAL_NVIC_SetPendingIRQ
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:613    .text.HAL_NVIC_SetPendingIRQ:00000018 $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:618    .text.HAL_NVIC_GetPendingIRQ:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:625    .text.HAL_NVIC_GetPendingIRQ:00000000 HAL_NVIC_GetPendingIRQ
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:659    .text.HAL_NVIC_GetPendingIRQ:00000020 $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:664    .text.HAL_NVIC_ClearPendingIRQ:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:671    .text.HAL_NVIC_ClearPendingIRQ:00000000 HAL_NVIC_ClearPendingIRQ
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:702    .text.HAL_NVIC_ClearPendingIRQ:00000018 $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:707    .text.HAL_NVIC_GetActive:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:714    .text.HAL_NVIC_GetActive:00000000 HAL_NVIC_GetActive
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:748    .text.HAL_NVIC_GetActive:00000020 $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:753    .text.HAL_SYSTICK_CLKSourceConfig:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:760    .text.HAL_SYSTICK_CLKSourceConfig:00000000 HAL_SYSTICK_CLKSourceConfig
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:788    .text.HAL_SYSTICK_CLKSourceConfig:0000001c $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:793    .text.HAL_SYSTICK_Callback:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:800    .text.HAL_SYSTICK_Callback:00000000 HAL_SYSTICK_Callback
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:813    .text.HAL_SYSTICK_IRQHandler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:820    .text.HAL_SYSTICK_IRQHandler:00000000 HAL_SYSTICK_IRQHandler
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:840    .text.HAL_MPU_Enable:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:847    .text.HAL_MPU_Enable:00000000 HAL_MPU_Enable
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:887    .text.HAL_MPU_Enable:00000014 $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:892    .text.HAL_MPU_Disable:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:899    .text.HAL_MPU_Disable:00000000 HAL_MPU_Disable
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:926    .text.HAL_MPU_Disable:0000000c $d
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:931    .text.HAL_MPU_ConfigRegion:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:938    .text.HAL_MPU_ConfigRegion:00000000 HAL_MPU_ConfigRegion
-C:\Users\82057\AppData\Local\Temp\ccoxGMhL.s:1007   .text.HAL_MPU_ConfigRegion:00000050 $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:18     .text.HAL_NVIC_SetPriorityGrouping:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:25     .text.HAL_NVIC_SetPriorityGrouping:00000000 HAL_NVIC_SetPriorityGrouping
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:65     .text.HAL_NVIC_SetPriorityGrouping:00000020 $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:70     .text.HAL_NVIC_SetPriority:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:77     .text.HAL_NVIC_SetPriority:00000000 HAL_NVIC_SetPriority
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:178    .text.HAL_NVIC_SetPriority:00000060 $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:184    .text.HAL_NVIC_EnableIRQ:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:191    .text.HAL_NVIC_EnableIRQ:00000000 HAL_NVIC_EnableIRQ
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:223    .text.HAL_NVIC_EnableIRQ:00000018 $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:228    .text.HAL_NVIC_DisableIRQ:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:235    .text.HAL_NVIC_DisableIRQ:00000000 HAL_NVIC_DisableIRQ
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:289    .text.HAL_NVIC_DisableIRQ:00000024 $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:294    .text.HAL_NVIC_SystemReset:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:301    .text.HAL_NVIC_SystemReset:00000000 HAL_NVIC_SystemReset
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:355    .text.HAL_NVIC_SystemReset:0000001c $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:363    .text.HAL_SYSTICK_Config:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:370    .text.HAL_SYSTICK_Config:00000000 HAL_SYSTICK_Config
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:425    .text.HAL_SYSTICK_Config:00000024 $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:431    .text.HAL_NVIC_GetPriorityGrouping:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:438    .text.HAL_NVIC_GetPriorityGrouping:00000000 HAL_NVIC_GetPriorityGrouping
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:458    .text.HAL_NVIC_GetPriorityGrouping:0000000c $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:463    .text.HAL_NVIC_GetPriority:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:470    .text.HAL_NVIC_GetPriority:00000000 HAL_NVIC_GetPriority
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:569    .text.HAL_NVIC_GetPriority:00000058 $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:574    .text.HAL_NVIC_SetPendingIRQ:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:581    .text.HAL_NVIC_SetPendingIRQ:00000000 HAL_NVIC_SetPendingIRQ
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:612    .text.HAL_NVIC_SetPendingIRQ:0000001c $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:617    .text.HAL_NVIC_GetPendingIRQ:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:624    .text.HAL_NVIC_GetPendingIRQ:00000000 HAL_NVIC_GetPendingIRQ
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:657    .text.HAL_NVIC_GetPendingIRQ:00000020 $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:662    .text.HAL_NVIC_ClearPendingIRQ:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:669    .text.HAL_NVIC_ClearPendingIRQ:00000000 HAL_NVIC_ClearPendingIRQ
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:700    .text.HAL_NVIC_ClearPendingIRQ:0000001c $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:705    .text.HAL_NVIC_GetActive:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:712    .text.HAL_NVIC_GetActive:00000000 HAL_NVIC_GetActive
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:745    .text.HAL_NVIC_GetActive:00000020 $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:750    .text.HAL_SYSTICK_CLKSourceConfig:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:757    .text.HAL_SYSTICK_CLKSourceConfig:00000000 HAL_SYSTICK_CLKSourceConfig
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:781    .text.HAL_SYSTICK_CLKSourceConfig:00000014 $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:786    .text.HAL_SYSTICK_Callback:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:793    .text.HAL_SYSTICK_Callback:00000000 HAL_SYSTICK_Callback
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:806    .text.HAL_SYSTICK_IRQHandler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:813    .text.HAL_SYSTICK_IRQHandler:00000000 HAL_SYSTICK_IRQHandler
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:833    .text.HAL_MPU_Enable:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:840    .text.HAL_MPU_Enable:00000000 HAL_MPU_Enable
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:880    .text.HAL_MPU_Enable:00000014 $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:885    .text.HAL_MPU_Disable:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:892    .text.HAL_MPU_Disable:00000000 HAL_MPU_Disable
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:919    .text.HAL_MPU_Disable:0000000c $d
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:924    .text.HAL_MPU_ConfigRegion:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:931    .text.HAL_MPU_ConfigRegion:00000000 HAL_MPU_ConfigRegion
+C:\Users\82057\AppData\Local\Temp\ccYfOKMY.s:1002   .text.HAL_MPU_ConfigRegion:0000004c $d
 
 NO UNDEFINED SYMBOLS

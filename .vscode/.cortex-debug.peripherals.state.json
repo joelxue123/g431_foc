@@ -1,1 +1,1 @@
-[{"node":"ADC1","expanded":true,"format":0,"pinned":false},{"node":"ADC1.JDR1","expanded":true,"format":0},{"node":"ADC2.JDR1","expanded":true,"format":0},{"node":"USART1","expanded":true,"format":0,"pinned":false}]
+[{"node":"ADC12_Common","expanded":false,"format":0,"pinned":true},{"node":"ADC2","expanded":false,"format":0,"pinned":true},{"node":"ADC1","expanded":true,"format":0,"pinned":false},{"node":"FLASH","expanded":true,"format":0,"pinned":false},{"node":"USART1","expanded":true,"format":0,"pinned":false}]

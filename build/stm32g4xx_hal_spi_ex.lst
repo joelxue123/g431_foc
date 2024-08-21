@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXZ91QD.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccDdh4bf.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXZ91QD.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"stm32g4xx_hal_spi_ex.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXZ91QD.s 			page 1
   29:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c **** 
   30:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c **** /** @defgroup SPIEx SPIEx
   31:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****   * @brief SPI Extended HAL module driver
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXZ91QD.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccDdh4bf.s 			page 2
 
 
   32:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****   * @{
@@ -118,107 +118,91 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXZ91QD.s 			page 1
   33              	.LVL0:
   81:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****   __IO uint32_t tmpreg;
   82:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****   uint8_t  count = 0U;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXZ91QD.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccDdh4bf.s 			page 3
 
 
-  34              		.loc 1 82 0
-  35 0000 0023     		movs	r3, #0
-  36              	.LVL1:
   83:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****   while ((hspi->Instance->SR & SPI_FLAG_FRLVL) !=  SPI_FRLVL_EMPTY)
-  37              		.loc 1 83 0
-  38 0002 0268     		ldr	r2, [r0]
-  39 0004 9168     		ldr	r1, [r2, #8]
-  40 0006 11F4C06F 		tst	r1, #1536
-  41 000a 12D0     		beq	.L10
+  34              		.loc 1 83 0
+  35 0000 0268     		ldr	r2, [r0]
   80:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****   __IO uint32_t tmpreg;
-  42              		.loc 1 80 0
-  43 000c 82B0     		sub	sp, sp, #8
-  44              	.LCFI0:
-  45              		.cfi_def_cfa_offset 8
-  46 000e 04E0     		b	.L4
-  47              	.L12:
-  48              		.loc 1 83 0
-  49 0010 0268     		ldr	r2, [r0]
-  50 0012 9168     		ldr	r1, [r2, #8]
-  51 0014 11F4C06F 		tst	r1, #1536
-  52 0018 09D0     		beq	.L11
-  53              	.L4:
+  36              		.loc 1 80 0
+  37 0002 82B0     		sub	sp, sp, #8
+  38              	.LCFI0:
+  39              		.cfi_def_cfa_offset 8
+  40              		.loc 1 83 0
+  41 0004 0423     		movs	r3, #4
+  42              	.LVL1:
+  43              	.L2:
+  44 0006 9068     		ldr	r0, [r2, #8]
+  45 0008 10F4C060 		ands	r0, r0, #1536
+  46 000c 01D1     		bne	.L4
+  47              	.LVL2:
+  48              	.L3:
   84:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****   {
   85:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****     count++;
-  54              		.loc 1 85 0
-  55 001a 0133     		adds	r3, r3, #1
-  56              	.LVL2:
-  57 001c DBB2     		uxtb	r3, r3
-  58              	.LVL3:
   86:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****     tmpreg = hspi->Instance->DR;
-  59              		.loc 1 86 0
-  60 001e D268     		ldr	r2, [r2, #12]
-  61 0020 0192     		str	r2, [sp, #4]
   87:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****     UNUSED(tmpreg); /* To avoid GCC warning */
-  62              		.loc 1 87 0
-  63 0022 019A     		ldr	r2, [sp, #4]
   88:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****     if (count == SPI_FIFO_SIZE)
-  64              		.loc 1 88 0
-  65 0024 042B     		cmp	r3, #4
-  66 0026 F3D1     		bne	.L12
   89:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****     {
   90:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****       return HAL_TIMEOUT;
-  67              		.loc 1 90 0
-  68 0028 0320     		movs	r0, #3
-  69              	.LVL4:
-  70              	.L3:
   91:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****     }
   92:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****   }
   93:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****   return HAL_OK;
   94:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c **** }
-  71              		.loc 1 94 0
-  72 002a 02B0     		add	sp, sp, #8
-  73              	.LCFI1:
-  74              		.cfi_remember_state
-  75              		.cfi_def_cfa_offset 0
-  76              		@ sp needed
-  77 002c 7047     		bx	lr
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXZ91QD.s 			page 4
+  49              		.loc 1 94 0
+  50 000e 02B0     		add	sp, sp, #8
+  51              	.LCFI1:
+  52              		.cfi_remember_state
+  53              		.cfi_def_cfa_offset 0
+  54              		@ sp needed
+  55 0010 7047     		bx	lr
+  56              	.LVL3:
+  57              	.L4:
+  58              	.LCFI2:
+  59              		.cfi_restore_state
+  86:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****     UNUSED(tmpreg); /* To avoid GCC warning */
+  60              		.loc 1 86 0
+  61 0012 D168     		ldr	r1, [r2, #12]
+  62 0014 0191     		str	r1, [sp, #4]
+  63 0016 013B     		subs	r3, r3, #1
+  64              	.LVL4:
+  88:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****     {
+  65              		.loc 1 88 0
+  66 0018 13F0FF03 		ands	r3, r3, #255
+  87:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****     if (count == SPI_FIFO_SIZE)
+  67              		.loc 1 87 0
+  68 001c 0199     		ldr	r1, [sp, #4]
+  88:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****     {
+  69              		.loc 1 88 0
+  70 001e F2D1     		bne	.L2
+  90:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c ****     }
+  71              		.loc 1 90 0
+  72 0020 0320     		movs	r0, #3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccDdh4bf.s 			page 4
 
 
-  78              	.LVL5:
-  79              	.L11:
-  80              	.LCFI2:
-  81              		.cfi_restore_state
-  93:Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi_ex.c **** }
-  82              		.loc 1 93 0
-  83 002e 0020     		movs	r0, #0
-  84              	.LVL6:
-  85 0030 FBE7     		b	.L3
-  86              	.LVL7:
-  87              	.L10:
-  88              	.LCFI3:
-  89              		.cfi_def_cfa_offset 0
-  90 0032 0020     		movs	r0, #0
-  91              	.LVL8:
-  92              		.loc 1 94 0
-  93 0034 7047     		bx	lr
-  94              		.cfi_endproc
-  95              	.LFE329:
-  97              		.text
-  98              	.Letext0:
-  99              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 100              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 101              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 102              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
- 103              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
- 104              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
- 105              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
- 106              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
- 107              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
- 108              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 109              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccXZ91QD.s 			page 5
+  73 0022 F4E7     		b	.L3
+  74              		.cfi_endproc
+  75              	.LFE329:
+  77              		.text
+  78              	.Letext0:
+  79              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+  80              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+  81              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+  82              		.file 5 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+  83              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+  84              		.file 7 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+  85              		.file 8 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+  86              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+  87              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+  88              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+  89              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccDdh4bf.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32g4xx_hal_spi_ex.c
-C:\Users\82057\AppData\Local\Temp\ccXZ91QD.s:18     .text.HAL_SPIEx_FlushRxFifo:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccXZ91QD.s:25     .text.HAL_SPIEx_FlushRxFifo:00000000 HAL_SPIEx_FlushRxFifo
+C:\Users\82057\AppData\Local\Temp\ccDdh4bf.s:18     .text.HAL_SPIEx_FlushRxFifo:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccDdh4bf.s:25     .text.HAL_SPIEx_FlushRxFifo:00000000 HAL_SPIEx_FlushRxFifo
 
 NO UNDEFINED SYMBOLS

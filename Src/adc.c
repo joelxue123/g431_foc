@@ -30,11 +30,11 @@ volatile int32_t force_Sum = 0;
 
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
-
+DMA_HandleTypeDef hdma_adc2;
 volatile int16_t g_Rt_Map[71] = {11,18,23,29,34,12,43,48,52,57,62,68,73,79,86,93,101,110,120,130,141,153,167,181,196,212,230,249,268,290,312,336,360,387,414,443,473,505,537,571,607,643,681,721,761,803,845,889,35,981,1028,1076,1125,1175,1226,1278,1330,1384,1437,1492,1546,1602,1657,1713,1769,1825,1881,1937,1992,2048,2103
 };
 
-
+volatile uint16_t adc_measurements_[2] = { 0 };
 
 
 
@@ -146,16 +146,16 @@ volatile int16_t g_Rt_Map[71] = {11,18,23,29,34,12,43,48,52,57,62,68,73,79,86,93
   * @param None
   * @retval None
   */
- void MX_ADC2_Init(void)
+void MX_ADC2_Init(void)
 {
-	int factor;
+  int factor;
 
   /* USER CODE BEGIN ADC2_Init 0 */
 
   /* USER CODE END ADC2_Init 0 */
 
   ADC_ChannelConfTypeDef sConfig = {0};
-ADC_InjectionConfTypeDef sConfigInjected = {0};
+  ADC_InjectionConfTypeDef sConfigInjected = {0};
   /* USER CODE BEGIN ADC2_Init 1 */
 
   /* USER CODE END ADC2_Init 1 */
@@ -166,35 +166,45 @@ ADC_InjectionConfTypeDef sConfigInjected = {0};
   hadc2.Init.Resolution = ADC_RESOLUTION_12B;
   hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc2.Init.GainCompensation = 0;
-  hadc2.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc2.Init.ScanConvMode = ADC_SCAN_ENABLE;
   hadc2.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc2.Init.LowPowerAutoWait = DISABLE;
-  hadc2.Init.ContinuousConvMode = DISABLE;
-  hadc2.Init.NbrOfConversion = 1;
+  hadc2.Init.ContinuousConvMode = ENABLE;
+  hadc2.Init.NbrOfConversion = 2;
   hadc2.Init.DiscontinuousConvMode = DISABLE;
   hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc2.Init.DMAContinuousRequests = DISABLE;
-  hadc2.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc2.Init.DMAContinuousRequests = ENABLE;
+  hadc2.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
   hadc2.Init.OversamplingMode = DISABLE;
   if (HAL_ADC_Init(&hadc2) != HAL_OK)
   {
     Error_Handler();
   }
+
   /** Configure Regular Channel
   */
-//  sConfig.Channel = ADC_CHANNEL_2;
-//  sConfig.Rank = ADC_REGULAR_RANK_1;
-//  sConfig.SamplingTime = ADC_SAMPLETIME_24CYCLES_5;
-//  sConfig.SingleDiff = ADC_SINGLE_ENDED;
-//  sConfig.OffsetNumber = ADC_OFFSET_NONE;
-//  sConfig.Offset = 0;
-//  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
+  sConfig.Channel = ADC_CHANNEL_3;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_12CYCLES_5;
+  sConfig.SingleDiff = ADC_SINGLE_ENDED;
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  sConfig.Offset = 0;
+  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_4;
+  sConfig.Rank = ADC_REGULAR_RANK_2;
+  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
 	
-	 sConfigInjected.InjectedChannel = ADC_CHANNEL_2;
+  sConfigInjected.InjectedChannel = ADC_CHANNEL_2;
   sConfigInjected.InjectedRank = ADC_INJECTED_RANK_1;
   sConfigInjected.InjectedSamplingTime = ADC_SAMPLETIME_24CYCLES_5;
   sConfigInjected.InjectedSingleDiff = ADC_SINGLE_ENDED;
@@ -216,11 +226,12 @@ ADC_InjectionConfTypeDef sConfigInjected = {0};
   /* USER CODE END ADC2_Init 2 */
 
 	
-	HAL_ADCEx_Calibration_Start(&hadc2,ADC_SINGLE_ENDED);
-	factor = HAL_ADCEx_Calibration_GetValue(&hadc2,ADC_SINGLE_ENDED);
-	HAL_ADCEx_Calibration_SetValue(&hadc2,ADC_SINGLE_ENDED,factor);
+  HAL_ADCEx_Calibration_Start(&hadc2, ADC_SINGLE_ENDED);
+  factor = HAL_ADCEx_Calibration_GetValue(&hadc2, ADC_SINGLE_ENDED);
+  HAL_ADCEx_Calibration_SetValue(&hadc2, ADC_SINGLE_ENDED, factor);
 	
-		HAL_ADCEx_InjectedStart(&hadc2);
+  HAL_ADCEx_InjectedStart(&hadc2);
+  HAL_ADC_Start_DMA(&hadc2, (uint32_t*)(adc_measurements_), 2);
 }
 
 
@@ -231,7 +242,8 @@ void start_temperature_adc(void)
 {
 	HAL_ADC_Start(&hadc1);
 	//g_CmdMap[CMD_TEMP] = get_temperature_value(hadc1.Instance->DR);
-	bus_voltage_ = ((float)(26.833f*3.3f*(hadc1.Instance->DR)))/4096.0f;
+	float bus_voltage = ((float)(26.833f*3.3f*(hadc1.Instance->DR)))/4096.0f;
+	bus_voltage_ += 0.1 * (bus_voltage - bus_voltage_);
 	g_CmdMap[CMD_TEMP] = 0;
 }
 
@@ -286,7 +298,6 @@ void ADC1_2_IRQHandler(void)////ADC3_JEOC�ж�     ִ��Ƶ����PWM�
 { 
   if( __HAL_ADC_GET_IT_SOURCE(&hadc1,ADC_IT_JEOS)!=RESET)
 	 {
-		 HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_6);
 //		 HAL_GPIO_WritePin(GPIOA,GPIO_PIN_6,1);
 			ADC1->ISR |= (u32)ADC_FLAG_JEOC; 
 			ServoPro_Fast();

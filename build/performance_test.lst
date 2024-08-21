@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclLEAr5.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -10,7 +10,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 4
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.file	"performance_test.c"
@@ -44,56 +44,56 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 1
   32              		@ link register save eliminated.
   33              	.LVL0:
   11:Src/performance_test.c **** 	ptr_sinWave->peak = 4096+8192;
-  34              		.loc 1 11 0
-  35 0000 4FF44053 		mov	r3, #12288
-  36 0004 0360     		str	r3, [r0]
   12:Src/performance_test.c **** 	ptr_sinWave->trough = 4096;
-  37              		.loc 1 12 0
-  38 0006 4FF48053 		mov	r3, #4096
-  39 000a 4360     		str	r3, [r0, #4]
+  34              		.loc 1 12 0
+  35 0000 4FF48053 		mov	r3, #4096
+  36 0004 4FF44052 		mov	r2, #12288
+  37 0008 C0E90023 		strd	r2, r3, [r0]
   13:Src/performance_test.c **** 	ptr_sinWave->cycles_set = 5;  //设置运行次数
-  40              		.loc 1 13 0
-  41 000c 0523     		movs	r3, #5
-  42 000e 8360     		str	r3, [r0, #8]
+  38              		.loc 1 13 0
+  39 000c 0523     		movs	r3, #5
+  40 000e 8360     		str	r3, [r0, #8]
   14:Src/performance_test.c **** 	ptr_sinWave->freq_sin = 0.2f;  //输出的正弦波频率
-  43              		.loc 1 14 0
-  44 0010 044B     		ldr	r3, .L2
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 2
+  41              		.loc 1 14 0
+  42 0010 044B     		ldr	r3, .L2
+  43 0012 C360     		str	r3, [r0, #12]	@ float
+  15:Src/performance_test.c **** 	ptr_sinWave->freq_exc = para_frea_exc;  //该函数的执行频率
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclLEAr5.s 			page 2
 
 
-  45 0012 C360     		str	r3, [r0, #12]	@ float
+  16:Src/performance_test.c **** 	ptr_sinWave->cycles_moved = 0;  //已经运行的次数
+  44              		.loc 1 16 0
+  45 0014 0023     		movs	r3, #0
   15:Src/performance_test.c **** 	ptr_sinWave->freq_exc = para_frea_exc;  //该函数的执行频率
   46              		.loc 1 15 0
-  47 0014 80ED040A 		vstr.32	s0, [r0, #16]
-  16:Src/performance_test.c **** 	ptr_sinWave->cycles_moved = 0;  //已经运行的次数
+  47 0016 80ED040A 		vstr.32	s0, [r0, #16]
   48              		.loc 1 16 0
-  49 0018 0023     		movs	r3, #0
-  50 001a 0362     		str	r3, [r0, #32]
+  49 001a 0362     		str	r3, [r0, #32]
   17:Src/performance_test.c **** 	ptr_sinWave->moving = 0;
-  51              		.loc 1 17 0
-  52 001c 80F82C30 		strb	r3, [r0, #44]
+  50              		.loc 1 17 0
+  51 001c 80F82C30 		strb	r3, [r0, #44]
   18:Src/performance_test.c **** }
-  53              		.loc 1 18 0
-  54 0020 7047     		bx	lr
-  55              	.L3:
-  56 0022 00BF     		.align	2
-  57              	.L2:
-  58 0024 CDCC4C3E 		.word	1045220557
-  59              		.cfi_endproc
-  60              	.LFE333:
-  62              		.global	__aeabi_f2d
-  63              		.global	__aeabi_dmul
-  64              		.global	__aeabi_ddiv
-  65              		.global	__aeabi_d2iz
-  66              		.section	.text.setPara_waveSinGenrator,"ax",%progbits
-  67              		.align	1
-  68              		.global	setPara_waveSinGenrator
-  69              		.syntax unified
-  70              		.thumb
-  71              		.thumb_func
-  72              		.fpu fpv4-sp-d16
-  74              	setPara_waveSinGenrator:
-  75              	.LFB334:
+  52              		.loc 1 18 0
+  53 0020 7047     		bx	lr
+  54              	.L3:
+  55 0022 00BF     		.align	2
+  56              	.L2:
+  57 0024 CDCC4C3E 		.word	1045220557
+  58              		.cfi_endproc
+  59              	.LFE333:
+  61              		.global	__aeabi_f2d
+  62              		.global	__aeabi_dmul
+  63              		.global	__aeabi_ddiv
+  64              		.global	__aeabi_d2iz
+  65              		.section	.text.setPara_waveSinGenrator,"ax",%progbits
+  66              		.align	1
+  67              		.global	setPara_waveSinGenrator
+  68              		.syntax unified
+  69              		.thumb
+  70              		.thumb_func
+  71              		.fpu fpv4-sp-d16
+  73              	setPara_waveSinGenrator:
+  74              	.LFB334:
   19:Src/performance_test.c **** /**
   20:Src/performance_test.c ****   * @brief  生成波形的参数设计
   21:Src/performance_test.c ****   * @param  ptr_sinWave: 结构体指针
@@ -106,59 +106,53 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 1
   28:Src/performance_test.c ****   */
   29:Src/performance_test.c **** void setPara_waveSinGenrator(struct WAVE_SIN_GEN_TYPE * ptr_sinWave,float para_freq_sin,s32 para_pe
   30:Src/performance_test.c **** {
-  76              		.loc 1 30 0
-  77              		.cfi_startproc
-  78              		@ args = 4, pretend = 0, frame = 0
-  79              		@ frame_needed = 0, uses_anonymous_args = 0
-  80              	.LVL1:
-  81 0000 D0B5     		push	{r4, r6, r7, lr}
-  82              	.LCFI0:
-  83              		.cfi_def_cfa_offset 16
-  84              		.cfi_offset 4, -16
-  85              		.cfi_offset 6, -12
-  86              		.cfi_offset 7, -8
-  87              		.cfi_offset 14, -4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 3
+  75              		.loc 1 30 0
+  76              		.cfi_startproc
+  77              		@ args = 4, pretend = 0, frame = 8
+  78              		@ frame_needed = 0, uses_anonymous_args = 0
+  79              	.LVL1:
+  80 0000 37B5     		push	{r0, r1, r2, r4, r5, lr}
+  81              	.LCFI0:
+  82              		.cfi_def_cfa_offset 24
+  83              		.cfi_offset 4, -12
+  84              		.cfi_offset 5, -8
+  85              		.cfi_offset 14, -4
+  86              		.loc 1 30 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclLEAr5.s 			page 3
 
 
-  88 0002 0446     		mov	r4, r0
-  89 0004 0498     		ldr	r0, [sp, #16]
-  90              	.LVL2:
+  87 0002 0446     		mov	r4, r0
+  88 0004 0698     		ldr	r0, [sp, #24]
+  89              	.LVL2:
   31:Src/performance_test.c **** 	s32 temp_start_pos = 0;
   32:Src/performance_test.c **** 	ptr_sinWave->peak = para_peak;
-  91              		.loc 1 32 0
-  92 0006 2160     		str	r1, [r4]
   33:Src/performance_test.c **** 	ptr_sinWave->trough = para_trough;
-  93              		.loc 1 33 0
-  94 0008 6260     		str	r2, [r4, #4]
   34:Src/performance_test.c **** 	ptr_sinWave->cycles_set = para_cycles_set;  //设置运行次数
-  95              		.loc 1 34 0
-  96 000a A360     		str	r3, [r4, #8]
+  90              		.loc 1 34 0
+  91 0006 A360     		str	r3, [r4, #8]
   35:Src/performance_test.c **** 	ptr_sinWave->freq_sin = para_freq_sin;
-  97              		.loc 1 35 0
-  98 000c 84ED030A 		vstr.32	s0, [r4, #12]
   36:Src/performance_test.c **** 	if(start_pos<para_trough )
-  99              		.loc 1 36 0
- 100 0010 8242     		cmp	r2, r0
- 101 0012 03DC     		bgt	.L6
+  92              		.loc 1 36 0
+  93 0008 8242     		cmp	r2, r0
+  33:Src/performance_test.c **** 	ptr_sinWave->cycles_set = para_cycles_set;  //设置运行次数
+  94              		.loc 1 33 0
+  95 000a C4E90012 		strd	r1, r2, [r4]
+  35:Src/performance_test.c **** 	ptr_sinWave->freq_sin = para_freq_sin;
+  96              		.loc 1 35 0
+  97 000e 84ED030A 		vstr.32	s0, [r4, #12]
+  98              		.loc 1 36 0
+  99 0012 51DC     		bgt	.L6
+ 100 0014 8842     		cmp	r0, r1
+ 101 0016 A8BF     		it	ge
+ 102 0018 0846     		movge	r0, r1
+ 103              	.L5:
+ 104              	.LVL3:
   37:Src/performance_test.c **** 	{
   38:Src/performance_test.c **** 		temp_start_pos = para_trough;
   39:Src/performance_test.c **** 	}
   40:Src/performance_test.c **** 	else 	if(start_pos>para_peak)
- 102              		.loc 1 40 0
- 103 0014 8142     		cmp	r1, r0
- 104 0016 02DA     		bge	.L5
   41:Src/performance_test.c **** 	{
   42:Src/performance_test.c **** 		temp_start_pos = para_peak;
- 105              		.loc 1 42 0
- 106 0018 0846     		mov	r0, r1
- 107 001a 00E0     		b	.L5
- 108              	.L6:
-  38:Src/performance_test.c **** 	}
- 109              		.loc 1 38 0
- 110 001c 1046     		mov	r0, r2
- 111              	.L5:
- 112              	.LVL3:
   43:Src/performance_test.c **** 	}
   44:Src/performance_test.c **** 	else
   45:Src/performance_test.c **** 	{
@@ -166,103 +160,132 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 1
   47:Src/performance_test.c **** 	}
   48:Src/performance_test.c **** 
   49:Src/performance_test.c **** 	ptr_sinWave->moving = 1;
- 113              		.loc 1 49 0
- 114 001e 0123     		movs	r3, #1
- 115              	.LVL4:
- 116 0020 84F82C30 		strb	r3, [r4, #44]
   50:Src/performance_test.c **** 	ptr_sinWave->cycles_moved = 0;  //已经运行的次数
- 117              		.loc 1 50 0
- 118 0024 0023     		movs	r3, #0
- 119 0026 2362     		str	r3, [r4, #32]
   51:Src/performance_test.c **** 	ptr_sinWave->angle_p_exc = (s32)((ptr_sinWave->freq_sin/ptr_sinWave->freq_exc)*(float)EN_360);
- 120              		.loc 1 51 0
- 121 0028 D4ED047A 		vldr.32	s15, [r4, #16]
- 122 002c 80EE277A 		vdiv.f32	s14, s0, s15
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 4
-
-
- 123 0030 254B     		ldr	r3, .L8+8
- 124 0032 B3F90030 		ldrsh	r3, [r3]
- 125 0036 07EE903A 		vmov	s15, r3	@ int
- 126 003a F8EEE77A 		vcvt.f32.s32	s15, s15
- 127 003e 67EE277A 		vmul.f32	s15, s14, s15
- 128 0042 FDEEE77A 		vcvt.s32.f32	s15, s15
- 129 0046 C4ED077A 		vstr.32	s15, [r4, #28]	@ int
+ 105              		.loc 1 51 0
+ 106 001a D4ED047A 		vldr.32	s15, [r4, #16]
+ 107 001e 80EE277A 		vdiv.f32	s14, s0, s15
+  49:Src/performance_test.c **** 	ptr_sinWave->cycles_moved = 0;  //已经运行的次数
+ 108              		.loc 1 49 0
+ 109 0022 0123     		movs	r3, #1
+ 110              	.LVL4:
+ 111 0024 84F82C30 		strb	r3, [r4, #44]
+  50:Src/performance_test.c **** 	ptr_sinWave->angle_p_exc = (s32)((ptr_sinWave->freq_sin/ptr_sinWave->freq_exc)*(float)EN_360);
+ 112              		.loc 1 50 0
+ 113 0028 0023     		movs	r3, #0
+ 114 002a 2362     		str	r3, [r4, #32]
+ 115              		.loc 1 51 0
+ 116 002c 264B     		ldr	r3, .L7+8
+ 117 002e B3F90030 		ldrsh	r3, [r3]
   52:Src/performance_test.c **** 	ptr_sinWave->ampl_sin = (ptr_sinWave->peak-ptr_sinWave->trough)/2;
- 130              		.loc 1 52 0
- 131 004a 8B1A     		subs	r3, r1, r2
- 132 004c 03EBD373 		add	r3, r3, r3, lsr #31
- 133 0050 5B10     		asrs	r3, r3, #1
- 134 0052 6361     		str	r3, [r4, #20]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclLEAr5.s 			page 4
+
+
+ 118              		.loc 1 52 0
+ 119 0032 0225     		movs	r5, #2
+  51:Src/performance_test.c **** 	ptr_sinWave->ampl_sin = (ptr_sinWave->peak-ptr_sinWave->trough)/2;
+ 120              		.loc 1 51 0
+ 121 0034 07EE903A 		vmov	s15, r3	@ int
+ 122 0038 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 123              		.loc 1 52 0
+ 124 003c 8B1A     		subs	r3, r1, r2
+  51:Src/performance_test.c **** 	ptr_sinWave->ampl_sin = (ptr_sinWave->peak-ptr_sinWave->trough)/2;
+ 125              		.loc 1 51 0
+ 126 003e 67EE277A 		vmul.f32	s15, s14, s15
   53:Src/performance_test.c **** 	ptr_sinWave->core_sin = (ptr_sinWave->peak+ptr_sinWave->trough)/2;
- 135              		.loc 1 53 0
- 136 0054 1144     		add	r1, r1, r2
- 137              	.LVL5:
- 138 0056 01EBD171 		add	r1, r1, r1, lsr #31
- 139 005a 4910     		asrs	r1, r1, #1
- 140 005c A161     		str	r1, [r4, #24]
+ 127              		.loc 1 53 0
+ 128 0042 1144     		add	r1, r1, r2
+ 129              	.LVL5:
+  51:Src/performance_test.c **** 	ptr_sinWave->ampl_sin = (ptr_sinWave->peak-ptr_sinWave->trough)/2;
+ 130              		.loc 1 51 0
+ 131 0044 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 132              		.loc 1 53 0
+ 133 0048 91FBF5F1 		sdiv	r1, r1, r5
   54:Src/performance_test.c **** 	ptr_sinWave->phase_ini = (s32)(asin((float)(temp_start_pos-ptr_sinWave->core_sin)/(float)ptr_sinWa
+ 134              		.loc 1 54 0
+ 135 004c 401A     		subs	r0, r0, r1
+ 136              	.LVL6:
+  52:Src/performance_test.c **** 	ptr_sinWave->core_sin = (ptr_sinWave->peak+ptr_sinWave->trough)/2;
+ 137              		.loc 1 52 0
+ 138 004e 93FBF5F3 		sdiv	r3, r3, r5
+  51:Src/performance_test.c **** 	ptr_sinWave->ampl_sin = (ptr_sinWave->peak-ptr_sinWave->trough)/2;
+ 139              		.loc 1 51 0
+ 140 0052 C4ED077A 		vstr.32	s15, [r4, #28]	@ int
  141              		.loc 1 54 0
- 142 005e 411A     		subs	r1, r0, r1
- 143 0060 07EE901A 		vmov	s15, r1	@ int
- 144 0064 B8EEE77A 		vcvt.f32.s32	s14, s15
- 145 0068 07EE903A 		vmov	s15, r3	@ int
- 146 006c F8EEE77A 		vcvt.f32.s32	s15, s15
- 147 0070 C7EE277A 		vdiv.f32	s15, s14, s15
- 148 0074 17EE900A 		vmov	r0, s15
- 149              	.LVL6:
- 150 0078 FFF7FEFF 		bl	__aeabi_f2d
- 151              	.LVL7:
- 152 007c 41EC100B 		vmov	d0, r0, r1
- 153 0080 FFF7FEFF 		bl	asin
- 154              	.LVL8:
- 155 0084 57EC106B 		vmov	r6, r7, d0
- 156 0088 104B     		ldr	r3, .L8+12
- 157 008a B3F90000 		ldrsh	r0, [r3]
- 158 008e 07EE900A 		vmov	s15, r0	@ int
- 159 0092 F8EEE77A 		vcvt.f32.s32	s15, s15
- 160 0096 17EE900A 		vmov	r0, s15
- 161 009a FFF7FEFF 		bl	__aeabi_f2d
- 162              	.LVL9:
- 163 009e 0246     		mov	r2, r0
- 164 00a0 0B46     		mov	r3, r1
- 165 00a2 3046     		mov	r0, r6
- 166 00a4 3946     		mov	r1, r7
- 167 00a6 FFF7FEFF 		bl	__aeabi_dmul
- 168              	.LVL10:
- 169 00aa 05A3     		adr	r3, .L8
- 170 00ac D3E90023 		ldrd	r2, [r3]
- 171 00b0 FFF7FEFF 		bl	__aeabi_ddiv
- 172              	.LVL11:
- 173 00b4 FFF7FEFF 		bl	__aeabi_d2iz
- 174              	.LVL12:
- 175 00b8 6062     		str	r0, [r4, #36]
+ 142 0056 07EE103A 		vmov	s14, r3	@ int
+ 143 005a 07EE900A 		vmov	s15, r0	@ int
+ 144 005e B8EEC77A 		vcvt.f32.s32	s14, s14
+ 145 0062 F8EEE77A 		vcvt.f32.s32	s15, s15
+  52:Src/performance_test.c **** 	ptr_sinWave->core_sin = (ptr_sinWave->peak+ptr_sinWave->trough)/2;
+ 146              		.loc 1 52 0
+ 147 0066 6361     		str	r3, [r4, #20]
+ 148              		.loc 1 54 0
+ 149 0068 C7EE877A 		vdiv.f32	s15, s15, s14
+  53:Src/performance_test.c **** 	ptr_sinWave->phase_ini = (s32)(asin((float)(temp_start_pos-ptr_sinWave->core_sin)/(float)ptr_sinWa
+ 150              		.loc 1 53 0
+ 151 006c A161     		str	r1, [r4, #24]
+ 152              		.loc 1 54 0
+ 153 006e 17EE900A 		vmov	r0, s15
+ 154 0072 FFF7FEFF 		bl	__aeabi_f2d
+ 155              	.LVL7:
+ 156 0076 41EC100B 		vmov	d0, r0, r1
+ 157 007a FFF7FEFF 		bl	asin
+ 158              	.LVL8:
+ 159 007e 1349     		ldr	r1, .L7+12
+ 160 0080 B1F90000 		ldrsh	r0, [r1]
+ 161 0084 07EE900A 		vmov	s15, r0	@ int
+ 162 0088 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 163 008c 53EC102B 		vmov	r2, r3, d0
+ 164 0090 17EE900A 		vmov	r0, s15
+ 165 0094 CDE90023 		strd	r2, [sp]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclLEAr5.s 			page 5
+
+
+ 166 0098 FFF7FEFF 		bl	__aeabi_f2d
+ 167              	.LVL9:
+ 168 009c DDE90023 		ldrd	r2, [sp]
+ 169 00a0 FFF7FEFF 		bl	__aeabi_dmul
+ 170              	.LVL10:
+ 171 00a4 06A3     		adr	r3, .L7
+ 172 00a6 D3E90023 		ldrd	r2, [r3]
+ 173 00aa FFF7FEFF 		bl	__aeabi_ddiv
+ 174              	.LVL11:
+ 175 00ae FFF7FEFF 		bl	__aeabi_d2iz
+ 176              	.LVL12:
+ 177 00b2 6062     		str	r0, [r4, #36]
   55:Src/performance_test.c **** 	//ptr_sinWave->angle = ptr_sinWave->phase_ini;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 5
-
-
   56:Src/performance_test.c **** }
- 176              		.loc 1 56 0
- 177 00ba D0BD     		pop	{r4, r6, r7, pc}
- 178              	.LVL13:
- 179              	.L9:
- 180 00bc AFF30080 		.align	3
- 181              	.L8:
- 182 00c0 00000000 		.word	0
- 183 00c4 FA210940 		.word	1074340346
- 184 00c8 00000000 		.word	EN_360
- 185 00cc 00000000 		.word	EN_180
- 186              		.cfi_endproc
- 187              	.LFE334:
- 189              		.section	.text.generate_posWaveSin,"ax",%progbits
- 190              		.align	1
- 191              		.global	generate_posWaveSin
- 192              		.syntax unified
- 193              		.thumb
- 194              		.thumb_func
- 195              		.fpu fpv4-sp-d16
- 197              	generate_posWaveSin:
- 198              	.LFB335:
+ 178              		.loc 1 56 0
+ 179 00b4 03B0     		add	sp, sp, #12
+ 180              	.LCFI1:
+ 181              		.cfi_remember_state
+ 182              		.cfi_def_cfa_offset 12
+ 183              		@ sp needed
+ 184 00b6 30BD     		pop	{r4, r5, pc}
+ 185              	.LVL13:
+ 186              	.L6:
+ 187              	.LCFI2:
+ 188              		.cfi_restore_state
+ 189 00b8 1046     		mov	r0, r2
+ 190 00ba AEE7     		b	.L5
+ 191              	.L8:
+ 192 00bc AFF30080 		.align	3
+ 193              	.L7:
+ 194 00c0 00000000 		.word	0
+ 195 00c4 FA210940 		.word	1074340346
+ 196 00c8 00000000 		.word	EN_360
+ 197 00cc 00000000 		.word	EN_180
+ 198              		.cfi_endproc
+ 199              	.LFE334:
+ 201              		.section	.text.generate_posWaveSin,"ax",%progbits
+ 202              		.align	1
+ 203              		.global	generate_posWaveSin
+ 204              		.syntax unified
+ 205              		.thumb
+ 206              		.thumb_func
+ 207              		.fpu fpv4-sp-d16
+ 209              	generate_posWaveSin:
+ 210              	.LFB335:
   57:Src/performance_test.c **** /**
   58:Src/performance_test.c ****   * @brief  计算生成波形
   59:Src/performance_test.c ****   * @param  ptr_sinWave: 结构体指针
@@ -270,194 +293,201 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 1
   61:Src/performance_test.c ****   */
   62:Src/performance_test.c **** void generate_posWaveSin(struct WAVE_SIN_GEN_TYPE * ptr_sinWave)
   63:Src/performance_test.c **** {
- 199              		.loc 1 63 0
- 200              		.cfi_startproc
- 201              		@ args = 0, pretend = 0, frame = 0
- 202              		@ frame_needed = 0, uses_anonymous_args = 0
- 203              	.LVL14:
+ 211              		.loc 1 63 0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              	.LVL14:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclLEAr5.s 			page 6
+
+
+ 216 0000 10B5     		push	{r4, lr}
+ 217              	.LCFI3:
+ 218              		.cfi_def_cfa_offset 8
+ 219              		.cfi_offset 4, -8
+ 220              		.cfi_offset 14, -4
   64:Src/performance_test.c **** 	s32 angle_and_iniPhase = 0;
   65:Src/performance_test.c **** 	if(ptr_sinWave->moving == 0)
- 204              		.loc 1 65 0
- 205 0000 90F82C30 		ldrb	r3, [r0, #44]	@ zero_extendqisi2
- 206 0004 43B3     		cbz	r3, .L15
+ 221              		.loc 1 65 0
+ 222 0002 90F82C30 		ldrb	r3, [r0, #44]	@ zero_extendqisi2
+  63:Src/performance_test.c **** 	s32 angle_and_iniPhase = 0;
+ 223              		.loc 1 63 0
+ 224 0006 0446     		mov	r4, r0
+ 225              		.loc 1 65 0
+ 226 0008 33B1     		cbz	r3, .L9
   66:Src/performance_test.c **** 	{
   67:Src/performance_test.c **** 		return;
   68:Src/performance_test.c **** 	}
   69:Src/performance_test.c **** 	if(ptr_sinWave->cycles_moved>=ptr_sinWave->cycles_set)
- 207              		.loc 1 69 0
- 208 0006 026A     		ldr	r2, [r0, #32]
- 209 0008 8368     		ldr	r3, [r0, #8]
- 210 000a 9A42     		cmp	r2, r3
- 211 000c 20DA     		bge	.L17
-  63:Src/performance_test.c **** 	s32 angle_and_iniPhase = 0;
- 212              		.loc 1 63 0
- 213 000e 10B5     		push	{r4, lr}
- 214              	.LCFI1:
- 215              		.cfi_def_cfa_offset 8
- 216              		.cfi_offset 4, -8
- 217              		.cfi_offset 14, -4
+ 227              		.loc 1 69 0
+ 228 000a 026A     		ldr	r2, [r0, #32]
+ 229 000c 8368     		ldr	r3, [r0, #8]
+ 230 000e 9A42     		cmp	r2, r3
+ 231 0010 03DB     		blt	.L11
   70:Src/performance_test.c **** 	{
   71:Src/performance_test.c **** 		ptr_sinWave->moving = 0;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 6
-
-
+ 232              		.loc 1 71 0
+ 233 0012 0023     		movs	r3, #0
+ 234 0014 80F82C30 		strb	r3, [r0, #44]
+ 235              	.LVL15:
+ 236              	.L9:
   72:Src/performance_test.c **** 		return;
   73:Src/performance_test.c **** 	}
   74:Src/performance_test.c **** 	ptr_sinWave->angle = ptr_sinWave->angle+ptr_sinWave->angle_p_exc;
- 218              		.loc 1 74 0
- 219 0010 836A     		ldr	r3, [r0, #40]
- 220 0012 C169     		ldr	r1, [r0, #28]
- 221 0014 0B44     		add	r3, r3, r1
- 222 0016 8362     		str	r3, [r0, #40]
   75:Src/performance_test.c **** 	if(ptr_sinWave->angle > EN_360)
- 223              		.loc 1 75 0
- 224 0018 1049     		ldr	r1, .L18
- 225 001a B1F90010 		ldrsh	r1, [r1]
- 226 001e 8B42     		cmp	r3, r1
- 227 0020 03DD     		ble	.L13
   76:Src/performance_test.c **** 	{
   77:Src/performance_test.c **** 		ptr_sinWave->cycles_moved++;
- 228              		.loc 1 77 0
- 229 0022 0132     		adds	r2, r2, #1
- 230 0024 0262     		str	r2, [r0, #32]
   78:Src/performance_test.c **** 		ptr_sinWave->angle = ptr_sinWave->angle - EN_360;
- 231              		.loc 1 78 0
- 232 0026 5B1A     		subs	r3, r3, r1
- 233 0028 8362     		str	r3, [r0, #40]
- 234              	.L13:
- 235 002a 0446     		mov	r4, r0
   79:Src/performance_test.c **** 	}
   80:Src/performance_test.c **** 	angle_and_iniPhase =  (ptr_sinWave->angle+ptr_sinWave->phase_ini)%EN_360;
- 236              		.loc 1 80 0
- 237 002c 806A     		ldr	r0, [r0, #40]
- 238              	.LVL15:
- 239 002e 636A     		ldr	r3, [r4, #36]
- 240 0030 1844     		add	r0, r0, r3
- 241 0032 90FBF1F3 		sdiv	r3, r0, r1
- 242 0036 01FB1300 		mls	r0, r1, r3, r0
- 243              	.LVL16:
   81:Src/performance_test.c **** 	s32 sin_Q15 = Math_Sin_EN360(angle_and_iniPhase);
- 244              		.loc 1 81 0
- 245 003a 80B2     		uxth	r0, r0
- 246              	.LVL17:
- 247 003c FFF7FEFF 		bl	Math_Sin_EN360
- 248              	.LVL18:
   82:Src/performance_test.c **** 	ptr_sinWave->out_pos = ((sin_Q15*ptr_sinWave->ampl_sin)>>15) + ptr_sinWave->core_sin; 
- 249              		.loc 1 82 0
- 250 0040 6369     		ldr	r3, [r4, #20]
- 251 0042 00FB03F0 		mul	r0, r0, r3
- 252              	.LVL19:
- 253 0046 A369     		ldr	r3, [r4, #24]
- 254 0048 03EBE033 		add	r3, r3, r0, asr #15
- 255 004c 2363     		str	r3, [r4, #48]
   83:Src/performance_test.c **** }
- 256              		.loc 1 83 0
- 257 004e 10BD     		pop	{r4, pc}
- 258              	.LVL20:
- 259              	.L17:
- 260              	.LCFI2:
- 261              		.cfi_def_cfa_offset 0
- 262              		.cfi_restore 4
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 7
+ 237              		.loc 1 83 0
+ 238 0018 10BD     		pop	{r4, pc}
+ 239              	.LVL16:
+ 240              	.L11:
+  74:Src/performance_test.c **** 	if(ptr_sinWave->angle > EN_360)
+ 241              		.loc 1 74 0
+ 242 001a 836A     		ldr	r3, [r0, #40]
+ 243 001c C169     		ldr	r1, [r0, #28]
+ 244 001e 0B44     		add	r3, r3, r1
+  75:Src/performance_test.c **** 	{
+ 245              		.loc 1 75 0
+ 246 0020 0D49     		ldr	r1, .L16
+  74:Src/performance_test.c **** 	if(ptr_sinWave->angle > EN_360)
+ 247              		.loc 1 74 0
+ 248 0022 8362     		str	r3, [r0, #40]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclLEAr5.s 			page 7
 
 
- 263              		.cfi_restore 14
-  71:Src/performance_test.c **** 		return;
- 264              		.loc 1 71 0
- 265 0050 0023     		movs	r3, #0
- 266 0052 80F82C30 		strb	r3, [r0, #44]
-  72:Src/performance_test.c **** 	}
- 267              		.loc 1 72 0
- 268 0056 7047     		bx	lr
- 269              	.L15:
- 270 0058 7047     		bx	lr
- 271              	.L19:
- 272 005a 00BF     		.align	2
- 273              	.L18:
- 274 005c 00000000 		.word	EN_360
- 275              		.cfi_endproc
- 276              	.LFE335:
- 278              		.section	.text.stop_posWaveSin,"ax",%progbits
- 279              		.align	1
- 280              		.global	stop_posWaveSin
- 281              		.syntax unified
- 282              		.thumb
- 283              		.thumb_func
- 284              		.fpu fpv4-sp-d16
- 286              	stop_posWaveSin:
- 287              	.LFB336:
+  75:Src/performance_test.c **** 	{
+ 249              		.loc 1 75 0
+ 250 0024 B1F90000 		ldrsh	r0, [r1]
+ 251              	.LVL17:
+ 252 0028 8342     		cmp	r3, r0
+  78:Src/performance_test.c **** 	}
+ 253              		.loc 1 78 0
+ 254 002a C1BF     		itttt	gt
+ 255 002c 1B1A     		subgt	r3, r3, r0
+  77:Src/performance_test.c **** 		ptr_sinWave->angle = ptr_sinWave->angle - EN_360;
+ 256              		.loc 1 77 0
+ 257 002e 0132     		addgt	r2, r2, #1
+  78:Src/performance_test.c **** 	}
+ 258              		.loc 1 78 0
+ 259 0030 A362     		strgt	r3, [r4, #40]
+ 260              	.LVL18:
+  77:Src/performance_test.c **** 		ptr_sinWave->angle = ptr_sinWave->angle - EN_360;
+ 261              		.loc 1 77 0
+ 262 0032 2262     		strgt	r2, [r4, #32]
+  80:Src/performance_test.c **** 	s32 sin_Q15 = Math_Sin_EN360(angle_and_iniPhase);
+ 263              		.loc 1 80 0
+ 264 0034 D4E90923 		ldrd	r2, r3, [r4, #36]
+ 265 0038 1344     		add	r3, r3, r2
+ 266 003a 93FBF0F2 		sdiv	r2, r3, r0
+ 267 003e 00FB1230 		mls	r0, r0, r2, r3
+ 268              	.LVL19:
+  81:Src/performance_test.c **** 	ptr_sinWave->out_pos = ((sin_Q15*ptr_sinWave->ampl_sin)>>15) + ptr_sinWave->core_sin; 
+ 269              		.loc 1 81 0
+ 270 0042 80B2     		uxth	r0, r0
+ 271 0044 FFF7FEFF 		bl	Math_Sin_EN360
+ 272              	.LVL20:
+  82:Src/performance_test.c **** }
+ 273              		.loc 1 82 0
+ 274 0048 6369     		ldr	r3, [r4, #20]
+ 275 004a 5843     		muls	r0, r3, r0
+ 276              	.LVL21:
+ 277 004c A369     		ldr	r3, [r4, #24]
+ 278 004e 03EBE033 		add	r3, r3, r0, asr #15
+ 279 0052 2363     		str	r3, [r4, #48]
+ 280 0054 E0E7     		b	.L9
+ 281              	.L17:
+ 282 0056 00BF     		.align	2
+ 283              	.L16:
+ 284 0058 00000000 		.word	EN_360
+ 285              		.cfi_endproc
+ 286              	.LFE335:
+ 288              		.section	.text.stop_posWaveSin,"ax",%progbits
+ 289              		.align	1
+ 290              		.global	stop_posWaveSin
+ 291              		.syntax unified
+ 292              		.thumb
+ 293              		.thumb_func
+ 294              		.fpu fpv4-sp-d16
+ 296              	stop_posWaveSin:
+ 297              	.LFB336:
   84:Src/performance_test.c **** /**
   85:Src/performance_test.c ****   * @brief  中断波形生成计算
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclLEAr5.s 			page 8
+
+
   86:Src/performance_test.c ****   * @param  ptr_sinWave: 结构体指针
   87:Src/performance_test.c ****   * @retval 
   88:Src/performance_test.c ****   */
   89:Src/performance_test.c **** void stop_posWaveSin(struct WAVE_SIN_GEN_TYPE * ptr_sinWave)
   90:Src/performance_test.c **** {
- 288              		.loc 1 90 0
- 289              		.cfi_startproc
- 290              		@ args = 0, pretend = 0, frame = 0
- 291              		@ frame_needed = 0, uses_anonymous_args = 0
- 292              		@ link register save eliminated.
- 293              	.LVL21:
+ 298              		.loc 1 90 0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302              		@ link register save eliminated.
+ 303              	.LVL22:
   91:Src/performance_test.c **** 	ptr_sinWave->moving = 0;
- 294              		.loc 1 91 0
- 295 0000 0023     		movs	r3, #0
- 296 0002 80F82C30 		strb	r3, [r0, #44]
+ 304              		.loc 1 91 0
+ 305 0000 0023     		movs	r3, #0
+ 306 0002 80F82C30 		strb	r3, [r0, #44]
   92:Src/performance_test.c **** }
- 297              		.loc 1 92 0
- 298 0006 7047     		bx	lr
- 299              		.cfi_endproc
- 300              	.LFE336:
- 302              		.text
- 303              	.Letext0:
- 304              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 305              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 306              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
- 307              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
- 308              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
- 309              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
- 310              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
- 311              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 8
-
-
- 312              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
- 313              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
- 314              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
- 315              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
- 316              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
- 317              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 318              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 319              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 320              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
- 321              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 322              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 323              		.file 21 "Inc/uart.h"
- 324              		.file 22 "Inc/pwm.h"
- 325              		.file 23 "Inc/spi_MEncoder.h"
- 326              		.file 24 "Inc/adc.h"
- 327              		.file 25 "Inc/stm32_math_sin.h"
- 328              		.file 26 "Inc/pid.h"
- 329              		.file 27 "Inc/profile_joint.h"
- 330              		.file 28 "Inc/icmu.h"
- 331              		.file 29 "Inc/global.h"
- 332              		.file 30 "Inc/performance_test.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s 			page 9
+ 307              		.loc 1 92 0
+ 308 0006 7047     		bx	lr
+ 309              		.cfi_endproc
+ 310              	.LFE336:
+ 312              		.text
+ 313              	.Letext0:
+ 314              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 315              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 316              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 317              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 318              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 319              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 320              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 321              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 322              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 323              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 324              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 325              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 326              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 327              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 328              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 329              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 330              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ 331              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 332              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 333              		.file 21 "Inc/uart.h"
+ 334              		.file 22 "Inc/pwm.h"
+ 335              		.file 23 "Inc/spi_MEncoder.h"
+ 336              		.file 24 "Inc/adc.h"
+ 337              		.file 25 "Inc/stm32_math_sin.h"
+ 338              		.file 26 "Inc/pid.h"
+ 339              		.file 27 "Inc/profile_joint.h"
+ 340              		.file 28 "Inc/icmu.h"
+ 341              		.file 29 "Inc/global.h"
+ 342              		.file 30 "Inc/performance_test.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\cclLEAr5.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 performance_test.c
-C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:18     .text.ini_waveSinGenrator:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:25     .text.ini_waveSinGenrator:00000000 ini_waveSinGenrator
-C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:58     .text.ini_waveSinGenrator:00000024 $d
-C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:67     .text.setPara_waveSinGenrator:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:74     .text.setPara_waveSinGenrator:00000000 setPara_waveSinGenrator
-C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:182    .text.setPara_waveSinGenrator:000000c0 $d
-C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:190    .text.generate_posWaveSin:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:197    .text.generate_posWaveSin:00000000 generate_posWaveSin
-C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:274    .text.generate_posWaveSin:0000005c $d
-C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:279    .text.stop_posWaveSin:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccKeQcfJ.s:286    .text.stop_posWaveSin:00000000 stop_posWaveSin
+C:\Users\82057\AppData\Local\Temp\cclLEAr5.s:18     .text.ini_waveSinGenrator:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclLEAr5.s:25     .text.ini_waveSinGenrator:00000000 ini_waveSinGenrator
+C:\Users\82057\AppData\Local\Temp\cclLEAr5.s:57     .text.ini_waveSinGenrator:00000024 $d
+C:\Users\82057\AppData\Local\Temp\cclLEAr5.s:66     .text.setPara_waveSinGenrator:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclLEAr5.s:73     .text.setPara_waveSinGenrator:00000000 setPara_waveSinGenrator
+C:\Users\82057\AppData\Local\Temp\cclLEAr5.s:194    .text.setPara_waveSinGenrator:000000c0 $d
+C:\Users\82057\AppData\Local\Temp\cclLEAr5.s:202    .text.generate_posWaveSin:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclLEAr5.s:209    .text.generate_posWaveSin:00000000 generate_posWaveSin
+C:\Users\82057\AppData\Local\Temp\cclLEAr5.s:284    .text.generate_posWaveSin:00000058 $d
+C:\Users\82057\AppData\Local\Temp\cclLEAr5.s:289    .text.stop_posWaveSin:00000000 $t
+C:\Users\82057\AppData\Local\Temp\cclLEAr5.s:296    .text.stop_posWaveSin:00000000 stop_posWaveSin
 
 UNDEFINED SYMBOLS
 __aeabi_f2d

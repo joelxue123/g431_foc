@@ -22,7 +22,7 @@ TARGET = g431_foc
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -Og
+OPT = -Os
 
 
 #######################################

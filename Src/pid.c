@@ -567,8 +567,8 @@ static void CurrentPID(void)
 		}
 	}
 	
-	float Ierr_d = 0.f - (float)g_CmdMap[CMD_CUR_D_ACT_PU]/1000.0f;
-    float Ierr_q = (float)g_CmdMap[CMD_CUR_SET_PU]/1000.0f - (float)g_CmdMap[CMD_CUR_ACT_PU]/1000.f;
+	float Ierr_d = 0.f - (float)(g_CmdMap[CMD_CUR_D_ACT_PU]*(*g_pCur_ref_base_mA)/PU_REFERENCE/1000.0f);
+    float Ierr_q = (float)((g_CmdMap[CMD_CUR_SET_PU] - g_CmdMap[CMD_CUR_ACT_PU])*(*g_pCur_ref_base_mA)/PU_REFERENCE/1000.f);
 	float Vd = motor_.current_control_.v_current_control_integral_d + Ierr_d * motor_.current_control_.p_gain;
     float Vq = motor_.current_control_.v_current_control_integral_q + Ierr_q * motor_.current_control_.p_gain;
 
@@ -584,29 +584,18 @@ static void CurrentPID(void)
         mod_q *= mod_scalefactor;
 		motor_.current_control_.v_current_control_integral_d *= 0.99f;
         motor_.current_control_.v_current_control_integral_q *= 0.99f;
-	}`
+	}
 	else
 	{
-		motor_.current_control_.v_current_control_integral_d += Ierr_d * (motor_.current_control_.i_gain * current_meas_period);
-        motor_.current_control_.v_current_control_integral_q += Ierr_q * (motor_.current_control_.i_gain * current_meas_period);
+		motor_.current_control_.v_current_control_integral_d += Ierr_d * (motor_.current_control_.i_gain * DT);
+        motor_.current_control_.v_current_control_integral_q += Ierr_q * (motor_.current_control_.i_gain * DT);
 	}
 
-	pid_IQ.Up_limit = 16384;
-	pid_IQ.Low_limit = -16384;
-		
-	pid_ID.Up_limit = 16384;
-	pid_ID.Low_limit = -16384;	
-	
-	PID_control(g_CmdMap[CMD_CUR_SET_PU],g_CmdMap[CMD_CUR_ACT_PU],&pid_IQ);	
-	PID_control(-0,g_CmdMap[CMD_CUR_D_ACT_PU],&pid_ID);	
-	
-
-	
 
 	
 	
-	g_Vq = pid_IQ.out*N97_CCR/PU_REFERENCE;
-	g_Vd = pid_ID.out*N97_CCR/PU_REFERENCE;	
+	g_Vq = (s16)(mod_q*(float)REAL_CCR);
+	g_Vd = (s16)(mod_d*(float)REAL_CCR);	
 	
 //	g_Vq = 100;//g_high_fre_pulse * 500;
 //	g_Vd = g_high_fre_pulse * 1000;
@@ -623,11 +612,11 @@ static void CurrentPID(void)
 	
 	X = Math_Sin_EN360( g_ElectricAngle  );
 	Y = Math_Cos_EN360( g_ElectricAngle );
-	g_V_Alpha = Q15_MUL(g_Vd,X) + Q15_MUL(g_Vq,Y);  // ��Ƕȶ���ΪQ����Alpha��ļн�
-	g_V_Beta = Q15_MUL(-g_Vd,Y) + Q15_MUL(g_Vq,X);
-
+	//g_V_Alpha = Q15_MUL(g_Vd,X) + Q15_MUL(g_Vq,Y);  // ��Ƕȶ���ΪQ����Alpha��ļн�
+	//g_V_Beta = Q15_MUL(-g_Vd,Y) + Q15_MUL(g_Vq,X);
+	g_V_Alpha = Q15_MUL(g_Vd,Y) - Q15_MUL(g_Vq,X);  // ��Ƕȶ���ΪQ����Alpha��ļн�
+	g_V_Beta = Q15_MUL(g_Vd,X) + Q15_MUL(g_Vq,Y);
 	update_current_control(&motor_, (float)bus_voltage_*one_by_sqrt3*g_V_Alpha/REAL_CCR, (float)bus_voltage_*one_by_sqrt3*g_V_Beta/REAL_CCR);
-	// SVPWMռ�ձȼ������
 	X = g_V_Beta;
 	temp32 = Q16_MUL(g_V_Alpha,113512);
 	Y = (g_V_Beta + temp32) >> 1;
@@ -1034,10 +1023,10 @@ static void OpenLoop(void)
 	int temp_y;
 	int pll_intput;
 	
-  s16 temp32 = g_CmdMap[TAG_OPEN_PWM] * MAX_CCR / 100;  // ��������ת�����򣬼���CCR
-  g_Timer1CCR = (ABS(temp32) <= MAX_CCR) ? temp32 : g_Timer1CCR;  // ��ʱ�����յ����ռ�ձ�
+  s16 temp32 = g_CmdMap[TAG_OPEN_PWM] * REAL_CCR / 100;  // ��������ת�����򣬼���CCR
+  g_Timer1CCR = (ABS(temp32) <= REAL_CCR) ? temp32 : MAX_CCR;  // ��ʱ�����յ����ռ�ձ�
 	
-	g_Vq =  g_CmdMap[TAG_OPEN_PWM] * 16384 / 100;  
+	g_Vq = g_Timer1CCR;  
 	g_Vd = 0;
 
 	X = Math_Sin_EN360( g_ElectricAngle  );
@@ -1193,23 +1182,24 @@ int last_alpha = 0;
 int last_beta = 0;
 
 float phase_current_rev_gain_ = 1.0f/16.5f;
-float shunt_conductance = 1.0f/0.01f;
+float shunt_conductance1 = 1.0f/(0.011f * 1.1f);
+float shunt_conductance2 = 1.0f/(0.01f*1.1f);
+
+
 float phase_current_from_adcval(s32 adcval_bal)
 {
-  float amp_out_volt = (3.3f / (float)(1 << 12)) * (float)adcval_bal;
+  float amp_out_volt = (3300.0f / (float)(1 << 12)) * (float)adcval_bal;
   float shunt_volt = amp_out_volt * phase_current_rev_gain_;
-  float current = shunt_volt * shunt_conductance;
-  return current ;
+  return shunt_volt ;
 }
 void GetCurrent(void)
 {
   s32 i=0, j=0,I_B1 = 0,I_C1 = 0;
 
-
 	
-	g_IC_Raw = (s16)(-phase_current_from_adcval(ADC1->JDR1-g_ZeroCur_MotorC)*1000.0f); // mA	
-	g_IB_Raw = (s16)(-phase_current_from_adcval(ADC2->JDR1-g_ZeroCur_MotorB)*1000.0f); // mA
-	g_IA_Raw = (s16)(-phase_current_from_adcval(ADC1->JDR1-g_ZeroCur_MotorA)*1000.0f); // mA
+	g_IC_Raw = (s16)(-phase_current_from_adcval(ADC1->JDR1-g_ZeroCur_MotorC)*1*1000.0f); // mA	
+	g_IB_Raw = (s16)(-phase_current_from_adcval(ADC2->JDR1-g_ZeroCur_MotorB)*shunt_conductance2); // mA
+	g_IA_Raw = (s16)(-phase_current_from_adcval(ADC1->JDR1-g_ZeroCur_MotorA)*shunt_conductance1); // mA
 	
 	g_IA = g_IA_Raw;
 	g_IB = g_IB_Raw;
@@ -1231,8 +1221,10 @@ void GetCurrent(void)
 	
 	i = Math_Sin_EN360(g_ElectricAngle );
 	j = Math_Cos_EN360(g_ElectricAngle );
-	I_B1 = Q15_MUL(j, I_Alpha) + Q15_MUL(i, I_Beta);//Park�任:Iq = i_Alpha*cos - i_Beta*sin
-	I_C1 = Q15_MUL(i, I_Alpha) - Q15_MUL(j, I_Beta);//Park�任:Id = i_Alpha*sin + i_Beta*cos
+	//I_B1 = Q15_MUL(j, I_Alpha) + Q15_MUL(i, I_Beta);//Park�任:Iq = i_Alpha*cos - i_Beta*sin
+	//I_C1 = Q15_MUL(i, I_Alpha) - Q15_MUL(j, I_Beta);//Park�任:Id = i_Alpha*sin + i_Beta*cos
+	I_B1 = -Q15_MUL(i, I_Alpha) + Q15_MUL(j, I_Beta);//Park�任:Iq = i_Alpha*cos - i_Beta*sin
+	I_C1 = Q15_MUL(j, I_Alpha) + Q15_MUL(i, I_Beta);//Park�任:Id = i_Alpha*sin + i_Beta*cos
 //		I_B1 = (I_B1>>3)<<3;
 //		I_C1 = (I_C1>>3)<<3;
 
@@ -1332,13 +1324,13 @@ GPIOA->BSRR  |= (uint32_t)GPIO_PIN_15;
 		motor_fault_check(); //¼ì²éµç»úÊÇ·ñÄÜÕý³£¹¤×÷
 	}
 	
-	GPIOA->BRR |= (uint32_t)GPIO_PIN_15;
-	Pll_phase(  ( (s16)g_ElectricAngle_15bit  ), &pll_estimated_phase,    &pll_estimated_spd  );
-
 
 	PlusPosition_flag ^= 0x1;
 
 	non_linear_flux_observer();
+	encode_sample();
+    sensorless_sensor_phase_switch();
+
 	s_count ++;
 	if(s_count >= (F_CUR_REGULATOR_HZ/F_SPD_REGULATOR_HZ))
 	{	

@@ -16,6 +16,30 @@ static const float one_by_sqrt3 = 0.57735026919f;
 static const float two_by_sqrt3 = 1.15470053838f;
 static const float sqrt3_by_2 = 0.86602540378f;
 
+typedef struct 
+{
+    float phase_;
+    float vel_estimate_erad_;
+    float pll_bandwidth;
+    float pll_pos_;
+	float vel_estimate_valid_;
+} encoder_sensor;
+
+typedef struct 
+{
+	float V_alpha_beta_memory_[2];
+    float flux_state_[2];
+	float flux_state_memory_[2];
+    float phase_;
+    float vel_estimate_erad_;
+    float pll_bandwidth;
+    float pll_pos_;
+	float vel_estimate_valid_;
+
+}sensorless;
+
+
+
 typedef struct  {
     float direction;
     float phase_inductance;
@@ -47,14 +71,9 @@ typedef struct
 	sensorless_motor_control_config_t config_;
 	sensorless_motor_control_meas_t current_meas_;
 	sensorless_current_control current_control_;
-	float V_alpha_beta_memory_[2];
-    float flux_state_[2];
-	float flux_state_memory_[2];
-    float vel_estimate_valid_;
-    float pll_estimated_phase;
-	float pll_pos_;
-	float vel_estimate_erad_;
-	float phase_;
+	sensorless sensorless_estimator_;
+	float *vel_estimate_erad_;
+	float *phase_;
 	float vel_estimate_;
 
 } motor_control_reporting;
@@ -65,5 +84,7 @@ void init_motor(motor_control_reporting *motor);
 void update_current_meas(motor_control_reporting *motor, float phA, float phB, float phC);
 void update_current_control(motor_control_reporting *motor, float final_v_alpha, float final_v_beta);
 int non_linear_flux_observer(void);
+void encode_sample(void);
+void sensorless_sensor_phase_switch(void);
 #endif
 
