@@ -46,7 +46,7 @@ void ScopeProDebug(void)//����ʱ����������
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = adc_measurements_[0];//(s16)(motor_.current_control_.final_v_alpha*1000.f*PU_REFERENCE/(*g_pCur_ref_base_mA));//g_CmdMap[CMD_CUR_SET_PU];//g_CmdMap[CMD_CUR_SET_PU];//g_CmdMap[CMD_CUR_SET_PU];
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = adc_measurements_[1];//(s16)(motor_.current_control_.final_v_beta*1000.f*PU_REFERENCE/(*g_pCur_ref_base_mA));//g_Iq*PU_REFERENCE/(*g_pCur_ref_base_mA);
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0;//g_IB_Raw*PU_REFERENCE/(*g_pCur_ref_base_mA);; // CMD_CUR_FWD_PU //CMD_CUR_D_ACT_PU
-	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =g_ElectricAngle_15bit_Raw;//g_ElectricAngle;//g_ElectricAngle ;//g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;  //g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;
+	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =g_ElectricAngle_15bit_Raw - g_Encode_offset_EN;//g_ElectricAngle;//g_ElectricAngle ;//g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;  //g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_SysStatus;
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_TEMP];
