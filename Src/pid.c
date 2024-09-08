@@ -80,6 +80,10 @@ double T_t_1 = 0.0;
 volatile s32 pos_error_to_target = 0;
 struct PID_TYPE pid_IQ,pid_ID,pid_force,pid_spd,pid_pos,pid_pll;
 
+float Cphase_deadtime_compensation_ = 0;
+float Bphase_deadtime_compensation_ = 0;
+float Aphase_deadtime_compensation_ = 0;
+
 void hfi_update_angle(void);
 void PID_ini(struct PID_TYPE * p_pid,u32 freq)   //PID
 {
@@ -407,9 +411,9 @@ static void Calculate_CCR_SVP(TIM_TypeDef* TIMx, int sector, int X, int Y, int Z
 			g_CmdMap[MOT_INDUC] = (u16)(1000.0*T_t*(double)g_CmdMap[MOT_RES]);
 		}
 	}	 
-  TIMx->CCR3 = CCR3;
-  TIMx->CCR2 = CCR2;
-  TIMx->CCR1 = CCR1;
+  TIMx->CCR3 = CCR3 + Cphase_deadtime_compensation_;
+  TIMx->CCR2 = CCR2 + Bphase_deadtime_compensation_;
+  TIMx->CCR1 = CCR1 + Aphase_deadtime_compensation_;
 	//TIMx->CCER = (u16)0x5FFF;
 	TIMx->CCER = (u16)PWM_OUTPUT_REG;
 }
@@ -578,6 +582,21 @@ static void CurrentPID(void)
     Iq_filter += 0.1f * ((float)(g_CmdMap[CMD_CUR_ACT_PU])*(*g_pCur_ref_base_mA)/PU_REFERENCE/1000.f - Iq_filter);
     Id_filter += 0.1f * ((float)(g_CmdMap[CMD_CUR_D_ACT_PU]*(*g_pCur_ref_base_mA)/PU_REFERENCE/1000.0f) - Id_filter);
     
+    
+    float offset_phase = fast_atan2(Iq_filter, Id_filter);
+    float total_phase_for_abc_sign_calculation_  = (*motor_.phase_) + offset_phase + M_PI;
+    
+    total_phase_for_abc_sign_calculation_ = wrap_pm_pi(total_phase_for_abc_sign_calculation_);
+    total_phase_for_abc_sign_calculation_ += M_PI;
+
+	float sign_a_ ,sign_b_,sign_c_;
+    abc_sign_calculation(total_phase_for_abc_sign_calculation_, &sign_a_, &sign_b_, &sign_c_);
+    
+    Aphase_deadtime_compensation_ = 0.5f*sign_a_ * 0 ;
+    Bphase_deadtime_compensation_ = 0.5f*sign_b_ * 0 ;
+    Cphase_deadtime_compensation_ = 0.5f*sign_c_ * 0 ;
+
+
     float dec_vd=0, dec_vq=0,pm_flux_linkage=0;
     pm_flux_linkage =  motor_.config_.pm_flux_linkage*1.f;
     dec_vd = Iq_filter * (*motor_.vel_estimate_erad_) *  motor_.config_.phase_inductance;

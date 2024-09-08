@@ -32,6 +32,8 @@
 
 // #define HIGHFRE_DEBUG 0
 
+
+
 /*  �г�ѡ��   */
 #define DISTANCE_10MM  //10mm �г�
 //#define DISTANCE_20MM   //20mm�г�
@@ -139,7 +141,7 @@
 #define N80_CCR			  (80*MAX_CCR/100)		 	// 8%ռ�ձ�
 #define N90_CCR			  (90*MAX_CCR/100)	 		// 90%ռ�ձ�
 #define N97_CCR			  (97*MAX_CCR/100)	 		// 97%ռ�ձ�
-
+#define TIM_1_8_DEADTIME_CLOCKS (40)
 //#define F_CUR_REGULATOR_KHZ	(1000/SVPWM_PERIOD_US)  // ������Ƶ�� ��λKHz,�� PWMִ��Ƶ����ͬ(���õ��߲���)
 //#define F_SPD_REGULATOR_KHZ	5  // �ٶȻ�ִ��Ƶ�� ��λKHz
 //#define F_POS_REGULATOR_KHZ	1  // λ�û�ִ��Ƶ�� ��λKHz
