@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,1156 +58,1188 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 1
   29:Src/scope.c   **** extern volatile int estimated_SPD_filterd;
   30:Src/scope.c   **** extern float pll_estimated_phase;
   31:Src/scope.c   **** extern int g_measured_phase;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 2
 
 
   32:Src/scope.c   **** extern int s_Encoder_Inc;
-  33:Src/scope.c   **** 
-  34:Src/scope.c   **** #define ENCODER_BASE_SPEED  (30*  1000000  /100   / 23000)
-  35:Src/scope.c   **** void ScopeProDebug(void)//����ʱ���������� 
-  36:Src/scope.c   **** {
-  28              		.loc 1 36 0
+  33:Src/scope.c   **** extern float dec_bemf;
+  34:Src/scope.c   **** extern float Vq;
+  35:Src/scope.c   **** #define ENCODER_BASE_SPEED  (30*  1000000  /100   / 23000)
+  36:Src/scope.c   **** void ScopeProDebug(void)//����ʱ���������� 
+  37:Src/scope.c   **** {
+  28              		.loc 1 37 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   33              	.LVL0:
-  37:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
-  38:Src/scope.c   **** 	s16 i=0;	
-  39:Src/scope.c   **** 	g_TxBuf_Pos = 0;
-  40:Src/scope.c   **** 	i=0;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_POS_SET_PU];
-  34              		.loc 1 40 0
-  35 0000 2049     		ldr	r1, .L2
-  36 0002 214B     		ldr	r3, .L2+4
+  38:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
+  39:Src/scope.c   **** 	s16 i=0;	
+  40:Src/scope.c   **** 	g_TxBuf_Pos = 0;
+  41:Src/scope.c   **** 	i=0;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_POS_SET_PU];
+  34              		.loc 1 41 0
+  35 0000 2749     		ldr	r1, .L2
+  36 0002 284B     		ldr	r3, .L2+4
   37 0004 B1F84820 		ldrh	r2, [r1, #72]
-  36:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
-  38              		.loc 1 36 0
-  39 0008 10B4     		push	{r4}
-  40              	.LCFI0:
-  41              		.cfi_def_cfa_offset 4
-  42              		.cfi_offset 4, -4
-  43              		.loc 1 40 0
-  44 000a 1A80     		strh	r2, [r3]	@ unaligned
-  45              	.LVL1:
+  42:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_PROFILE_POS_PU];
+  43:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_POS_ACT_PU];
+  44:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_SPDREG_REF_PU];//g_CmdMap[CMD_SPD
+  45:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =  g_CmdMap[CMD_SPD_ACT_PU];//s_Encoder_Inc * EN
+  46:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)motor_.vel_estimate_;//estimated_SPD_filt
+  47:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(Vq*3000.f);//(s16)(motor_.current_contro
+  38              		.loc 1 47 0
+  39 0008 DFED276A 		vldr.32	s13, .L2+8
+  48:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(dec_bemf*3000.f);//(s16)(motor_.current_
+  49:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0;//g_IB_Raw*PU_REFERENCE/(*g_pCur_ref_base_mA
+  50:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =encoder_sensor_.raw_phase;//g_ElectricAngle;//g
+  40              		.loc 1 50 0
+  41 000c 2748     		ldr	r0, .L2+12
+  37:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
+  42              		.loc 1 37 0
+  43 000e 10B4     		push	{r4}
+  44              	.LCFI0:
+  45              		.cfi_def_cfa_offset 4
+  46              		.cfi_offset 4, -4
   41:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_PROFILE_POS_PU];
-  46              		.loc 1 41 0
-  47 000c B1F86020 		ldrh	r2, [r1, #96]
-  48 0010 5A80     		strh	r2, [r3, #2]	@ unaligned
-  49              	.LVL2:
+  47              		.loc 1 41 0
+  48 0010 1A80     		strh	r2, [r3]	@ unaligned
+  49              	.LVL1:
   42:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_POS_ACT_PU];
   50              		.loc 1 42 0
-  51 0012 B1F84C20 		ldrh	r2, [r1, #76]
-  52 0016 9A80     		strh	r2, [r3, #4]	@ unaligned
-  53              	.LVL3:
+  51 0012 B1F86020 		ldrh	r2, [r1, #96]
+  52 0016 5A80     		strh	r2, [r3, #2]	@ unaligned
+  53              	.LVL2:
   43:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_SPDREG_REF_PU];//g_CmdMap[CMD_SPD
   54              		.loc 1 43 0
-  55 0018 B1F85C20 		ldrh	r2, [r1, #92]
-  56 001c DA80     		strh	r2, [r3, #6]	@ unaligned
-  57              	.LVL4:
+  55 0018 B1F84C20 		ldrh	r2, [r1, #76]
+  56 001c 9A80     		strh	r2, [r3, #4]	@ unaligned
+  57              	.LVL3:
   44:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =  g_CmdMap[CMD_SPD_ACT_PU];//s_Encoder_Inc * EN
   58              		.loc 1 44 0
-  59 001e B1F85020 		ldrh	r2, [r1, #80]
-  60 0022 1A81     		strh	r2, [r3, #8]	@ unaligned
-  61              	.LVL5:
+  59 001e B1F85C20 		ldrh	r2, [r1, #92]
+  60 0022 DA80     		strh	r2, [r3, #6]	@ unaligned
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 3
+
+
+  61              	.LVL4:
   45:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)motor_.vel_estimate_;//estimated_SPD_filt
   62              		.loc 1 45 0
-  63 0024 194A     		ldr	r2, .L2+8
-  46:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = adc_measurements_[0];//(s16)(motor_.current_co
-  47:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = adc_measurements_[1];//(s16)(motor_.current_co
-  48:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0;//g_IB_Raw*PU_REFERENCE/(*g_pCur_ref_base_mA
-  49:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =g_ElectricAngle_15bit_Raw - g_Encode_offset_EN;
-  64              		.loc 1 49 0
-  65 0026 1A4C     		ldr	r4, .L2+12
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 3
-
-
-  45:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)motor_.vel_estimate_;//estimated_SPD_filt
-  66              		.loc 1 45 0
-  67 0028 D2ED1D7A 		vldr.32	s15, [r2, #116]
-  68 002c FDEEE77A 		vcvt.s32.f32	s15, s15
-  69 0030 17EE902A 		vmov	r2, s15	@ int
-  70 0034 5A81     		strh	r2, [r3, #10]	@ unaligned
-  71              	.LVL6:
-  46:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = adc_measurements_[0];//(s16)(motor_.current_co
-  72              		.loc 1 46 0
-  73 0036 174A     		ldr	r2, .L2+16
-  74 0038 1088     		ldrh	r0, [r2]
-  75 003a 9881     		strh	r0, [r3, #12]	@ unaligned
-  76              	.LVL7:
-  77              		.loc 1 49 0
-  78 003c 1648     		ldr	r0, .L2+20
-  47:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0;//g_IB_Raw*PU_REFERENCE/(*g_pCur_ref_base_mA
-  79              		.loc 1 47 0
-  80 003e 5288     		ldrh	r2, [r2, #2]
-  81              		.loc 1 49 0
-  82 0040 0068     		ldr	r0, [r0]
-  83 0042 2468     		ldr	r4, [r4]
-  47:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0;//g_IB_Raw*PU_REFERENCE/(*g_pCur_ref_base_mA
-  84              		.loc 1 47 0
-  85 0044 DA81     		strh	r2, [r3, #14]	@ unaligned
-  86              	.LVL8:
-  87              		.loc 1 49 0
-  88 0046 001B     		subs	r0, r0, r4
-  89 0048 5882     		strh	r0, [r3, #18]	@ unaligned
-  50:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_SysStatus;
-  90              		.loc 1 50 0
-  91 004a 1448     		ldr	r0, .L2+24
-  51:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
-  52:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_TEMP];
+  63 0024 B1F85020 		ldrh	r2, [r1, #80]
+  64 0028 1A81     		strh	r2, [r3, #8]	@ unaligned
+  65              	.LVL5:
+  46:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(Vq*3000.f);//(s16)(motor_.current_contro
+  66              		.loc 1 46 0
+  67 002a 214A     		ldr	r2, .L2+16
+  68              		.loc 1 50 0
+  69 002c 0088     		ldrh	r0, [r0]
+  46:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(Vq*3000.f);//(s16)(motor_.current_contro
+  70              		.loc 1 46 0
+  71 002e D2ED1D7A 		vldr.32	s15, [r2, #116]
+  72              		.loc 1 50 0
+  73 0032 5882     		strh	r0, [r3, #18]	@ unaligned
+  46:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(Vq*3000.f);//(s16)(motor_.current_contro
+  74              		.loc 1 46 0
+  75 0034 FDEEE77A 		vcvt.s32.f32	s15, s15
+  51:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_SysStatus;
+  76              		.loc 1 51 0
+  77 0038 1E48     		ldr	r0, .L2+20
+  52:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
+  53:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_TEMP];
+  54:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = ((MU_Value_base_0)>>16)&0xFFFF;
+  78              		.loc 1 54 0
+  79 003a 1F4C     		ldr	r4, .L2+24
+  51:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_SysStatus;
+  80              		.loc 1 51 0
+  81 003c 0088     		ldrh	r0, [r0]
+  82 003e 9882     		strh	r0, [r3, #20]	@ unaligned
+  46:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(Vq*3000.f);//(s16)(motor_.current_contro
+  83              		.loc 1 46 0
+  84 0040 17EE902A 		vmov	r2, s15	@ int
+  85 0044 5A81     		strh	r2, [r3, #10]	@ unaligned
+  86              	.LVL6:
+  47:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(dec_bemf*3000.f);//(s16)(motor_.current_
+  87              		.loc 1 47 0
+  88 0046 1D4A     		ldr	r2, .L2+28
+  52:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
+  89              		.loc 1 52 0
+  90 0048 B1F85400 		ldrh	r0, [r1, #84]
+  47:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(dec_bemf*3000.f);//(s16)(motor_.current_
+  91              		.loc 1 47 0
+  92 004c 92ED007A 		vldr.32	s14, [r2]
+  52:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
+  93              		.loc 1 52 0
+  94 0050 D882     		strh	r0, [r3, #22]	@ unaligned
+  47:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(dec_bemf*3000.f);//(s16)(motor_.current_
+  95              		.loc 1 47 0
+  96 0052 27EE267A 		vmul.f32	s14, s14, s13
   53:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = ((MU_Value_base_0)>>16)&0xFFFF;
-  92              		.loc 1 53 0
-  93 004c 144C     		ldr	r4, .L2+28
-  50:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_SysStatus;
-  94              		.loc 1 50 0
-  95 004e 0088     		ldrh	r0, [r0]
-  96 0050 9882     		strh	r0, [r3, #20]	@ unaligned
-  51:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
-  97              		.loc 1 51 0
-  98 0052 B1F85400 		ldrh	r0, [r1, #84]
-  99 0056 D882     		strh	r0, [r3, #22]	@ unaligned
-  52:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = ((MU_Value_base_0)>>16)&0xFFFF;
- 100              		.loc 1 52 0
- 101 0058 B1F85600 		ldrh	r0, [r1, #86]
- 102 005c 1883     		strh	r0, [r3, #24]	@ unaligned
- 103              		.loc 1 53 0
- 104 005e 2068     		ldr	r0, [r4]
- 105 0060 0014     		asrs	r0, r0, #16
- 106 0062 5883     		strh	r0, [r3, #26]	@ unaligned
-  48:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =g_ElectricAngle_15bit_Raw - g_Encode_offset_EN;
- 107              		.loc 1 48 0
- 108 0064 0022     		movs	r2, #0
-  54:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (MU_Value_base_0)&0xFFFF;
- 109              		.loc 1 54 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 4
+  97              		.loc 1 53 0
+  98 0056 B1F85600 		ldrh	r0, [r1, #86]
+  99 005a 1883     		strh	r0, [r3, #24]	@ unaligned
+  47:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(dec_bemf*3000.f);//(s16)(motor_.current_
+ 100              		.loc 1 47 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 4
 
 
- 110 0066 2068     		ldr	r0, [r4]
+ 101 005c BDEEC77A 		vcvt.s32.f32	s14, s14
+ 102              		.loc 1 54 0
+ 103 0060 2068     		ldr	r0, [r4]
+  47:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(dec_bemf*3000.f);//(s16)(motor_.current_
+ 104              		.loc 1 47 0
+ 105 0062 17EE102A 		vmov	r2, s14	@ int
+ 106 0066 9A81     		strh	r2, [r3, #12]	@ unaligned
+ 107              	.LVL7:
+  48:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0;//g_IB_Raw*PU_REFERENCE/(*g_pCur_ref_base_mA
+ 108              		.loc 1 48 0
+ 109 0068 154A     		ldr	r2, .L2+32
+ 110 006a D2ED007A 		vldr.32	s15, [r2]
+ 111 006e 67EEA67A 		vmul.f32	s15, s15, s13
+ 112              		.loc 1 54 0
+ 113 0072 0014     		asrs	r0, r0, #16
+  48:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0;//g_IB_Raw*PU_REFERENCE/(*g_pCur_ref_base_mA
+ 114              		.loc 1 48 0
+ 115 0074 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 116              		.loc 1 54 0
+ 117 0078 5883     		strh	r0, [r3, #26]	@ unaligned
+  48:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0;//g_IB_Raw*PU_REFERENCE/(*g_pCur_ref_base_mA
+ 118              		.loc 1 48 0
+ 119 007a 17EE902A 		vmov	r2, s15	@ int
+  55:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (MU_Value_base_0)&0xFFFF;
+ 120              		.loc 1 55 0
+ 121 007e 2068     		ldr	r0, [r4]
+  56:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_FORCE_ACT_PU];
+ 122              		.loc 1 56 0
+ 123 0080 B1F85210 		ldrh	r1, [r1, #82]
+ 124 0084 D983     		strh	r1, [r3, #30]	@ unaligned
+  57:Src/scope.c   **** 	i+=2;
+  58:Src/scope.c   **** 	g_TxBuf_Pos+=i;
+ 125              		.loc 1 58 0
+ 126 0086 0F49     		ldr	r1, .L2+36
+  48:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0;//g_IB_Raw*PU_REFERENCE/(*g_pCur_ref_base_mA
+ 127              		.loc 1 48 0
+ 128 0088 DA81     		strh	r2, [r3, #14]	@ unaligned
+ 129              	.LVL8:
   55:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_FORCE_ACT_PU];
- 111              		.loc 1 55 0
- 112 0068 B1F85210 		ldrh	r1, [r1, #82]
-  54:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (MU_Value_base_0)&0xFFFF;
- 113              		.loc 1 54 0
- 114 006c 9883     		strh	r0, [r3, #28]	@ unaligned
-  48:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =g_ElectricAngle_15bit_Raw - g_Encode_offset_EN;
- 115              		.loc 1 48 0
- 116 006e 1A82     		strh	r2, [r3, #16]	@ unaligned
- 117              	.LVL9:
- 118              		.loc 1 55 0
- 119 0070 D983     		strh	r1, [r3, #30]	@ unaligned
- 120              	.LVL10:
-  56:Src/scope.c   **** 	i+=2;
-  57:Src/scope.c   **** 	g_TxBuf_Pos+=i;
- 121              		.loc 1 57 0
- 122 0072 0C49     		ldr	r1, .L2+32
-  58:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,CMDTYPE_DEBUG,0x00,&g_UserDefined_TxBuf[0]);	
-  59:Src/scope.c   **** }
- 123              		.loc 1 59 0
- 124 0074 5DF8044B 		ldr	r4, [sp], #4
- 125              	.LCFI1:
- 126              		.cfi_restore 4
- 127              		.cfi_def_cfa_offset 0
-  57:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,CMDTYPE_DEBUG,0x00,&g_UserDefined_TxBuf[0]);	
- 128              		.loc 1 57 0
- 129 0078 2020     		movs	r0, #32
- 130 007a 0860     		str	r0, [r1]
-  58:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,CMDTYPE_DEBUG,0x00,&g_UserDefined_TxBuf[0]);	
- 131              		.loc 1 58 0
- 132 007c 3821     		movs	r1, #56
- 133 007e FFF7FEBF 		b	UART_PushFrame
- 134              	.LVL11:
- 135              	.L3:
- 136 0082 00BF     		.align	2
- 137              	.L2:
- 138 0084 00000000 		.word	g_CmdMap
- 139 0088 00000000 		.word	.LANCHOR0
- 140 008c 00000000 		.word	motor_
- 141 0090 00000000 		.word	g_Encode_offset_EN
- 142 0094 00000000 		.word	adc_measurements_
- 143 0098 00000000 		.word	g_ElectricAngle_15bit_Raw
- 144 009c 00000000 		.word	g_SysStatus
- 145 00a0 00000000 		.word	MU_Value_base_0
- 146 00a4 00000000 		.word	.LANCHOR1
- 147              		.cfi_endproc
- 148              	.LFE333:
- 150              		.section	.text.ScopeProDebug_2,"ax",%progbits
- 151              		.align	1
- 152              		.global	ScopeProDebug_2
- 153              		.syntax unified
- 154              		.thumb
- 155              		.thumb_func
- 156              		.fpu fpv4-sp-d16
- 158              	ScopeProDebug_2:
- 159              	.LFB334:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 5
+ 130              		.loc 1 55 0
+ 131 008a 9883     		strh	r0, [r3, #28]	@ unaligned
+  49:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =encoder_sensor_.raw_phase;//g_ElectricAngle;//g
+ 132              		.loc 1 49 0
+ 133 008c 0022     		movs	r2, #0
+ 134              		.loc 1 58 0
+ 135 008e 2020     		movs	r0, #32
+  49:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =encoder_sensor_.raw_phase;//g_ElectricAngle;//g
+ 136              		.loc 1 49 0
+ 137 0090 1A82     		strh	r2, [r3, #16]	@ unaligned
+ 138              	.LVL9:
+ 139              		.loc 1 58 0
+ 140 0092 0860     		str	r0, [r1]
+  59:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,CMDTYPE_DEBUG,0x00,&g_UserDefined_TxBuf[0]);	
+ 141              		.loc 1 59 0
+ 142 0094 3821     		movs	r1, #56
+  60:Src/scope.c   **** }
+ 143              		.loc 1 60 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 5
 
 
-  60:Src/scope.c   **** void ScopeProDebug_2(void)//����ʱ���������� 
-  61:Src/scope.c   **** {
- 160              		.loc 1 61 0
- 161              		.cfi_startproc
- 162              		@ args = 0, pretend = 0, frame = 0
- 163              		@ frame_needed = 0, uses_anonymous_args = 0
- 164              		@ link register save eliminated.
- 165              	.LVL12:
-  62:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
-  63:Src/scope.c   **** 	s16 i=0;	
-  64:Src/scope.c   **** 	g_TxBuf_Pos = 0;
-  65:Src/scope.c   **** 	i=0;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_POS_ACT_PU];
- 166              		.loc 1 65 0
- 167 0000 144A     		ldr	r2, .L5
- 168 0002 154B     		ldr	r3, .L5+4
- 169 0004 B2F84C10 		ldrh	r1, [r2, #76]
- 170 0008 1980     		strh	r1, [r3]	@ unaligned
- 171              	.LVL13:
-  66:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_SPDREG_REF_PU];
- 172              		.loc 1 66 0
- 173 000a B2F85C10 		ldrh	r1, [r2, #92]
- 174 000e 5980     		strh	r1, [r3, #2]	@ unaligned
- 175              	.LVL14:
-  67:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_SPD_ACT_PU];
- 176              		.loc 1 67 0
- 177 0010 B2F85010 		ldrh	r1, [r2, #80]
- 178 0014 9980     		strh	r1, [r3, #4]	@ unaligned
- 179              	.LVL15:
-  68:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_CUR_SET_PU];
- 180              		.loc 1 68 0
- 181 0016 B2F84210 		ldrh	r1, [r2, #66]
- 182 001a D980     		strh	r1, [r3, #6]	@ unaligned
- 183              	.LVL16:
-  69:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_CUR_ACT_PU];
- 184              		.loc 1 69 0
- 185 001c B2F84E10 		ldrh	r1, [r2, #78]
- 186 0020 1981     		strh	r1, [r3, #8]	@ unaligned
- 187              	.LVL17:
-  70:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_FORCE_ACT_PU];
- 188              		.loc 1 70 0
- 189 0022 B2F85210 		ldrh	r1, [r2, #82]
- 190 0026 5981     		strh	r1, [r3, #10]	@ unaligned
- 191              	.LVL18:
-  71:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
- 192              		.loc 1 71 0
- 193 0028 B2F85410 		ldrh	r1, [r2, #84]
- 194 002c 9981     		strh	r1, [r3, #12]	@ unaligned
- 195              	.LVL19:
-  72:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_TEMP];
-  73:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = ((MU_Value_base_0)>>16)&0xFFFF;
- 196              		.loc 1 73 0
- 197 002e 0B49     		ldr	r1, .L5+8
-  72:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_TEMP];
- 198              		.loc 1 72 0
- 199 0030 B2F85620 		ldrh	r2, [r2, #86]
- 200 0034 DA81     		strh	r2, [r3, #14]	@ unaligned
- 201              	.LVL20:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 6
+ 144 0096 5DF8044B 		ldr	r4, [sp], #4
+ 145              	.LCFI1:
+ 146              		.cfi_restore 4
+ 147              		.cfi_def_cfa_offset 0
+  59:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,CMDTYPE_DEBUG,0x00,&g_UserDefined_TxBuf[0]);	
+ 148              		.loc 1 59 0
+ 149 009a FFF7FEBF 		b	UART_PushFrame
+ 150              	.LVL10:
+ 151              	.L3:
+ 152 009e 00BF     		.align	2
+ 153              	.L2:
+ 154 00a0 00000000 		.word	g_CmdMap
+ 155 00a4 00000000 		.word	.LANCHOR0
+ 156 00a8 00803B45 		.word	1161527296
+ 157 00ac 00000000 		.word	encoder_sensor_
+ 158 00b0 00000000 		.word	motor_
+ 159 00b4 00000000 		.word	g_SysStatus
+ 160 00b8 00000000 		.word	MU_Value_base_0
+ 161 00bc 00000000 		.word	Vq
+ 162 00c0 00000000 		.word	dec_bemf
+ 163 00c4 00000000 		.word	.LANCHOR1
+ 164              		.cfi_endproc
+ 165              	.LFE333:
+ 167              		.section	.text.ScopeProDebug_2,"ax",%progbits
+ 168              		.align	1
+ 169              		.global	ScopeProDebug_2
+ 170              		.syntax unified
+ 171              		.thumb
+ 172              		.thumb_func
+ 173              		.fpu fpv4-sp-d16
+ 175              	ScopeProDebug_2:
+ 176              	.LFB334:
+  61:Src/scope.c   **** void ScopeProDebug_2(void)//����ʱ���������� 
+  62:Src/scope.c   **** {
+ 177              		.loc 1 62 0
+ 178              		.cfi_startproc
+ 179              		@ args = 0, pretend = 0, frame = 0
+ 180              		@ frame_needed = 0, uses_anonymous_args = 0
+ 181              		@ link register save eliminated.
+ 182              	.LVL11:
+  63:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
+  64:Src/scope.c   **** 	s16 i=0;	
+  65:Src/scope.c   **** 	g_TxBuf_Pos = 0;
+  66:Src/scope.c   **** 	i=0;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_POS_ACT_PU];
+ 183              		.loc 1 66 0
+ 184 0000 144A     		ldr	r2, .L5
+ 185 0002 154B     		ldr	r3, .L5+4
+ 186 0004 B2F84C10 		ldrh	r1, [r2, #76]
+ 187 0008 1980     		strh	r1, [r3]	@ unaligned
+ 188              	.LVL12:
+  67:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_SPDREG_REF_PU];
+ 189              		.loc 1 67 0
+ 190 000a B2F85C10 		ldrh	r1, [r2, #92]
+ 191 000e 5980     		strh	r1, [r3, #2]	@ unaligned
+ 192              	.LVL13:
+  68:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_SPD_ACT_PU];
+ 193              		.loc 1 68 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 6
 
 
- 202              		.loc 1 73 0
- 203 0036 0A68     		ldr	r2, [r1]
- 204 0038 1214     		asrs	r2, r2, #16
- 205 003a 1A82     		strh	r2, [r3, #16]	@ unaligned
- 206              	.LVL21:
-  74:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (MU_Value_base_0)&0xFFFF;
- 207              		.loc 1 74 0
- 208 003c 0A68     		ldr	r2, [r1]
- 209 003e 5A82     		strh	r2, [r3, #18]	@ unaligned
- 210              	.LVL22:
-  75:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_SysStatus;
- 211              		.loc 1 75 0
- 212 0040 074A     		ldr	r2, .L5+12
- 213 0042 1288     		ldrh	r2, [r2]
- 214 0044 9A82     		strh	r2, [r3, #20]	@ unaligned
- 215              	.LVL23:
-  76:Src/scope.c   **** 	i+=2;g_TxBuf_Pos+=i;
- 216              		.loc 1 76 0
- 217 0046 074A     		ldr	r2, .L5+16
- 218 0048 1620     		movs	r0, #22
- 219 004a 1060     		str	r0, [r2]
-  77:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,CMDTYPE_DEBUG_2,0x00,&g_UserDefined_TxBuf[0]);	
- 220              		.loc 1 77 0
- 221 004c 3C21     		movs	r1, #60
- 222 004e 0022     		movs	r2, #0
- 223 0050 FFF7FEBF 		b	UART_PushFrame
- 224              	.LVL24:
- 225              	.L6:
- 226              		.align	2
- 227              	.L5:
- 228 0054 00000000 		.word	g_CmdMap
- 229 0058 00000000 		.word	.LANCHOR0
- 230 005c 00000000 		.word	MU_Value_base_0
- 231 0060 00000000 		.word	g_SysStatus
- 232 0064 00000000 		.word	.LANCHOR1
- 233              		.cfi_endproc
- 234              	.LFE334:
- 236              		.section	.text.ReturnCLibADC_Frame,"ax",%progbits
- 237              		.align	1
- 238              		.global	ReturnCLibADC_Frame
- 239              		.syntax unified
- 240              		.thumb
- 241              		.thumb_func
- 242              		.fpu fpv4-sp-d16
- 244              	ReturnCLibADC_Frame:
- 245              	.LFB335:
-  78:Src/scope.c   **** }
-  79:Src/scope.c   **** void ReturnCLibADC_Frame(void)//����ʱ���������� 
-  80:Src/scope.c   **** {
- 246              		.loc 1 80 0
- 247              		.cfi_startproc
- 248              		@ args = 0, pretend = 0, frame = 0
- 249              		@ frame_needed = 0, uses_anonymous_args = 0
- 250              		@ link register save eliminated.
- 251              	.LVL25:
-  81:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
-  82:Src/scope.c   **** 	s16 i=0;	
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 7
+ 194 0010 B2F85010 		ldrh	r1, [r2, #80]
+ 195 0014 9980     		strh	r1, [r3, #4]	@ unaligned
+ 196              	.LVL14:
+  69:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_CUR_SET_PU];
+ 197              		.loc 1 69 0
+ 198 0016 B2F84210 		ldrh	r1, [r2, #66]
+ 199 001a D980     		strh	r1, [r3, #6]	@ unaligned
+ 200              	.LVL15:
+  70:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_CUR_ACT_PU];
+ 201              		.loc 1 70 0
+ 202 001c B2F84E10 		ldrh	r1, [r2, #78]
+ 203 0020 1981     		strh	r1, [r3, #8]	@ unaligned
+ 204              	.LVL16:
+  71:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_FORCE_ACT_PU];
+ 205              		.loc 1 71 0
+ 206 0022 B2F85210 		ldrh	r1, [r2, #82]
+ 207 0026 5981     		strh	r1, [r3, #10]	@ unaligned
+ 208              	.LVL17:
+  72:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
+ 209              		.loc 1 72 0
+ 210 0028 B2F85410 		ldrh	r1, [r2, #84]
+ 211 002c 9981     		strh	r1, [r3, #12]	@ unaligned
+ 212              	.LVL18:
+  73:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_TEMP];
+  74:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = ((MU_Value_base_0)>>16)&0xFFFF;
+ 213              		.loc 1 74 0
+ 214 002e 0B49     		ldr	r1, .L5+8
+  73:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_TEMP];
+ 215              		.loc 1 73 0
+ 216 0030 B2F85620 		ldrh	r2, [r2, #86]
+ 217 0034 DA81     		strh	r2, [r3, #14]	@ unaligned
+ 218              	.LVL19:
+ 219              		.loc 1 74 0
+ 220 0036 0A68     		ldr	r2, [r1]
+ 221 0038 1214     		asrs	r2, r2, #16
+ 222 003a 1A82     		strh	r2, [r3, #16]	@ unaligned
+ 223              	.LVL20:
+  75:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (MU_Value_base_0)&0xFFFF;
+ 224              		.loc 1 75 0
+ 225 003c 0A68     		ldr	r2, [r1]
+ 226 003e 5A82     		strh	r2, [r3, #18]	@ unaligned
+ 227              	.LVL21:
+  76:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_SysStatus;
+ 228              		.loc 1 76 0
+ 229 0040 074A     		ldr	r2, .L5+12
+ 230 0042 1288     		ldrh	r2, [r2]
+ 231 0044 9A82     		strh	r2, [r3, #20]	@ unaligned
+ 232              	.LVL22:
+  77:Src/scope.c   **** 	i+=2;g_TxBuf_Pos+=i;
+ 233              		.loc 1 77 0
+ 234 0046 074A     		ldr	r2, .L5+16
+ 235 0048 1620     		movs	r0, #22
+ 236 004a 1060     		str	r0, [r2]
+  78:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,CMDTYPE_DEBUG_2,0x00,&g_UserDefined_TxBuf[0]);	
+ 237              		.loc 1 78 0
+ 238 004c 3C21     		movs	r1, #60
+ 239 004e 0022     		movs	r2, #0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 7
 
 
-  83:Src/scope.c   **** 	g_TxBuf_Pos = 0;
-  84:Src/scope.c   **** 	i=0;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_POS_ACT_PU];
- 252              		.loc 1 84 0
- 253 0000 0E4A     		ldr	r2, .L8
- 254 0002 0F4B     		ldr	r3, .L8+4
- 255 0004 B2F84C10 		ldrh	r1, [r2, #76]
- 256 0008 1980     		strh	r1, [r3]	@ unaligned
- 257              	.LVL26:
-  85:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_POS_ADC_12BIT];
- 258              		.loc 1 85 0
- 259 000a B2F86410 		ldrh	r1, [r2, #100]
- 260 000e 5980     		strh	r1, [r3, #2]	@ unaligned
- 261              	.LVL27:
-  86:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_CUR_ACT_PU];
- 262              		.loc 1 86 0
- 263 0010 B2F84E10 		ldrh	r1, [r2, #78]
- 264 0014 9980     		strh	r1, [r3, #4]	@ unaligned
- 265              	.LVL28:
-  87:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_SPD_ACT_PU];
- 266              		.loc 1 87 0
- 267 0016 B2F85010 		ldrh	r1, [r2, #80]
- 268 001a D980     		strh	r1, [r3, #6]	@ unaligned
- 269              	.LVL29:
-  88:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_SPD_SET_PU];
- 270              		.loc 1 88 0
- 271 001c B2F84610 		ldrh	r1, [r2, #70]
- 272 0020 1981     		strh	r1, [r3, #8]	@ unaligned
- 273              	.LVL30:
-  89:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_SysStatus;
- 274              		.loc 1 89 0
- 275 0022 0849     		ldr	r1, .L8+8
- 276 0024 0988     		ldrh	r1, [r1]
+ 240 0050 FFF7FEBF 		b	UART_PushFrame
+ 241              	.LVL23:
+ 242              	.L6:
+ 243              		.align	2
+ 244              	.L5:
+ 245 0054 00000000 		.word	g_CmdMap
+ 246 0058 00000000 		.word	.LANCHOR0
+ 247 005c 00000000 		.word	MU_Value_base_0
+ 248 0060 00000000 		.word	g_SysStatus
+ 249 0064 00000000 		.word	.LANCHOR1
+ 250              		.cfi_endproc
+ 251              	.LFE334:
+ 253              		.section	.text.ReturnCLibADC_Frame,"ax",%progbits
+ 254              		.align	1
+ 255              		.global	ReturnCLibADC_Frame
+ 256              		.syntax unified
+ 257              		.thumb
+ 258              		.thumb_func
+ 259              		.fpu fpv4-sp-d16
+ 261              	ReturnCLibADC_Frame:
+ 262              	.LFB335:
+  79:Src/scope.c   **** }
+  80:Src/scope.c   **** void ReturnCLibADC_Frame(void)//����ʱ���������� 
+  81:Src/scope.c   **** {
+ 263              		.loc 1 81 0
+ 264              		.cfi_startproc
+ 265              		@ args = 0, pretend = 0, frame = 0
+ 266              		@ frame_needed = 0, uses_anonymous_args = 0
+ 267              		@ link register save eliminated.
+ 268              	.LVL24:
+  82:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
+  83:Src/scope.c   **** 	s16 i=0;	
+  84:Src/scope.c   **** 	g_TxBuf_Pos = 0;
+  85:Src/scope.c   **** 	i=0;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_POS_ACT_PU];
+ 269              		.loc 1 85 0
+ 270 0000 0E4A     		ldr	r2, .L8
+ 271 0002 0F4B     		ldr	r3, .L8+4
+ 272 0004 B2F84C10 		ldrh	r1, [r2, #76]
+ 273 0008 1980     		strh	r1, [r3]	@ unaligned
+ 274              	.LVL25:
+  86:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_POS_ADC_12BIT];
+ 275              		.loc 1 86 0
+ 276 000a B2F86410 		ldrh	r1, [r2, #100]
+ 277 000e 5980     		strh	r1, [r3, #2]	@ unaligned
+ 278              	.LVL26:
+  87:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_CUR_ACT_PU];
+ 279              		.loc 1 87 0
+ 280 0010 B2F84E10 		ldrh	r1, [r2, #78]
+ 281 0014 9980     		strh	r1, [r3, #4]	@ unaligned
+ 282              	.LVL27:
+  88:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_SPD_ACT_PU];
+ 283              		.loc 1 88 0
+ 284 0016 B2F85010 		ldrh	r1, [r2, #80]
+ 285 001a D980     		strh	r1, [r3, #6]	@ unaligned
+ 286              	.LVL28:
+  89:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_SPD_SET_PU];
+ 287              		.loc 1 89 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 8
+
+
+ 288 001c B2F84610 		ldrh	r1, [r2, #70]
+ 289 0020 1981     		strh	r1, [r3, #8]	@ unaligned
+ 290              	.LVL29:
+  90:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_SysStatus;
+ 291              		.loc 1 90 0
+ 292 0022 0849     		ldr	r1, .L8+8
+ 293 0024 0988     		ldrh	r1, [r1]
+  91:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
+ 294              		.loc 1 91 0
+ 295 0026 B2F85420 		ldrh	r2, [r2, #84]
+ 296 002a 9A81     		strh	r2, [r3, #12]	@ unaligned
+  92:Src/scope.c   **** 	i+=2;
+  93:Src/scope.c   **** 	g_TxBuf_Pos+=i;
+ 297              		.loc 1 93 0
+ 298 002c 064A     		ldr	r2, .L8+12
   90:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
- 277              		.loc 1 90 0
- 278 0026 B2F85420 		ldrh	r2, [r2, #84]
- 279 002a 9A81     		strh	r2, [r3, #12]	@ unaligned
-  91:Src/scope.c   **** 	i+=2;
-  92:Src/scope.c   **** 	g_TxBuf_Pos+=i;
- 280              		.loc 1 92 0
- 281 002c 064A     		ldr	r2, .L8+12
-  89:Src/scope.c   **** 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
- 282              		.loc 1 89 0
- 283 002e 5981     		strh	r1, [r3, #10]	@ unaligned
- 284              	.LVL31:
- 285              		.loc 1 92 0
- 286 0030 0E20     		movs	r0, #14
- 287 0032 1060     		str	r0, [r2]
-  93:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,CMDTYPE_ADC_CLIB,0x00,&g_UserDefined_TxBuf[0]);	
- 288              		.loc 1 93 0
- 289 0034 3921     		movs	r1, #57
- 290 0036 0022     		movs	r2, #0
- 291 0038 FFF7FEBF 		b	UART_PushFrame
- 292              	.LVL32:
- 293              	.L9:
- 294              		.align	2
- 295              	.L8:
- 296 003c 00000000 		.word	g_CmdMap
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 8
+ 299              		.loc 1 90 0
+ 300 002e 5981     		strh	r1, [r3, #10]	@ unaligned
+ 301              	.LVL30:
+ 302              		.loc 1 93 0
+ 303 0030 0E20     		movs	r0, #14
+ 304 0032 1060     		str	r0, [r2]
+  94:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,CMDTYPE_ADC_CLIB,0x00,&g_UserDefined_TxBuf[0]);	
+ 305              		.loc 1 94 0
+ 306 0034 3921     		movs	r1, #57
+ 307 0036 0022     		movs	r2, #0
+ 308 0038 FFF7FEBF 		b	UART_PushFrame
+ 309              	.LVL31:
+ 310              	.L9:
+ 311              		.align	2
+ 312              	.L8:
+ 313 003c 00000000 		.word	g_CmdMap
+ 314 0040 00000000 		.word	.LANCHOR0
+ 315 0044 00000000 		.word	g_SysStatus
+ 316 0048 00000000 		.word	.LANCHOR1
+ 317              		.cfi_endproc
+ 318              	.LFE335:
+ 320              		.section	.text.Return_state_frame,"ax",%progbits
+ 321              		.align	1
+ 322              		.global	Return_state_frame
+ 323              		.syntax unified
+ 324              		.thumb
+ 325              		.thumb_func
+ 326              		.fpu fpv4-sp-d16
+ 328              	Return_state_frame:
+ 329              	.LFB336:
+  95:Src/scope.c   **** }
+  96:Src/scope.c   **** //����״̬��Ϣ֡,״̬��Ϣ֡��ÿһλ����������
+  97:Src/scope.c   **** void Return_state_frame(u8 cmd_type,u8 index) 
+  98:Src/scope.c   **** {
+ 330              		.loc 1 98 0
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 0
+ 333              		@ frame_needed = 0, uses_anonymous_args = 0
+ 334              	.LVL32:
+ 335 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 336              	.LCFI2:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 9
 
 
- 297 0040 00000000 		.word	.LANCHOR0
- 298 0044 00000000 		.word	g_SysStatus
- 299 0048 00000000 		.word	.LANCHOR1
- 300              		.cfi_endproc
- 301              	.LFE335:
- 303              		.section	.text.Return_state_frame,"ax",%progbits
- 304              		.align	1
- 305              		.global	Return_state_frame
- 306              		.syntax unified
- 307              		.thumb
- 308              		.thumb_func
- 309              		.fpu fpv4-sp-d16
- 311              	Return_state_frame:
- 312              	.LFB336:
-  94:Src/scope.c   **** }
-  95:Src/scope.c   **** //����״̬��Ϣ֡,״̬��Ϣ֡��ÿһλ����������
-  96:Src/scope.c   **** void Return_state_frame(u8 cmd_type,u8 index) 
-  97:Src/scope.c   **** {
- 313              		.loc 1 97 0
- 314              		.cfi_startproc
- 315              		@ args = 0, pretend = 0, frame = 0
- 316              		@ frame_needed = 0, uses_anonymous_args = 0
- 317              	.LVL33:
- 318 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 319              	.LCFI2:
- 320              		.cfi_def_cfa_offset 24
- 321              		.cfi_offset 4, -24
- 322              		.cfi_offset 5, -20
- 323              		.cfi_offset 6, -16
- 324              		.cfi_offset 7, -12
- 325              		.cfi_offset 8, -8
- 326              		.cfi_offset 14, -4
-  98:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
-  99:Src/scope.c   **** 	s16 i=0,j=0;	
- 100:Src/scope.c   **** 	g_TxBuf_Pos = 0;
+ 337              		.cfi_def_cfa_offset 24
+ 338              		.cfi_offset 4, -24
+ 339              		.cfi_offset 5, -20
+ 340              		.cfi_offset 6, -16
+ 341              		.cfi_offset 7, -12
+ 342              		.cfi_offset 8, -8
+ 343              		.cfi_offset 14, -4
+  99:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
+ 100:Src/scope.c   **** 	s16 i=0,j=0;	
+ 101:Src/scope.c   **** 	g_TxBuf_Pos = 0;
+ 102:Src/scope.c   **** 	if(g_CmdMap[SYS_STATA_FRAME_NUM]<0)
+ 344              		.loc 1 102 0
+ 345 0004 234C     		ldr	r4, .L17
  101:Src/scope.c   **** 	if(g_CmdMap[SYS_STATA_FRAME_NUM]<0)
- 327              		.loc 1 101 0
- 328 0004 234C     		ldr	r4, .L17
- 100:Src/scope.c   **** 	if(g_CmdMap[SYS_STATA_FRAME_NUM]<0)
- 329              		.loc 1 100 0
- 330 0006 244E     		ldr	r6, .L17+4
- 331 0008 DFF890E0 		ldr	lr, .L17+8
-  97:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
- 332              		.loc 1 97 0
- 333 000c 0A46     		mov	r2, r1
- 334              		.loc 1 101 0
- 335 000e B4F8C012 		ldrh	r1, [r4, #704]
- 336              	.LVL34:
- 100:Src/scope.c   **** 	if(g_CmdMap[SYS_STATA_FRAME_NUM]<0)
- 337              		.loc 1 100 0
- 338 0012 0023     		movs	r3, #0
- 339              		.loc 1 101 0
- 340 0014 0904     		lsls	r1, r1, #16
- 102:Src/scope.c   **** 	{
- 103:Src/scope.c   **** 		g_CmdMap[SYS_STATA_FRAME_NUM] = 0;
- 341              		.loc 1 103 0
- 342 0016 48BF     		it	mi
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 9
+ 346              		.loc 1 101 0
+ 347 0006 244E     		ldr	r6, .L17+4
+ 348 0008 DFF890E0 		ldr	lr, .L17+8
+  98:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
+ 349              		.loc 1 98 0
+ 350 000c 0A46     		mov	r2, r1
+ 351              		.loc 1 102 0
+ 352 000e B4F8C012 		ldrh	r1, [r4, #704]
+ 353              	.LVL33:
+ 101:Src/scope.c   **** 	if(g_CmdMap[SYS_STATA_FRAME_NUM]<0)
+ 354              		.loc 1 101 0
+ 355 0012 0023     		movs	r3, #0
+ 356              		.loc 1 102 0
+ 357 0014 0904     		lsls	r1, r1, #16
+ 103:Src/scope.c   **** 	{
+ 104:Src/scope.c   **** 		g_CmdMap[SYS_STATA_FRAME_NUM] = 0;
+ 358              		.loc 1 104 0
+ 359 0016 48BF     		it	mi
+ 360 0018 A4F8C032 		strhmi	r3, [r4, #704]	@ movhi
+ 101:Src/scope.c   **** 	if(g_CmdMap[SYS_STATA_FRAME_NUM]<0)
+ 361              		.loc 1 101 0
+ 362 001c 3360     		str	r3, [r6]
+ 105:Src/scope.c   **** 	}
+ 106:Src/scope.c   **** 	if(g_CmdMap[SYS_STATA_FRAME_NUM]>15)
+ 363              		.loc 1 106 0
+ 364 001e B4F8C032 		ldrh	r3, [r4, #704]
+ 365 0022 1BB2     		sxth	r3, r3
+ 366 0024 0F2B     		cmp	r3, #15
+ 107:Src/scope.c   **** 	{
+ 108:Src/scope.c   **** 		g_CmdMap[SYS_STATA_FRAME_NUM] = 15;
+ 367              		.loc 1 108 0
+ 368 0026 C4BF     		itt	gt
+ 369 0028 0F23     		movgt	r3, #15
+ 370 002a A4F8C032 		strhgt	r3, [r4, #704]	@ movhi
+  98:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
+ 371              		.loc 1 98 0
+ 372 002e 0023     		movs	r3, #0
+ 109:Src/scope.c   **** 	}
+ 110:Src/scope.c   **** 	for(j=0;j<g_CmdMap[SYS_STATA_FRAME_NUM];j++)
+ 111:Src/scope.c   **** 	{
+ 112:Src/scope.c   **** 		if(g_CmdMap[SYS_STATA_FRAME_SET(j)]<0x0200 && g_CmdMap[SYS_STATA_FRAME_SET(j)]>0x0000)
+ 113:Src/scope.c   **** 		{
+ 114:Src/scope.c   **** 			*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[g_CmdMap[SYS_STATA_FRAME_SET(j)]];i+=2;
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 10
 
 
- 343 0018 A4F8C032 		strhmi	r3, [r4, #704]	@ movhi
- 100:Src/scope.c   **** 	if(g_CmdMap[SYS_STATA_FRAME_NUM]<0)
- 344              		.loc 1 100 0
- 345 001c 3360     		str	r3, [r6]
- 104:Src/scope.c   **** 	}
- 105:Src/scope.c   **** 	if(g_CmdMap[SYS_STATA_FRAME_NUM]>15)
- 346              		.loc 1 105 0
- 347 001e B4F8C032 		ldrh	r3, [r4, #704]
- 348 0022 1BB2     		sxth	r3, r3
- 349 0024 0F2B     		cmp	r3, #15
- 106:Src/scope.c   **** 	{
- 107:Src/scope.c   **** 		g_CmdMap[SYS_STATA_FRAME_NUM] = 15;
- 350              		.loc 1 107 0
- 351 0026 C4BF     		itt	gt
- 352 0028 0F23     		movgt	r3, #15
- 353 002a A4F8C032 		strhgt	r3, [r4, #704]	@ movhi
-  97:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
- 354              		.loc 1 97 0
- 355 002e 0023     		movs	r3, #0
- 108:Src/scope.c   **** 	}
- 109:Src/scope.c   **** 	for(j=0;j<g_CmdMap[SYS_STATA_FRAME_NUM];j++)
+ 115:Src/scope.c   **** 		}
+ 116:Src/scope.c   **** 		else
+ 117:Src/scope.c   **** 		{
+ 118:Src/scope.c   **** 			*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0x0000;i+=2;
+ 373              		.loc 1 118 0
+ 374 0030 1946     		mov	r1, r3
+ 375              	.LVL34:
+ 376              	.L13:
  110:Src/scope.c   **** 	{
- 111:Src/scope.c   **** 		if(g_CmdMap[SYS_STATA_FRAME_SET(j)]<0x0200 && g_CmdMap[SYS_STATA_FRAME_SET(j)]>0x0000)
+ 377              		.loc 1 110 0 discriminator 1
+ 378 0032 B4F8C0C2 		ldrh	ip, [r4, #704]
+ 379 0036 1FFA83F8 		uxth	r8, r3
+ 380 003a 4FEA4805 		lsl	r5, r8, #1
+ 381 003e 0FFA8CFC 		sxth	ip, ip
+ 382 0042 ADB2     		uxth	r5, r5
+ 383              	.LVL35:
+ 384 0044 9C45     		cmp	ip, r3
+ 385 0046 2FB2     		sxth	r7, r5
+ 386 0048 08DC     		bgt	.L16
+ 119:Src/scope.c   **** 		}			
+ 120:Src/scope.c   **** 	}
+ 121:Src/scope.c   **** 	g_TxBuf_Pos+=i;
+ 387              		.loc 1 121 0
+ 388 004a 3760     		str	r7, [r6]
+ 122:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,cmd_type,index,&g_UserDefined_TxBuf[0]);	
+ 389              		.loc 1 122 0
+ 390 004c 0146     		mov	r1, r0
+ 391 004e 134B     		ldr	r3, .L17+8
+ 392 0050 05F0FE00 		and	r0, r5, #254
+ 393              	.LVL36:
+ 123:Src/scope.c   **** }
+ 394              		.loc 1 123 0
+ 395 0054 BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
+ 396              	.LCFI3:
+ 397              		.cfi_remember_state
+ 398              		.cfi_restore 14
+ 399              		.cfi_restore 8
+ 400              		.cfi_restore 7
+ 401              		.cfi_restore 6
+ 402              		.cfi_restore 5
+ 403              		.cfi_restore 4
+ 404              		.cfi_def_cfa_offset 0
+ 405              	.LVL37:
+ 122:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,cmd_type,index,&g_UserDefined_TxBuf[0]);	
+ 406              		.loc 1 122 0
+ 407 0058 FFF7FEBF 		b	UART_PushFrame
+ 408              	.LVL38:
+ 409              	.L16:
+ 410              	.LCFI4:
+ 411              		.cfi_restore_state
  112:Src/scope.c   **** 		{
- 113:Src/scope.c   **** 			*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[g_CmdMap[SYS_STATA_FRAME_SET(j)]];i+=2;
+ 412              		.loc 1 112 0
+ 413 005c 03F26113 		addw	r3, r3, #353
+ 414 0060 34F81350 		ldrh	r5, [r4, r3, lsl #1]
+ 415              	.LVL39:
+ 416 0064 2DB2     		sxth	r5, r5
+ 417 0066 B5F5007F 		cmp	r5, #512
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 11
+
+
+ 418 006a 0FDA     		bge	.L14
+ 112:Src/scope.c   **** 		{
+ 419              		.loc 1 112 0 is_stmt 0 discriminator 1
+ 420 006c 34F81350 		ldrh	r5, [r4, r3, lsl #1]
+ 421 0070 2DB2     		sxth	r5, r5
+ 422 0072 002D     		cmp	r5, #0
+ 423 0074 0ADD     		ble	.L14
  114:Src/scope.c   **** 		}
- 115:Src/scope.c   **** 		else
- 116:Src/scope.c   **** 		{
- 117:Src/scope.c   **** 			*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0x0000;i+=2;
- 356              		.loc 1 117 0
- 357 0030 1946     		mov	r1, r3
- 358              	.LVL35:
- 359              	.L13:
- 109:Src/scope.c   **** 	{
- 360              		.loc 1 109 0 discriminator 1
- 361 0032 B4F8C0C2 		ldrh	ip, [r4, #704]
- 362 0036 1FFA83F8 		uxth	r8, r3
- 363 003a 4FEA4805 		lsl	r5, r8, #1
- 364 003e 0FFA8CFC 		sxth	ip, ip
- 365 0042 ADB2     		uxth	r5, r5
- 366              	.LVL36:
- 367 0044 9C45     		cmp	ip, r3
- 368 0046 2FB2     		sxth	r7, r5
- 369 0048 08DC     		bgt	.L16
+ 424              		.loc 1 114 0 is_stmt 1
+ 425 0076 34F81350 		ldrh	r5, [r4, r3, lsl #1]
+ 426 007a 2DB2     		sxth	r5, r5
+ 427 007c 34F81530 		ldrh	r3, [r4, r5, lsl #1]
+ 428 0080 2EF80730 		strh	r3, [lr, r7]	@ movhi
+ 429              	.LVL40:
+ 430              	.L15:
+ 110:Src/scope.c   **** 	{
+ 431              		.loc 1 110 0 discriminator 2
+ 432 0084 08F10103 		add	r3, r8, #1
+ 433              	.LVL41:
+ 434 0088 1BB2     		sxth	r3, r3
+ 435 008a D2E7     		b	.L13
+ 436              	.LVL42:
+ 437              	.L14:
  118:Src/scope.c   **** 		}			
- 119:Src/scope.c   **** 	}
- 120:Src/scope.c   **** 	g_TxBuf_Pos+=i;
- 370              		.loc 1 120 0
- 371 004a 3760     		str	r7, [r6]
- 121:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,cmd_type,index,&g_UserDefined_TxBuf[0]);	
- 372              		.loc 1 121 0
- 373 004c 0146     		mov	r1, r0
- 374 004e 134B     		ldr	r3, .L17+8
- 375 0050 05F0FE00 		and	r0, r5, #254
- 376              	.LVL37:
- 122:Src/scope.c   **** }
- 377              		.loc 1 122 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 10
+ 438              		.loc 1 118 0
+ 439 008c 2EF80710 		strh	r1, [lr, r7]	@ movhi
+ 440              	.LVL43:
+ 441 0090 F8E7     		b	.L15
+ 442              	.L18:
+ 443 0092 00BF     		.align	2
+ 444              	.L17:
+ 445 0094 00000000 		.word	g_CmdMap
+ 446 0098 00000000 		.word	.LANCHOR1
+ 447 009c 00000000 		.word	.LANCHOR0
+ 448              		.cfi_endproc
+ 449              	.LFE336:
+ 451              		.section	.text.Return_OldFrame_state,"ax",%progbits
+ 452              		.align	1
+ 453              		.global	Return_OldFrame_state
+ 454              		.syntax unified
+ 455              		.thumb
+ 456              		.thumb_func
+ 457              		.fpu fpv4-sp-d16
+ 459              	Return_OldFrame_state:
+ 460              	.LFB337:
+ 124:Src/scope.c   **** //����LA��ָ��,���ذ���״̬��Ϣ
+ 125:Src/scope.c   **** void Return_OldFrame_state(u8 cmd_type,u8 index,u8 data) 
+ 126:Src/scope.c   **** {
+ 461              		.loc 1 126 0
+ 462              		.cfi_startproc
+ 463              		@ args = 0, pretend = 0, frame = 0
+ 464              		@ frame_needed = 0, uses_anonymous_args = 0
+ 465              	.LVL44:
+ 127:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
+ 128:Src/scope.c   **** 	g_TxBuf_Pos = 0;
+ 129:Src/scope.c   **** 	s16 pos_set = (s32)g_CmdMap[CMD_POS_SET_PU]*2000/PU_REFERENCE;
+ 466              		.loc 1 129 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 12
 
 
- 378 0054 BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
- 379              	.LCFI3:
- 380              		.cfi_remember_state
- 381              		.cfi_restore 14
- 382              		.cfi_restore 8
- 383              		.cfi_restore 7
- 384              		.cfi_restore 6
- 385              		.cfi_restore 5
- 386              		.cfi_restore 4
- 387              		.cfi_def_cfa_offset 0
- 388              	.LVL38:
- 121:Src/scope.c   **** 	UART_PushFrame(g_TxBuf_Pos,cmd_type,index,&g_UserDefined_TxBuf[0]);	
- 389              		.loc 1 121 0
- 390 0058 FFF7FEBF 		b	UART_PushFrame
- 391              	.LVL39:
- 392              	.L16:
- 393              	.LCFI4:
- 394              		.cfi_restore_state
- 111:Src/scope.c   **** 		{
- 395              		.loc 1 111 0
- 396 005c 03F26113 		addw	r3, r3, #353
- 397 0060 34F81350 		ldrh	r5, [r4, r3, lsl #1]
- 398              	.LVL40:
- 399 0064 2DB2     		sxth	r5, r5
- 400 0066 B5F5007F 		cmp	r5, #512
- 401 006a 0FDA     		bge	.L14
- 111:Src/scope.c   **** 		{
- 402              		.loc 1 111 0 is_stmt 0 discriminator 1
- 403 006c 34F81350 		ldrh	r5, [r4, r3, lsl #1]
- 404 0070 2DB2     		sxth	r5, r5
- 405 0072 002D     		cmp	r5, #0
- 406 0074 0ADD     		ble	.L14
- 113:Src/scope.c   **** 		}
- 407              		.loc 1 113 0 is_stmt 1
- 408 0076 34F81350 		ldrh	r5, [r4, r3, lsl #1]
- 409 007a 2DB2     		sxth	r5, r5
- 410 007c 34F81530 		ldrh	r3, [r4, r5, lsl #1]
- 411 0080 2EF80730 		strh	r3, [lr, r7]	@ movhi
- 412              	.LVL41:
- 413              	.L15:
- 109:Src/scope.c   **** 	{
- 414              		.loc 1 109 0 discriminator 2
- 415 0084 08F10103 		add	r3, r8, #1
- 416              	.LVL42:
- 417 0088 1BB2     		sxth	r3, r3
- 418 008a D2E7     		b	.L13
- 419              	.LVL43:
- 420              	.L14:
- 117:Src/scope.c   **** 		}			
- 421              		.loc 1 117 0
- 422 008c 2EF80710 		strh	r1, [lr, r7]	@ movhi
- 423              	.LVL44:
- 424 0090 F8E7     		b	.L15
- 425              	.L18:
- 426 0092 00BF     		.align	2
- 427              	.L17:
- 428 0094 00000000 		.word	g_CmdMap
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 11
-
-
- 429 0098 00000000 		.word	.LANCHOR1
- 430 009c 00000000 		.word	.LANCHOR0
- 431              		.cfi_endproc
- 432              	.LFE336:
- 434              		.section	.text.Return_OldFrame_state,"ax",%progbits
- 435              		.align	1
- 436              		.global	Return_OldFrame_state
- 437              		.syntax unified
- 438              		.thumb
- 439              		.thumb_func
- 440              		.fpu fpv4-sp-d16
- 442              	Return_OldFrame_state:
- 443              	.LFB337:
- 123:Src/scope.c   **** //����LA��ָ��,���ذ���״̬��Ϣ
- 124:Src/scope.c   **** void Return_OldFrame_state(u8 cmd_type,u8 index,u8 data) 
- 125:Src/scope.c   **** {
- 444              		.loc 1 125 0
- 445              		.cfi_startproc
- 446              		@ args = 0, pretend = 0, frame = 0
- 447              		@ frame_needed = 0, uses_anonymous_args = 0
- 448              	.LVL45:
+ 467 0000 DFF894C0 		ldr	ip, .L20+8
  126:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
- 127:Src/scope.c   **** 	g_TxBuf_Pos = 0;
+ 468              		.loc 1 126 0
+ 469 0004 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 470              	.LCFI5:
+ 471              		.cfi_def_cfa_offset 24
+ 472              		.cfi_offset 4, -24
+ 473              		.cfi_offset 5, -20
+ 474              		.cfi_offset 6, -16
+ 475              		.cfi_offset 7, -12
+ 476              		.cfi_offset 8, -8
+ 477              		.cfi_offset 14, -4
+ 478              		.loc 1 129 0
+ 479 0008 BCF84860 		ldrh	r6, [ip, #72]
+ 130:Src/scope.c   **** 	s16 pos_act = (s32)g_CmdMap[CMD_POS_ACT_PU]*2000/PU_REFERENCE;
+ 480              		.loc 1 130 0
+ 481 000c BCF84C50 		ldrh	r5, [ip, #76]
  128:Src/scope.c   **** 	s16 pos_set = (s32)g_CmdMap[CMD_POS_SET_PU]*2000/PU_REFERENCE;
- 449              		.loc 1 128 0
- 450 0000 DFF894C0 		ldr	ip, .L20+8
- 125:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
- 451              		.loc 1 125 0
- 452 0004 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 453              	.LCFI5:
- 454              		.cfi_def_cfa_offset 24
- 455              		.cfi_offset 4, -24
- 456              		.cfi_offset 5, -20
- 457              		.cfi_offset 6, -16
- 458              		.cfi_offset 7, -12
- 459              		.cfi_offset 8, -8
- 460              		.cfi_offset 14, -4
- 461              		.loc 1 128 0
- 462 0008 BCF84860 		ldrh	r6, [ip, #72]
+ 482              		.loc 1 128 0
+ 483 0010 DFF888E0 		ldr	lr, .L20+12
  129:Src/scope.c   **** 	s16 pos_act = (s32)g_CmdMap[CMD_POS_ACT_PU]*2000/PU_REFERENCE;
- 463              		.loc 1 129 0
- 464 000c BCF84C50 		ldrh	r5, [ip, #76]
- 127:Src/scope.c   **** 	s16 pos_set = (s32)g_CmdMap[CMD_POS_SET_PU]*2000/PU_REFERENCE;
- 465              		.loc 1 127 0
- 466 0010 DFF888E0 		ldr	lr, .L20+12
- 128:Src/scope.c   **** 	s16 pos_act = (s32)g_CmdMap[CMD_POS_ACT_PU]*2000/PU_REFERENCE;
- 467              		.loc 1 128 0
- 468 0014 4FF4FA64 		mov	r4, #2000
- 469 0018 16FB04F6 		smulbb	r6, r6, r4
- 470              		.loc 1 129 0
- 471 001c 15FB04F5 		smulbb	r5, r5, r4
+ 484              		.loc 1 129 0
+ 485 0014 4FF4FA64 		mov	r4, #2000
+ 486 0018 16FB04F6 		smulbb	r6, r6, r4
+ 487              		.loc 1 130 0
+ 488 001c 15FB04F5 		smulbb	r5, r5, r4
+ 131:Src/scope.c   **** 	s16 cur_act = (s32)g_CmdMap[CMD_CUR_ACT_PU]*(*g_pCur_ref_base_mA)/PU_REFERENCE;
+ 489              		.loc 1 131 0
+ 490 0020 BCF84E40 		ldrh	r4, [ip, #78]
+ 491 0024 0FFA84F8 		sxth	r8, r4
+ 492 0028 194C     		ldr	r4, .L20
+ 128:Src/scope.c   **** 	s16 pos_set = (s32)g_CmdMap[CMD_POS_SET_PU]*2000/PU_REFERENCE;
+ 493              		.loc 1 128 0
+ 494 002a 0027     		movs	r7, #0
+ 495              		.loc 1 131 0
+ 496 002c 2468     		ldr	r4, [r4]
+ 128:Src/scope.c   **** 	s16 pos_set = (s32)g_CmdMap[CMD_POS_SET_PU]*2000/PU_REFERENCE;
+ 497              		.loc 1 128 0
+ 498 002e CEF80070 		str	r7, [lr]
+ 499              		.loc 1 131 0
+ 500 0032 2468     		ldr	r4, [r4]
+ 129:Src/scope.c   **** 	s16 pos_act = (s32)g_CmdMap[CMD_POS_ACT_PU]*2000/PU_REFERENCE;
+ 501              		.loc 1 129 0
+ 502 0034 4FF48043 		mov	r3, #16384
+ 503              		.loc 1 131 0
+ 504 0038 04FB08F4 		mul	r4, r4, r8
+ 129:Src/scope.c   **** 	s16 pos_act = (s32)g_CmdMap[CMD_POS_ACT_PU]*2000/PU_REFERENCE;
+ 505              		.loc 1 129 0
+ 506 003c 96FBF3F6 		sdiv	r6, r6, r3
+ 507              	.LVL45:
  130:Src/scope.c   **** 	s16 cur_act = (s32)g_CmdMap[CMD_CUR_ACT_PU]*(*g_pCur_ref_base_mA)/PU_REFERENCE;
- 472              		.loc 1 130 0
- 473 0020 BCF84E40 		ldrh	r4, [ip, #78]
- 474 0024 0FFA84F8 		sxth	r8, r4
- 475 0028 194C     		ldr	r4, .L20
- 127:Src/scope.c   **** 	s16 pos_set = (s32)g_CmdMap[CMD_POS_SET_PU]*2000/PU_REFERENCE;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 12
+ 508              		.loc 1 130 0
+ 509 0040 95FBF3F5 		sdiv	r5, r5, r3
+ 510              	.LVL46:
+ 511              		.loc 1 131 0
+ 512 0044 94FBF3F4 		sdiv	r4, r4, r3
+ 513              	.LVL47:
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 13
 
 
- 476              		.loc 1 127 0
- 477 002a 0027     		movs	r7, #0
- 478              		.loc 1 130 0
- 479 002c 2468     		ldr	r4, [r4]
- 127:Src/scope.c   **** 	s16 pos_set = (s32)g_CmdMap[CMD_POS_SET_PU]*2000/PU_REFERENCE;
- 480              		.loc 1 127 0
- 481 002e CEF80070 		str	r7, [lr]
- 482              		.loc 1 130 0
- 483 0032 2468     		ldr	r4, [r4]
- 128:Src/scope.c   **** 	s16 pos_act = (s32)g_CmdMap[CMD_POS_ACT_PU]*2000/PU_REFERENCE;
- 484              		.loc 1 128 0
- 485 0034 4FF48043 		mov	r3, #16384
- 486              		.loc 1 130 0
- 487 0038 04FB08F4 		mul	r4, r4, r8
- 128:Src/scope.c   **** 	s16 pos_act = (s32)g_CmdMap[CMD_POS_ACT_PU]*2000/PU_REFERENCE;
- 488              		.loc 1 128 0
- 489 003c 96FBF3F6 		sdiv	r6, r6, r3
- 490              	.LVL46:
- 129:Src/scope.c   **** 	s16 cur_act = (s32)g_CmdMap[CMD_CUR_ACT_PU]*(*g_pCur_ref_base_mA)/PU_REFERENCE;
- 491              		.loc 1 129 0
- 492 0040 95FBF3F5 		sdiv	r5, r5, r3
- 493              	.LVL47:
- 494              		.loc 1 130 0
- 495 0044 94FBF3F4 		sdiv	r4, r4, r3
- 496              	.LVL48:
- 131:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = data;	
- 497              		.loc 1 131 0
- 498 0048 124B     		ldr	r3, .L20+4
- 499 004a 1A70     		strb	r2, [r3]
- 132:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = pos_set & 0xff;
- 133:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (pos_set>>8) & 0xff;
- 134:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = pos_act & 0xff;
+ 132:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = data;	
+ 514              		.loc 1 132 0
+ 515 0048 124B     		ldr	r3, .L20+4
+ 516 004a 1A70     		strb	r2, [r3]
+ 133:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = pos_set & 0xff;
+ 134:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (pos_set>>8) & 0xff;
+ 135:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = pos_act & 0xff;
+ 136:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (pos_act>>8) & 0xff;	
+ 137:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_TEMP];//�¶�
+ 517              		.loc 1 137 0
+ 518 004c BCF85620 		ldrh	r2, [ip, #86]
+ 519              	.LVL48:
+ 133:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = pos_set & 0xff;
+ 520              		.loc 1 133 0
+ 521 0050 5E70     		strb	r6, [r3, #1]
  135:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (pos_act>>8) & 0xff;	
+ 522              		.loc 1 135 0
+ 523 0052 DD70     		strb	r5, [r3, #3]
+ 134:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = pos_act & 0xff;
+ 524              		.loc 1 134 0
+ 525 0054 46F30726 		sbfx	r6, r6, #8, #8
+ 526              	.LVL49:
  136:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_TEMP];//�¶�
- 500              		.loc 1 136 0
- 501 004c BCF85620 		ldrh	r2, [ip, #86]
- 502              	.LVL49:
- 132:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = pos_set & 0xff;
- 503              		.loc 1 132 0
- 504 0050 5E70     		strb	r6, [r3, #1]
- 134:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (pos_act>>8) & 0xff;	
- 505              		.loc 1 134 0
- 506 0052 DD70     		strb	r5, [r3, #3]
- 133:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = pos_act & 0xff;
- 507              		.loc 1 133 0
- 508 0054 46F30726 		sbfx	r6, r6, #8, #8
- 509              	.LVL50:
- 135:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_TEMP];//�¶�
- 510              		.loc 1 135 0
- 511 0058 45F30725 		sbfx	r5, r5, #8, #8
- 512              	.LVL51:
- 513              		.loc 1 136 0
- 514 005c 5A71     		strb	r2, [r3, #5]
- 137:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = cur_act & 0xff;
- 515              		.loc 1 137 0
- 516 005e 9C71     		strb	r4, [r3, #6]
- 138:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (cur_act>>8) & 0xff;	
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 13
-
-
- 139:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;
- 140:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_ERROR];//����	
- 517              		.loc 1 140 0
- 518 0060 BCF85420 		ldrh	r2, [ip, #84]
- 519 0064 5A72     		strb	r2, [r3, #9]
- 138:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (cur_act>>8) & 0xff;	
- 520              		.loc 1 138 0
- 521 0066 44F30724 		sbfx	r4, r4, #8, #8
- 522              	.LVL52:
- 523 006a DC71     		strb	r4, [r3, #7]
- 133:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = pos_act & 0xff;
- 524              		.loc 1 133 0
- 525 006c 9E70     		strb	r6, [r3, #2]
- 141:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;	//����ֵ���ֽ�
- 142:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;
- 143:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;	//����ֵ���ֽ�
- 144:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;
- 145:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;	//����ֵ���ֽ�
- 526              		.loc 1 145 0
- 527 006e 0F24     		movs	r4, #15
- 135:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_TEMP];//�¶�
- 528              		.loc 1 135 0
- 529 0070 1D71     		strb	r5, [r3, #4]
- 139:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_ERROR];//����	
- 530              		.loc 1 139 0
- 531 0072 1F72     		strb	r7, [r3, #8]
- 141:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;	//����ֵ���ֽ�
- 532              		.loc 1 141 0
- 533 0074 9F72     		strb	r7, [r3, #10]
+ 527              		.loc 1 136 0
+ 528 0058 45F30725 		sbfx	r5, r5, #8, #8
+ 529              	.LVL50:
+ 530              		.loc 1 137 0
+ 531 005c 5A71     		strb	r2, [r3, #5]
+ 138:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = cur_act & 0xff;
+ 532              		.loc 1 138 0
+ 533 005e 9C71     		strb	r4, [r3, #6]
+ 139:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (cur_act>>8) & 0xff;	
+ 140:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;
+ 141:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_ERROR];//����	
+ 534              		.loc 1 141 0
+ 535 0060 BCF85420 		ldrh	r2, [ip, #84]
+ 536 0064 5A72     		strb	r2, [r3, #9]
+ 139:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (cur_act>>8) & 0xff;	
+ 537              		.loc 1 139 0
+ 538 0066 44F30724 		sbfx	r4, r4, #8, #8
+ 539              	.LVL51:
+ 540 006a DC71     		strb	r4, [r3, #7]
+ 134:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = pos_act & 0xff;
+ 541              		.loc 1 134 0
+ 542 006c 9E70     		strb	r6, [r3, #2]
  142:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;	//����ֵ���ֽ�
- 534              		.loc 1 142 0
- 535 0076 DF72     		strb	r7, [r3, #11]
  143:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;
- 536              		.loc 1 143 0
- 537 0078 1F73     		strb	r7, [r3, #12]
  144:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;	//����ֵ���ֽ�
- 538              		.loc 1 144 0
- 539 007a 5F73     		strb	r7, [r3, #13]
- 540              		.loc 1 145 0
- 541 007c 9F73     		strb	r7, [r3, #14]
- 542 007e CEF80040 		str	r4, [lr]
- 146:Src/scope.c   **** 	UART_PushFrame_Old(g_TxBuf_Pos,cmd_type,index,&g_UserDefined_TxBuf[0]);	
+ 145:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;
+ 146:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;	//����ֵ���ֽ�
  543              		.loc 1 146 0
- 544 0082 0A46     		mov	r2, r1
- 545 0084 0146     		mov	r1, r0
- 546              	.LVL53:
- 547 0086 2046     		mov	r0, r4
- 548              	.LVL54:
- 147:Src/scope.c   **** }
- 549              		.loc 1 147 0
- 550 0088 BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
- 551              	.LCFI6:
- 552              		.cfi_restore 14
- 553              		.cfi_restore 8
- 554              		.cfi_restore 7
- 555              		.cfi_restore 6
- 556              		.cfi_restore 5
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 14
+ 544 006e 0F24     		movs	r4, #15
+ 136:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_TEMP];//�¶�
+ 545              		.loc 1 136 0
+ 546 0070 1D71     		strb	r5, [r3, #4]
+ 140:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_ERROR];//����	
+ 547              		.loc 1 140 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 14
 
 
- 557              		.cfi_restore 4
- 558              		.cfi_def_cfa_offset 0
- 146:Src/scope.c   **** 	UART_PushFrame_Old(g_TxBuf_Pos,cmd_type,index,&g_UserDefined_TxBuf[0]);	
- 559              		.loc 1 146 0
- 560 008c FFF7FEBF 		b	UART_PushFrame_Old
- 561              	.LVL55:
- 562              	.L21:
- 563              		.align	2
- 564              	.L20:
- 565 0090 00000000 		.word	g_pCur_ref_base_mA
- 566 0094 00000000 		.word	.LANCHOR0
- 567 0098 00000000 		.word	g_CmdMap
- 568 009c 00000000 		.word	.LANCHOR1
- 569              		.cfi_endproc
- 570              	.LFE337:
- 572              		.section	.text.Return_OldFrame_data,"ax",%progbits
- 573              		.align	1
- 574              		.global	Return_OldFrame_data
- 575              		.syntax unified
- 576              		.thumb
- 577              		.thumb_func
- 578              		.fpu fpv4-sp-d16
- 580              	Return_OldFrame_data:
- 581              	.LFB338:
- 148:Src/scope.c   **** //����LA��ָ��-д�Ĵ���,���ذ���״̬��Ϣ
- 149:Src/scope.c   **** void Return_OldFrame_data(u8 cmd_type,u8 index,u8 length) 
- 150:Src/scope.c   **** {
- 582              		.loc 1 150 0
- 583              		.cfi_startproc
- 584              		@ args = 0, pretend = 0, frame = 0
- 585              		@ frame_needed = 0, uses_anonymous_args = 0
- 586              	.LVL56:
- 587 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 588              	.LCFI7:
- 589              		.cfi_def_cfa_offset 36
- 590              		.cfi_offset 4, -36
- 591              		.cfi_offset 5, -32
- 592              		.cfi_offset 6, -28
- 593              		.cfi_offset 7, -24
- 594              		.cfi_offset 8, -20
- 595              		.cfi_offset 9, -16
- 596              		.cfi_offset 10, -12
- 597              		.cfi_offset 11, -8
- 598              		.cfi_offset 14, -4
- 599              		.loc 1 150 0
- 600 0004 9146     		mov	r9, r2
- 151:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
- 152:Src/scope.c   **** 	s16 i=0;	
- 153:Src/scope.c   **** 	g_TxBuf_Pos = 0;
+ 548 0072 1F72     		strb	r7, [r3, #8]
+ 142:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;	//����ֵ���ֽ�
+ 549              		.loc 1 142 0
+ 550 0074 9F72     		strb	r7, [r3, #10]
+ 143:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;	//����ֵ���ֽ�
+ 551              		.loc 1 143 0
+ 552 0076 DF72     		strb	r7, [r3, #11]
+ 144:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;
+ 553              		.loc 1 144 0
+ 554 0078 1F73     		strb	r7, [r3, #12]
+ 145:Src/scope.c   **** 	g_UserDefined_TxBuf[g_TxBuf_Pos++] = (0x00) & 0xff;	//����ֵ���ֽ�
+ 555              		.loc 1 145 0
+ 556 007a 5F73     		strb	r7, [r3, #13]
+ 557              		.loc 1 146 0
+ 558 007c 9F73     		strb	r7, [r3, #14]
+ 559 007e CEF80040 		str	r4, [lr]
+ 147:Src/scope.c   **** 	UART_PushFrame_Old(g_TxBuf_Pos,cmd_type,index,&g_UserDefined_TxBuf[0]);	
+ 560              		.loc 1 147 0
+ 561 0082 0A46     		mov	r2, r1
+ 562 0084 0146     		mov	r1, r0
+ 563              	.LVL52:
+ 564 0086 2046     		mov	r0, r4
+ 565              	.LVL53:
+ 148:Src/scope.c   **** }
+ 566              		.loc 1 148 0
+ 567 0088 BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
+ 568              	.LCFI6:
+ 569              		.cfi_restore 14
+ 570              		.cfi_restore 8
+ 571              		.cfi_restore 7
+ 572              		.cfi_restore 6
+ 573              		.cfi_restore 5
+ 574              		.cfi_restore 4
+ 575              		.cfi_def_cfa_offset 0
+ 147:Src/scope.c   **** 	UART_PushFrame_Old(g_TxBuf_Pos,cmd_type,index,&g_UserDefined_TxBuf[0]);	
+ 576              		.loc 1 147 0
+ 577 008c FFF7FEBF 		b	UART_PushFrame_Old
+ 578              	.LVL54:
+ 579              	.L21:
+ 580              		.align	2
+ 581              	.L20:
+ 582 0090 00000000 		.word	g_pCur_ref_base_mA
+ 583 0094 00000000 		.word	.LANCHOR0
+ 584 0098 00000000 		.word	g_CmdMap
+ 585 009c 00000000 		.word	.LANCHOR1
+ 586              		.cfi_endproc
+ 587              	.LFE337:
+ 589              		.section	.text.Return_OldFrame_data,"ax",%progbits
+ 590              		.align	1
+ 591              		.global	Return_OldFrame_data
+ 592              		.syntax unified
+ 593              		.thumb
+ 594              		.thumb_func
+ 595              		.fpu fpv4-sp-d16
+ 597              	Return_OldFrame_data:
+ 598              	.LFB338:
+ 149:Src/scope.c   **** //����LA��ָ��-д�Ĵ���,���ذ���״̬��Ϣ
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 15
+
+
+ 150:Src/scope.c   **** void Return_OldFrame_data(u8 cmd_type,u8 index,u8 length) 
+ 151:Src/scope.c   **** {
+ 599              		.loc 1 151 0
+ 600              		.cfi_startproc
+ 601              		@ args = 0, pretend = 0, frame = 0
+ 602              		@ frame_needed = 0, uses_anonymous_args = 0
+ 603              	.LVL55:
+ 604 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 605              	.LCFI7:
+ 606              		.cfi_def_cfa_offset 36
+ 607              		.cfi_offset 4, -36
+ 608              		.cfi_offset 5, -32
+ 609              		.cfi_offset 6, -28
+ 610              		.cfi_offset 7, -24
+ 611              		.cfi_offset 8, -20
+ 612              		.cfi_offset 9, -16
+ 613              		.cfi_offset 10, -12
+ 614              		.cfi_offset 11, -8
+ 615              		.cfi_offset 14, -4
+ 616              		.loc 1 151 0
+ 617 0004 9146     		mov	r9, r2
+ 152:Src/scope.c   **** 	//ֱ��д���µ�һ֡	
+ 153:Src/scope.c   **** 	s16 i=0;	
+ 154:Src/scope.c   **** 	g_TxBuf_Pos = 0;
+ 155:Src/scope.c   **** 	s32 data_temp = 0;
+ 156:Src/scope.c   **** 	for(i=0;i<length;i++)
+ 157:Src/scope.c   **** 	{
+ 158:Src/scope.c   **** 		if(index+i == 2)//ID
+ 159:Src/scope.c   **** 		{
+ 160:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_ID];
+ 161:Src/scope.c   **** 		}
+ 162:Src/scope.c   **** 		else if(index+i == 12)//������
+ 163:Src/scope.c   **** 		{
+ 164:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_BAUDRATE_UART];
+ 165:Src/scope.c   **** 		}
+ 166:Src/scope.c   **** 		else if(index+i == 31)//��������У׼λ
+ 167:Src/scope.c   **** 		{
+ 168:Src/scope.c   **** 			
+ 169:Src/scope.c   **** 		}
+ 170:Src/scope.c   **** 		else if(index+i == 32)//��������ֵ���ֽ�
+ 171:Src/scope.c   **** 		{
+ 172:Src/scope.c   **** 			data_temp = (s32)g_CmdMap[CMD_OVER_CURRENT_SET]*(*g_pCur_ref_base_mA)/PU_REFERENCE;
+ 173:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
+ 174:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = (data_temp>>8)&0x00FF;
+ 175:Src/scope.c   **** 		}
+ 176:Src/scope.c   **** 		else if(index+i == 33)//��������ֵ���ֽ�
+ 177:Src/scope.c   **** 		{
+ 178:Src/scope.c   **** 			data_temp = (s32)g_CmdMap[CMD_OVER_CURRENT_SET]*(*g_pCur_ref_base_mA)/PU_REFERENCE;
+ 618              		.loc 1 178 0
+ 619 0006 2F4A     		ldr	r2, .L38
+ 620              	.LVL56:
  154:Src/scope.c   **** 	s32 data_temp = 0;
- 155:Src/scope.c   **** 	for(i=0;i<length;i++)
- 156:Src/scope.c   **** 	{
- 157:Src/scope.c   **** 		if(index+i == 2)//ID
- 158:Src/scope.c   **** 		{
- 159:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_ID];
- 160:Src/scope.c   **** 		}
- 161:Src/scope.c   **** 		else if(index+i == 12)//������
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 15
+ 621              		.loc 1 154 0
+ 622 0008 2F4B     		ldr	r3, .L38+4
+ 623              		.loc 1 178 0
+ 624 000a D2F800E0 		ldr	lr, [r2]
+ 625 000e 2F4E     		ldr	r6, .L38+8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 16
 
 
- 162:Src/scope.c   **** 		{
- 163:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = g_CmdMap[CMD_BAUDRATE_UART];
- 164:Src/scope.c   **** 		}
- 165:Src/scope.c   **** 		else if(index+i == 31)//��������У׼λ
- 166:Src/scope.c   **** 		{
- 167:Src/scope.c   **** 			
- 168:Src/scope.c   **** 		}
- 169:Src/scope.c   **** 		else if(index+i == 32)//��������ֵ���ֽ�
- 170:Src/scope.c   **** 		{
- 171:Src/scope.c   **** 			data_temp = (s32)g_CmdMap[CMD_OVER_CURRENT_SET]*(*g_pCur_ref_base_mA)/PU_REFERENCE;
- 172:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
- 173:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = (data_temp>>8)&0x00FF;
- 174:Src/scope.c   **** 		}
- 175:Src/scope.c   **** 		else if(index+i == 33)//��������ֵ���ֽ�
- 176:Src/scope.c   **** 		{
- 177:Src/scope.c   **** 			data_temp = (s32)g_CmdMap[CMD_OVER_CURRENT_SET]*(*g_pCur_ref_base_mA)/PU_REFERENCE;
- 601              		.loc 1 177 0
- 602 0006 2F4A     		ldr	r2, .L38
- 603              	.LVL57:
- 153:Src/scope.c   **** 	s32 data_temp = 0;
- 604              		.loc 1 153 0
- 605 0008 2F4B     		ldr	r3, .L38+4
- 606              		.loc 1 177 0
- 607 000a D2F800E0 		ldr	lr, [r2]
- 608 000e 2F4E     		ldr	r6, .L38+8
+ 179:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
+ 180:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = (data_temp>>8)&0x00FF;
+ 181:Src/scope.c   **** 		}
+ 182:Src/scope.c   **** 		else if(index+i == 98)//���±���ֵ���ֽ�
+ 183:Src/scope.c   **** 		{
+ 184:Src/scope.c   **** 			data_temp = (g_CmdMap[CMD_OVER_TEMP_SET]*10);
+ 185:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
+ 186:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = (data_temp>>8)&0x00FF;
+ 187:Src/scope.c   **** 		}
+ 188:Src/scope.c   **** 		else if(index+i == 99)//���±���ֵ���ֽ�
+ 189:Src/scope.c   **** 		{
+ 190:Src/scope.c   **** 			data_temp = (g_CmdMap[CMD_OVER_TEMP_SET]*10);
+ 626              		.loc 1 190 0
+ 627 0010 DFF8BCC0 		ldr	ip, .L38+12
+ 154:Src/scope.c   **** 	s32 data_temp = 0;
+ 628              		.loc 1 154 0
+ 629 0014 0025     		movs	r5, #0
+ 630 0016 1D60     		str	r5, [r3]
+ 631              	.LVL57:
+ 191:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
+ 192:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = (data_temp>>8)&0x00FF;
+ 193:Src/scope.c   **** 		}
+ 194:Src/scope.c   **** 		else
+ 195:Src/scope.c   **** 		{
+ 196:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = 0;
+ 632              		.loc 1 196 0
+ 633 0018 AA46     		mov	r10, r5
  178:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
- 179:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = (data_temp>>8)&0x00FF;
- 180:Src/scope.c   **** 		}
- 181:Src/scope.c   **** 		else if(index+i == 98)//���±���ֵ���ֽ�
- 182:Src/scope.c   **** 		{
- 183:Src/scope.c   **** 			data_temp = (g_CmdMap[CMD_OVER_TEMP_SET]*10);
- 184:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
- 185:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = (data_temp>>8)&0x00FF;
- 186:Src/scope.c   **** 		}
- 187:Src/scope.c   **** 		else if(index+i == 99)//���±���ֵ���ֽ�
- 188:Src/scope.c   **** 		{
- 189:Src/scope.c   **** 			data_temp = (g_CmdMap[CMD_OVER_TEMP_SET]*10);
- 609              		.loc 1 189 0
- 610 0010 DFF8BCC0 		ldr	ip, .L38+12
- 153:Src/scope.c   **** 	s32 data_temp = 0;
- 611              		.loc 1 153 0
- 612 0014 0025     		movs	r5, #0
- 613 0016 1D60     		str	r5, [r3]
- 614              	.LVL58:
- 190:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
- 191:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = (data_temp>>8)&0x00FF;
- 192:Src/scope.c   **** 		}
- 193:Src/scope.c   **** 		else
- 194:Src/scope.c   **** 		{
- 195:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = 0;
- 615              		.loc 1 195 0
- 616 0018 AA46     		mov	r10, r5
- 177:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
- 617              		.loc 1 177 0
- 618 001a 4FF48048 		mov	r8, #16384
- 619              	.LVL59:
- 620              	.L23:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 16
+ 634              		.loc 1 178 0
+ 635 001a 4FF48048 		mov	r8, #16384
+ 636              	.LVL58:
+ 637              	.L23:
+ 156:Src/scope.c   **** 	{
+ 638              		.loc 1 156 0 discriminator 1
+ 639 001e 4D45     		cmp	r5, r9
+ 640 0020 1C68     		ldr	r4, [r3]
+ 641 0022 07DB     		blt	.L31
+ 197:Src/scope.c   **** 		}	
+ 198:Src/scope.c   **** 	}
+ 199:Src/scope.c   **** 	UART_PushFrame_Old(g_TxBuf_Pos,cmd_type,index,&g_UserDefined_TxBuf[0]);	
+ 642              		.loc 1 199 0
+ 643 0024 0A46     		mov	r2, r1
+ 644 0026 294B     		ldr	r3, .L38+8
+ 645 0028 0146     		mov	r1, r0
+ 646              	.LVL59:
+ 647 002a E0B2     		uxtb	r0, r4
+ 648              	.LVL60:
+ 200:Src/scope.c   **** }
+ 649              		.loc 1 200 0
+ 650 002c BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 651              	.LCFI8:
+ 652              		.cfi_remember_state
+ 653              		.cfi_restore 14
+ 654              		.cfi_restore 11
+ 655              		.cfi_restore 10
+ 656              		.cfi_restore 9
+ 657              		.cfi_restore 8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 17
 
 
- 155:Src/scope.c   **** 	{
- 621              		.loc 1 155 0 discriminator 1
- 622 001e 4D45     		cmp	r5, r9
- 623 0020 1C68     		ldr	r4, [r3]
- 624 0022 07DB     		blt	.L31
- 196:Src/scope.c   **** 		}	
- 197:Src/scope.c   **** 	}
- 198:Src/scope.c   **** 	UART_PushFrame_Old(g_TxBuf_Pos,cmd_type,index,&g_UserDefined_TxBuf[0]);	
- 625              		.loc 1 198 0
- 626 0024 0A46     		mov	r2, r1
- 627 0026 294B     		ldr	r3, .L38+8
- 628 0028 0146     		mov	r1, r0
- 629              	.LVL60:
- 630 002a E0B2     		uxtb	r0, r4
- 631              	.LVL61:
+ 658              		.cfi_restore 7
+ 659              		.cfi_restore 6
+ 660              		.cfi_restore 5
+ 661              		.cfi_restore 4
+ 662              		.cfi_def_cfa_offset 0
+ 663              	.LVL61:
  199:Src/scope.c   **** }
- 632              		.loc 1 199 0
- 633 002c BDE8F04F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 634              	.LCFI8:
- 635              		.cfi_remember_state
- 636              		.cfi_restore 14
- 637              		.cfi_restore 11
- 638              		.cfi_restore 10
- 639              		.cfi_restore 9
- 640              		.cfi_restore 8
- 641              		.cfi_restore 7
- 642              		.cfi_restore 6
- 643              		.cfi_restore 5
- 644              		.cfi_restore 4
- 645              		.cfi_def_cfa_offset 0
- 646              	.LVL62:
- 198:Src/scope.c   **** }
- 647              		.loc 1 198 0
- 648 0030 FFF7FEBF 		b	UART_PushFrame_Old
- 649              	.LVL63:
- 650              	.L31:
- 651              	.LCFI9:
- 652              		.cfi_restore_state
- 157:Src/scope.c   **** 		{
- 653              		.loc 1 157 0
- 654 0034 4F19     		adds	r7, r1, r5
- 655 0036 022F     		cmp	r7, #2
- 656 0038 06D1     		bne	.L24
- 159:Src/scope.c   **** 		}
- 657              		.loc 1 159 0
- 658 003a BCF80C20 		ldrh	r2, [ip, #12]
- 659              	.L35:
- 163:Src/scope.c   **** 		}
- 660              		.loc 1 163 0
- 661 003e 3255     		strb	r2, [r6, r4]
- 662 0040 671C     		adds	r7, r4, #1
- 663 0042 1F60     		str	r7, [r3]
- 664              	.L25:
- 665              	.LVL64:
- 666 0044 0135     		adds	r5, r5, #1
- 667              	.LVL65:
- 668 0046 EAE7     		b	.L23
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 17
+ 664              		.loc 1 199 0
+ 665 0030 FFF7FEBF 		b	UART_PushFrame_Old
+ 666              	.LVL62:
+ 667              	.L31:
+ 668              	.LCFI9:
+ 669              		.cfi_restore_state
+ 158:Src/scope.c   **** 		{
+ 670              		.loc 1 158 0
+ 671 0034 4F19     		adds	r7, r1, r5
+ 672 0036 022F     		cmp	r7, #2
+ 673 0038 06D1     		bne	.L24
+ 160:Src/scope.c   **** 		}
+ 674              		.loc 1 160 0
+ 675 003a BCF80C20 		ldrh	r2, [ip, #12]
+ 676              	.L35:
+ 164:Src/scope.c   **** 		}
+ 677              		.loc 1 164 0
+ 678 003e 3255     		strb	r2, [r6, r4]
+ 679 0040 671C     		adds	r7, r4, #1
+ 680 0042 1F60     		str	r7, [r3]
+ 681              	.L25:
+ 682              	.LVL63:
+ 683 0044 0135     		adds	r5, r5, #1
+ 684              	.LVL64:
+ 685 0046 EAE7     		b	.L23
+ 686              	.LVL65:
+ 687              	.L24:
+ 162:Src/scope.c   **** 		{
+ 688              		.loc 1 162 0
+ 689 0048 0C2F     		cmp	r7, #12
+ 690 004a 02D1     		bne	.L26
+ 164:Src/scope.c   **** 		}
+ 691              		.loc 1 164 0
+ 692 004c BCF80E20 		ldrh	r2, [ip, #14]
+ 693 0050 F5E7     		b	.L35
+ 694              	.L26:
+ 166:Src/scope.c   **** 		{
+ 695              		.loc 1 166 0
+ 696 0052 1F2F     		cmp	r7, #31
+ 697 0054 F6D0     		beq	.L25
+ 170:Src/scope.c   **** 		{
+ 698              		.loc 1 170 0
+ 699 0056 202F     		cmp	r7, #32
+ 700 0058 04F10102 		add	r2, r4, #1
+ 701 005c 0CD1     		bne	.L27
+ 172:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
+ 702              		.loc 1 172 0
+ 703 005e BCF82070 		ldrh	r7, [ip, #32]
+ 704 0062 0FFA87FB 		sxth	fp, r7
+ 705 0066 DEF80070 		ldr	r7, [lr]
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 18
 
 
- 669              	.LVL66:
- 670              	.L24:
- 161:Src/scope.c   **** 		{
- 671              		.loc 1 161 0
- 672 0048 0C2F     		cmp	r7, #12
- 673 004a 02D1     		bne	.L26
- 163:Src/scope.c   **** 		}
- 674              		.loc 1 163 0
- 675 004c BCF80E20 		ldrh	r2, [ip, #14]
- 676 0050 F5E7     		b	.L35
- 677              	.L26:
- 165:Src/scope.c   **** 		{
- 678              		.loc 1 165 0
- 679 0052 1F2F     		cmp	r7, #31
- 680 0054 F6D0     		beq	.L25
- 169:Src/scope.c   **** 		{
- 681              		.loc 1 169 0
- 682 0056 202F     		cmp	r7, #32
- 683 0058 04F10102 		add	r2, r4, #1
- 684 005c 0CD1     		bne	.L27
- 171:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
- 685              		.loc 1 171 0
- 686 005e BCF82070 		ldrh	r7, [ip, #32]
- 687 0062 0FFA87FB 		sxth	fp, r7
- 688 0066 DEF80070 		ldr	r7, [lr]
- 689 006a 07FB0BF7 		mul	r7, r7, fp
- 690 006e 97FBF8F7 		sdiv	r7, r7, r8
- 691              	.LVL67:
- 692              	.L37:
- 179:Src/scope.c   **** 		}
- 693              		.loc 1 179 0
- 694 0072 1A60     		str	r2, [r3]
- 695              	.L36:
- 191:Src/scope.c   **** 		}
- 696              		.loc 1 191 0
- 697 0074 3755     		strb	r7, [r6, r4]
- 698 0076 E5E7     		b	.L25
- 699              	.L27:
- 175:Src/scope.c   **** 		{
- 700              		.loc 1 175 0
- 701 0078 212F     		cmp	r7, #33
- 702 007a 0BD1     		bne	.L28
- 177:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
- 703              		.loc 1 177 0
- 704 007c BCF82070 		ldrh	r7, [ip, #32]
- 705 0080 0FFA87FB 		sxth	fp, r7
- 706              	.LVL68:
- 707 0084 DEF80070 		ldr	r7, [lr]
- 708              	.LVL69:
- 709 0088 07FB0BF7 		mul	r7, r7, fp
- 710 008c 97FBF8F7 		sdiv	r7, r7, r8
- 179:Src/scope.c   **** 		}
- 711              		.loc 1 179 0
- 712 0090 3F12     		asrs	r7, r7, #8
- 713 0092 EEE7     		b	.L37
- 714              	.LVL70:
- 715              	.L28:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 18
+ 706 006a 07FB0BF7 		mul	r7, r7, fp
+ 707 006e 97FBF8F7 		sdiv	r7, r7, r8
+ 708              	.LVL66:
+ 709              	.L37:
+ 180:Src/scope.c   **** 		}
+ 710              		.loc 1 180 0
+ 711 0072 1A60     		str	r2, [r3]
+ 712              	.L36:
+ 192:Src/scope.c   **** 		}
+ 713              		.loc 1 192 0
+ 714 0074 3755     		strb	r7, [r6, r4]
+ 715 0076 E5E7     		b	.L25
+ 716              	.L27:
+ 176:Src/scope.c   **** 		{
+ 717              		.loc 1 176 0
+ 718 0078 212F     		cmp	r7, #33
+ 719 007a 0BD1     		bne	.L28
+ 178:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
+ 720              		.loc 1 178 0
+ 721 007c BCF82070 		ldrh	r7, [ip, #32]
+ 722 0080 0FFA87FB 		sxth	fp, r7
+ 723              	.LVL67:
+ 724 0084 DEF80070 		ldr	r7, [lr]
+ 725              	.LVL68:
+ 726 0088 07FB0BF7 		mul	r7, r7, fp
+ 727 008c 97FBF8F7 		sdiv	r7, r7, r8
+ 180:Src/scope.c   **** 		}
+ 728              		.loc 1 180 0
+ 729 0090 3F12     		asrs	r7, r7, #8
+ 730 0092 EEE7     		b	.L37
+ 731              	.LVL69:
+ 732              	.L28:
+ 182:Src/scope.c   **** 		{
+ 733              		.loc 1 182 0
+ 734 0094 622F     		cmp	r7, #98
+ 735 0096 07D1     		bne	.L29
+ 184:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
+ 736              		.loc 1 184 0
+ 737 0098 BCF81C70 		ldrh	r7, [ip, #28]
+ 185:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = (data_temp>>8)&0x00FF;
+ 738              		.loc 1 185 0
+ 739 009c 1A60     		str	r2, [r3]
+ 184:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
+ 740              		.loc 1 184 0
+ 741 009e 3FB2     		sxth	r7, r7
+ 742              	.LVL70:
+ 743 00a0 07EB8707 		add	r7, r7, r7, lsl #2
+ 744              	.LVL71:
+ 745 00a4 7F00     		lsls	r7, r7, #1
+ 746 00a6 E5E7     		b	.L36
+ 747              	.L29:
+ 188:Src/scope.c   **** 		{
+ 748              		.loc 1 188 0
+ 749 00a8 632F     		cmp	r7, #99
+ 750 00aa 07D1     		bne	.L30
+ 190:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
+ 751              		.loc 1 190 0
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 19
 
 
- 181:Src/scope.c   **** 		{
- 716              		.loc 1 181 0
- 717 0094 622F     		cmp	r7, #98
- 718 0096 07D1     		bne	.L29
- 183:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
- 719              		.loc 1 183 0
- 720 0098 BCF81C70 		ldrh	r7, [ip, #28]
- 184:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = (data_temp>>8)&0x00FF;
- 721              		.loc 1 184 0
- 722 009c 1A60     		str	r2, [r3]
- 183:Src/scope.c   **** 			g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
- 723              		.loc 1 183 0
- 724 009e 3FB2     		sxth	r7, r7
- 725              	.LVL71:
- 726 00a0 07EB8707 		add	r7, r7, r7, lsl #2
- 727              	.LVL72:
- 728 00a4 7F00     		lsls	r7, r7, #1
- 729 00a6 E5E7     		b	.L36
- 730              	.L29:
- 187:Src/scope.c   **** 		{
- 731              		.loc 1 187 0
- 732 00a8 632F     		cmp	r7, #99
- 733 00aa 07D1     		bne	.L30
- 189:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
- 734              		.loc 1 189 0
- 735 00ac BCF81C70 		ldrh	r7, [ip, #28]
- 191:Src/scope.c   **** 		}
- 736              		.loc 1 191 0
- 737 00b0 1A60     		str	r2, [r3]
- 189:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
- 738              		.loc 1 189 0
- 739 00b2 3FB2     		sxth	r7, r7
- 740              	.LVL73:
- 741 00b4 07EB8707 		add	r7, r7, r7, lsl #2
- 742              	.LVL74:
- 191:Src/scope.c   **** 		}
- 743              		.loc 1 191 0
- 744 00b8 FF11     		asrs	r7, r7, #7
- 745 00ba DBE7     		b	.L36
- 746              	.L30:
- 195:Src/scope.c   **** 		}	
- 747              		.loc 1 195 0
- 748 00bc 1A60     		str	r2, [r3]
- 749 00be 06F804A0 		strb	r10, [r6, r4]
- 750 00c2 BFE7     		b	.L25
- 751              	.L39:
- 752              		.align	2
- 753              	.L38:
- 754 00c4 00000000 		.word	g_pCur_ref_base_mA
- 755 00c8 00000000 		.word	.LANCHOR1
- 756 00cc 00000000 		.word	.LANCHOR0
- 757 00d0 00000000 		.word	g_CmdMap
- 758              		.cfi_endproc
- 759              	.LFE338:
- 761              		.global	g_bWaitToSend_UserDefined
- 762              		.global	g_TxBufDebug
- 763              		.global	g_TxBuf_Pos
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 19
-
-
- 764              		.global	g_Rec_pos
- 765              		.global	g_UserDefined_TxBuf
- 766              		.global	modbus_rly_delay_ms
- 767              		.global	flag_rev_modbus
- 768              		.global	g_UserDefinedBuf
- 769              		.section	.bss.flag_rev_modbus,"aw",%nobits
- 772              	flag_rev_modbus:
- 773 0000 00       		.space	1
- 774              		.section	.bss.g_Rec_pos,"aw",%nobits
- 775              		.align	2
- 778              	g_Rec_pos:
- 779 0000 00000000 		.space	4
- 780              		.section	.bss.g_TxBufDebug,"aw",%nobits
- 781              		.align	2
- 784              	g_TxBufDebug:
- 785 0000 00000000 		.space	4
- 786              		.section	.bss.g_TxBuf_Pos,"aw",%nobits
- 787              		.align	2
- 788              		.set	.LANCHOR1,. + 0
- 791              	g_TxBuf_Pos:
- 792 0000 00000000 		.space	4
- 793              		.section	.bss.g_UserDefinedBuf,"aw",%nobits
- 794              		.align	1
- 797              	g_UserDefinedBuf:
- 798 0000 00000000 		.space	200
- 798      00000000 
- 798      00000000 
- 798      00000000 
- 798      00000000 
- 799              		.section	.bss.g_UserDefined_TxBuf,"aw",%nobits
- 800              		.set	.LANCHOR0,. + 0
- 803              	g_UserDefined_TxBuf:
- 804 0000 00000000 		.space	80
- 804      00000000 
- 804      00000000 
- 804      00000000 
- 804      00000000 
- 805              		.section	.bss.g_bWaitToSend_UserDefined,"aw",%nobits
- 808              	g_bWaitToSend_UserDefined:
- 809 0000 00       		.space	1
- 810              		.section	.bss.modbus_rly_delay_ms,"aw",%nobits
+ 752 00ac BCF81C70 		ldrh	r7, [ip, #28]
+ 192:Src/scope.c   **** 		}
+ 753              		.loc 1 192 0
+ 754 00b0 1A60     		str	r2, [r3]
+ 190:Src/scope.c   **** 			//g_UserDefined_TxBuf[g_TxBuf_Pos++] = data_temp&0x00FF;
+ 755              		.loc 1 190 0
+ 756 00b2 3FB2     		sxth	r7, r7
+ 757              	.LVL72:
+ 758 00b4 07EB8707 		add	r7, r7, r7, lsl #2
+ 759              	.LVL73:
+ 192:Src/scope.c   **** 		}
+ 760              		.loc 1 192 0
+ 761 00b8 FF11     		asrs	r7, r7, #7
+ 762 00ba DBE7     		b	.L36
+ 763              	.L30:
+ 196:Src/scope.c   **** 		}	
+ 764              		.loc 1 196 0
+ 765 00bc 1A60     		str	r2, [r3]
+ 766 00be 06F804A0 		strb	r10, [r6, r4]
+ 767 00c2 BFE7     		b	.L25
+ 768              	.L39:
+ 769              		.align	2
+ 770              	.L38:
+ 771 00c4 00000000 		.word	g_pCur_ref_base_mA
+ 772 00c8 00000000 		.word	.LANCHOR1
+ 773 00cc 00000000 		.word	.LANCHOR0
+ 774 00d0 00000000 		.word	g_CmdMap
+ 775              		.cfi_endproc
+ 776              	.LFE338:
+ 778              		.global	g_bWaitToSend_UserDefined
+ 779              		.global	g_TxBufDebug
+ 780              		.global	g_TxBuf_Pos
+ 781              		.global	g_Rec_pos
+ 782              		.global	g_UserDefined_TxBuf
+ 783              		.global	modbus_rly_delay_ms
+ 784              		.global	flag_rev_modbus
+ 785              		.global	g_UserDefinedBuf
+ 786              		.section	.bss.flag_rev_modbus,"aw",%nobits
+ 789              	flag_rev_modbus:
+ 790 0000 00       		.space	1
+ 791              		.section	.bss.g_Rec_pos,"aw",%nobits
+ 792              		.align	2
+ 795              	g_Rec_pos:
+ 796 0000 00000000 		.space	4
+ 797              		.section	.bss.g_TxBufDebug,"aw",%nobits
+ 798              		.align	2
+ 801              	g_TxBufDebug:
+ 802 0000 00000000 		.space	4
+ 803              		.section	.bss.g_TxBuf_Pos,"aw",%nobits
+ 804              		.align	2
+ 805              		.set	.LANCHOR1,. + 0
+ 808              	g_TxBuf_Pos:
+ 809 0000 00000000 		.space	4
+ 810              		.section	.bss.g_UserDefinedBuf,"aw",%nobits
  811              		.align	1
- 814              	modbus_rly_delay_ms:
- 815 0000 0000     		.space	2
- 816              		.text
- 817              	.Letext0:
- 818              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 819              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
- 820              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
- 821              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
- 822              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
- 823              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
- 824              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
- 825              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
- 826              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
- 827              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
- 828              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 20
+ 814              	g_UserDefinedBuf:
+ 815 0000 00000000 		.space	200
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 20
 
 
- 829              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
- 830              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
- 831              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
- 832              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 833              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 834              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
- 835              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 836              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
- 837              		.file 21 "Inc/uart.h"
- 838              		.file 22 "Inc/pwm.h"
- 839              		.file 23 "Inc/spi_MEncoder.h"
- 840              		.file 24 "Inc/adc.h"
- 841              		.file 25 "Inc/stm32_math_sin.h"
- 842              		.file 26 "Inc/pid.h"
- 843              		.file 27 "Inc/profile_joint.h"
- 844              		.file 28 "Inc/icmu.h"
- 845              		.file 29 "Inc/performance_test.h"
- 846              		.file 30 "Inc/global.h"
- 847              		.file 31 "Inc/sensorless.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s 			page 21
+ 815      00000000 
+ 815      00000000 
+ 815      00000000 
+ 815      00000000 
+ 816              		.section	.bss.g_UserDefined_TxBuf,"aw",%nobits
+ 817              		.set	.LANCHOR0,. + 0
+ 820              	g_UserDefined_TxBuf:
+ 821 0000 00000000 		.space	80
+ 821      00000000 
+ 821      00000000 
+ 821      00000000 
+ 821      00000000 
+ 822              		.section	.bss.g_bWaitToSend_UserDefined,"aw",%nobits
+ 825              	g_bWaitToSend_UserDefined:
+ 826 0000 00       		.space	1
+ 827              		.section	.bss.modbus_rly_delay_ms,"aw",%nobits
+ 828              		.align	1
+ 831              	modbus_rly_delay_ms:
+ 832 0000 0000     		.space	2
+ 833              		.text
+ 834              	.Letext0:
+ 835              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 836              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\include
+ 837              		.file 4 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h"
+ 838              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 839              		.file 6 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/system_stm32g4xx.h"
+ 840              		.file 7 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h"
+ 841              		.file 8 "Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h"
+ 842              		.file 9 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h"
+ 843              		.file 10 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
+ 844              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
+ 845              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash.h"
+ 846              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h"
+ 847              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h"
+ 848              		.file 15 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h"
+ 849              		.file 16 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 850              		.file 17 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 851              		.file 18 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\lib\\gcc\\arm-none-ea
+ 852              		.file 19 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 853              		.file 20 "c:\\program files (x86)\\gnu tools arm embedded\\7 2018-q2-update\\arm-none-eabi\\includ
+ 854              		.file 21 "Inc/uart.h"
+ 855              		.file 22 "Inc/pwm.h"
+ 856              		.file 23 "Inc/spi_MEncoder.h"
+ 857              		.file 24 "Inc/adc.h"
+ 858              		.file 25 "Inc/stm32_math_sin.h"
+ 859              		.file 26 "Inc/pid.h"
+ 860              		.file 27 "Inc/profile_joint.h"
+ 861              		.file 28 "Inc/icmu.h"
+ 862              		.file 29 "Inc/performance_test.h"
+ 863              		.file 30 "Inc/global.h"
+ 864              		.file 31 "Inc/sensorless.h"
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 scope.c
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:18     .text.ScopeProDebug:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:25     .text.ScopeProDebug:00000000 ScopeProDebug
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:138    .text.ScopeProDebug:00000084 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:151    .text.ScopeProDebug_2:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:158    .text.ScopeProDebug_2:00000000 ScopeProDebug_2
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:228    .text.ScopeProDebug_2:00000054 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:237    .text.ReturnCLibADC_Frame:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:244    .text.ReturnCLibADC_Frame:00000000 ReturnCLibADC_Frame
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:296    .text.ReturnCLibADC_Frame:0000003c $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:304    .text.Return_state_frame:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:311    .text.Return_state_frame:00000000 Return_state_frame
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:428    .text.Return_state_frame:00000094 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:435    .text.Return_OldFrame_state:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:442    .text.Return_OldFrame_state:00000000 Return_OldFrame_state
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:565    .text.Return_OldFrame_state:00000090 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:573    .text.Return_OldFrame_data:00000000 $t
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:580    .text.Return_OldFrame_data:00000000 Return_OldFrame_data
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:754    .text.Return_OldFrame_data:000000c4 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:808    .bss.g_bWaitToSend_UserDefined:00000000 g_bWaitToSend_UserDefined
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:784    .bss.g_TxBufDebug:00000000 g_TxBufDebug
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:791    .bss.g_TxBuf_Pos:00000000 g_TxBuf_Pos
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:778    .bss.g_Rec_pos:00000000 g_Rec_pos
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:803    .bss.g_UserDefined_TxBuf:00000000 g_UserDefined_TxBuf
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:814    .bss.modbus_rly_delay_ms:00000000 modbus_rly_delay_ms
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:772    .bss.flag_rev_modbus:00000000 flag_rev_modbus
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:797    .bss.g_UserDefinedBuf:00000000 g_UserDefinedBuf
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:773    .bss.flag_rev_modbus:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:775    .bss.g_Rec_pos:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:781    .bss.g_TxBufDebug:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:787    .bss.g_TxBuf_Pos:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:794    .bss.g_UserDefinedBuf:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:804    .bss.g_UserDefined_TxBuf:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:809    .bss.g_bWaitToSend_UserDefined:00000000 $d
-C:\Users\82057\AppData\Local\Temp\cc1cGxJK.s:811    .bss.modbus_rly_delay_ms:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:18     .text.ScopeProDebug:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:25     .text.ScopeProDebug:00000000 ScopeProDebug
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:154    .text.ScopeProDebug:000000a0 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:168    .text.ScopeProDebug_2:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:175    .text.ScopeProDebug_2:00000000 ScopeProDebug_2
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:245    .text.ScopeProDebug_2:00000054 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:254    .text.ReturnCLibADC_Frame:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:261    .text.ReturnCLibADC_Frame:00000000 ReturnCLibADC_Frame
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:313    .text.ReturnCLibADC_Frame:0000003c $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:321    .text.Return_state_frame:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:328    .text.Return_state_frame:00000000 Return_state_frame
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:445    .text.Return_state_frame:00000094 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:452    .text.Return_OldFrame_state:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:459    .text.Return_OldFrame_state:00000000 Return_OldFrame_state
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:582    .text.Return_OldFrame_state:00000090 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:590    .text.Return_OldFrame_data:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:597    .text.Return_OldFrame_data:00000000 Return_OldFrame_data
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:771    .text.Return_OldFrame_data:000000c4 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:825    .bss.g_bWaitToSend_UserDefined:00000000 g_bWaitToSend_UserDefined
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:801    .bss.g_TxBufDebug:00000000 g_TxBufDebug
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:808    .bss.g_TxBuf_Pos:00000000 g_TxBuf_Pos
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:795    .bss.g_Rec_pos:00000000 g_Rec_pos
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:820    .bss.g_UserDefined_TxBuf:00000000 g_UserDefined_TxBuf
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:831    .bss.modbus_rly_delay_ms:00000000 modbus_rly_delay_ms
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:789    .bss.flag_rev_modbus:00000000 flag_rev_modbus
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:814    .bss.g_UserDefinedBuf:00000000 g_UserDefinedBuf
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:790    .bss.flag_rev_modbus:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:792    .bss.g_Rec_pos:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:798    .bss.g_TxBufDebug:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:804    .bss.g_TxBuf_Pos:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:811    .bss.g_UserDefinedBuf:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:821    .bss.g_UserDefined_TxBuf:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:826    .bss.g_bWaitToSend_UserDefined:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccCbCwS0.s:828    .bss.modbus_rly_delay_ms:00000000 $d
 
 UNDEFINED SYMBOLS
 UART_PushFrame
 g_CmdMap
+encoder_sensor_
 motor_
-g_Encode_offset_EN
-adc_measurements_
-g_ElectricAngle_15bit_Raw
 g_SysStatus
 MU_Value_base_0
+Vq
+dec_bemf
 UART_PushFrame_Old
 g_pCur_ref_base_mA

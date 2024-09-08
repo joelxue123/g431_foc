@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
   29:Src/main.c    **** /* USER CODE END Includes */
   30:Src/main.c    **** 
   31:Src/main.c    **** /* Private typedef -----------------------------------------------------------*/
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 2
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 2
 
 
   32:Src/main.c    **** /* USER CODE BEGIN PTD */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
   86:Src/main.c    **** 
   87:Src/main.c    ****   /* USER CODE END 1 */
   88:Src/main.c    **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 3
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 3
 
 
   89:Src/main.c    ****   /* MCU Configuration--------------------------------------------------------*/
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  143:Src/main.c    **** 	//	HAL_UART_Transmit_DMA(&huart1,uart1_dma_tx_arry,12);
  144:Src/main.c    **** 	//	HAL_ADC_Start(&hadc1);HAL_ADC_Start(&hadc2);
  145:Src/main.c    ****     /* USER CODE END WHILE */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 4
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 4
 
 
  146:Src/main.c    ****     		if (g_CmdMap[CMD_RESTORE] == 1)
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  200:Src/main.c    **** 			g_CmdMap[CMD_PAUSE] = 0;
  201:Src/main.c    **** 			Motor_emergercy_stop = 1;
  202:Src/main.c    **** 			Motor_pause_flag = 1;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 5
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 5
 
 
  203:Src/main.c    **** 			stop_posWaveSin(&waveGen);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  257:Src/main.c    **** 		work_var_updata();  // ���¿��Ʋ���	
  258:Src/main.c    **** 
  259:Src/main.c    **** 	}
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 6
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 6
 
 
  260:Src/main.c    ****   /* USER CODE END 3 */
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  280:Src/main.c    ****   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   62              		.loc 1 280 0
   63 0028 0122     		movs	r2, #1
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 7
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 7
 
 
   64 002a 4FF48033 		mov	r3, #65536
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
   17:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
   18:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
   19:Drivers/CMSIS/Include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 8
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 8
 
 
   20:Drivers/CMSIS/Include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
   74:Drivers/CMSIS/Include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
   75:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
   76:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 9
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 9
 
 
   77:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  131:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE __NO_RETURN void __cmsis_start(void)
  132:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  133:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern void _start(void) __NO_RETURN;
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 10
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 10
 
 
  134:Drivers/CMSIS/Include/cmsis_gcc.h ****   
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  188:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
  189:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  190:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 11
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 11
 
 
  191:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  112 005c 6846     		mov	r0, sp
  296:Src/main.c    ****   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
  113              		.loc 1 296 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 12
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 12
 
 
  114 005e CDE90034 		strd	r3, r4, [sp]
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  158 0082 72B6     		cpsid i
  159              	@ 0 "" 2
  160              		.thumb
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 13
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 13
 
 
  161              		.syntax unified
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  327:Src/main.c    ****   * Enable DMA controller clock
  328:Src/main.c    ****   */
  329:Src/main.c    **** static void MX_DMA_Init(void)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 14
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 14
 
 
  330:Src/main.c    **** {
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  219              	.LVL9:
  102:Src/main.c    ****   /* USER CODE END SysInit */
  220              		.loc 1 102 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 15
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 15
 
 
  221 0016 FFF7FEFF 		bl	Flash_Init
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  270 0068 FFF7FEFF 		bl	init_motor
  271              	.LVL12:
  272              	.LBB49:
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 16
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 16
 
 
  273              	.LBB50:
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  317 00a2 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  318              	.LVL14:
  343:Src/main.c    **** 	HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 1, 1);
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 17
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 17
 
 
  319              		.loc 1 343 0
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  363              	.LVL22:
  128:Src/main.c    ****   /* Infinite loop */
  364              		.loc 1 128 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 18
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 18
 
 
  365 00e6 0023     		movs	r3, #0
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  410 0130 A4F80C32 		strh	r3, [r4, #524]	@ movhi
  167:Src/main.c    **** //			g_RxBufptr = 0;
  411              		.loc 1 167 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 19
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 19
 
 
  412 0134 FFF7FEFF 		bl	Flash_SaveCmdmap
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  455 017c A4F89C32 		strh	r3, [r4, #668]	@ movhi
  190:Src/main.c    **** //			g_RxBufptr = 0;
  456              		.loc 1 190 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 20
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 20
 
 
  457 0180 FFF7FEFF 		bl	Flash_SaveCmdmap
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  498              	.LVL31:
  209:Src/main.c    **** 		Rx_Send_Modbus(); //�ظ�modbus
  499              		.loc 1 209 0
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 21
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 21
 
 
  500 01b8 FFF7FEFF 		bl	UART_CheckReceive_1
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  251:Src/main.c    **** 		{
  546              		.loc 1 251 0
  547 0208 3388     		ldrh	r3, [r6]
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 22
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 22
 
 
  548 020a 012B     		cmp	r3, #1
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  588              		.loc 1 237 0
  589 0240 1360     		str	r3, [r2]
  239:Src/main.c    **** 				{
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 23
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 23
 
 
  590              		.loc 1 239 0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  364:Src/main.c    **** }
  365:Src/main.c    **** 
  366:Src/main.c    **** /* USER CODE BEGIN 4 */
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 24
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 24
 
 
  367:Src/main.c    **** 
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  391:Src/main.c    ****   * @retval None
  392:Src/main.c    ****   */
  393:Src/main.c    **** void assert_failed(uint8_t *file, uint32_t line)
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 25
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 25
 
 
  394:Src/main.c    **** {
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  713              		.file 11 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h"
  714              		.file 12 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc_ex.h"
  715              		.file 13 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_dma.h"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 26
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 26
 
 
  716              		.file 14 "Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_adc.h"
@@ -1533,23 +1533,23 @@ ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 1
  745              		.file 43 "Inc/calibration.h"
  746              		.file 44 "Inc/security.h"
  747              		.file 45 "<built-in>"
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 27
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 27
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s:18     .text.SystemClock_Config:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s:25     .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s:179    .text.startup.main:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s:186    .text.startup.main:00000000 main
-C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s:614    .text.startup.main:0000026c $d
-C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s:633    .text.Error_Handler:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s:640    .text.Error_Handler:00000000 Error_Handler
-C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s:665    .text.StartDefaultTask:00000000 $t
-C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s:672    .text.StartDefaultTask:00000000 StartDefaultTask
+C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s:18     .text.SystemClock_Config:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s:25     .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s:179    .text.startup.main:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s:186    .text.startup.main:00000000 main
+C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s:614    .text.startup.main:0000026c $d
+C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s:633    .text.Error_Handler:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s:640    .text.Error_Handler:00000000 Error_Handler
+C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s:665    .text.StartDefaultTask:00000000 $t
+C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s:672    .text.StartDefaultTask:00000000 StartDefaultTask
                             *COM*:00000004 defaultTaskHandle
-C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s:697    .bss.s_Count_Rec:00000000 $d
-C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s:701    .bss.s_Count_Rec:00000000 s_Count_Rec
+C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s:697    .bss.s_Count_Rec:00000000 $d
+C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s:701    .bss.s_Count_Rec:00000000 s_Count_Rec
 
 UNDEFINED SYMBOLS
 memset
@@ -1593,7 +1593,7 @@ waveGen
 Motor_pause_flag
 Flag_1ms
 Flag_50ms
-ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBWmVo9.s 			page 28
+ARM GAS  C:\Users\82057\AppData\Local\Temp\ccBfcGWC.s 			page 28
 
 
 s_count_50ms

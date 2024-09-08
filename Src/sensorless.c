@@ -42,9 +42,9 @@ void init_motor(motor_control_reporting *motor) {
     motor->config_.direction = 1.0f;
     motor->config_.phase_inductance = 0.0009f;
     motor->config_.phase_resistance = 2.0f;
-    motor->config_.pm_flux_linkage = 0.0066f;
+    motor->config_.pm_flux_linkage = 0.018f;
     motor->config_.pole_pairs = 1.0f;
-    motor->config_.observer_gain = 100.0f;
+    motor->config_.observer_gain = 400.0f;
     motor->config_.pll_bandwidth = 1000.0f;
 
 
@@ -71,6 +71,7 @@ void init_motor(motor_control_reporting *motor) {
     motor_.vel_estimate_erad_ = &encoder_sensor_.vel_estimate_erad_;
     motor_.phase_ = &encoder_sensor_.phase_;
     motor->vel_estimate_ = 0.0f;
+    motor->vel_estimate_filter = 0.0f;
     
 
     encoder_sensor_.pll_bandwidth =1000.f;
@@ -88,7 +89,7 @@ void update_current_control(motor_control_reporting *motor, float final_v_alpha,
 	motor->current_control_.final_v_alpha = final_v_alpha;
     motor->current_control_.final_v_beta = final_v_beta;
 }
-int non_linear_flux_observer1(void) {
+int non_linear_flux_observer(void) {
     // Algorithm based on paper: Sensorless Control of Surface-Mount Permanent-Magnet Synchronous Motors Based on a Nonlinear Observer
     // http://cas.ensmp.fr/~praly/Telechargement/Journaux/2010-IEEE_TPEL-Lee-Hong-Nam-Ortega-Praly-Astolfi.pdf
     // In particular, equation 8 (and by extension eqn 4 and 6).
@@ -173,7 +174,7 @@ int non_linear_flux_observer1(void) {
 
 
 
-int non_linear_flux_observer(void) {
+int non_linear_flux_observer1(void) {
     // Algorithm based on paper: Sensorless Control of Surface-Mount Permanent-Magnet Synchronous Motors Based on a Nonlinear Observer
     // http://cas.ensmp.fr/~praly/Telechargement/Journaux/2010-IEEE_TPEL-Lee-Hong-Nam-Ortega-Praly-Astolfi.pdf
     // In particular, equation 8 (and by extension eqn 4 and 6).
@@ -252,7 +253,13 @@ void encode_sample(void)
 	float sincos_sample_s_ = adc_measurements_[0] - 2064.f;
 	float sincos_sample_c_ = adc_measurements_[1] -2064.f;
 
-	float phase = fast_atan2(sincos_sample_c_, sincos_sample_s_) + M_PI*(float)g_Encode_offset/180.f - M_PI/2.0f;
+	float phase = fast_atan2(sincos_sample_c_, sincos_sample_s_);//- M_PI/2.0f;
+    encoder_sensor_.raw_phase = (int16_t)(32768.f*phase/(2*M_PI));
+    if(encoder_sensor_.raw_phase < 0 )
+    {
+        encoder_sensor_.raw_phase += 32768;
+    }
+    phase = phase + M_PI*(float)g_Encode_offset/180.f- M_PI/2.0f;
     phase = wrap_pm_pi(phase);
     encoder_sensor_.phase_ = phase;
     if(encoder_sensor_.phase_ < 0) encoder_sensor_.phase_ += 2.0f * M_PI;
@@ -280,19 +287,20 @@ void encode_sample(void)
 
 void sensorless_sensor_phase_switch(void)
 {
-    if( fabsf(motor_.vel_estimate_) < 300.f)
+    if( fabsf(motor_.vel_estimate_filter) < 10000.f) // 小于10000rpm 切换到编码器
     {
         motor_.vel_estimate_erad_ = &encoder_sensor_.vel_estimate_erad_;
         motor_.phase_ = &encoder_sensor_.phase_;
 
     }
-    else if( fabsf(motor_.vel_estimate_ )> 600.f)
+    else if( fabsf(motor_.vel_estimate_filter )> 20000.f) //大于20000rpm 切换到感应器
     {
         motor_.vel_estimate_erad_ = &motor_.sensorless_estimator_.vel_estimate_erad_;
-         motor_.phase_ = &motor_.sensorless_estimator_.phase_;
+        motor_.phase_ = &motor_.sensorless_estimator_.phase_;
     }
     else{}
-
-    motor_.vel_estimate_ = 30.f*(*motor_.vel_estimate_erad_) / (motor_.config_.pole_pairs * 2.0f * M_PI);///23000.0f;
+    motor_.vel_estimate_erad_ = &motor_.sensorless_estimator_.vel_estimate_erad_;
+    motor_.vel_estimate_ = 60.f*(*motor_.vel_estimate_erad_) / (motor_.config_.pole_pairs * 2.0f * M_PI);///23000.0f;
     g_CmdMap[CMD_SPD_ACT_PU] = motor_.vel_estimate_;
+    motor_.vel_estimate_filter += 0.01f * (motor_.vel_estimate_ - motor_.vel_estimate_filter);
 }

@@ -18,6 +18,7 @@ static const float sqrt3_by_2 = 0.86602540378f;
 
 typedef struct 
 {
+    short raw_phase;
     float phase_;
     float vel_estimate_erad_;
     float pll_bandwidth;
@@ -75,10 +76,12 @@ typedef struct
 	float *vel_estimate_erad_;
 	float *phase_;
 	float vel_estimate_;
+    float vel_estimate_filter;
 
 } motor_control_reporting;
 
 extern motor_control_reporting motor_;
+extern encoder_sensor encoder_sensor_;
 
 void init_motor(motor_control_reporting *motor);
 void update_current_meas(motor_control_reporting *motor, float phA, float phB, float phC);

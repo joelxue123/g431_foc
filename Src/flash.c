@@ -216,7 +216,7 @@ s32 Flash_Init(void)
 	g_CmdMap[CMD_ACC_SET_PU] = 8192;//4096;
 	g_CmdMap[CMD_SPD_SOFT_SET_PU] = 819;//4096;
 	*g_pPos_ref_base_um = STROKE_UM_RATED;//�г̻�׼ֵ10mm
-	*g_pVel_ref_base_PPS = 23000*4096/60;//�ٶȱ���ֵ��׼ֵ
+	*g_pVel_ref_base_PPS = 16384*4096/60;//�ٶȱ���ֵ��׼ֵ
 	*g_pVel_ref_base_umPS = (int64_t)(*g_pVel_ref_base_PPS)*g_CmdMap[SCREW_UM_RES]*256/(4096*g_CmdMap[GEAR_RATIO_8BIT]);//�ٶȱ���ֵ��׼ֵ,�ٱ�Ϊ11	
 	*g_pAcc_ref_base_mmPS2 = 500;//500;//���ٶȱ���ֻ�׼ֵ� 500mm/s^2	
 	*g_pCur_ref_base_mA = 5000;//��������ֵ��׼ֵ 1000mA

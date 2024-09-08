@@ -30,7 +30,8 @@ extern volatile int estimated_SPD_filterd;
 extern float pll_estimated_phase;
 extern int g_measured_phase;
 extern int s_Encoder_Inc;
-
+extern float dec_bemf;
+extern float Vq;
 #define ENCODER_BASE_SPEED  (30*  1000000  /100   / 23000)
 void ScopeProDebug(void)//����ʱ���������� 
 {
@@ -43,10 +44,10 @@ void ScopeProDebug(void)//����ʱ����������
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_SPDREG_REF_PU];//g_CmdMap[CMD_SPDREG_REF_PU]; //CMD_SPD_SET_PU
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =  g_CmdMap[CMD_SPD_ACT_PU];//s_Encoder_Inc * ENCODER_BASE_SPEED;//g_CmdMap[CMD_SPD_ACT_PU];
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)motor_.vel_estimate_;//estimated_SPD_filterd;//g_CmdMap[CMD_SPD_ADD_PU];//g_CmdMap[CMD_SPD_ADD_PU]/100;//g_CmdMap[CMD_SPD_SOFT_SET_PU];// CMD_CUR_FWD_PU  //CMD_SPD_ADD_PU
-	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = adc_measurements_[0];//(s16)(motor_.current_control_.final_v_alpha*1000.f*PU_REFERENCE/(*g_pCur_ref_base_mA));//g_CmdMap[CMD_CUR_SET_PU];//g_CmdMap[CMD_CUR_SET_PU];//g_CmdMap[CMD_CUR_SET_PU];
-	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = adc_measurements_[1];//(s16)(motor_.current_control_.final_v_beta*1000.f*PU_REFERENCE/(*g_pCur_ref_base_mA));//g_Iq*PU_REFERENCE/(*g_pCur_ref_base_mA);
+	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(Vq*3000.f);//(s16)(motor_.current_control_.final_v_alpha*1000.f*PU_REFERENCE/(*g_pCur_ref_base_mA));//g_CmdMap[CMD_CUR_SET_PU];//g_CmdMap[CMD_CUR_SET_PU];//g_CmdMap[CMD_CUR_SET_PU];
+	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = (s16)(dec_bemf*3000.f);//(s16)(motor_.current_control_.final_v_beta*1000.f*PU_REFERENCE/(*g_pCur_ref_base_mA));//g_Iq*PU_REFERENCE/(*g_pCur_ref_base_mA);
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = 0;//g_IB_Raw*PU_REFERENCE/(*g_pCur_ref_base_mA);; // CMD_CUR_FWD_PU //CMD_CUR_D_ACT_PU
-	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =g_ElectricAngle_15bit_Raw - g_Encode_offset_EN;//g_ElectricAngle;//g_ElectricAngle ;//g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;  //g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;
+	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) =encoder_sensor_.raw_phase;//g_ElectricAngle;//g_ElectricAngle ;//g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;  //g_ElectricAngle_15bit_Raw;//g_ElectricAngle_15bit_Raw;
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_SysStatus;
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_ERROR];
 	i+=2;*(u16*)(&g_UserDefined_TxBuf[g_TxBuf_Pos+i]) = g_CmdMap[CMD_TEMP];

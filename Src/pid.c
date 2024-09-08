@@ -415,7 +415,10 @@ static void Calculate_CCR_SVP(TIM_TypeDef* TIMx, int sector, int X, int Y, int Z
 }
 
 extern volatile int g_high_fre_pulse;
-
+float dec_bemf=0;
+float Vq = 0;
+float Iq_filter =0.0f;
+float Id_filter =0.0f;
 // ��������20KHz
 static void CurrentPID(void)
 {            
@@ -570,7 +573,19 @@ static void CurrentPID(void)
 	float Ierr_d = 0.f - (float)(g_CmdMap[CMD_CUR_D_ACT_PU]*(*g_pCur_ref_base_mA)/PU_REFERENCE/1000.0f);
     float Ierr_q = (float)((g_CmdMap[CMD_CUR_SET_PU] - g_CmdMap[CMD_CUR_ACT_PU])*(*g_pCur_ref_base_mA)/PU_REFERENCE/1000.f);
 	float Vd = motor_.current_control_.v_current_control_integral_d + Ierr_d * motor_.current_control_.p_gain;
-    float Vq = motor_.current_control_.v_current_control_integral_q + Ierr_q * motor_.current_control_.p_gain;
+    Vq = motor_.current_control_.v_current_control_integral_q + Ierr_q * motor_.current_control_.p_gain;
+
+    Iq_filter += 0.1f * ((float)(g_CmdMap[CMD_CUR_ACT_PU])*(*g_pCur_ref_base_mA)/PU_REFERENCE/1000.f - Iq_filter);
+    Id_filter += 0.1f * ((float)(g_CmdMap[CMD_CUR_D_ACT_PU]*(*g_pCur_ref_base_mA)/PU_REFERENCE/1000.0f) - Id_filter);
+    
+    float dec_vd=0, dec_vq=0,pm_flux_linkage=0;
+    pm_flux_linkage =  motor_.config_.pm_flux_linkage*1.f;
+    dec_vd = Iq_filter * (*motor_.vel_estimate_erad_) *  motor_.config_.phase_inductance;
+    dec_vq = Id_filter * (*motor_.vel_estimate_erad_) *  motor_.config_.phase_inductance;
+    dec_bemf = (*motor_.vel_estimate_erad_) * pm_flux_linkage;
+
+    Vd -=  dec_vd;
+    Vq +=  dec_vq + dec_bemf;  
 
     float mod_to_V = one_by_sqrt3 * bus_voltage_;
     float V_to_mod = 1.0f / mod_to_V;
@@ -787,15 +802,15 @@ static void SpeedPID(void)
 	
 	if(g_CmdMap[CMD_CUR_UPPER_LIMIT_PU] > g_CmdMap[SYS_CUR_UPPER_LIMIT_PU])
 	{
-		g_CmdMap[CMD_CUR_UPPER_LIMIT_PU] = g_CmdMap[SYS_CUR_UPPER_LIMIT_PU];
+		//g_CmdMap[CMD_CUR_UPPER_LIMIT_PU] = g_CmdMap[SYS_CUR_UPPER_LIMIT_PU];
 	}
 	if(g_CmdMap[CMD_CUR_LOWER_LIMIT_PU] < g_CmdMap[SYS_CUR_LOWER_LIMIT_PU])
 	{
-		g_CmdMap[CMD_CUR_LOWER_LIMIT_PU] = g_CmdMap[SYS_CUR_LOWER_LIMIT_PU];
+		//g_CmdMap[CMD_CUR_LOWER_LIMIT_PU] = g_CmdMap[SYS_CUR_LOWER_LIMIT_PU];
 	}
 	
-	pid_spd.Up_limit = g_CmdMap[CMD_CUR_UPPER_LIMIT_PU];
-	pid_spd.Low_limit = g_CmdMap[CMD_CUR_LOWER_LIMIT_PU];		
+	pid_spd.Up_limit = g_CmdMap[SYS_CUR_UPPER_LIMIT_PU];
+	pid_spd.Low_limit = g_CmdMap[SYS_CUR_LOWER_LIMIT_PU];		
 	
 	
 	
